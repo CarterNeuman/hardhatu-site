@@ -1,0 +1,341 @@
+/*
+  Styling for the Lessons page's "Learning Blueprint" diagram. Scoped to
+  this component (CSS module) and kept self-contained with its own color
+  tokens rather than reusing the site's Tailwind palette, since this
+  diagram is a deliberately dark "exhibit" that sits inside an otherwise
+  light-themed site and was approved with these exact values in the
+  concept mockup (see lessons-blueprint-data.ts).
+*/
+
+.exhibit {
+  --blue-deep: #122a3c;
+  --blue: #1f3f52;
+  --blue-soft: #2c5670;
+  --line: #cfe8f2;
+  --line-dim: rgba(207, 232, 242, 0.32);
+  --amber: #c99436;
+  --amber-soft: #f1e1bc;
+  --paper: #efede6;
+  --ink: #1c2b33;
+  --clay: #b06a4c;
+  --font-display: "Big Shoulders Display", sans-serif;
+  --font-body: "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  background: var(--blue-deep);
+  color: var(--line);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--amber);
+  display: inline-block;
+}
+
+.heading {
+  color: var(--paper);
+}
+
+.intro {
+  max-width: 62ch;
+  color: var(--line);
+}
+.intro strong {
+  color: var(--paper);
+  font-weight: 600;
+}
+
+.topRow {
+  display: flex;
+  gap: 26px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+
+.legendCard {
+  background: var(--paper);
+  color: var(--ink);
+  padding: 18px 20px 16px;
+  width: min(320px, 100%);
+  transform: rotate(-1.1deg);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.35);
+  position: relative;
+  flex: 0 0 auto;
+}
+.legendCard::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 26px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--clay);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+}
+.legendCard h2 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 4px 0 10px;
+  color: var(--blue);
+}
+.legendRow {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 9px;
+}
+.legendSwatch {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-top: 1px;
+  border: 2px solid var(--blue);
+}
+.legendSwatch.dashed {
+  border-style: dashed;
+  border-color: var(--clay);
+}
+.legendNote {
+  font-size: 12px;
+  color: var(--blue-soft);
+  line-height: 1.5;
+  margin-top: 6px;
+  padding-top: 9px;
+  border-top: 1px dashed #c9c3ae;
+}
+
+.hint {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--line-dim);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+.hint svg {
+  width: 16px;
+  height: 16px;
+  animation: nudge 1.6s ease-in-out infinite;
+}
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
+
+.sheetScroll {
+  margin-top: 22px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 1px solid var(--line-dim);
+  background: var(--blue);
+  -webkit-overflow-scrolling: touch;
+}
+.sheetScroll svg {
+  display: block;
+  width: 1900px;
+  height: 436px;
+}
+@media (min-width: 1500px) {
+  .sheetScroll svg {
+    width: 2400px;
+    height: 551px;
+  }
+}
+
+.tierLabel {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  letter-spacing: 0.16em;
+  fill: var(--line-dim);
+}
+.tierSub {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  fill: var(--line-dim);
+}
+
+.road {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-dasharray: 2 14;
+}
+.spur {
+  fill: none;
+  stroke: var(--clay);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 1 11;
+  opacity: 0.85;
+}
+
+.stop .badge {
+  fill: var(--blue-deep);
+  stroke: var(--line);
+  stroke-width: 2.5;
+}
+.stop.branch .badge {
+  stroke-dasharray: 4 5;
+  stroke: var(--clay);
+}
+.stop .icon {
+  stroke: var(--line);
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.stop .num {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  fill: var(--blue-deep);
+}
+.stop .numBg {
+  fill: var(--amber);
+}
+.stop .title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  fill: var(--paper);
+}
+.stop .hit {
+  fill: transparent;
+  cursor: pointer;
+}
+.stop:hover .badge,
+.stop.active .badge {
+  stroke: var(--amber);
+}
+.stop:hover .icon,
+.stop.active .icon {
+  stroke: var(--amber);
+}
+.stop:hover .title,
+.stop.active .title {
+  fill: var(--amber);
+}
+.stop:focus-visible .badge {
+  stroke: var(--amber);
+  stroke-width: 3.5;
+}
+.stop {
+  opacity: 0;
+  transform: scale(0.6);
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: stopIn 0.5s cubic-bezier(0.2, 0.8, 0.3, 1.2) forwards;
+  animation-delay: calc(260ms + var(--i, 0) * 55ms);
+  outline: none;
+}
+@keyframes stopIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.tooltipCard {
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+  width: 252px;
+  padding: 14px 15px 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.tooltipCard .ttTier {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue-soft);
+}
+.tooltipCard h3 {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  margin: 3px 0 6px;
+  color: var(--blue);
+  line-height: 1.05;
+}
+.tooltipCard .ttMinutes {
+  display: inline-block;
+  margin-top: 9px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.titleblock {
+  font-family: var(--font-mono);
+}
+.titleblock rect {
+  fill: var(--blue-deep);
+  stroke: var(--line-dim);
+}
+.titleblock text {
+  fill: var(--line);
+  font-size: 14px;
+}
+.titleblock .tbLabel {
+  fill: var(--line-dim);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+.titleblock line {
+  stroke: var(--line-dim);
+  stroke-width: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stop {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .hint svg {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .topRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hint {
+    margin-left: 0;
+  }
+}

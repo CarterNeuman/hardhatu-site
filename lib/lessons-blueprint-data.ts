@@ -1,0 +1,139 @@
+// Layout data for the Lessons page's "Learning Blueprint" diagram: a single
+// winding road connecting all 20 lessons, plotted on one wide SVG sheet.
+// Positions, tiers, and icons come from the approved concept mockup
+// (https://claude.ai/artifact/Eq94eT9CHqYASUy95pnTe4); this file just keeps
+// that layout data in one place so LessonsBlueprint.tsx can merge it with
+// real lesson content (title, minutes) looked up by slug.
+//
+// Deliberately separate from lib/content.ts and the Lesson schema: a
+// lesson's position on this diagram (which tier, how far along the road)
+// isn't something the content schema tracks today, so it lives here as
+// presentation data instead.
+
+export type Point = { x: number; y: number };
+
+export type BlueprintTier = {
+  n: 1 | 2 | 3 | 4;
+  label: string;
+  sub: string;
+  x: number;
+  y: number;
+};
+
+export type BlueprintLayoutStop = {
+  n: number;
+  slug: string;
+  x: number;
+  y: number;
+  tier: 1 | 2 | 3 | 4;
+  icon: keyof typeof BLUEPRINT_ICONS;
+  teaser: string;
+  branch?: true;
+  // Wraps the title a fixed number of words per line instead of the
+  // default even split at the halfway word — for a stop packed close
+  // enough to its neighbors that the normal split is too wide to fit
+  // without overlapping them.
+  titleWordsPerLine?: number;
+};
+
+export const BLUEPRINT_TIERS: BlueprintTier[] = [
+  { n: 1, label: "TIER 1", sub: "ORIENTATION", x: 265, y: 430 },
+  { n: 2, label: "TIER 2", sub: "EARLY FIELDWORK", x: 845, y: 332 },
+  { n: 3, label: "TIER 3", sub: "MONEY & CONTRACTS", x: 1640, y: 210 },
+  { n: 4, label: "TIER 4", sub: "ADVANCED PRACTICE", x: 2440, y: 150 },
+];
+
+export const BLUEPRINT_LAYOUT: BlueprintLayoutStop[] = [
+  { n: 1, slug: "whos-actually-running-the-job", x: 120, y: 565, tier: 1, icon: "orgchart",
+    teaser: "Owner, architect, GC, subs, owner's rep, and who actually directs whom." },
+  { n: 2, slug: "reading-a-set-of-plans", x: 265, y: 525, tier: 1, icon: "plans",
+    teaser: "Title blocks, sheet series, scale, and what to do when a drawing won't answer you." },
+  { n: 3, slug: "bidding-and-winning-work", x: 410, y: 550, tier: 1, icon: "gavel",
+    teaser: "Chasing a real bid through screening, takeoff, and the lowest-bid myth." },
+  { n: 4, slug: "permits-inspections-and-the-paper-trail", x: 555, y: 500, tier: 2, icon: "stamp",
+    teaser: "How a job stays legal: permitting, plan review, and special inspections." },
+  { n: 5, slug: "submittals-and-shop-drawings", x: 700, y: 465, tier: 2, icon: "papers",
+    teaser: "Why nothing gets ordered until the approval loop closes." },
+  { n: 6, slug: "jobsite-safety-in-practice", x: 845, y: 490, tier: 2, icon: "hardhat",
+    teaser: "A real JHA, a toolbox talk, and a worker who exercises stop work authority." },
+  { n: 7, slug: "from-dirt-to-deck", x: 990, y: 425, tier: 2, icon: "shovel",
+    teaser: "Earthwork and foundations up close, grading through the pour." },
+  { n: 8, slug: "building-sequence", x: 1135, y: 385, tier: 2, icon: "building",
+    teaser: "Foundation to finish, the physical order a building actually goes up in." },
+  { n: 9, slug: "change-order-basics", x: 1280, y: 355, tier: 3, icon: "editdoc",
+    teaser: "Why a verbal change order is the mistake that keeps repeating." },
+  { n: 10, slug: "getting-paid", x: 1425, y: 380, tier: 3, icon: "dollar",
+    teaser: "Schedule of values, retainage, bonds, and a lien threat that closes it out." },
+  { n: 11, slug: "choosing-how-to-build-it", x: 1570, y: 315, tier: 3, icon: "fork",
+    teaser: "Design-Bid-Build vs. Design-Build vs. CM at Risk, and who's liable when." },
+  { n: 12, slug: "whos-on-the-hook", x: 1715, y: 285, tier: 3, icon: "shield",
+    teaser: "Bonds, builder's risk, and why an uninsured sub doesn't get on site." },
+  { n: 13, slug: "the-estimate-becomes-the-budget", x: 1860, y: 310, tier: 3, icon: "gauge",
+    teaser: "Cost codes, committed vs. actual, and how a good bid still loses money." },
+  { n: 14, slug: "schedule-delay-dispute", x: 2005, y: 265, tier: 3, icon: "clockx", titleWordsPerLine: 2,
+    teaser: "Float burns up, an acceleration order lands, and it ends in arbitration." },
+  { n: 15, slug: "bim-and-clash-detection", x: 2150, y: 225, tier: 4, icon: "cube", titleWordsPerLine: 2,
+    teaser: "Catching a beam-and-ductwork conflict months before it hits the field." },
+  { n: 16, slug: "value-engineering", x: 2295, y: 200, tier: 4, icon: "bulb",
+    teaser: "A cost-saving substitution that looks fine on paper, until it isn't." },
+  { n: 17, slug: "green-building-certification", x: 2440, y: 235, tier: 4, icon: "leaf",
+    teaser: "Choosing LEED, chasing net zero, and commissioning the systems that prove it." },
+  { n: 18, slug: "project-closeout", x: 2585, y: 290, tier: 4, icon: "clipboard",
+    teaser: "Punch list, the CO delay nobody saw coming, and the binder that outlives the job." },
+  { n: 19, slug: "when-its-not-the-storms-fault", x: 2730, y: 355, tier: 4, icon: "magnifier",
+    teaser: "A crack years later, tracing it to design, construction, or neglect." },
+  { n: 20, slug: "claim-to-restoration", x: 2875, y: 465, tier: 4, icon: "umbrella", branch: true,
+    teaser: "A hailstorm claim from first notice of loss to the finished repair." },
+];
+
+// Hand-drawn icon markup (inner SVG paths/circles), one per stop. Kept as
+// raw markup, same as the original mockup, since these are bespoke line
+// icons rather than a reusable icon set.
+export const BLUEPRINT_ICONS = {
+  orgchart:
+    '<circle cx="12" cy="5.5" r="2.6"/><circle cx="5.5" cy="18.5" r="2.6"/><circle cx="18.5" cy="18.5" r="2.6"/><path d="M12 8v4M12 12l-5 4M12 12l5 4"/>',
+  plans: '<path d="M5 20V6l3-3h11v17z"/><path d="M8 3v3H5"/><path d="M8.5 11h8M8.5 15h8"/>',
+  gavel:
+    '<path d="M6 20h9"/><path d="M5.5 19l4-4"/><path d="M9 11l5.5 5.5 2.5-2.5L11.5 8.5z"/><path d="M13 7l4 4"/>',
+  stamp:
+    '<circle cx="12" cy="10" r="6.3"/><path d="M9 10.3l1.9 1.9 4-4.4"/><path d="M12 16.3V20"/><path d="M7.5 20h9"/>',
+  papers: '<rect x="5" y="6.5" width="11" height="14" rx=".3"/><rect x="8" y="3.5" width="11" height="14" rx=".3"/>',
+  hardhat: '<path d="M3.5 16.5Q12 3 20.5 16.5"/><path d="M2 16.5h20"/><path d="M12 7.5v9"/>',
+  shovel: '<path d="M7 5l10 10"/><path d="M14.5 12.3l4 4-2.3 3.4-4.9-2z"/>',
+  building:
+    '<path d="M2 21h20"/><rect x="4" y="15" width="4.4" height="6"/><rect x="9.8" y="10.5" width="4.4" height="10.5"/><rect x="15.6" y="5.5" width="4.4" height="15.5"/>',
+  editdoc:
+    '<rect x="5" y="4" width="12" height="16" rx=".3"/><path d="M8 9h6M8 13h6M8 17h3.5"/><path d="M15 15.5l4.3-4.3 1.6 1.6-4.3 4.3-2 .4z"/>',
+  dollar:
+    '<circle cx="12" cy="12" r="8.3"/><path d="M12 6.5v11"/><path d="M15.2 9.1c0-1.3-1.4-2.2-3.2-2.2s-3 .9-3 2c0 3 6.2 1.4 6.2 4.3 0 1.2-1.3 2.2-3.2 2.2s-3.3-1-3.3-2.2"/>',
+  fork: '<path d="M12 21V12"/><path d="M12 12L5 4"/><path d="M12 12l7-8"/><circle cx="5" cy="3.2" r="1.4"/><circle cx="19" cy="3.2" r="1.4"/>',
+  shield: '<path d="M12 3l8 3v6q0 7-8 9-8-2-8-9V6z"/><path d="M8.5 12l2.4 2.4L16 9"/>',
+  gauge: '<path d="M4 17a8 8 0 0 1 16 0"/><path d="M12 17l4.4-6.4"/><circle cx="12" cy="17" r="1.4"/>',
+  clockx: '<circle cx="12" cy="12.5" r="8"/><path d="M12 12.5V7.7M12 12.5l3 1.6"/><path d="M17.2 5.2l2.3-1.6M19.4 4.3l.4 2.7"/>',
+  cube: '<path d="M12 3l8 4v8l-8 4-8-4V7z"/><path d="M12 3v8M4 7l8 4 8-4"/><path d="M12 11v10"/><path d="M17.5 8.3l1.6-1.6M19.3 8.7l-1.9-1.9"/>',
+  bulb: '<circle cx="12" cy="10.5" r="6"/><path d="M9.6 16h4.8M10.2 19h3.6"/><path d="M12 4v0"/>',
+  leaf: '<path d="M6.5 20Q4 8 20 4Q19 18 6.5 20Z"/><path d="M7.5 19Q13 10 19 5"/>',
+  clipboard:
+    '<rect x="5" y="5" width="14" height="16" rx=".4"/><rect x="9" y="3" width="6" height="3.4" rx=".3"/><path d="M8.3 13l2.6 2.6L16 9.5"/>',
+  magnifier: '<circle cx="10.3" cy="10.3" r="6"/><path d="M14.7 14.7L20 20"/><path d="M8 11.5l2-4 2 3-1.5 2.3"/>',
+  umbrella: '<path d="M4 12.5Q12 2.5 20 12.5Z"/><path d="M12 12.5V19q0 2 2 1.6"/><path d="M4 12.5h16"/>',
+} as const;
+
+// Catmull-Rom-style smoothing through a series of points, producing a
+// single smooth cubic-bezier SVG path string. Same approach as the mockup.
+export function smoothPath(points: Point[]): string {
+  if (points.length < 2) return "";
+  let d = `M${points[0].x},${points[0].y}`;
+  for (let i = 0; i < points.length - 1; i++) {
+    const p0 = points[i - 1] || points[i];
+    const p1 = points[i];
+    const p2 = points[i + 1];
+    const p3 = points[i + 2] || p2;
+    const c1x = p1.x + (p2.x - p0.x) / 6;
+    const c1y = p1.y + (p2.y - p0.y) / 6;
+    const c2x = p2.x - (p3.x - p1.x) / 6;
+    const c2y = p2.y - (p3.y - p1.y) / 6;
+    d += ` C${c1x},${c1y} ${c2x},${c2y} ${p2.x},${p2.y}`;
+  }
+  return d;
+}
