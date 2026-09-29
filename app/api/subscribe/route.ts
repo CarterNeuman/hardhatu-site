@@ -61,20 +61,28 @@ export async function POST(request: Request) {
       }),
     });
 
-    // Buttondown returns 201 on a brand-new subscriber and 400 when the
-    // email is already on the list (its default duplicate-protection
-    // behavior). Either way this person is on the list, so both count as
-    // success from the visitor's side, only a genuine service error should
-    // block them from continuing.
-    if (res.ok || res.status === 400) {
-      return NextResponse.json({ ok: true });
+    // Buttondown rejects creating a subscriber that's already on the list
+    // rather than updating it (its default duplicate-protection behavior),
+    // normally as a 400 but occasionally surfaced as a 409. Either way,
+    // this person is already subscribed, so from the visitor's side that's
+    // success, not an error, they should never be blocked from reading just
+    // because they reused an email they already gave us.
+    //
+    // More generally, this gate is a soft lead-capture step, not a real
+    // security boundary (see the top-of-file note on EmailGate), so any
+    // failure past this point favors letting the visitor keep reading over
+    // showing them an error: a rate-limited, misconfigured, or otherwise
+    // failing Buttondown call is logged here for us to notice, never
+    // surfaced to the visitor as a blocker.
+    if (!res.ok) {
+      const detail = await res.text().catch(() => "");
+      console.warn(`[subscribe] Buttondown returned ${res.status} for ${email} (source: ${source}): ${detail}`);
     }
-
-    const detail = await res.text();
-    console.error(`[subscribe] Buttondown error ${res.status}: ${detail}`);
-    return NextResponse.json({ ok: false, error: "Something went wrong. Try again." }, { status: 502 });
+    return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("[subscribe] network error contacting Buttondown", err);
-    return NextResponse.json({ ok: false, error: "Something went wrong. Try again." }, { status: 502 });
+    // Same reasoning: a transient network failure reaching Buttondown
+    // shouldn't block the visitor from continuing either.
+    return NextResponse.json({ ok: true });
   }
 }
