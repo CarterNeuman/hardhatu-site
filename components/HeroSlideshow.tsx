@@ -20,15 +20,17 @@ export function HeroSlideshow() {
   const [index, setIndex] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
   // Which slides have actually been mounted as a real <img> yet. Starts
-  // with just the first — the other four are all absolutely positioned
+  // with the first two — the other three are all absolutely positioned
   // inside the same on-screen box as slide 0 (only opacity separates
   // them), so native loading="lazy" doesn't defer them: the browser's
   // viewport-distance heuristic sees them as already on-screen and fetches
-  // all five on page load regardless of the attribute. Only rendering a
-  // slide's <img> once its turn is actually coming up spreads those
-  // requests out over the rotation instead of bursting ~1MB of photos into
-  // the initial page load.
-  const [loaded, setLoaded] = useState<Set<number>>(() => new Set([0]));
+  // all five on page load regardless of the attribute. Mounting the NEXT
+  // slide as soon as the current one becomes active (rather than at the
+  // instant it's about to be shown) gives it that current slide's full
+  // ~4.5s on screen to load in the background, so the cross-fade never has
+  // to wait on a fetch — while still never mounting more than two photos
+  // at once.
+  const [loaded, setLoaded] = useState<Set<number>>(() => new Set([0, 1 % SLIDES.length]));
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -41,14 +43,18 @@ export function HeroSlideshow() {
   useEffect(() => {
     if (reducedMotion) return;
     const id = setInterval(() => {
-      setIndex((i) => {
-        const next = (i + 1) % SLIDES.length;
-        setLoaded((prev) => (prev.has(next) ? prev : new Set(prev).add(next)));
-        return next;
-      });
+      setIndex((i) => (i + 1) % SLIDES.length);
     }, INTERVAL_MS);
     return () => clearInterval(id);
   }, [reducedMotion]);
+
+  // Every time a new slide becomes active, unlock the slide after next so
+  // it starts loading quietly in the background during the current
+  // slide's display window, ready well before its own turn comes up.
+  useEffect(() => {
+    const upcoming = (index + 1) % SLIDES.length;
+    setLoaded((prev) => (prev.has(upcoming) ? prev : new Set(prev).add(upcoming)));
+  }, [index]);
 
   return (
     <div className="relative aspect-[3/4] w-full max-w-[320px] overflow-hidden border border-hairline">
