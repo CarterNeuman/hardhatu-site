@@ -33,7 +33,9 @@ commonUses:
   - A restoration contractor and an adjuster compare two independently
     written estimates for the same loss line item by line item to
     negotiate their specific disagreements
-tutorialVideos: []
+tutorialVideos:
+  - title: "Xactimate overview"
+    url: "https://www.youtube.com/watch?v=IFGDVapMJbE"
 pricingModel: >
   Subscription-based, sold in monthly, six-month, and annual terms for
   the full professional edition, with a lower-cost standard edition

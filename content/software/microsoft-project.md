@@ -29,7 +29,9 @@ commonUses:
   - A scheduler on a smaller contractor uses Microsoft Project instead
     of Primavera P6 because the project's scale doesn't justify the
     added cost and complexity
-tutorialVideos: []
+tutorialVideos:
+  - title: "Microsoft Project overview"
+    url: "https://www.youtube.com/watch?v=gsh4Cj1KAGY"
 pricingModel: >
   Subscription-based, tiered by feature depth from basic task management
   up through full desktop scheduling and portfolio reporting, with

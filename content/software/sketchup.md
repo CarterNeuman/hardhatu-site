@@ -32,7 +32,9 @@ commonUses:
   - A field team imports a point cloud scan of an existing building into
     SketchUp to model conditions that were never fully documented on
     paper
-tutorialVideos: []
+tutorialVideos:
+  - title: "SketchUp overview"
+    url: "https://www.youtube.com/watch?v=LVhh5RL6oeI"
 pricingModel: >
   Subscription-based across several tiers, from a lighter web and iPad
   plan up through professional desktop and point cloud focused tiers.

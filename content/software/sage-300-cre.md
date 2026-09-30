@@ -31,7 +31,9 @@ commonUses:
     payroll service against the job cost ledger
   - A mid-size contractor tracks job costs by phase and cost code across
     a dozen active projects from one back-office system
-tutorialVideos: []
+tutorialVideos:
+  - title: "Sage 300 CRE overview"
+    url: "https://www.youtube.com/watch?v=R-YaLbR-pZo"
 pricingModel: >
   Licensed for on-premises deployment, with pricing generally quoted
   directly rather than published, though it can also be hosted through a

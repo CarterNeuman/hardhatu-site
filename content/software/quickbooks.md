@@ -34,7 +34,9 @@ commonUses:
   - A small contractor invoices a client directly from a completed job
     and collects payment electronically without a separate payment
     processor
-tutorialVideos: []
+tutorialVideos:
+  - title: "QuickBooks overview"
+    url: "https://www.youtube.com/watch?v=7y0gMk9YdwY"
 pricingModel: >
   Subscription-based, tiered by number of users and features, with
   payroll and payment processing sold as add-ons on top of the base

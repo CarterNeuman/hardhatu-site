@@ -33,7 +33,9 @@ commonUses:
     fabricated
   - A project team runs a 4D simulation of the erection sequence to
     confirm crane access won't be blocked by an earlier phase of the work
-tutorialVideos: []
+tutorialVideos:
+  - title: "Autodesk Navisworks overview"
+    url: "https://www.youtube.com/watch?v=75w-QL-NgvU"
 pricingModel: >
   Subscription-based, usually sold bundled into a broader Autodesk
   construction or BIM collection rather than purchased as a fully

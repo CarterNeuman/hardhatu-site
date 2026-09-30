@@ -44,7 +44,9 @@ commonUses:
   - A project manager tracks every change order against the original
     budget in real time, instead of reconciling a spreadsheet at the end
     of the month
-tutorialVideos: []
+tutorialVideos:
+  - title: "Procore overview"
+    url: "https://www.youtube.com/watch?v=E0BmtOMwxGk"
 pricingModel: >
   Subscription-based and licensed to the company/project rather than sold
   at a flat consumer price: a contractor typically gets a quote from

@@ -29,7 +29,9 @@ commonUses:
   - A preconstruction manager compares a job's original estimate against
     its actual costs once the project is underway, to see where the bid
     was accurate and where it wasn't
-tutorialVideos: []
+tutorialVideos:
+  - title: "ProEst overview"
+    url: "https://www.youtube.com/watch?v=Qdk3fRutveQ"
 pricingModel: >
   Subscription-based, sold as an annual custom quote with unlimited
   users rather than published per-seat pricing.

@@ -33,7 +33,9 @@ commonUses:
   - A worker photographs a damaged piece of scaffolding directly inside
     the inspection app, and the flagged item stays open and assigned
     until someone confirms it's fixed
-tutorialVideos: []
+tutorialVideos:
+  - title: "Mitti overview"
+    url: "https://www.youtube.com/watch?v=6IsJ9929New&list=PLrIXpy-55Hj1ZK-F0bmisFYH0WKnRWthJ"
 pricingModel: >
   Freemium, with a free tier for small teams and paid tiers unlocking
   deeper analytics, integrations, and unlimited team size.

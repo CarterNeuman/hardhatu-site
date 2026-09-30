@@ -31,7 +31,9 @@ commonUses:
   - A preconstruction team lets the software auto-count repeated
     fixtures across a large floor plan instead of clicking each one
     individually
-tutorialVideos: []
+tutorialVideos:
+  - title: "On-Screen Takeoff overview"
+    url: "https://www.youtube.com/watch?v=rp7P_lstsdc"
 pricingModel: >
   Custom quote through ConstructConnect's sales team rather than
   published tiers, typically sold alongside its companion estimating

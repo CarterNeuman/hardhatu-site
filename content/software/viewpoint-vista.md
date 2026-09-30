@@ -30,7 +30,9 @@ commonUses:
     for a month-end close
   - A construction accountant configures a custom approval workflow for
     change orders that matches the company's own internal process
-tutorialVideos: []
+tutorialVideos:
+  - title: "Viewpoint Vista overview"
+    url: "https://www.youtube.com/watch?v=DdGTndVXkog"
 pricingModel: >
   Enterprise pricing quoted directly by Trimble rather than published,
   based on company size and which modules are licensed.

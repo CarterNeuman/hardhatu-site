@@ -32,7 +32,9 @@ commonUses:
   - A preconstruction team compares a takeoff-based estimate against the
     actual buyout numbers once subcontractor bids come in, to see where
     the original estimate was off
-tutorialVideos: []
+tutorialVideos:
+  - title: "STACK overview"
+    url: "https://www.youtube.com/watch?v=U7aF03jqAtg"
 pricingModel: >
   Subscription-based, priced separately for the estimating and takeoff
   side and the field-management side, with the two combinable into one

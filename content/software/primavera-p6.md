@@ -31,7 +31,9 @@ commonUses:
   - A project controls team tracks resource loading across a dozen active
     projects at once to catch a crew being double-booked before it
     actually happens
-tutorialVideos: []
+tutorialVideos:
+  - title: "Primavera P6 overview"
+    url: "https://www.youtube.com/watch?v=mZ-w_k6rkxU"
 pricingModel: >
   Sold through Oracle's enterprise sales team rather than published
   rates, reflecting its position as large-program software rather than a
