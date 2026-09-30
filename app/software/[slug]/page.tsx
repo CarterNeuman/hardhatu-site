@@ -79,13 +79,12 @@ export default async function SoftwarePage({
 
       {software.tutorialVideos.length > 0 ? (
         <>
-          <SectionLabel>Tutorials</SectionLabel>
+          <SectionLabel>{software.title} Tutorial</SectionLabel>
           <div className="mt-2 space-y-6">
             {software.tutorialVideos.map((video) => {
               const embedUrl = getYouTubeEmbedUrl(video.url);
               return (
                 <div key={video.url}>
-                  <p className="mb-2 text-sm font-semibold text-ink">{video.title}</p>
                   {embedUrl ? (
                     <div className="aspect-video w-full overflow-hidden border border-hairline bg-ink/5">
                       <iframe
@@ -113,7 +112,7 @@ export default async function SoftwarePage({
         </>
       ) : (
         <>
-          <SectionLabel>Tutorials</SectionLabel>
+          <SectionLabel>{software.title} Tutorial</SectionLabel>
           <p className="mt-2 text-sm italic text-steel">Tutorial videos for this tool are coming soon.</p>
         </>
       )}
