@@ -32,7 +32,9 @@ commonUses:
   - A project manager tracks an RFI from submission through the
     architect's response, with the whole exchange attached to the exact
     sheet it concerns
-tutorialVideos: []
+tutorialVideos:
+  - title: "How to use Autodesk Build"
+    url: "https://www.youtube.com/watch?v=EUEWTc3Tq9s"
 pricingModel: >
   Subscription-based, licensed per named user and typically sold as an
   annual quote through Autodesk's sales team rather than a fixed public

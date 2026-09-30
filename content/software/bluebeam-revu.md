@@ -32,7 +32,9 @@ commonUses:
   - A quality control manager compares a newly issued drawing revision
     against the previous version to see exactly what changed before it
     reaches the field
-tutorialVideos: []
+tutorialVideos:
+  - title: "Introduction to Bluebeam Revu basics"
+    url: "https://www.youtube.com/watch?v=r6sntx6sA40"
 pricingModel: >
   Subscription-based, licensed per user per year across several plan
   tiers, from a basic markup-only tier up through higher tiers that add

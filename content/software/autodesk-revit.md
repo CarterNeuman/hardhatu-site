@@ -32,7 +32,9 @@ commonUses:
   - A BIM/VDC Specialist exports a discipline's Revit model into
     Navisworks so it can be checked against other trades' models for
     clashes
-tutorialVideos: []
+tutorialVideos:
+  - title: "Revit basics, a beginner's walkthrough"
+    url: "https://www.youtube.com/watch?v=CTUkmDfIOUM"
 pricingModel: >
   Subscription-based, available on monthly, annual, or multi-year terms
   with deeper discounts at longer commitments, plus a token-based option

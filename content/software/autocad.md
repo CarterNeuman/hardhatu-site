@@ -31,7 +31,9 @@ commonUses:
     model
   - A civil engineer uses AutoCAD's civil-specific toolset to draft
     grading and utility plans
-tutorialVideos: []
+tutorialVideos:
+  - title: "AutoCAD basics, a beginner's walkthrough"
+    url: "https://www.youtube.com/watch?v=AvyOe8l463c"
 pricingModel: >
   Subscription-based, sold on monthly or annual terms, with regional
   pricing that varies by market.
