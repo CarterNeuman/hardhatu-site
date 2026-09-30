@@ -32,7 +32,9 @@ commonUses:
     marks it complete and attaches a photo
   - A superintendent tracks dozens of open tasks across several trades on
     one plan view instead of juggling separate paper lists per trade
-tutorialVideos: []
+tutorialVideos:
+  - title: "Fieldwire tutorial for beginners"
+    url: "https://www.youtube.com/watch?v=ppyKL_2vX8A"
 pricingModel: >
   Tiered, per user per month, with a free tier limited by project and
   sheet count and three paid tiers that add RFI tracking, submittals, and

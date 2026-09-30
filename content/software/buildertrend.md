@@ -32,7 +32,9 @@ commonUses:
     the extra work starts
   - A residential builder tracks several subcontractors' schedule
     commitments across many active homes from one dashboard
-tutorialVideos: []
+tutorialVideos:
+  - title: "Complete Buildertrend tutorial, project management"
+    url: "https://www.youtube.com/watch?v=yVyec2-JWZs"
 pricingModel: >
   Sold as a custom quote rather than published tiers, with subcontractors
   typically getting free limited access when a general contractor invites

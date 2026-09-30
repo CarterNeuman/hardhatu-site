@@ -30,7 +30,9 @@ commonUses:
   - A heavy civil contractor's estimating team splits a large highway
     bid across several estimators working the same file at once ahead of
     a bid deadline
-tutorialVideos: []
+tutorialVideos:
+  - title: "HCSS HeavyBid overview"
+    url: "https://www.youtube.com/watch?v=0StkcZMXbC0"
 pricingModel: >
   Custom quote based on concurrent licenses rather than a per-user
   subscription, reflecting how heavy civil estimating teams often share

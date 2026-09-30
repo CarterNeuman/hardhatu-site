@@ -32,7 +32,9 @@ commonUses:
   - A facilities manager scans a finished space at turnover so a future
     maintenance question can be answered by walking the digital model
     instead of visiting in person
-tutorialVideos: []
+tutorialVideos:
+  - title: "Matterport overview"
+    url: "https://www.youtube.com/watch?v=1PDwnOmOjxk"
 pricingModel: >
   A significant upfront hardware cost for the scanning camera, plus a
   recurring subscription priced by how many active scanned spaces are in

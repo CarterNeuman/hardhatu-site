@@ -29,7 +29,9 @@ commonUses:
     pass
   - A field supervisor has crew members clock in from their phones, with
     GPS confirming they're actually on the jobsite they're billing to
-tutorialVideos: []
+tutorialVideos:
+  - title: "FOUNDATION software overview"
+    url: "https://www.youtube.com/watch?v=l1zRbZHUwNw"
 pricingModel: >
   Custom quote based on company size and modules needed, aimed primarily
   at contractors too small for an enterprise ERP but who have outgrown

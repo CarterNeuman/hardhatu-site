@@ -30,7 +30,9 @@ commonUses:
   - A safety manager gets an automatic alert before a subcontractor's
     insurance certificate or safety data sheet expires, instead of
     discovering it lapsed after the fact
-tutorialVideos: []
+tutorialVideos:
+  - title: "HammerTech overview"
+    url: "https://www.youtube.com/watch?v=GwmVMZShRGI"
 pricingModel: >
   Custom quote through HammerTech's sales team rather than published
   pricing.
