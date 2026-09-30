@@ -15,7 +15,7 @@
 //    Career Match Quiz's result screen, where the result itself is the
 //    thing being gated rather than a page someone's already reading.
 
-import { useEffect, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
 
 const STORAGE_KEY = "hhu_subscribed";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -40,6 +40,18 @@ export function EmailGate({
   const [company, setCompany] = useState(""); // honeypot, real visitors never fill this
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const headingId = useId();
+  const emailInputId = useId();
+  const emailInputRef = useRef<HTMLInputElement>(null);
+
+  // Move focus into the dialog as soon as it appears, so a keyboard or
+  // screen-reader user lands on the email field instead of wherever
+  // focus happened to be on the (now inert) page behind it.
+  useEffect(() => {
+    if (showGate) {
+      emailInputRef.current?.focus();
+    }
+  }, [showGate]);
 
   useEffect(() => {
     let alreadySubscribed = false;
@@ -95,14 +107,27 @@ export function EmailGate({
 
   return (
     <div className="relative">
-      <div className={showGate ? "pointer-events-none select-none blur-sm" : undefined} aria-hidden={showGate}>
+      {/* `inert` (not just aria-hidden) is what actually keeps this content
+          out of the tab order while the gate is up — aria-hidden alone hides
+          it from screen readers but doesn't stop keyboard focus from
+          landing on a link that's invisible and blurred behind the modal. */}
+      <div
+        className={showGate ? "pointer-events-none select-none blur-sm" : undefined}
+        aria-hidden={showGate}
+        inert={showGate ? true : undefined}
+      >
         {children}
       </div>
 
       {showGate && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/60 px-4">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/60 px-4"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={headingId}
+        >
           <div className="w-full max-w-sm border border-hairline bg-paper p-6 shadow-lg">
-            <p className="font-display text-xl font-bold text-ink">
+            <p id={headingId} className="font-display text-xl font-bold text-ink">
               {variant === "immediate" ? "Enter your email to see your result" : "Keep learning, it's free"}
             </p>
             <p className="mt-2 text-sm leading-relaxed text-steel">
@@ -119,13 +144,18 @@ export function EmailGate({
                 aria-hidden="true"
                 className="hidden"
               />
+              <label htmlFor={emailInputId} className="sr-only">
+                Email address
+              </label>
               <input
+                ref={emailInputRef}
+                id={emailInputId}
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@email.com"
-                className="border border-hairline bg-white/60 px-3 py-2 text-sm text-ink outline-none focus:border-navy"
+                className="border border-hairline bg-white/60 px-3 py-2 text-sm text-ink focus:border-navy focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-navy"
               />
               {status === "error" && <p className="text-xs text-clay">{errorMsg}</p>}
               <button

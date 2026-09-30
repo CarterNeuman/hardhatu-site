@@ -18,7 +18,7 @@ export function Footer({
           <div className="flex items-center gap-2 font-display text-lg font-bold text-paper">
             <HardHatMark size={28} />
             <span>
-              hardhat<span className="text-amber">U</span>
+              hardhat<span className="text-amber-soft">U</span>
             </span>
           </div>
           <p className="mt-2.5 max-w-[32ch] text-sm text-paper/70">
@@ -28,7 +28,7 @@ export function Footer({
         </div>
 
         <div>
-          <h4 className="text-xs font-semibold uppercase tracking-wide text-paper/60">Careers</h4>
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-paper/60">Careers</h3>
           <ul className="mt-3 flex flex-col gap-2">
             {careerGroups.slice(0, 4).map((group) => (
               <li key={group.category}>
@@ -49,7 +49,7 @@ export function Footer({
         </div>
 
         <div>
-          <h4 className="text-xs font-semibold uppercase tracking-wide text-paper/60">Learn</h4>
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-paper/60">Learn</h3>
           <ul className="mt-3 flex flex-col gap-2">
             <li><Link href="/concepts" className="text-sm text-paper/90 hover:underline">Concepts</Link></li>
             <li><Link href="/lessons" className="text-sm text-paper/90 hover:underline">Lessons</Link></li>
@@ -59,7 +59,7 @@ export function Footer({
         </div>
 
         <div>
-          <h4 className="text-xs font-semibold uppercase tracking-wide text-paper/60">Get Hired</h4>
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-paper/60">Get Hired</h3>
           <ul className="mt-3 flex flex-col gap-2">
             <li><Link href="/interviews" className="text-sm text-paper/90 hover:underline">Interview Prep</Link></li>
             <li><Link href="/exams" className="text-sm text-paper/90 hover:underline">Exam Prep</Link></li>

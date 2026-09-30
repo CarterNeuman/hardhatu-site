@@ -221,9 +221,9 @@ export function Header({
               <div className="absolute left-0 top-full grid min-w-[520px] grid-cols-2 gap-x-6 gap-y-4 border border-hairline bg-paper p-5 shadow-lg">
                 {interviewGroups.map((group) => (
                   <div key={group.category}>
-                    <h4 className="text-[0.68rem] font-semibold uppercase tracking-wide text-clay">
+                    <p className="text-[0.68rem] font-semibold uppercase tracking-wide text-clay">
                       {group.category}
-                    </h4>
+                    </p>
                     <ul className="mt-2 flex flex-col divide-y divide-hairline/70">
                       {group.items.map((item) => (
                         <li key={item.id} className="py-1.5 first:pt-0 last:pb-0">
@@ -359,9 +359,9 @@ export function Header({
           >
             {interviewGroups.map((group) => (
               <div key={group.category} className="mt-3 first:mt-0">
-                <h4 className="text-[0.68rem] font-semibold uppercase tracking-wide text-clay">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-wide text-clay">
                   {group.category}
-                </h4>
+                </p>
                 <ul className="mt-1.5 flex flex-col gap-1.5">
                   {group.items.map((item) => (
                     <li key={item.id}>
@@ -416,6 +416,8 @@ function Caret({ open }: { open: boolean }) {
       stroke="currentColor"
       strokeWidth={1.6}
       className={`transition-transform ${open ? "rotate-180" : ""}`}
+      aria-hidden="true"
+      focusable="false"
     >
       <path d="M2.5 4.5l3.5 3 3.5-3" />
     </svg>

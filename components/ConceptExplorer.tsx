@@ -60,7 +60,7 @@ export function ConceptExplorer({
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search concepts by name or definition…"
-          className="w-full border border-hairline bg-paper px-3 py-2 text-sm text-ink placeholder:text-steel focus:border-navy focus:outline-none"
+          className="w-full border border-hairline bg-paper px-3 py-2 text-sm text-ink placeholder:text-steel focus:border-navy focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-navy"
         />
         <div className="mt-3 flex flex-wrap gap-1">
           <button

@@ -238,6 +238,8 @@ function PathIconHands({ className }: { className?: string }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
+      aria-hidden="true"
+      focusable="false"
     >
       <path d="M14.5 3.5l6 6-2 2-6-6 2-2z" />
       <path d="M12.5 5.5l-8 8v3h3l8-8" />
@@ -258,6 +260,8 @@ function PathIconOrg({ className }: { className?: string }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
+      aria-hidden="true"
+      focusable="false"
     >
       <circle cx="12" cy="8" r="3" />
       <path d="M5 20c0-4 3-6 7-6s7 2 7 6" />
@@ -278,6 +282,8 @@ function PathIconLedger({ className }: { className?: string }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
+      aria-hidden="true"
+      focusable="false"
     >
       <rect x="4" y="5" width="16" height="14" rx="0" />
       <path d="M8 9h8M8 13h8M8 17h4" />
@@ -297,6 +303,8 @@ function PathIconMonitor({ className }: { className?: string }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
+      aria-hidden="true"
+      focusable="false"
     >
       <rect x="3.5" y="4" width="17" height="12" rx="0" />
       <path d="M8 20h8M12 16v4" />

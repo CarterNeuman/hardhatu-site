@@ -36,7 +36,7 @@ export default function LessonsIndexPage() {
           <div className={styles.topRow}>
             <span className={styles.hint}>
               Swipe or scroll to explore
-              <svg viewBox="0 0 24 24">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path
                   d="M3 12h17M14 6l6 6-6 6"
                   fill="none"

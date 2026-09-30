@@ -44,6 +44,7 @@ export function HeroSlideshow() {
           key={slide.src}
           src={slide.src}
           alt={slide.alt}
+          aria-hidden={i !== index}
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
             i === index ? "opacity-100" : "opacity-0"
           }`}
