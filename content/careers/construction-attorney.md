@@ -80,4 +80,7 @@ relatedIds:
   - concept-independent-contractor-classification
   - concept-non-compete-non-solicitation
   - lesson-when-its-not-the-storms-fault
+  - resume-business
+  - resume-consultants-advisory
+  - gethired-business
 ---

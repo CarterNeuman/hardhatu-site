@@ -102,4 +102,6 @@ relatedIds:
   - concept-intrusion-detection-system
   - concept-cooling-tower
   - concept-cobie
+  - resume-specialized-construction
+  - gethired-specialized-construction
 ---

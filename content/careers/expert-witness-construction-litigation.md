@@ -74,4 +74,6 @@ relatedIds:
   - lesson-schedule-delay-dispute
   - career-construction-attorney
   - lesson-when-its-not-the-storms-fault
+  - resume-consultants-advisory
+  - gethired-consultants-advisory
 ---

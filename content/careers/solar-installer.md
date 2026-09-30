@@ -83,4 +83,6 @@ relatedIds:
   - phase-construction
   - career-renewable-energy-project-manager
   - concept-solar-pv-interconnection
+  - gethired-field-trades
+  - resume-field-trades
 ---

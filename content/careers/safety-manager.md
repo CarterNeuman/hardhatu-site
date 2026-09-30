@@ -123,5 +123,7 @@ relatedIds:
   - concept-ai-in-construction
   - concept-wearable-safety-technology
   - career-hr-manager-construction
+  - resume-project-operations
+  - gethired-project-operations
 image: "/images/careers/safety-manager.jpg"
 ---

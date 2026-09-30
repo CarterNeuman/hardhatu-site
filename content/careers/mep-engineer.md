@@ -101,4 +101,6 @@ relatedIds:
   - concept-battery-energy-storage-system
   - concept-microgrid
   - concept-ev-charging-infrastructure
+  - resume-technology-design
+  - gethired-technology-design
 ---

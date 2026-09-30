@@ -105,6 +105,8 @@ relatedIds:
   - concept-augmented-reality-jobsite
   - concept-battery-energy-storage-system
   - concept-ev-charging-infrastructure
+  - gethired-field-trades
+  - resume-field-trades
 image: "/images/careers/electrician.jpg"
 
 ---

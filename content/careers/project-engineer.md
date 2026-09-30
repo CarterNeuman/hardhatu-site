@@ -105,5 +105,7 @@ relatedIds:
   - concept-progress-photo-documentation
   - lesson-reading-a-set-of-plans
   - lesson-submittals-and-shop-drawings
+  - resume-project-operations
+  - gethired-project-operations
 image: "/images/careers/project-engineer.jpg"
 ---

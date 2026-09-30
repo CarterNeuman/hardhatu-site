@@ -110,4 +110,6 @@ relatedIds:
   - lesson-whos-actually-running-the-job
   - concept-committed-cost
   - concept-letter-of-intent
+  - resume-business
+  - gethired-business
 ---

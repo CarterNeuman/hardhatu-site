@@ -72,4 +72,6 @@ relatedIds:
   - concept-little-miller-act
   - lesson-whos-on-the-hook
   - concept-miller-act
+  - resume-insurance-claims
+  - gethired-insurance-claims
 ---

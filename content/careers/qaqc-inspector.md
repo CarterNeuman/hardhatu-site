@@ -93,4 +93,6 @@ relatedIds:
   - concept-stormwater-detention-retention
   - lesson-permits-inspections-and-the-paper-trail
   - concept-jobsite-iot-sensors
+  - resume-project-operations
+  - gethired-project-operations
 ---

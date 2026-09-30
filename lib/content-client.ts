@@ -14,6 +14,7 @@ import {
   type Concept,
   type InterviewPrep,
   type ExamPrep,
+  type ResumeGuide,
 } from "./types";
 
 export function urlFor(node: Pick<AnyContent, "type" | "slug">): string {
@@ -74,6 +75,34 @@ export function groupInterviewsByCategory(
     const list = groups.get(interview.category!) ?? [];
     list.push(interview);
     groups.set(interview.category!, list);
+  }
+  const known = CAREER_CATEGORY_ORDER.filter((c) => groups.has(c));
+  const unknown = [...groups.keys()].filter((c) => !known.includes(c)).sort();
+
+  const result = known.concat(unknown).map((category) => ({
+    category,
+    items: groups.get(category)!,
+  }));
+
+  return general.length > 0 ? [{ category: "General", items: general }, ...result] : result;
+}
+
+// Resume Guide carries the same optional category as Interview Prep, one
+// guide per career umbrella today, with room for a future general or
+// career-specific guide to land in its own "General" bucket the same way
+// Interview Prep's general/career-changer guides do.
+export function groupResumesByCategory(
+  items: AnyContent[]
+): { category: string; items: ResumeGuide[] }[] {
+  const resumes = items as ResumeGuide[];
+  const general = resumes.filter((r) => !r.category);
+  const categorized = resumes.filter((r) => r.category);
+
+  const groups = new Map<string, ResumeGuide[]>();
+  for (const resume of categorized) {
+    const list = groups.get(resume.category!) ?? [];
+    list.push(resume);
+    groups.set(resume.category!, list);
   }
   const known = CAREER_CATEGORY_ORDER.filter((c) => groups.has(c));
   const unknown = [...groups.keys()].filter((c) => !known.includes(c)).sort();

@@ -70,4 +70,6 @@ relatedIds:
   - career-bid-coordinator
   - interview-preconstruction-estimating
   - lesson-value-engineering
+  - resume-preconstruction-estimating
+  - gethired-preconstruction-estimating
 ---

@@ -74,4 +74,6 @@ relatedIds:
   - lesson-reading-a-set-of-plans
   - lesson-permits-inspections-and-the-paper-trail
   - concept-section-106-historic-review
+  - resume-consultants-advisory
+  - gethired-consultants-advisory
 ---

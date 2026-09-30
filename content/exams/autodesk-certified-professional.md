@@ -218,6 +218,7 @@ relatedIds:
   - software-autodesk-revit
   - career-construction-technology-manager
   - interview-technology-design
+  - gethired-technology-design
 ---
 Autodesk Certified Professional isn't a single exam, it's a family of tool- and discipline-specific credentials: AutoCAD for Design and Drafting, Civil 3D for Infrastructure Design, BIM Management for Building Design, and separate Revit exams for architectural, structural, mechanical, and electrical design. Each Professional-level exam runs 120 minutes with roughly 45 to 60 questions, mixing multiple-choice with drag-and-drop, hot-area, and graphic-interpretation formats, and is delivered through Pearson VUE, either in person or online with remote proctoring. Autodesk recommends real hands-on experience before attempting one, typically 400 to 1,200 hours depending on the specific track, and tests practical workflow competencies like modeling, documentation, collaboration and coordination, project standards, families, and information analysis rather than basic tool familiarity.
 

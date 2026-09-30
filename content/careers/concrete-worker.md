@@ -83,6 +83,8 @@ relatedIds:
   - concept-epoxy-resinous-flooring
   - concept-site-concrete
   - lesson-from-dirt-to-deck
+  - gethired-field-trades
+  - resume-field-trades
 image: "/images/careers/concrete-worker.jpg"
 
 ---

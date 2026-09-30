@@ -129,5 +129,7 @@ relatedIds:
   - concept-laydown-yard
   - concept-pre-installation-meeting
   - exam-osha-10
+  - resume-project-operations
+  - gethired-project-operations
 image: "/images/careers/superintendent.jpg"
 ---

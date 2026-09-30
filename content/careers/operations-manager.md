@@ -74,4 +74,6 @@ relatedIds:
   - interview-business
   - software-viewpoint-vista
   - career-business-development-manager
+  - resume-business
+  - gethired-business
 ---

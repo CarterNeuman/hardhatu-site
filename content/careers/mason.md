@@ -75,5 +75,7 @@ relatedIds:
   - concept-stone-veneer
   - concept-masonry-flashing-weeps
   - concept-masonry-reinforcement
+  - gethired-field-trades
+  - resume-field-trades
 image: "/images/careers/mason.jpg"
 ---

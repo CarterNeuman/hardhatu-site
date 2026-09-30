@@ -75,4 +75,6 @@ relatedIds:
   - lesson-building-sequence
   - phase-construction
   - concept-ductwork-insulation
+  - gethired-field-trades
+  - resume-field-trades
 ---

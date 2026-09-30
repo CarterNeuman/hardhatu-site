@@ -104,5 +104,7 @@ relatedIds:
   - concept-environmental-product-declaration
   - lesson-value-engineering
   - career-procurement-manager
+  - resume-preconstruction-estimating
+  - gethired-preconstruction-estimating
 image: "/images/careers/estimator.jpg"
 ---

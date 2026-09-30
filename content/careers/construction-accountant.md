@@ -83,4 +83,6 @@ relatedIds:
   - career-certified-payroll-specialist
   - career-surety-bond-underwriter
   - concept-prompt-payment-act
+  - resume-business
+  - gethired-business
 ---

@@ -86,5 +86,7 @@ relatedIds:
   - concept-public-private-partnership
   - lesson-choosing-how-to-build-it
   - lesson-value-engineering
+  - resume-preconstruction-estimating
+  - gethired-preconstruction-estimating
 image: "/images/careers/preconstruction-manager.jpg"
 ---

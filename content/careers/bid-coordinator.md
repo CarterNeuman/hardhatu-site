@@ -71,4 +71,6 @@ relatedIds:
   - phase-procurement-preconstruction
   - software-bluebeam-revu
   - career-value-engineering-consultant
+  - resume-preconstruction-estimating
+  - gethired-preconstruction-estimating
 ---

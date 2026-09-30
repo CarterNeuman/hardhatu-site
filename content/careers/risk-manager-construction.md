@@ -82,4 +82,6 @@ relatedIds:
   - concept-pre-construction-survey
   - lesson-whos-on-the-hook
   - concept-public-private-partnership
+  - resume-business
+  - gethired-business
 ---

@@ -81,4 +81,6 @@ relatedIds:
   - concept-differing-site-conditions
   - concept-notice-requirements
   - concept-request-for-equitable-adjustment
+  - resume-consultants-advisory
+  - gethired-consultants-advisory
 ---

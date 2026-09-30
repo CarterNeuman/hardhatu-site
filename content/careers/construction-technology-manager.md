@@ -85,4 +85,6 @@ relatedIds:
   - concept-offsite-manufacturing
   - concept-cybersecurity-construction
   - concept-bim-execution-plan
+  - resume-technology-design
+  - gethired-technology-design
 ---

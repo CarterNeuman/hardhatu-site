@@ -74,4 +74,6 @@ relatedIds:
   - phase-construction
   - software-procore
   - software-bluebeam-revu
+  - resume-project-operations
+  - gethired-project-operations
 ---

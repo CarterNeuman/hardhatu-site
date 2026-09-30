@@ -78,5 +78,7 @@ relatedIds:
   - career-pipefitter
   - career-qaqc-inspector
   - concept-bolted-vs-welded-connections
+  - gethired-field-trades
+  - resume-field-trades
 image: "/images/careers/welder.jpg"
 ---

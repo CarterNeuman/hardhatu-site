@@ -80,4 +80,6 @@ relatedIds:
   - phase-construction
   - concept-wind-load-hurricane-code
   - concept-joint-sealants
+  - gethired-field-trades
+  - resume-field-trades
 ---

@@ -73,5 +73,7 @@ relatedIds:
   - interview-specialized-construction
   - phase-site-preparation-mobilization
   - concept-asbestos-abatement-regulation
+  - resume-specialized-construction
+  - gethired-specialized-construction
 image: "/images/careers/demolition-supervisor.jpg"
 ---

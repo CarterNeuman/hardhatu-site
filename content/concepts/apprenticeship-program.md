@@ -32,4 +32,5 @@ relatedIds:
   - career-hr-manager-construction
   - concept-prevailing-wage
   - concept-union-vs-open-shop
+  - gethired-field-trades
 ---

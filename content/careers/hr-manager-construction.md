@@ -78,4 +78,6 @@ relatedIds:
   - concept-independent-contractor-classification
   - concept-non-compete-non-solicitation
   - concept-right-to-work-law
+  - resume-business
+  - gethired-business
 ---

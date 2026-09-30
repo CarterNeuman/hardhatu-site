@@ -76,4 +76,6 @@ relatedIds:
   - phase-operations-maintenance
   - concept-material-freight-lifts
   - concept-wheelchair-lifts
+  - gethired-field-trades
+  - resume-field-trades
 ---

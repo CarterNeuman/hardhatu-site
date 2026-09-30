@@ -67,4 +67,6 @@ relatedIds:
   - concept-concurrent-delay
   - concept-pacing-delay
   - concept-time-impact-analysis
+  - resume-consultants-advisory
+  - gethired-consultants-advisory
 ---

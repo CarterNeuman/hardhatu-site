@@ -86,5 +86,7 @@ relatedIds:
   - concept-domestic-water-piping-materials
   - concept-water-treatment-softening
   - concept-irrigation-system
+  - gethired-field-trades
+  - resume-field-trades
 image: "/images/careers/plumber.jpg"
 ---

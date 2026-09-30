@@ -70,4 +70,6 @@ relatedIds:
   - interview-insurance-claims
   - concept-experience-modification-rate
   - concept-swppp
+  - resume-insurance-claims
+  - gethired-insurance-claims
 ---

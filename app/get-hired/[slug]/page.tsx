@@ -1,9 +1,13 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getAllContent, getBySlug, getRelated } from "@/lib/content";
+import { urlFor } from "@/lib/content-client";
 import type { GetHired } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
+import { Icon } from "@/components/Icon";
 import { SectionLabel } from "@/components/SectionLabel";
+import { Disclaimer } from "@/components/Disclaimer";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { Prose } from "@/components/Prose";
 import { EmailGate } from "@/components/EmailGate";
@@ -38,11 +42,26 @@ export default async function GetHiredPage({
   const guide = getBySlug("gethired", slug) as GetHired | undefined;
   if (!guide) notFound();
   const related = getRelated(guide);
+  const { resumes } = getAllContent();
+  const matchingResume = resumes.find((r) => r.category === guide.category);
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-10">
-      <TypeBadge type="gethired" tier={guide.tier} />
-      <h1 className="mt-2 font-display text-4xl font-bold text-ink">{guide.title}</h1>
+      <TypeBadge type="gethired" tier={guide.tier} size="lg" />
+      <div className="mt-2 flex items-start justify-between gap-4">
+        <h1 className="font-display text-4xl font-bold text-ink">{guide.category}</h1>
+        {matchingResume && (
+          <Link
+            href={urlFor(matchingResume)}
+            className="group flex shrink-0 items-center gap-2 border border-navy px-3 py-2 text-navy transition-colors hover:bg-navy/5"
+          >
+            <Icon kind="resume" size={20} />
+            <span className="text-xs font-semibold uppercase tracking-wide text-amber">
+              Resume Guide for this trade
+            </span>
+          </Link>
+        )}
+      </div>
       <p className="mt-3 text-lg leading-relaxed text-ink">{guide.tagline}</p>
 
       <EmailGate source={`gethired:${guide.slug}`}>
@@ -113,6 +132,13 @@ export default async function GetHiredPage({
             </p>
             <p className="mt-1 text-ink">{guide.firstStepToday}</p>
           </div>
+
+          {guide.lastReviewed && (
+            <Disclaimer
+              lastReviewed={guide.lastReviewed}
+              message="Hiring demand, wage, and labor-market figures shift over time and vary by region. Treat these as a general picture, not a guarantee."
+            />
+          )}
         </>
       )}
 

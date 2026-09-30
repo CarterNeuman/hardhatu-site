@@ -80,4 +80,6 @@ relatedIds:
   - concept-recovery-schedule
   - concept-resource-loading
   - career-scheduling-delay-consultant
+  - resume-project-operations
+  - gethired-project-operations
 ---

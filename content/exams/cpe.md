@@ -211,6 +211,7 @@ relatedIds:
   - lesson-bidding-and-winning-work
   - career-senior-estimator
   - interview-preconstruction-estimating
+  - gethired-preconstruction-estimating
 ---
 The CPE isn't a single multiple-choice exam the way most credentials on this site are, it's three separate components a candidate has to clear: a Technical Paper on a board-approved estimating topic (testing communication skills as much as technical knowledge), a 4-hour General Estimating Knowledge (GEK) exam covering quantities, contract terms and conditions, cost reporting, and ethics, and an 8-hour, two-part Discipline Specific Test (DST) in a chosen specialty such as general contracting, mechanical, electrical, excavation, or concrete estimating. Each exam component requires a minimum score of 70% to pass, and candidates have six months from approval to complete everything.
 

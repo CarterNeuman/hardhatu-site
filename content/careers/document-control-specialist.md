@@ -79,4 +79,6 @@ relatedIds:
   - concept-material-delivery-log
   - lesson-whos-actually-running-the-job
   - concept-common-data-environment
+  - resume-project-operations
+  - gethired-project-operations
 ---

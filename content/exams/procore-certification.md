@@ -213,6 +213,7 @@ relatedIds:
   - career-project-manager
   - concept-construction-management-software
   - career-construction-technology-manager
+  - gethired-technology-design
 ---
 Procore Certification is organized as roughly 11 role-based tracks, Project Manager, Superintendent, Subcontractor, Architect, Engineer, Estimator, Admin, Owner, Field Worker, BIM Manager, and Student, each built around the specific Procore tools that role actually uses. The Superintendent track, for example, runs about 3.5 hours across six sections and touches roughly 18 tools (Daily Log, RFIs, Punch List, Inspections, Schedule, Change Events, Timesheets, and more), while a narrower track like Estimator runs closer to an hour. Every track is delivered as self-paced online coursework through Procore's own learning platform, ending in a role-specific final exam, though Procore doesn't publish exact question counts or passing-score thresholds the way an industry body like PMI or CMAA does.
 

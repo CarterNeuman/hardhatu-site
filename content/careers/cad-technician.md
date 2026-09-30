@@ -61,4 +61,6 @@ relatedIds:
   - software-autocad
   - software-sketchup
   - phase-design
+  - resume-technology-design
+  - gethired-technology-design
 ---

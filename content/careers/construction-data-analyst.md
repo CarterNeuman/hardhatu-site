@@ -65,4 +65,6 @@ relatedIds:
   - career-gis-specialist
   - career-construction-technology-manager
   - concept-ai-in-construction
+  - resume-technology-design
+  - gethired-technology-design
 ---

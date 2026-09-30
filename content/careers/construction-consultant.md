@@ -65,4 +65,6 @@ relatedIds:
   - career-sustainability-leed-consultant
   - interview-consultants-advisory
   - phase-idea-feasibility
+  - resume-consultants-advisory
+  - gethired-consultants-advisory
 ---

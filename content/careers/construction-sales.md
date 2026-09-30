@@ -64,4 +64,6 @@ relatedIds:
   - interview-business
   - software-buildertrend
   - career-business-development-manager
+  - resume-business
+  - gethired-business
 ---

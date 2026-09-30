@@ -148,5 +148,7 @@ relatedIds:
   - career-estimator
   - career-facilities-manager
   - career-superintendent
+  - resume-project-operations
+  - gethired-project-operations
 image: "/images/careers/project-manager.jpg"
 ---

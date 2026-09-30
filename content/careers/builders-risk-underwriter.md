@@ -72,4 +72,6 @@ relatedIds:
   - concept-earthquake-insurance
   - lesson-whos-on-the-hook
   - concept-loss-run-report
+  - resume-insurance-claims
+  - gethired-insurance-claims
 ---

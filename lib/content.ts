@@ -190,6 +190,7 @@ export {
   stripWikiLinks,
   groupCareersByCategory,
   groupInterviewsByCategory,
+  groupResumesByCategory,
   groupExamsByCategory,
   groupConceptsByCategory,
 } from "./content-client";

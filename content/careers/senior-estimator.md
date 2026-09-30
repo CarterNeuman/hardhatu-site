@@ -73,5 +73,7 @@ relatedIds:
   - software-hcss-heavybid
   - phase-procurement-preconstruction
   - career-bid-coordinator
+  - resume-preconstruction-estimating
+  - gethired-preconstruction-estimating
 image: "/images/careers/senior-estimator.jpg"
 ---

@@ -78,5 +78,7 @@ relatedIds:
   - phase-site-preparation-mobilization
   - career-assistant-superintendent
   - career-demolition-supervisor
+  - gethired-field-trades
+  - resume-field-trades
 image: "/images/careers/laborer.jpg"
 ---

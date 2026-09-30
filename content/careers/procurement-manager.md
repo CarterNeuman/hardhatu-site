@@ -68,4 +68,6 @@ relatedIds:
   - concept-job-order-contracting
   - concept-procurement-log
   - concept-ofci
+  - resume-business
+  - gethired-business
 ---

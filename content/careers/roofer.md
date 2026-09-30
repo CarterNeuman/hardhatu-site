@@ -79,5 +79,7 @@ relatedIds:
   - career-sheet-metal-worker
   - career-solar-installer
   - concept-skylights
+  - gethired-field-trades
+  - resume-field-trades
 image: "/images/careers/roofer.jpg"
 ---

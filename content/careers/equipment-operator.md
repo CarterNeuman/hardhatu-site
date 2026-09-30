@@ -96,6 +96,8 @@ relatedIds:
   - concept-dewatering
   - concept-autonomous-equipment
   - lesson-from-dirt-to-deck
+  - gethired-field-trades
+  - resume-field-trades
 image: "/images/careers/equipment-operator.jpg"
 
 ---

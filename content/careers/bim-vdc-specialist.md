@@ -81,4 +81,6 @@ relatedIds:
   - concept-bim-execution-plan
   - concept-common-data-environment
   - concept-cobie
+  - resume-technology-design
+  - gethired-technology-design
 ---

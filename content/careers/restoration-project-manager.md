@@ -87,4 +87,6 @@ relatedIds:
   - concept-drying-log-documentation
   - concept-certified-restorer-designation
   - concept-salvage-insurance
+  - resume-specialized-construction
+  - gethired-specialized-construction
 ---

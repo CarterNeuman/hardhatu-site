@@ -89,4 +89,6 @@ relatedIds:
   - lesson-choosing-how-to-build-it
   - concept-ofci
   - career-construction-consultant
+  - resume-specialized-construction
+  - gethired-specialized-construction
 ---

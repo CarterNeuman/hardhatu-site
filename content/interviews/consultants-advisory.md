@@ -95,6 +95,8 @@ relatedIds:
   - career-permit-expediter
   - career-commissioning-agent
   - lesson-when-its-not-the-storms-fault
+  - resume-consultants-advisory
+  - gethired-consultants-advisory
 ---
 These are senior, expertise-driven roles, and the hiring process reflects it: expect the interview to feel more like a conversation or a case-study discussion than a procedural HR process, often conducted directly by a firm's principal or partner rather than a recruiter. These roles are also frequently sourced through professional networking and referral rather than a public job posting, so the interview itself may follow an introduction that already established some credibility before you sat down.
 

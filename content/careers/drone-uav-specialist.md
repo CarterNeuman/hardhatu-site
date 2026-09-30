@@ -70,5 +70,7 @@ relatedIds:
   - interview-technology-design
   - career-gis-specialist
   - career-construction-technology-manager
+  - resume-technology-design
+  - gethired-technology-design
 image: "/images/careers/drone-uav-specialist.jpg"
 ---

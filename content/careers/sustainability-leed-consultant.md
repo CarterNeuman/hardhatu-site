@@ -85,4 +85,6 @@ relatedIds:
   - concept-environmental-product-declaration
   - concept-life-cycle-assessment
   - concept-carbon-accounting-scopes
+  - resume-consultants-advisory
+  - gethired-consultants-advisory
 ---

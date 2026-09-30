@@ -99,6 +99,8 @@ relatedIds:
   - concept-continuous-insulation
   - concept-passive-house
   - concept-construction-robotics-automation
+  - gethired-field-trades
+  - resume-field-trades
 image: "/images/careers/carpenter.jpg"
 
 ---

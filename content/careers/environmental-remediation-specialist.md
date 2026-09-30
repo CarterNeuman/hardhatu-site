@@ -87,5 +87,7 @@ relatedIds:
   - concept-environmental-site-assessment
   - concept-lead-safe-work-practices
   - concept-wetlands-permit-404
+  - resume-specialized-construction
+  - gethired-specialized-construction
 image: "/images/careers/environmental-remediation-specialist.jpg"
 ---

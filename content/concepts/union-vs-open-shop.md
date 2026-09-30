@@ -44,4 +44,5 @@ relatedIds:
   - career-certified-payroll-specialist
   - concept-apprenticeship-program
   - concept-right-to-work-law
+  - gethired-field-trades
 ---

@@ -69,6 +69,8 @@ relatedIds:
   - career-builders-risk-underwriter
   - career-loss-control-engineer
   - career-surety-bond-underwriter
+  - resume-insurance-claims
+  - gethired-insurance-claims
 ---
 Interviews in this category are usually run by insurance companies, independent adjusting firms, or restoration contractors rather than general contractors, a meaningfully different hiring culture than the rest of construction. Licensing status is typically the very first substantive question, before background or experience, so know exactly where you stand (active license, reciprocity-eligible, or which exam you still need) before you walk in. If the role involves catastrophe (CAT) deployment, expect direct questions about your real willingness and ability to travel on short notice for extended stretches; this is treated as a genuine logistical filter, not small talk.
 

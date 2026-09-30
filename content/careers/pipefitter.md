@@ -83,4 +83,6 @@ relatedIds:
   - concept-fire-pump
   - concept-wet-dry-sprinkler-systems
   - concept-boiler
+  - gethired-field-trades
+  - resume-field-trades
 ---

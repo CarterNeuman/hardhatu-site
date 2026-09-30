@@ -77,5 +77,7 @@ relatedIds:
   - concept-actual-cost
   - concept-cost-to-complete
   - career-construction-consultant
+  - resume-preconstruction-estimating
+  - gethired-preconstruction-estimating
 image: "/images/careers/cost-engineer.jpg"
 ---

@@ -86,4 +86,6 @@ relatedIds:
   - concept-roof-matching-statute
   - concept-examination-under-oath
   - concept-reservation-of-rights-letter
+  - resume-insurance-claims
+  - gethired-insurance-claims
 ---

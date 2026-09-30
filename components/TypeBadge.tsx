@@ -18,6 +18,7 @@ const TYPE_META: Record<string, { label: string; className: string }> = {
 export function TypeBadge({
   type,
   tier,
+  size = "sm",
 }: {
   type:
     | "career"
@@ -33,12 +34,18 @@ export function TypeBadge({
     | "quiz"
     | "program";
   tier?: "free" | "premium";
+  // "lg" is a deliberately larger reading of the same badge, used where
+  // the type label doubles as the page's own section eyebrow (e.g. the
+  // Get Hired detail page) rather than a small aside next to a title.
+  size?: "sm" | "lg";
 }) {
   const meta = TYPE_META[type];
+  const iconSize = size === "lg" ? 18 : 14;
+  const textClass = size === "lg" ? "text-sm" : "text-xs";
   return (
     <div className="flex items-center gap-2">
-      <div className={`inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide ${meta.className}`}>
-        <Icon kind={type} size={14} />
+      <div className={`inline-flex items-center gap-1.5 ${textClass} font-semibold uppercase tracking-wide ${meta.className}`}>
+        <Icon kind={type} size={iconSize} />
         {meta.label}
       </div>
       {tier === "premium" && (

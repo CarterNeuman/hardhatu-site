@@ -83,4 +83,6 @@ relatedIds:
   - concept-psychrometrics
   - concept-drying-log-documentation
   - concept-certified-restorer-designation
+  - resume-insurance-claims
+  - gethired-insurance-claims
 ---

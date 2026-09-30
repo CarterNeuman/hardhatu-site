@@ -220,6 +220,7 @@ relatedIds:
   - exam-osha-10
   - career-assistant-superintendent
   - career-demolition-supervisor
+  - gethired-project-operations
 ---
 The real 30-hour course is built from mandatory and elective topics that add up to 30 hours, not one continuous lecture. The mandatory core (14 hours) covers Introduction to OSHA, Managing Safety and Health, the [[concept-osha|Focus Four]] hazards (6 hours, with a required 1.5-hour minimum on falls specifically), Personal Protective Equipment, Health Hazards in Construction, and Stairways and Ladders. On top of that, a trainee has to complete at least 6 elective topics (30 minutes minimum each, for 12 required hours) chosen from a list that includes confined spaces, cranes and rigging, excavations, scaffolds, steel erection, fire protection, materials handling, ergonomics, and motor vehicles and mechanized equipment, plus 4 more hours a trainer can use to go deeper on any topic. It's built for supervisors, foremen, and anyone with safety responsibility over a crew, so it keeps everything from the 10-hour course but adds the management side: building a safety program, running inspections, and knowing when a hazard needs a formal procedure rather than just personal caution.
 

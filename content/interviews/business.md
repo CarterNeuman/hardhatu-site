@@ -94,6 +94,8 @@ relatedIds:
   - career-business-development-manager
   - career-risk-manager-construction
   - career-certified-payroll-specialist
+  - resume-business
+  - gethired-business
 ---
 Hiring for these roles looks more like a typical corporate process than a jobsite one; expect a standard multi-round interview (a recruiter screen, a hiring manager interview, sometimes a panel), often including someone from outside construction entirely, like a general HR or finance leader. Because the core skillset here (accounting, HR, sales, procurement, contracts) exists in every industry, what actually differentiates candidates is construction-specific fluency: certified payroll, retention, lien waivers, job costing, prevailing wage rules, and the fact that "the customer" is often a repeat developer relationship built over years rather than a one-time transaction.
 

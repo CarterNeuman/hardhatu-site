@@ -79,4 +79,6 @@ relatedIds:
   - phase-permitting-approvals
   - career-civil-engineer
   - career-gis-specialist
+  - resume-technology-design
+  - gethired-technology-design
 ---

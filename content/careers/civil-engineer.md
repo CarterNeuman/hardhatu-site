@@ -84,5 +84,7 @@ relatedIds:
   - concept-site-concrete
   - lesson-from-dirt-to-deck
   - concept-stormwater-detention-retention
+  - resume-technology-design
+  - gethired-technology-design
 image: "/images/careers/civil-engineer.jpg"
 ---

@@ -77,5 +77,7 @@ relatedIds:
   - phase-renovation-restoration-endoflife
   - concept-section-106-historic-review
   - concept-wheelchair-lifts
+  - resume-specialized-construction
+  - gethired-specialized-construction
 image: "/images/careers/historic-preservation-specialist.jpg"
 ---

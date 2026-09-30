@@ -79,6 +79,8 @@ relatedIds:
   - career-demolition-supervisor
   - career-pile-driving-specialist
   - career-historic-preservation-specialist
+  - resume-specialized-construction
+  - gethired-specialized-construction
 ---
 This category is a catch-all for genuine specialties, so the interview process varies more here than in most other categories: a remediation specialist might interview with an environmental consulting firm's technical lead, a restoration project manager with an insurance-focused reconstruction contractor, an Owner's Representative directly with the owner or developer. What's common across all of them: interviewers want to know you understand the specific regulatory or contractual context that sets the role apart from standard general contracting: which hazard-specific certification actually applies, how an insurance-approved scope of work gets approved and changed, or whose interests you're representing when it isn't simply "the project's."
 

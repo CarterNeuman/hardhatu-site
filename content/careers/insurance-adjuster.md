@@ -108,4 +108,6 @@ relatedIds:
   - concept-examination-under-oath
   - concept-reservation-of-rights-letter
   - concept-third-party-administrator
+  - resume-insurance-claims
+  - gethired-insurance-claims
 ---

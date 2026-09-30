@@ -94,5 +94,7 @@ relatedIds:
   - concept-boiler
   - concept-vav-box
   - concept-cooling-tower
+  - gethired-field-trades
+  - resume-field-trades
 image: "/images/careers/hvac-technician.jpg"
 ---

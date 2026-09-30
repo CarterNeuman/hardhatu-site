@@ -90,5 +90,7 @@ relatedIds:
   - concept-geotechnical-report
   - concept-deep-foundations
   - concept-generative-design
+  - resume-technology-design
+  - gethired-technology-design
 image: "/images/careers/structural-engineer.jpg"
 ---

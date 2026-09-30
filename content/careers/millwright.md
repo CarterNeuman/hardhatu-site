@@ -79,4 +79,6 @@ relatedIds:
   - phase-construction
   - phase-operations-maintenance
   - concept-loading-dock-equipment
+  - gethired-field-trades
+  - resume-field-trades
 ---

@@ -112,4 +112,6 @@ relatedIds:
   - phase-closeout-handover
   - career-qaqc-inspector
   - career-commissioning-agent
+  - resume-project-operations
+  - gethired-project-operations
 ---

@@ -76,5 +76,7 @@ relatedIds:
   - interview-construction-general
   - interview-field-trades
   - concept-lead-safe-work-practices
+  - gethired-field-trades
+  - resume-field-trades
 image: "/images/careers/painter.jpg"
 ---

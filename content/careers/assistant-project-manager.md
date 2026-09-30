@@ -66,5 +66,7 @@ relatedIds:
   - exam-pmp
   - interview-project-manager
   - interview-project-operations
+  - resume-project-operations
+  - gethired-project-operations
 image: "/images/careers/assistant-project-manager.jpg"
 ---

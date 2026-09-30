@@ -72,4 +72,6 @@ relatedIds:
   - phase-design
   - phase-idea-feasibility
   - career-construction-technology-manager
+  - resume-technology-design
+  - gethired-technology-design
 ---

@@ -66,5 +66,7 @@ relatedIds:
   - interview-specialized-construction
   - phase-site-preparation-mobilization
   - concept-deep-foundations
+  - resume-specialized-construction
+  - gethired-specialized-construction
 image: "/images/careers/pile-driving-specialist.jpg"
 ---

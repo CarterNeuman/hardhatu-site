@@ -94,14 +94,16 @@ export function Header({
 
   const toggle = (menu: MenuKey) => setOpenMenu((current) => (current === menu ? null : menu));
 
-  // Single-page sections that don't need their own dropdown — Lessons sits
-  // between Concepts and Interview Prep, Exam Prep/Software after.
-  const trailingLinks = [
-    { href: "/get-hired", label: "Get Hired" },
-    { href: "/exams", label: "Exam Prep" },
+  // Single-page sections that don't need their own dropdown. Order after
+  // Lessons: Phases, Software, Career Quiz, Get Hired, then the Interview
+  // Prep dropdown, then Exam Prep last.
+  const midLinks = [
+    { href: "/phases", label: "Phases" },
     { href: "/software", label: "Software" },
     { href: "/quizzes/find-your-career", label: "Career Quiz" },
+    { href: "/get-hired", label: "Get Hired" },
   ];
+  const finalLinks = [{ href: "/exams", label: "Exam Prep" }];
 
   return (
     <header className="sticky top-0 z-40 border-b border-hairline bg-paper">
@@ -207,6 +209,12 @@ export function Header({
             Lessons
           </Link>
 
+          {midLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="px-3 py-2 text-sm font-medium text-ink hover:text-navy">
+              {link.label}
+            </Link>
+          ))}
+
           <div className="relative">
             <button
               onClick={() => toggle("interviews")}
@@ -248,11 +256,7 @@ export function Header({
             )}
           </div>
 
-          <Link href="/phases" className="px-3 py-2 text-sm font-medium text-ink hover:text-navy">
-            Phases
-          </Link>
-
-          {trailingLinks.map((link) => (
+          {finalLinks.map((link) => (
             <Link key={link.href} href={link.href} className="px-3 py-2 text-sm font-medium text-ink hover:text-navy">
               {link.label}
             </Link>
@@ -353,6 +357,17 @@ export function Header({
             Lessons
           </Link>
 
+          {midLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="block border-t border-hairline py-3 text-sm font-medium text-ink"
+              onClick={() => setMobileOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+
           <MobileSection
             label="Interview Prep"
             open={openMenu === "interviews"}
@@ -383,15 +398,7 @@ export function Header({
             </Link>
           </MobileSection>
 
-          <Link
-            href="/phases"
-            className="block border-t border-hairline py-3 text-sm font-medium text-ink"
-            onClick={() => setMobileOpen(false)}
-          >
-            Phases
-          </Link>
-
-          {trailingLinks.map((link) => (
+          {finalLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}

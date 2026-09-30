@@ -34,4 +34,5 @@ relatedIds:
   - concept-osha
   - concept-safety-orientation
   - concept-job-hazard-analysis
+  - gethired-field-trades
 ---

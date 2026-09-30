@@ -69,4 +69,6 @@ relatedIds:
   - software-quickbooks
   - career-risk-manager-construction
   - concept-davis-bacon-act
+  - resume-business
+  - gethired-business
 ---

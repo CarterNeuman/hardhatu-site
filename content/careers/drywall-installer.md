@@ -66,5 +66,7 @@ relatedIds:
   - concept-access-doors-panels
   - concept-gypsum-board-finish-levels
   - concept-wall-coverings
+  - gethired-field-trades
+  - resume-field-trades
 image: "/images/careers/drywall-installer.jpg"
 ---

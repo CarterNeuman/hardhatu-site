@@ -68,4 +68,6 @@ relatedIds:
   - career-operations-manager
   - career-owners-representative
   - interview-business
+  - resume-business
+  - gethired-business
 ---

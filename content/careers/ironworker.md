@@ -90,6 +90,8 @@ relatedIds:
   - concept-miscellaneous-metals
   - concept-bolted-vs-welded-connections
   - concept-structural-steel-erection
+  - gethired-field-trades
+  - resume-field-trades
 image: "/images/careers/ironworker.jpg"
 
 ---

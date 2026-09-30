@@ -77,4 +77,6 @@ relatedIds:
   - interview-preconstruction-estimating
   - career-pile-driving-specialist
   - concept-blasting-rock-removal
+  - resume-preconstruction-estimating
+  - gethired-preconstruction-estimating
 ---
