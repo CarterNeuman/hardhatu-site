@@ -23,6 +23,9 @@ questions:
       - label: "Nothing specific to any of these, or I'm in school for something unrelated"
         pointsToCategories: ["Project & Operations"]
         pointsToCareerIds: ["career-project-engineer", "career-assistant-project-manager", "career-laborer"]
+      - label: "Nothing formal — whatever I know, I've picked up through work, family, or figuring things out myself"
+        pointsToCategories: ["Field & Trades"]
+        pointsToCareerIds: ["career-laborer", "career-equipment-operator", "career-concrete-worker"]
   - question: "Forget what you studied for a second. Which of these actually sounds like you?"
     options:
       - label: "I want to build or fix something real with my hands"
