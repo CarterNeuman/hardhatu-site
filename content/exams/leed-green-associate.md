@@ -213,6 +213,7 @@ relatedIds:
   - career-sustainability-leed-consultant
   - concept-leed
   - lesson-green-building-certification
+  - interview-consultants-advisory
 ---
 The LEED Green Associate exam is 100 multiple-choice questions over 2 hours, scored on a 125-200 scale with 170 needed to pass, and it's currently built on LEED v5, which reorganized the rating system's credits around three impact areas (decarbonization, quality of life, and ecological conservation) and tightened several technical requirements, including a new zero-waste prerequisite and a lower point cap on Enhanced Energy Efficiency credits. The exam draws from nine knowledge domains covering the certification process itself (LEED Process, one of the two largest domains alongside Energy and Atmosphere), integrative planning, and the technical categories familiar from LEED project checklists: location and transportation, sustainable sites, water efficiency, energy and atmosphere, materials and resources, indoor environmental quality, and project surroundings and public outreach.
 

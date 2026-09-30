@@ -45,4 +45,12 @@ relatedIds:
   - lesson-reading-a-set-of-plans
   - lesson-submittals-and-shop-drawings
   - concept-submittal-log
+  - concept-ceiling-tile
+  - concept-doors-and-frames
+  - concept-engineered-lumber
+  - concept-glazing
+  - concept-pre-engineered-metal-building
+  - concept-precast-concrete
+  - concept-rebar
+  - concept-windows
 ---

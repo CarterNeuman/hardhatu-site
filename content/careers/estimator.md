@@ -103,5 +103,6 @@ relatedIds:
   - concept-bid-alternates
   - concept-environmental-product-declaration
   - lesson-value-engineering
+  - career-procurement-manager
 image: "/images/careers/estimator.jpg"
 ---

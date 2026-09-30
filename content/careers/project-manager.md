@@ -143,5 +143,10 @@ relatedIds:
   - concept-cost-code
   - concept-actual-cost
   - concept-cost-to-complete
+  - career-bim-vdc-specialist
+  - career-contracts-administrator
+  - career-estimator
+  - career-facilities-manager
+  - career-superintendent
 image: "/images/careers/project-manager.jpg"
 ---

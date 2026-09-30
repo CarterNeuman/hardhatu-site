@@ -47,4 +47,6 @@ relatedIds:
   - career-sheet-metal-worker
   - concept-masonry-flashing-weeps
   - concept-skylights
+  - concept-brick-veneer
+  - concept-windows
 ---

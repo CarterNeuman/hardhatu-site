@@ -44,4 +44,6 @@ relatedIds:
   - lesson-whos-actually-running-the-job
   - lesson-submittals-and-shop-drawings
   - concept-transmittal
+  - career-assistant-project-manager
+  - interview-project-manager
 ---

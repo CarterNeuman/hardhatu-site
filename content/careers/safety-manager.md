@@ -122,5 +122,6 @@ relatedIds:
   - concept-fire-pump
   - concept-ai-in-construction
   - concept-wearable-safety-technology
+  - career-hr-manager-construction
 image: "/images/careers/safety-manager.jpg"
 ---

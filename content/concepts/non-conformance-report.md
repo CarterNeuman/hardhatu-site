@@ -43,4 +43,6 @@ relatedIds:
   - career-qaqc-inspector
   - concept-progress-photo-documentation
   - concept-first-article-inspection
+  - concept-concrete-curing
+  - concept-rough-in-plumbing
 ---

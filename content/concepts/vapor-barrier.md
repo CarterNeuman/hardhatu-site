@@ -37,4 +37,5 @@ relatedIds:
   - concept-air-barrier
   - concept-building-envelope
   - phase-construction
+  - concept-slab-on-grade
 ---

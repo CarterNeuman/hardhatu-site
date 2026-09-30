@@ -222,6 +222,7 @@ relatedIds:
   - exam-pmp
   - career-assistant-project-manager
   - exam-ccm
+  - interview-project-operations
 ---
 The CAPM exam is 150 questions over 180 minutes (15 of them unscored pretest questions PMI uses to field-test future material), built from PMI's current exam content outline across four domains: Project Management Fundamentals and Core Concepts (36%), Business Analysis Frameworks (27%), Agile Frameworks/Methodologies (20%), and Predictive, Plan-Based Methodologies (17%). Unlike the PMP, which was significantly rebalanced in July 2026, CAPM's outline reflects an earlier update that already broadened the exam beyond traditional waterfall planning: business analysis (gathering and documenting requirements, confirming scope before work starts) and agile/adaptive concepts both carry real weight, more combined weight than traditional predictive methodologies get on their own. That's worth knowing going in, since a construction PM's daily reality is mostly predictive-style planning, but the exam tests a broader view of project management as a profession.
 

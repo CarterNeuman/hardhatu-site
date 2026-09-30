@@ -47,4 +47,8 @@ relatedIds:
   - concept-masonry-reinforcement
   - lesson-reading-a-set-of-plans
   - lesson-permits-inspections-and-the-paper-trail
+  - concept-cmu
+  - concept-rebar
+  - concept-structural-steel
+  - concept-structural-welding
 ---

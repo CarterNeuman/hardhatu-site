@@ -232,6 +232,7 @@ relatedIds:
   - career-assistant-project-manager
   - exam-ccm
   - career-renewable-energy-project-manager
+  - interview-project-operations
 ---
 The current PMP exam is 180 questions over a 240-minute session (with two built-in 10-minute breaks), built from a content outline PMI significantly rebalanced in July 2026 based on a Job Task Analysis of how the role has actually changed, not a new PMBOK Guide edition. The three domains shifted hard toward business judgment: People dropped from 42% to 33% of the exam, Process from 50% to 41%, and Business Environment nearly tripled from 8% to 26%, much of that growth pulled from process-mechanics content (change management, risk management) now framed as business-judgment questions instead. The exam also leans further into interactive formats beyond plain multiple-choice, matching, point-and-click, and detailed case-based scenarios, specifically to test applied judgment rather than memorized definitions, and it tests project management across predictive, agile, and hybrid approaches (roughly 40% predictive, the rest split across agile and hybrid), which matters for a construction PM used to thinking mostly in waterfall terms.
 

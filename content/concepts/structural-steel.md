@@ -48,4 +48,6 @@ relatedIds:
   - concept-galvanizing-corrosion-protection
   - concept-miscellaneous-metals
   - concept-structural-steel-erection
+  - concept-precast-concrete
+  - concept-structural-welding
 ---

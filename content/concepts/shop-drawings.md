@@ -48,4 +48,7 @@ relatedIds:
   - lesson-reading-a-set-of-plans
   - lesson-submittals-and-shop-drawings
   - concept-miscellaneous-metals
+  - concept-curtain-wall
+  - concept-precast-concrete
+  - concept-structural-steel
 ---

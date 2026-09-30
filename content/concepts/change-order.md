@@ -44,4 +44,12 @@ relatedIds:
   - concept-cardinal-change
   - concept-differing-site-conditions
   - lesson-value-engineering
+  - career-assistant-project-manager
+  - career-construction-claims-consultant
+  - career-contracts-administrator
+  - career-cost-engineer
+  - career-owners-representative
+  - career-procurement-manager
+  - career-senior-estimator
+  - interview-project-manager
 ---

@@ -50,4 +50,6 @@ relatedIds:
   - concept-masonry-flashing-weeps
   - concept-joint-sealants
   - concept-eifs
+  - concept-brick-veneer
+  - concept-slab-on-grade
 ---

@@ -231,6 +231,8 @@ relatedIds:
   - lesson-project-closeout
   - exam-pmp
   - exam-capm
+  - interview-consultants-advisory
+  - interview-project-operations
 ---
 The CCM exam is 175 multiple-choice questions over 240 minutes (150 scored, 25 unscored pilot items), requiring a 72% overall score to pass, a fixed, published cut score, a real contrast with PMI's PMP/CAPM approach of never publishing one at all. The exam draws from 10 knowledge domains: Program & Project Management (20%, the largest single domain), Cost Management, Time Management, Contract Administration, Quality Management, Safety Management, Risk Management, and Professional Practice (10% each), and Sustainability and Technology (5% each), covering the full construction project lifecycle rather than general management theory.
 

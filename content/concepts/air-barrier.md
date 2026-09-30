@@ -43,4 +43,5 @@ relatedIds:
   - phase-construction
   - concept-eifs
   - concept-passive-house
+  - career-quality-control-manager
 ---

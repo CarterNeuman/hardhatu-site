@@ -36,4 +36,6 @@ relatedIds:
   - concept-special-inspection
   - phase-construction
   - concept-masonry-reinforcement
+  - concept-brick-veneer
+  - concept-masonry-control-joint
 ---

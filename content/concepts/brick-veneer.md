@@ -42,4 +42,5 @@ relatedIds:
   - career-historic-preservation-specialist
   - concept-stone-veneer
   - concept-masonry-flashing-weeps
+  - concept-masonry-control-joint
 ---

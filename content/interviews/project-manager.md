@@ -67,5 +67,6 @@ relatedIds:
   - interview-construction-general
   - career-assistant-project-manager
   - lesson-getting-paid
+  - interview-project-operations
 ---
 A construction Project Manager interview usually mixes the general questions every construction role gets with a set that's specifically about budget, contracts, and coordinating people who don't report to you. The questions below are the ones that come up most often on top of the general guide: review both if this is the role you're going for.

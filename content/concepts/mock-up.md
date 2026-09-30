@@ -39,4 +39,5 @@ relatedIds:
   - concept-first-article-inspection
   - lesson-reading-a-set-of-plans
   - concept-pre-installation-meeting
+  - concept-curtain-wall
 ---

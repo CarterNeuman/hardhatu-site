@@ -235,6 +235,7 @@ relatedIds:
   - career-solar-installer
   - career-qaqc-inspector
   - career-pile-driving-specialist
+  - interview-field-trades
 ---
 The real 10-hour course covers 9 modules built around the [[concept-osha|Focus Four]] hazards, falls, electrocution, struck-by, and caught-in or -between, plus personal protective equipment, health hazards like silica dust and noise, materials handling, and hand and power tool safety, all built on real OSHA citation data from actual jobsites. It also covers the basics of the standard the course draws from (29 CFR 1926), plus workers' rights: the right to a safe workplace, the right to file a complaint without retaliation, and the right to see your own injury and illness records.
 

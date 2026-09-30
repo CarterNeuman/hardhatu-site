@@ -45,4 +45,6 @@ relatedIds:
   - career-historic-preservation-specialist
   - lesson-whos-actually-running-the-job
   - career-permit-expediter
+  - concept-acoustic-treatment
+  - concept-masonry-control-joint
 ---

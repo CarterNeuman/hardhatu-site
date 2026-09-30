@@ -69,5 +69,6 @@ relatedIds:
   - interview-specialized-construction
   - interview-insurance-claims
   - interview-consultants-advisory
+  - career-laborer
 ---
 If you're coming into construction from another field entirely, expect the interview to spend real time on *why* and *how ready are you*, not just *can you do the job*. That's not a bad sign; it usually means they're taking the possibility seriously enough to actually probe it, rather than screening you out before you get in the room. The questions below are the ones that come up specifically because of the career change, on top of (not instead of) the general questions any construction interview covers.

@@ -47,4 +47,24 @@ relatedIds:
   - concept-pay-application
   - lesson-whos-actually-running-the-job
   - concept-spearin-doctrine
+  - career-assistant-project-manager
+  - career-carpenter
+  - career-concrete-worker
+  - career-construction-sales
+  - career-contracts-administrator
+  - career-drywall-installer
+  - career-equipment-operator
+  - career-hvac-technician
+  - career-insurance-adjuster
+  - career-ironworker
+  - career-laborer
+  - career-mason
+  - career-operations-manager
+  - career-painter
+  - career-plumber
+  - career-project-engineer
+  - career-roofer
+  - career-senior-estimator
+  - career-welder
+  - phase-construction
 ---

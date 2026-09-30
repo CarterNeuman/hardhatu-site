@@ -50,4 +50,7 @@ relatedIds:
   - concept-matching-uniformity-appearance
   - concept-roof-matching-statute
   - concept-desk-vs-field-adjuster
+  - career-construction-claims-consultant
+  - career-insurance-restoration-estimator
+  - career-restoration-project-manager
 ---

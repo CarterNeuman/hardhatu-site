@@ -128,5 +128,6 @@ relatedIds:
   - concept-pre-construction-survey
   - concept-laydown-yard
   - concept-pre-installation-meeting
+  - exam-osha-10
 image: "/images/careers/superintendent.jpg"
 ---
