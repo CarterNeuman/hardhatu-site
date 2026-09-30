@@ -7,7 +7,7 @@ import {
   PhaseSchema,
   LessonSchema,
   SoftwareSchema,
-  PathwaySchema,
+  GetHiredSchema,
   ResumeGuideSchema,
   InterviewPrepSchema,
   ExamPrepSchema,
@@ -20,7 +20,7 @@ import {
   type Phase,
   type Lesson,
   type Software,
-  type Pathway,
+  type GetHired,
   type ResumeGuide,
   type ContentType,
   type InterviewPrep,
@@ -42,7 +42,7 @@ type TypeConfig = {
     | typeof PhaseSchema
     | typeof LessonSchema
     | typeof SoftwareSchema
-    | typeof PathwaySchema
+    | typeof GetHiredSchema
     | typeof ResumeGuideSchema
     | typeof InterviewPrepSchema
     | typeof ExamPrepSchema
@@ -62,7 +62,7 @@ export const TYPE_CONFIG: Record<ContentType, TypeConfig> = {
   phase: { dir: CONTENT_TYPE_DIR.phase, prefix: "phase-", schema: PhaseSchema },
   lesson: { dir: CONTENT_TYPE_DIR.lesson, prefix: "lesson-", schema: LessonSchema },
   software: { dir: CONTENT_TYPE_DIR.software, prefix: "software-", schema: SoftwareSchema },
-  pathway: { dir: CONTENT_TYPE_DIR.pathway, prefix: "pathway-", schema: PathwaySchema },
+  gethired: { dir: CONTENT_TYPE_DIR.gethired, prefix: "gethired-", schema: GetHiredSchema },
   resume: { dir: CONTENT_TYPE_DIR.resume, prefix: "resume-", schema: ResumeGuideSchema },
   interview: { dir: CONTENT_TYPE_DIR.interview, prefix: "interview-", schema: InterviewPrepSchema },
   exam: { dir: CONTENT_TYPE_DIR.exam, prefix: "exam-", schema: ExamPrepSchema },
@@ -101,7 +101,7 @@ type ContentStore = {
   phases: Phase[];
   lessons: Lesson[];
   software: Software[];
-  pathways: Pathway[];
+  getHiredGuides: GetHired[];
   resumes: ResumeGuide[];
   interviews: InterviewPrep[];
   exams: ExamPrep[];
@@ -122,7 +122,7 @@ export function getAllContent(): ContentStore {
   const phases = loadType<Phase>("phase");
   const lessons = loadType<Lesson>("lesson");
   const software = loadType<Software>("software");
-  const pathways = loadType<Pathway>("pathway");
+  const getHiredGuides = loadType<GetHired>("gethired");
   const resumes = loadType<ResumeGuide>("resume");
   const interviews = loadType<InterviewPrep>("interview");
   const exams = loadType<ExamPrep>("exam");
@@ -135,7 +135,7 @@ export function getAllContent(): ContentStore {
     ...phases,
     ...lessons,
     ...software,
-    ...pathways,
+    ...getHiredGuides,
     ...resumes,
     ...interviews,
     ...exams,
@@ -150,7 +150,7 @@ export function getAllContent(): ContentStore {
     phases,
     lessons,
     software,
-    pathways,
+    getHiredGuides,
     resumes,
     interviews,
     exams,

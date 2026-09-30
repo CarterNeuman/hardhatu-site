@@ -6,7 +6,7 @@ const TYPE_META: Record<string, { label: string; className: string }> = {
   phase: { label: "Process phase", className: "text-steel" },
   lesson: { label: "Lesson", className: "text-clay" },
   software: { label: "Software", className: "text-navy" },
-  pathway: { label: "Pathway", className: "text-clay" },
+  gethired: { label: "Get Hired Guide", className: "text-clay" },
   resume: { label: "Resume Guide", className: "text-steel" },
   interview: { label: "Interview Prep", className: "text-navy" },
   exam: { label: "Exam Prep", className: "text-amber" },
@@ -25,7 +25,7 @@ export function TypeBadge({
     | "phase"
     | "lesson"
     | "software"
-    | "pathway"
+    | "gethired"
     | "resume"
     | "interview"
     | "exam"

@@ -170,34 +170,86 @@ export const SoftwareSchema = z.object({
   website: z.string().optional(),
 });
 
-// A Pathway is the paid product: a structured course that actually walks
-// someone into a specific career, built out of lessons already in the
-// system rather than new standalone content. Schema only for now — no
-// pages, no content files yet. Two things this shape is built to support
-// later without a rebuild:
-//   - selling one pathway on its own (tied to one career via `careerId`)
-//   - selling a whole category of pathways together (via `category`,
-//     reusing the same groupings as CAREER_CATEGORY_ORDER) — a bundle is
-//     just "every pathway whose category matches X", computed at purchase
-//     time, not a separate record to maintain
-export const PathwaySchema = z.object({
-  ...base,
-  type: z.literal("pathway"),
-  // Same categories as careers (Field & Trades, Insurance & Claims, etc.) —
-  // deliberately not re-derived from `careerId` at load time, so a pathway
-  // file is self-contained and validate-content.mjs can check it directly.
-  category: z.string(),
-  // The one career this pathway prepares someone for.
-  careerId: z.string(),
-  tagline: z.string(),
-  // The actual course — an ordered chain of lesson ids. Required minimum
-  // of 5 so a "pathway" is never thinner than five real lessons' worth of
-  // material; the whole point is that this is where people learn the most.
-  lessonIds: z.array(z.string()).min(5),
-  // Concepts this pathway teaches through directly — real definitions and
-  // real-world examples already living in /content/concepts, not restated.
-  keyConcepts: z.array(z.string()).default([]),
-});
+// A Get Hired guide: the site's one guide per career umbrella (the same 8
+// categories as CAREER_CATEGORY_ORDER) walking someone through how hiring
+// actually works in that part of the industry and what to do about it —
+// replaces the old schema-only, never-built Pathway type. `category` is
+// required (not optional like Interview Prep's) since this type is
+// deliberately exactly 8 guides, one per umbrella, no general/career-
+// specific variants planned.
+export const GetHiredSchema = z
+  .object({
+    ...base,
+    type: z.literal("gethired"),
+    category: z.string(),
+    tagline: z.string(),
+    // True for a guide that's listed (so the section exists and is
+    // navigable) before its real checklist content has been written —
+    // the "skeleton" state, same pattern as ExamPrepSchema's comingSoon.
+    // Once real content is ready, flip to false and the fields below are
+    // enforced by the superRefine below.
+    comingSoon: z.boolean().default(false),
+    // Short narrative: what hiring actually looks like in this umbrella
+    // (who hires, through what channel) before the step-by-step checklist.
+    howHiringWorks: z.string().default(""),
+    // The actual step-by-step checklist — the whole point of the page.
+    // Ordered, same {label, detail} shape as Career's typicalDay.
+    checklist: z
+      .array(z.object({ step: z.string(), detail: z.string() }))
+      .default([]),
+    // Concrete channels — union halls, staffing agencies, job boards,
+    // licensing bodies — free text since real specifics are local/regional
+    // and shouldn't be overclaimed as one nationwide answer.
+    whereToLook: z.array(z.string()).default([]),
+    // Optional — certs/documents worth having ready (OSHA 10 card,
+    // driver's license, portfolio, transcript). Not every umbrella needs
+    // this, so it stays a plain array rather than a required field.
+    credentialsToHaveReady: z.array(z.string()).default([]),
+    // Concrete, specific pitfalls — same spirit as Concept's whatGoesWrong,
+    // not generic "tailor your resume" advice.
+    commonMistakes: z.array(z.string()).default([]),
+    // One specific, doable-today action — rendered as its own callout so
+    // the page always ends with something to actually go do.
+    firstStepToday: z.string().default(""),
+  })
+  .superRefine((data, ctx) => {
+    if (data.comingSoon) return;
+    if (!data.howHiringWorks) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "howHiringWorks is required once a get-hired guide is live (or set comingSoon: true)",
+        path: ["howHiringWorks"],
+      });
+    }
+    if (data.checklist.length < 4) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "checklist needs at least 4 steps once live — a real checklist, not a token gesture (or set comingSoon: true)",
+        path: ["checklist"],
+      });
+    }
+    if (data.whereToLook.length < 1) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "whereToLook needs at least 1 entry once live (or set comingSoon: true)",
+        path: ["whereToLook"],
+      });
+    }
+    if (data.commonMistakes.length < 1) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "commonMistakes needs at least 1 entry once live (or set comingSoon: true)",
+        path: ["commonMistakes"],
+      });
+    }
+    if (!data.firstStepToday) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "firstStepToday is required once live (or set comingSoon: true)",
+        path: ["firstStepToday"],
+      });
+    }
+  });
 
 // A resume-building guide. Kept general-purpose: `careerId` is optional
 // because some guides will be construction-wide ("Construction Resume
@@ -387,7 +439,7 @@ export type ContentType =
   | "phase"
   | "lesson"
   | "software"
-  | "pathway"
+  | "gethired"
   | "resume"
   | "interview"
   | "exam"
@@ -400,7 +452,7 @@ export type Concept = z.infer<typeof ConceptSchema> & { slug: string; body: stri
 export type Phase = z.infer<typeof PhaseSchema> & { slug: string; body: string };
 export type Lesson = z.infer<typeof LessonSchema> & { slug: string; body: string };
 export type Software = z.infer<typeof SoftwareSchema> & { slug: string; body: string };
-export type Pathway = z.infer<typeof PathwaySchema> & { slug: string; body: string };
+export type GetHired = z.infer<typeof GetHiredSchema> & { slug: string; body: string };
 export type ResumeGuide = z.infer<typeof ResumeGuideSchema> & { slug: string; body: string };
 export type InterviewPrep = z.infer<typeof InterviewPrepSchema> & { slug: string; body: string };
 export type ExamPrep = z.infer<typeof ExamPrepSchema> & { slug: string; body: string };
@@ -414,7 +466,7 @@ export type AnyContent =
   | Phase
   | Lesson
   | Software
-  | Pathway
+  | GetHired
   | ResumeGuide
   | InterviewPrep
   | ExamPrep

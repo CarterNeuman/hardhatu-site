@@ -45,10 +45,13 @@ const TYPE_CONFIG = {
     prefix: "software-",
     required: ["id", "title", "category", "whatItIs", "whatItDoes"],
   },
-  pathways: {
-    type: "pathway",
-    prefix: "pathway-",
-    required: ["id", "title", "category", "careerId", "tagline", "lessonIds"],
+  "get-hired": {
+    type: "gethired",
+    prefix: "gethired-",
+    // checklist/whereToLook/commonMistakes/firstStepToday deliberately not
+    // required here — a comingSoon: true placeholder can omit them. The
+    // structural check below enforces the real minimums once live.
+    required: ["id", "title", "category", "tagline"],
   },
   resumes: {
     type: "resume",
@@ -165,11 +168,34 @@ for (const [dir, config] of Object.entries(TYPE_CONFIG)) {
       });
     }
 
-    if (config.type === "pathway" && Array.isArray(data.lessonIds)) {
-      if (data.lessonIds.length < 5) {
-        errors.push(
-          `${filePath}: lessonIds has ${data.lessonIds.length}, needs at least 5 — a pathway should be a real course`
-        );
+    if (config.type === "gethired") {
+      const isComingSoon = data.comingSoon === true;
+      if (!isComingSoon) {
+        const checklist = Array.isArray(data.checklist) ? data.checklist : [];
+        const whereToLook = Array.isArray(data.whereToLook) ? data.whereToLook : [];
+        const commonMistakes = Array.isArray(data.commonMistakes) ? data.commonMistakes : [];
+        if (!data.howHiringWorks) {
+          errors.push(`${filePath}: howHiringWorks is required once live (or set comingSoon: true)`);
+        }
+        if (checklist.length < 4) {
+          errors.push(
+            `${filePath}: checklist has ${checklist.length}, needs at least 4 once live — a real checklist (or set comingSoon: true)`
+          );
+        }
+        checklist.forEach((item, i) => {
+          if (!item.step || !item.detail) {
+            errors.push(`${filePath}: checklist[${i}] needs both "step" and "detail"`);
+          }
+        });
+        if (whereToLook.length < 1) {
+          errors.push(`${filePath}: whereToLook needs at least 1 entry once live (or set comingSoon: true)`);
+        }
+        if (commonMistakes.length < 1) {
+          errors.push(`${filePath}: commonMistakes needs at least 1 entry once live (or set comingSoon: true)`);
+        }
+        if (!data.firstStepToday) {
+          errors.push(`${filePath}: firstStepToday is required once live (or set comingSoon: true)`);
+        }
       }
     }
 

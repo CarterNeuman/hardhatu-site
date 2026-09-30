@@ -15,7 +15,7 @@ export const CONTENT_TYPE_DIR: Record<ContentType, string> = {
   phase: "phases",
   lesson: "lessons",
   software: "software",
-  pathway: "pathways",
+  gethired: "get-hired",
   resume: "resumes",
   interview: "interviews",
   exam: "exams",

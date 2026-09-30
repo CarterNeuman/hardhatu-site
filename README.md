@@ -76,10 +76,13 @@ If it reports an error, it names the exact file and field to fix.
 
 ## What's deliberately not built yet
 
-Per the build plan: search, Pathways/Programs (the "how to actually get
-this job" content), named employer profiles, and the paywall/premium tier
-logic. The schema already has room for all of these — they're additions,
-not rebuilds, when it's time.
+Per the build plan: search, Programs (formal training/apprenticeship
+program listings), named employer profiles, and the paywall/premium tier
+logic. The "how to actually get this job" content is now the Get Hired
+section (content/get-hired/, one guide per career umbrella) — schema and
+the 8 category pages are scaffolded, real checklist content isn't written
+yet. The schema already has room for the rest of these — they're
+additions, not rebuilds, when it's time.
 
 ## Deploying
 

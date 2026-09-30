@@ -6,7 +6,7 @@ type IconKind =
   | "phase"
   | "lesson"
   | "software"
-  | "pathway"
+  | "gethired"
   | "resume"
   | "interview"
   | "exam"
@@ -73,13 +73,12 @@ export function Icon({
       </svg>
     );
   }
-  if (kind === "pathway") {
+  if (kind === "gethired") {
     return (
       <svg viewBox="0 0 24 24" style={style} className={className} aria-hidden="true" focusable="false">
-        <circle cx="5" cy="6" r="2" {...common} />
-        <circle cx="12" cy="18" r="2" {...common} />
-        <circle cx="19" cy="6" r="2" {...common} />
-        <path d="M5 8v4c0 2 1 3 3 3h1M19 8v4c0 2-1 3-3 3h-1" {...common} />
+        <circle cx="12" cy="12" r="8" {...common} />
+        <circle cx="12" cy="12" r="4" {...common} />
+        <circle cx="12" cy="12" r="0.6" fill="currentColor" stroke="none" />
       </svg>
     );
   }

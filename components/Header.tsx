@@ -97,6 +97,7 @@ export function Header({
   // Single-page sections that don't need their own dropdown — Lessons sits
   // between Concepts and Interview Prep, Exam Prep/Software after.
   const trailingLinks = [
+    { href: "/get-hired", label: "Get Hired" },
     { href: "/exams", label: "Exam Prep" },
     { href: "/software", label: "Software" },
     { href: "/quizzes/find-your-career", label: "Career Quiz" },
