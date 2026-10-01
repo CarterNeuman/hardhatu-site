@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getAllContent, groupExamsByCategory, slugifyCategory } from "@/lib/content";
 import { CategorySection } from "@/components/CategorySection";
 import { ContentCard } from "@/components/ContentCard";
+import { EntryLevelBadge } from "@/components/EntryLevelBadge";
 import { CATEGORY_SLUG } from "@/components/Header";
 
 export const metadata: Metadata = {
@@ -20,6 +21,8 @@ export default function ExamsIndexPage() {
       <p className="mt-3 max-w-2xl text-steel">
         {exams.length} certifications: unofficial, independent study material tied to the real
         exams the industry actually asks for, grouped by the career category they matter most to.
+        Certifications marked <span className="font-semibold text-ink">Entry Level</span> have no
+        prior work-experience requirement to sit the exam.
       </p>
 
       {groups.map((group) => (
@@ -30,7 +33,12 @@ export default function ExamsIndexPage() {
           count={group.items.length}
         >
           {group.items.map((exam) => (
-            <ContentCard key={exam.id} item={exam} description={exam.tagline} />
+            <ContentCard
+              key={exam.id}
+              item={exam}
+              description={exam.tagline}
+              badge={exam.tier === "free" ? <EntryLevelBadge /> : undefined}
+            />
           ))}
         </CategorySection>
       ))}

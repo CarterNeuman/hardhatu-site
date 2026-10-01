@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { getAllContent, getBySlug, getRelated } from "@/lib/content";
 import type { ExamPrep } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
+import { EntryLevelBadge } from "@/components/EntryLevelBadge";
 import { SectionLabel } from "@/components/SectionLabel";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { Disclaimer } from "@/components/Disclaimer";
@@ -44,7 +45,10 @@ export default async function ExamPage({
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-10">
-      <TypeBadge type="exam" tier={exam.tier} />
+      <div className="flex items-center gap-2">
+        <TypeBadge type="exam" tier={exam.tier} />
+        {exam.tier === "free" && <EntryLevelBadge />}
+      </div>
       <h1 className="mt-2 font-display text-4xl font-bold text-ink">{exam.title}</h1>
       <p className="mt-1 text-xs uppercase tracking-wide text-steel">{exam.examName}</p>
       <p className="mt-3 text-lg leading-relaxed text-ink">{exam.tagline}</p>
