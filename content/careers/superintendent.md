@@ -132,5 +132,6 @@ relatedIds:
   - resume-project-operations
   - gethired-project-operations
   - exam-cpr-first-aid
+  - exam-nccco-crane-operator
 image: "/images/careers/superintendent.jpg"
 ---

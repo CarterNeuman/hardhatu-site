@@ -108,6 +108,7 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - exam-cpr-first-aid
+  - exam-journeyman-electrician
 image: "/images/careers/electrician.jpg"
 
 ---

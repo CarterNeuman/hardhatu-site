@@ -95,4 +95,6 @@ relatedIds:
   - concept-jobsite-iot-sensors
   - resume-project-operations
   - gethired-project-operations
+  - exam-cwi
+  - exam-icc-building-inspector
 ---

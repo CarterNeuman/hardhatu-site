@@ -165,6 +165,9 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - exam-nate-ready-to-work
+  - exam-journeyman-electrician
+  - exam-journeyman-plumber
+  - exam-nccco-crane-operator
 ---
 Interviews for hands-on trade roles rarely look like an office hiring process. Sometimes it's a five-minute conversation with a foreman or superintendent in a jobsite trailer, sometimes it's a phone screen with an HR generalist or a staffing agency that places you after a short call, and sometimes, especially through a union, it's dispatch based on seniority and availability rather than a traditional interview at all. If you're entering a formal apprenticeship, expect something closer to a panel interview, often with a basic aptitude test, focused on commitment to a multi-year program rather than existing skill. Whatever the format, show up dressed and ready to work; you may be asked to walk the site on the spot, and turning up in the wrong clothes reads as unprepared no matter how good your answers are.
 

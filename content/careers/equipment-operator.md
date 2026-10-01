@@ -99,6 +99,7 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - exam-cpr-first-aid
+  - exam-nccco-crane-operator
 image: "/images/careers/equipment-operator.jpg"
 
 ---

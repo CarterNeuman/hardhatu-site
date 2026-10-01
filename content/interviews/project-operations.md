@@ -125,6 +125,9 @@ relatedIds:
   - resume-project-operations
   - gethired-project-operations
   - exam-cdt
+  - exam-cwi
+  - exam-chst
+  - exam-icc-building-inspector
 ---
 Hiring for this category usually runs through a multi-stage process: a recruiter or HR phone screen focused on background and software fluency, followed by one or more interviews with the operations manager, superintendent, or project manager you'd actually work under. Expect scenario-based questions, such as "how would you handle this RFI, this scheduling conflict, this budget variance," rather than only behavioral ones, especially the further along the process you get. For field-facing roles like Superintendent, the interview itself often happens at a jobsite trailer rather than an office, so dress and show up ready for that setting rather than a conference room.
 

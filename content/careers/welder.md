@@ -81,5 +81,6 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - exam-cpr-first-aid
+  - exam-cwi
 image: "/images/careers/welder.jpg"
 ---

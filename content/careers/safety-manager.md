@@ -125,5 +125,6 @@ relatedIds:
   - career-hr-manager-construction
   - resume-project-operations
   - gethired-project-operations
+  - exam-chst
 image: "/images/careers/safety-manager.jpg"
 ---

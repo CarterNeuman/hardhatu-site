@@ -89,5 +89,6 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - exam-cpr-first-aid
+  - exam-journeyman-plumber
 image: "/images/careers/plumber.jpg"
 ---
