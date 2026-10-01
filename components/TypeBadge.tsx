@@ -9,7 +9,7 @@ const TYPE_META: Record<string, { label: string; className: string }> = {
   gethired: { label: "Get Hired Guide", className: "text-clay" },
   resume: { label: "Resume Guide", className: "text-steel" },
   interview: { label: "Interview Prep", className: "text-navy" },
-  exam: { label: "Exam Prep", className: "text-amber" },
+  exam: { label: "Get Qualified", className: "text-amber" },
   cheatsheet: { label: "Cheat Sheet", className: "text-clay" },
   quiz: { label: "Career Match Quiz", className: "text-steel" },
   program: { label: "Program Finder", className: "text-navy" },

@@ -62,7 +62,7 @@ export function Footer({
           <h3 className="text-xs font-semibold uppercase tracking-wide text-paper/60">Get Hired</h3>
           <ul className="mt-3 flex flex-col gap-2">
             <li><Link href="/interviews" className="text-sm text-paper/90 hover:underline">Interview Prep</Link></li>
-            <li><Link href="/exams" className="text-sm text-paper/90 hover:underline">Exam Prep</Link></li>
+            <li><Link href="/exams" className="text-sm text-paper/90 hover:underline">Get Qualified</Link></li>
           </ul>
         </div>
       </div>

@@ -9,7 +9,7 @@
 //
 // Two variants:
 //  - "timed" (default): content is visible for `delaySeconds`, then the
-//    gate appears over it. Used on Lessons/Interview Prep/Exam Prep/
+//    gate appears over it. Used on Lessons/Interview Prep/Get Qualified/
 //    Phases/Software detail pages.
 //  - "immediate": the gate appears right away, no delay. Used on the
 //    Career Match Quiz's result screen, where the result itself is the

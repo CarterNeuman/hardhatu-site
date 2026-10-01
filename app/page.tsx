@@ -25,7 +25,7 @@ const LEARN_SECTIONS = [
   },
   {
     href: "/exams",
-    label: "Exam Prep",
+    label: "Get Qualified",
     kind: "exam" as const,
     blurb: "Independent study material for real certifications like OSHA-10 and the PMP.",
   },

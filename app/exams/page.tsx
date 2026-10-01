@@ -5,7 +5,7 @@ import { ContentCard } from "@/components/ContentCard";
 import { CATEGORY_SLUG } from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "Exam Prep",
+  title: "Get Qualified",
   description:
     "Independent study material for real construction certifications: OSHA-10/30, the PMP, CCM, LEED Green Associate, and more.",
 };
@@ -16,7 +16,7 @@ export default function ExamsIndexPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-10">
-      <h1 className="font-display text-4xl font-bold text-ink">Exam Prep</h1>
+      <h1 className="font-display text-4xl font-bold text-ink">Get Qualified</h1>
       <p className="mt-3 max-w-2xl text-steel">
         {exams.length} certifications: unofficial, independent study material tied to the real
         exams the industry actually asks for, grouped by the career category they matter most to.

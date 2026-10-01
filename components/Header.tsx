@@ -96,14 +96,14 @@ export function Header({
 
   // Single-page sections that don't need their own dropdown. Order after
   // Lessons: Phases, Software, Career Quiz, Get Hired, then the Interview
-  // Prep dropdown, then Exam Prep last.
+  // Prep dropdown, then Get Qualified last.
   const midLinks = [
     { href: "/phases", label: "Phases" },
     { href: "/software", label: "Software" },
     { href: "/quizzes/find-your-career", label: "Career Quiz" },
     { href: "/get-hired", label: "Get Hired" },
   ];
-  const finalLinks = [{ href: "/exams", label: "Exam Prep" }];
+  const finalLinks = [{ href: "/exams", label: "Get Qualified" }];
 
   return (
     <header className="sticky top-0 z-40 border-b border-hairline bg-paper">

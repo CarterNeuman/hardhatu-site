@@ -42,7 +42,7 @@ export default function TermsPage() {
           <h2 className="font-display text-2xl font-bold text-ink">Free to use</h2>
           <p className="mt-3">
             The careers and concepts sections are free to read and will stay that way.
-            Some future sections (deeper lessons, interview prep, exam prep) may eventually
+            Some future sections (deeper lessons, interview prep, certification prep) may eventually
             require a free account or a subscription. There are no accounts or paid
             features today, and this page will be updated before that changes.
           </p>

@@ -94,7 +94,7 @@ export default function PrivacyPage() {
           <h2 className="font-display text-2xl font-bold text-ink">What may change</h2>
           <p className="mt-3">
             HardHatU plans to eventually offer optional accounts for some deeper study
-            content (lessons, interview prep, and exam prep), while careers and concepts
+            content (lessons, interview prep, and certification prep), while careers and concepts
             stay free and open. If and when accounts launch, this policy will be rewritten
             to explain exactly what account information is collected, how it's stored, and
             how it's used, and that update will be dated and called out clearly, not

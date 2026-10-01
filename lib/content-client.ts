@@ -115,7 +115,7 @@ export function groupResumesByCategory(
   return general.length > 0 ? [{ category: "General", items: general }, ...result] : result;
 }
 
-// Exam Prep also carries the same category strings (a handful of the 8,
+// Get Qualified also carries the same category strings (a handful of the 8,
 // not all — not every category has a certification exam tied to it yet).
 // Anything with no category lands in its own group rather than vanishing.
 export function groupExamsByCategory(

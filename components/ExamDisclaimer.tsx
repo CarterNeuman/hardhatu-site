@@ -1,4 +1,4 @@
-// Required on every Exam Prep page. These pages reference real, named
+// Required on every Get Qualified page. These pages reference real, named
 // third-party certifications (OSHA, PMI, NCCER, etc.) by name — legally
 // fine on its own (naming a real exam to say you offer unofficial prep for
 // it is standard nominative fair use and doesn't need permission), but the

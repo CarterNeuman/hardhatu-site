@@ -44,7 +44,7 @@ export default function AboutPage() {
           <p className="mt-3">
             HardHatU is an independent, still-growing project. Careers and concepts are, and
             will always stay, completely free. Over time the site will add more content
-            (lessons, interview and exam prep, real jobsite photography) and eventually
+            (lessons, interview and certification prep, real jobsite photography) and eventually
             some optional accounts for the deeper study material, but the core reference
             library isn't going behind a paywall.
           </p>
