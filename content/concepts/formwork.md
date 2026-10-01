@@ -42,5 +42,6 @@ relatedIds:
   - concept-tilt-up-concrete
   - concept-shotcrete
   - lesson-from-dirt-to-deck
+  - lesson-concrete-and-foundations-in-practice
 
 ---

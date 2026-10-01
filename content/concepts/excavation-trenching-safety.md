@@ -40,4 +40,5 @@ relatedIds:
   - concept-osha
   - phase-construction
   - concept-trench-box-protective-system
+  - lesson-heavy-equipment-and-earthwork
 ---

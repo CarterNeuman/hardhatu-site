@@ -37,4 +37,5 @@ relatedIds:
   - phase-construction
   - career-gis-specialist
   - concept-autonomous-equipment
+  - lesson-heavy-equipment-and-earthwork
 ---

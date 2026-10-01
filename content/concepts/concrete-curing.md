@@ -43,4 +43,5 @@ relatedIds:
   - concept-resilient-flooring
   - concept-jobsite-iot-sensors
   - lesson-from-dirt-to-deck
+  - lesson-concrete-and-foundations-in-practice
 ---

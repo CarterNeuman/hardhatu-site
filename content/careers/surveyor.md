@@ -82,4 +82,5 @@ relatedIds:
   - resume-technology-design
   - gethired-technology-design
   - exam-fe
+  - lesson-heavy-equipment-and-earthwork
 ---

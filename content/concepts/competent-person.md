@@ -43,4 +43,5 @@ relatedIds:
   - phase-construction
   - lesson-jobsite-safety-in-practice
   - concept-trench-box-protective-system
+  - lesson-heavy-equipment-and-earthwork
 ---

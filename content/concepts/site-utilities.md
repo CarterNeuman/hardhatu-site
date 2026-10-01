@@ -43,5 +43,6 @@ relatedIds:
   - phase-site-preparation-mobilization
   - career-civil-engineer
   - career-heavy-civil-estimator
+  - lesson-heavy-equipment-and-earthwork
 
 ---

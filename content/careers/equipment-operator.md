@@ -100,6 +100,7 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - exam-nccco-crane-operator
+  - lesson-heavy-equipment-and-earthwork
 image: "/images/careers/equipment-operator.jpg"
 
 ---

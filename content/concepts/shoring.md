@@ -43,5 +43,6 @@ relatedIds:
   - career-demolition-supervisor
   - career-pile-driving-specialist
   - concept-trench-box-protective-system
+  - lesson-heavy-equipment-and-earthwork
 
 ---

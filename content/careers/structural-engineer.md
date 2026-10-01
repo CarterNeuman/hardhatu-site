@@ -93,5 +93,6 @@ relatedIds:
   - resume-technology-design
   - gethired-technology-design
   - exam-fe
+  - lesson-concrete-and-foundations-in-practice
 image: "/images/careers/structural-engineer.jpg"
 ---

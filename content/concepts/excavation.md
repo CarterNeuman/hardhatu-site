@@ -50,5 +50,6 @@ relatedIds:
   - concept-geotechnical-report
   - concept-dewatering
   - concept-blasting-rock-removal
+  - lesson-heavy-equipment-and-earthwork
 
 ---

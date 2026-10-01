@@ -86,6 +86,7 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - exam-cpr-first-aid
+  - lesson-concrete-and-foundations-in-practice
 image: "/images/careers/concrete-worker.jpg"
 
 ---

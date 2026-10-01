@@ -35,4 +35,5 @@ relatedIds:
   - career-concrete-worker
   - concept-concrete-curing
   - concept-formwork
+  - lesson-concrete-and-foundations-in-practice
 ---

@@ -34,4 +34,5 @@ relatedIds:
   - concept-excavation-trenching-safety
   - concept-competent-person
   - concept-shoring
+  - lesson-heavy-equipment-and-earthwork
 ---
