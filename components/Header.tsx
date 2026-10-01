@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { urlFor, slugifyCategory } from "@/lib/content-client";
-import type { Career, Concept, InterviewPrep } from "@/lib/types";
+import type { Career, Concept, GetHired, InterviewPrep } from "@/lib/types";
 
 // The "Solid Mark, Tile Badge" logo — a rounded navy tile holding a solid
 // hardhat silhouette, its brim and rib lines etched in reverse, with an
@@ -45,12 +45,13 @@ const CATEGORY_SLUG: Record<string, string> = {
   "Consultants & Advisory": "consultants-advisory",
 };
 
-type MenuKey = "careers" | "concepts" | "interviews";
+type MenuKey = "careers" | "concepts" | "gethired" | "interviews";
 
 export function Header({
   careerGroups,
   interviewGroups,
   conceptGroups,
+  getHiredGuides,
   careerCount,
   interviewCount,
   conceptCount,
@@ -58,6 +59,7 @@ export function Header({
   careerGroups: CareerGroup[];
   interviewGroups: InterviewGroup[];
   conceptGroups: ConceptGroup[];
+  getHiredGuides: GetHired[];
   careerCount: number;
   interviewCount: number;
   conceptCount: number;
@@ -95,13 +97,12 @@ export function Header({
   const toggle = (menu: MenuKey) => setOpenMenu((current) => (current === menu ? null : menu));
 
   // Single-page sections that don't need their own dropdown. Order after
-  // Lessons: Phases, Software, Career Quiz, Get Hired, then the Interview
-  // Prep dropdown, then Get Qualified last.
+  // Lessons: Phases, Software, Career Quiz, then the Get Hired dropdown,
+  // then the Interview Prep dropdown, then Get Qualified last.
   const midLinks = [
     { href: "/phases", label: "Phases" },
     { href: "/software", label: "Software" },
     { href: "/quizzes/find-your-career", label: "Career Quiz" },
-    { href: "/get-hired", label: "Get Hired" },
   ];
   const finalLinks = [{ href: "/exams", label: "Get Qualified" }];
 
@@ -214,6 +215,37 @@ export function Header({
               {link.label}
             </Link>
           ))}
+
+          <div className="relative">
+            <button
+              onClick={() => toggle("gethired")}
+              className={`inline-flex items-center gap-1.5 px-3 py-2 text-[0.96rem] font-medium ${
+                openMenu === "gethired" ? "text-navy" : "text-ink hover:text-navy"
+              }`}
+              aria-expanded={openMenu === "gethired"}
+            >
+              Get Hired
+              <Caret open={openMenu === "gethired"} />
+            </button>
+            {openMenu === "gethired" && (
+              <div className="absolute left-0 top-full grid min-w-[360px] grid-cols-2 gap-x-6 gap-y-2.5 border border-hairline bg-paper p-5 shadow-lg">
+                {getHiredGuides.map((guide) => (
+                  <Link
+                    key={guide.id}
+                    href={urlFor(guide)}
+                    className="text-sm leading-snug text-ink hover:text-navy hover:underline"
+                  >
+                    {guide.category}
+                  </Link>
+                ))}
+                <div className="col-span-full border-t border-hairline pt-3 text-sm">
+                  <Link href="/get-hired" className="font-semibold text-navy hover:underline">
+                    How hiring actually works, by category →
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
 
           <div className="relative">
             <button
@@ -367,6 +399,29 @@ export function Header({
               {link.label}
             </Link>
           ))}
+
+          <MobileSection
+            label="Get Hired"
+            open={openMenu === "gethired"}
+            onToggle={() => toggle("gethired")}
+          >
+            <ul className="mt-1.5 flex flex-col gap-1.5">
+              {getHiredGuides.map((guide) => (
+                <li key={guide.id}>
+                  <Link href={urlFor(guide)} className="text-sm text-ink" onClick={() => setMobileOpen(false)}>
+                    {guide.category}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/get-hired"
+              className="mt-3 block text-sm font-semibold text-navy"
+              onClick={() => setMobileOpen(false)}
+            >
+              How hiring actually works, by category →
+            </Link>
+          </MobileSection>
 
           <MobileSection
             label="Interview Prep"
