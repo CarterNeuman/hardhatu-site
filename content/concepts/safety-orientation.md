@@ -40,4 +40,5 @@ relatedIds:
   - phase-site-preparation-mobilization
   - concept-emergency-action-plan
   - concept-osha-10-30-training
+  - lesson-a-day-as-a-laborer
 ---

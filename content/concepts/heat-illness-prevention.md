@@ -34,4 +34,5 @@ relatedIds:
   - career-safety-manager
   - concept-osha
   - phase-construction
+  - lesson-a-day-as-a-laborer
 ---

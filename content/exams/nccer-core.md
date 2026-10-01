@@ -248,6 +248,7 @@ relatedIds:
   - career-millwright
   - career-assistant-superintendent
   - gethired-field-trades
+  - lesson-a-day-as-a-laborer
 ---
 The real Core Curriculum is 10 modules built to get someone with zero construction background ready for entry-level work, and ready to start a trade-specific NCCER program afterward: an introductory module on construction career paths, Basic Safety, Introduction to Construction Math, Introduction to Hand Tools, Introduction to Power Tools, Introduction to Construction Drawings, Basic Communication Skills, Basic Employability Skills, Introduction to Materials Handling, and an elective on basic rigging. It's deliberately broad rather than trade-specific, since it's meant to work as the shared prerequisite underneath electrical, carpentry, HVAC, welding, and most other NCCER craft pathways, not a stand-in for any one of them.
 

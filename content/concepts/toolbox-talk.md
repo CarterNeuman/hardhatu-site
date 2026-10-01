@@ -38,4 +38,5 @@ relatedIds:
   - lesson-jobsite-safety-in-practice
   - career-assistant-superintendent
   - concept-emergency-action-plan
+  - lesson-a-day-as-a-laborer
 ---

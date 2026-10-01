@@ -81,5 +81,6 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - exam-cpr-first-aid
+  - lesson-a-day-as-a-laborer
 image: "/images/careers/laborer.jpg"
 ---

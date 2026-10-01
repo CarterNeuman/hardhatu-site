@@ -35,4 +35,5 @@ relatedIds:
   - concept-competent-person
   - concept-osha
   - phase-construction
+  - lesson-a-day-as-a-laborer
 ---

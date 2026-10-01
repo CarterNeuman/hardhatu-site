@@ -212,4 +212,5 @@ relatedIds:
   - interview-project-operations
   - career-assistant-superintendent
   - exam-cpr-first-aid
+  - lesson-a-day-as-a-laborer
 ---

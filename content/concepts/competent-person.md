@@ -44,4 +44,5 @@ relatedIds:
   - lesson-jobsite-safety-in-practice
   - concept-trench-box-protective-system
   - lesson-heavy-equipment-and-earthwork
+  - lesson-a-day-as-a-laborer
 ---
