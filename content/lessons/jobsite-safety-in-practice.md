@@ -211,4 +211,5 @@ relatedIds:
   - exam-nccer-core
   - interview-project-operations
   - career-assistant-superintendent
+  - exam-cpr-first-aid
 ---

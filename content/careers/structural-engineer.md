@@ -92,5 +92,6 @@ relatedIds:
   - concept-generative-design
   - resume-technology-design
   - gethired-technology-design
+  - exam-fe
 image: "/images/careers/structural-engineer.jpg"
 ---

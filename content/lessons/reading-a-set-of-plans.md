@@ -222,4 +222,5 @@ relatedIds:
   - career-permit-expediter
   - career-project-engineer
   - interview-project-operations
+  - exam-cdt
 ---

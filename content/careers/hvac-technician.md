@@ -96,5 +96,7 @@ relatedIds:
   - concept-cooling-tower
   - gethired-field-trades
   - resume-field-trades
+  - exam-cpr-first-aid
+  - exam-nate-ready-to-work
 image: "/images/careers/hvac-technician.jpg"
 ---

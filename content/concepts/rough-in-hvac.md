@@ -42,4 +42,5 @@ relatedIds:
   - lesson-building-sequence
   - career-mep-engineer
   - concept-boiler
+  - exam-nate-ready-to-work
 ---

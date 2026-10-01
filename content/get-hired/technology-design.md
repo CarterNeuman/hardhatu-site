@@ -76,5 +76,6 @@ relatedIds:
   - career-mep-engineer
   - career-structural-engineer
   - career-surveyor
+  - exam-fe
 ---
 Whether you're aiming for [[career-bim-vdc-specialist|BIM/VDC specialist]] or [[career-construction-technology-manager|construction technology manager]], this category is judged on proof more than pedigree. Here's how to actually show it.

@@ -88,5 +88,6 @@ relatedIds:
   - concept-irrigation-system
   - gethired-field-trades
   - resume-field-trades
+  - exam-cpr-first-aid
 image: "/images/careers/plumber.jpg"
 ---

@@ -106,5 +106,6 @@ relatedIds:
   - career-procurement-manager
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
+  - exam-cdt
 image: "/images/careers/estimator.jpg"
 ---

@@ -101,6 +101,7 @@ relatedIds:
   - concept-construction-robotics-automation
   - gethired-field-trades
   - resume-field-trades
+  - exam-cpr-first-aid
 image: "/images/careers/carpenter.jpg"
 
 ---

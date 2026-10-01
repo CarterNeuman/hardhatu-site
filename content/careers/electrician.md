@@ -107,6 +107,7 @@ relatedIds:
   - concept-ev-charging-infrastructure
   - gethired-field-trades
   - resume-field-trades
+  - exam-cpr-first-aid
 image: "/images/careers/electrician.jpg"
 
 ---

@@ -96,5 +96,7 @@ relatedIds:
   - career-millwright
   - career-solar-installer
   - resume-field-trades
+  - exam-cpr-first-aid
+  - exam-nate-ready-to-work
 ---
 If you're aiming for a trade like [[career-carpenter|carpentry]], [[career-electrician|electrical]], or [[career-equipment-operator|running equipment]], getting hired looks less like submitting an application and more like picking a door and walking through it. Here's what that actually looks like, step by step.

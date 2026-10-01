@@ -81,4 +81,5 @@ relatedIds:
   - career-gis-specialist
   - resume-technology-design
   - gethired-technology-design
+  - exam-fe
 ---

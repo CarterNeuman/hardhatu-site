@@ -98,6 +98,7 @@ relatedIds:
   - lesson-from-dirt-to-deck
   - gethired-field-trades
   - resume-field-trades
+  - exam-cpr-first-aid
 image: "/images/careers/equipment-operator.jpg"
 
 ---

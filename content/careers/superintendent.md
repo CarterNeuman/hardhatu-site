@@ -131,5 +131,6 @@ relatedIds:
   - exam-osha-10
   - resume-project-operations
   - gethired-project-operations
+  - exam-cpr-first-aid
 image: "/images/careers/superintendent.jpg"
 ---

@@ -80,5 +80,6 @@ relatedIds:
   - concept-bolted-vs-welded-connections
   - gethired-field-trades
   - resume-field-trades
+  - exam-cpr-first-aid
 image: "/images/careers/welder.jpg"
 ---

@@ -35,4 +35,5 @@ relatedIds:
   - concept-safety-orientation
   - concept-job-hazard-analysis
   - gethired-field-trades
+  - exam-cpr-first-aid
 ---

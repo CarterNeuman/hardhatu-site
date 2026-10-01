@@ -88,6 +88,7 @@ relatedIds:
   - career-construction-technology-manager
   - resume-technology-design
   - gethired-technology-design
+  - exam-fe
 ---
 Expect a more technical, portfolio-driven interview process than most construction roles get; bring, or be ready to screen-share, real work samples: a coordinated BIM model, a CAD drawing set, a dashboard you've built, or drone-captured site data. These roles are unusually easy to evaluate on actual work product compared to most construction jobs, and interviewers know it. The people interviewing you often include someone from the discipline itself, such as a BIM manager or a licensed surveyor, rather than only HR, and a direct technical screen on specific software (Revit, Navisworks, AutoCAD, a particular BI tool) is common.
 

@@ -62,4 +62,5 @@ relatedIds:
   - concept-hazcom-standard
   - concept-nfpa-70e
   - concept-osha-10-30-training
+  - exam-cpr-first-aid
 ---

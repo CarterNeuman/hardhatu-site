@@ -68,5 +68,6 @@ relatedIds:
   - concept-wall-coverings
   - gethired-field-trades
   - resume-field-trades
+  - exam-cpr-first-aid
 image: "/images/careers/drywall-installer.jpg"
 ---

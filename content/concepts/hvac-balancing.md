@@ -37,4 +37,5 @@ relatedIds:
   - career-commissioning-agent
   - concept-air-handling-unit
   - concept-vav-box
+  - exam-nate-ready-to-work
 ---

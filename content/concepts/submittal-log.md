@@ -37,4 +37,5 @@ relatedIds:
   - lesson-reading-a-set-of-plans
   - lesson-submittals-and-shop-drawings
   - concept-om-manuals
+  - exam-cdt
 ---

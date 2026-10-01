@@ -107,5 +107,6 @@ relatedIds:
   - lesson-submittals-and-shop-drawings
   - resume-project-operations
   - gethired-project-operations
+  - exam-cdt
 image: "/images/careers/project-engineer.jpg"
 ---

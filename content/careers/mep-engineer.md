@@ -103,4 +103,6 @@ relatedIds:
   - concept-ev-charging-infrastructure
   - resume-technology-design
   - gethired-technology-design
+  - exam-nate-ready-to-work
+  - exam-fe
 ---
