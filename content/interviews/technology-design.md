@@ -90,6 +90,8 @@ relatedIds:
   - gethired-technology-design
   - exam-fe
 ---
+  - lesson-3d-modeling-in-practice
+  - lesson-drones-scanning-and-mapping
 Expect a more technical, portfolio-driven interview process than most construction roles get; bring, or be ready to screen-share, real work samples: a coordinated BIM model, a CAD drawing set, a dashboard you've built, or drone-captured site data. These roles are unusually easy to evaluate on actual work product compared to most construction jobs, and interviewers know it. The people interviewing you often include someone from the discipline itself, such as a BIM manager or a licensed surveyor, rather than only HR, and a direct technical screen on specific software (Revit, Navisworks, AutoCAD, a particular BI tool) is common.
 
 If you're newer to construction generally, lean on your technical or software skill as the differentiator, and be upfront about what construction-specific knowledge, such as reading drawings or understanding how trades sequence work, you're still building. Interviewers in this category tend to weigh technical proficiency heavily enough that a real skill gap in construction fundamentals isn't disqualifying if you're honest about it and clearly capable of learning it.

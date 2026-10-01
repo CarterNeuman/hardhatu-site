@@ -72,5 +72,6 @@ relatedIds:
   - career-construction-technology-manager
   - resume-technology-design
   - gethired-technology-design
+  - lesson-drones-scanning-and-mapping
 image: "/images/careers/drone-uav-specialist.jpg"
 ---

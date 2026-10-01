@@ -75,3 +75,4 @@ relatedIds:
   - resume-technology-design
   - gethired-technology-design
 ---
+  - lesson-drones-scanning-and-mapping

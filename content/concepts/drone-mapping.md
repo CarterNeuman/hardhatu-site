@@ -37,3 +37,4 @@ relatedIds:
   - phase-construction
   - career-gis-specialist
 ---
+  - lesson-drones-scanning-and-mapping

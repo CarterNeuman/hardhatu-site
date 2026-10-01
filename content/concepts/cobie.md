@@ -40,3 +40,4 @@ relatedIds:
   - career-facilities-manager
   - concept-om-manuals
 ---
+  - lesson-3d-modeling-in-practice

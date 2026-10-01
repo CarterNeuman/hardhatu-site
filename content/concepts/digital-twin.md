@@ -37,3 +37,4 @@ relatedIds:
   - phase-operations-maintenance
   - career-construction-technology-manager
 ---
+  - lesson-3d-modeling-in-practice

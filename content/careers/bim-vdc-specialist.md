@@ -84,3 +84,4 @@ relatedIds:
   - resume-technology-design
   - gethired-technology-design
 ---
+  - lesson-3d-modeling-in-practice

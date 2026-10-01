@@ -41,3 +41,4 @@ relatedIds:
   - lesson-reading-a-set-of-plans
   - concept-clash-detection
 ---
+  - lesson-3d-modeling-in-practice

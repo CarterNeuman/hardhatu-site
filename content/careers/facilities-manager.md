@@ -105,3 +105,4 @@ relatedIds:
   - resume-specialized-construction
   - gethired-specialized-construction
 ---
+  - lesson-3d-modeling-in-practice

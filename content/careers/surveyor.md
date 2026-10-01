@@ -84,3 +84,4 @@ relatedIds:
   - exam-fe
   - lesson-heavy-equipment-and-earthwork
 ---
+  - lesson-drones-scanning-and-mapping

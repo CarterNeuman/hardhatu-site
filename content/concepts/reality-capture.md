@@ -40,3 +40,4 @@ relatedIds:
   - career-gis-specialist
   - career-construction-technology-manager
 ---
+  - lesson-drones-scanning-and-mapping

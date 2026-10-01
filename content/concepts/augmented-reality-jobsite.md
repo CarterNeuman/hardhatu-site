@@ -39,3 +39,4 @@ relatedIds:
   - concept-bim
   - concept-clash-detection
 ---
+  - lesson-3d-modeling-in-practice

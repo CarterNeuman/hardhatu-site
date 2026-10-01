@@ -168,3 +168,4 @@ relatedIds:
   - exam-autodesk-certified-professional
   - career-mep-engineer
 ---
+  - lesson-3d-modeling-in-practice
