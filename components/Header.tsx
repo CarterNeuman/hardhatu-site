@@ -108,8 +108,8 @@ export function Header({
   return (
     <header className="sticky top-0 z-40 border-b border-hairline bg-paper">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-3.5">
-        <Link href="/" className="flex shrink-0 items-center gap-2 font-display text-xl font-bold tracking-tight text-ink">
-          <HardHatMark size={32} />
+        <Link href="/" className="flex shrink-0 items-center gap-2 font-display text-[1.38rem] font-bold tracking-tight text-ink">
+          <HardHatMark size={35} />
           <span>
             hardhat<span className="text-amber">U</span>
           </span>
@@ -120,7 +120,7 @@ export function Header({
           <div className="relative">
             <button
               onClick={() => toggle("careers")}
-              className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium ${
+              className={`inline-flex items-center gap-1.5 px-3 py-2 text-[0.96rem] font-medium ${
                 openMenu === "careers" ? "text-navy" : "text-ink hover:text-navy"
               }`}
               aria-expanded={openMenu === "careers"}
@@ -164,7 +164,7 @@ export function Header({
           <div className="relative">
             <button
               onClick={() => toggle("concepts")}
-              className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium ${
+              className={`inline-flex items-center gap-1.5 px-3 py-2 text-[0.96rem] font-medium ${
                 openMenu === "concepts" ? "text-navy" : "text-ink hover:text-navy"
               }`}
               aria-expanded={openMenu === "concepts"}
@@ -205,12 +205,12 @@ export function Header({
             )}
           </div>
 
-          <Link href="/lessons" className="px-3 py-2 text-sm font-medium text-ink hover:text-navy">
+          <Link href="/lessons" className="px-3 py-2 text-[0.96rem] font-medium text-ink hover:text-navy">
             Lessons
           </Link>
 
           {midLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="px-3 py-2 text-sm font-medium text-ink hover:text-navy">
+            <Link key={link.href} href={link.href} className="px-3 py-2 text-[0.96rem] font-medium text-ink hover:text-navy">
               {link.label}
             </Link>
           ))}
@@ -218,7 +218,7 @@ export function Header({
           <div className="relative">
             <button
               onClick={() => toggle("interviews")}
-              className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium ${
+              className={`inline-flex items-center gap-1.5 px-3 py-2 text-[0.96rem] font-medium ${
                 openMenu === "interviews" ? "text-navy" : "text-ink hover:text-navy"
               }`}
               aria-expanded={openMenu === "interviews"}
@@ -257,7 +257,7 @@ export function Header({
           </div>
 
           {finalLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="px-3 py-2 text-sm font-medium text-ink hover:text-navy">
+            <Link key={link.href} href={link.href} className="px-3 py-2 text-[0.96rem] font-medium text-ink hover:text-navy">
               {link.label}
             </Link>
           ))}
@@ -266,7 +266,7 @@ export function Header({
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen((v) => !v)}
-          className="inline-flex items-center gap-2 border border-ink px-3 py-1.5 text-sm font-medium text-ink md:hidden"
+          className="inline-flex items-center gap-2 border border-ink px-3 py-1.5 text-[0.96rem] font-medium text-ink md:hidden"
           aria-expanded={mobileOpen}
           aria-label="Menu"
         >
@@ -351,7 +351,7 @@ export function Header({
 
           <Link
             href="/lessons"
-            className="block border-t border-hairline py-3 text-sm font-medium text-ink"
+            className="block border-t border-hairline py-3 text-[0.96rem] font-medium text-ink"
             onClick={() => setMobileOpen(false)}
           >
             Lessons
@@ -361,7 +361,7 @@ export function Header({
             <Link
               key={link.href}
               href={link.href}
-              className="block border-t border-hairline py-3 text-sm font-medium text-ink"
+              className="block border-t border-hairline py-3 text-[0.96rem] font-medium text-ink"
               onClick={() => setMobileOpen(false)}
             >
               {link.label}
@@ -402,7 +402,7 @@ export function Header({
             <Link
               key={link.href}
               href={link.href}
-              className="block border-t border-hairline py-3 text-sm font-medium text-ink"
+              className="block border-t border-hairline py-3 text-[0.96rem] font-medium text-ink"
               onClick={() => setMobileOpen(false)}
             >
               {link.label}
@@ -417,8 +417,8 @@ export function Header({
 function Caret({ open }: { open: boolean }) {
   return (
     <svg
-      width="10"
-      height="10"
+      width="11"
+      height="11"
       viewBox="0 0 12 12"
       fill="none"
       stroke="currentColor"
@@ -447,7 +447,7 @@ function MobileSection({
     <div className="border-t border-hairline">
       <button
         onClick={onToggle}
-        className="flex w-full items-center justify-between py-3 text-sm font-medium text-ink"
+        className="flex w-full items-center justify-between py-3 text-[0.96rem] font-medium text-ink"
         aria-expanded={open}
       >
         {label}
