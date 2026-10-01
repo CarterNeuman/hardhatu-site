@@ -87,6 +87,8 @@ relatedIds:
   - lesson-value-engineering
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
+  - lesson-a-day-in-the-life-of-an-estimator
+  - lesson-cost-control-and-forecasting-in-practice
 ---
 Interviews in this category often include a practical component that most construction interviews don't: a sample takeoff exercise, a review of how you'd structure a bid summary, or being asked to walk through pricing on a real past project. That's because estimating accuracy is directly testable in a way "tell me about yourself" isn't, so be ready to actually demonstrate your process rather than just describe it. Expect real questions about comfort with ambiguity, such as incomplete drawings or unclear scope, since that's the everyday reality of the job, not an edge case.
 

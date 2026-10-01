@@ -244,4 +244,5 @@ relatedIds:
   - interview-preconstruction-estimating
   - exam-cpe
   - career-bid-coordinator
+  - lesson-a-day-in-the-life-of-an-estimator
 ---

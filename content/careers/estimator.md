@@ -107,5 +107,6 @@ relatedIds:
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
   - exam-cdt
+  - lesson-a-day-in-the-life-of-an-estimator
 image: "/images/careers/estimator.jpg"
 ---

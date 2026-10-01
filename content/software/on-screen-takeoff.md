@@ -46,4 +46,5 @@ relatedIds:
   - software-stack
   - software-proest
   - software-hcss-heavybid
+  - lesson-a-day-in-the-life-of-an-estimator
 ---

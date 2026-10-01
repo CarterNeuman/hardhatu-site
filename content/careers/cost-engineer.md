@@ -79,5 +79,6 @@ relatedIds:
   - career-construction-consultant
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
+  - lesson-cost-control-and-forecasting-in-practice
 image: "/images/careers/cost-engineer.jpg"
 ---

@@ -150,5 +150,6 @@ relatedIds:
   - career-superintendent
   - resume-project-operations
   - gethired-project-operations
+  - lesson-cost-control-and-forecasting-in-practice
 image: "/images/careers/project-manager.jpg"
 ---

@@ -52,4 +52,5 @@ relatedIds:
   - career-procurement-manager
   - career-senior-estimator
   - interview-project-manager
+  - lesson-cost-control-and-forecasting-in-practice
 ---

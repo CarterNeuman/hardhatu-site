@@ -184,4 +184,5 @@ relatedIds:
   - concept-pay-application
   - career-cost-engineer
   - career-project-manager
+  - lesson-cost-control-and-forecasting-in-practice
 ---

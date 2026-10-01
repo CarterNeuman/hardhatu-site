@@ -75,5 +75,6 @@ relatedIds:
   - career-bid-coordinator
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
+  - lesson-a-day-in-the-life-of-an-estimator
 image: "/images/careers/senior-estimator.jpg"
 ---

@@ -39,4 +39,5 @@ relatedIds:
   - software-on-screen-takeoff
   - software-proest
   - career-heavy-civil-estimator
+  - lesson-a-day-in-the-life-of-an-estimator
 ---
