@@ -152,7 +152,7 @@ export default function HomePage() {
       {/* ---------- start learning ---------- */}
       <section className="border-b border-hairline">
         <div className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="font-display text-2xl font-bold text-ink">Start learning</h2>
+          <h2 className="font-display text-2xl font-bold text-ink">Start Learning</h2>
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {LEARN_SECTIONS.map((section) => (
               <Link
@@ -183,23 +183,31 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ---------- how it works ---------- */}
+      {/* ---------- what you walk away with ---------- */}
       <section>
         <div className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="font-display text-2xl font-bold text-ink">How the site works</h2>
-          <div className="mt-7 grid grid-cols-1 gap-8 md:grid-cols-3">
-            <Step n={1} title="Pick a career">
-              See what the role actually does day to day, what it takes to get in, and where it
-              can lead.
-            </Step>
-            <Step n={2} title="Learn the terms">
-              Every career links to the concepts, software, and process phases it actually
-              touches. Click through as far as you want to go.
-            </Step>
-            <Step n={3} title="Get ready to apply">
-              Category-specific interview prep and exam study material, tied back to the roles
-              you're targeting.
-            </Step>
+          <h2 className="font-display text-2xl font-bold text-ink">What you walk away with</h2>
+          <p className="mt-2 max-w-[60ch] text-steel">
+            This isn't generic career advice. It's built the way the industry actually talks,
+            so the time you spend here is time that actually transfers.
+          </p>
+          <div className="mt-7 grid grid-cols-1 gap-5 md:grid-cols-3">
+            <Benefit icon={BenefitIconHelmet} title="The real language, not a textbook version">
+              Every term, tool, and certification here ties back to what OSHA, the PMI, NCCCO,
+              and the people on an actual jobsite call it, not a simplified stand-in. Walk into
+              an interview or a first day already speaking the language instead of catching up
+              for six months.
+            </Benefit>
+            <Benefit icon={BenefitIconNetwork} title="Everything connects, so it actually sticks">
+              A career links to the concepts and software it touches, and those link right back.
+              You're not memorizing a glossary, you're building the same mental map someone with
+              five years in the field already carries around, just faster.
+            </Benefit>
+            <Benefit icon={BenefitIconCompass} title="Find out before you commit to anything">
+              No tuition, no application, no quitting a job to "try it out" first. Explore a
+              dozen careers in an evening and find out which one actually fits before you spend
+              real time or money finding out the hard way.
+            </Benefit>
           </div>
         </div>
       </section>
@@ -207,18 +215,93 @@ export default function HomePage() {
   );
 }
 
-function Step({ n, title, children }: { n: number; title: string; children: React.ReactNode }) {
+function Benefit({
+  icon: BenefitIcon,
+  title,
+  children,
+}: {
+  icon: (props: { className?: string }) => React.ReactElement;
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
-    <div>
-      <div
-        className="font-display text-3xl font-bold text-transparent"
-        style={{ WebkitTextStroke: "1.5px #6b7278" }}
-      >
-        {n}
-      </div>
-      <h3 className="mt-1 font-display text-lg font-semibold text-ink">{title}</h3>
+    <div className="border border-hairline bg-white/40 p-5">
+      <BenefitIcon className="text-clay" />
+      <h3 className="mt-3 font-display text-lg font-semibold text-ink">{title}</h3>
       <p className="mt-1.5 text-sm leading-relaxed text-steel">{children}</p>
     </div>
+  );
+}
+
+// "What you walk away with" icons, same thin-line blueprint language as the
+// PathIcon* set above (22px, 1.6px stroke, currentColor). The helmet keeps
+// the small filled "rivet" dot already used as an accent elsewhere on the
+// site (see FoldRuleIcon in CategorySection.tsx), here standing in for the
+// hat's top button.
+function BenefitIconHelmet({ className }: { className?: string }) {
+  return (
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.6}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M4 15.5C4 9 7.5 5.5 12 5.5s8 3.5 8 10" />
+      <path d="M2.5 15.5h19" />
+      <path d="M9.5 15.5v-5M14.5 15.5v-5" />
+      <circle cx="12" cy="5.2" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function BenefitIconNetwork({ className }: { className?: string }) {
+  return (
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.6}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M7.6 8.3L15.8 7M9.3 9.6l3 6M14.8 9.4l-2.9 6.2" />
+      <circle cx="6" cy="7" r="2.3" />
+      <circle cx="18" cy="7" r="2.3" />
+      <circle cx="12" cy="18" r="2.3" />
+    </svg>
+  );
+}
+
+function BenefitIconCompass({ className }: { className?: string }) {
+  return (
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.6}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M14.8 9.2l-2 4.6-4.6 2 2-4.6z" />
+    </svg>
   );
 }
 
