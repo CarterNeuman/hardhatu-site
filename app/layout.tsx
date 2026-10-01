@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import {
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
   const { careers, interviews, concepts } = getAllContent();
   const careerGroups = groupCareersByCategory(careers);
   const interviewGroups = groupInterviewsByCategory(interviews);
@@ -52,6 +54,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer careerGroups={careerGroups} careerCount={careers.length} />
         <Analytics />
+        {gaMeasurementId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaMeasurementId}');
+              `}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );

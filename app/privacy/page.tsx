@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const CONTACT_EMAIL = "contact@hardhatu.com";
-const LAST_UPDATED = "September 29, 2026";
+const LAST_UPDATED = "October 1, 2026";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -36,18 +36,35 @@ export default function PrivacyPage() {
             submit, you can read the entire site anonymously.
           </p>
           <p className="mt-3">
-            The site uses Vercel Analytics to understand aggregate traffic, which pages get
-            read, and roughly how visitors arrive. This runs without setting tracking
-            cookies and without building a profile tied to any individual visitor. It tells
-            us that a page was viewed, not who viewed it.
+            The site uses Vercel Analytics and Google Analytics to understand aggregate
+            traffic: which pages get read, roughly how visitors arrive, and general
+            location (city/region level, from IP address), device, and browser
+            information. Vercel Analytics runs without setting tracking cookies. Google
+            Analytics does set cookies, described below, and uses them to distinguish
+            repeat visits from the same browser. Neither tool is used to identify a
+            specific person, and HardHatU does not combine this data with anything that
+            would.
           </p>
         </section>
 
         <section>
           <h2 className="font-display text-2xl font-bold text-ink">Cookies</h2>
           <p className="mt-3">
-            HardHatU does not set its own cookies. If that changes, this section will be
-            updated to say exactly what's set and why before it happens.
+            Google Analytics sets a small number of cookies on this site, mainly{" "}
+            <code className="text-sm">_ga</code> and <code className="text-sm">_ga_*</code>,
+            which last up to about two years. They don't contain your name or anything
+            directly identifying, just a randomly generated ID used to recognize that the
+            same browser has visited before. Vercel Analytics does not set any cookies.
+            You can block or delete these cookies through your browser's settings at any
+            time, or use Google's{" "}
+            <a
+              href="https://tools.google.com/dlpage/gaoptout"
+              className="text-amber underline decoration-amber/40 underline-offset-2 hover:text-clay hover:decoration-clay"
+            >
+              Analytics Opt-out Browser Add-on
+            </a>{" "}
+            to stop Google Analytics from seeing your visits to any site, not just this
+            one.
           </p>
         </section>
 
