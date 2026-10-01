@@ -41,4 +41,5 @@ relatedIds:
   - phase-construction
   - lesson-building-sequence
   - career-mep-engineer
+  - lesson-electrical-rough-in
 ---

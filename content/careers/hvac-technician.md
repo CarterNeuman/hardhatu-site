@@ -98,5 +98,6 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - exam-nate-ready-to-work
+  - lesson-mechanical-and-plumbing-rough-in
 image: "/images/careers/hvac-technician.jpg"
 ---

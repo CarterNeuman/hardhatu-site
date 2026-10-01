@@ -35,4 +35,5 @@ relatedIds:
   - concept-rigging
   - concept-osha
   - phase-construction
+  - lesson-structural-steel-erection
 ---

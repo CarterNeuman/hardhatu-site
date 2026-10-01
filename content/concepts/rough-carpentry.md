@@ -36,4 +36,5 @@ relatedIds:
   - concept-finish-carpentry
   - phase-construction
   - concept-sheathing
+  - lesson-framing-and-rough-carpentry
 ---

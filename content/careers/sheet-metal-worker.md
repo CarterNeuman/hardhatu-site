@@ -77,4 +77,5 @@ relatedIds:
   - concept-ductwork-insulation
   - gethired-field-trades
   - resume-field-trades
+  - lesson-mechanical-and-plumbing-rough-in
 ---

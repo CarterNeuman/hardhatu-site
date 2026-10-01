@@ -82,4 +82,5 @@ relatedIds:
   - concept-joint-sealants
   - gethired-field-trades
   - resume-field-trades
+  - lesson-building-envelope-and-glazing
 ---

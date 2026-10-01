@@ -109,6 +109,7 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - exam-journeyman-electrician
+  - lesson-electrical-rough-in
 image: "/images/careers/electrician.jpg"
 
 ---

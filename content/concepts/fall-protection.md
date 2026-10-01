@@ -37,5 +37,6 @@ relatedIds:
   - concept-toolbox-talk
   - phase-construction
   - lesson-building-sequence
+  - lesson-structural-steel-erection
 
 ---

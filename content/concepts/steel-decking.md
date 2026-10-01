@@ -34,4 +34,5 @@ relatedIds:
   - concept-structural-steel
   - phase-construction
   - concept-structural-steel-erection
+  - lesson-structural-steel-erection
 ---

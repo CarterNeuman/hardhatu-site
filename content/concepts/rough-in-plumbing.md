@@ -45,4 +45,5 @@ relatedIds:
   - concept-backflow-preventer
   - concept-sump-pump
   - concept-water-heater
+  - lesson-mechanical-and-plumbing-rough-in
 ---

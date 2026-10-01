@@ -38,4 +38,5 @@ relatedIds:
   - concept-fire-rated-assembly
   - concept-access-doors-panels
   - concept-gypsum-board-finish-levels
+  - lesson-framing-and-rough-carpentry
 ---

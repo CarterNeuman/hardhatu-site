@@ -39,4 +39,5 @@ relatedIds:
   - concept-framing-lumber
   - concept-submittal
   - phase-construction
+  - lesson-framing-and-rough-carpentry
 ---

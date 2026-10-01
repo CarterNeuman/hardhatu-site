@@ -40,4 +40,5 @@ relatedIds:
   - career-mep-engineer
   - concept-ductwork-insulation
   - concept-vav-box
+  - lesson-mechanical-and-plumbing-rough-in
 ---

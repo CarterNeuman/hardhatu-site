@@ -44,4 +44,5 @@ relatedIds:
   - concept-submittal
   - phase-construction
   - career-glazier
+  - lesson-building-envelope-and-glazing
 ---

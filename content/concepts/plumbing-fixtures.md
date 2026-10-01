@@ -37,4 +37,5 @@ relatedIds:
   - concept-rough-in-plumbing
   - phase-construction
   - career-mep-engineer
+  - lesson-mechanical-and-plumbing-rough-in
 ---

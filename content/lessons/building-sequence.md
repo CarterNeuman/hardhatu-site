@@ -210,4 +210,9 @@ relatedIds:
   - career-glazier
   - career-sheet-metal-worker
   - career-pipefitter
+  - lesson-structural-steel-erection
+  - lesson-framing-and-rough-carpentry
+  - lesson-electrical-rough-in
+  - lesson-mechanical-and-plumbing-rough-in
+  - lesson-building-envelope-and-glazing
 ---

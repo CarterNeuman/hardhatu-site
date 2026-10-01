@@ -90,5 +90,6 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - exam-journeyman-plumber
+  - lesson-mechanical-and-plumbing-rough-in
 image: "/images/careers/plumber.jpg"
 ---

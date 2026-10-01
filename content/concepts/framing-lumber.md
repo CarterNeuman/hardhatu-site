@@ -39,4 +39,5 @@ relatedIds:
   - phase-construction
   - concept-fire-retardant-treated-wood
   - concept-sheathing
+  - lesson-framing-and-rough-carpentry
 ---

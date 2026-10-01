@@ -93,6 +93,7 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - exam-cpr-first-aid
+  - lesson-structural-steel-erection
 image: "/images/careers/ironworker.jpg"
 
 ---

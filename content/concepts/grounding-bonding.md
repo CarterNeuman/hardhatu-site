@@ -38,4 +38,5 @@ relatedIds:
   - career-electrician
   - concept-panel-board
   - concept-switchgear
+  - lesson-electrical-rough-in
 ---

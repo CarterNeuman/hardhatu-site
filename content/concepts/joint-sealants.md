@@ -37,4 +37,5 @@ relatedIds:
   - career-qaqc-inspector
   - concept-curtain-wall
   - concept-waterproofing
+  - lesson-building-envelope-and-glazing
 ---

@@ -41,4 +41,5 @@ relatedIds:
   - career-qaqc-inspector
   - concept-structural-welding
   - concept-special-inspection
+  - lesson-structural-steel-erection
 ---

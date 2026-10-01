@@ -48,4 +48,5 @@ relatedIds:
   - career-glazier
   - concept-wind-load-hurricane-code
   - concept-joint-sealants
+  - lesson-building-envelope-and-glazing
 ---

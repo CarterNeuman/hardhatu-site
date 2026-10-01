@@ -85,4 +85,5 @@ relatedIds:
   - concept-boiler
   - gethired-field-trades
   - resume-field-trades
+  - lesson-mechanical-and-plumbing-rough-in
 ---

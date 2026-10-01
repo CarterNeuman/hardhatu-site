@@ -35,4 +35,5 @@ relatedIds:
   - career-quality-control-manager
   - concept-rough-in-electrical
   - phase-construction
+  - lesson-electrical-rough-in
 ---

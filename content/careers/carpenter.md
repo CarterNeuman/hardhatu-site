@@ -102,6 +102,7 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - exam-cpr-first-aid
+  - lesson-framing-and-rough-carpentry
 image: "/images/careers/carpenter.jpg"
 
 ---

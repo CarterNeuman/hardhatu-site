@@ -49,4 +49,5 @@ relatedIds:
   - concept-skylights
   - concept-brick-veneer
   - concept-windows
+  - lesson-building-envelope-and-glazing
 ---

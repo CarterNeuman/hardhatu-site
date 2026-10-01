@@ -40,4 +40,5 @@ relatedIds:
   - concept-rough-in-plumbing
   - phase-construction
   - concept-irrigation-system
+  - lesson-mechanical-and-plumbing-rough-in
 ---

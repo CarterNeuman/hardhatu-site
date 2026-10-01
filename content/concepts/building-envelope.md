@@ -45,4 +45,5 @@ relatedIds:
   - phase-construction
   - lesson-green-building-certification
   - career-glazier
+  - lesson-building-envelope-and-glazing
 ---

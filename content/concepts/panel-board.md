@@ -39,4 +39,5 @@ relatedIds:
   - phase-construction
   - career-mep-engineer
   - concept-grounding-bonding
+  - lesson-electrical-rough-in
 ---

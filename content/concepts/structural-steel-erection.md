@@ -37,4 +37,5 @@ relatedIds:
   - career-structural-engineer
   - concept-structural-steel
   - concept-steel-decking
+  - lesson-structural-steel-erection
 ---

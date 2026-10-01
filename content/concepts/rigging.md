@@ -33,5 +33,6 @@ relatedIds:
   - concept-osha
   - phase-construction
   - career-millwright
+  - lesson-structural-steel-erection
 
 ---

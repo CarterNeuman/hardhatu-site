@@ -43,4 +43,5 @@ relatedIds:
   - career-mep-engineer
   - concept-boiler
   - exam-nate-ready-to-work
+  - lesson-mechanical-and-plumbing-rough-in
 ---

@@ -82,5 +82,6 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - exam-cpr-first-aid
+  - lesson-building-envelope-and-glazing
 image: "/images/careers/roofer.jpg"
 ---
