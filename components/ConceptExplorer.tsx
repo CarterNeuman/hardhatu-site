@@ -121,6 +121,7 @@ export function ConceptExplorer({
             id={slugifyCategory(group.category)}
             title={group.category}
             count={group.items.length}
+            collapsible
           >
             {group.items.map((concept) => (
               <ContentCard key={concept.id} item={concept} description={concept.definition} />
