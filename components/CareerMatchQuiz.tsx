@@ -119,9 +119,9 @@ function TrailStop({
       >
         <Icon kind={iconKind} size={22} className="text-clay" />
       </span>
-      <span className="font-display text-sm font-bold text-ink group-hover:text-navy">{title}</span>
-      {meta && <span className="text-[11px] font-semibold uppercase tracking-wide text-steel">{meta}</span>}
-      <span className="line-clamp-2 text-xs leading-snug text-steel">{blurb}</span>
+      <span className="font-display text-base font-bold text-ink group-hover:text-navy">{title}</span>
+      {meta && <span className="text-xs font-semibold uppercase tracking-wide text-steel">{meta}</span>}
+      <span className="line-clamp-2 text-sm leading-snug text-steel">{blurb}</span>
     </Link>
   );
 }
@@ -228,8 +228,7 @@ export function CareerMatchQuiz({
       <EmailGate variant="immediate" source="quiz-result">
         <div className="mt-6">
           <div className="border border-hairline bg-amber-soft px-6 py-8 sm:px-10 sm:py-10">
-            <p className="text-xs font-semibold uppercase tracking-wide text-clay">Your result</p>
-            <h2 className="mt-2 font-display text-4xl font-bold leading-[0.95] text-ink sm:text-5xl">
+            <h2 className="font-display text-4xl font-bold leading-[0.95] text-ink sm:text-5xl">
               You&rsquo;re built for
               <br />
               {result}.
@@ -239,7 +238,7 @@ export function CareerMatchQuiz({
 
           {matches.length > 0 && (
             <div className="mt-10">
-              <p className="text-xs font-semibold uppercase tracking-wide text-steel">
+              <p className="text-sm font-semibold uppercase tracking-wide text-steel">
                 Careers that fit your answers
               </p>
               <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
@@ -266,12 +265,12 @@ export function CareerMatchQuiz({
               <div className="my-8 flex justify-center">
                 <span aria-hidden="true" className="h-6 w-0.5 border-l-2 border-dashed border-clay" />
               </div>
-              <p className="-mt-6 text-center text-xs font-semibold uppercase tracking-wide text-steel">
+              <p className="-mt-6 text-center text-sm font-semibold uppercase tracking-wide text-steel">
                 Then, start learning
               </p>
 
               <div className="mt-6">
-                <p className="text-xs font-semibold uppercase tracking-wide text-steel">Where to start, in order</p>
+                <p className="text-sm font-semibold uppercase tracking-wide text-steel">Where to start, in order</p>
                 <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
                   {recommendedLessons.flatMap(({ lesson, blurb }, i) => {
                     const stop = (
@@ -297,19 +296,19 @@ export function CareerMatchQuiz({
           )}
 
           <div className="mt-10 border-t border-hairline pt-6 text-center">
-            <p className="mx-auto max-w-[62ch] text-sm italic leading-relaxed text-steel">
+            <p className="mx-auto max-w-[62ch] text-base italic leading-relaxed text-steel">
               And if none of this is the path for you, every other field in construction stays just as
               open, all it really takes to switch tracks is commitment and a willingness to learn.
             </p>
           </div>
 
           <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-hairline pt-6">
-            <Link href={`/careers#${slug}`} className="text-sm font-semibold text-navy hover:underline">
+            <Link href={`/careers#${slug}`} className="text-base font-semibold text-navy hover:underline">
               See all careers in {result} &rarr;
             </Link>
             <button
               onClick={restart}
-              className="border border-ink px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-ink hover:text-paper"
+              className="border border-ink px-4 py-2 text-base font-semibold text-ink transition-colors hover:bg-ink hover:text-paper"
             >
               Take the quiz again
             </button>
