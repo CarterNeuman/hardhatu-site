@@ -188,6 +188,7 @@ relatedIds:
   - exam-osha-10
   - interview-field-trades
   - gethired-field-trades
+  - lesson-hvac-and-building-systems-in-practice
 ---
 Ready to Work is deliberately NATE's lowest-barrier credential, built for someone entering the HVACR field with little to no formal education or training yet, not a working technician brushing up on material. It's taken entirely online, no proctor required, from any computer including home, and costs around $60 (a retake runs about $45), with a free downloadable study guide covering fundamental job knowledge rather than advanced technical material.
 

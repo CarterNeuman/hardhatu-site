@@ -99,5 +99,6 @@ relatedIds:
   - exam-cpr-first-aid
   - exam-nate-ready-to-work
   - lesson-mechanical-and-plumbing-rough-in
+  - lesson-hvac-and-building-systems-in-practice
 image: "/images/careers/hvac-technician.jpg"
 ---

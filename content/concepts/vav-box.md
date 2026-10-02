@@ -39,4 +39,5 @@ relatedIds:
   - concept-air-handling-unit
   - concept-ductwork
   - concept-hvac-balancing
+  - lesson-hvac-and-building-systems-in-practice
 ---

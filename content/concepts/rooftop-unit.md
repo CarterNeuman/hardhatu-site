@@ -41,4 +41,5 @@ relatedIds:
   - phase-construction
   - career-sheet-metal-worker
   - career-mep-engineer
+  - lesson-hvac-and-building-systems-in-practice
 ---

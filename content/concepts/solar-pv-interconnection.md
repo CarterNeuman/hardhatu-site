@@ -41,4 +41,5 @@ relatedIds:
   - concept-standby-generator
   - concept-battery-energy-storage-system
   - concept-microgrid
+  - lesson-solar-and-renewable-energy-on-a-jobsite
 ---

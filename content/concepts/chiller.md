@@ -39,4 +39,5 @@ relatedIds:
   - phase-construction
   - phase-operations-maintenance
   - concept-cooling-tower
+  - lesson-hvac-and-building-systems-in-practice
 ---

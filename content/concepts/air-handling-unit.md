@@ -41,4 +41,5 @@ relatedIds:
   - career-mep-engineer
   - concept-vav-box
   - concept-hvac-balancing
+  - lesson-hvac-and-building-systems-in-practice
 ---

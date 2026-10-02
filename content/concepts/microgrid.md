@@ -41,4 +41,5 @@ relatedIds:
   - career-renewable-energy-project-manager
   - concept-standby-generator
   - concept-solar-pv-interconnection
+  - lesson-solar-and-renewable-energy-on-a-jobsite
 ---

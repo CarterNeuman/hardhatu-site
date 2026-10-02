@@ -37,4 +37,6 @@ relatedIds:
   - concept-om-manuals
   - concept-direct-digital-control
   - concept-building-automation-system
+  - lesson-hvac-and-building-systems-in-practice
+  - lesson-solar-and-renewable-energy-on-a-jobsite
 ---

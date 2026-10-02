@@ -42,4 +42,5 @@ relatedIds:
   - concept-commissioning
   - concept-window-treatments
   - concept-bms-integration
+  - lesson-hvac-and-building-systems-in-practice
 ---

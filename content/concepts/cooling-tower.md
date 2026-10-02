@@ -36,4 +36,5 @@ relatedIds:
   - career-hvac-technician
   - career-facilities-manager
   - concept-chiller
+  - lesson-hvac-and-building-systems-in-practice
 ---

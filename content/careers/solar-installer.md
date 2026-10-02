@@ -85,4 +85,5 @@ relatedIds:
   - concept-solar-pv-interconnection
   - gethired-field-trades
   - resume-field-trades
+  - lesson-solar-and-renewable-energy-on-a-jobsite
 ---

@@ -75,4 +75,5 @@ relatedIds:
   - concept-solar-pv-interconnection
   - concept-microgrid
   - gethired-specialized-construction
+  - lesson-solar-and-renewable-energy-on-a-jobsite
 ---

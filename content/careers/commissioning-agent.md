@@ -80,4 +80,6 @@ relatedIds:
   - concept-lighting-control-system
   - resume-consultants-advisory
   - gethired-consultants-advisory
+  - lesson-hvac-and-building-systems-in-practice
+  - lesson-solar-and-renewable-energy-on-a-jobsite
 ---

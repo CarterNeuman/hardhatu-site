@@ -38,4 +38,5 @@ relatedIds:
   - concept-air-handling-unit
   - concept-vav-box
   - exam-nate-ready-to-work
+  - lesson-hvac-and-building-systems-in-practice
 ---

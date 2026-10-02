@@ -35,4 +35,5 @@ relatedIds:
   - concept-building-automation-system
   - concept-commissioning
   - concept-bms-integration
+  - lesson-hvac-and-building-systems-in-practice
 ---
