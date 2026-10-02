@@ -47,7 +47,7 @@ education:
   required: Bachelor's degree in construction management, engineering, or a related field
   preferred: Significant experience (often 10+ years) in project management, estimating, or cost engineering before moving into consulting
   helpful: Certified Construction Manager (CCM) or Certified Cost Professional (CCP) credential, depending on specialty
-  notNecessary: A consulting-specific degree; this role is almost always reached after a long track record in a hands-on construction role, not through a direct entry path
+  notNecessary: A consulting-specific degree; this role is almost always reached after a long track record in a hands-on construction role, not through a direct entry path, though a handful of larger consulting firms do hire directly into junior analyst or associate roles for the right candidate, so it is worth checking firm by firm rather than assuming the door is fully closed
 progression:
   - Project Manager, Estimator, or Cost Engineer
   - Construction Consultant

@@ -47,7 +47,7 @@ education:
   required: High school diploma or equivalent
   preferred: Bachelor's degree in construction management, architecture, or engineering, plus significant experience in project management or construction management
   helpful: Certified Construction Manager (CCM) credential, or a Project Management Professional (PMP) background
-  notNecessary: A specific "owner's rep" credential, since this role is reached through years of PM, CM, or design experience rather than a dedicated entry path
+  notNecessary: A specific "owner's rep" credential, since this role is reached through years of PM, CM, or design experience rather than a dedicated entry path; a small number of owner's rep consulting firms do bring in a junior or associate owner's rep to support a senior lead, so an entry point exists there too, it's just less common and worth asking about directly
 progression:
   - Project Manager or Construction Manager
   - Owner's Representative

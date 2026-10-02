@@ -27,13 +27,25 @@ howHiringWorks: >
   nobody starts their career as a consultant. Everyone in this category
   spent years in the field or the office first, building the judgment
   and the relationships that eventually get them called for a specific
-  engagement. If you're early in your career and this is where you want
-  to end up, the fastest path there is doing excellent,
-  relationship-building work wherever you are right now. See [[resume-consultants-advisory|the Consultants & Advisory Resume Guide]] for
+  engagement. That's the standard route in, but it's not the only one:
+  a handful of the larger claims and forensic consulting firms (names
+  like HKA, Secretariat, Ankura, FTI, and Kroll) run junior analyst or
+  associate-consultant programs that hire engineering, quantity
+  surveying, or construction management graduates directly, building
+  that track record in-house instead of requiring it walk in the door
+  first. Those seats are far scarcer than a typical entry-level posting
+  and almost never show up on a general job board, so finding one takes
+  real digging, firm by firm, but it means the door isn't fully closed
+  to someone starting out. If you're early in your career and this is
+  where you want to end up, the fastest path there is doing excellent,
+  relationship-building work wherever you are right now, while also
+  checking whether one of those rarer junior seats is open. See [[resume-consultants-advisory|the Consultants & Advisory Resume Guide]] for
   the way a firm principal actually wants that track record written up.
 checklist:
   - step: "Build your track record inside a GC, owner, or specialty firm first"
     detail: "Almost nobody is hired directly into consulting or advisory work; the credibility these roles require comes from years of hands-on experience somewhere else in the industry first."
+  - step: "Check for the rare junior analyst or associate programs too"
+    detail: "A small number of the larger claims and forensic consulting firms hire junior analysts or associate consultants straight out of school and build the track record in-house. These seats are scarce and almost never posted on a general job board, so check each target firm's own careers page directly rather than assuming this category has no entry-level door at all."
   - step: "Get the credential your specialty actually requires"
     detail: "Bar admission for construction attorneys and claims consultants, a PE for technical experts, CCM or CCP for construction consultants, LEED credentials for sustainability consulting. These signal the track record before anyone reads the resume."
   - step: "Get known inside your specialty's network before you need the job"
@@ -61,6 +73,7 @@ commonMistakes:
   - "Writing generic 'trusted advisor' or 'strategic partner' language with no concrete engagement example or number attached to it."
   - "Understating real engagement value out of caution, when specificity is exactly what this category's hiring rewards."
   - "Ignoring the referral and association network that actually drives hiring here, in favor of only applying through general job boards."
+  - "Assuming this category has no entry-level door at all because most hiring runs on track record and referral. A few firms do hire junior analysts or associate consultants directly; that door is narrow, not nonexistent, so it's worth checking before ruling the category out early."
 firstStepToday: "Identify one past engagement with a real number attached to it, and write the one sentence that leads with it."
 relatedIds:
   - interview-consultants-advisory
@@ -73,4 +86,4 @@ relatedIds:
   - career-scheduling-delay-consultant
   - career-sustainability-leed-consultant
 ---
-Whether you're building toward [[career-construction-claims-consultant|claims consulting]] or [[career-expert-witness-construction-litigation|expert witness work]], this category hires almost entirely on track record and referral. Here's how to start building both.
+Whether you're building toward [[career-construction-claims-consultant|claims consulting]] or [[career-expert-witness-construction-litigation|expert witness work]], this category hires almost entirely on track record and referral. Here's how to start building both. A narrow junior-analyst door exists at a few firms too, so it's worth checking for that while you build the rest.
