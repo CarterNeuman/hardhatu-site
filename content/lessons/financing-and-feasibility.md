@@ -22,10 +22,10 @@ sections:
     quiz:
       question: "Why is the rough order-of-magnitude budget built during feasibility deliberately closer to an educated guess than a real estimate?"
       options:
+        - "Because lenders require every early-stage budget to be rounded to the nearest hundred thousand dollars, regardless of how much design detail is actually available"
         - "Because its job is telling the owner whether an idea is in the right financial neighborhood before real money is spent"
-        - "Because detailed cost data typically is not compiled until later in design"
-        - "Because lenders require budgets to be rounded for confidentiality reasons"
-      answerIndex: 0
+        - "Because the detailed cost data a precise estimate would need, like subcontractor quotes and finalized drawings, typically doesn't exist until much later in design"
+      answerIndex: 1
       explanation: >
         A rough order-of-magnitude budget exists to catch a clearly nonviable
         idea cheaply, not to price the project precisely; that precision comes
@@ -48,9 +48,9 @@ sections:
     quiz:
       question: "Why can a financially viable project still be legally impossible to build?"
       options:
-        - "Because building code and zoning cover the same requirements, so meeting one automatically satisfies the other"
-        - "Because zoning governs what can legally be built on a site, independent of the project's financial viability"
-        - "Because zoning requirements apply mainly to projects seeking outside financing"
+        - "Because building code and zoning are reviewed by the same local department at the same time, so a project that passes one review has effectively already cleared the other"
+        - "Because zoning governs what can legally be built on a given site, height, use, and setbacks, independent of whether the project actually makes financial sense"
+        - "Because zoning requirements mainly come into play once a project has already secured its construction financing, rather than earlier during the feasibility phase"
       answerIndex: 1
       explanation: >
         Zoning regulates permitted use, height, and setbacks separately from
@@ -74,10 +74,10 @@ sections:
     quiz:
       question: "Why does a Phase I Environmental Site Assessment function as much as a financing requirement as an environmental one?"
       options:
-        - "Because a Phase I assessment legally guarantees a property is free of all contamination"
-        - "Because an assessment is required mainly for government-funded projects"
-        - "Because a lender typically will not finance a purchase without a clean Phase I on file"
-      answerIndex: 2
+        - "Because a lender financing the purchase typically will not close the loan without a clean Phase I assessment on file, separate from whatever the site itself shows"
+        - "Because a Phase I assessment is the step that formally transfers legal liability for any contamination from the seller to the buyer once it's filed"
+        - "Because a Phase I assessment is required mainly on projects receiving government funding, with privately financed deals typically able to skip it"
+      answerIndex: 0
       explanation: >
         The assessment's financing role is independent of the actual
         environmental finding, since a missing or incomplete Phase I can keep a
@@ -108,8 +108,8 @@ sections:
       question: "What does a pro forma evaluate that a rough construction budget alone does not?"
       options:
         - "Whether the project's expected returns over time actually justify its costs, not just whether the budget covers construction itself"
-        - "Whether the contractor's crew has enough labor hours available to finish on schedule"
-        - "Whether the site's soil conditions require a redesigned foundation"
+        - "Whether the contractor's crew currently has enough labor hours available across its other active jobs to actually finish this one on schedule"
+        - "Whether the site's soil and groundwater conditions, uncovered during the environmental review, require a more expensive foundation design than originally assumed"
       answerIndex: 0
       explanation: >
         A pro forma projects a project's expected costs against its expected
@@ -139,10 +139,10 @@ sections:
     quiz:
       question: "How does a construction loan typically get released to the project, and what checks that release?"
       options:
-        - "As a single lump sum released on day one, based on the signed pro forma"
         - "In staged draws tied to demonstrated progress, each one checked by a lender's own inspector alongside the contractor's separate pay applications"
-        - "After the entire project reaches substantial completion"
-      answerIndex: 1
+        - "In a single disbursement released once the project reaches substantial completion, with the lender relying entirely on the contractor's own pay applications until then"
+        - "As a single lump sum released on day one of construction, based entirely on the pro forma the lender reviewed during underwriting"
+      answerIndex: 0
       explanation: >
         A lender releases financing in draws as work actually progresses,
         sending its own inspector to verify each draw's claimed progress

@@ -14,9 +14,9 @@ sections:
       contractor fails to finish the job, the surety steps in to cover completing it,
       usually by bringing in a replacement contractor. A payment bond guarantees
       subcontractors and suppliers actually get paid even if the GC runs into
-      financial trouble, required on nearly every public project since a mechanic's
-      lien can't be filed against government-owned property in the first place, so the
-      bond exists specifically as the substitute protection.
+      financial trouble. It's required on nearly every public project because a
+      mechanic's lien can't be filed against government-owned property in the first
+      place, so the bond exists specifically as the substitute protection.
 
       Both bonds get issued by a [[career-surety-bond-underwriter|Surety Bond Underwriter]],
       who evaluates the contractor's financial strength, history, and
@@ -26,10 +26,10 @@ sections:
     quiz:
       question: What does a performance bond actually protect the owner against?
       options:
-        - The owner paying too much for the project
         - The contractor failing to complete the project as agreed, since the surety steps in to cover finishing the work
-        - A subcontractor not getting paid on time
-      answerIndex: 1
+        - The owner ending up paying significantly more than the original contract price due to unforeseen site conditions discovered during construction
+        - A subcontractor not getting paid on time by the general contractor for work that's already been completed and invoiced
+      answerIndex: 0
       explanation: >
         A performance bond is specifically the owner's protection against a
         contractor who fails to finish. Getting paid on time is what a payment bond
@@ -60,10 +60,10 @@ sections:
     quiz:
       question: Why does a certificate of insurance matter, given that the subcontract itself already requires the coverage?
       options:
-        - It doesn't add anything; the contract requirement alone is sufficient
+        - It mostly doesn't add anything beyond what's already written into the subcontract, since the contract language itself is generally considered sufficient proof of coverage
+        - Certificates of insurance are mainly a requirement on public projects, with most private commercial jobs generally skipping this step as unnecessary paperwork
         - A contract can require coverage on paper without anyone confirming it's actually in force; the certificate is the actual proof, and letting an uninsured sub on site exposes the GC to real liability
-        - Certificates of insurance are only required on public projects
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         A contract requirement is only a promise. The certificate is what actually
         proves the coverage exists right now, which is exactly why checking it
@@ -90,9 +90,9 @@ sections:
     quiz:
       question: Why is builder's risk insurance a separate policy from general liability insurance?
       options:
-        - They're actually the same coverage sold under two different names
+        - They're actually the same underlying coverage, just sold and marketed under two different policy names depending on which insurance broker is involved
         - General liability covers third-party injury and property damage claims; builder's risk covers physical loss to the structure itself, a gap standard property insurance doesn't cover for a half-finished building
-        - Builder's risk is only required on residential projects
+        - Builder's risk coverage is mainly required on residential construction projects, with most commercial jobs relying on general liability to cover the structure itself
       answerIndex: 1
       explanation: >
         These two policies protect against genuinely different kinds of loss. A
@@ -125,10 +125,10 @@ sections:
     quiz:
       question: What does signing a surety's indemnity agreement actually commit a contractor (and often its owners) to?
       options:
-        - Nothing beyond what the bond itself already covers
         - Reimbursing the surety for whatever it pays out on a bond claim, since the bond payout functions as a loan rather than free insurance, sometimes extending to the owners' personal assets
-        - A one-time processing fee with no ongoing obligation
-      answerIndex: 1
+        - Nothing beyond the coverage the bond itself already provides, since the indemnity agreement is mostly a standard formality attached to every bonding application
+        - A one-time processing fee charged when the bond is issued, with no further financial obligation once that initial fee has actually been paid
+      answerIndex: 0
       explanation: >
         A bond isn't free insurance for the contractor. The indemnity agreement is
         what turns a bond payout into a debt the contractor, and often its owners
@@ -161,9 +161,9 @@ sections:
     quiz:
       question: What's the common thread connecting performance bonds, certificates of insurance, builder's risk insurance, and bonding capacity?
       options:
-        - They're redundant protections that mostly duplicate each other
+        - They're mostly redundant protections that duplicate the same coverage, kept separate more for insurance industry tradition than for any meaningfully different purpose
         - Each one answers the same underlying question, whose money covers a specific kind of loss, for a different party and a different type of risk
-        - They only matter on projects over $10 million
+        - These protections mainly matter on very large projects above a certain dollar threshold, with smaller jobs generally not needing this level of risk coverage
       answerIndex: 1
       explanation: >
         Every mechanism in this lesson exists to give a clear, pre-arranged answer

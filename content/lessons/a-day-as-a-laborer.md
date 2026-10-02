@@ -22,10 +22,10 @@ sections:
     quiz:
       question: "Why does a laborer's day often involve several completely different tasks for several different trades?"
       options:
-        - "It means the role has no real focus or purpose on the jobsite"
+        - "It happens because larger jobsites tend to run short on specialized crews during the busiest parts of the schedule, not because of anything about the laborer role itself"
+        - "It happens mainly because laborers are paid by the hour rather than for a specific task, so supervisors shift them wherever the schedule needs help that day"
         - "It gives a laborer close exposure to multiple trades in a short amount of time, which is exactly why many skilled tradespeople and supervisors started as laborers"
-        - "It only happens on small jobsites that can't afford specialized crews"
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         The variety is the actual value of the role. Seeing several
         different trades up close, in the same week, gives a laborer a
@@ -50,10 +50,10 @@ sections:
     quiz:
       question: "Why are new workers at such high risk of heat illness in their first few days on an outdoor job?"
       options:
-        - "New workers are simply less careful than experienced ones"
         - "The body needs time to physically acclimatize to heat exposure, and a sudden full workload before that adjustment happens is strongly linked to heat-related deaths, especially in the first few days"
-        - "Heat risk is actually the same for every worker regardless of experience"
-      answerIndex: 1
+        - "New workers tend to push themselves harder than necessary to make a good impression in their first few days, which raises how much they exert themselves in the heat"
+        - "Heat risk mainly comes down to hydration habits, and new workers are statistically less likely to drink enough water during a long outdoor shift"
+      answerIndex: 0
       explanation: >
         Acclimatization is a real physiological process, not just caution.
         A new worker's body hasn't adjusted yet, which is why a gradual
@@ -76,10 +76,10 @@ sections:
     quiz:
       question: "Why does scaffolding safety require accessing a scaffold by a ladder or built-in access point instead of climbing the frame?"
       options:
-        - "Climbing the frame is actually just as safe, it's only discouraged for appearance"
         - "Climbing the frame is a shortcut that bypasses the scaffold's intended, safer means of access, raising fall risk even though it can feel faster"
-        - "A ladder is required only because it's faster than climbing the frame, not because of any real safety difference"
-      answerIndex: 1
+        - "A ladder is required mainly to keep the pace of work consistent across the crew, not because climbing the frame itself is any more dangerous"
+        - "Climbing the frame is discouraged mainly to protect the scaffold's own structural connections from extra wear, not because of any real fall risk"
+      answerIndex: 0
       explanation: >
         The rule exists because a frame isn't designed as a climbing
         surface, even though doing so is physically possible and feels
@@ -104,9 +104,9 @@ sections:
     quiz:
       question: "How is the NCCER Core Curriculum credential different from a basic safety card like OSHA 10?"
       options:
-        - "They cover the exact same material, just under different names"
+        - "OSHA 10 actually covers the same foundational tool, math, and drawing-reading skills as Core Curriculum, just packaged into a shorter class"
         - "Core Curriculum covers broader foundational skills, tools, math, reading drawings, and employability, not just safety, and it's the baseline most trade-specific NCCER training assumes a trainee already has"
-        - "OSHA 10 is only for supervisors, while Core Curriculum is only for entry-level workers"
+        - "Core Curriculum is mainly a more advanced version of OSHA 10, built around deeper jobsite safety procedures rather than general skills"
       answerIndex: 1
       explanation: >
         OSHA 10 is specifically a safety credential. Core Curriculum is
@@ -130,9 +130,9 @@ sections:
     quiz:
       question: "What does this lesson suggest is the real long-term value of starting as a laborer?"
       options:
-        - "There isn't really a long-term value, it's just a job people take until something better comes along"
+        - "The role mainly builds physical conditioning that helps later in a specific trade, rather than exposure to how different trades actually work"
         - "The role's variety gives a new worker real exposure to multiple trades, which is why it's commonly the starting point for people who go on to specialize as electricians, carpenters, or superintendents"
-        - "The main value is the paycheck, since the role itself doesn't teach anything that carries over to a specific trade"
+        - "The main long-term value is the overtime pay that comes with the role, since laborer shifts are typically scheduled longer than other entry-level trade positions on the same crew"
       answerIndex: 1
       explanation: >
         The laborer role's breadth of exposure is exactly what makes it a

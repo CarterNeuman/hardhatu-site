@@ -22,9 +22,9 @@ sections:
     quiz:
       question: "Why would a project use a motor grader instead of a bulldozer to reach final grade elevations?"
       options:
-        - "A motor grader is simply a smaller, cheaper version of a bulldozer"
+        - "A motor grader is essentially a lighter, less expensive machine that performs the same bulk earthmoving role a bulldozer already handles on most sites"
         - "A motor grader is built for precise, fine grading to exact elevations, while a bulldozer is built for bulk movement of large volumes of material"
-        - "Motor graders can only be used on flat sites, never on sloped ones"
+        - "Motor graders are generally limited to work on flat, level sites, since their long blade can't be adjusted to handle any real slope or grade change"
       answerIndex: 1
       explanation: >
         Different machines are built for different precision levels. A
@@ -52,10 +52,10 @@ sections:
     quiz:
       question: "What triggers the requirement for a protective system in an excavation?"
       options:
-        - "Only excavations wider than ten feet require protection"
+        - "Excavation width is generally the deciding factor, with protective systems required once a trench opens up wider than about ten feet across"
+        - "Protective systems generally become necessary mainly once an excavation is scheduled to stay open for longer than about a week on the active jobsite"
         - "Any excavation five feet deep or greater requires a protective system matched to the actual soil classification, unless it's entirely in stable rock"
-        - "Protective systems are only required if the excavation will stay open for more than a week"
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         The five-foot depth threshold is the trigger, and the specific
         protective system required, sloping, benching, shoring, or a
@@ -83,10 +83,10 @@ sections:
     quiz:
       question: "Why does a crew still call 811 before digging, even on a project with its own coordinated utility drawings?"
       options:
-        - "The utility coordination drawings already cover every buried line on the property, so the call is just a formality"
         - "Coordination drawings plan the NEW utilities being installed on this project, not whatever existing lines were buried on the property long before it started"
-        - "811 is only required for residential digging, never for commercial construction projects"
-      answerIndex: 1
+        - "The utility coordination drawings are generally comprehensive enough to account for essentially every buried line already present on the property, making the 811 call mostly redundant"
+        - "The 811 call system is mainly set up to serve residential digging projects, with most commercial construction sites relying on their own private utility locating contractors instead"
+      answerIndex: 0
       explanation: >
         A utility coordination drawing shows what this project is
         installing. It says nothing about utility lines buried on the
@@ -112,10 +112,10 @@ sections:
     quiz:
       question: "What is one real advantage of GPS machine control beyond just working faster than staking?"
       options:
-        - "It eliminates the need for a surveyor entirely"
+        - "GPS machine control removes most of the need for a surveyor's ongoing involvement, since the system can generate and update the digital design surface on its own"
+        - "GPS machine control lets equipment keep operating safely for short stretches without an operator physically present in the cab, relying on the system to steer it"
         - "Grading accurately against the design surface as work progresses supports keeping cut and fill material balanced on site, instead of trucking material on and off unnecessarily"
-        - "It allows equipment to operate safely without an operator present"
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         Accurate, real-time grading isn't just about speed. It directly
         supports balancing cut and fill on site, reusing material dug from
@@ -142,9 +142,9 @@ sections:
     quiz:
       question: "Why does a jobsite use a dedicated spotter around heavy equipment, rather than relying on the operator alone?"
       options:
-        - "Spotters are only needed when equipment is operating at night"
+        - "Spotters are mainly brought in for night work or low-visibility conditions, when an operator's already limited sightlines get even harder to rely on safely"
         - "An operator's blind spots around a large machine are real, and a spotter's whole job is watching the space the operator genuinely cannot see"
-        - "Spotters are required only for equipment without backup cameras"
+        - "Spotters are generally required mainly on older machines that haven't been retrofitted with backup cameras, since newer equipment is assumed to cover those same blind spots"
       answerIndex: 1
       explanation: >
         A spotter exists because of a real, physical limitation, not

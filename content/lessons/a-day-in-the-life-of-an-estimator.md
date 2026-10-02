@@ -23,10 +23,10 @@ sections:
     quiz:
       question: "Why does an early conceptual estimate carry such a wide range of potential error compared to a detailed bid estimate?"
       options:
-        - "Early estimators are simply less skilled than the ones who build the final bid"
         - "So little of the design actually exists yet that the estimate is built on assumptions rather than complete drawings, and that uncertainty narrows as the design develops"
-        - "Conceptual estimates are intentionally padded to make the final number look better by comparison"
-      answerIndex: 1
+        - "Conceptual estimates intentionally build in a flat contingency on top of the rough number so the project always looks more affordable than it will end up costing"
+        - "Early estimators typically work from a smaller, more junior team than the one assembled for the final competitive bid, which is part of why the number comes out rougher"
+      answerIndex: 0
       explanation: >
         Accuracy tracks how much is actually known. A conceptual estimate is
         built on a sketch and assumptions, while a detailed estimate is built
@@ -52,10 +52,10 @@ sections:
     quiz:
       question: "In construction, what's the difference between a project's general conditions cost and a contract's General Conditions?"
       options:
-        - "They're the same thing, just referred to informally in two different ways"
         - "General conditions cost refers to the GC's own site overhead expenses in the estimate; General Conditions refers to a separate contract section covering procedural rules, an unrelated meaning despite the identical term"
-        - "General conditions cost only applies to public projects, while General Conditions only applies to private ones"
-      answerIndex: 1
+        - "General conditions cost covers only the superintendent's own salary and trailer costs, while General Conditions in the contract covers every other procedural rule in the document"
+        - "Both terms describe the same line item in a contract, just phrased differently depending on whether the estimator or the attorney drafting the contract is talking about it"
+      answerIndex: 0
       explanation: >
         The same phrase covers two unrelated ideas in construction. One is a
         cost category in an estimate; the other is a section of the contract
@@ -81,10 +81,10 @@ sections:
     quiz:
       question: "Why is a firm's historical cost data useful for building a new estimate's unit prices?"
       options:
-        - "It can be reused exactly as-is, since past costs never really change"
         - "It gives a far more reliable starting point than guessing from scratch, though it still has to be adjusted for today's market and the new project's specific region"
-        - "It's only useful for projects in the exact same city as the historical project"
-      answerIndex: 1
+        - "It can be plugged directly into a new estimate's unit prices, since a firm's own completed projects already reflect current market conditions closely enough"
+        - "It mainly helps an estimator double-check a subcontractor's quote after the fact, rather than serving as a starting point for the estimator's own unit prices"
+      answerIndex: 0
       explanation: >
         Historical data beats guessing, but it isn't a plug-and-play number.
         Market conditions and regional differences mean an old unit price
@@ -107,9 +107,9 @@ sections:
     quiz:
       question: "What's the real difference between contingency and escalation in an estimate?"
       options:
-        - "They're two names for the exact same budget line"
+        - "Escalation covers unknown problems that come up once construction actually starts, while contingency accounts for the predictable rise in material and labor prices over time"
         - "Contingency covers unknown problems on a known scope; escalation accounts for a known, predictable cost trend, like rising material prices, over the time between the estimate and when the work actually happens"
-        - "Escalation only applies to labor costs, and contingency only applies to material costs"
+        - "Contingency and escalation are both calculated as the same flat percentage of the budget, just recorded under two different line items for reporting purposes"
       answerIndex: 1
       explanation: >
         Contingency is about uncertainty in the scope itself. Escalation is
@@ -135,10 +135,10 @@ sections:
     quiz:
       question: "According to this lesson, what does an estimator's job actually look like across a project's life?"
       options:
-        - "A single, one-time pricing exercise that happens only at the competitive bid"
         - "Building and rebuilding the same project's estimate at every design phase, each version sharper than the last as more of the design becomes known"
-        - "Guessing a single number early on and never revisiting it again until the project is finished"
-      answerIndex: 1
+        - "A single detailed number built early in design that the estimator revisits briefly at the competitive bid stage, mainly to confirm the subcontractor quotes still hold"
+        - "A pricing exercise that mostly repeats the same early conceptual number at each design phase, with small rounding adjustments rather than a full re-take-off"
+      answerIndex: 0
       explanation: >
         Estimating isn't a one-time event. The same project gets repriced at
         each design phase, with accuracy improving each time as more of the

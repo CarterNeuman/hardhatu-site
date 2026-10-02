@@ -24,9 +24,9 @@ sections:
     quiz:
       question: Under Design-Bid-Build, why does the owner typically get more price certainty than under faster delivery methods?
       options:
-        - Design-Bid-Build always uses the cheapest contractors available
+        - Design-Bid-Build contracts are generally structured to favor hiring the cheapest available contractor, which is mainly what keeps the owner's overall price down
         - The design is fully complete before contractors bid on it, so the bid reflects a known, finished scope rather than an estimate against an unfinished design
-        - Design-Bid-Build contracts are legally required to include a price guarantee
+        - Design-Bid-Build contracts carry a built-in legal requirement that the final contract price can never increase once the contractor signs, regardless of what's discovered later
       answerIndex: 1
       explanation: >
         Price certainty here comes from sequencing, not a legal requirement. A
@@ -57,8 +57,8 @@ sections:
         an ambiguous detail in the architect's drawings, who is actually on the hook?
       options:
         - It depends, and figuring out whether it was a design error or a construction error is exactly the kind of dispute Design-Bid-Build's separate contracts can create between the architect and the GC
-        - The general contractor automatically, regardless of the cause
-        - Neither party; the owner absorbs all such costs under Design-Bid-Build by default
+        - The general contractor is automatically liable in every case, regardless of whether the actual mistake traces back to the architect's drawings or the GC's own work
+        - Neither party actually bears responsibility; the owner is contractually expected to absorb essentially all such costs under a typical Design-Bid-Build arrangement by default
       answerIndex: 0
       explanation: >
         This is exactly the seam Design-Bid-Build creates: two separately liable
@@ -86,10 +86,10 @@ sections:
     quiz:
       question: Why does it matter whether a CM at Risk's GMP gets set before or after the design is actually complete?
       options:
-        - It doesn't matter; a GMP means the same thing regardless of design completeness
+        - A GMP carries roughly the same meaning and level of risk whether the underlying design is mostly finished or still fairly early at the time it's set
+        - A GMP fixes the contractor's price so completely that the owner ends up absorbing essentially all of the financial risk from any remaining design gaps
         - A GMP locked in against an incomplete design is essentially a guess; any real gaps left in the design become the contractor's financial risk to absorb once that price is guaranteed
-        - A GMP fixes the total price no matter how incomplete the design is, so the contractor takes on zero extra risk either way
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         The earlier and more incomplete the design when a GMP locks in, the more
         risk the contractor is silently absorbing. That's exactly why a CM's early
@@ -125,9 +125,9 @@ sections:
     quiz:
       question: What's the actual difference between a project's delivery method and its contract pricing type?
       options:
-        - They're the same decision described two different ways
-        - Delivery method determines who holds which contract and when (Design-Bid-Build, Design-Build, CM at Risk); pricing type determines how cost-overrun risk is split between owner and contractor (lump sum, cost-plus), and the two are chosen somewhat independently
-        - Pricing type only applies to Design-Bid-Build projects
+        - They're really the same underlying decision, just described using two different sets of industry terminology that project teams use somewhat interchangeably in practice
+        - Delivery method determines who holds which contract and when, while pricing type determines how cost-overrun risk splits between owner and contractor, and the two get chosen somewhat independently
+        - Pricing type is a concept that mostly applies within Design-Bid-Build contracts, since Design-Build and CM at Risk projects are generally priced using a different framework
       answerIndex: 1
       explanation: >
         Newcomers often collapse these into one decision. They're actually two
@@ -160,10 +160,10 @@ sections:
     quiz:
       question: What's the common thread connecting Design-Bid-Build, Design-Build, and CM at Risk?
       options:
-        - They're all essentially the same arrangement with different names
         - Each one represents a different tradeoff between price certainty, schedule speed, and who's liable for what, chosen based on what a specific owner needs most
-        - Only one of them is legally permitted for public projects
-      answerIndex: 1
+        - They're all essentially the same underlying arrangement, just marketed and labeled differently depending on which firm is proposing the delivery approach to an owner
+        - Public agencies are generally restricted by law to choosing only one specific delivery method among these three, regardless of the project's actual size or complexity
+      answerIndex: 0
       explanation: >
         None of these methods is objectively "best." Each one trades price
         certainty, speed, and liability differently, and the right choice depends

@@ -22,10 +22,10 @@ sections:
     quiz:
       question: What actually separates formal value engineering from simply cutting a project's scope to save money?
       options:
-        - They're the same thing, just different names for reducing cost
         - Value engineering looks for a different material, system, or method that preserves the owner's required function while lowering cost, rather than removing something the owner would notice is gone
-        - Value engineering can only be performed by the project's original design team
-      answerIndex: 1
+        - Value engineering is typically most effective when led by the project's original design team, since they already know the full design intent
+        - They differ mainly in documentation, cutting scope needs a formal change order while value engineering is treated as a routine design update
+      answerIndex: 0
       explanation: >
         Cutting scope removes something the owner wanted. Value engineering is
         supposed to find a genuinely equivalent way to deliver it for less.
@@ -49,10 +49,10 @@ sections:
     quiz:
       question: How does a constructability review differ from value engineering, even though both happen during preconstruction?
       options:
-        - They're the same review, just performed by different people
         - A constructability review asks what's difficult or inefficient to build as drawn; value engineering asks what would deliver the same function for less money, two different kinds of problems
-        - Constructability reviews only apply to renovation projects
-      answerIndex: 1
+        - Constructability reviews mainly apply to renovation projects, where existing conditions make buildability harder to judge from drawings alone
+        - They're largely the same review, with value engineering simply being the version that includes a cost estimator in the room
+      answerIndex: 0
       explanation: >
         One is about buildability, one is about cost versus function. A project can
         pass one review and still have real issues the other would have caught.
@@ -79,10 +79,10 @@ sections:
     quiz:
       question: Why can a value-engineered substitution that looks like a clean win on the estimate still be a bad decision for the owner?
       options:
-        - Value engineering proposals are never actually built as approved
         - The estimate typically compares only first cost, not what the substitution costs the owner over the life of the building, energy use, durability, or maintenance, which can outweigh the original savings
-        - Owners are legally required to reject every value engineering proposal
-      answerIndex: 1
+        - Value engineering proposals typically get re-evaluated by the architect before construction, which usually catches this kind of issue anyway
+        - Owners are usually required by their lender to reject a value engineering proposal unless it was independently priced and reviewed by a third-party consultant first
+      answerIndex: 0
       explanation: >
         A savings number on paper only tells you what changed today. Left
         unreviewed, that same change can cost far more once it's actually in use
@@ -110,10 +110,10 @@ sections:
     quiz:
       question: Why does an approved value engineering substitution still have to go through a formal change order before the contractor can actually build it?
       options:
-        - Because value engineering proposals are only suggestions until a change order makes them a legally binding part of the contract
-        - Change orders are only required when a substitution increases cost, never when it decreases cost
-        - Value engineering substitutions never need any additional paperwork once the team agrees in a meeting
-      answerIndex: 0
+        - Value engineering substitutions typically move forward on a verbal agreement in the VE meeting, with formal paperwork following afterward mainly for recordkeeping
+        - Because value engineering proposals stay informal suggestions until a change order makes them a legally binding part of the contract
+        - Change orders are mainly required when a substitution increases cost, since cost decreases are usually handled through the monthly pay application instead
+      answerIndex: 1
       explanation: >
         Until a change order is signed, the original contract specification still
         governs. Agreement in a meeting isn't the same as a binding change to what's
@@ -141,10 +141,10 @@ sections:
     quiz:
       question: What's the common thread connecting constructability review, bid alternates, and value engineering as preconstruction tools?
       options:
-        - They're redundant reviews that all check the same thing
+        - They're largely redundant reviews that tend to surface the same findings, so most teams running a tight schedule skip at least one of the three
+        - Value engineering is generally the tool used on projects with a fixed budget, while constructability review and bid alternates mainly apply to open-budget work instead
         - Each one catches a different kind of problem, buildability, owner-controlled scope, or cost-versus-function trade-offs, and a project benefits from using all three rather than treating any one as a substitute for the others
-        - Only value engineering is ever used on projects with a fixed budget
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         These tools overlap in when they happen but not in what they check. Skipping
         one because another already ran leaves a real gap.

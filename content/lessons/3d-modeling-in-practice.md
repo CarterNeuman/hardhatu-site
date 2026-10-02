@@ -25,10 +25,10 @@ sections:
     quiz:
       question: "Why does a project need a BIM Execution Plan (BEP) agreed before modeling even starts?"
       options:
-        - "A BEP mainly standardizes file-naming conventions, so each discipline can still choose its own level of detail and format as long as the filenames match"
-        - "A BEP mostly matters on renovation projects, where existing conditions complicate things, while new construction can rely on each discipline's own internal modeling standards instead"
+        - "A BEP mainly standardizes file-naming conventions and folder structures, so each discipline can still choose its own level of detail and software format as long as the filenames themselves end up matching"
         - "Without an agreed BEP, different disciplines can model to incompatible formats or levels of development, a mismatch that's far more expensive to fix once discovered during coordination than it would have been to prevent in writing beforehand"
-      answerIndex: 2
+        - "A BEP mostly matters on renovation projects, where existing conditions complicate the model, while new construction can rely safely on each discipline's own internal modeling standards without needing to formally align them"
+      answerIndex: 1
       explanation: >
         A BEP exists to settle expectations before anyone starts modeling.
         Discovering an incompatible model during coordination, instead of
@@ -53,8 +53,8 @@ sections:
       question: "What is a Common Data Environment's status workflow (work-in-progress, shared, published) actually preventing?"
       options:
         - "Someone coordinating against, or fabricating from, a model that was never actually approved, mistaking an in-progress file for a finished one"
-        - "Mainly file size limits on large BIM models, since a CDE's main job is compressing and archiving old versions to save storage space"
         - "The need for a human reviewer to approve each model, since once a file is uploaded the CDE's status workflow approves it automatically based on file type"
+        - "Mainly file size limits on large BIM models, since a CDE's main job is compressing and archiving old versions to save storage space"
       answerIndex: 0
       explanation: >
         A CDE's status workflow exists to make the difference between
@@ -77,9 +77,9 @@ sections:
     quiz:
       question: "Why can an AR overlay on a jobsite be riskier to rely on blindly than a printed drawing, even though it looks more precise?"
       options:
-        - "A printed drawing and an AR overlay carry the exact same risk of error, so neither one is actually safer to rely on without double-checking"
+        - "A printed drawing and an AR overlay both carry roughly the same risk of misreading a dimension, so neither one is meaningfully safer to rely on without a quick double-check"
         - "A printed drawing requires a trade to interpret dimensions themselves, which they do carefully; an AR overlay presents false confidence, and its positioning can drift over a shift without any obvious sign that it's happened"
-        - "AR overlays are generally more accurate outdoors than indoors, so the real risk only shows up on indoor finish work, not on structural or sitework"
+        - "AR overlays tend to drift more indoors than outdoors because GPS signal is weaker there, so the real risk mostly shows up on indoor finish work rather than structural or sitework"
       answerIndex: 1
       explanation: >
         A printed drawing never pretends to be more precise than it is. An AR
@@ -105,10 +105,10 @@ sections:
     quiz:
       question: "Why might handing an owner a construction-phase model that was never reconciled against as-built conditions be worse than giving them no model at all?"
       options:
-        - "A false sense of accuracy leads the facilities team to trust a stale model instead of verifying conditions in person, where no model at all would have prompted them to check"
         - "A digital model, even an outdated one, is still generally more useful than paper drawings, since at least some of its information remains accurate"
         - "Facilities teams typically cross-check any model against as-built conditions before relying on it, so an unreconciled model rarely causes a real problem in practice"
-      answerIndex: 0
+        - "A false sense of accuracy leads the facilities team to trust a stale model instead of verifying conditions in person, where no model at all would have prompted them to check"
+      answerIndex: 2
       explanation: >
         An inaccurate model is dangerous precisely because it still looks
         trustworthy. No model at all would have prompted someone to verify
@@ -140,9 +140,9 @@ sections:
       question: "Why does COBie matter to a facilities team taking over a finished building?"
       options:
         - "COBie is mainly a 3D visualization format used for marketing renderings and client presentations of the finished building, not an actual data standard"
-        - "COBie replaces the need for a digital twin entirely, since its spreadsheet-style data already contains everything a facilities team would need from a 3D model"
         - "COBie delivers structured equipment data, model numbers, warranties, maintenance schedules, in a format a facilities team's maintenance software can import directly, instead of re-keying it by hand out of PDF submittals"
-      answerIndex: 2
+        - "COBie replaces the need for a digital twin entirely, since its spreadsheet-style data already contains everything a facilities team would need from a 3D model"
+      answerIndex: 1
       explanation: >
         COBie's value is entirely about the data, not the geometry. A
         structured, importable format is what saves a facilities team from

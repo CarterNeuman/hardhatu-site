@@ -19,10 +19,10 @@ sections:
     quiz:
       question: "Why does plumbing rough-in typically claim ceiling and wall cavity space before HVAC ductwork does?"
       options:
-        - "Plumbers are scheduled first by union agreement"
-        - "Drain lines must maintain a continuous downhill slope and can't bend around obstacles the way ductwork or conduit can"
-        - "Plumbing materials are more expensive and get priority"
-      answerIndex: 1
+        - "Drain lines have to maintain a continuous downhill slope by gravity and can't bend around an obstacle the way flexible ductwork or electrical conduit can"
+        - "Project schedules generally list plumbing before HVAC mainly out of longstanding trade custom, not because of any physical requirement tied to how the piping actually works"
+        - "Plumbing fixtures and piping generally cost more than comparable ductwork, so scheduling plumbing first is mainly about protecting the more expensive materials from damage"
+      answerIndex: 0
       explanation: >
         Drain-waste-vent piping relies on gravity, so its slope is fixed
         and inflexible. Ductwork and electrical conduit can route around
@@ -46,10 +46,10 @@ sections:
     quiz:
       question: "What happens if a drain line is sloped too steeply?"
       options:
-        - "Nothing, steeper is always better for drainage"
-        - "Liquid waste can outrun solid waste, leaving solids behind to clog the pipe"
-        - "The pipe will crack under the water pressure"
-      answerIndex: 1
+        - "Liquid waste can outrun the solid waste moving through the pipe, leaving solids stranded behind to clog the line"
+        - "The sudden drop in elevation from an overly steep slope creates enough internal water pressure over time to crack the pipe"
+        - "A steeper slope just moves wastewater through the pipe faster with no real downside, which is why plumbers generally slope a drain as steep as space allows"
+      answerIndex: 0
       explanation: >
         Drain lines need enough slope to keep solids moving but not so
         much that liquid rushes ahead of them. Too steep a slope separates
@@ -72,10 +72,10 @@ sections:
     quiz:
       question: "What is the key difference between a plumber's work and a pipefitter's work?"
       options:
-        - "There is no real difference, the terms are interchangeable"
+        - "Pipefitters are generally licensed to work on larger commercial and industrial projects, while plumbers handle most of the piping work on smaller residential jobs"
+        - "Plumber and pipefitter are really just two regional names for the same trade, with the distinction mattering more to unions than to the actual work performed"
         - "A plumber installs gravity-fed drain and water supply systems, while a pipefitter installs pressurized mechanical piping like hydronic or chilled water loops"
-        - "Pipefitters only work on commercial projects"
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         Plumbers handle gravity-fed drain-waste-vent systems and domestic
         water supply. Pipefitters work on pressurized mechanical piping
@@ -99,10 +99,10 @@ sections:
     quiz:
       question: "Why is checking ductwork size against the mechanical drawings during rough-in important?"
       options:
-        - "It has no real effect on performance as long as the duct fits"
+        - "Matching duct size to the mechanical drawings mostly affects how neat the finished ceiling looks once the tiles go in, rather than how air actually moves"
+        - "As long as the duct physically fits inside the available ceiling cavity, its exact size has little real bearing on how well the HVAC system performs"
         - "Undersized duct or excessive bends can restrict airflow, a problem that often isn't discovered until balancing happens after the ceiling is closed"
-        - "It only matters for appearance once the ceiling tiles go in"
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         Undersized or poorly routed ductwork restricts airflow. That
         shortfall frequently isn't caught until HVAC balancing near project
@@ -126,10 +126,10 @@ sections:
     quiz:
       question: "When a routing conflict comes up between ductwork and a drain line during rough-in, which one usually has to move?"
       options:
-        - "The drain line, since it was installed second"
-        - "The ductwork, since it can usually detour around an obstacle while a gravity drain line generally cannot"
-        - "Whichever trade's foreman arrives on-site first gets priority"
-      answerIndex: 1
+        - "Priority in a routing conflict usually goes to whichever trade's foreman gets to the disputed section of ceiling first and stakes a claim to the space"
+        - "The drain line typically has to move instead, since it was the second system physically routed into that section of ceiling during rough-in"
+        - "The ductwork generally has to move instead, since it can usually detour around an obstacle while a gravity-fed drain line's fixed slope generally cannot"
+      answerIndex: 2
       explanation: >
         Ductwork can typically be rerouted around an obstacle. A
         gravity-fed drain line's slope is fixed by physics, so when the

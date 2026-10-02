@@ -22,10 +22,10 @@ sections:
     quiz:
       question: What is a submittal actually checking?
       options:
-        - Whether a subcontractor's invoice matches their contract
+        - Whether a subcontractor's submitted invoice actually matches the payment amount written into their signed subcontract agreement
+        - Whether a worker scheduled to install the reviewed item actually holds the correct trade license and safety certifications
         - Whether a trade's proposed shop drawings actually match the architect's and engineers' design intent, before fabrication happens
-        - Whether a worker has the correct safety certifications
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         A submittal exists to catch a mismatch between design intent and what a trade
         actually plans to build, before that mismatch gets fabricated and shipped to
@@ -49,9 +49,9 @@ sections:
     quiz:
       question: What does clash detection actually accomplish that reviewing each trade's drawings separately can't?
       options:
-        - It automatically fixes any conflicts it finds without human input
+        - Clash detection software automatically resolves most conflicts it identifies on its own, generating a corrected routing for engineers to simply approve rather than redesign
         - It combines every trade's model into one shared space and flags where two systems would physically occupy the same location, a conflict invisible when each drawing is reviewed on its own
-        - It only checks for spelling errors on drawings, not physical conflicts
+        - Clash detection mainly scans drawing sheets for labeling and spelling inconsistencies between trades, flagging text mismatches rather than actual physical conflicts in the model
       answerIndex: 1
       explanation: >
         A clash is invisible until two trades' work is actually viewed together in the
@@ -75,10 +75,10 @@ sections:
     quiz:
       question: What does linking a BIM model to the project schedule (4D) let a team catch that a static 3D model alone wouldn't?
       options:
-        - Nothing extra, a 3D model already shows everything a 4D model would
+        - 4D BIM is mainly a presentation tool used to generate renderings for client meetings, rather than something project teams rely on for real sequencing decisions
+        - A 3D model already captures the full picture, since the schedule gets managed separately in project management software rather than inside the model itself
         - Sequencing conflicts, like equipment needing to occupy a space the site plan has committed to something else, that only appear once the model is tied to when things actually happen
-        - 4D BIM is only used for marketing renderings, not real planning
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         A static model shows what gets built. Linking it to the schedule shows when
         and in what sequence, which is exactly what surfaces a conflict between two
@@ -102,10 +102,10 @@ sections:
     quiz:
       question: Why does resolved BIM coordination work still need to live inside shared construction management software, rather than staying inside specialized BIM tools alone?
       options:
-        - It doesn't matter where it lives, since field crews never need to reference preconstruction decisions
+        - The resolved model mainly needs to stay inside the BIM software itself, since field crews are generally trained to open that same software directly whenever a coordination question comes up
+        - Construction management software is designed mainly to track payment applications and invoicing, with technical coordination details typically kept inside separate specialized BIM tools instead
         - If the field team can't actually see how a conflict was resolved, the coordination work done in preconstruction doesn't prevent the same problem from resurfacing on-site
-        - Construction management software is only used for payment tracking, not technical coordination
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         Solving a conflict on a model doesn't help anyone who can't see the solution.
         Shared software is what actually carries preconstruction decisions forward to
@@ -137,9 +137,9 @@ sections:
     quiz:
       question: Why does the lesson describe good BIM/VDC work as "invisible by design"?
       options:
-        - Because BIM specialists intentionally hide their work from the rest of the project team
+        - Because most clash detection and modeling software runs automatically in the background now, requiring little direct involvement from a dedicated BIM specialist day to day
         - Because a conflict caught and resolved in the model months before construction never becomes a visible field problem, so the role's real value shows up as problems that simply never happened
-        - Because BIM software runs in the background without anyone needing to operate it
+        - Because BIM specialists are generally expected to keep their coordination work private from the rest of the project team until the design is fully finalized
       answerIndex: 1
       explanation: >
         Success in this role looks like nothing happening. A clash caught early enough
@@ -167,5 +167,5 @@ relatedIds:
   - interview-technology-design
   - exam-autodesk-certified-professional
   - career-mep-engineer
----
   - lesson-3d-modeling-in-practice
+---

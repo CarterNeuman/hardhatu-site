@@ -23,10 +23,10 @@ sections:
     quiz:
       question: Why does hazardous material abatement have to happen before general demolition begins on an older building?
       options:
-        - It doesn't, abatement and ordinary demolition can always happen at the same time by the same crew
+        - Abatement and ordinary demolition typically happen on the same schedule using the same crew, just with extra protective equipment added for the hazardous sections
+        - Abatement is mainly a formality required to document the building's age for the certification application, separate from any actual physical safety concern on site
         - Disturbing asbestos or lead-based materials without proper containment creates a serious health hazard, so licensed abatement work has to remove them under controlled conditions before ordinary demolition can safely disturb the same areas
-        - Abatement is only a paperwork formality with no real safety purpose behind it
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         Abatement exists because these specific materials are dangerous to disturb
         without controls in place. Clearing them first, under sealed containment
@@ -57,9 +57,9 @@ sections:
     quiz:
       question: Why might a project choose a specific certification system rather than defaulting to whichever one is most well known?
       options:
-        - All certification systems test for exactly the same thing, so the choice never actually matters
+        - Certification systems mainly function as marketing labels for a finished building, with the actual design requirements behind each one being roughly interchangeable
         - Different systems are built around different goals, such as LEED's broad credit system, WELL's occupant-health focus, or Passive House's strict energy targets, so the right choice depends on what the owner is actually trying to achieve
-        - Certification systems are purely marketing labels with no real design requirements behind any of them
+        - Every major certification system is reviewed by the same national board using the same checklist, so the specific system chosen mostly affects the paperwork, not the design
       answerIndex: 1
       explanation: >
         A system built for occupant wellness and one built for extreme energy
@@ -92,9 +92,9 @@ sections:
     quiz:
       question: Why can't a building reach a net zero energy target just by adding solar panels to an otherwise ordinary, inefficient building?
       options:
-        - Solar panels always generate far more power than any building could possibly use
+        - Solar panel costs have dropped enough in recent years that an oversized array is now cheap enough to offset even a highly inefficient building's energy use
         - A building that hasn't first been designed to use dramatically less energy would need an impractically large renewable system to offset its actual consumption, so the envelope and systems efficiency work has to happen first
-        - Net zero energy buildings are legally prohibited from ever drawing electricity from the grid
+        - Net zero energy buildings are required to generate and store all their own power on-site, since drawing electricity from the grid would disqualify the certification
       answerIndex: 1
       explanation: >
         Net zero is the end result of a sequence, not a single addition. The
@@ -118,9 +118,9 @@ sections:
     quiz:
       question: Why does embodied carbon get treated differently from a building's operational energy use in sustainability planning?
       options:
-        - It doesn't, the two are calculated and managed in exactly the same way
+        - Embodied carbon is tracked using the same energy-modeling software as operational energy use, just run against the building's material specifications instead of its HVAC equipment
         - Embodied carbon is locked in once materials are manufactured and installed, with no later opportunity to reduce it, unlike operational energy use, which can still be improved through upgrades after construction
-        - Embodied carbon only applies to buildings that never pursue any certification at all
+        - Embodied carbon mainly matters for buildings pursuing Passive House certification specifically, since LEED and WELL projects generally aren't required to track it at all
       answerIndex: 1
       explanation: >
         A building's operational efficiency can be upgraded for as long as it
@@ -151,10 +151,10 @@ sections:
     quiz:
       question: What's the common thread connecting hazardous material abatement, the building envelope, energy modeling, embodied carbon, and site development in this lesson?
       options:
-        - They're unrelated boxes to check purely for the sake of earning a certification plaque
+        - They're a standard checklist of credits that mainly exist to earn points toward a certification plaque, with little bearing on how the building actually performs
+        - The final certification submission is the step reviewers actually weigh most heavily, with the work done earlier mattering mainly as supporting paperwork for that review
         - Each one addresses a different real source of environmental or health impact a building creates, and a genuine green building strategy has to manage all of them together, not just whichever one is most visible
-        - Only the final certification submission actually matters, and everything built before it is irrelevant paperwork
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         Notice that none of these five things are really the same problem: a
         health hazard, an air-sealing detail, an energy comparison, a material's

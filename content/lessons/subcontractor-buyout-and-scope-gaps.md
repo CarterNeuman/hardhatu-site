@@ -23,10 +23,10 @@ sections:
     quiz:
       question: "What made the rooftop-unit control wiring a true scope gap rather than a missed line item?"
       options:
-        - "The electrical subcontractor simply forgot to price the control wiring in its bid"
-        - "The project's drawings omitted the rooftop units from the construction documents entirely"
+        - "The project's drawings showed the rooftop units but left their control wiring routing unresolved between trades"
         - "Both subcontractors' scopes of work excluded the same piece of work, each reasonably assuming the other covered it"
-      answerIndex: 2
+        - "The electrical subcontractor's bid left out the control wiring because of a pricing error during its final estimate review"
+      answerIndex: 1
       explanation: >
         Each subcontractor's exclusions were internally consistent and
         individually reasonable; the gap existed only because the two scopes,
@@ -49,10 +49,10 @@ sections:
     quiz:
       question: "What does a flow-down clause actually do in a subcontract?"
       options:
+        - "It resolves any scope gap between two subcontractors once both of their contracts are signed"
+        - "It locks in the subcontractor's final price once the design documents are fully complete"
         - "It pulls the relevant obligations from the owner's prime contract down onto the subcontractor"
-        - "It automatically reconciles any scope gap between two subcontractors"
-        - "It sets the subcontractor's final price once design is complete"
-      answerIndex: 0
+      answerIndex: 2
       explanation: >
         A flow-down clause binds the subcontractor to the same drawings,
         specifications, and standards the general contractor already agreed to
@@ -77,10 +77,10 @@ sections:
     quiz:
       question: "Why does a letter of intent create real risk for scope gaps, even though it helps the schedule?"
       options:
-        - "It legally replaces the subcontract and cannot be changed later"
+        - "It requires the full subcontract to be signed before the subcontractor can begin any mobilization or procurement"
+        - "It functions as a legally binding replacement for the subcontract once both parties sign it"
         - "It is deliberately lighter on scope detail than the subcontract that will eventually replace it"
-        - "It prevents the subcontractor from starting any work until the full subcontract is signed"
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         A letter of intent authorizes early mobilization or procurement at an
         agreed price while the detailed scope exhibits are still being drafted,
@@ -104,8 +104,8 @@ sections:
     quiz:
       question: "What is a buyout scope reconciliation, and when does it do the most good?"
       options:
-        - "A final cost audit performed after the project is substantially complete"
-        - "A negotiation tactic contractors use after a subcontractor files a formal claim"
+        - "A final cost audit the owner's accounting team performs after the project has already reached substantial completion"
+        - "A negotiation tactic the general contractor leans on mainly after a subcontractor has already filed a formal claim"
         - "Comparing every trade's signed scope against the drawings and specs, done before mobilization while a gap is still a spreadsheet problem"
       answerIndex: 2
       explanation: >
@@ -135,10 +135,10 @@ sections:
     quiz:
       question: "How does scope creep commonly show up at the boundary between two subcontractors?"
       options:
+        - "It becomes much less likely once a flow-down clause ties both subcontracts to the same prime contract language"
+        - "It happens mainly when the owner formally requests additional work in writing partway through construction"
         - "Unclear scope slowly expands to cover disputed work without anyone formally pricing or approving the change"
-        - "It happens when the owner formally requests additional work in writing"
-        - "It is prevented entirely once a flow-down clause is in place"
-      answerIndex: 0
+      answerIndex: 2
       explanation: >
         A subcontractor who quietly absorbs disputed work to keep the job
         moving today is often the same subcontractor filing a claim for extra

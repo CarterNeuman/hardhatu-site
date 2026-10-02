@@ -24,10 +24,10 @@ sections:
     quiz:
       question: What does a schedule of values actually do?
       options:
-        - It sets the final total price of the contract, nothing more
         - It breaks a lump-sum contract into individual line items with their own dollar values, giving every future payment application something concrete to measure progress against
-        - It's a one-time document that has no bearing on later payments
-      answerIndex: 1
+        - It sets the final total price of the contract, a figure that stays fixed and gets filed away once the contract itself is signed
+        - It's mainly a one-time document the owner's lender reviews before releasing the initial round of project financing
+      answerIndex: 0
       explanation: >
         Without a schedule of values, "how much of this contract is done" would have
         no agreed structure to measure against. It's what turns a lump sum into
@@ -52,10 +52,10 @@ sections:
     quiz:
       question: What is retainage actually meant to accomplish?
       options:
-        - It's simply a penalty charged to every subcontractor regardless of performance
         - It gives the party holding it real financial leverage to ensure a subcontractor genuinely finishes their work and fixes defects before getting fully paid
-        - It has no real purpose and exists only out of habit
-      answerIndex: 1
+        - It functions mainly as a cash-flow buffer for the general contractor, separate from how well any specific subcontractor performs
+        - It exists mostly because lenders require it on their loan documents, regardless of how the actual construction work is going
+      answerIndex: 0
       explanation: >
         Retainage is functional leverage, not a punishment. Holding back a percentage
         of every payment keeps a real financial incentive in place until the work is
@@ -80,9 +80,9 @@ sections:
     quiz:
       question: Why would a hospital system's lender, with no direct role in the construction itself, insist on the same bonding a public project would carry by law?
       options:
-        - Lenders are legally required to insist on bonding for any project they finance
+        - Lenders generally require bonding mainly to satisfy their own internal underwriting checklist, independent of the project's actual payment risk
         - Bonding keeps the general contractor's financial failure from becoming an unpaid invoice for everyone downstream, protecting the lender's own investment in the finished building either way
-        - Bonding is purely a formality with no real financial function on a private project
+        - Bonding mostly functions as a formality on a private project, with its real financial protections applying mainly once a project is publicly funded
       answerIndex: 1
       explanation: >
         A lender's real exposure is the same as the owner's: an unfinished or
@@ -108,10 +108,10 @@ sections:
     quiz:
       question: Why would an unpaid subcontractor's threat to file a mechanic's lien be taken seriously, rather than dismissed as an empty threat?
       options:
-        - It wouldn't be, liens have no real legal effect on a property
+        - Mechanic's liens are generally filed by the general contractor on a subcontractor's behalf, rather than by the subcontractor directly
+        - It wouldn't be taken that seriously, since a lien mainly affects the subcontractor's own standing with future clients rather than the property itself
         - A mechanic's lien clouds the property's title and can block a sale or refinance until resolved, giving an unpaid subcontractor real leverage even without a direct contract with the owner
-        - Mechanic's liens can only be filed by the general contractor, never a subcontractor
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         A lien attaches to the property itself, not just to whichever contract went
         unpaid. That's exactly what gives a subcontractor real leverage even when the
@@ -150,9 +150,9 @@ sections:
     quiz:
       question: What's the underlying theme this lesson draws across schedules of values, retainage, bonds, liens, and lien waivers?
       options:
-        - They're unrelated documents that happen to all involve money
+        - They're mostly unrelated documents that happen to all show up around the same point in a project's monthly billing cycle, without any real connection between them
         - Getting paid on a construction project is a connected chain of documents and protections, and a weak or skipped link anywhere in that chain becomes real financial risk for someone
-        - Only the final lien waiver actually matters; everything before it is just paperwork
+        - The schedule of values carries most of the real weight here, with the rest mainly tracking what it already established
       answerIndex: 1
       explanation: >
         Every document in this lesson exists to protect against a specific failure

@@ -23,10 +23,10 @@ sections:
     quiz:
       question: Why does a project need cost codes in addition to a schedule of values, if both break the contract down into similar categories?
       options:
-        - They're actually the same document under two different names
         - A schedule of values exists to bill the owner for progress; cost codes exist for the project team's own internal budget tracking, and the two can tell genuinely different stories about how a project is actually doing
-        - Cost codes are only used on public projects
-      answerIndex: 1
+        - They're largely the same underlying breakdown, just reformatted and relabeled specifically for the owner's monthly billing paperwork rather than genuinely different information
+        - Cost codes are mainly required on public projects, where government reporting rules demand a more granular cost breakdown than private work needs
+      answerIndex: 0
       explanation: >
         These two breakdowns serve different audiences. The schedule of values is
         for billing the owner; cost codes are for the team's own internal cost
@@ -55,10 +55,10 @@ sections:
     quiz:
       question: What's the key difference between a "committed" cost and an "actual" cost?
       options:
-        - They mean the same thing and can be used interchangeably
         - A cost becomes committed the moment it's legally obligated (a signed subcontract or purchase order), even before any work happens; it becomes actual only once the cost has genuinely been incurred
-        - Committed costs only apply to materials, actual costs only apply to labor
-      answerIndex: 1
+        - Committed costs mainly track material purchase orders, while actual costs mainly track the labor hours a crew logs each week
+        - They mean roughly the same thing in practice, and most project teams get by tracking just one of the two numbers since the gap between them rarely matters
+      answerIndex: 0
       explanation: >
         Committed and actual cost track two different moments in a cost's life: when
         it's legally locked in, and when it's actually been spent. Watching only one
@@ -90,10 +90,10 @@ sections:
     quiz:
       question: How can a project with an accurate original bid still end up losing money?
       options:
-        - It can't; an accurate bid guarantees a profitable project
+        - It generally can't, since an accurate bid locks in a profit margin that construction activity afterward rarely changes once the contract price is actually signed
+        - Losing money mostly traces back to a math error in the original estimate, rather than anything that happens later during construction
         - Costs during construction can still run over what was committed, through worse-than-assumed productivity, uncaptured change orders, or rework, none of which the original bid number could have predicted
-        - Losing money only happens if the estimator made a math error, not from anything that happens later during construction
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         An accurate bid describes the moment it was written. Everything that happens
         during construction, productivity, unbilled changes, rework, still has to be
@@ -121,10 +121,10 @@ sections:
     quiz:
       question: Why can a project's monthly billing to the owner (via the pay application) look healthy even while the project is actually losing money?
       options:
-        - Pay applications and internal cost tracking always match exactly, so this can't happen
+        - Owners typically review the project's internal cost reports as a standard part of approving each monthly pay application before releasing that month's payment
+        - Pay applications and internal cost tracking are generally built from the same underlying numbers, so the two tend to match closely most months
         - Billing percentage is based on the schedule of values, while internal cost tracking compares committed and actual cost by cost code against the remaining budget; the two can genuinely diverge without the owner ever seeing it
-        - Owners are legally required to review internal cost reports before approving any pay application
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         Billing progress and real financial health are measured two different ways.
         A project can look on-track to the owner while its own internal numbers are
@@ -154,10 +154,10 @@ sections:
     quiz:
       question: What's the common thread connecting cost codes, committed vs. actual cost, and cost-to-complete forecasting?
       options:
-        - They're redundant paperwork that mostly duplicates the original bid
         - Each one is a tool for tracking a project's real financial state continuously through construction, rather than assuming the original bid number will simply hold true on its own
-        - They only matter on projects that are already over budget
-      answerIndex: 1
+        - They're largely redundant paperwork that duplicates numbers the original bid had already established before construction even started
+        - They mainly become relevant once a project has already fallen noticeably behind its original budget, not before that point
+      answerIndex: 0
       explanation: >
         None of these tools exist to redo the original bid. They exist to keep
         tracking a project's real financial state continuously, since a good bid is

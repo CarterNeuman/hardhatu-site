@@ -36,9 +36,9 @@ sections:
     quiz:
       question: Why do underground utility lines get installed and buried before the foundation goes in, not after?
       options:
-        - It doesn't matter, utilities can go in any time before the building is finished
+        - Utility timing is mainly a scheduling convenience, since the work just needs to be finished at some point before the building is fully occupied
         - Once concrete is poured over an area, correcting a mistake underneath it means demolishing finished work, so utilities have to be right before the ground gets closed up
-        - Utilities are installed by a separate team that never coordinates with the foundation schedule
+        - Utilities are typically installed by a separate specialty team that rarely needs to coordinate its own timeline with the general foundation schedule
       answerIndex: 1
       explanation: >
         Construction locks in decisions in a way office work usually doesn't. Once
@@ -64,9 +64,9 @@ sections:
     quiz:
       question: Why does a delay in fabricating the structural steel affect more than just the steel crew's own schedule?
       options:
-        - It doesn't, other trades can keep working on their own separate schedules
+        - It generally doesn't affect much else, since most trades on a project keep working according to their own largely independent schedules
         - Steel sits on the critical path, so a delay to it pushes back every trade scheduled to follow it, delaying the whole project's finish date
-        - Structural steel is never actually on the critical path
+        - Structural steel is typically scheduled with enough built-in buffer time that it rarely ends up sitting directly on a project's critical path
       answerIndex: 1
       explanation: >
         A long-lead item that also sits on the critical path is exactly where a schedule
@@ -91,9 +91,9 @@ sections:
     quiz:
       question: Why do interior trades wait for full dry-in before starting their own work, rather than starting once the roof looks mostly finished?
       options:
-        - Interior trades don't actually need the building to be weathertight first
+        - Interior trades generally don't need the building fully weathertight before starting, since a little moisture exposure rarely causes any lasting damage to new materials
         - Interior materials like drywall and insulation can absorb moisture and have to be torn out if rain gets in before the building is genuinely sealed, so "mostly done" isn't good enough
-        - Dry-in is purely a scheduling term with no real technical requirement behind it
+        - Dry-in functions mainly as a scheduling milestone project teams track for reporting purposes, rather than reflecting any specific technical moisture requirement underneath it
       answerIndex: 1
       explanation: >
         Dry-in is a hard technical gate, not a soft milestone. Interior materials that
@@ -120,10 +120,10 @@ sections:
     quiz:
       question: What's the right move when a crew finds a field condition that doesn't match what the construction drawings show?
       options:
-        - Have the crew make their own judgment call and keep working, since asking questions slows the schedule down
         - Submit an RFI to get a documented answer from the design team, rather than improvising a fix that might not hold up to inspection
-        - Stop the entire project until the drawings are completely redrawn
-      answerIndex: 1
+        - Have the crew make their own best judgment call and keep working through it, since stopping to ask questions generally slows the whole schedule down
+        - Stop the entire project and wait until every drawing set has been completely redrawn and reissued by the architect before resuming any work
+      answerIndex: 0
       explanation: >
         An RFI turns a field surprise into a documented decision instead of a guess.
         That documentation is exactly what protects everyone once an inspector, or a
@@ -158,10 +158,10 @@ sections:
     quiz:
       question: What's the underlying theme connecting foundation inspection, dry-in, and the MEP rough-in sequence in this lesson?
       options:
-        - None of these steps are actually related to each other
         - Construction follows a rigid physical order, and skipping or rushing a step doesn't remove the risk, it just hides it behind finished work until it resurfaces later
-        - Every step in this lesson is optional as long as the schedule allows it
-      answerIndex: 1
+        - None of these particular steps are meaningfully connected to each other, since each trade's own inspection process operates fully independently of the others
+        - Most of the steps covered in this lesson are generally optional, skipped whenever a tight schedule makes following the normal sequence inconvenient
+      answerIndex: 0
       explanation: >
         From an uninspected footing to a rushed dry-in date, the pattern repeats:
         finished work can hide a shortcut, but it doesn't remove the risk that shortcut

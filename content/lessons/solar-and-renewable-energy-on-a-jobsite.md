@@ -14,18 +14,18 @@ sections:
       concentrated heat to start a fire. Worse, a series arc like this can
       actually reduce the current flowing through the circuit rather than spike
       it, which means an ordinary breaker, built to trip on excess current, may
-      never trip at all while the arc keeps burning. That's exactly why the
-      National Electrical Code requires a listed arc-fault circuit interrupter,
-      a device built specifically to recognize an arc's electrical signature
-      rather than wait for current that may never actually rise, on any PV DC
-      circuit operating at 80 volts or more between conductors.
+      never trip at all while the arc keeps burning. That's exactly why the National Electrical Code requires any PV DC circuit
+      operating at 80 volts or more between conductors to include a listed
+      arc-fault circuit interrupter, a device built specifically to recognize an
+      arc's electrical signature rather than wait for current that may never
+      actually rise.
     quiz:
       question: "Why can't an ordinary circuit breaker reliably catch a DC arc fault in a solar PV system?"
       options:
-        - "A series arc fault can reduce current rather than spike it, so a breaker built to trip on excess current may never trip while the arc keeps burning"
-        - "Ordinary breakers are generally designed around AC circuit behavior, so adapting one to interrupt a DC arc usually takes added components most installations don't include"
-        - "DC arc faults are rare enough in practice that the code requirement for dedicated arc-fault protection functions mainly as a formality rather than addressing a real hazard"
-      answerIndex: 0
+        - "DC arc faults happen uncommonly enough in the field that an ordinary breaker usually ends up catching them anyway, with the dedicated arc-fault interrupter mainly adding redundancy rather than closing a real gap"
+        - "Ordinary breakers are built around how AC circuits behave, so adapting one to interrupt a DC arc reliably usually requires added detection components that most standard installations simply don't include"
+        - "A series arc fault can actually reduce the current flowing through the circuit rather than spike it, so a breaker built to trip on excess current may never trip while the arc keeps burning"
+      answerIndex: 2
       explanation: >
         The real problem is behavior, not compatibility. A series arc can
         actually lower current instead of raising it, which is exactly the
@@ -52,9 +52,9 @@ sections:
     quiz:
       question: "Why does a grid-tied solar system automatically disconnect from the grid during a utility outage, rather than continuing to supply power?"
       options:
-        - "Disconnecting during an outage is mainly a cost-saving feature for the utility, built in with no real safety purpose behind the requirement"
+        - "Once an outage knocks out grid voltage, panel output typically drops low enough within seconds that the inverter has little meaningful power left worth disconnecting in the first place"
         - "Anti-islanding protection prevents the solar system from feeding power into a line a utility worker reasonably expects to be de-energized during an outage, which would put that worker at real risk"
-        - "Solar panels simply stop generating any electricity the instant a utility outage begins, so the inverter has nothing left to actually disconnect"
+        - "Utility companies require inverters to shut off during outages mainly to protect their own metering equipment from power surges, a billing safeguard rather than something tied to worker safety on the lines"
       answerIndex: 1
       explanation: >
         The disconnection is a genuine safety measure for utility workers, not
@@ -78,10 +78,10 @@ sections:
     quiz:
       question: "What does net metering actually do for a solar system owner?"
       options:
-        - "Net metering guarantees every solar owner nationwide the exact same one-for-one credit rate for exported power no matter which state or utility they happen to be served by"
-        - "Net metering mainly benefits commercial solar installations, since residential systems are generally billed under a separate structure that excludes any kind of export credit"
+        - "Net metering sets a single standardized credit rate for exported power that every utility in the country follows, so the dollar value a solar owner earns stays consistent nationwide"
         - "It credits a building for the surplus power it exports to the grid, typically against future usage, with the credit's actual value varying by state and utility"
-      answerIndex: 2
+        - "Net metering is structured mainly around commercial-scale solar installations, with most residential systems billed under a separate rate schedule that offers little meaningful credit for exported power"
+      answerIndex: 1
       explanation: >
         Net metering isn't a single nationwide rate. It's a billing mechanism
         whose actual value depends heavily on the state and utility involved,
@@ -103,10 +103,10 @@ sections:
     quiz:
       question: "Why does a standard grid-tied solar system provide no backup power during a utility outage, even though it's generating electricity the whole time it's sunny?"
       options:
+        - "Grid-tied systems are generally engineered and sized only to offset a building's daytime demand, so they were never actually designed with enough spare capacity to carry a full electrical load alone"
+        - "Once a utility outage begins, the panels' output gets automatically redirected into the inverter's internal safety circuitry instead of the building, which is what actually stops the lights from staying on"
         - "Anti-islanding protection automatically shuts the system down the moment the grid goes out, which is why real outage resilience requires battery storage and microgrid control, not solar panels alone"
-        - "Solar panels physically stop converting sunlight into electricity the instant a grid outage begins, regardless of how much sunlight is actually available"
-        - "Grid-tied systems are generally sized to match typical daytime demand, not to carry a building's full load independently during a utility outage"
-      answerIndex: 0
+      answerIndex: 2
       explanation: >
         The panels keep producing electricity; the inverter is what shuts down.
         That's exactly why backup power needs battery storage and deliberate
@@ -128,10 +128,10 @@ sections:
     quiz:
       question: "Why has NABCEP's PV Installation Professional certification become the de facto national credential for solar installers?"
       options:
-        - "NABCEP is a legally mandated federal credential required to install solar anywhere in the United States, comparable to the FAA's Part 107 for drone operators"
+        - "NABCEP certification effectively absorbed each state's electrical licensing authority once it was introduced, shifting solar installation oversight away from state boards and onto the national certifying organization itself"
+        - "NABCEP certification is issued directly by the federal government as the single credential required before anyone can legally install solar equipment anywhere in the United States"
         - "Licensing for solar installation varies significantly by state, so NABCEP has become the consistent national standard, and several states require it outright for their own solar incentive programs"
-        - "NABCEP formally replaced every state's electrical licensing requirement nationwide once the certification was first introduced to the industry"
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         NABCEP fills a gap, it isn't a federal mandate or a replacement for
         state licensing. State-by-state inconsistency is exactly what made a

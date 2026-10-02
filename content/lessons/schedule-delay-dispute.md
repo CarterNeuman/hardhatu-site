@@ -22,10 +22,10 @@ sections:
     quiz:
       question: What does it actually mean when an activity's float reaches zero?
       options:
-        - The activity has been cancelled and no longer needs to happen
+        - The activity has used up its entire original duration estimate and now has to be re-sequenced later in the schedule to make room for it
+        - The activity still has a few days of schedule cushion left, so a short additional delay to it can usually be absorbed without consequence
         - Any further delay to that activity now pushes back the project's overall finish date, since it has joined the critical path
-        - The activity is running ahead of schedule and can be delayed indefinitely without consequence
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         Float is the buffer between an activity slipping and the project's finish
         date actually moving. Once that buffer is gone, the activity is on the
@@ -52,10 +52,10 @@ sections:
     quiz:
       question: Why does it matter whether an accelerated schedule was directed in writing rather than just verbally?
       options:
-        - It doesn't, a verbal instruction is exactly as easy to enforce later as a written one
         - Without written documentation tying the acceleration to the owner's direction, the contractor risks having to prove after the fact who actually authorized the added cost, since the owner can later dispute ever approving it
-        - Acceleration costs are never reimbursable no matter how they are documented
-      answerIndex: 1
+        - Acceleration costs are reimbursed automatically once the extra work is performed, regardless of whether the owner's direction to accelerate was ever actually documented
+        - It matters only for the contractor's own internal recordkeeping, since most construction contracts treat a verbal site instruction as equally binding as one in writing
+      answerIndex: 0
       explanation: >
         A verbal request costs nothing to deny later. Getting the direction in
         writing before the extra costs are incurred is what turns "the owner asked
@@ -79,10 +79,10 @@ sections:
     quiz:
       question: What is the actual purpose of a liquidated damages clause?
       options:
-        - To punish a contractor as harshly as possible for any late finish, regardless of the amount
+        - To give the owner the ability to negotiate a larger penalty case by case, depending on how costly the particular late finish actually turns out to be
+        - To set a bonus payment schedule that pays the contractor an agreed daily amount for every day the project finishes ahead of the contract date
         - To set a pre-agreed daily dollar amount for late completion upfront, so the owner doesn't have to prove its actual financial losses from the delay after the fact
-        - To guarantee the contractor extra payment if the project finishes early
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         Liquidated damages exist to avoid a much harder argument later: proving
         exactly what a late finish actually cost the owner. Agreeing on a
@@ -111,9 +111,9 @@ sections:
     quiz:
       question: What is a forensic schedule analysis like a time impact analysis actually trying to establish?
       options:
-        - Which trade on the project worked the most total hours
+        - The total dollar value of every change order issued on the project, added together regardless of whether a given change actually affected the schedule
         - Exactly how many days a specific delay event actually pushed back the critical path, separating it from anything else happening on the project at the same time
-        - The total dollar value of the entire construction contract
+        - Which trade on the project logged the most total labor hours over the course of the job, regardless of whether those hours affected the critical path
       answerIndex: 1
       explanation: >
         A project can have several things going wrong at once. A time impact
@@ -153,10 +153,10 @@ sections:
     quiz:
       question: What's the common thread connecting every role in this lesson, from the Scheduler tracking float on day one to the Expert Witness testifying in arbitration?
       options:
-        - They all just want the project finished as quickly as possible regardless of cost
         - Each one turns what actually happened on a schedule into something documented and provable, since a real dispute is decided on evidence, not on whichever side simply asserts they're right
-        - Delay disputes are actually simpler to resolve than the everyday field problems earlier lessons covered
-      answerIndex: 1
+        - Delay disputes like this one are actually simpler and faster to resolve than the everyday field coordination problems covered in earlier lessons on this site
+        - They all report to the same project executive, who ultimately decides how the dispute gets resolved regardless of what the schedule analysis actually shows
+      answerIndex: 0
       explanation: >
         Notice how every step in this lesson exists to convert something that
         happened in the field, a late approval, a verbal request, an accelerated

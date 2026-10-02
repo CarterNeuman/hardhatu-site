@@ -28,10 +28,10 @@ sections:
     quiz:
       question: Why would a project manager push hard for an official substantial completion date?
       options:
-        - It has no real consequence, it's purely symbolic
         - It usually triggers a major milestone payment and starts the warranty clock, so there's real financial pressure to get there
-        - It means the entire project, punch list included, is finished
-      answerIndex: 1
+        - It means the building has passed its final city inspection and already received its certificate of occupancy
+        - It mainly affects how the project looks in the owner's monthly progress report, with little financial consequence either way
+      answerIndex: 0
       explanation: >
         Substantial completion carries real financial weight, which is exactly why it can
         be tempting to rush toward it. But it still has to reflect an honestly usable
@@ -58,9 +58,9 @@ sections:
     quiz:
       question: Why does the punch list carry more weight than its small, cosmetic-sounding items suggest?
       options:
-        - It doesn't; punch list items are genuinely minor and rarely affect payment
+        - Punch lists mainly matter on public projects, where government agencies require a formally documented final walkthrough
         - It's the last real checkpoint before final payment and project sign-off, so an incomplete punch list can hold up money and trust right at the end of the job
-        - Punch lists are only used on public projects, not private ones
+        - It doesn't carry extra weight, since punch list items are typically minor and get resolved well after final payment anyway
       answerIndex: 1
       explanation: >
         A punch list item left open isn't just a cosmetic loose end. It's leverage the
@@ -87,10 +87,10 @@ sections:
     quiz:
       question: What's the real relationship between substantial completion and a certificate of occupancy?
       options:
-        - They're the same milestone, just described two different ways
         - Substantial completion means the building is usable enough for the owner's purpose; a certificate of occupancy is a separate, legally required approval to actually occupy the space, and a project can have one without the other yet
-        - A certificate of occupancy always comes before substantial completion
-      answerIndex: 1
+        - A certificate of occupancy typically gets issued before substantial completion is reached, since the building has to pass every code inspection before anyone can call it substantially complete
+        - They're essentially the same milestone, with the certificate of occupancy mainly serving as the paperwork copy of substantial completion that gets filed for the project's permanent record
+      answerIndex: 0
       explanation: >
         A building can be substantially complete and still legally unoccupiable. Treating
         the two as interchangeable is exactly what leads to an owner planning a move-in
@@ -119,10 +119,10 @@ sections:
     quiz:
       question: Why does a contractor who skips finishing the closeout binder create a real problem, even months after the project ends?
       options:
-        - It doesn't, since closeout is mostly a formality once the building is occupied
+        - It mostly creates extra work for the project manager's own files, without really affecting the owner once the building is occupied
+        - Closeout binders are mainly required on public projects, where government agencies audit the documentation after handover
         - The owner ends up unable to prove warranty coverage or locate as-built information when something needs repair later, sometimes paying for what should have been a free warranty fix
-        - Closeout binders are only required on public projects
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         A physically finished building without its closeout documentation is a building
         nobody downstream can actually maintain or claim warranty coverage on. The
@@ -164,9 +164,9 @@ sections:
     quiz:
       question: What's the common thread this lesson draws across substantial completion, the certificate of occupancy, and closeout?
       options:
-        - They're all essentially the same approval, just at different points in the schedule
+        - They're mostly the same underlying approval, just issued by three different parties and renamed at each stage mainly for recordkeeping purposes
         - Each one gets treated as a formality to rush past under schedule pressure, but skipping the real substance behind any of them creates a cost that surfaces later, often for someone else
-        - Only the certificate of occupancy actually matters; the rest are optional
+        - The certificate of occupancy carries most of the real weight here, with the other two functioning as largely optional formalities
       answerIndex: 1
       explanation: >
         From a rushed substantial completion to a skipped closeout binder, the pattern

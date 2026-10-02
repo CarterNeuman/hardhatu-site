@@ -21,10 +21,10 @@ sections:
     quiz:
       question: Why do carpenters mark the top and bottom plates together, at the same time, rather than marking each one separately?
       options:
-        - It saves a small amount of time but the accuracy doesn't actually matter
+        - Marking them together lets the crew use a single lumber delivery for both plates, which has more to do with material ordering than with stud alignment
+        - Marking them together is mainly a code requirement inspectors check for, with little effect on how accurately the studs actually end up positioned on the wall
         - Marking them together guarantees a stud's position lines up exactly between both plates once the wall is stood up, instead of risking two independent marks that don't match
-        - Only the bottom plate actually needs to be marked at all
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         A stud has to meet both plates in exactly the same spot. Marking them together
         removes the risk of two separately-marked plates drifting out of alignment with
@@ -49,10 +49,10 @@ sections:
     quiz:
       question: What actually determines whether a wall is load-bearing, rather than just how thick it looks?
       options:
-        - Any wall thicker than a standard partition wall is automatically load-bearing
         - Whether it runs perpendicular to the joists or trusses above it and physically carries their weight down to continuous support below
-        - Load-bearing walls are always the exterior walls, interior walls never carry load
-      answerIndex: 1
+        - Load-bearing walls are typically the exterior walls, since interior walls are framed mainly to divide up space
+        - A wall's thickness compared to a standard partition wall is what determines whether it's classified as load-bearing
+      answerIndex: 0
       explanation: >
         Thickness is a red herring. What actually makes a wall load-bearing is its
         structural relationship to what's above it, running perpendicular to and
@@ -77,8 +77,8 @@ sections:
       question: What force is a metal hurricane tie actually designed to resist?
       options:
         - Uplift, the force of wind trying to lift and separate the roof framing from the walls beneath it
-        - Sideways sliding of the entire building off its foundation
-        - Nothing structural, it's purely a cosmetic fastener
+        - Compression load from the weight of the roof sheathing pressing straight down on the top plate
+        - Sideways racking of the wall framing as wind pushes directly against the side of the building
       answerIndex: 0
       explanation: >
         The name suggests sideways wind, but the actual threat a hurricane tie counters
@@ -102,10 +102,10 @@ sections:
     quiz:
       question: Why is an oversized notch cut into a structural stud or joist a serious problem even if the wall looks fine afterward?
       options:
-        - It's purely cosmetic and has no effect on the wall's strength
         - A notch cut beyond what code allows can weaken the member enough to fail under load, even though nothing about it looks wrong from the outside once it's covered
-        - Notching is never actually restricted by code
-      answerIndex: 1
+        - An oversized notch mainly slows down the framing inspection process, since it has little real effect on how much load the member can actually carry
+        - Code restricts notching mostly to keep finished walls looking uniform from room to room, not because of any real structural concern for the stud
+      answerIndex: 0
       explanation: >
         A structural member's strength depends on its full cross-section. An oversized
         notch removes material the design counted on, and that weakness doesn't show
@@ -129,10 +129,10 @@ sections:
     quiz:
       question: Why does accuracy in framing decisions matter so much, given that none of it will be visible once the building is finished?
       options:
-        - It doesn't matter much, framing mistakes are easy to fix later
+        - Framing accuracy mainly affects how straight and clean the drywall finish looks later, rather than anything structural underneath that finish
+        - Framing mistakes are usually caught by the next trade during their own rough-in work, so most errors tend to get corrected before the walls ever actually close up
         - Framing decisions are structural, and once walls close up, a mistake made here is hidden rather than fixed, waiting until something eventually forces it back open
-        - Framing is purely cosmetic and has no real structural role
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         Framing is structural, not decorative. Once it's covered, an uncorrected mistake
         doesn't go away, it just becomes invisible until something, a sagging floor, a

@@ -32,10 +32,10 @@ sections:
     quiz:
       question: On a construction drawing set, what does the letter at the start of a sheet number (like the "S" in "S-201") actually tell you?
       options:
-        - Nothing; it's an arbitrary label assigned by whoever printed the drawings
         - Which discipline that sheet belongs to (Structural, Architectural, Mechanical, and so on), following a standardized national convention
-        - The exact date the sheet was last revised
-      answerIndex: 1
+        - Which specific architectural firm or engineering consultant on the project actually produced that particular sheet, for internal billing purposes
+        - The exact date the sheet was last revised, tracked instead through a separate revision block printed in the corner of each sheet
+      answerIndex: 0
       explanation: >
         The discipline designator is one of the most useful things to learn early:
         once you can read that single letter, you can navigate an unfamiliar drawing
@@ -66,8 +66,8 @@ sections:
     quiz:
       question: If you needed to see exactly how a specific window sill was supposed to be built, layer by layer, which kind of sheet would you look for?
       options:
-        - A 1-series plan sheet
-        - A 2-series elevation sheet
+        - A 2-series elevation sheet, since it shows the wall's finished outside appearance in enough detail to work from directly
+        - A 1-series plan sheet, since the overhead view it provides already shows roughly where each window sits along the wall
         - A 5-series detail sheet, since details show the zoomed-in, fabrication-level information a plan or elevation doesn't include
       answerIndex: 2
       explanation: >
@@ -105,10 +105,10 @@ sections:
     quiz:
       question: Why does a steel fabricator produce their own shop drawings instead of just building straight from the architect's original drawings?
       options:
-        - Shop drawings are a legal requirement with no real technical purpose
         - The architect's drawings show design intent, not fabrication-level detail like exact bolt patterns and connections, which the fabricator has to work out and document themselves
-        - Fabricators are required to redraw everything as a formality before billing
-      answerIndex: 1
+        - Shop drawings are mainly required so the general contractor has a complete paper trail to bill the owner for each fabricated piece
+        - Fabricators redraw the architect's sheets at a larger scale purely so the drawings are easier for the field crew to read on site
+      answerIndex: 0
       explanation: >
         An architect's drawings communicate what the finished building should be; a
         fabricator still has to figure out and document exactly how their specific
@@ -140,10 +140,10 @@ sections:
     quiz:
       question: What is plan review actually checking a set of drawings against?
       options:
-        - The project's total budget
         - The applicable building code, catching potential code compliance problems on paper before construction starts
-        - Whether the drawings are aesthetically pleasing
-      answerIndex: 1
+        - The project's total budget and whether the contractor's bid actually matches what the owner agreed to pay for the work
+        - Whether the building's design is aesthetically consistent with the surrounding neighborhood, a review usually handled by a separate design review board
+      answerIndex: 0
       explanation: >
         Plan review is a code compliance check, not a design critique or a budget
         review. It exists specifically to push the discovery of a code problem as
@@ -188,10 +188,10 @@ sections:
     quiz:
       question: What's the common thread connecting plan review, submittals, and special inspection?
       options:
-        - They're all optional steps that experienced contractors typically skip
         - Each one exists to catch a specific kind of mismatch or mistake, on paper or independently verified, before it becomes far more expensive to fix in the finished building
-        - They're all performed by the same person on every project
-      answerIndex: 1
+        - They're all steps mainly required on large public projects, with most private commercial work able to skip them without consequence
+        - They're all performed by the general contractor's own quality control team, independent of the architect, engineer, or local building department
+      answerIndex: 0
       explanation: >
         From code compliance to fabrication accuracy to critical structural work, the
         pattern repeats throughout this lesson: verification that happens before or

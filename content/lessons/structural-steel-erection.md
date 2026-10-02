@@ -23,10 +23,10 @@ sections:
     quiz:
       question: Why does OSHA require written notice that concrete has reached 75% of its design strength before steel erection loads apply, instead of just visually confirming the concrete looks cured?
       options:
-        - It doesn't matter, concrete that looks hard is always strong enough to build on
         - A footing that hasn't actually reached its design strength can crack or shift under the weight of the frame, a failure that isn't always visible just by looking at it
-        - The rule only applies to buildings taller than ten stories
-      answerIndex: 1
+        - Concrete typically reaches most of its strength within the first 24 hours, so a visual check is normally considered reliable enough
+        - The rule mainly exists for footings poured in cold weather, where slower curing makes a visual check especially unreliable
+      answerIndex: 0
       explanation: >
         Concrete strength is measured, not eyeballed. A footing that looks cured can
         still be well short of its design strength, and the written-notice requirement
@@ -53,9 +53,9 @@ sections:
     quiz:
       question: What's the actual job of an ironworker acting as a "connector" during steel erection?
       options:
-        - Welding every permanent connection on the frame before the crane releases the beam
+        - Welding the final, permanent connection on each beam immediately after the crane sets it into position
         - Catching an incoming beam from the crane and making the first temporary connection, so the frame can later be plumbed and aligned before final bolting or welding
-        - Operating the crane that lifts the steel into place
+        - Operating the come-along hand-ratchet that plumbs and squares a bay once every beam in it is already resting in place
       answerIndex: 1
       explanation: >
         A connector's temporary connection is deliberately not the final one. It holds
@@ -81,9 +81,9 @@ sections:
     quiz:
       question: At what point does a connector's reduced fall-protection allowance end and full conventional fall protection become mandatory, no exceptions?
       options:
-        - At exactly 30 feet, regardless of how many stories that covers
-        - At two stories or 30 feet, whichever is less
-        - Connectors are never required to use fall protection at any height
+        - Once a connector has logged more than two full shifts working above the 15 foot threshold
+        - At two stories above grade or 30 feet, whichever threshold comes first
+        - At 30 feet exactly, measured straight down no matter how many stories that height actually covers
       answerIndex: 1
       explanation: >
         The standard sets two different ceilings, stories and feet, and requires the
@@ -110,8 +110,8 @@ sections:
       question: Why can't a crane's lift capacity be treated as one fixed number regardless of how the lift is set up?
       options:
         - A crane's rated lift capacity shrinks as the boom extends further from the base, so the same crane can safely lift much less at a longer radius than it can close in
-        - Crane capacity is identical at every boom angle and radius
-        - Lift capacity only depends on the total weight of the crane itself, not the load's position
+        - Lift capacity depends mostly on the total weight of the crane itself, with the load's distance from the base playing a smaller role
+        - Crane capacity depends mainly on engine horsepower, so a more powerful crane model generally lifts more regardless of boom angle
       answerIndex: 0
       explanation: >
         A crane's capacity is radius-dependent, not fixed. The lift plan has to account
@@ -136,9 +136,9 @@ sections:
     quiz:
       question: Why are steel erection's safety and sequencing rules enforced so strictly compared to later phases of construction?
       options:
-        - They aren't actually stricter than any other phase of construction
+        - Steel erection is generally the fastest phase to redo, so regulators focus enforcement there to keep schedules honest
         - At this stage the building has no walls or finishes yet to hide a mistake behind, so errors in loading, lifting, or fall protection are much harder to catch after the fact
-        - Steel erection is the cheapest phase to redo if something goes wrong
+        - Steel erection rules are set at the same strictness as every other construction phase, just enforced more visibly
       answerIndex: 1
       explanation: >
         A mistake made before the frame is decked and enclosed has nowhere to hide. That

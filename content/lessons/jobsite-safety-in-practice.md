@@ -28,10 +28,10 @@ sections:
     quiz:
       question: What's the real difference between a Job Hazard Analysis and a toolbox talk?
       options:
-        - They're the same thing, just different names for it
+        - They're two names construction companies use interchangeably for the same written safety document, filed under whichever term the project's safety manual happens to prefer
+        - The toolbox talk covers general jobsite rules that apply every day, while the JHA covers only the hazards specific to that day's actual task
         - The JHA is the written, detailed hazard analysis for a specific task; the toolbox talk is the short daily briefing that actually delivers those hazards to the crew doing the work
-        - The toolbox talk is only for new hires, and the JHA is only for supervisors
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         A JHA that never makes it past a binder doesn't protect anyone standing at the
         trench. The toolbox talk is what actually gets that analysis into the crew's
@@ -59,10 +59,10 @@ sections:
         A laborer notices a shifted piece of shoring near an open trench. What should
         they do?
       options:
-        - Finish the current task first, then mention it to a supervisor when there's a break
         - Stop work immediately and flag it, using their own stop work authority rather than waiting to report it through normal channels
-        - Nothing, since only the competent person is allowed to make that call
-      answerIndex: 1
+        - Report it to the competent person first and wait for their inspection before pausing any work themselves, since stopping it is normally that person's call to make
+        - Finish setting up the barricade first, then mention the shifted shoring to a supervisor once there's a natural break in the work
+      answerIndex: 0
       explanation: >
         Stop work authority only means something if it gets used the moment a hazard is
         spotted. Waiting to report it later defeats the entire point of giving every
@@ -89,10 +89,10 @@ sections:
     quiz:
       question: What's the real distinction between stop work authority and a stop work order?
       options:
-        - There's no real difference, they're interchangeable terms for the same thing
+        - They're two different names the safety manual uses for the same reporting process, both routed through the same formal paperwork before work actually stops
+        - A stop work order is what any worker uses in the moment they spot a hazard, while stop work authority is the formal directive issued afterward by an outside authority
         - Stop work authority is any worker's real-time right to halt work they see as hazardous; a stop work order is a formal directive from an owner, inspector, or safety authority
-        - A stop work order only applies to safety issues, while stop work authority applies to schedule issues too
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         One is personal and immediate, exercised in the moment a hazard is spotted. The
         other is a formal directive from outside authority, often issued after the fact
@@ -130,9 +130,9 @@ sections:
     quiz:
       question: Why would a general contractor's bidding process actually care about a subcontractor's TRIR?
       options:
-        - It wouldn't; TRIR is only relevant internally for the subcontractor's own safety program
+        - It wouldn't affect bidding directly; TRIR mainly feeds into the subcontractor's own workers' compensation insurance premium calculations each year
         - A high TRIR can get a subcontractor screened out during prequalification entirely, since owners and GCs use it as a real business metric, not just a safety statistic
-        - TRIR only matters for public projects, never private ones
+        - TRIR mainly factors into prequalification on public, government-funded projects, while private owners and GCs typically rely on references instead
       answerIndex: 1
       explanation: >
         TRIR functions as a real gatekeeper in the bidding process, not just an internal
@@ -174,10 +174,10 @@ sections:
     quiz:
       question: What actually determines whether a safety program works, according to this lesson?
       options:
-        - Whether the company has ever been fined by OSHA
-        - Whether the paperwork, like JHAs and toolbox talk records, is complete and filed correctly
         - Whether the people closest to a hazard feel safe stopping work over it, and whether that gets taken seriously when they do
-      answerIndex: 2
+        - Whether the paperwork trail, like completed JHAs and signed toolbox talk records, stays thorough and properly filed throughout the job
+        - Whether the company has gone a certain number of days without an OSHA citation, a streak most safety managers track prominently on a jobsite sign
+      answerIndex: 0
       explanation: >
         Paperwork and inspection records matter, but they're downstream of the real
         question: does the culture actually back up a worker who stops work over a

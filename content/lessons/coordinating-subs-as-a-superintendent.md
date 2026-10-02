@@ -22,10 +22,10 @@ sections:
     quiz:
       question: "Why does a superintendent review the look-ahead schedule directly with every subcontractor, rather than just updating it in the office and distributing it afterward?"
       options:
-        - "Subcontractors are contractually required to physically attend a weekly schedule meeting regardless of whether there's anything new to actually discuss that week"
         - "Reviewing it together surfaces a scheduling conflict between trades while there's still time to adjust it, rather than everyone discovering the conflict the same week it actually happens"
         - "The look-ahead schedule mainly exists to satisfy the owner's reporting requirements, so reviewing it with subcontractors functions more as a formality than something that changes real coordination"
-      answerIndex: 1
+        - "Subcontractors are contractually required to physically attend a weekly schedule meeting regardless of whether there's anything new to actually discuss that week"
+      answerIndex: 0
       explanation: >
         The point of reviewing it together, not just distributing it, is
         timing: a conflict caught a week out is a quick adjustment, while the
@@ -49,10 +49,10 @@ sections:
     quiz:
       question: "What's the real advantage of pull planning over a scheduler simply handing trades a finished sequence?"
       options:
+        - "Trade foremen help build the sequence themselves, which surfaces conflicts and unrealistic durations the office might miss, and tends to produce buy-in from the people actually executing it"
         - "Pull planning sessions are faster to run than building a schedule in an office, which is the main reason superintendents prefer them on tight schedules"
         - "A schedule built through pull planning is legally binding on every trade in a way an office-built schedule distributed afterward is not"
-        - "Trade foremen help build the sequence themselves, which surfaces conflicts and unrealistic durations the office might miss, and tends to produce buy-in from the people actually executing it"
-      answerIndex: 2
+      answerIndex: 0
       explanation: >
         Speed isn't the point, and neither is legal weight. The value is that
         the people executing the plan helped build it, which surfaces real
@@ -78,10 +78,10 @@ sections:
     quiz:
       question: "Why does a weather-day schedule-extension claim depend so heavily on the daily report?"
       options:
+        - "Contracts generally grant a schedule extension for any day with measurable rain or snow, so the daily report mainly logs the extension that was already expected"
+        - "Weather-day claims are decided mainly by the project's insurance carrier, so the daily report matters more for insurance purposes than for the schedule itself"
         - "Whether a day qualifies as a weather day depends on comparing it to historical weather data, and the daily report is usually the only record of which specific days were actually affected"
-        - "Contracts automatically grant a schedule extension for any day with measurable rain or snow, so the daily report mainly just confirms the extension that was already guaranteed"
-        - "Weather-day claims are decided entirely by the project's insurance carrier, so the daily report mainly matters for insurance purposes rather than for the schedule itself"
-      answerIndex: 0
+      answerIndex: 2
       explanation: >
         A weather day isn't automatic and isn't an insurance matter, it's a
         comparison against historical norms, and the daily report is usually
@@ -109,9 +109,9 @@ sections:
       question: "Why does a well-documented back-charge hold up better than one issued without supporting documentation?"
       options:
         - "A back-charge typically can't be issued at all unless the subcontractor has already provided a written admission of fault to the GC beforehand"
-        - "Clear photos, dates, and a documented prior notice make the deduction difficult to contest, while an undocumented back-charge invites a dispute the GC is likely to lose"
         - "Documentation mainly matters for the general contractor's own internal recordkeeping, since a subcontractor has no real right to dispute a back-charge once it's been applied"
-      answerIndex: 1
+        - "Clear photos, dates, and a documented prior notice make the deduction difficult to contest, while an undocumented back-charge invites a dispute the GC is likely to lose"
+      answerIndex: 2
       explanation: >
         Subcontractors absolutely can and do dispute back-charges, and no
         written admission of fault is required beforehand. What actually
@@ -143,9 +143,9 @@ sections:
       question: "Why do manufacturers sometimes make attending a pre-installation meeting a condition of their own product warranty?"
       options:
         - "Pre-installation meetings are mainly a sales opportunity for the manufacturer's technical representative, with the warranty requirement added as an incentive to get them invited onto the job"
-        - "The meeting itself has no real connection to installation quality, it's simply a scheduling courtesy that lets every trade coordinate calendars before work begins"
         - "The meeting is where substrate conditions and the manufacturer's own installation requirements actually get verified before work starts, so skipping it can void warranty coverage even if the finished work looks fine"
-      answerIndex: 2
+        - "The meeting itself has a limited connection to installation quality, serving mainly as a scheduling courtesy that lets every trade coordinate calendars before work begins"
+      answerIndex: 1
       explanation: >
         The warranty condition exists because the meeting is where the
         manufacturer's actual requirements get checked against real jobsite

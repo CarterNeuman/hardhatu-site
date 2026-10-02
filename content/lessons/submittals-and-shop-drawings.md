@@ -28,8 +28,8 @@ sections:
       question: What does it mean for a subcontractor to be "fabricating at risk"?
       options:
         - Fabricating a product before its submittal has actually been approved, betting it will pass review
-        - Using a riskier material than the specification calls for
-        - Fabricating during a scheduled safety stand-down
+        - Choosing to install a slightly different material than the approved specification calls for, without notifying the design team first
+        - Continuing fabrication work during a scheduled safety stand-down instead of pausing operations like the rest of the crew
       answerIndex: 0
       explanation: >
         Fabricating at risk means starting real, expensive work before the review
@@ -60,10 +60,10 @@ sections:
         nobody can tell which one is correct. Is this an RFI or a submittal
         situation?
       options:
+        - A submittal, since the wall itself is a physical building component that needs to be confirmed and verified before construction
         - An RFI, since the design intent itself is unclear and needs an answer before work proceeds
-        - A submittal, since it involves a physical wall
-        - Neither; this would just get resolved verbally on site
-      answerIndex: 0
+        - Neither formally; a conflict like this would typically just get talked through verbally on site without needing any written documentation
+      answerIndex: 1
       explanation: >
         A submittal only makes sense once the design intent is already clear. Here,
         the drawings themselves contradict each other, which is exactly the kind of
@@ -91,10 +91,10 @@ sections:
     quiz:
       question: A submittal comes back stamped "approved as noted." What should happen next?
       options:
+        - Work has to stop completely until the fabricator throws out the current submittal and starts an entirely new one from scratch
+        - The reviewer's handwritten notes are mostly optional guidance, so the contractor can move ahead treating the item as fully approved without changes
         - The contractor can proceed, incorporating the reviewer's specific corrections, without resubmitting for another full review
-        - Work must stop entirely until a brand new submittal is created from scratch
-        - The notes can be safely ignored since the item is technically approved
-      answerIndex: 0
+      answerIndex: 2
       explanation: >
         "Approved as noted" is a green light with conditions attached. It's meant to
         keep the project moving while still requiring the noted corrections actually
@@ -120,10 +120,10 @@ sections:
         Why does a long-lead item sometimes get submitted for approval before most
         of a project's other design details are even finalized?
       options:
-        - Because long-lead items are always the cheapest items to order
         - Because its long manufacturing and delivery time means ordering it late can delay the entire project, regardless of how quickly everything else gets built
-        - Because building codes specifically require it
-      answerIndex: 1
+        - Because long-lead items generally end up being the most budget-friendly option once a project team compares every available supplier's pricing
+        - Because building codes specifically require certain equipment submittals to be fast-tracked ahead of the rest of a project's design documents
+      answerIndex: 0
       explanation: >
         A long-lead item's own manufacturing time, not the rest of the project's
         pace, is what actually sets the deadline for getting its submittal approved
@@ -157,9 +157,9 @@ sections:
         What's the common thread connecting RFIs, submittal review stamps,
         transmittals, and long-lead item scheduling?
       options:
-        - They're redundant systems that mostly duplicate each other
+        - They're mostly redundant paperwork systems that duplicate the same information, kept in place more out of habit than because each one serves a distinct purpose
         - Each one is a mechanism for keeping what actually gets built in sync with what was actually designed and approved, and for proving that sync happened when questions come up later
-        - They only matter on very large commercial projects
+        - These tracking systems mostly matter on very large commercial projects, with smaller residential and light commercial jobs rarely needing this level of documentation
       answerIndex: 1
       explanation: >
         From resolving ambiguity to verifying a specific product to proving exactly

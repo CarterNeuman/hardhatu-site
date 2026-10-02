@@ -17,10 +17,10 @@ sections:
     quiz:
       question: "What is the main goal of the electrical rough-in phase?"
       options:
-        - "Install light fixtures and switch plates"
+        - "Install the light fixtures, switch plates, and cover plates that will be visible on the finished wall once drywall and paint are complete"
+        - "Connect the building's wiring to the utility's permanent power meter so the site can run off full power instead of a temporary construction feed"
         - "Get boxes, conduit or cable, and wire in place before drywall closes the walls"
-        - "Test the building's permanent power meter"
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         Rough-in places the boxes and wiring inside open walls. Fixtures,
         switches, and cover plates are installed later during trim-out,
@@ -44,10 +44,10 @@ sections:
     quiz:
       question: "Why does the electrical code set a box fill limit?"
       options:
-        - "To make inspections finish faster"
-        - "To prevent overcrowded conductors from trapping heat against their own insulation"
-        - "To save money on box materials"
-      answerIndex: 1
+        - "To prevent too many conductors from being crammed into a box, where overcrowding traps heat against the wire's own insulation and leaves no room to safely splice it"
+        - "To give the inspector a simpler count to verify on site, since box fill is mostly a paperwork checklist rather than a safety-driven limit"
+        - "To limit how many expensive junction boxes a contractor has to buy and install across the whole job, keeping the overall material cost down"
+      answerIndex: 0
       explanation: >
         Box fill limits exist for heat dissipation and safe handling. A
         box with more conductors than its rated volume allows traps heat
@@ -69,10 +69,10 @@ sections:
     quiz:
       question: "Why is conduit more common than NM cable on commercial jobs?"
       options:
-        - "Conduit is always cheaper to install"
-        - "Conduit lets conductors be replaced or added later without opening a wall"
-        - "NM cable is not legal in commercial buildings"
-      answerIndex: 1
+        - "Conduit uses thinner, less expensive wire than NM cable, so the material cost alone makes it the standard choice on most commercial jobs"
+        - "NM cable is legal in commercial buildings but slows down inspections so much that most commercial electricians avoid specifying it on anything but small jobs"
+        - "Conduit lets an electrician pull out old conductors or add new ones later, as the building's electrical loads change, without ever having to open a finished wall"
+      answerIndex: 2
       explanation: >
         Conduit's main advantage is future flexibility. Conductors can be
         pulled out and replaced, or new ones added, through conduit that
@@ -101,10 +101,10 @@ sections:
     quiz:
       question: "Why does a kitchen typically require both GFCI and AFCI protection?"
       options:
-        - "The code requires AFCI everywhere GFCI is required, with no exceptions"
+        - "GFCI and AFCI both protect against the same arc-fault hazard, just using two different detection methods built into the same type of breaker"
+        - "AFCI protection is required on a kitchen's countertop receptacles specifically, while GFCI protection covers the kitchen's general lighting and other circuits instead"
         - "GFCI protects against shock near water and AFCI protects against arc fires, and a kitchen has both risks on different circuits"
-        - "GFCI and AFCI are two names for the same protection"
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         GFCI and AFCI guard against different hazards. A kitchen's
         countertop receptacles sit near water, so they need GFCI, while its
@@ -134,10 +134,10 @@ sections:
     quiz:
       question: "Why does electrical rough-in happen before drywall is installed?"
       options:
-        - "Drywall contractors require it to be done first by union rules"
         - "A conflict or mistake caught now costs a small fix, while the same mistake found after drywall means cutting open a finished wall"
-        - "Electrical code only allows wiring to be installed on open studs"
-      answerIndex: 1
+        - "The electrical code requires every run to be visually inspected while still exposed, a formality that has to happen regardless of when the mistake would actually be found"
+        - "Rough-in happens before drywall mainly to keep the electrician's schedule from overlapping with the drywall crew's own schedule on the same floor"
+      answerIndex: 0
       explanation: >
         Rough-in's whole value is catching problems while walls are still
         open. A box in the wrong spot or a code violation found during

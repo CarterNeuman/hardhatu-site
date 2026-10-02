@@ -24,10 +24,10 @@ sections:
     quiz:
       question: What does an FNOL actually do?
       options:
-        - It finalizes the settlement amount for the claim
         - It's the initial report that starts the claim in the insurer's system, capturing the basics of what happened and where
-        - It's a legal document only required for claims over a certain dollar amount
-      answerIndex: 1
+        - It's a formal legal filing required mainly for large commercial claims, with smaller residential claims typically able to skip straight to the scope of loss
+        - It's the final settlement document the insurer issues once the scope of loss and the repair estimate have both already been agreed upon
+      answerIndex: 0
       explanation: >
         FNOL just gets the claim into the system with the basic facts. The real
         documentation work, the scope of loss, still has to happen afterward.
@@ -52,10 +52,10 @@ sections:
     quiz:
       question: Why might a homeowner with an RCV policy still not receive the full replacement cost check immediately?
       options:
-        - RCV policies never actually pay full replacement cost, regardless of timing
-        - Insurers commonly withhold the depreciation as "recoverable," releasing it only after the homeowner proves the repair work is actually finished
-        - The adjuster made an error, and the full amount should always be paid immediately
-      answerIndex: 1
+        - RCV policies typically release the full replacement cost amount within the first few weeks of the claim, before any repair work actually begins
+        - The adjuster's initial estimate undervalued the roof, and the homeowner should file a separate supplement to recover the difference immediately
+        - Insurers commonly withhold the recoverable depreciation amount upfront, releasing it only once the homeowner shows the repair work is actually complete
+      answerIndex: 2
       explanation: >
         Recoverable depreciation is a normal, deliberate part of most RCV policies. It's
         a real payout, just one that arrives once the work is verified, not upfront.
@@ -82,10 +82,10 @@ sections:
     quiz:
       question: Who does a Public Adjuster represent?
       options:
-        - The insurance company, as an independent second opinion
-        - The policyholder, exclusively, typically paid a percentage of the settlement they help secure
-        - Neither party, they're a neutral government inspector
-      answerIndex: 1
+        - The policyholder exclusively, working to get them the largest accurate payout, typically paid a percentage of whatever settlement they actually help secure
+        - A neutral government inspector, assigned to review disputed claims independently of both the insurer and the homeowner's own hired representatives
+        - The insurance company, brought in on larger claims to provide a second, more detailed inspection alongside the original adjuster's scope of loss
+      answerIndex: 0
       explanation: >
         A Public Adjuster works only for the homeowner. That's exactly why a homeowner
         who feels an insurer's own adjuster undervalued the damage might bring one in.
@@ -111,10 +111,10 @@ sections:
     quiz:
       question: Why does mitigation work start immediately, rather than waiting until the claim amount is fully settled?
       options:
-        - It doesn't, mitigation always waits for a final settlement first
         - Delaying emergency work like tarping and water extraction lets covered damage turn into additional, sometimes uncovered, damage like mold
-        - Mitigation is only performed after reconstruction is already finished
-      answerIndex: 1
+        - Mitigation crews typically wait for the scope of loss to be fully approved first, so the insurer can confirm coverage before any tarping begins
+        - Mitigation work mainly happens during the reconstruction phase itself, performed by the same crew doing the drywall and paint work
+      answerIndex: 0
       explanation: >
         Mitigation exists precisely to stop damage from compounding while the rest of
         the claim gets sorted out. Waiting for a final number first would defeat its
@@ -152,10 +152,10 @@ sections:
     quiz:
       question: What's the common thread connecting FNOL, scope of loss, supplements, and reconstruction in this lesson?
       options:
-        - They're unrelated steps handled by completely separate industries
+        - They're unrelated steps handled independently by different departments within the insurance company, with little bearing on each other's outcome
+        - Reconstruction and mitigation are the two steps that actually determine the payout, while FNOL and the scope of loss mainly exist for the insurer's internal recordkeeping
         - They form a connected chain where accuracy or a shortcut early on affects every step that follows, all the way to the final repair
-        - Only reconstruction actually matters, the earlier steps are just paperwork
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         Every step in a claim builds on the one before it. An inaccurate scope of loss
         on day one doesn't stay contained, it shapes every decision made downstream of

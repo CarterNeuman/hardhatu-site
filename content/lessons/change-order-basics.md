@@ -47,10 +47,10 @@ sections:
         A superintendent tells a subcontractor to go ahead on about $3,000 of extra
         work, promising to "sort out the paperwork later." What's the real risk here?
       options:
-        - Nothing, verbal agreements are just as binding as written ones on a construction site
+        - Nothing really changes the risk here, since verbal agreements generally carry the same legal weight as a written and signed change order
+        - The general contractor typically ends up owing a penalty fee on top of the original price whenever paperwork gets skipped like this
         - The subcontractor may end up doing $3,000 of work with no enforceable agreement on what they'll be paid
-        - The general contractor automatically owes double the price for skipping the paperwork
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         Without a signed change order, the price was never actually agreed to in
         writing, only discussed. If the two sides remember the conversation
@@ -85,10 +85,10 @@ sections:
         A change order gets signed, but the subcontractor had already started the work
         the week before, while waiting on the paperwork. What's the biggest downside now?
       options:
-        - Nothing, as long as it eventually gets signed, timing doesn't matter
         - The subcontractor had much less leverage to negotiate a fair price, since the owner knew the work was already happening
-        - The change order is automatically invalid once work has started
-      answerIndex: 1
+        - As long as a change order eventually gets signed by both parties, the exact timing of that signature rarely changes anything meaningful
+        - A change order generally becomes legally invalid the moment work on it has already started before the paperwork is signed
+      answerIndex: 0
       explanation: >
         Once work is underway, the owner knows it's happening regardless of what gets
         signed, which removes the contractor's strongest negotiating position.
@@ -160,10 +160,10 @@ sections:
         What actually makes a change order get signed quickly instead of sitting on
         someone's desk for two weeks?
       options:
-        - Submitting it as late as possible so the owner feels rushed into signing
-        - Describing the changed scope specifically, pricing it using the same rates already agreed to in the contract, and stating any schedule impact plainly, rather than leaving any of the three vague
-        - Leaving the price blank until the owner asks, so there's room to negotiate later
-      answerIndex: 1
+        - Submitting the change order request as late as possible in the schedule, so the owner feels enough time pressure to sign it without much scrutiny
+        - Leaving the price and schedule impact blank until the owner specifically asks about them, keeping room open to negotiate a better number later on
+        - Describing the changed scope specifically, pricing it using the same rates already in the contract, and stating any schedule impact plainly rather than leaving things vague
+      answerIndex: 2
       explanation: >
         Vagueness is what stalls a change order. Specific scope, contract-consistent
         pricing, and an honest schedule impact are what let the other side sign
@@ -193,9 +193,9 @@ sections:
         from timing the signature to choosing a pricing method to documenting a
         dispute?
       options:
-        - They're all bureaucratic steps that experienced people learn to skip
+        - They're mostly bureaucratic formalities that experienced project managers eventually learn they can safely skip once they've built enough trust with a repeat owner
         - Each one exists to make sure a signed change order can actually settle "we agreed to this" months later, instead of the two sides arguing over a conversation nobody wrote down
-        - They only matter on projects large enough to have a dedicated contracts department
+        - These mechanics mainly matter on projects large enough to justify a dedicated contracts department, with smaller jobs generally not needing this much documentation
       answerIndex: 1
       explanation: >
         Every mechanic in this lesson, timing, pricing method, specificity,

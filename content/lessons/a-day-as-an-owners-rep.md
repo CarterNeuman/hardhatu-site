@@ -56,15 +56,16 @@ sections:
     quiz:
       question: "What typically distinguishes a Construction Manager acting as advisor (agency CM) from a baseline Owner's Representative?"
       options:
-        - "An agency CM's contract often grants broader independent authority, such as rejecting non-conforming work or helping prepare the certificate of substantial completion, while a baseline Owner's Rep sticks closer to advising"
-        - "There's no meaningful difference between the two titles at all; they're simply two different names construction companies use for the exact same contractual role"
         - "An agency CM actually holds the construction contract and takes on financial risk for the work, which is exactly what separates them from an Owner's Rep"
-      answerIndex: 0
+        - "An agency CM's contract often grants broader independent authority, such as rejecting non-conforming work or helping prepare the certificate of substantial completion, while a baseline Owner's Rep sticks closer to advising"
+        - "There's not much meaningful difference between the two titles in practice; they're largely two different names construction companies use for what amounts to the same contractual role"
+      answerIndex: 1
       explanation: >
-        That third option describes CM at Risk, a genuinely different delivery
-        method where the CM does eventually take on construction risk. An
-        agency CM, like an Owner's Rep, is paid purely to advise and never
-        holds the construction contract at all.
+        Holding the construction contract and taking on financial risk is
+        what describes CM at Risk, a genuinely different delivery method
+        where the CM does eventually take on construction risk. An agency
+        CM, like an Owner's Rep, is paid to advise and never holds the
+        construction contract itself.
   - content: >
       Some problems are worth catching exactly once, before they get repeated
       two hundred times. That's the entire logic behind a
@@ -83,10 +84,10 @@ sections:
     quiz:
       question: "Why does a first article inspection focus specifically on the very first unit of a repetitive item, rather than spot-checking units at random throughout the job?"
       options:
-        - "Random spot-checks are actually more statistically reliable than inspecting the first unit specifically, so first article inspections are mainly a holdover from older, less rigorous inspection practices"
         - "Catching a systemic problem in the first unit is quick and contained, while the same problem surfacing much later means correcting rework across every unit already built in between"
         - "Inspecting only the first unit lets the contractor skip quality checks on every unit built after it, since the first article inspection is treated as a one-time approval that covers the entire run"
-      answerIndex: 1
+        - "Random spot-checks are actually more statistically reliable than inspecting the first unit specifically, so first article inspections are mainly a holdover from older, less rigorous inspection practices"
+      answerIndex: 0
       explanation: >
         The math is what makes this worth doing: a mistake found in unit one is
         fixed once. The same mistake found in unit one hundred fifty means
@@ -112,7 +113,7 @@ sections:
       question: "Why does an OFCI (owner-furnished, contractor-installed) item create a particular kind of schedule risk?"
       options:
         - "OFCI items are typically delivered earlier than contractor-purchased materials on average, so in practice they create less coordination risk than most other parts of the schedule"
-        - "Once an item is designated OFCI, the general contractor is no longer responsible for that portion of the schedule at all, regardless of when the owner's purchase actually arrives"
+        - "Once an item is designated OFCI, the general contractor is no longer responsible for that portion of the schedule, regardless of when the owner's purchase actually arrives"
         - "The contractor has no control over the owner's own purchasing timeline, so a late or incorrect OFCI delivery can delay work the contractor is still contractually responsible for finishing on schedule"
       answerIndex: 2
       explanation: >
@@ -139,9 +140,9 @@ sections:
     quiz:
       question: "What's the common thread running through an Owner's Rep's day, across OAC meetings, first article inspections, and OFCI coordination?"
       options:
-        - "In every case, the Owner's Rep is working purely on the owner's behalf, with no competing contract or scope of their own, to translate, document, or catch problems before they become expensive"
-        - "Each of these tasks is actually the responsibility of the general contractor, with the Owner's Rep mainly observing and reporting back to the owner after the fact"
+        - "In every case, the Owner's Rep is working entirely on the owner's behalf, with no competing contract or scope of their own, acting to translate, document, or catch problems before they become expensive"
         - "These particular tasks are mostly reserved for unusually large or complicated projects, with most Owner's Reps spending the bulk of their time on simpler administrative work instead"
+        - "Each of these tasks is actually the responsibility of the general contractor, with the Owner's Rep mainly observing and reporting back to the owner after the fact"
       answerIndex: 0
       explanation: >
         Every example in this lesson comes back to the same thing: the Owner's

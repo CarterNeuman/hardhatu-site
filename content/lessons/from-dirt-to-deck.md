@@ -30,10 +30,10 @@ sections:
     quiz:
       question: What does a geotechnical report actually tell a project team?
       options:
-        - The property's exact legal boundaries
         - What's actually in the ground and specific recommendations for how a foundation should be designed to match it
-        - The project's overall construction schedule
-      answerIndex: 1
+        - The project's overall construction schedule, sequenced around when each trade's crew becomes available
+        - The property's exact legal boundaries and easement lines, surveyed and recorded before any design work begins
+      answerIndex: 0
       explanation: >
         A geotechnical report is soil investigation, not a boundary survey or a
         schedule. Foundation design gets built directly on top of what it finds, so
@@ -68,10 +68,10 @@ sections:
     quiz:
       question: Why does fill soil need compaction testing before anything gets built on top of it?
       options:
-        - It's purely a cosmetic requirement with no real structural purpose
         - Placed fill isn't automatically solid; without verified compaction to a specified density, it can settle unevenly under a foundation's weight, sometimes years later
-        - Compaction testing is only required for foundations, never for slabs
-      answerIndex: 1
+        - Compaction testing mainly matters for foundations poured on sloped or hillside sites, rather than on flat building pads
+        - It's mainly a scheduling checkpoint that lets the building inspector sign off before the next trade mobilizes on site
+      answerIndex: 0
       explanation: >
         Fill has to be compacted in controlled layers and verified, not just placed
         and leveled. Building on unverified fill risks uneven settlement long after
@@ -99,9 +99,9 @@ sections:
     quiz:
       question: Why might a project need deep foundations (piles or caissons) instead of a standard shallow footing?
       options:
-        - Deep foundations are simply the modern default on every project now
+        - Deep foundations have become the modern default on most large commercial projects regardless of soil conditions
         - The geotechnical report shows the near-surface soil can't adequately support the building's load, so the foundation has to reach a stronger bearing layer further down
-        - Deep foundations are required whenever a building has more than one story
+        - Deep foundations are typically required whenever a building rises above three stories, regardless of the soil report
       answerIndex: 1
       explanation: >
         The choice between shallow and deep foundations traces straight back to the
@@ -136,10 +136,10 @@ sections:
     quiz:
       question: Why does concrete need active curing after it's poured, rather than just being left to dry?
       options:
-        - Curing is a cosmetic step that only affects the concrete's color
         - Concrete needs sustained moisture and the right temperature to fully hydrate; drying out too fast before that happens can leave it noticeably weaker than designed
-        - Curing is only necessary in cold climates
-      answerIndex: 1
+        - Curing mainly affects the concrete's surface color and texture, rather than anything about its actual structural strength underneath
+        - Curing is mainly a cold-weather precaution, since concrete poured in warm climates reaches full strength without it either way
+      answerIndex: 0
       explanation: >
         Curing and drying aren't the same thing. Concrete needs time and the right
         conditions to fully hydrate, and rushing that process, letting it dry out too
@@ -173,9 +173,9 @@ sections:
     quiz:
       question: What's the common thread connecting the geotechnical report, compaction testing, rebar placement, and concrete curing?
       options:
-        - They're all optional steps that experienced crews often skip to save time
+        - They mainly apply to large commercial projects, since residential foundations rarely need this level of verification
         - Each one is a verification step for work that becomes invisible once the next stage covers it, making it far cheaper to catch a problem here than to discover it later
-        - They only apply to large commercial projects, never residential ones
+        - They're mostly optional quality checks that an experienced crew can reasonably skip under schedule pressure, since the odds of a hidden problem are fairly low in practice
       answerIndex: 1
       explanation: >
         Nearly everything in this lesson is invisible the moment the next step

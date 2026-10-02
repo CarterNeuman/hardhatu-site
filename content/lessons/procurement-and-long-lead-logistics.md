@@ -21,10 +21,10 @@ sections:
     quiz:
       question: "Why were structural steel and curtain wall glazing ordered months before ground was even broken?"
       options:
-        - "Because they are inexpensive items that are easiest to order early"
-        - "Because they are long lead items, and ordering them early is what protects the schedule from factory lead times"
-        - "Because the architect required all structural materials to be prepurchased by contract"
-      answerIndex: 1
+        - "Because ordering early locks in a lower price before material costs can rise later in the project"
+        - "Because the general contractor's insurance policy requires major materials to be ordered before the permit is issued"
+        - "Because they are long lead items, and ordering them early protects the schedule from long factory lead times"
+      answerIndex: 2
       explanation: >
         Long lead items like structural steel and custom glazing take months to
         fabricate, so they get ordered well ahead of need specifically to keep
@@ -46,10 +46,10 @@ sections:
     quiz:
       question: "What makes a purchase order valuable beyond simply naming what was ordered?"
       options:
-        - "It automatically adjusts a supplier's price if market costs rise before delivery"
-        - "It replaces the need for a material delivery log once goods arrive"
-        - "It is the formal written record that proves exactly what was promised and when, which matters once a delivery date slips"
-      answerIndex: 2
+        - "It shifts responsibility for storing the material onto the supplier until the crew is ready to install it"
+        - "It is the formal written record proving exactly what was promised and when, which matters once a delivery date slips"
+        - "It gives the supplier the right to substitute a different material if the original spec becomes unavailable"
+      answerIndex: 1
       explanation: >
         Without a signed purchase order, a late-delivery dispute becomes a
         disagreement over what was actually promised; with one, it becomes a
@@ -72,9 +72,9 @@ sections:
     quiz:
       question: "What is the real value of keeping a procurement log across a project's long lead items?"
       options:
-        - "It lets someone see, across all packages at once, where two promised delivery dates are converging on the same narrow window"
-        - "It is required paperwork with no practical scheduling use"
-        - "It replaces the need for individual purchase orders on each package"
+        - "It lets someone see, across every package at once, where two promised delivery dates are converging on the same narrow window"
+        - "It tracks which supplier offered the lowest price during the original bidding process for each package"
+        - "It mainly exists so the owner's accounting team can reconcile invoices against the original project budget"
       answerIndex: 0
       explanation: >
         Tracking dozens of purchase orders by memory does not scale; laying
@@ -99,10 +99,10 @@ sections:
     quiz:
       question: "Why does a laydown yard plan matter even when every delivery arrives on its promised date?"
       options:
-        - "Because laydown yards are needed mainly for materials delivered after the building is enclosed"
-        - "Because material that arrives on time but has nowhere planned to go can still block site access or get damaged, costing the project days anyway"
-        - "Because the material delivery log cannot be completed without a laydown yard"
-      answerIndex: 1
+        - "Because material that arrives on time but has nowhere planned to go can still block site access or get damaged, costing days anyway"
+        - "Because insurance carriers require a documented laydown plan before releasing coverage for stored materials"
+        - "Because a laydown yard is mainly where damaged materials get sorted before being returned to the supplier"
+      answerIndex: 0
       explanation: >
         A delivery that shows up on schedule but has no planned staging space
         can block a crane path or sit exposed to damage, which can cost as many
@@ -124,8 +124,8 @@ sections:
     quiz:
       question: "What is the relationship between procurement's logistics work and the project schedule?"
       options:
-        - "Procurement logistics replaces the need for a formal project schedule on material-heavy jobs"
-        - "Procurement logistics mainly matters after the building is substantially complete"
+        - "Procurement logistics mainly exists to satisfy the owner's reporting requirements rather than to affect the schedule itself"
+        - "Procurement logistics becomes most relevant once the project has already fallen behind its original schedule"
         - "The procurement log, delivery log, and laydown plan exist to protect the schedule, not to substitute for it"
       answerIndex: 2
       explanation: >

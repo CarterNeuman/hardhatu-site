@@ -21,10 +21,10 @@ sections:
     quiz:
       question: "Why is a slump test performed before concrete from a delivery truck is ever placed?"
       options:
-        - "It measures the concrete's final color before it's approved"
         - "It verifies the mix's workability matches what was specified for that pour, letting a bad truck be rejected before any of it is placed"
-        - "It's a formality that has no actual bearing on whether the truck gets accepted"
-      answerIndex: 1
+        - "The slump test is largely a procedural formality performed for record-keeping purposes, with the result rarely changing whether a delivered truck actually gets accepted"
+        - "A slump test is mainly used to check the concrete's final surface color and texture before a finishing crew decides whether it's acceptable to pour"
+      answerIndex: 0
       explanation: >
         The slump test checks workability against a specified range.
         Catching a mix that's too stiff or too wet before it's placed is
@@ -51,10 +51,10 @@ sections:
     quiz:
       question: "What happens if fresh concrete actually freezes before it has gained enough early strength?"
       options:
-        - "Nothing permanent, the concrete regains its full design strength once it warms back up and finishes curing"
+        - "Freezing is a temporary setback at most, since warming the concrete back up and continuing the normal curing process generally restores its full design strength"
+        - "Freezing mainly shows up as surface discoloration and minor texture changes, with the concrete's actual structural strength generally unaffected once it's fully cured"
         - "Ice forming inside the concrete physically damages the still-forming cement paste structure, and the resulting strength loss is permanent, not reversed by later curing"
-        - "Freezing only affects the concrete's surface appearance, not its structural strength"
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         Water expanding into ice inside unprotected fresh concrete damages
         the cement paste structure as it forms. That damage, and the
@@ -76,10 +76,10 @@ sections:
     quiz:
       question: "What does consolidating fresh concrete with a vibrator actually prevent?"
       options:
-        - "It prevents the concrete from curing too quickly"
         - "It drives out trapped air pockets and lets concrete flow fully around rebar and into corners, preventing honeycombing and the weak spots it creates"
-        - "It prevents the concrete from being too workable for finishing"
-      answerIndex: 1
+        - "Vibrating the mix mainly slows down the concrete's curing reaction, giving the finishing crew extra working time before the surface starts to set up"
+        - "Consolidating the mix reduces how workable the concrete is right before finishing, which actually makes it harder for a crew to trowel a smooth surface"
+      answerIndex: 0
       explanation: >
         Consolidation removes trapped air and ensures full contact around
         rebar and formwork corners. Without it, honeycombing leaves voids
@@ -104,9 +104,9 @@ sections:
     quiz:
       question: "Why does a concrete slab get control joints, given that it's going to crack as it cures anyway?"
       options:
-        - "Control joints are purely decorative and have no structural purpose"
+        - "Control joints are mainly there for visual appearance, cut into the slab in a grid pattern that designers use to break up large expanses of bare concrete"
         - "A control joint gives the concrete's inevitable shrinkage crack a planned, inconspicuous location, instead of letting it crack randomly somewhere across the slab"
-        - "Control joints are only used to mark where different concrete trucks' pours meet"
+        - "Control joints mark where one concrete truck's pour ends and the next one begins, helping crews track which section of the slab came from which delivery"
       answerIndex: 1
       explanation: >
         Concrete shrinks slightly as it cures regardless of how well it's
@@ -140,10 +140,10 @@ sections:
     quiz:
       question: "Why is the 28-day cylinder break considered the standard test for whether a concrete pour met its design strength?"
       options:
-        - "It's simply a traditional schedule with no real basis in how concrete actually cures"
         - "Concrete's strength gain follows a predictable curve, and 28 days is the age its measured compressive strength is compared against the design strength for final acceptance"
-        - "The 7-day break is actually the official acceptance test, and the 28-day break is only an early indicator"
-      answerIndex: 1
+        - "The 7-day break is treated as the official acceptance test in most specifications, with the 28-day result serving mainly as a later confirmation check"
+        - "The 28-day timeline mostly comes from an old industry tradition carried forward for convenience, rather than from how concrete's strength actually develops over time"
+      answerIndex: 0
       explanation: >
         The 7-day break is an early trend indicator, not the acceptance
         test. The 28-day break is when the cylinder's measured strength is

@@ -34,10 +34,10 @@ sections:
     quiz:
       question: A public IFB, above almost anything else, has one hard rule. What is it?
       options:
-        - The owner can pick whichever contractor's team and approach they like best, regardless of price
-        - Whichever bidder has completed the most similar projects in the past usually wins
         - The contract must go to the lowest bid that meets the stated requirements, with almost no room to weigh qualifications instead
-      answerIndex: 2
+        - The owner has fairly wide discretion to pick whichever contractor's team and overall approach they personally like best, regardless of the submitted price
+        - Whichever bidder has completed the greatest number of similar projects in the past almost always ends up winning the contract
+      answerIndex: 0
       explanation: >
         An IFB is deliberately price-driven and rule-bound; public agencies use it
         partly to avoid favoritism, which is very different from an RFP process built
@@ -73,9 +73,9 @@ sections:
         Why does an estimator attend the pre-bid meeting in person instead of just
         working from the drawings?
       options:
-        - It's a formality with no real impact on the final price
+        - Attending the pre-bid meeting is largely a formality most estimators go through out of habit, with little real impact on the final submitted price
         - Real site conditions, such as access, existing hazards, or layout quirks, can change the price significantly, and drawings alone don't always show them
-        - Attendance guarantees the firm will win the job
+        - Simply showing up and attending the pre-bid meeting in person essentially guarantees that a firm's proposal will be the one that wins the job
       answerIndex: 1
       explanation: >
         Drawings only tell part of the story. A contractor who skips the walk-through is
@@ -112,10 +112,10 @@ sections:
         Two drywall subcontractors quote the same job, but one number is $8,000 lower.
         What should an estimator check before assuming it's the better deal?
       options:
-        - Nothing, the lower number is always the better choice
         - Whether both quotes actually include the same scope of work, since an excluded item can make an incomplete quote look artificially cheap
-        - Whether the subcontractor is willing to negotiate even lower
-      answerIndex: 1
+        - Nothing further really needs checking, since the lower of two quotes for the same described scope is almost always the smarter financial choice
+        - Whether the subcontractor offering the lower number is willing to negotiate their price down even further before the contract gets signed
+      answerIndex: 0
       explanation: >
         This is exactly what bid leveling exists to catch. A cheaper quote that's missing
         scope isn't actually cheaper; it's incomplete, and the missing piece usually
@@ -156,10 +156,10 @@ sections:
         was carried in the original winning bid. What does that actually mean for the
         project?
       options:
-        - Nothing, the original bid number is the only one that matters going forward
+        - Nothing changes from the owner's side, since the original bid number carries the only legal weight once the contract has actually been signed
+        - The general contractor can generally pass that $30,000 difference along to the owner as a straightforward billing adjustment on the next invoice
         - That $30,000 gap eats directly into the project's profit margin, since the contract price with the owner doesn't change
-        - The general contractor can simply bill the owner the difference
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         The price the owner is paying was locked in at bid. If buyout comes in over what
         was carried, that difference comes straight out of the contractor's own margin,
@@ -201,9 +201,9 @@ sections:
     quiz:
       question: What's the common thread connecting most of the bidding mistakes in this lesson?
       options:
-        - Bad luck that can't really be prevented
+        - Mostly bad luck that can't really be prevented no matter how carefully an estimator or project manager plans the bidding process
         - Someone skipping a specific verification step under time pressure, right before the exact problem that step exists to catch
-        - Contractors intentionally trying to cheat the system
+        - Contractors intentionally trying to game the bidding system for their own advantage, rather than making an honest mistake under pressure
       answerIndex: 1
       explanation: >
         From missing an addendum to skipping bid leveling to rushing buyout, the pattern

@@ -19,10 +19,10 @@ sections:
     quiz:
       question: "Why does a curtain wall need to flex with the building's movement rather than stay perfectly rigid?"
       options:
-        - "Flexible panels are always cheaper to manufacture"
+        - "Large curtain wall panels are difficult to manufacture with enough rigidity, so engineers build in flex mainly to work around that manufacturing limitation"
+        - "Flexible curtain wall framing generally costs less to manufacture than a rigid system, so flexibility is mainly a cost-driven design choice rather than a safety one"
         - "A building moves slightly from wind sway and thermal expansion, and a rigidly fixed curtain wall can crack or leak as it resists that movement"
-        - "Rigid panels are not available in large enough sizes"
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         Buildings move slightly under wind load and thermal expansion.
         Curtain wall connections are engineered to allow that movement, so
@@ -47,10 +47,10 @@ sections:
     quiz:
       question: "Why would a project choose unitized curtain wall over stick-built for a tall building on a tight schedule?"
       options:
-        - "Unitized panels are always less expensive overall"
-        - "Unitized panels arrive pre-assembled and install much faster, roughly 300-500 square feet a day versus 80-150 for stick-built"
-        - "Stick-built curtain wall is not permitted above a certain building height"
-      answerIndex: 1
+        - "Unitized panels arrive pre-assembled from the factory and install much faster on site, roughly 300 to 500 square feet a day versus 80 to 150 for stick-built"
+        - "Unitized panels typically carry a lower overall price tag than stick-built framing, since the factory assembly process cuts down on on-site labor costs"
+        - "Building codes generally restrict stick-built curtain wall installation above a certain number of stories, pushing taller projects toward a unitized system by requirement"
+      answerIndex: 0
       explanation: >
         Unitized curtain wall is factory-assembled and installs far
         faster than stick-built framing assembled piece by piece on-site,
@@ -76,10 +76,10 @@ sections:
     quiz:
       question: "What is the purpose of pressure-equalized design in a curtain wall?"
       options:
+        - "Pressure-equalized design is engineered specifically to replace joint sealant entirely, since the air gap alone is what's relied on to keep water out"
+        - "Pressure-equalized framing uses a thinner aluminum profile than older designs, which meaningfully reduces the overall weight of the finished curtain wall system"
         - "It lets water that gets past the outer seal drain back out through weep holes instead of pushing further into the wall"
-        - "It reduces the overall weight of the curtain wall system"
-        - "It eliminates the need for any sealant at panel joints"
-      answerIndex: 0
+      answerIndex: 2
       explanation: >
         Pressure-equalized design accepts that some water will get past
         the outer seal, and uses an air gap and weep holes to drain it
@@ -102,10 +102,10 @@ sections:
     quiz:
       question: "Why is a curtain wall mockup panel tested under ASTM E1105 before fabrication of the full order?"
       options:
-        - "It's a formality with no real bearing on the final product"
+        - "Mockup testing under ASTM E1105 is specifically required once a building rises above ten stories, rather than being standard practice for curtain wall projects generally"
+        - "ASTM E1105 testing is mostly a documentation exercise architects require for their records, with little real bearing on how the finished panels perform"
         - "Confirming the design resists water penetration on one panel gives confidence before committing to fabricate the entire building's worth of identical panels"
-        - "It is only required for buildings taller than ten stories"
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         A mockup test catches a water penetration problem on one panel
         before the full order is fabricated. Skipping it risks discovering
@@ -131,10 +131,10 @@ sections:
     quiz:
       question: "Why is the parapet, where curtain wall meets the roof, a common source of leaks?"
       options:
-        - "Parapets are rarely included in the original design"
         - "It's where two different trades' flashing details have to tie together continuously, and a gap in that coordination lets water through even if each trade's own work is sound"
-        - "Parapets are not covered by any code requirement"
-      answerIndex: 1
+        - "Parapets are generally added late in the design process as an afterthought, so the roofing and glazing details around them rarely get fully resolved on paper"
+        - "Building codes generally treat the parapet as a minor architectural feature, with no specific flashing or waterproofing detailing requirements attached to that transition"
+      answerIndex: 0
       explanation: >
         A parapet is a transition point between the glazier's wall system
         and the roofer's roofing system. If their flashing details don't

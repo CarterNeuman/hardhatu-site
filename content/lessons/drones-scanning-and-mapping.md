@@ -25,10 +25,10 @@ sections:
     quiz:
       question: "What does earning and keeping a Part 107 Remote Pilot Certificate actually require?"
       options:
-        - "A one-time knowledge test with no renewal requirement at all, similar to how a standard driver's license never requires retesting once issued"
-        - "Several years of flight training comparable to what a commercial airline pilot completes, since the FAA classifies drone operations under the same certification track"
         - "Passing an aeronautical knowledge test covering airspace, weather, and emergency procedures, then completing a free online recurrent training course every 24 calendar months to keep flying commercially"
-      answerIndex: 2
+        - "A knowledge test taken once at the start of a career, with renewal handled automatically every few years through a small paperwork fee instead of any actual testing"
+        - "Several years of flight training comparable to what a commercial airline pilot completes, since the FAA classifies drone operations under the same certification track"
+      answerIndex: 0
       explanation: >
         Part 107 isn't a one-time credential. The recurring training
         requirement is what keeps a certificated pilot's knowledge current, and
@@ -52,10 +52,10 @@ sections:
     quiz:
       question: "What makes an orthomosaic different from a simple stitched-together collage of drone photos?"
       options:
-        - "Nothing meaningful in practice, orthomosaic is mostly just a more technical-sounding name construction software companies use for the same simple stitched image"
-        - "An orthomosaic is geometrically corrected (orthorectified) to remove the distortion caused by camera angle and terrain, making it accurate enough to measure from, unlike a visual-only stitch"
+        - "An orthomosaic blends the photos with smoother color correction than a basic stitch, mainly so the final image looks more polished in client-facing reports"
         - "An orthomosaic corrects for camera angle but still can't account for the ground's own elevation changes, so steep or uneven sites need a separate survey"
-      answerIndex: 1
+        - "An orthomosaic is geometrically corrected (orthorectified) to remove the distortion caused by camera angle and terrain, making it accurate enough to measure from, unlike a visual-only stitch"
+      answerIndex: 2
       explanation: >
         A simple photo stitch only has to look right. Orthorectification is
         what makes an orthomosaic measurable instead of merely presentable, by
@@ -77,10 +77,10 @@ sections:
     quiz:
       question: "Why are ground control points necessary even when a drone's own onboard GPS already records where each photo was taken?"
       options:
-        - "Onboard GPS alone can leave combined positioning errors of tens of centimeters; ground control points, measured precisely on the ground, tie the model to real-world coordinates and tighten that accuracy down to centimeters"
         - "Ground control points mainly help the processing software align overlapping photos faster, a processing-speed benefit rather than something that changes the model's real-world accuracy"
         - "Onboard GPS is already accurate enough on its own for survey-grade work, so ground control points mainly exist as a backup in case the drone's GPS signal is lost entirely"
-      answerIndex: 0
+        - "Onboard GPS alone can leave combined positioning errors of tens of centimeters; ground control points, measured precisely on the ground, tie the model to real-world coordinates and tighten that accuracy down to centimeters"
+      answerIndex: 2
       explanation: >
         Onboard GPS alone leaves real, measurable error in the model. Ground
         control points are what actually anchor that model to true real-world
@@ -102,9 +102,9 @@ sections:
       question: "Why does raw spatial data, like a drone-captured site map or a survey point file, need a GIS Specialist's layering work before it's useful for a decision like site feasibility?"
       options:
         - "Raw spatial data is already decision-ready on its own, and a GIS Specialist mostly just makes the existing data look more polished for presentations"
-        - "GIS layering mainly matters for government permitting agencies, with most private construction teams relying on the raw drone and survey data directly instead"
         - "Raw spatial data shows what's physically there, but a decision like feasibility or permitting depends on layering that data against other spatial information, like flood zones or zoning, that the raw capture alone doesn't include"
-      answerIndex: 2
+        - "GIS layering mainly matters for government permitting agencies, with most private construction teams relying on the raw drone and survey data directly instead"
+      answerIndex: 1
       explanation: >
         A capture only shows what's physically on the ground. Layering it
         against zoning, floodplain, or utility data is what turns it into
@@ -120,7 +120,7 @@ sections:
       airspace near an airport means getting airspace authorization first,
       which the FAA's LAANC system, Low Altitude Authorization and Notification
       Capability, now automates into a near-real-time approval instead of a
-      slow manual request, at over seven hundred airports nationwide. None of
+      slow manual request, at over a thousand airports nationwide. None of
       this work makes it into a finished building's drawings the way a beam or
       a duct run does, but a site that was never accurately captured and mapped
       in the first place is a site every later discipline (design, estimating,

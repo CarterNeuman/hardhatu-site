@@ -24,9 +24,9 @@ sections:
       question: "Why does EPA Section 608 require refrigerant to be recovered rather than vented to the atmosphere during service or disposal?"
       options:
         - "Recovery mainly protects the owner's budget by preventing refrigerant waste, with the environmental angle being a secondary benefit rather than the actual legal basis for the rule"
-        - "Many refrigerants deplete the stratospheric ozone layer when released, so the Clean Air Act requires recovery and recycling instead of venting, carrying real civil penalties for violations"
         - "Venting restrictions apply mainly to large commercial chiller systems, while most small residential equipment falls under a separate, less strict EPA recovery standard"
-      answerIndex: 1
+        - "Many refrigerants deplete the stratospheric ozone layer when released, so the Clean Air Act requires recovery and recycling instead of venting, carrying real civil penalties for violations"
+      answerIndex: 2
       explanation: >
         The rule's actual basis is environmental, not financial.
         Ozone-depleting refrigerants are what the Clean Air Act is protecting
@@ -52,10 +52,10 @@ sections:
     quiz:
       question: "What's the real difference between a packaged rooftop unit and a central chiller plant?"
       options:
+        - "A rooftop unit packages cooling, heating, and air movement into one self-contained box, while a central plant makes chilled water at a chiller and tower and pumps it out to separate air handling units"
         - "A central plant works basically the same way as a rooftop unit, just at a larger physical size, with the same refrigerant circuit scaled up to cover a bigger building's load"
         - "Rooftop units mostly handle heating duties on their own, while a chiller and cooling tower together take care of all the cooling for a larger building's interior spaces"
-        - "A rooftop unit packages cooling, heating, and air movement into one self-contained box, while a central plant makes chilled water at a chiller and tower and pumps it out to separate air handling units"
-      answerIndex: 2
+      answerIndex: 0
       explanation: >
         These are two genuinely different architectures, not one scaled up from
         the other. A rooftop unit is self-contained; a central plant splits
@@ -78,8 +78,8 @@ sections:
       question: "Why does a building need zone-level control like a VAV box instead of relying on one building-wide thermostat setting?"
       options:
         - "Different zones in a building often need different amounts of heating or cooling at the same time, so a VAV box lets each zone's airflow adjust independently instead of the whole system chasing one average setpoint"
-        - "VAV boxes mainly exist to dampen noise transmitted through the ductwork between adjoining zones, with any effect on actual temperature control being a minor, secondary side benefit"
-        - "A single building-wide thermostat setting is actually more accurate than zone-by-zone control, which is why VAV boxes are used mainly to cut equipment costs rather than improve comfort"
+        - "A single building-wide thermostat setting actually averages conditions more accurately than zone-by-zone control can, which is why VAV boxes are installed mainly to cut equipment costs rather than to improve comfort"
+        - "VAV boxes mainly exist to dampen noise transmitted through the ductwork between two adjoining zones, with any resulting effect on actual temperature control being only a minor, secondary side benefit of the design"
       answerIndex: 0
       explanation: >
         A single setpoint can only chase one average condition. VAV boxes exist
@@ -134,8 +134,8 @@ sections:
     quiz:
       question: "Why is TAB (testing, adjusting, and balancing) typically performed by an independent contractor rather than the installer who did the original work?"
       options:
-        - "Independent TAB contractors mainly use specialized tools the original installer doesn't own, which is the main reason this work gets split out to a separate company"
         - "Installers are legally barred from adjusting any damper or valve once their own installation work is complete, which is why a separate TAB contractor has to step in"
+        - "Independent TAB contractors mainly use specialized tools the original installer doesn't own, which is the main reason this work gets split out to a separate company"
         - "Independent TAB keeps the verification unbiased, since an installer checking their own work might not catch a system that doesn't actually hit the design's airflow and water flow numbers"
       answerIndex: 2
       explanation: >

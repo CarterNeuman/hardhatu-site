@@ -20,9 +20,9 @@ sections:
     quiz:
       question: "Why does a cost engineer track a potential change order in the forecast before it's formally signed?"
       options:
-        - "It doesn't matter yet, since nothing is official until the signature happens"
+        - "A potential change order only becomes worth tracking once the paperwork is signed, since until then the cost impact hasn't actually been confirmed by anyone involved"
         - "Waiting for a signature to acknowledge a cost that's already functionally identified means the forecast is already out of date the moment anyone reads it"
-        - "Potential change orders are tracked separately and never actually affect the budget"
+        - "Potential change orders get tracked in a separate log from the main forecast, so they only move into the budget once a change order is formally priced"
       answerIndex: 1
       explanation: >
         A cost impact doesn't wait for paperwork to become real. Tracking it
@@ -46,10 +46,10 @@ sections:
     quiz:
       question: "Why can a crew that spent more than its budget actually be performing well, while a crew that spent less can actually be performing poorly?"
       options:
-        - "Spending more is always bad and spending less is always good, there's no exception"
         - "CPI compares the value of work actually completed to money spent, so spending more while completing even more value is efficient, and spending less while completing even less value is not"
-        - "CPI only applies to material costs, never to labor costs"
-      answerIndex: 1
+        - "CPI measures how many labor hours a crew burns against the schedule, not how actual spending compares to the value of completed work"
+        - "Spending more than budgeted on its own means a crew is falling behind, while spending less than budgeted means the crew is comfortably ahead of plan"
+      answerIndex: 0
       explanation: >
         Raw spending alone doesn't show how much work that money actually
         bought. CPI connects spending to completed value, which is exactly
@@ -72,10 +72,10 @@ sections:
     quiz:
       question: "Why does tracking a trade's field productivity catch a cost problem earlier than waiting for the monthly cost report?"
       options:
-        - "It doesn't actually catch anything earlier, both show the problem at the same time"
+        - "Productivity tracking mainly helps a scheduler forecast the finish date, while a trade's actual cost impact still only becomes visible once the monthly report is compiled"
+        - "Daily field productivity and the monthly cost report are built from the same underlying data, so a slipping trade shows up in both at roughly the same time"
         - "A trade falling behind its assumed production rate shows up in daily field data weeks before that slippage fully translates into a dollar variance in a monthly report"
-        - "Productivity tracking is only useful for scheduling, not for cost at all"
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         Productivity is a leading indicator, cost variance is a lagging one.
         By the time slipping productivity shows up as dollars in a report,
@@ -97,10 +97,10 @@ sections:
     quiz:
       question: "Why does the estimate-at-completion formula (budget divided by CPI) forecast a higher final cost when CPI is below 1.0?"
       options:
-        - "It's a built-in pessimism factor with no real mathematical basis"
-        - "Dividing the budget by a CPI below 1.0 projects the job's actual cost inefficiency forward for the remaining work, rather than assuming performance will suddenly improve"
         - "A CPI below 1.0 means the project is actually ahead of schedule, so the formula adjusts the cost upward to match"
-      answerIndex: 1
+        - "The formula builds in a flat ten percent contingency regardless of how the job has actually performed so far, to cover unexpected cost growth"
+        - "Dividing the budget by a CPI below 1.0 projects the job's actual cost inefficiency forward for the remaining work, rather than assuming performance will suddenly improve"
+      answerIndex: 2
       explanation: >
         The formula assumes the trend observed so far continues. A CPI below
         1.0 reflects real inefficiency already happening, and the math
@@ -124,10 +124,10 @@ sections:
     quiz:
       question: "Why does a monthly cost report break performance down by cost code instead of just showing one overall project number?"
       options:
-        - "Breaking it down by cost code is purely a formatting preference with no practical benefit"
-        - "A single overall number can hide a real problem in one trade's scope behind an otherwise healthy project total, while cost-code detail surfaces it"
-        - "Cost codes are only relevant for billing the owner, not for internal cost tracking"
-      answerIndex: 1
+        - "A single overall project number can hide a real problem in one trade's scope behind an otherwise healthy project total, while cost-code detail surfaces it"
+        - "Breaking the report down by cost code mainly helps the accounting team close out invoices faster, with little effect on how problems actually get noticed"
+        - "Cost codes exist mainly to match the owner's billing categories, so internal reviews of trade performance work the same whether or not the report uses them"
+      answerIndex: 0
       explanation: >
         An overall project number can average out a serious problem in one
         scope against good performance elsewhere. Breaking it down by cost

@@ -29,10 +29,10 @@ sections:
     quiz:
       question: What actually starts a construction contract's schedule clock?
       options:
-        - The date the contract is signed
-        - The notice to proceed, a formal written authorization from the owner to begin
-        - The date the contractor happens to mobilize equipment on site
-      answerIndex: 1
+        - The date the contractor's crew happens to show up and start mobilizing equipment on site
+        - The date printed on the signed contract's cover page, since that's when the agreement technically takes effect
+        - The notice to proceed, the owner's formal written authorization that actually starts the contractor's work
+      answerIndex: 2
       explanation: >
         A contract can sit fully signed for weeks before an owner is ready to issue
         the notice to proceed. Starting early, or assuming the schedule clock is
@@ -65,9 +65,9 @@ sections:
     quiz:
       question: Why doesn't a project's legal paper trail end once it clears plan review and gets its building permit?
       options:
-        - It does; nothing further is required once a permit is issued
+        - Inspections after permitting are typically optional add-ons that cautious owners request for extra peace of mind on larger jobs
         - A permit stays open with a checklist of required field inspections tied to it, since paper compliance doesn't guarantee the work is actually built to match
-        - Inspections after permitting are entirely optional and rarely happen in practice
+        - It mostly does, since the permit itself already certifies that the approved design meets code before construction even starts
       answerIndex: 1
       explanation: >
         Plan review checks the design on paper. The work still has to be verified in
@@ -137,9 +137,9 @@ sections:
         Does passing the owner's final punch list walk-through mean a project has
         also passed its official building department final inspection?
       options:
-        - "Yes, they're the same standard checked at the same time"
-        - "No, they check the work against two different standards: the owner's contractual completeness expectations versus the building department's code compliance, and passing one doesn't guarantee passing the other"
-        - "No, because punch lists only exist on residential projects"
+        - "No, because the punch list walkthrough typically applies to residential projects, rather than commercial or institutional work"
+        - "No, they check the work against two different standards, the owner's contractual expectations versus the building department's code compliance, so passing one doesn't guarantee passing the other"
+        - "Yes, both checks exist specifically to confirm the same code requirements, just carried out by two different reviewing parties on the project"
       answerIndex: 1
       explanation: >
         A punch list and a final inspection can look similar from the outside, a
@@ -176,10 +176,10 @@ sections:
         What's the common thread connecting notice to proceed, ongoing inspections,
         stop work orders, and certificate of occupancy?
       options:
-        - They're all optional formalities most projects skip in practice
+        - They mainly apply to government-owned projects, where public funding requires extra layers of legal sign-off beyond standard permitting
+        - They're mostly administrative formalities that rarely have any real effect on whether a project can keep physically moving forward
         - Each one is a checkpoint that keeps a project legally authorized to keep moving forward, from the day work starts to the day someone can occupy the finished building
-        - They only apply to government-owned projects
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         None of these exist purely as paperwork. Each one is a specific point where a
         project has to re-earn its legal standing to keep going, and skipping one

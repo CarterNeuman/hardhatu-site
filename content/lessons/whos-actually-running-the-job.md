@@ -36,10 +36,10 @@ sections:
     quiz:
       question: On a traditional project, which of these is true about the architect's role?
       options:
-        - The architect only designs the project and has no involvement once construction begins
+        - The architect is typically hired and paid directly by the general contractor rather than by the project owner itself
+        - The architect mainly designs the project and hands off essentially all construction-phase decisions to the general contractor's team
         - The architect typically both designs the project and administers the contract during construction, including reviewing submittals and answering RFIs
-        - The architect works for the general contractor, not the owner
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         The architect's dual role, design plus contract administration, is one of the
         more surprising parts of a traditional project structure for people new to the
@@ -81,10 +81,10 @@ sections:
         An owner is frustrated with an electrical subcontractor's work and wants to
         tell their foreman directly what to change. Why doesn't that typically work?
       options:
-        - Electrical subcontractors don't take instructions from anyone but their own company
+        - The owner is the one ultimately paying for the work, which gives them indirect authority over any subcontractor on the project
+        - Electrical subcontractors are trained to take direction mainly from their own foreman, regardless of who else is on site
         - There's no contract, and therefore no legal privity, between the owner and the subcontractor; the owner's contract is with the GC, who holds the subcontract
-        - The owner is paying for the work, so the owner has authority over anyone working on the project, including subs
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         Privity of contract means legal rights and obligations only run between
         parties who actually signed an agreement together. The owner's contract is
@@ -123,10 +123,10 @@ sections:
     quiz:
       question: What's the key difference between an Owner's Representative and a General Contractor?
       options:
-        - There's no real difference; they do the same job under different titles
-        - The Owner's Rep replaces the need for a General Contractor on the project
+        - There's a minor difference at most; both roles report to the same project schedule and share most of the same responsibilities
         - The GC is managing its own contract and scope on the project; an Owner's Rep has no scope of their own and exists solely to represent the owner's interests
-      answerIndex: 2
+        - The Owner's Rep typically takes over scheduling duties from the General Contractor once construction is underway
+      answerIndex: 1
       explanation: >
         Even a great GC is still a contracting party with its own contract, schedule,
         and profit margin to manage. An Owner's Rep is brought in specifically because
@@ -161,10 +161,10 @@ sections:
         Under multiple prime contracting, who typically resolves a scheduling
         conflict between the mechanical prime and the electrical prime?
       options:
-        - They resolve it between themselves automatically, the same as they would under a single GC
+        - Multiple prime contracting is structured specifically to prevent scheduling conflicts between trades from happening in the first place
+        - They typically resolve it between themselves directly, the same way they would if a single GC were coordinating the job
         - The owner, or whoever they've hired to coordinate (often a construction manager), since no single prime has contractual authority over another
-        - Multiple prime contracting eliminates the possibility of conflicts between trades
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         Without one GC holding every subcontract, there's no party with built-in
         authority over all the trades. That coordination job doesn't disappear, it
@@ -198,8 +198,8 @@ sections:
     quiz:
       question: What ultimately determines who has the authority to direct or approve someone else's work on a construction project?
       options:
-        - Whoever has been on the job site the longest
-        - Whoever speaks with the most confidence in a meeting
+        - Whoever speaks with the most confidence and technical detail during that day's coordination meeting usually ends up setting the direction
+        - Whoever has been assigned the most seniority on the job site, regardless of which specific contract they're actually working under
         - The actual chain of contracts connecting the parties, since instructions and legal authority are only supposed to flow between parties who have a direct contractual relationship
       answerIndex: 2
       explanation: >

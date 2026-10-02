@@ -26,8 +26,8 @@ sections:
     quiz:
       question: Under the Spearin doctrine, who generally bears responsibility when a contractor builds exactly to a defective design and a failure results?
       options:
-        - The contractor, because they physically built the failing structure
-        - The owner, because they hired both the designer and the contractor
+        - The owner, because hiring both the design professional and the contractor on the same project makes the owner responsible for coordinating between the two
+        - The contractor, because they are the ones who physically built the failing structure and should have caught the design problem before construction began
         - Generally not the contractor, since the owner impliedly warrants the plans are adequate, and building precisely as designed places responsibility on the design side
       answerIndex: 2
       explanation: >
@@ -55,9 +55,9 @@ sections:
     quiz:
       question: Why does a contractor lose the Spearin doctrine's protection if they deviate from the plans, even in a way that seems minor?
       options:
-        - Spearin doctrine protection only ever applies to residential projects
+        - Any deviation from the plans shifts the entire project's liability onto the architect who drew them, since they're the ones who approved the original design
         - Spearin protects a contractor for defects that result from following the plans exactly, so a defect traced to the contractor's own deviation falls outside that protection, and the contractor bears the resulting liability
-        - Any deviation from the plans automatically voids the entire construction contract
+        - Spearin doctrine protection mainly comes up on large commercial and infrastructure projects, where residential construction is generally governed by a separate, unrelated set of liability rules
       answerIndex: 1
       explanation: >
         The doctrine's protection is specific: build to the plans, and design
@@ -86,9 +86,9 @@ sections:
     quiz:
       question: Why might a property owner who just discovered a defect still be unable to bring a legal claim over it?
       options:
-        - Discovering a defect always guarantees the right to sue, regardless of how much time has passed since construction
+        - Discovering a defect resets the limitations clock back to the discovery date, so a crack found decades after construction is treated the same as one found the week the building opened
         - A statute of repose runs from a fixed event like substantial completion and can cut off construction claims after a set number of years, regardless of when the defect was actually discovered, unlike a statute of limitations which runs from discovery
-        - Only claims involving structural defects are ever subject to any time limit
+        - Legal time limits on construction claims apply mainly to defects serious enough to be called structural, while cosmetic or finish-level defects can generally still be claimed no matter how much time has passed
       answerIndex: 1
       explanation: >
         Discovery starts the limitations clock, but repose runs on its own fixed
@@ -116,10 +116,10 @@ sections:
     quiz:
       question: Why can the economic loss doctrine block a property owner's claim even when a design defect clearly caused the damage?
       options:
-        - The doctrine only applies to claims worth over one million dollars
+        - The doctrine mainly applies once a claim's damages exceed a state-specific dollar threshold, below which a direct negligence claim against an unrelated party is still generally allowed
+        - Design defects are covered by the economic loss doctrine only when the designer and the owner already share a direct contract with each other
         - The doctrine generally bars recovering purely economic losses through a direct negligence claim against a party the owner has no contract with, pushing the claim back toward the actual contractual chain instead
-        - Design defects are never covered by the economic loss doctrine under any circumstances
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         Without a direct contract to the design professional, and with only
         economic loss at stake, the doctrine can block a direct claim entirely,
@@ -151,10 +151,10 @@ sections:
     quiz:
       question: What's the key difference between investigating a storm-damage claim and investigating a defect discovered years after construction?
       options:
-        - There's no real difference; both are resolved the exact same way
+        - Years-later defects are still processed through the same one-year warranty claim form, just submitted later, since the warranty contractor remains responsible for the life of the building
+        - Both situations get resolved through the same warranty-walk inspection process, just scheduled at a different point after the building's substantial completion date
         - A storm announces an obvious cause and timing the day it happens, while a years-later defect requires investigating whether design, construction, or ownership neglect caused it, and whether legal deadlines like a statute of repose have already closed off a claim
-        - Years-later defects are always still covered by the original one-year warranty
-      answerIndex: 1
+      answerIndex: 2
       explanation: >
         An obvious, sudden cause and an ambiguous, years-later one are genuinely
         different problems. The second requires figuring out both who's
