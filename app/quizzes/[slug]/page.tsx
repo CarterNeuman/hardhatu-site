@@ -35,10 +35,14 @@ export default async function QuizPage({
   const quiz = getBySlug("quiz", slug) as CareerMatchQuizContent | undefined;
   if (!quiz) notFound();
 
-  const { careers } = getAllContent();
+  const { careers, lessons } = getAllContent();
   const careersByCategory: Record<string, typeof careers> = {};
   for (const career of careers) {
     (careersByCategory[career.category] ??= []).push(career);
+  }
+  const lessonsById: Record<string, typeof lessons[number]> = {};
+  for (const lesson of lessons) {
+    lessonsById[lesson.id] = lesson;
   }
 
   return (
@@ -47,7 +51,11 @@ export default async function QuizPage({
       <h1 className="mt-2 font-display text-4xl font-bold text-ink">{quiz.title}</h1>
       <p className="mt-3 text-lg leading-relaxed text-ink">{quiz.tagline}</p>
 
-      <CareerMatchQuiz questions={quiz.questions} careersByCategory={careersByCategory} />
+      <CareerMatchQuiz
+        questions={quiz.questions}
+        careersByCategory={careersByCategory}
+        lessonsById={lessonsById}
+      />
     </article>
   );
 }
