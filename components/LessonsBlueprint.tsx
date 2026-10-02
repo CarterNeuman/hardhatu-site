@@ -24,7 +24,8 @@ type Stop = {
   n: number; // 1-22 for a main stop; 1-based position within its own branch otherwise
   total: number; // 22 for a main stop; that branch's lesson count otherwise
   slug: string;
-  title: string;
+  title: string; // full real lesson title — used in the tooltip and aria-label only
+  label: string; // short curated text drawn on the badge itself
   minutes: number;
   href: string;
   x: number;
@@ -33,7 +34,7 @@ type Stop = {
   teaser: string;
   tier?: 1 | 2 | 3 | 4;
   isNew?: true;
-  titleWordsPerLine?: number;
+  labelWordsPerLine?: number;
   branchLabel?: string;
   branchIsExisting?: true;
 };
@@ -53,15 +54,15 @@ const TOOLTIP_H = 190;
 const MAIN_BADGE_R = 34;
 const BRANCH_BADGE_R = 24;
 
-// Splits a title into lines for the SVG <tspan> stack below each stop's
-// icon. Default (no wordsPerLine) is an even split at the halfway word,
-// which fits most 2-3 word titles on 2 reasonably balanced lines. Passing
-// wordsPerLine (lessons-blueprint-data.ts's titleWordsPerLine) instead
-// groups a fixed number of words per line from the start — used for
-// stops packed close enough to a neighbor that the default split is too
-// wide to fit without overlapping it.
-function wrapTitle(title: string, wordsPerLine?: number): string[] {
-  const words = title.split(" ");
+// Splits a short on-diagram label into lines for the SVG <tspan> stack
+// below each stop's icon. Default (no wordsPerLine) is an even split at
+// the halfway word, which fits most 2-3 word labels on 2 reasonably
+// balanced lines. Passing wordsPerLine (lessons-blueprint-data.ts's
+// labelWordsPerLine) instead groups a fixed number of words per line from
+// the start — used for stops packed close enough to a neighbor that the
+// default split is too wide to fit without overlapping it.
+function wrapLabel(label: string, wordsPerLine?: number): string[] {
+  const words = label.split(" ");
   if (!wordsPerLine) {
     const mid = Math.ceil(words.length / 2);
     return [words.slice(0, mid).join(" "), words.slice(mid).join(" ")].filter(Boolean);
@@ -95,7 +96,8 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
         n: layout.n,
         total: BLUEPRINT_LAYOUT.length,
         slug: layout.slug,
-        title: lesson?.title ?? layout.slug,
+        title: lesson?.title ?? layout.label,
+        label: layout.label,
         minutes: lesson?.minutes ?? 0,
         href: `/lessons/${layout.slug}`,
         x: layout.x,
@@ -104,7 +106,7 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
         teaser: layout.teaser,
         tier: layout.tier,
         isNew: layout.isNew,
-        titleWordsPerLine: layout.titleWordsPerLine,
+        labelWordsPerLine: layout.labelWordsPerLine,
       };
     });
   }, [bySlug]);
@@ -122,7 +124,8 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
           n: i + 1,
           total: branch.lessons.length,
           slug: bl.slug,
-          title: lesson?.title ?? bl.slug,
+          title: lesson?.title ?? bl.label,
+          label: bl.label,
           minutes: lesson?.minutes ?? 0,
           href: `/lessons/${bl.slug}`,
           x: bl.x,
@@ -141,7 +144,13 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
       ]);
       const ys = stops.map((s) => s.y);
       const xs = stops.map((s) => s.x);
-      const labelY = branch.side === -1 ? Math.min(...ys) - 50 : Math.max(...ys) + 62;
+      // A branch below the road (side 1) places its label past the
+      // stops' own title text, not just past their badges — otherwise
+      // the label collides with the title of whichever stop is
+      // lowest. One above the road (side -1) only needs to clear the
+      // badges themselves, since the titles there hang below the
+      // badges, away from the label.
+      const labelY = branch.side === -1 ? Math.min(...ys) - 50 : Math.max(...ys) + 90;
       const labelX = (Math.min(...xs) + Math.max(...xs)) / 2;
       return { ...branch, attach, stops, spurD, labelX, labelY };
     }).filter((b): b is Branch => b !== null);
@@ -204,7 +213,7 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
   function renderStop(stop: Stop, idx: number, radius: number, iconScale: number) {
     const key = `${stop.kind}:${stop.slug}`;
     const isActive = activeKey === key;
-    const titleLines = wrapTitle(stop.title, stop.titleWordsPerLine);
+    const labelLines = wrapLabel(stop.label, stop.labelWordsPerLine);
     const classNames = [
       styles.stop,
       stop.kind === "branch" ? (stop.branchIsExisting ? styles.branch : styles.branchNew) : "",
@@ -249,7 +258,7 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
             </g>
           )}
           <text className={styles.title} x={0} y={radius + 18} textAnchor="middle">
-            {titleLines.map((line, i) => (
+            {labelLines.map((line, i) => (
               <tspan key={i} x={0} dy={i === 0 ? 0 : 16}>
                 {line}
               </tspan>
@@ -340,7 +349,7 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
           <rect x={0} y={0} width={252} height={70} strokeWidth={1.5} />
           {[
             ["PROJECT", "HardHatU Learning Path"],
-            ["STOPS", `${mainStops.length} main road · ${allStops.length - mainStops.length} across ${branches.length} branches`],
+            ["STOPS", `${allStops.length} lessons`],
           ].map(([label, value], i) => {
             const ry = 24 + i * 32;
             return (
