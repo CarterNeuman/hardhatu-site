@@ -34,4 +34,5 @@ relatedIds:
   - phase-construction
   - lesson-the-estimate-becomes-the-budget
   - concept-bid-alternates
+  - concept-cost-escalation
 ---

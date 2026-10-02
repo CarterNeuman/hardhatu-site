@@ -57,22 +57,23 @@ sections:
         which matters most on tall buildings where schedule pressure is
         highest.
   - content: >
-      A curtain wall doesn't try to stop every drop of water from getting
-      past its outer surface, that would be nearly impossible to guarantee
-      over the life of a building. Instead, most systems use
-      pressure-equalized design: an air gap just behind the outer glass
-      lets any water that gets past the first seal drain back out through
-      small weep holes rather than pushing further into the wall, the same
-      logic a mason relies on with flashing and weep holes in a brick
-      wall, just applied to an aluminum and glass system instead. A
-      thermal break, a strip of less conductive material set into the
-      aluminum framing, keeps the cold outer frame from directly touching
-      the warm interior frame and causing condensation inside the
-      building. Both details work invisibly once the wall is finished,
-      which is exactly why they're inspected closely during installation
-      rather than left to be caught later, since neither one can be
-      verified anymore once the
-      [[concept-building-envelope|building envelope]] is sealed up and finished.
+      A curtain wall doesn't try to stop every drop of water from getting past
+      its outer surface, that would be nearly impossible to guarantee over the
+      life of a building. Instead, most systems use
+      [[concept-pressure-equalized-glazing|pressure-equalized design]]: an air
+      gap just behind the outer glass lets any water that gets past the first
+      seal drain back out through small weep holes rather than pushing further
+      into the wall, the same logic a mason relies on with flashing and weep
+      holes in a brick wall, just applied to an aluminum and glass system
+      instead. A [[concept-thermal-break|thermal break]], a strip of less
+      conductive material set into the aluminum framing, keeps the cold outer
+      frame from directly touching the warm interior frame and causing
+      condensation inside the building. Both details work invisibly once the
+      wall is finished, which is exactly why they're inspected closely during
+      installation rather than left to be caught later, since neither one can
+      be verified anymore once the
+      [[concept-building-envelope|building envelope]] is sealed up and
+      finished.
     quiz:
       question: "What is the purpose of pressure-equalized design in a curtain wall?"
       options:
@@ -86,19 +87,19 @@ sections:
         back out rather than relying on a single perfect seal to keep all
         water out indefinitely.
   - content: >
-      Not every piece of [[concept-glazing|glazing]] in that wall is the
-      same type of glass, and code is specific about where each type goes.
-      Tempered or laminated safety glass, which breaks into small,
-      relatively harmless pieces instead of large sharp shards, is
-      required near doors, stairways, and low sills where someone could
-      plausibly fall into it, while ordinary glass is acceptable elsewhere.
-      Before the whole order of curtain wall is released for fabrication,
-      a mockup panel is typically built and field-tested for water
-      penetration under ASTM E1105, spraying water at the panel under
-      pressure for a sustained period while checking the interior for any
-      sign of leakage. Passing that single mockup is what gives the
-      project confidence to fabricate and install an entire building's
-      worth of panels built to the same design.
+      Not every piece of [[concept-glazing|glazing]] in that wall is the same
+      type of glass, and code is specific about where each type goes.
+      [[concept-tempered-laminated-glass|Tempered or laminated safety glass]],
+      which breaks into small, relatively harmless pieces instead of large
+      sharp shards, is required near doors, stairways, and low sills where
+      someone could plausibly fall into it, while ordinary glass is acceptable
+      elsewhere. Before the whole order of curtain wall is released for
+      fabrication, a mockup panel is typically built and
+      [[concept-water-penetration-testing|field-tested for water penetration under ASTM E1105]],
+      spraying water at the panel under pressure for a sustained period while
+      checking the interior for any sign of leakage. Passing that single
+      mockup is what gives the project confidence to fabricate and install an
+      entire building's worth of panels built to the same design.
     quiz:
       question: "Why is a curtain wall mockup panel tested under ASTM E1105 before fabrication of the full order?"
       options:
@@ -112,20 +113,19 @@ sections:
         a design flaw only after every panel for the building has already
         been built.
   - content: >
-      The single most common place a finished building actually leaks is
-      where the curtain wall meets the roof at a parapet, the short wall
-      that caps a roof's edge. The glazier's sill flashing at the top of
-      the wall has to tie continuously into the
-      [[career-roofer|roofer]]'s base [[concept-flashing|flashing]] at
-      that same transition, and if the two trades install their pieces
-      without coordinating the overlap, water finds the gap between them
-      no matter how well either trade's own work performs on its own.
-      Getting the building envelope right, from the curtain wall's
-      pressure-equalized design down to this one transition detail, is
-      what lets the rest of [[lesson-building-sequence|the project]] move
-      inside on schedule instead of chasing a leak after the interior
-      finishes are already in. If closing in a building is the kind of
-      work that interests you, the
+      The single most common place a finished building actually leaks is where
+      the curtain wall meets the roof at a [[concept-parapet|parapet]], the
+      short wall that caps a roof's edge. The glazier's sill flashing at the
+      top of the wall has to tie continuously into the
+      [[career-roofer|roofer]]'s base [[concept-flashing|flashing]] at that
+      same transition, and if the two trades install their pieces without
+      coordinating the overlap, water finds the gap between them no matter how
+      well either trade's own work performs on its own. Getting the building
+      envelope right, from the curtain wall's pressure-equalized design down
+      to this one transition detail, is what lets the rest of
+      [[lesson-building-sequence|the project]] move inside on schedule instead
+      of chasing a leak after the interior finishes are already in. If closing
+      in a building is the kind of work that interests you, the
       [[interview-field-trades|field trades interview guide]] covers what
       hiring for these roles looks for.
     quiz:
@@ -146,6 +146,11 @@ keyTerms:
   - concept-building-envelope
   - concept-glazing
   - concept-flashing
+  - concept-pressure-equalized-glazing
+  - concept-thermal-break
+  - concept-tempered-laminated-glass
+  - concept-water-penetration-testing
+  - concept-parapet
 relatedIds:
   - concept-curtain-wall
   - concept-joint-sealants
@@ -156,5 +161,10 @@ relatedIds:
   - career-roofer
   - interview-field-trades
   - lesson-building-sequence
+  - concept-pressure-equalized-glazing
+  - concept-thermal-break
+  - concept-tempered-laminated-glass
+  - concept-water-penetration-testing
+  - concept-parapet
 minutes: 13
 ---

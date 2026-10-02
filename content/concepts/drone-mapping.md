@@ -36,5 +36,6 @@ relatedIds:
   - concept-site-survey
   - phase-construction
   - career-gis-specialist
+  - concept-orthomosaic-mapping
 ---
   - lesson-drones-scanning-and-mapping

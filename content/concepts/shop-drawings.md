@@ -51,4 +51,5 @@ relatedIds:
   - concept-curtain-wall
   - concept-precast-concrete
   - concept-structural-steel
+  - concept-fabricating-at-risk
 ---

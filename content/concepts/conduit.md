@@ -36,4 +36,6 @@ relatedIds:
   - concept-rough-in-electrical
   - phase-construction
   - lesson-electrical-rough-in
+  - concept-nm-cable
+  - concept-electrical-conductor
 ---

@@ -38,4 +38,7 @@ relatedIds:
   - concept-structural-steel
   - concept-steel-decking
   - lesson-structural-steel-erection
+  - concept-anchor-bolts
+  - concept-come-along
+  - concept-structural-bay
 ---

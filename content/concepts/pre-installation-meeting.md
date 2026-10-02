@@ -39,4 +39,5 @@ relatedIds:
   - concept-mock-up
   - concept-warranty
   - lesson-coordinating-subs-as-a-superintendent
+  - concept-substrate
 ---

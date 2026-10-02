@@ -36,4 +36,5 @@ relatedIds:
   - phase-procurement-preconstruction
   - lesson-permits-inspections-and-the-paper-trail
   - concept-letter-of-intent
+  - concept-contract-execution
 ---

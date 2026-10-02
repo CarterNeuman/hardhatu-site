@@ -4,20 +4,21 @@ title: "Placing, Finishing, and Proving Concrete's Strength"
 tier: free
 sections:
   - content: >
-      Picture yourself as a [[career-concrete-worker|concrete worker]] on
-      the morning of a pour. The truck arriving on site isn't delivering
-      "concrete," it's delivering a specific mix design the structural
-      engineer specified to reach a target compressive strength, measured
-      in pounds per square inch, by a certain age. Before any of it goes
-      into the forms, the crew runs a slump test: a foot-tall metal cone
-      gets filled with the fresh concrete in layers, then lifted straight
-      up, and how far the concrete settles afterward gets measured against
-      the range specified for that particular pour. A mix that's too
-      stiff won't flow into the forms and around the rebar properly; a
-      mix that's too wet can mean too much water relative to cement,
-      weakening the finished concrete even if it looks fine going in. A
-      truck that fails the slump test gets rejected on the spot, before a
-      single yard of it ever reaches the forms.
+      Picture yourself as a [[career-concrete-worker|concrete worker]] on the
+      morning of a pour. The truck arriving on site isn't delivering
+      "concrete," it's delivering a specific
+      [[concept-concrete-mix-design|mix design]] the structural engineer
+      specified to reach a target compressive strength, measured in pounds per
+      square inch, by a certain age. Before any of it goes into the forms, the
+      crew runs a [[concept-slump-test|slump test]]: a foot-tall metal cone
+      gets filled with the fresh concrete in layers, then lifted straight up,
+      and how far the concrete settles afterward gets measured against the
+      range specified for that particular pour. A mix that's too stiff won't
+      flow into the forms and around the rebar properly; a mix that's too wet
+      can mean too much water relative to cement, weakening the finished
+      concrete even if it looks fine going in. A truck that fails the slump
+      test gets rejected on the spot, before a single yard of it ever reaches
+      the forms.
     quiz:
       question: "Why is a slump test performed before concrete from a delivery truck is ever placed?"
       options:
@@ -63,16 +64,16 @@ sections:
   - content: >
       Getting concrete into the [[concept-formwork|formwork]] around the
       [[concept-rebar|rebar]] isn't as simple as pouring it in and walking
-      away. Fresh concrete has to be consolidated, usually with a
-      mechanical vibrator worked through the mix, to drive out air
-      pockets trapped during placement and let the concrete flow fully
-      into every corner and around every piece of rebar. Skip that step,
-      or rush it, and the result is honeycombing: visible voids and gaps
-      in the concrete's surface once the forms come off, weak spots that
-      also give water a direct path to the rebar inside, risking
-      corrosion years before it would otherwise become a problem. A
-      consolidated pour and a honeycombed one can use the exact same mix
-      design and still end up with very different real-world strength.
+      away. Fresh concrete has to be consolidated, usually with a mechanical
+      vibrator worked through the mix, to drive out air pockets trapped during
+      placement and let the concrete flow fully into every corner and around
+      every piece of rebar. Skip that step, or rush it, and the result is
+      [[concept-honeycombing|honeycombing]]: visible voids and gaps in the
+      concrete's surface once the forms come off, weak spots that also give
+      water a direct path to the rebar inside, risking corrosion years before
+      it would otherwise become a problem. A consolidated pour and a
+      honeycombed one can use the exact same mix design and still end up with
+      very different real-world strength.
     quiz:
       question: "What does consolidating fresh concrete with a vibrator actually prevent?"
       options:
@@ -86,21 +87,20 @@ sections:
         that weaken the concrete and expose rebar to water and corrosion.
   - content: >
       Once concrete is placed and consolidated, finishing happens in a
-      specific order and a short working window before the mix sets up
-      too far to work. Screeding drags a straight edge across the top to
-      level it to the formwork height, bull floating closes the surface
-      right behind that, and then, depending on what the slab is actually
-      for, a steel trowel creates a smooth, hard interior floor finish or
-      a broom gets dragged across it for the slip resistance an exterior
-      walkway needs. Control joints get tooled or saw-cut into the slab
-      at planned intervals while the concrete is still workable enough to
-      cut cleanly, and that timing matters: cut too early and the blade
-      tears out aggregate instead of cutting it, cut too late and the
-      slab has likely already cracked somewhere else first. Concrete
-      shrinks slightly as it cures no matter what, and a control joint's
-      entire purpose is giving that inevitable crack a planned,
-      inconspicuous place to happen instead of a random one across the
-      middle of the slab.
+      specific order and a short working window before the mix sets up too far
+      to work.
+      [[concept-concrete-finishing-techniques|Screeding drags a straight edge across the top to level it to the formwork height, bull floating closes the surface right behind that]],
+      and then, depending on what the slab is actually for, a steel trowel
+      creates a smooth, hard interior floor finish or a broom gets dragged
+      across it for the slip resistance an exterior walkway needs.
+      [[concept-concrete-control-joint|Control joints]] get tooled or saw-cut
+      into the slab at planned intervals while the concrete is still workable
+      enough to cut cleanly, and that timing matters: cut too early and the
+      blade tears out aggregate instead of cutting it, cut too late and the
+      slab has likely already cracked somewhere else first. Concrete shrinks
+      slightly as it cures no matter what, and a control joint's entire
+      purpose is giving that inevitable crack a planned, inconspicuous place
+      to happen instead of a random one across the middle of the slab.
     quiz:
       question: "Why does a concrete slab get control joints, given that it's going to crack as it cures anyway?"
       options:
@@ -116,25 +116,22 @@ sections:
   - content: >
       The mix design on paper and the [[concept-concrete-curing|curing]]
       happening in the field both get checked against one final, physical
-      proof: cylinder samples, cast from the same batch during the actual
-      pour, cured alongside the real structure, then sent to a lab and
-      broken under a hydraulic press to measure their compressive
-      strength. A cylinder typically gets broken at seven days, giving an
-      early read that's usually somewhere around sixty to seventy-five
-      percent of the strength the mix should eventually reach, and again
-      at twenty-eight days, the age the design strength is actually
-      measured against for final acceptance. Everything covered in this
-      lesson, the slump test, the weather protection, the consolidation,
-      the finishing, exists to get the pour right in the field, but the
-      cylinder break is the one number that actually confirms it worked,
-      rather than assuming it did. A
-      [[career-structural-engineer|structural engineer]] reviews those
-      results against the design before the concrete is considered
-      accepted. Everything in this lesson sits inside the same foundation
-      stage covered more broadly in
-      [[lesson-from-dirt-to-deck|From Dirt to Deck]], just zoomed into the
-      pour itself. If placing and finishing concrete is the kind of work
-      that interests you, the
+      proof:
+      [[concept-concrete-cylinder-break-test|cylinder samples, cast from the same batch during the actual pour, cured alongside the real structure, then sent to a lab and broken under a hydraulic press to measure their compressive strength]].
+      A cylinder typically gets broken at seven days, giving an early read
+      that's usually somewhere around sixty to seventy-five percent of the
+      strength the mix should eventually reach, and again at twenty-eight
+      days, the age the design strength is actually measured against for final
+      acceptance. Everything covered in this lesson, the slump test, the
+      weather protection, the consolidation, the finishing, exists to get the
+      pour right in the field, but the cylinder break is the one number that
+      actually confirms it worked, rather than assuming it did. A
+      [[career-structural-engineer|structural engineer]] reviews those results
+      against the design before the concrete is considered accepted.
+      Everything in this lesson sits inside the same foundation stage covered
+      more broadly in [[lesson-from-dirt-to-deck|From Dirt to Deck]], just
+      zoomed into the pour itself. If placing and finishing concrete is the
+      kind of work that interests you, the
       [[interview-field-trades|field trades interview guide]] covers what
       hiring for these roles looks for.
     quiz:
@@ -154,6 +151,12 @@ keyTerms:
   - concept-formwork
   - concept-rebar
   - concept-concrete-curing
+  - concept-concrete-mix-design
+  - concept-slump-test
+  - concept-honeycombing
+  - concept-concrete-finishing-techniques
+  - concept-concrete-control-joint
+  - concept-concrete-cylinder-break-test
 relatedIds:
   - concept-concrete-admixtures
   - concept-formwork
@@ -163,5 +166,11 @@ relatedIds:
   - career-structural-engineer
   - interview-field-trades
   - lesson-from-dirt-to-deck
+  - concept-concrete-mix-design
+  - concept-slump-test
+  - concept-honeycombing
+  - concept-concrete-finishing-techniques
+  - concept-concrete-control-joint
+  - concept-concrete-cylinder-break-test
 minutes: 13
 ---

@@ -42,4 +42,5 @@ relatedIds:
   - career-structural-engineer
   - concept-framing-lumber
   - concept-building-code
+  - concept-fire-blocking
 ---

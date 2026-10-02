@@ -38,4 +38,5 @@ relatedIds:
   - phase-construction
   - lesson-choosing-how-to-build-it
   - concept-guaranteed-maximum-price
+  - concept-time-and-materials-contract
 ---

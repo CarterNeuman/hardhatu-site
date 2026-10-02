@@ -33,4 +33,5 @@ relatedIds:
   - concept-lockout-tagout
   - concept-personal-protective-equipment
   - concept-osha
+  - concept-national-electrical-code
 ---

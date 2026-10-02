@@ -45,4 +45,6 @@ relatedIds:
   - phase-construction
   - career-glazier
   - lesson-building-envelope-and-glazing
+  - concept-thermal-break
+  - concept-tempered-laminated-glass
 ---

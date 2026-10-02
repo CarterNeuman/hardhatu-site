@@ -4,18 +4,18 @@ title: "Mechanical and Plumbing Rough-In: The Fight for Ceiling Space"
 tier: free
 sections:
   - content: >
-      Once framing is up, [[concept-rough-in-plumbing|plumbing rough-in]]
-      and [[concept-rough-in-hvac|HVAC rough-in]] move into the same
-      ceilings and wall cavities at almost the same time, and one of those
-      two trades has to go first. It's plumbing. A sanitary drain line has
-      to slope continuously downhill to keep waste flowing by gravity, and
-      that slope can't bend around an obstacle the way a flexible duct run
-      or an electrical conductor can. Once a drain's path and slope are set,
-      everything else routing through that same ceiling, ductwork,
-      conduit, sprinkler piping, has to build around it. A coordination
-      drawing worked out on paper before anyone picks up a pipe is what
-      keeps that sequencing from turning into a fight on-site over who gets
-      the last six inches of ceiling cavity.
+      Once framing is up, [[concept-rough-in-plumbing|plumbing rough-in]] and
+      [[concept-rough-in-hvac|HVAC rough-in]] move into the same ceilings and
+      wall cavities at almost the same time, and one of those two trades has
+      to go first. It's plumbing. A sanitary drain line has to slope
+      continuously downhill to keep waste flowing by gravity, and that slope
+      can't bend around an obstacle the way a flexible duct run or an
+      electrical conductor can. Once a drain's path and slope are set,
+      everything else routing through that same ceiling, ductwork, conduit,
+      sprinkler piping, has to build around it.
+      [[concept-coordination-drawing|A coordination drawing worked out on paper before anyone picks up a pipe]]
+      is what keeps that sequencing from turning into a fight on-site over who
+      gets the last six inches of ceiling cavity.
     quiz:
       question: "Why does plumbing rough-in typically claim ceiling and wall cavity space before HVAC ductwork does?"
       options:
@@ -57,18 +57,18 @@ sections:
         pipe.
   - content: >
       Plumbing rough-in isn't only drains. The same phase sets the rough-in
-      locations for every [[concept-plumbing-fixtures|plumbing fixture]]
-      that comes later, sinks, toilets, water heaters, and it installs the
-      [[concept-backflow-preventer|backflow preventer]] that keeps used
-      water from ever being able to siphon back into the building's clean
-      water supply. It's worth separating two trades that sound similar
-      here: a plumber installs this gravity-fed drain-waste-vent system
-      along with the domestic water supply, while a [[career-pipefitter|pipefitter]] works
-      pressurized mechanical piping instead, hydronic heating loops,
-      chilled water, process piping, systems that move fluid by pump
-      pressure rather than gravity. The two trades sometimes get lumped
-      together, but a pipefitter's pressurized systems and a plumber's
-      gravity-fed DWV work follow genuinely different design rules.
+      locations for every [[concept-plumbing-fixtures|plumbing fixture]] that
+      comes later, sinks, toilets, water heaters, and it installs the
+      [[concept-backflow-preventer|backflow preventer]] that keeps used water
+      from ever being able to siphon back into the building's clean water
+      supply. It's worth separating two trades that sound similar here: a
+      plumber installs this gravity-fed drain-waste-vent system along with the
+      domestic water supply, while a [[career-pipefitter|pipefitter]] works
+      pressurized mechanical piping instead,
+      [[concept-hydronic-systems|hydronic heating loops, chilled water, process piping, systems that move fluid by pump pressure rather than gravity]].
+      The two trades sometimes get lumped together, but a pipefitter's
+      pressurized systems and a plumber's gravity-fed DWV work follow
+      genuinely different design rules.
     quiz:
       question: "What is the key difference between a plumber's work and a pipefitter's work?"
       options:
@@ -140,6 +140,8 @@ keyTerms:
   - concept-plumbing-fixtures
   - concept-backflow-preventer
   - concept-ductwork
+  - concept-hydronic-systems
+  - concept-coordination-drawing
 relatedIds:
   - concept-rough-in-plumbing
   - concept-rough-in-hvac
@@ -152,5 +154,7 @@ relatedIds:
   - career-hvac-technician
   - interview-field-trades
   - lesson-building-sequence
+  - concept-hydronic-systems
+  - concept-coordination-drawing
 minutes: 13
 ---

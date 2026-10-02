@@ -5,9 +5,10 @@ tier: free
 sections:
   - content: >
       Picture yourself as a
-      [[career-drone-uav-specialist|Drone/UAV Specialist]], and picture the one
-      requirement standing between you and legally flying a drone commercially
-      on any job site: the FAA's Part 107 Remote Pilot Certificate. Earning it
+      [[career-drone-uav-specialist|Drone/UAV Specialist]], and picture the
+      one requirement standing between you and legally flying a drone
+      commercially on any job site: the FAA's
+      [[concept-faa-part-107|Part 107 Remote Pilot Certificate]]. Earning it
       means passing the Unmanned Aircraft General, Small (UAG) knowledge test,
       which covers airspace classifications, aviation weather, how weather
       actually affects a small aircraft's performance, emergency procedures,
@@ -38,17 +39,17 @@ sections:
       Flying the mission itself is only step one. Turning a few hundred
       individual photos into one usable map is
       [[concept-drone-mapping|photogrammetry]]'s job, and it depends entirely
-      on how the photos were shot: a typical mapping flight overlaps each photo
-      with the next by around seventy-five percent along the flight path and
-      sixty percent side to side, enough redundancy for the processing software
-      to recognize the same ground features across multiple photos and
-      calculate exactly how the camera moved between each shot. The result is
-      an orthomosaic, a single, seamless, geometrically corrected map, not just
-      a simple stitched-together collage of photos. That correction,
-      orthorectification, is what actually removes the distortion a camera
-      angle and the ground's own terrain introduce, which is the entire
-      difference between a nice-looking aerial photo and a map accurate enough
-      to measure from.
+      on how the photos were shot: a typical mapping flight overlaps each
+      photo with the next by around seventy-five percent along the flight path
+      and sixty percent side to side, enough redundancy for the processing
+      software to recognize the same ground features across multiple photos
+      and calculate exactly how the camera moved between each shot. The result
+      is [[concept-orthomosaic-mapping|an orthomosaic]], a single, seamless,
+      geometrically corrected map, not just a simple stitched-together collage
+      of photos. That correction, orthorectification, is what actually removes
+      the distortion a camera angle and the ground's own terrain introduce,
+      which is the entire difference between a nice-looking aerial photo and a
+      map accurate enough to measure from.
     quiz:
       question: "What makes an orthomosaic different from a simple stitched-together collage of drone photos?"
       options:
@@ -63,17 +64,19 @@ sections:
   - content: >
       That orthomosaic can still be wrong in an important way: internally
       consistent but positioned incorrectly in the real world, an error
-      invisible just by looking at it. Fixing that requires ground control
-      points, physical markers placed across the site and measured precisely,
-      often by a [[career-surveyor|Surveyor]] using GPS or a total station, a
-      surveying instrument that measures precise angles and distances, before
-      the drone ever takes off. Without them, combined errors from the drone's
-      own motion and the camera's calibration can throw the model off by tens
-      of centimeters. With a handful of properly measured ground control points
-      tying the model back to known, real-world coordinates, that same model's
-      accuracy tightens down to centimeters, the actual gold standard for
-      anything the project will treat as survey-grade rather than just a
-      nice-looking reference map.
+      invisible just by looking at it. Fixing that requires
+      [[concept-ground-control-points|ground control points]], physical
+      markers placed across the site and measured precisely, often by a
+      [[career-surveyor|Surveyor]] using GPS or a
+      [[concept-total-station|total station]], a surveying instrument that
+      measures precise angles and distances, before the drone ever takes off.
+      Without them, combined errors from the drone's own motion and the
+      camera's calibration can throw the model off by tens of centimeters.
+      With a handful of properly measured ground control points tying the
+      model back to known, real-world coordinates, that same model's accuracy
+      tightens down to centimeters, the actual gold standard for anything the
+      project will treat as survey-grade rather than just a nice-looking
+      reference map.
     quiz:
       question: "Why are ground control points necessary even when a drone's own onboard GPS already records where each photo was taken?"
       options:
@@ -90,14 +93,15 @@ sections:
       and existing utility records, eventually lands on a
       [[career-gis-specialist|GIS Specialist]]'s desk, and raw spatial data
       isn't useful on its own until it's layered with everything else that
-      matters about a piece of land. Overlaying a site boundary against a FEMA
-      flood zone map might reveal part of a proposed building footprint
-      actually sits inside a mapped floodplain, a fact that changes a project's
-      feasibility and permitting path long before a single design drawing
-      exists. The same layering works for zoning boundaries, buried utility
-      records, and existing infrastructure, turning scattered data points
-      collected by a surveyor and a drone pilot into the kind of map an owner
-      or permitting agency can actually make a decision from.
+      matters about a piece of land. Overlaying a site boundary against a
+      [[concept-fema-flood-zone|FEMA flood zone map]] might reveal part of a
+      proposed building footprint actually sits inside a mapped floodplain, a
+      fact that changes a project's feasibility and permitting path long
+      before a single design drawing exists. The same layering works for
+      zoning boundaries, buried utility records, and existing infrastructure,
+      turning scattered data points collected by a surveyor and a drone pilot
+      into the kind of map an owner or permitting agency can actually make a
+      decision from.
     quiz:
       question: "Why does raw spatial data, like a drone-captured site map or a survey point file, need a GIS Specialist's layering work before it's useful for a decision like site feasibility?"
       options:
@@ -113,19 +117,20 @@ sections:
   - content: >
       Put the three roles together and a site's actual workflow looks like
       this: a Surveyor establishes and measures the ground control points
-      everything else gets checked against, a Drone/UAV Specialist captures the
-      site from the air, and a GIS Specialist turns both into the maps and
-      analysis the rest of the project actually uses. One more real-world
-      wrinkle belongs in this picture: flying below 400 feet in controlled
-      airspace near an airport means getting airspace authorization first,
-      which the FAA's LAANC system, Low Altitude Authorization and Notification
-      Capability, now automates into a near-real-time approval instead of a
-      slow manual request, at over a thousand airports nationwide. None of
-      this work makes it into a finished building's drawings the way a beam or
-      a duct run does, but a site that was never accurately captured and mapped
-      in the first place is a site every later discipline (design, estimating,
-      BIM coordination) ends up building on top of bad information without
-      knowing it. If this side of construction interests you, the
+      everything else gets checked against, a Drone/UAV Specialist captures
+      the site from the air, and a [[concept-gis|GIS]] Specialist turns both
+      into the maps and analysis the rest of the project actually uses. One
+      more real-world wrinkle belongs in this picture: flying below 400 feet
+      in controlled airspace near an airport means getting airspace
+      authorization first, which the FAA's
+      [[concept-laanc|LAANC system, Low Altitude Authorization and Notification Capability]],
+      now automates into a near-real-time approval instead of a slow manual
+      request, at over a thousand airports nationwide. None of this work makes
+      it into a finished building's drawings the way a beam or a duct run
+      does, but a site that was never accurately captured and mapped in the
+      first place is a site every later discipline (design, estimating, BIM
+      coordination) ends up building on top of bad information without knowing
+      it. If this side of construction interests you, the
       [[interview-technology-design|Technology & Design interview guide]]
       covers what these interviews actually test for.
     quiz:
@@ -142,6 +147,13 @@ sections:
 keyTerms:
   - concept-reality-capture
   - concept-drone-mapping
+  - concept-faa-part-107
+  - concept-orthomosaic-mapping
+  - concept-ground-control-points
+  - concept-total-station
+  - concept-fema-flood-zone
+  - concept-gis
+  - concept-laanc
 relatedIds:
   - concept-reality-capture
   - concept-drone-mapping
@@ -149,5 +161,12 @@ relatedIds:
   - career-surveyor
   - career-gis-specialist
   - interview-technology-design
+  - concept-faa-part-107
+  - concept-orthomosaic-mapping
+  - concept-ground-control-points
+  - concept-total-station
+  - concept-fema-flood-zone
+  - concept-gis
+  - concept-laanc
 minutes: 13
 ---

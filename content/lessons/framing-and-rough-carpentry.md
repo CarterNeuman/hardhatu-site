@@ -5,19 +5,21 @@ tier: free
 minutes: 12
 sections:
   - content: >
-      Picture yourself as a carpenter on a crew framing a three-story wood-framed
-      apartment building, the kind of mid-rise residential project where
-      [[concept-framing-lumber|framing lumber]] and
-      [[concept-rough-carpentry|rough carpentry]] do the structural work that steel or concrete handle on a taller
-      building. Before a single wall stands up, your crew snaps chalk lines across the
-      subfloor marking every wall's exact location, then lays the top and bottom plates
-      for each wall flat on the deck and marks them together, at the same time, with
-      the same pencil marks, for every stud, header, and opening location.
+      Picture yourself as a carpenter on a crew framing a three-story
+      wood-framed apartment building, the kind of mid-rise residential project
+      where [[concept-framing-lumber|framing lumber]] and
+      [[concept-rough-carpentry|rough carpentry]] do the structural work that
+      steel or concrete handle on a taller building. Before a single wall
+      stands up, your crew snaps chalk lines across the subfloor marking every
+      wall's exact location, then lays the
+      [[concept-top-and-bottom-plate|top and bottom plates]] for each wall
+      flat on the deck and marks them together, at the same time, with the
+      same pencil marks, for every stud, header, and opening location.
 
-      Marking both plates together instead of separately isn't a shortcut, it's the
-      whole point: it guarantees a stud nailed to the bottom plate lines up exactly with
-      its twin on the top plate once the wall stands up, instead of two marks made
-      independently and hoping they match.
+      Marking both plates together instead of separately isn't a shortcut,
+      it's the whole point: it guarantees a stud nailed to the bottom plate
+      lines up exactly with its twin on the top plate once the wall stands up,
+      instead of two marks made independently and hoping they match.
     quiz:
       question: Why do carpenters mark the top and bottom plates together, at the same time, rather than marking each one separately?
       options:
@@ -31,21 +33,24 @@ sections:
         each other.
 
   - content: >
-      Studs typically go up 16 inches apart, measured center to center, a spacing that's
-      been standard for generations because it matches the dimensions of common sheet
-      goods like drywall and plywood without extra cutting. Some newer, more
-      energy-efficient framing uses 24 inches on-center instead, fewer studs meaning
-      less wood interrupting the wall's insulation. Either way, not every wall in the
-      building carries the same job: a load-bearing wall runs perpendicular to the
-      joists or trusses above it and physically carries their weight down to a
-      continuous support below, which means any opening cut into it needs a header,
-      sized off a span table or engineered specifically for that opening, to carry the
-      load around the gap. A non-load-bearing partition wall, by contrast, exists purely
-      to divide space and can get by with a much lighter header, or sometimes none at
-      all.
+      Studs typically go up 16 inches apart, measured center to center, a
+      spacing that's been standard for generations because it matches the
+      dimensions of common sheet goods like drywall and plywood without extra
+      cutting. Some newer, more energy-efficient framing uses 24 inches
+      on-center instead, fewer studs meaning less wood interrupting the wall's
+      insulation. Either way, not every wall in the building carries the same
+      job: a load-bearing wall runs perpendicular to the joists or trusses
+      above it and physically carries their weight down to a continuous
+      support below, which means any opening cut into it needs a
+      [[concept-header-framing|header]], sized off a
+      [[concept-span-table|span table]] or engineered specifically for that
+      opening, to carry the load around the gap. A non-load-bearing partition
+      wall, by contrast, exists purely to divide space and can get by with a
+      much lighter header, or sometimes none at all.
 
-      Telling the two apart on a framed site isn't about how thick a wall looks, it's
-      about what's actually running above it and what that wall is doing to support it.
+      Telling the two apart on a framed site isn't about how thick a wall
+      looks, it's about what's actually running above it and what that wall is
+      doing to support it.
     quiz:
       question: What actually determines whether a wall is load-bearing, rather than just how thick it looks?
       options:
@@ -60,19 +65,21 @@ sections:
 
   - content: >
       Where a standard 2x stud can't span far enough or stay straight enough,
-      [[concept-engineered-lumber|engineered lumber]] like LVL beams or I-joists takes
-      over, manufactured products that resist the twisting and shrinking that natural
-      dimensional lumber can develop as it dries. A long header over a wide garage
-      opening, or a floor joist spanning further than standard lumber allows, is a
-      common place engineered lumber shows up even on an otherwise conventional
-      wood-framed building.
+      [[concept-engineered-lumber|engineered lumber]] like LVL beams or
+      I-joists takes over, manufactured products that resist the twisting and
+      shrinking that natural dimensional lumber can develop as it dries. A
+      long header over a wide garage opening, or a floor joist spanning
+      further than standard lumber allows, is a common place engineered lumber
+      shows up even on an otherwise conventional wood-framed building.
 
-      In regions that see serious wind or seismic activity, specific wall sections get
-      designated shear walls, framed with a tighter, engineered nailing schedule and
-      hold-down hardware bolting the wall directly to the structure below it. Metal
-      hurricane ties strap the roof framing down to the top plate, and what they're
-      actually resisting is uplift, the force of wind trying to peel the roof away from
-      the walls, not the sideways push most people picture when they hear "hurricane."
+      In regions that see serious wind or seismic activity, specific wall
+      sections get designated [[concept-shear-wall|shear walls]], framed with
+      a tighter, engineered nailing schedule and hold-down hardware bolting
+      the wall directly to the structure below it. Metal
+      [[concept-hurricane-tie|hurricane ties]] strap the roof framing down to
+      the top plate, and what they're actually resisting is uplift, the force
+      of wind trying to peel the roof away from the walls, not the sideways
+      push most people picture when they hear "hurricane."
     quiz:
       question: What force is a metal hurricane tie actually designed to resist?
       options:
@@ -86,19 +93,20 @@ sections:
         it's strapped to.
 
   - content: >
-      Before insulation or [[concept-drywall|drywall]] can go on, a framing inspection
-      has to sign off on the bones of the building: correct stud spacing and sizing,
-      headers sized to their openings, blocking and fire-blocking in place at the
-      required transitions, the right nailing pattern and hold-down hardware on every
-      shear wall, and confirmation that no carpenter notched or drilled a structural
-      member beyond what code allows chasing a wire or a pipe through it. That last
-      point matters more than it sounds like it should, a stud or joist weakened by an
-      oversized notch can fail under load even though it looks perfectly normal from the
-      outside.
+      Before insulation or [[concept-drywall|drywall]] can go on, a framing
+      inspection has to sign off on the bones of the building: correct stud
+      spacing and sizing, headers sized to their openings, blocking and
+      [[concept-fire-blocking|fire-blocking]] in place at the required
+      transitions, the right nailing pattern and hold-down hardware on every
+      shear wall, and confirmation that no carpenter notched or drilled a
+      structural member beyond what code allows chasing a wire or a pipe
+      through it. That last point matters more than it sounds like it should,
+      a stud or joist weakened by an oversized notch can fail under load even
+      though it looks perfectly normal from the outside.
 
       This is also the last point in the sequence where any of this framing is
-      genuinely visible and correctable. Once it passes inspection and the wall closes
-      up, a mistake here doesn't disappear, it just waits.
+      genuinely visible and correctable. Once it passes inspection and the
+      wall closes up, a mistake here doesn't disappear, it just waits.
     quiz:
       question: Why is an oversized notch cut into a structural stud or joist a serious problem even if the wall looks fine afterward?
       options:
@@ -142,6 +150,12 @@ keyTerms:
   - concept-rough-carpentry
   - concept-engineered-lumber
   - concept-drywall
+  - concept-top-and-bottom-plate
+  - concept-header-framing
+  - concept-span-table
+  - concept-shear-wall
+  - concept-hurricane-tie
+  - concept-fire-blocking
 relatedIds:
   - concept-framing-lumber
   - concept-rough-carpentry
@@ -150,4 +164,10 @@ relatedIds:
   - career-carpenter
   - interview-field-trades
   - lesson-building-sequence
+  - concept-top-and-bottom-plate
+  - concept-header-framing
+  - concept-span-table
+  - concept-shear-wall
+  - concept-hurricane-tie
+  - concept-fire-blocking
 ---

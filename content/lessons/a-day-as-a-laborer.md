@@ -32,21 +32,21 @@ sections:
         genuine basis for choosing which one to specialize in later.
   - content: >
       Of all the hazards a laborer faces, the one that kills the most new
-      workers isn't a fall or a struck-by incident, it's heat. A review of
+      workers isn't a fall or a
+      [[concept-struck-by-hazard|struck-by incident]], it's heat. A review of
       heat-related construction deaths found that nine out of thirteen
-      happened within a worker's first three days on a job, and four of
-      those on the very first day. The body needs time to physically
-      adjust to working outdoors in heat, a process called
-      acclimatization, which is exactly why
-      [[concept-heat-illness-prevention|heat illness prevention]]
-      guidance has a new worker start at roughly twenty percent of a
-      normal outdoor workload on day one and build up gradually over the
-      following days, rather than being handed a full day's physical
-      labor straight into the heat. A laborer, often the newest person on
-      site and doing some of its most physically demanding outdoor work,
-      is exactly who that gradual ramp-up exists to protect, alongside the
-      regular water-rest-shade breaks that apply to every outdoor worker
-      regardless of how long they've been on the job.
+      happened within a worker's first three days on a job, and four of those
+      on the very first day. The body needs time to physically adjust to
+      working outdoors in heat, a process called acclimatization, which is
+      exactly why [[concept-heat-illness-prevention|heat illness prevention]]
+      guidance has a new worker start at roughly twenty percent of a normal
+      outdoor workload on day one and build up gradually over the following
+      days, rather than being handed a full day's physical labor straight into
+      the heat. A laborer, often the newest person on site and doing some of
+      its most physically demanding outdoor work, is exactly who that gradual
+      ramp-up exists to protect, alongside the regular water-rest-shade breaks
+      that apply to every outdoor worker regardless of how long they've been
+      on the job.
     quiz:
       question: "Why are new workers at such high risk of heat illness in their first few days on an outdoor job?"
       options:
@@ -144,6 +144,7 @@ keyTerms:
   - concept-heat-illness-prevention
   - concept-scaffolding-safety
   - concept-competent-person
+  - concept-struck-by-hazard
 relatedIds:
   - concept-safety-orientation
   - concept-toolbox-talk
@@ -154,5 +155,6 @@ relatedIds:
   - exam-nccer-core
   - interview-field-trades
   - lesson-jobsite-safety-in-practice
+  - concept-struck-by-hazard
 minutes: 12
 ---

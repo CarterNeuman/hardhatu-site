@@ -7,7 +7,7 @@ sections:
   - content: >
       Before a single drawing gets made, someone has to answer a simple
       question: is this project even worth building? That question gets
-      answered during [[phase-idea-feasibility|idea and feasibility]] , the
+      answered during [[phase-idea-feasibility|idea and feasibility]], the
       quiet first phase where a
       [[career-preconstruction-manager|Preconstruction Manager]] puts together
       a rough early budget, more of an educated guess than an exact number.
@@ -28,7 +28,7 @@ sections:
         has already passed this first gut check.
   - content: >
       A project can make perfect financial sense and still be impossible to
-      build, because of [[concept-zoning-variances|zoning]] . Zoning is the
+      build, because of [[concept-zoning-variances|zoning]]. Zoning is the
       local rulebook for what's allowed on a piece of land: how tall a
       building can be, how far it has to sit from the property line, and what
       the land can even be used for. If a project doesn't fit those rules, the
@@ -72,13 +72,14 @@ sections:
         loan from closing.
   - content: >
       Once a site clears zoning and environmental review, the money still has
-      to make sense on its own, and that's what a pro forma checks. A pro
-      forma is a financial model that lines up a project's costs against what
-      it's expected to earn over several years, like rent, lease income, or
-      resale value, not just the cost of building it. A developer's own
-      financial team usually builds it, and a lender or investor reviews it
-      before committing anything, because a project can be perfectly buildable
-      and still be a bad investment. Once construction starts, a
+      to make sense on its own, and that's what a
+      [[concept-pro-forma|pro forma]] checks. A pro forma is a financial model
+      that lines up a project's costs against what it's expected to earn over
+      several years, like rent, lease income, or resale value, not just the
+      cost of building it. A developer's own financial team usually builds it,
+      and a lender or investor reviews it before committing anything, because
+      a project can be perfectly buildable and still be a bad investment. Once
+      construction starts, a
       [[career-construction-accountant|Construction Accountant]] tracks
       whether real costs are landing close to what that pro forma assumed.
     quiz:
@@ -94,7 +95,8 @@ sections:
         construction itself.
   - content: >
       A pro forma that clears an investor's bar doesn't hand over cash all at
-      once. Construction loans usually get released in stages called draws,
+      once.
+      [[concept-construction-loan-draws|Construction loans usually get released in stages called draws]],
       paid out as the project actually shows progress. Before each draw, a
       lender sends its own inspector to confirm the work is really there, a
       separate check from the [[concept-pay-application|pay applications]] the
@@ -120,6 +122,8 @@ keyTerms:
   - concept-zoning-variances
   - concept-environmental-site-assessment
   - concept-pay-application
+  - concept-pro-forma
+  - concept-construction-loan-draws
 relatedIds:
   - concept-zoning-variances
   - concept-environmental-site-assessment
@@ -130,4 +134,6 @@ relatedIds:
   - career-construction-accountant
   - lesson-the-estimate-becomes-the-budget
   - interview-business
+  - concept-pro-forma
+  - concept-construction-loan-draws
 ---

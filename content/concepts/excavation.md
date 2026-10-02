@@ -51,5 +51,6 @@ relatedIds:
   - concept-dewatering
   - concept-blasting-rock-removal
   - lesson-heavy-equipment-and-earthwork
+  - concept-excavator
 
 ---

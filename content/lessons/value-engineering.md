@@ -58,16 +58,18 @@ sections:
         pass one review and still have real issues the other would have caught.
 
   - content: >
-      Here's where value engineering carries real risk if it isn't done carefully. A VE
-      proposal gets evaluated primarily on what it saves against the original estimate,
-      its first cost, and a substitution that looks like a clean win on that one number
-      can still cost the owner far more over the life of the building. A team under
-      pressure to hit a savings target might value-engineer a rooftop HVAC system down
-      to a cheaper, lower-efficiency unit, and the number on that line item genuinely
-      goes down. What doesn't show up anywhere on that estimate is the higher utility
-      bill the owner pays every month, plus an earlier equipment replacement, a cost
-      that can quietly outweigh the original savings many times over before the
-      building's useful life is through.
+      Here's where value engineering carries real risk if it isn't done
+      carefully. A VE proposal gets evaluated primarily on what it saves
+      against the original estimate, its
+      [[concept-first-cost-vs-lifecycle-cost|first cost]], and a substitution
+      that looks like a clean win on that one number can still cost the owner
+      far more over the life of the building. A team under pressure to hit a
+      savings target might value-engineer a rooftop HVAC system down to a
+      cheaper, lower-efficiency unit, and the number on that line item
+      genuinely goes down. What doesn't show up anywhere on that estimate is
+      the higher utility bill the owner pays every month, plus an earlier
+      equipment replacement, a cost that can quietly outweigh the original
+      savings many times over before the building's useful life is through.
 
       That's the real reason a defensible VE study pulls in more than just an
       estimator's price check. A proposed substitution that touches the building
@@ -155,6 +157,7 @@ keyTerms:
   - concept-change-order
   - concept-guaranteed-maximum-price
   - concept-shared-savings-clause
+  - concept-first-cost-vs-lifecycle-cost
 relatedIds:
   - concept-value-engineering
   - concept-constructability-review
@@ -166,4 +169,5 @@ relatedIds:
   - career-preconstruction-manager
   - career-estimator
   - interview-preconstruction-estimating
+  - concept-first-cost-vs-lifecycle-cost
 ---

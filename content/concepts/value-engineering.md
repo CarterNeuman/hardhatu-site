@@ -38,4 +38,5 @@ relatedIds:
   - career-value-engineering-consultant
   - concept-wall-corner-guards
   - lesson-value-engineering
+  - concept-first-cost-vs-lifecycle-cost
 ---

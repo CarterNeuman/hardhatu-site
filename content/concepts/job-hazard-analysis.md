@@ -40,4 +40,6 @@ relatedIds:
   - career-assistant-superintendent
   - career-loss-control-engineer
   - concept-osha-10-30-training
+  - concept-struck-by-hazard
+  - concept-hierarchy-of-controls
 ---

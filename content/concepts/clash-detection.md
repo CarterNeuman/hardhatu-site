@@ -42,4 +42,5 @@ relatedIds:
   - career-construction-technology-manager
   - concept-augmented-reality-jobsite
   - concept-bim-execution-plan
+  - concept-coordination-drawing
 ---

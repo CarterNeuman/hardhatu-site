@@ -42,4 +42,5 @@ relatedIds:
   - concept-standby-generator
   - concept-solar-pv-interconnection
   - lesson-solar-and-renewable-energy-on-a-jobsite
+  - concept-grid-resynchronization
 ---

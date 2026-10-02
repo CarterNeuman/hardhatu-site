@@ -6,22 +6,22 @@ sections:
   - content: >
       Picture yourself as a [[career-bim-vdc-specialist|BIM/VDC Specialist]]
       again, but earlier this time, before a single wall gets modeled and
-      before anyone's run a clash report. On a project this size, the architect
-      is modeling independently of the structural engineer, who's modeling
-      independently of the mechanical engineer, and if nobody agrees on
-      anything first, those three models can end up built to genuinely
+      before anyone's run a clash report. On a project this size, the
+      architect is modeling independently of the structural engineer, who's
+      modeling independently of the mechanical engineer, and if nobody agrees
+      on anything first, those three models can end up built to genuinely
       incompatible standards: different file formats, different levels of
       detail, different assumptions about what's even included yet. A
       [[concept-bim-execution-plan|BIM Execution Plan (BEP)]] exists
       specifically to settle that in writing before modeling starts, naming
-      who's responsible for which part of the building and, critically, to what
-      level of development. That level is tracked on a numbered scale running
-      from LOD 100, a rough conceptual shape, up through LOD 300 and 350, where
-      real dimensions and trade coordination happen, to LOD 500, the fully
-      as-built model reflecting exactly what actually got installed. Skipping
-      that agreement doesn't prevent the mismatch. It just delays discovering
-      it until models that were never supposed to be compatible actually get
-      put together.
+      who's responsible for which part of the building and, critically, to
+      what [[concept-level-of-development-bim|level of development]]. That
+      level is tracked on a numbered scale running from LOD 100, a rough
+      conceptual shape, up through LOD 300 and 350, where real dimensions and
+      trade coordination happen, to LOD 500, the fully as-built model
+      reflecting exactly what actually got installed. Skipping that agreement
+      doesn't prevent the mismatch. It just delays discovering it until models
+      that were never supposed to be compatible actually get put together.
     quiz:
       question: "Why does a project need a BIM Execution Plan (BEP) agreed before modeling even starts?"
       options:
@@ -153,6 +153,7 @@ keyTerms:
   - concept-augmented-reality-jobsite
   - concept-digital-twin
   - concept-cobie
+  - concept-level-of-development-bim
 relatedIds:
   - concept-bim-execution-plan
   - concept-common-data-environment
@@ -164,5 +165,6 @@ relatedIds:
   - career-facilities-manager
   - interview-technology-design
   - exam-autodesk-certified-professional
+  - concept-level-of-development-bim
 minutes: 13
 ---

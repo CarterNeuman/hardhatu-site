@@ -11,9 +11,10 @@ sections:
       has to be inside the walls before drywall closes them up for good:
       boxes, conduit or cable, and the wire itself. Nothing gets a cover
       plate, a switch, or a light fixture yet, that comes later, after the
-      walls are finished, in a phase called trim-out. The whole point of
-      rough-in is to get every run in place and inspected while a mistake
-      still just means pulling more wire, not cutting open a finished wall.
+      walls are finished, in a phase called
+      [[concept-electrical-trim-out|trim-out]]. The whole point of rough-in is
+      to get every run in place and inspected while a mistake still just means
+      pulling more wire, not cutting open a finished wall.
     quiz:
       question: "What is the main goal of the electrical rough-in phase?"
       options:
@@ -29,18 +30,19 @@ sections:
       The first physical task is setting the boxes, the plastic or metal
       enclosures nailed or screwed to studs everywhere a switch, outlet, or
       fixture will eventually go. Box placement follows the electrical
-      drawings, but the electrician still has to resolve real conflicts on
-      the wall: a box can't land where a stud brace or a duct from HVAC
-      rough-in already sits. Every box also has a limit on how many wires
-      can legally terminate inside it, called box fill. The National
-      Electrical Code assigns a cubic-inch volume allowance per conductor
-      size, and a box crammed with more wire than its fill allowance permits
-      is a code violation, because overstuffed conductors trap heat
-      against their own insulation and leave too little room to safely
-      splice, bend, or terminate a wire without nicking its insulation. A
-      box that will need six conductors has to be sized for six
-      conductors from the start, not patched later by swapping in a
-      bigger box after the wall is already closed.
+      drawings, but the electrician still has to resolve real conflicts on the
+      wall: a box can't land where a stud brace or a duct from HVAC rough-in
+      already sits. Every box also has a limit on how many wires can legally
+      terminate inside it, called [[concept-electrical-box-fill|box fill]].
+      [[concept-national-electrical-code|The National Electrical Code]]
+      assigns a cubic-inch volume allowance per conductor size, and a box
+      crammed with more wire than its fill allowance permits is a code
+      violation, because overstuffed conductors trap heat against their own
+      insulation and leave too little room to safely splice, bend, or
+      terminate a wire without nicking its insulation. A box that will need
+      six conductors has to be sized for six conductors from the start, not
+      patched later by swapping in a bigger box after the wall is already
+      closed.
     quiz:
       question: "Why does the electrical code set a box fill limit?"
       options:
@@ -54,18 +56,20 @@ sections:
         against the wire insulation and leaves too little room to safely
         splice or terminate a conductor without damaging it.
   - content: >
-      Once boxes are set, the electrician runs the actual wiring between
-      them, either [[concept-conduit|conduit]] with individual conductors
-      pulled through afterward, or NM cable (nonmetallic sheathed cable,
-      commonly known by the brand name Romex), which already has its
-      conductors bundled inside a single jacket. Conduit is standard on
-      commercial jobs because it lets the electrician replace or add wire
-      later without opening a wall, and it's required in exposed locations
-      where cable would be vulnerable to damage. Residential work leans on
-      NM cable because it's faster to install and the walls are rarely
-      reopened once finished. Either way, the electrician is also leaving
-      service loops, extra slack coiled behind each box, so a future repair
-      or a reconnection after drywall doesn't come up a few inches short.
+      Once boxes are set, the electrician runs the actual wiring between them,
+      either [[concept-conduit|conduit]] with individual conductors pulled
+      through afterward, or
+      [[concept-nm-cable|NM cable (nonmetallic sheathed cable, commonly known by the brand name Romex)]],
+      which already has its conductors bundled inside a single jacket. Conduit
+      is standard on commercial jobs because it lets the electrician replace
+      or add wire later without opening a wall, and it's required in exposed
+      locations where cable would be vulnerable to damage. Residential work
+      leans on NM cable because it's faster to install and the walls are
+      rarely reopened once finished. Either way, the electrician is also
+      leaving
+      [[concept-service-loop|service loops, extra slack coiled behind each box]],
+      so a future repair or a reconnection after drywall doesn't come up a few
+      inches short.
     quiz:
       question: "Why is conduit more common than NM cable on commercial jobs?"
       options:
@@ -82,19 +86,19 @@ sections:
       Rough-in is also where the code decides which rooms get extra
       protection, built on top of the building's
       [[concept-grounding-bonding|grounding and bonding]] system, and the
-      rules for two very different devices often get confused. A GFCI
-      (ground-fault circuit interrupter) protects people from shock by
-      shutting the circuit off in a fraction of a second if current starts
-      leaking to ground, so it's required anywhere water is likely:
-      bathrooms, garages, outdoor outlets, kitchen countertop receptacles,
-      and anywhere within six feet of a sink or tub. An AFCI (arc-fault
-      circuit interrupter) instead protects against fire by detecting the
-      electrical signature of a dangerous arc, like a nail through a cable
-      inside a wall, and it's required in the rooms people actually live
-      in, bedrooms, living rooms, family rooms, and similar spaces under
-      the National Electrical Code. The gotcha that trips up a lot of new
-      electricians: a kitchen needs both, GFCI protection on its
-      countertop receptacles for shock, and AFCI protection on its general
+      rules for two very different devices often get confused. A
+      [[concept-gfci|GFCI (ground-fault circuit interrupter)]] protects people
+      from shock by shutting the circuit off in a fraction of a second if
+      current starts leaking to ground, so it's required anywhere water is
+      likely: bathrooms, garages, outdoor outlets, kitchen countertop
+      receptacles, and anywhere within six feet of a sink or tub. An
+      [[concept-afci|AFCI (arc-fault circuit interrupter)]] instead protects
+      against fire by detecting the electrical signature of a dangerous arc,
+      like a nail through a cable inside a wall, and it's required in the
+      rooms people actually live in, bedrooms, living rooms, family rooms, and
+      similar spaces under the National Electrical Code. The gotcha that trips
+      up a lot of new electricians: a kitchen needs both, GFCI protection on
+      its countertop receptacles for shock, and AFCI protection on its general
       lighting and other circuits for fire, because the code is protecting
       against two different hazards on two different circuits in the same
       room.
@@ -148,6 +152,13 @@ keyTerms:
   - concept-conduit
   - concept-grounding-bonding
   - concept-panel-board
+  - concept-electrical-trim-out
+  - concept-electrical-box-fill
+  - concept-national-electrical-code
+  - concept-nm-cable
+  - concept-service-loop
+  - concept-gfci
+  - concept-afci
 relatedIds:
   - concept-rough-in-electrical
   - concept-conduit
@@ -156,5 +167,12 @@ relatedIds:
   - career-electrician
   - interview-field-trades
   - lesson-building-sequence
+  - concept-electrical-trim-out
+  - concept-electrical-box-fill
+  - concept-national-electrical-code
+  - concept-nm-cable
+  - concept-service-loop
+  - concept-gfci
+  - concept-afci
 minutes: 13
 ---

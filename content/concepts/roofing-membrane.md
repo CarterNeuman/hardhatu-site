@@ -42,4 +42,7 @@ relatedIds:
   - lesson-building-sequence
   - career-sheet-metal-worker
   - concept-skylights
+  - concept-parapet
+  - concept-test-square
+  - concept-substrate
 ---

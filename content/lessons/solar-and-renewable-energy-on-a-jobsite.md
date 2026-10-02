@@ -6,19 +6,22 @@ sections:
   - content: >
       Picture yourself as a [[career-solar-installer|Solar PV Installer]], and
       picture a hazard genuinely unique to the DC side of your work: an arc
-      fault in the wiring between panels. A DC arc behaves differently from the
-      AC arcs an electrician deals with everywhere else in a building. AC
+      fault in the wiring between panels. A DC arc behaves differently from
+      the AC arcs an electrician deals with everywhere else in a building. AC
       current naturally crosses zero volts many times a second, which tends to
       snuff out an arc on its own; DC current never does that, so a DC arc,
       once struck, can sustain itself indefinitely and generate enough
       concentrated heat to start a fire. Worse, a series arc like this can
-      actually reduce the current flowing through the circuit rather than spike
-      it, which means an ordinary breaker, built to trip on excess current, may
-      never trip at all while the arc keeps burning. That's exactly why the National Electrical Code requires any PV DC circuit
-      operating at 80 volts or more between conductors to include a listed
-      arc-fault circuit interrupter, a device built specifically to recognize an
-      arc's electrical signature rather than wait for current that may never
-      actually rise.
+      actually reduce the current flowing through the circuit rather than
+      spike it, which means an ordinary breaker, built to trip on excess
+      current, may never trip at all while the arc keeps burning. That's
+      exactly why
+      [[concept-national-electrical-code|the National Electrical Code]]
+      requires any PV DC circuit operating at 80 volts or more between
+      [[concept-electrical-conductor|conductors]] to include a listed
+      [[concept-afci|arc-fault circuit interrupter]], a device built
+      specifically to recognize an arc's electrical signature rather than wait
+      for current that may never actually rise.
     quiz:
       question: "Why can't an ordinary circuit breaker reliably catch a DC arc fault in a solar PV system?"
       options:
@@ -36,19 +39,19 @@ sections:
       [[concept-solar-pv-interconnection|interconnection]], the formal process
       and agreement that connects a solar system to the utility grid. A key
       piece of the equipment behind that agreement is anti-islanding
-      protection, built into the system's inverter, which automatically
-      disconnects the solar system from the grid the instant utility power goes
-      out. That might sound backward to someone picturing solar as backup
-      power, but it's a real safety requirement: a solar system that kept
-      feeding power into what a utility line worker reasonably believes is a
-      de-energized line during an outage would put that worker's life at real
-      risk. A
+      protection, built into the system's [[concept-solar-inverter|inverter]],
+      which automatically disconnects the solar system from the grid the
+      instant utility power goes out. That might sound backward to someone
+      picturing solar as backup power, but it's a real safety requirement: a
+      solar system that kept feeding power into what a utility line worker
+      reasonably believes is a de-energized line during an outage would put
+      that worker's life at real risk. A
       [[career-renewable-energy-project-manager|Renewable Energy Project Manager]]
       typically submits the interconnection application well before
       construction even finishes, since the utility's own review and approval
-      can genuinely take longer than installing the system itself, and a system
-      that's physically complete but still waiting on that approval simply
-      isn't allowed to turn on.
+      can genuinely take longer than installing the system itself, and a
+      system that's physically complete but still waiting on that approval
+      simply isn't allowed to turn on.
     quiz:
       question: "Why does a grid-tied solar system automatically disconnect from the grid during a utility outage, rather than continuing to supply power?"
       options:
@@ -63,18 +66,18 @@ sections:
   - content: >
       Once a system is actually online, a solar array rarely produces exactly
       what a building uses moment to moment. It often generates more than the
-      building needs during sunny midday hours and less than it needs at night.
-      Net metering is the billing arrangement that makes that mismatch work
-      financially: a building exporting surplus power to the grid earns a
+      building needs during sunny midday hours and less than it needs at
+      night. Net metering is the billing arrangement that makes that mismatch
+      work financially: a building exporting surplus power to the grid earns a
       credit, typically against future usage rather than an immediate cash
       payment, and at the end of a billing period the utility nets the two
-      numbers against each other rather than charging for every kilowatt-hour
-      drawn regardless of what was exported. The actual value of that credit
-      varies enormously by state and even by utility. Some offer a full
-      one-for-one credit at the retail rate, while others pay noticeably less
-      for exported power than they charge for power drawn. Confirming the local
-      rules is a real part of a renewable energy project's financial planning,
-      not a minor afterthought.
+      numbers against each other rather than charging for every
+      [[concept-kilowatt-hour|kilowatt-hour]] drawn regardless of what was
+      exported. The actual value of that credit varies enormously by state and
+      even by utility. Some offer a full one-for-one credit at the retail
+      rate, while others pay noticeably less for exported power than they
+      charge for power drawn. Confirming the local rules is a real part of a
+      renewable energy project's financial planning, not a minor afterthought.
     quiz:
       question: "What does net metering actually do for a solar system owner?"
       options:
@@ -94,12 +97,13 @@ sections:
       out of on-site generation requires a [[concept-microgrid|microgrid]],
       combining solar with battery storage and control software capable of
       deliberately islanding, disconnecting from the grid on purpose, and
-      running the facility independently, then safely resynchronizing and
-      reconnecting once utility power actually comes back. That reconnection
-      step is its own real risk if it's rushed: a system that resynchronizes
-      with returning utility power before it's properly matched in phase and
-      frequency can trip protective equipment and cause a second, entirely
-      avoidable outage on top of the first one.
+      running the facility independently, then safely
+      [[concept-grid-resynchronization|resynchronizing and reconnecting]] once
+      utility power actually comes back. That reconnection step is its own
+      real risk if it's rushed: a system that resynchronizes with returning
+      utility power before it's properly matched in phase and frequency can
+      trip protective equipment and cause a second, entirely avoidable outage
+      on top of the first one.
     quiz:
       question: "Why does a standard grid-tied solar system provide no backup power during a utility outage, even though it's generating electricity the whole time it's sunny?"
       options:
@@ -116,10 +120,10 @@ sections:
       through [[concept-commissioning|commissioning]], testing to confirm the
       installation actually produces the output the design promised, not just
       that it's physically wired correctly. For an installer specifically,
-      NABCEP's PV Installation Professional certification has become the de
-      facto national credential proving real competency, since licensing itself
-      varies so much state to state, and several states' own solar incentive
-      programs require it outright. A
+      [[concept-nabcep-certification|NABCEP's PV Installation Professional certification]]
+      has become the de facto national credential proving real competency,
+      since licensing itself varies so much state to state, and several
+      states' own solar incentive programs require it outright. A
       [[career-commissioning-agent|Commissioning Agent]] may be the one
       witnessing that final performance test on a larger commercial project.
       For readers interested in this kind of work, the
@@ -140,6 +144,13 @@ keyTerms:
   - concept-solar-pv-interconnection
   - concept-microgrid
   - concept-commissioning
+  - concept-national-electrical-code
+  - concept-electrical-conductor
+  - concept-afci
+  - concept-solar-inverter
+  - concept-kilowatt-hour
+  - concept-grid-resynchronization
+  - concept-nabcep-certification
 relatedIds:
   - concept-solar-pv-interconnection
   - concept-microgrid
@@ -148,5 +159,12 @@ relatedIds:
   - career-renewable-energy-project-manager
   - career-commissioning-agent
   - interview-specialized-construction
+  - concept-national-electrical-code
+  - concept-electrical-conductor
+  - concept-afci
+  - concept-solar-inverter
+  - concept-kilowatt-hour
+  - concept-grid-resynchronization
+  - concept-nabcep-certification
 minutes: 13
 ---

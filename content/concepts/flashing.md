@@ -50,4 +50,5 @@ relatedIds:
   - concept-brick-veneer
   - concept-windows
   - lesson-building-envelope-and-glazing
+  - concept-parapet
 ---

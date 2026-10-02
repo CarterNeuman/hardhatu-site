@@ -6,24 +6,26 @@ minutes: 14
 sections:
   - content: >
       Six weeks before a hotel's grand opening, a general contractor's project
-      engineer gets a call from the millwork fabricator: the custom lobby reception
-      desk is finished and ready for delivery. There's just one problem. The
-      [[concept-shop-drawings|shop drawings]] for that desk are still sitting in the
-      architect's review queue, stamped, as of yesterday, "revise and resubmit," over
-      a dimension that doesn't actually match the electrical rough-in behind it. The
-      fabricator built the whole thing anyway, betting the drawings would get approved
-      as submitted. They didn't, and now an expensive, custom piece of millwork needs
-      to be reworked, or worse, rebuilt, on a schedule with no slack left in it.
+      engineer gets a call from the millwork fabricator: the custom lobby
+      reception desk is finished and ready for delivery. There's just one
+      problem. The [[concept-shop-drawings|shop drawings]] for that desk are
+      still sitting in the architect's review queue, stamped, as of yesterday,
+      "revise and resubmit," over a dimension that doesn't actually match the
+      electrical rough-in behind it. The fabricator built the whole thing
+      anyway, betting the drawings would get approved as submitted. They
+      didn't, and now an expensive, custom piece of millwork needs to be
+      reworked, or worse, rebuilt, on a schedule with no slack left in it.
 
-      That fabricator built at risk, ordering and fabricating before the approval loop
-      actually closed, and it's one of the single most expensive mistakes a
-      subcontractor or supplier can make on a project. The
-      [[concept-submittal|submittal]] process exists precisely to prevent this: shop
-      drawings, product data, and samples get reviewed and approved by the architect
-      or engineer before anything gets ordered or built, confirming what's about to
-      happen actually matches what was designed. Understanding that process well
-      enough to actually manage it, not just recognize the paperwork, is what this
-      lesson is really about.
+      That fabricator [[concept-fabricating-at-risk|built at risk]], ordering
+      and fabricating before the approval loop actually closed, and it's one
+      of the single most expensive mistakes a subcontractor or supplier can
+      make on a project. The [[concept-submittal|submittal]] process exists
+      precisely to prevent this: shop drawings, product data, and samples get
+      reviewed and approved by the architect or engineer before anything gets
+      ordered or built, confirming what's about to happen actually matches
+      what was designed. Understanding that process well enough to actually
+      manage it, not just recognize the paperwork, is what this lesson is
+      really about.
     quiz:
       question: What does it mean for a subcontractor to be "fabricating at risk"?
       options:
@@ -173,6 +175,7 @@ keyTerms:
   - concept-transmittal
   - concept-long-lead-item
   - concept-submittal-log
+  - concept-fabricating-at-risk
 relatedIds:
   - concept-shop-drawings
   - concept-submittal
@@ -183,4 +186,5 @@ relatedIds:
   - career-project-engineer
   - interview-project-operations
   - exam-cdt
+  - concept-fabricating-at-risk
 ---

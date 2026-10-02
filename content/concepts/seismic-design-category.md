@@ -31,4 +31,5 @@ relatedIds:
   - career-structural-engineer
   - concept-structural-steel
   - concept-plan-review
+  - concept-shear-wall
 ---

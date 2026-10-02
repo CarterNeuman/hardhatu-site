@@ -40,4 +40,6 @@ relatedIds:
   - concept-submittal
   - phase-construction
   - lesson-framing-and-rough-carpentry
+  - concept-header-framing
+  - concept-span-table
 ---

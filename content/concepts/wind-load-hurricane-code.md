@@ -34,4 +34,6 @@ relatedIds:
   - career-glazier
   - concept-curtain-wall
   - concept-windows
+  - concept-shear-wall
+  - concept-hurricane-tie
 ---

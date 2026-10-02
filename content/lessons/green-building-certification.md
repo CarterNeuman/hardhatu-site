@@ -39,21 +39,24 @@ sections:
       [[career-sustainability-leed-consultant|Sustainability / LEED Consultant]]
       sit down to decide which
       [[concept-green-building-certification|green building certification]]
-      system actually fits this project. LEED,
-      run by the U.S. Green Building Council, is the most widely recognized system in
-      the U.S., but it isn't the only one: WELL certifies occupant health and air
-      quality specifically, and Passive House targets extreme energy efficiency
-      primarily through the building envelope, paired with mechanical ventilation
-      that recovers heat from the air it exhausts. Picking the most recognizable name isn't
-      the same as picking the system built around what this owner actually wants.
+      system actually fits this project. LEED, run by the
+      [[concept-usgbc|U.S. Green Building Council]], is the most widely
+      recognized system in the U.S., but it isn't the only one: WELL certifies
+      occupant health and air quality specifically, and Passive House targets
+      extreme energy efficiency primarily through the building envelope,
+      paired with
+      [[concept-heat-recovery-ventilation|mechanical ventilation that recovers heat from the air it exhausts]].
+      Picking the most recognizable name isn't the same as picking the system
+      built around what this owner actually wants.
 
-      Since this owner's real priority is cutting long-term operating costs and
-      attracting tenants who screen for sustainability credentials, broadly rather
-      than any one narrow goal, the consultant recommends [[concept-leed|LEED]],
-      targeting a Gold certification level. That decision sets the credit-tracking
-      process the consultant will manage for the rest of the project, and the Owner's
-      Representative signs off after weighing the added cost of chasing Gold-level
-      credits against what the owner is actually trying to accomplish.
+      Since this owner's real priority is cutting long-term operating costs
+      and attracting tenants who screen for sustainability credentials,
+      broadly rather than any one narrow goal, the consultant recommends
+      [[concept-leed|LEED]], targeting a Gold certification level. That
+      decision sets the credit-tracking process the consultant will manage for
+      the rest of the project, and the Owner's Representative signs off after
+      weighing the added cost of chasing Gold-level credits against what the
+      owner is actually trying to accomplish.
     quiz:
       question: Why might a project choose a specific certification system rather than defaulting to whichever one is most well known?
       options:
@@ -129,25 +132,27 @@ sections:
 
   - content: >
       Out on the site, the project also pursues
-      [[concept-sustainable-site-development|sustainable site development]] credits:
-      rather than repaving the entire
-      existing parking lot to match, the team uses permeable paving and a bioswale in
-      the section being rebuilt, reducing the stormwater runoff the surrounding
-      municipal system has to absorb during heavy rain. The Environmental/Remediation
-      Specialist, already familiar with the site from the abatement work in section
-      one, flags an area of existing mature trees worth protecting during that same
-      planning stage rather than clearing it for construction convenience.
+      [[concept-sustainable-site-development|sustainable site development]]
+      credits: rather than repaving the entire existing parking lot to match,
+      the team uses [[concept-permeable-paving|permeable paving]] and a
+      [[concept-bioswale|bioswale]] in the section being rebuilt, reducing the
+      stormwater runoff the surrounding municipal system has to absorb during
+      heavy rain. The Environmental/Remediation Specialist, already familiar
+      with the site from the abatement work in section one, flags an area of
+      existing mature trees worth protecting during that same planning stage
+      rather than clearing it for construction convenience.
 
-      Before the Sustainability / LEED Consultant submits the final certification
-      application, the mechanical systems and envelope go through commissioning to
-      confirm they actually perform the way the design and energy model assumed, not
-      just on paper. The project earns LEED Gold. If tracking a building's
-      environmental performance from demolition through commissioning sounded
-      interesting, the [[interview-specialized-construction|Specialized Construction]]
-      and [[interview-consultants-advisory|Consultants & Advisory]] interview guides
-      cover what those conversations actually test for, and the
-      [[exam-leed-green-associate|LEED Green Associate]] credential is the standard
-      entry point into sustainability consulting work specifically.
+      Before the Sustainability / LEED Consultant submits the final
+      certification application, the mechanical systems and envelope go
+      through commissioning to confirm they actually perform the way the
+      design and energy model assumed, not just on paper. The project earns
+      LEED Gold. If tracking a building's environmental performance from
+      demolition through commissioning sounded interesting, the
+      [[interview-specialized-construction|Specialized Construction]] and
+      [[interview-consultants-advisory|Consultants & Advisory]] interview
+      guides cover what those conversations actually test for, and the
+      [[exam-leed-green-associate|LEED Green Associate]] credential is the
+      standard entry point into sustainability consulting work specifically.
     quiz:
       question: What's the common thread connecting hazardous material abatement, the building envelope, energy modeling, embodied carbon, and site development in this lesson?
       options:
@@ -170,6 +175,10 @@ keyTerms:
   - concept-energy-modeling
   - concept-embodied-carbon
   - concept-sustainable-site-development
+  - concept-usgbc
+  - concept-heat-recovery-ventilation
+  - concept-permeable-paving
+  - concept-bioswale
 relatedIds:
   - concept-hazardous-material-abatement
   - concept-green-building-certification
@@ -192,4 +201,8 @@ relatedIds:
   - career-solar-installer
   - career-renewable-energy-project-manager
   - career-commissioning-agent
+  - concept-usgbc
+  - concept-heat-recovery-ventilation
+  - concept-permeable-paving
+  - concept-bioswale
 ---

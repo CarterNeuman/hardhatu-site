@@ -34,4 +34,5 @@ relatedIds:
   - concept-substantial-completion
   - concept-warranty
   - lesson-when-its-not-the-storms-fault
+  - concept-design-defect-vs-construction-defect
 ---

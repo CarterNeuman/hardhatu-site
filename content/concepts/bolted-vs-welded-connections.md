@@ -42,4 +42,7 @@ relatedIds:
   - concept-structural-welding
   - concept-special-inspection
   - lesson-structural-steel-erection
+  - concept-come-along
+  - concept-spud-wrench
+  - concept-impact-wrench
 ---

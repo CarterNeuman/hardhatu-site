@@ -41,4 +41,6 @@ relatedIds:
   - software-mitti
   - concept-nfpa-70e
   - concept-respiratory-protection-program
+  - concept-struck-by-hazard
+  - concept-hierarchy-of-controls
 ---

@@ -30,19 +30,19 @@ sections:
         keeps the forecast honest instead of quietly behind reality.
   - content: >
       Here's a genuinely counterintuitive fact worth sitting with: spending
-      more than budgeted isn't automatically bad news, and spending less
-      isn't automatically good news. Comparing committed and actual cost
-      against the budget only shows how much money went out the door; it
-      says nothing about how much actual work that money bought. The cost
-      performance index, or CPI, fixes that by comparing the value of work
-      actually completed against the money actually spent to do it. A crew
-      that spent $105,000 but completed $115,000 worth of planned work has a
-      CPI over 1.0, genuinely efficient, even though the raw spending number
-      looks over budget. A crew that spent only $90,000 but completed just
-      $80,000 worth of work has a CPI under 1.0, a real efficiency problem,
-      even though the raw spending looks like it's coming in under budget.
-      Raw dollars spent, on their own, can tell a flattering story that CPI
-      exposes as false.
+      more than budgeted isn't automatically bad news, and spending less isn't
+      automatically good news. Comparing committed and actual cost against the
+      budget only shows how much money went out the door; it says nothing
+      about how much actual work that money bought.
+      [[concept-cost-performance-index|The cost performance index, or CPI,]]
+      fixes that by comparing the value of work actually completed against the
+      money actually spent to do it. A crew that spent $105,000 but completed
+      $115,000 worth of planned work has a CPI over 1.0, genuinely efficient,
+      even though the raw spending number looks over budget. A crew that spent
+      only $90,000 but completed just $80,000 worth of work has a CPI under
+      1.0, a real efficiency problem, even though the raw spending looks like
+      it's coming in under budget. Raw dollars spent, on their own, can tell a
+      flattering story that CPI exposes as false.
     quiz:
       question: "Why can a crew that spent more than its budget actually be performing well, while a crew that spent less can actually be performing poorly?"
       options:
@@ -134,11 +134,13 @@ sections:
         code is what actually surfaces where attention is needed.
 keyTerms:
   - concept-change-order
+  - concept-cost-performance-index
 relatedIds:
   - concept-change-order
   - career-cost-engineer
   - career-project-manager
   - interview-preconstruction-estimating
   - lesson-the-estimate-becomes-the-budget
+  - concept-cost-performance-index
 minutes: 13
 ---

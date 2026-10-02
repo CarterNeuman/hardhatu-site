@@ -5,21 +5,25 @@ tier: free
 minutes: 13
 sections:
   - content: >
-      Picture yourself as an ironworker joining a crew doing [[concept-structural-steel-erection|structural steel erection]] on a
-      six-story office building downtown. The concrete footings cured days ago, but
-      your crew can't just show up and start stacking steel the moment the concrete
-      looks hard. OSHA's steel erection standard requires the controlling contractor to
-      give your crew written notice that the concrete has reached at least 75% of its
-      design compressive strength before any erection loads get applied to it, a
-      specific, documented threshold, not a guess based on how the pour looks.
+      Picture yourself as an ironworker joining a crew doing
+      [[concept-structural-steel-erection|structural steel erection]] on a
+      six-story office building downtown. The concrete footings cured days
+      ago, but your crew can't just show up and start stacking steel the
+      moment the concrete looks hard. OSHA's steel erection standard requires
+      the controlling contractor to give your crew written notice that the
+      concrete has reached at least 75% of its design compressive strength
+      before any erection loads get applied to it, a specific, documented
+      threshold, not a guess based on how the pour looks.
 
-      That requirement exists because a column standing on a footing that hasn't
-      actually reached strength can crack or shift under the weight of the frame above
-      it, a failure that often isn't visible until it's already happened. The same
-      [[concept-footing|footing]] work covered elsewhere on this site, the below-grade
-      concrete base spreading the building's weight into stable soil, is exactly what
-      your crew's first column gets set onto, bolted to anchor bolts whose position was
-      locked in long before the concrete around them ever cured.
+      That requirement exists because a column standing on a footing that
+      hasn't actually reached strength can crack or shift under the weight of
+      the frame above it, a failure that often isn't visible until it's
+      already happened. The same [[concept-footing|footing]] work covered
+      elsewhere on this site, the below-grade concrete base spreading the
+      building's weight into stable soil, is exactly what your crew's first
+      column gets set onto, bolted to [[concept-anchor-bolts|anchor bolts]]
+      whose position was locked in long before the concrete around them ever
+      cured.
     quiz:
       question: Why does OSHA require written notice that concrete has reached 75% of its design strength before steel erection loads apply, instead of just visually confirming the concrete looks cured?
       options:
@@ -34,22 +38,26 @@ sections:
         just by looking at the surface.
 
   - content: >
-      Once your column is set, plumbed, and temporarily bolted, the next beam gets
-      flown in by crane, and this is where the job splits into two very different
-      roles. A connector is the ironworker who catches an incoming beam while it's
-      still hanging from the crane's hook and makes the first temporary connection,
-      bolting it just enough to hold while the rest of the crew plumbs and aligns the
-      frame with come-alongs, hand-ratchet pullers that pull a slightly out-of-square
-      member back into line. Only once the whole bay is plumbed does a second pass
-      finish the real connections, either
-      [[concept-bolted-vs-welded-connections|bolted or welded]] depending on what the
-      structural drawings specify for that joint.
+      Once your column is set, [[concept-plumb-alignment|plumbed]], and
+      temporarily bolted, the next beam gets flown in by crane, and this is
+      where the job splits into two very different roles. A connector is the
+      ironworker who catches an incoming beam while it's still hanging from
+      the crane's hook and makes the first temporary connection, bolting it
+      just enough to hold while the rest of the crew plumbs and aligns the
+      frame with [[concept-come-along|come-alongs, hand-ratchet pullers]] that
+      pull a slightly out-of-square member back into line. Only once the whole
+      [[concept-structural-bay|bay]] is plumbed does a second pass finish the
+      real connections, either
+      [[concept-bolted-vs-welded-connections|bolted or welded]] depending on
+      what the structural drawings specify for that joint.
 
-      A spud wrench, a wrench with a long tapered handle instead of a flat one, is a
-      connector's most-used tool, the taper lets them align two bolt holes that are
-      slightly out of position just by working the handle into the gap, something a
-      flat wrench can't do. An impact wrench finishes the actual tensioning once the
-      holes line up.
+      A
+      [[concept-spud-wrench|spud wrench, a wrench with a long tapered handle instead of a flat one]],
+      is a connector's most-used tool, the taper lets them align two bolt
+      holes that are slightly out of position just by working the handle into
+      the gap, something a flat wrench can't do. An
+      [[concept-impact-wrench|impact wrench]] finishes the actual tensioning
+      once the holes line up.
     quiz:
       question: What's the actual job of an ironworker acting as a "connector" during steel erection?
       options:
@@ -152,6 +160,12 @@ keyTerms:
   - concept-crane-lift-plan
   - concept-rigging
   - concept-steel-decking
+  - concept-anchor-bolts
+  - concept-plumb-alignment
+  - concept-come-along
+  - concept-structural-bay
+  - concept-spud-wrench
+  - concept-impact-wrench
 relatedIds:
   - concept-footing
   - concept-bolted-vs-welded-connections
@@ -163,4 +177,10 @@ relatedIds:
   - career-ironworker
   - interview-field-trades
   - lesson-building-sequence
+  - concept-anchor-bolts
+  - concept-plumb-alignment
+  - concept-come-along
+  - concept-structural-bay
+  - concept-spud-wrench
+  - concept-impact-wrench
 ---

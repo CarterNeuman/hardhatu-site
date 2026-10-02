@@ -42,4 +42,8 @@ relatedIds:
   - concept-battery-energy-storage-system
   - concept-microgrid
   - lesson-solar-and-renewable-energy-on-a-jobsite
+  - concept-solar-inverter
+  - concept-grid-resynchronization
+  - concept-nabcep-certification
+  - concept-kilowatt-hour
 ---

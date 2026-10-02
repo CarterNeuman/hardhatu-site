@@ -48,4 +48,5 @@ relatedIds:
   - concept-business-interruption-insurance
   - concept-reservation-of-rights-letter
   - concept-third-party-administrator
+  - concept-bad-faith-insurance
 ---

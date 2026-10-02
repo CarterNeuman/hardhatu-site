@@ -40,4 +40,6 @@ relatedIds:
   - career-mep-engineer
   - concept-grounding-bonding
   - lesson-electrical-rough-in
+  - concept-electrical-box-fill
+  - concept-national-electrical-code
 ---

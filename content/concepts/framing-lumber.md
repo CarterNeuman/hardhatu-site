@@ -40,4 +40,6 @@ relatedIds:
   - concept-fire-retardant-treated-wood
   - concept-sheathing
   - lesson-framing-and-rough-carpentry
+  - concept-header-framing
+  - concept-span-table
 ---

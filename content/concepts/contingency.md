@@ -37,4 +37,5 @@ relatedIds:
   - lesson-the-estimate-becomes-the-budget
   - concept-cost-to-complete
   - concept-guaranteed-maximum-price
+  - concept-cost-escalation
 ---

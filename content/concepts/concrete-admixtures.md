@@ -36,4 +36,6 @@ relatedIds:
   - concept-concrete-curing
   - concept-formwork
   - lesson-concrete-and-foundations-in-practice
+  - concept-slump-test
+  - concept-concrete-mix-design
 ---

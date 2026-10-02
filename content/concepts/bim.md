@@ -49,4 +49,5 @@ relatedIds:
   - concept-augmented-reality-jobsite
   - concept-bim-execution-plan
   - concept-generative-design
+  - concept-level-of-development-bim
 ---

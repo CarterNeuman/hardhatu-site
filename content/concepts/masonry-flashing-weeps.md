@@ -34,4 +34,5 @@ relatedIds:
   - concept-flashing
   - concept-brick-veneer
   - concept-waterproofing
+  - concept-pressure-equalized-glazing
 ---

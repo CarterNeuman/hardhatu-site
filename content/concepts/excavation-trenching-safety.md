@@ -41,4 +41,5 @@ relatedIds:
   - phase-construction
   - concept-trench-box-protective-system
   - lesson-heavy-equipment-and-earthwork
+  - concept-osha-soil-classification
 ---

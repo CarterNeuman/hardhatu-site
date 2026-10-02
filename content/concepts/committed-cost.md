@@ -40,4 +40,5 @@ relatedIds:
   - concept-cost-code
   - concept-subcontract-agreement
   - lesson-the-estimate-becomes-the-budget
+  - concept-cost-performance-index
 ---

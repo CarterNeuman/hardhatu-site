@@ -41,4 +41,5 @@ relatedIds:
   - concept-actual-cost
   - concept-contingency
   - lesson-the-estimate-becomes-the-budget
+  - concept-cost-performance-index
 ---

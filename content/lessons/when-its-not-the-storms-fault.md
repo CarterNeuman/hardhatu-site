@@ -5,24 +5,27 @@ tier: free
 minutes: 14
 sections:
   - content: >
-      Not every property problem starts with an event anyone can point to. A homeowner
-      notices a diagonal crack climbing an interior wall years after moving in, no
-      storm, no burst pipe, nothing anyone remembers happening, just a defect that
-      seems to have appeared on its own sometime since the building was finished.
-      That's a genuinely different kind of problem than a claim that starts with an
-      obvious cause arriving on a specific date. Before anyone can talk about fixing
-      it, a harder question has to be answered first: is this a design defect, a
-      construction defect, or ownership neglect, because each one points to a
-      completely different party actually owing the cost of repair.
+      Not every property problem starts with an event anyone can point to. A
+      homeowner notices a diagonal crack climbing an interior wall years after
+      moving in, no storm, no burst pipe, nothing anyone remembers happening,
+      just a defect that seems to have appeared on its own sometime since the
+      building was finished. That's a genuinely different kind of problem than
+      a claim that starts with an obvious cause arriving on a specific date.
+      Before anyone can talk about fixing it, a harder question has to be
+      answered first: is this
+      [[concept-design-defect-vs-construction-defect|a design defect, a construction defect]],
+      or ownership neglect, because each one points to a completely different
+      party actually owing the cost of repair.
 
-      Design defects and construction defects get separated by a specific legal
-      principle: the [[concept-spearin-doctrine|Spearin doctrine]], which holds that
-      when an owner hands a contractor a set of plans, the owner implicitly warrants
-      those plans are adequate, and the contractor isn't liable for a defect that
-      results from building exactly what was designed. If a wall cracks because a
-      structural engineer under-designed the foundation it sits on, and the
-      contractor built precisely to that engineer's specifications, Spearin points
-      responsibility at the design side, not the builder.
+      Design defects and construction defects get separated by a specific
+      legal principle: the [[concept-spearin-doctrine|Spearin doctrine]],
+      which holds that when an owner hands a contractor a set of plans, the
+      owner implicitly warrants those plans are adequate, and the contractor
+      isn't liable for a defect that results from building exactly what was
+      designed. If a wall cracks because a structural engineer under-designed
+      the foundation it sits on, and the contractor built precisely to that
+      engineer's specifications, Spearin points responsibility at the design
+      side, not the builder.
     quiz:
       question: Under the Spearin doctrine, who generally bears responsibility when a contractor builds exactly to a defective design and a failure results?
       options:
@@ -96,22 +99,26 @@ sections:
         deadline and barred under the other.
 
   - content: >
-      Even once causation and timing are sorted out, there's a third question that can
-      complicate a years-later defect claim: who actually has the legal right to sue
-      whom. An owner often has no direct contract with the structural engineer who
-      designed a defective foundation, since the engineer was typically retained as
-      a sub-consultant to the architect rather than hired by the owner directly. The
+      Even once causation and timing are sorted out, there's a third question
+      that can complicate a years-later defect claim: who actually has the
+      legal right to sue whom. An owner often has no direct contract with the
+      structural engineer who designed a defective foundation, since the
+      engineer was typically retained as a
+      [[concept-sub-consultant|sub-consultant]] to the architect rather than
+      hired by the owner directly. The
       [[concept-economic-loss-doctrine|economic loss doctrine]] generally bars
-      recovering purely economic losses, no personal injury, no separate property
-      damage, just the cost of fixing the defect itself, through a direct negligence
-      claim against a party you have no contract with, pushing the dispute back toward
-      whatever contractual chain actually connects the parties instead.
+      recovering purely economic losses, no personal injury, no separate
+      property damage, just the cost of fixing the defect itself, through a
+      direct [[concept-negligence-claim|negligence claim]] against a party you
+      have no contract with, pushing the dispute back toward whatever
+      contractual chain actually connects the parties instead.
 
-      Untangling all three questions, design versus construction versus neglect,
-      whether the repose deadline has already passed, and who can actually be sued, is
-      rarely something an owner works out alone. A [[career-construction-attorney|Construction Attorney]]
-      is the one who has to weigh all three before advising a client whether pursuing
-      a claim is even viable, often working alongside the same expert witness who
+      Untangling all three questions, design versus construction versus
+      neglect, whether the repose deadline has already passed, and who can
+      actually be sued, is rarely something an owner works out alone. A
+      [[career-construction-attorney|Construction Attorney]] is the one who
+      has to weigh all three before advising a client whether pursuing a claim
+      is even viable, often working alongside the same expert witness who
       investigated the physical cause in the first place.
     quiz:
       question: Why can the economic loss doctrine block a property owner's claim even when a design defect clearly caused the damage?
@@ -165,6 +172,9 @@ keyTerms:
   - concept-economic-loss-doctrine
   - concept-warranty
   - concept-warranty-walk
+  - concept-design-defect-vs-construction-defect
+  - concept-sub-consultant
+  - concept-negligence-claim
 relatedIds:
   - concept-spearin-doctrine
   - concept-statute-of-limitations-repose
@@ -174,4 +184,7 @@ relatedIds:
   - career-expert-witness-construction-litigation
   - career-construction-attorney
   - interview-consultants-advisory
+  - concept-design-defect-vs-construction-defect
+  - concept-sub-consultant
+  - concept-negligence-claim
 ---

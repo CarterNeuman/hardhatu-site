@@ -39,4 +39,5 @@ relatedIds:
   - career-sustainability-leed-consultant
   - concept-embodied-carbon
   - concept-energy-modeling
+  - concept-first-cost-vs-lifecycle-cost
 ---

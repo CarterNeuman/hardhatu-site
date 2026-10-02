@@ -37,4 +37,5 @@ relatedIds:
   - career-qaqc-inspector
   - lesson-from-dirt-to-deck
   - concept-geotechnical-report
+  - concept-compaction-equipment
 ---

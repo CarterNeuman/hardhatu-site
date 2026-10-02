@@ -37,4 +37,5 @@ relatedIds:
   - concept-brick-veneer
   - phase-construction
   - career-historic-preservation-specialist
+  - concept-concrete-control-joint
 ---

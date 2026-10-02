@@ -95,19 +95,22 @@ sections:
         Getting the signature before starting is what preserves it.
 
   - content: >
-      There's more than one way to actually price the changed work, and which one gets
-      used matters. The simplest is lump sum: the contractor quotes one total number for
-      the change, the owner accepts or negotiates it, and that's the price, fast, but it
-      puts the estimating risk on the contractor if they under-price it. Unit pricing
-      works well for anything measured in a quantity that might shift, like square
-      footage of tile or cubic yards of concrete: the original contract already has an
-      agreed price per unit, so the change order just multiplies that rate by the new
-      quantity. Time and materials, usually shortened to T&M, is the fallback for
-      anything genuinely hard to estimate in advance: the contractor tracks actual labor
-      hours and material costs as the work happens, with an agreed markup on top. T&M is
-      common for anything that turns out to be a bigger mess than expected once a wall
-      gets opened up, but it's also the pricing method most likely to make an owner
-      nervous, since the final number isn't locked in ahead of time.
+      There's more than one way to actually price the changed work, and which
+      one gets used matters. The simplest is lump sum: the contractor quotes
+      one total number for the change, the owner accepts or negotiates it, and
+      that's the price, fast, but it puts the estimating risk on the
+      contractor if they under-price it. Unit pricing works well for anything
+      measured in a quantity that might shift, like square footage of tile or
+      cubic yards of concrete: the original contract already has an agreed
+      price per unit, so the change order just multiplies that rate by the new
+      quantity.
+      [[concept-time-and-materials-contract|Time and materials, usually shortened to T&M,]]
+      is the fallback for anything genuinely hard to estimate in advance: the
+      contractor tracks actual labor hours and material costs as the work
+      happens, with an agreed markup on top. T&M is common for anything that
+      turns out to be a bigger mess than expected once a wall gets opened up,
+      but it's also the pricing method most likely to make an owner nervous,
+      since the final number isn't locked in ahead of time.
 
       It's also worth being precise about what does and doesn't need a change order at
       all. A request for information, [[concept-rfi|an RFI]], that gets answered with no cost or
@@ -204,10 +207,12 @@ sections:
 keyTerms:
   - concept-change-order
   - concept-rfi
+  - concept-time-and-materials-contract
 relatedIds:
   - concept-change-order
   - concept-rfi
   - career-project-manager
   - career-project-engineer
   - interview-project-operations
+  - concept-time-and-materials-contract
 ---

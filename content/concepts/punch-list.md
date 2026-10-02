@@ -43,4 +43,5 @@ relatedIds:
   - concept-final-inspection
   - lesson-permits-inspections-and-the-paper-trail
   - concept-casework
+  - concept-electrical-trim-out
 ---

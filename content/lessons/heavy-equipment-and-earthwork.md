@@ -5,20 +5,22 @@ tier: free
 sections:
   - content: >
       Picture yourself as an [[career-equipment-operator|equipment operator]]
-      arriving on a site the morning [[concept-excavation|excavation]] starts. The site has four
-      or five different machines parked on it, and each one exists because
-      no single machine does every earthmoving job well. An excavator,
-      with its bucket on a hinged arm, is built for precise digging and
-      trenching. A bulldozer pushes large volumes of loose material
-      around to rough out a grade, bulk work rather than precision work. A
-      motor grader comes in after that to cut the finer, exact elevations
-      the civil drawings actually call for, work a dozer's wide blade
-      isn't built to do precisely. A roller or compactor follows behind
-      fill operations, pressing loose soil down into the dense, stable
-      layers a foundation can actually be built on. Knowing which machine
-      a given task actually needs, not just which one is parked closest,
-      is most of what separates efficient earthwork from a site that's
-      constantly re-doing itself.
+      arriving on a site the morning [[concept-excavation|excavation]] starts.
+      The site has four or five different machines parked on it, and each one
+      exists because no single machine does every earthmoving job well.
+      [[concept-excavator|An excavator]], with its bucket on a hinged arm, is
+      built for precise digging and trenching.
+      [[concept-bulldozer|A bulldozer]] pushes large volumes of loose material
+      around to rough out a grade, bulk work rather than precision work.
+      [[concept-motor-grader|A motor grader]] comes in after that to cut the
+      finer, exact elevations the civil drawings actually call for, work a
+      dozer's wide blade isn't built to do precisely.
+      [[concept-compaction-equipment|A roller or compactor]] follows behind
+      fill operations, pressing loose soil down into the dense, stable layers
+      a foundation can actually be built on. Knowing which machine a given
+      task actually needs, not just which one is parked closest, is most of
+      what separates efficient earthwork from a site that's constantly
+      re-doing itself.
     quiz:
       question: "Why would a project use a motor grader instead of a bulldozer to reach final grade elevations?"
       options:
@@ -32,23 +34,23 @@ sections:
         place, while a motor grader is the tool for cutting the final,
         exact elevations a design actually calls for.
   - content: >
-      Once a trench or excavation gets deep enough, the job stops being
-      about moving dirt efficiently and becomes a serious safety question.
+      Once a trench or excavation gets deep enough, the job stops being about
+      moving dirt efficiently and becomes a serious safety question.
       [[concept-excavation-trenching-safety|Excavation and trenching safety]]
-      rules require a protective system for any excavation five feet
-      deep or greater, unless it's entirely cut through stable rock.
-      That protective system has to match the soil actually present, Type
-      A, B, or C, as classified on site by a designated
-      [[concept-competent-person|competent person]],
-      not assumed from how the soil looked on a different part of the
-      site. Depending on that classification, the system might be sloping
-      the trench walls back at a safe angle, benching them in steps, or
-      installing [[concept-shoring|shoring]] or a
-      [[concept-trench-box-protective-system|trench box]] before anyone
-      climbs down into it. Soil that looks stable on the surface can still
-      collapse suddenly and without warning, which is exactly why the rule
-      doesn't allow skipping the protective system based on how a trench
-      happens to look that day.
+      rules require a protective system for any excavation five feet deep or
+      greater, unless it's entirely cut through stable rock. That protective
+      system has to match the soil actually present,
+      [[concept-osha-soil-classification|Type A, B, or C]], as classified on
+      site by a designated [[concept-competent-person|competent person]], not
+      assumed from how the soil looked on a different part of the site.
+      Depending on that classification, the system might be sloping the trench
+      walls back at a safe angle, benching them in steps, or installing
+      [[concept-shoring|shoring]] or a
+      [[concept-trench-box-protective-system|trench box]] before anyone climbs
+      down into it. Soil that looks stable on the surface can still collapse
+      suddenly and without warning, which is exactly why the rule doesn't
+      allow skipping the protective system based on how a trench happens to
+      look that day.
     quiz:
       question: "What triggers the requirement for a protective system in an excavation?"
       options:
@@ -159,6 +161,11 @@ keyTerms:
   - concept-trench-box-protective-system
   - concept-site-utilities
   - concept-gps-machine-control
+  - concept-excavator
+  - concept-bulldozer
+  - concept-motor-grader
+  - concept-compaction-equipment
+  - concept-osha-soil-classification
 relatedIds:
   - concept-excavation
   - concept-excavation-trenching-safety
@@ -171,5 +178,10 @@ relatedIds:
   - career-surveyor
   - interview-field-trades
   - lesson-from-dirt-to-deck
+  - concept-excavator
+  - concept-bulldozer
+  - concept-motor-grader
+  - concept-compaction-equipment
+  - concept-osha-soil-classification
 minutes: 13
 ---

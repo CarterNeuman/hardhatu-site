@@ -36,4 +36,5 @@ relatedIds:
   - career-structural-engineer
   - concept-framing-lumber
   - concept-rough-carpentry
+  - concept-roof-decking
 ---

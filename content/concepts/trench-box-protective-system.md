@@ -35,4 +35,5 @@ relatedIds:
   - concept-competent-person
   - concept-shoring
   - lesson-heavy-equipment-and-earthwork
+  - concept-osha-soil-classification
 ---

@@ -36,4 +36,5 @@ relatedIds:
   - concept-economic-loss-doctrine
   - concept-professional-liability-insurance
   - lesson-when-its-not-the-storms-fault
+  - concept-design-defect-vs-construction-defect
 ---

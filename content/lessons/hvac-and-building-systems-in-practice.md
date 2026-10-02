@@ -6,20 +6,21 @@ sections:
   - content: >
       Picture yourself as an [[career-hvac-technician|HVAC Technician]], and
       picture the one credential nearly every technician earns before touching
-      a real refrigerant line: EPA Section 608 certification. The rule exists
-      because of ozone depletion. Older refrigerants, chlorofluorocarbons and
-      hydrochlorofluorocarbons, destroy the stratospheric ozone layer when
-      released into the atmosphere, and the Clean Air Act flatly prohibits
-      venting them. Recovery and recycling is required instead, every time a
-      system is serviced, repaired, or disposed of. The certification itself
-      splits into four tiers that match the equipment, not one blanket test:
-      Type I covers small appliances holding under five pounds of refrigerant,
-      Type II covers high-pressure equipment like most rooftop and split
-      systems, Type III covers low-pressure equipment such as large chillers,
-      and Universal covers all three. Skipping this isn't a minor paperwork
-      risk either. The maximum civil penalty for illegally venting refrigerant
-      currently runs well over a hundred thousand dollars per violation, per
-      day.
+      a real refrigerant line:
+      [[concept-epa-608-certification|EPA Section 608 certification]]. The
+      rule exists because of ozone depletion. Older refrigerants,
+      chlorofluorocarbons and hydrochlorofluorocarbons, destroy the
+      stratospheric ozone layer when released into the atmosphere, and the
+      Clean Air Act flatly prohibits venting them. Recovery and recycling is
+      required instead, every time a system is serviced, repaired, or disposed
+      of. The certification itself splits into four tiers that match the
+      equipment, not one blanket test: Type I covers small appliances holding
+      under five pounds of refrigerant, Type II covers high-pressure equipment
+      like most rooftop and split systems, Type III covers low-pressure
+      equipment such as large chillers, and Universal covers all three.
+      Skipping this isn't a minor paperwork risk either. The maximum civil
+      penalty for illegally venting refrigerant currently runs well over a
+      hundred thousand dollars per violation, per day.
     quiz:
       question: "Why does EPA Section 608 require refrigerant to be recovered rather than vented to the atmosphere during service or disposal?"
       options:
@@ -153,6 +154,7 @@ keyTerms:
   - concept-building-automation-system
   - concept-commissioning
   - concept-hvac-balancing
+  - concept-epa-608-certification
 relatedIds:
   - concept-rooftop-unit
   - concept-chiller
@@ -167,5 +169,6 @@ relatedIds:
   - career-commissioning-agent
   - interview-field-trades
   - exam-nate-ready-to-work
+  - concept-epa-608-certification
 minutes: 13
 ---

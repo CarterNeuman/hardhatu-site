@@ -5,22 +5,25 @@ tier: free
 minutes: 14
 sections:
   - content: >
-      Picture yourself as an insurance adjuster, dispatched to a suburban home two days
-      after a hailstorm rolled through the area, one of dozens of properties on your
-      list this week. Before you even arrive, the homeowner has already filed a
-      [[concept-first-notice-of-loss|First Notice of Loss (FNOL)]], the initial report
-      that starts their claim and gets it into the system: damage type, rough location,
-      contact information, nothing more.
+      Picture yourself as an insurance adjuster, dispatched to a suburban home
+      two days after a hailstorm rolled through the area, one of dozens of
+      properties on your list this week. Before you even arrive, the homeowner
+      has already filed a
+      [[concept-first-notice-of-loss|First Notice of Loss (FNOL)]], the
+      initial report that starts their claim and gets it into the system:
+      damage type, rough location, contact information, nothing more.
 
-      Your job today is to turn a homeowner's account of "the roof looks bad and
-      there's a stain on the ceiling" into something the insurance company can actually
-      act on, a [[concept-scope-of-loss|scope of loss]], a documented, itemized
-      description of exactly what's damaged and, critically, what it will take to fix
-      it. You walk the roof counting hail hits per test square, photograph the ceiling
-      stain and trace it back to a specific damaged shingle, and confirm a covered
-      [[concept-peril|peril]], wind-driven hail, rather than a gradual, uncovered cause
-      like ordinary wear. Get the scope wrong here, miss a section of damaged flashing,
-      and the rest of the claim gets built on an incomplete foundation.
+      Your job today is to turn a homeowner's account of "the roof looks bad
+      and there's a stain on the ceiling" into something the insurance company
+      can actually act on, a [[concept-scope-of-loss|scope of loss]], a
+      documented, itemized description of exactly what's damaged and,
+      critically, what it will take to fix it. You walk the roof counting hail
+      hits per [[concept-test-square|test square]], photograph the ceiling
+      stain and trace it back to a specific damaged shingle, and confirm a
+      covered [[concept-peril|peril]], wind-driven hail, rather than a
+      gradual, uncovered cause like ordinary wear. Get the scope wrong here,
+      miss a section of damaged flashing, and the rest of the claim gets built
+      on an incomplete foundation.
     quiz:
       question: What does an FNOL actually do?
       options:
@@ -61,24 +64,27 @@ sections:
         a real payout, just one that arrives once the work is verified, not upfront.
 
   - content: >
-      The homeowner isn't satisfied. Their contractor, once on the roof, finds soft
-      decking under two more sections your inspection didn't flag, and the homeowner
-      hires a [[career-public-adjuster|Public Adjuster]] of their own, someone who
-      works exclusively for policyholders rather than for an insurance company,
-      specifically to push back on scopes like yours. Unlike you, a Public Adjuster is
-      typically paid a percentage of the settlement they win, which lines their
-      interest up directly with getting the homeowner the largest accurate payout.
+      The homeowner isn't satisfied. Their contractor, once on the roof, finds
+      soft [[concept-roof-decking|decking]] under two more sections your
+      inspection didn't flag, and the homeowner hires a
+      [[career-public-adjuster|Public Adjuster]] of their own, someone who
+      works exclusively for policyholders rather than for an insurance
+      company, specifically to push back on scopes like yours. Unlike you, a
+      Public Adjuster is typically paid a percentage of the settlement they
+      win, which lines their interest up directly with getting the homeowner
+      the largest accurate payout.
 
       Their adjuster documents the additional decking damage and files a
-      [[concept-supplement-claims|supplement]], a formal request to add previously
-      missed or newly discovered damage to an existing claim rather than reopening the
-      whole process from scratch. Supporting it requires a
-      [[concept-proof-of-loss|proof of loss]], a sworn, itemized statement of the
-      claimed damages and amount, before the insurer will act on it. This isn't
-      automatically a sign your original scope was done in bad faith, sometimes damage
-      genuinely doesn't show until material actually comes off the roof, but it does
-      mean the [[concept-claims-adjustment-process|claims adjustment process]] often
-      isn't a single inspection and done.
+      [[concept-supplement-claims|supplement]], a formal request to add
+      previously missed or newly discovered damage to an existing claim rather
+      than reopening the whole process from scratch. Supporting it requires a
+      [[concept-proof-of-loss|proof of loss]], a sworn, itemized statement of
+      the claimed damages and amount, before the insurer will act on it. This
+      isn't automatically a sign your original scope was done in
+      [[concept-bad-faith-insurance|bad faith]], sometimes damage genuinely
+      doesn't show until material actually comes off the roof, but it does
+      mean the [[concept-claims-adjustment-process|claims adjustment process]]
+      often isn't a single inspection and done.
     quiz:
       question: Who does a Public Adjuster represent?
       options:
@@ -175,6 +181,9 @@ keyTerms:
   - concept-emergency-services
   - concept-overhead-and-profit-claims
   - concept-reconstruction
+  - concept-test-square
+  - concept-roof-decking
+  - concept-bad-faith-insurance
 relatedIds:
   - concept-first-notice-of-loss
   - concept-scope-of-loss
@@ -205,4 +214,7 @@ relatedIds:
   - concept-drying-log-documentation
   - concept-matching-uniformity-appearance
   - concept-salvage-insurance
+  - concept-test-square
+  - concept-roof-decking
+  - concept-bad-faith-insurance
 ---

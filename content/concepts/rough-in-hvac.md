@@ -44,4 +44,8 @@ relatedIds:
   - concept-boiler
   - exam-nate-ready-to-work
   - lesson-mechanical-and-plumbing-rough-in
+  - concept-epa-608-certification
+  - concept-hydronic-systems
+  - concept-coordination-drawing
+  - concept-heat-recovery-ventilation
 ---

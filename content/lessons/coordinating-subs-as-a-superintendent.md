@@ -118,24 +118,24 @@ sections:
         decides the outcome is whether the GC documented the problem and gave
         notice before fixing it themselves.
   - content: >
-      The best coordination a superintendent does often happens before a single
-      piece of material even shows up. Ahead of a complex or high-risk trade, a
-      membrane roof, a curtain wall, any assembly where getting it wrong is
-      expensive and hard to undo, a superintendent runs a
+      The best coordination a superintendent does often happens before a
+      single piece of material even shows up. Ahead of a complex or high-risk
+      trade, a membrane roof, a curtain wall, any assembly where getting it
+      wrong is expensive and hard to undo, a superintendent runs a
       [[concept-pre-installation-meeting|pre-installation meeting]]. The
       meeting brings the installer, the general contractor, relevant
       inspectors, and often the manufacturer's own technical representative
-      together to walk through substrate conditions and sequencing before work
-      actually starts. Manufacturers frequently make attending and documenting
-      this meeting a condition of their own product warranty, which means
-      skipping it to save a morning doesn't just risk a bad installation. It
-      can quietly void coverage the owner is counting on no matter how well the
-      work eventually turns out. From the Friday look-ahead to a
-      pre-installation walk on a roof deck, the thread running through all of
-      it is the same: a superintendent's real job is making sure problems get
-      caught and conflicts get resolved before they reach the point where
-      fixing them costs real time and money. For readers drawn to that side of
-      problem-solving on a jobsite, the
+      together to walk through [[concept-substrate|substrate]] conditions and
+      sequencing before work actually starts. Manufacturers frequently make
+      attending and documenting this meeting a condition of their own product
+      warranty, which means skipping it to save a morning doesn't just risk a
+      bad installation. It can quietly void coverage the owner is counting on
+      no matter how well the work eventually turns out. From the Friday
+      look-ahead to a pre-installation walk on a roof deck, the thread running
+      through all of it is the same: a superintendent's real job is making
+      sure problems get caught and conflicts get resolved before they reach
+      the point where fixing them costs real time and money. For readers drawn
+      to that side of problem-solving on a jobsite, the
       [[interview-project-operations|Project & Operations interview guide]]
       covers what these interviews actually test for, and
       [[exam-osha-30|OSHA 30]] is a credential worth having going in.
@@ -159,6 +159,7 @@ keyTerms:
   - concept-non-conformance-report
   - concept-back-charge
   - concept-pre-installation-meeting
+  - concept-substrate
 relatedIds:
   - concept-look-ahead-schedule
   - concept-pull-planning
@@ -170,5 +171,6 @@ relatedIds:
   - career-superintendent
   - interview-project-operations
   - exam-osha-30
+  - concept-substrate
 minutes: 13
 ---

@@ -40,4 +40,5 @@ relatedIds:
   - career-heavy-civil-estimator
   - lesson-the-estimate-becomes-the-budget
   - concept-job-order-contracting
+  - concept-time-and-materials-contract
 ---

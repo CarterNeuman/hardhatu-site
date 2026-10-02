@@ -38,4 +38,5 @@ relatedIds:
   - concept-spearin-doctrine
   - concept-contract
   - lesson-when-its-not-the-storms-fault
+  - concept-negligence-claim
 ---

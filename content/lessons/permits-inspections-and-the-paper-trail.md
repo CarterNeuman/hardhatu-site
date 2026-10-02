@@ -5,27 +5,30 @@ tier: free
 minutes: 14
 sections:
   - content: >
-      Six weeks after your firm wins a renovation contract, everyone assumes it's time
-      to start swinging hammers: the contract's signed, insurance is in place, the crew
-      is scheduled. Then the owner's attorney sends a one-line email: work can't begin
-      until the notice to proceed goes out, and that hasn't happened yet. A
-      superintendent who mobilizes a crew anyway, on a signed but not-yet-started
-      contract, has just created a scheduling and payment headache nobody wanted.
+      Six weeks after your firm wins a renovation contract, everyone assumes
+      it's time to start swinging hammers: the contract's signed, insurance is
+      in place, the crew is scheduled. Then the owner's attorney sends a
+      one-line email: work can't begin until the notice to proceed goes out,
+      and that hasn't happened yet. A superintendent who mobilizes a crew
+      anyway, on a signed but not-yet-started contract, has just created a
+      scheduling and payment headache nobody wanted.
 
-      A [[concept-notice-to-proceed|notice to proceed]] is a formal, written notice
-      from the owner authorizing the contractor to actually begin, and it's the
-      specific document that starts counting toward the contract's completion date,
-      not the day the contract was signed, and not the day a crew happens to show up.
-      A contract can be fully executed and sit for weeks before an owner is actually
-      ready to issue it, waiting on financing, a permit, or a site that isn't cleared
-      yet. Confusing "the contract is signed" with "we can start" is exactly the kind
-      of assumption that costs a contractor real money if a crew mobilizes early and
-      the schedule clock hasn't actually started.
+      A [[concept-notice-to-proceed|notice to proceed]] is a formal, written
+      notice from the owner authorizing the contractor to actually begin, and
+      it's the specific document that starts counting toward the contract's
+      completion date, not the day the contract was signed, and not the day a
+      crew happens to show up. A contract can be
+      [[concept-contract-execution|fully executed]] and sit for weeks before
+      an owner is actually ready to issue it, waiting on financing, a permit,
+      or a site that isn't cleared yet. Confusing "the contract is signed"
+      with "we can start" is exactly the kind of assumption that costs a
+      contractor real money if a crew mobilizes early and the schedule clock
+      hasn't actually started.
 
-      Once the notice to proceed does go out, a legal paper trail follows the project
-      all the way to its final day, an ordered sequence of approvals and inspections
-      that keeps the work legally authorized to continue at every stage, not just at
-      the very beginning.
+      Once the notice to proceed does go out, a legal paper trail follows the
+      project all the way to its final day, an ordered sequence of approvals
+      and inspections that keeps the work legally authorized to continue at
+      every stage, not just at the very beginning.
     quiz:
       question: What actually starts a construction contract's schedule clock?
       options:
@@ -194,6 +197,7 @@ keyTerms:
   - concept-final-inspection
   - concept-certificate-of-occupancy
   - concept-beneficial-occupancy
+  - concept-contract-execution
 relatedIds:
   - concept-notice-to-proceed
   - concept-building-permit
@@ -206,4 +210,5 @@ relatedIds:
   - concept-beneficial-occupancy
   - career-permit-expediter
   - career-qaqc-inspector
+  - concept-contract-execution
 ---

@@ -40,5 +40,6 @@ relatedIds:
   - concept-bim
   - lesson-reading-a-set-of-plans
   - concept-clash-detection
+  - concept-level-of-development-bim
 ---
   - lesson-3d-modeling-in-practice

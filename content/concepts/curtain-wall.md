@@ -49,4 +49,8 @@ relatedIds:
   - concept-wind-load-hurricane-code
   - concept-joint-sealants
   - lesson-building-envelope-and-glazing
+  - concept-thermal-break
+  - concept-pressure-equalized-glazing
+  - concept-tempered-laminated-glass
+  - concept-water-penetration-testing
 ---

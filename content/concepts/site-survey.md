@@ -41,4 +41,5 @@ relatedIds:
   - career-civil-engineer
   - career-gis-specialist
   - lesson-from-dirt-to-deck
+  - concept-total-station
 ---

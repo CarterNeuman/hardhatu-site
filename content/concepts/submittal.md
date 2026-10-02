@@ -54,4 +54,5 @@ relatedIds:
   - concept-rebar
   - concept-windows
   - exam-cdt
+  - concept-fabricating-at-risk
 ---

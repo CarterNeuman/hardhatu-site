@@ -38,22 +38,25 @@ sections:
         hands before they start.
 
   - content: >
-      With the trench hazards briefed, the crew gears up, and not with a single standard
-      kit. [[concept-personal-protective-equipment|PPE]] gets matched to the actual task:
-      hard hats and high-visibility vests for everyone near the excavator, plus a specific
-      trench box the competent person confirmed is rated for this soil type. PPE sits
-      deliberately last in OSHA's hierarchy of controls, behind eliminating or engineering
-      the hazard out entirely, but for a trench that has to get dug regardless, it's the
-      most immediate protection the crew actually has once the work starts.
+      With the trench hazards briefed, the crew gears up, and not with a
+      single standard kit. [[concept-personal-protective-equipment|PPE]] gets
+      matched to the actual task: hard hats and high-visibility vests for
+      everyone near the excavator, plus a specific trench box the competent
+      person confirmed is rated for this soil type. PPE sits deliberately last
+      in [[concept-hierarchy-of-controls|OSHA's hierarchy of controls]],
+      behind eliminating or engineering the hazard out entirely, but for a
+      trench that has to get dug regardless, it's the most immediate
+      protection the crew actually has once the work starts.
 
-      A few hours in, a laborer setting up a barricade near the open trench notices a
-      section of the shoring has shifted slightly out of position, not collapsed, nothing
-      dramatic, just not sitting the way the competent person specified. Rather than
-      finishing the barricade first and mentioning it after, the laborer stops working and
-      flags it immediately. That's [[concept-stop-work-authority|stop work authority]] in
-      practice: the real-time right of any worker on the site, regardless of position, to
-      halt work the moment they see a hazard, without waiting for it to move up a chain of
-      command first.
+      A few hours in, a laborer setting up a barricade near the open trench
+      notices a section of the shoring has shifted slightly out of position,
+      not collapsed, nothing dramatic, just not sitting the way the competent
+      person specified. Rather than finishing the barricade first and
+      mentioning it after, the laborer stops working and flags it immediately.
+      That's [[concept-stop-work-authority|stop work authority]] in practice:
+      the real-time right of any worker on the site, regardless of position,
+      to halt work the moment they see a hazard, without waiting for it to
+      move up a chain of command first.
     quiz:
       question: >
         A laborer notices a shifted piece of shoring near an open trench. What should
@@ -192,6 +195,8 @@ keyTerms:
   - concept-stop-work-authority
   - concept-stop-work-order
   - concept-total-recordable-incident-rate
+  - concept-hierarchy-of-controls
+  - concept-prequalification
 relatedIds:
   - concept-job-hazard-analysis
   - concept-toolbox-talk
@@ -213,4 +218,5 @@ relatedIds:
   - career-assistant-superintendent
   - exam-cpr-first-aid
   - lesson-a-day-as-a-laborer
+  - concept-hierarchy-of-controls
 ---

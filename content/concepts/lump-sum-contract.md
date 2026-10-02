@@ -37,4 +37,5 @@ relatedIds:
   - concept-unit-price-contract
   - lesson-choosing-how-to-build-it
   - phase-construction
+  - concept-time-and-materials-contract
 ---

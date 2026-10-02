@@ -4,19 +4,20 @@ title: "A Day in the Life of an Estimator: Building the Number Behind the Number
 tier: free
 sections:
   - content: >
-      Picture yourself as an [[career-estimator|Estimator]], and picture a job
-      that isn't the final competitive bid. It's months earlier, when an owner
-      has little more than a sketch and a budget they're hoping is realistic.
-      Almost nothing is actually designed yet, but the owner still needs a
-      number to decide whether the project is even worth pursuing. That early,
-      rough number is a conceptual estimate, and because so little of the
-      design actually exists yet, it can realistically land anywhere from about
-      fifty percent under the real final cost to a hundred percent over it. As
-      the design firms up through each phase, schematic design, then design
-      development, then full construction documents, an estimator reprices the
-      same project again at every stage, and that range of possible error
-      narrows every time, down to roughly plus or minus ten percent by the time
-      a detailed, bid-ready estimate gets built from complete drawings.
+      Picture yourself as an [[career-estimator|Estimator]], and picture a
+      job that isn't the final competitive bid. It's months earlier, when an
+      owner has little more than a sketch and a budget they're hoping is
+      realistic. Almost nothing is actually designed yet, but the owner still
+      needs a number to decide whether the project is even worth pursuing.
+      That early, rough number is a
+      [[concept-conceptual-estimate|conceptual estimate]], and because so
+      little of the design actually exists yet, it can realistically land
+      anywhere from about fifty percent under the real final cost to a hundred
+      percent over it. As the design firms up through each phase,
+      [[concept-design-development-phases|schematic design, then design development, then full construction documents]], an estimator reprices the same project again at every stage, and that
+      range of possible error narrows every time, down to roughly plus or
+      minus ten percent by the time a detailed, bid-ready estimate gets built
+      from complete drawings.
       [[lesson-bidding-and-winning-work|Bidding and winning the work]] is the
       final, highest-stakes version of a job estimators have actually been
       doing in rougher form since the very first sketch.
@@ -40,15 +41,15 @@ sections:
       of that gets added the general contractor's own cost of running the job
       itself: the superintendent's wages, the site office trailer, temporary
       fencing and power, debris removal. All of that is commonly called the
-      project's general conditions cost. That term is worth pausing on, because
-      it means something completely different here than it does when someone
-      refers to a contract's General Conditions, the separate document spelling
-      out procedural rules like how RFIs get answered. Same words, two
-      unrelated meanings, and mixing them up in conversation with a client or a
-      contractor is an easy way to look like you don't know what you're talking
-      about. Only after both of those layers are in does the firm add its
-      markup, overhead for the company's own home-office costs and profit, the
-      final layer that turns a cost into an actual price.
+      project's general conditions cost. That term is worth pausing on,
+      because it means something completely different here than it does when
+      someone refers to a contract's General Conditions, the separate document
+      spelling out procedural rules like how RFIs get answered. Same words,
+      two unrelated meanings, and mixing them up in conversation with a client
+      or a contractor is an easy way to look like you don't know what you're
+      talking about. Only after both of those layers are in does the firm add
+      its
+      [[concept-overhead-and-profit-markup|markup, overhead for the company's own home-office costs and profit]], the final layer that turns a cost into an actual price.
     quiz:
       question: "In construction, what's the difference between a project's general conditions cost and a contract's General Conditions?"
       options:
@@ -91,19 +92,19 @@ sections:
         still needs adjustment before it belongs in a new estimate.
   - content: >
       One more layer deserves its own line, separate from everything else:
-      escalation. A large project's estimate might get built today for
-      construction that doesn't actually start for a year or more, and material
-      and labor costs during that gap don't just sit still. Escalation is
-      specifically about that predictable drift, estimated from historical
-      price trends and market forecasts for whatever's being priced, such as
-      lumber, steel, or skilled labor in a tight local market. It's easy to
-      confuse with contingency, but the two cover genuinely different risks:
-      contingency is money set aside for unknown problems on a known scope,
-      while escalation accounts for a known, expected cost trend over time on
-      that same scope. A number that only carries contingency and skips
-      escalation on a project a year out from construction isn't being
-      conservative. It's quietly assuming prices won't move at all, which they
-      almost always do.
+      [[concept-cost-escalation|escalation]]. A large project's estimate
+      might get built today for construction that doesn't actually start for a
+      year or more, and material and labor costs during that gap don't just
+      sit still. Escalation is specifically about that predictable drift,
+      estimated from historical price trends and market forecasts for
+      whatever's being priced, such as lumber, steel, or skilled labor in a
+      tight local market. It's easy to confuse with contingency, but the two
+      cover genuinely different risks: contingency is money set aside for
+      unknown problems on a known scope, while escalation accounts for a
+      known, expected cost trend over time on that same scope. A number that
+      only carries contingency and skips escalation on a project a year out
+      from construction isn't being conservative. It's quietly assuming prices
+      won't move at all, which they almost always do.
     quiz:
       question: "What's the real difference between contingency and escalation in an estimate?"
       options:
@@ -145,6 +146,10 @@ sections:
         actual design becomes known.
 keyTerms:
   - concept-quantity-takeoff
+  - concept-conceptual-estimate
+  - concept-design-development-phases
+  - concept-overhead-and-profit-markup
+  - concept-cost-escalation
 relatedIds:
   - concept-quantity-takeoff
   - software-on-screen-takeoff
@@ -153,5 +158,9 @@ relatedIds:
   - interview-preconstruction-estimating
   - exam-cpe
   - lesson-bidding-and-winning-work
+  - concept-conceptual-estimate
+  - concept-design-development-phases
+  - concept-overhead-and-profit-markup
+  - concept-cost-escalation
 minutes: 13
 ---
