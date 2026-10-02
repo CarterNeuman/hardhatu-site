@@ -115,7 +115,7 @@ export default function HomePage() {
           <p className="mt-2 max-w-[60ch] text-steel">
             Pick whichever one feels closest. There's no wrong answer, and you can always
             look around at everything else after. Prefer a few quick questions instead?{" "}
-            <Link href="/quizzes/find-your-career" className="font-semibold text-navy hover:underline">
+            <Link href="/quizzes/find-your-career" className="whitespace-nowrap font-semibold text-navy hover:underline">
               Take the career quiz →
             </Link>
           </p>
