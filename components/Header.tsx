@@ -259,7 +259,7 @@ export function Header({
               <Caret open={openMenu === "interviews"} />
             </button>
             {openMenu === "interviews" && (
-              <div className="absolute left-0 top-full grid min-w-[520px] grid-cols-2 gap-x-6 gap-y-4 border border-hairline bg-paper p-5 shadow-lg">
+              <div className="absolute right-0 top-full grid min-w-[520px] grid-cols-2 gap-x-6 gap-y-4 border border-hairline bg-paper p-5 shadow-lg">
                 {interviewGroups.map((group) => (
                   <div key={group.category}>
                     <p className="text-[0.68rem] font-semibold uppercase tracking-wide text-clay">

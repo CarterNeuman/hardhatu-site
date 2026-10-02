@@ -321,12 +321,12 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
         })}
 
         <g className={styles.titleblock} transform="translate(30,24)">
-          <rect x={0} y={0} width={252} height={70} strokeWidth={1.5} />
+          <rect x={0} y={0} width={252} height={74} strokeWidth={1.5} />
           {[
             ["PROJECT", "HardHatU Learning Path"],
             ["STOPS", `${allStops.length} lessons`],
           ].map(([label, value], i) => {
-            const ry = 24 + i * 32;
+            const ry = 24 + i * 36;
             return (
               <g key={label}>
                 <text className={styles.tbLabel} x={12} y={ry - 11}>
@@ -335,7 +335,7 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
                 <text x={12} y={ry + 5}>
                   {value}
                 </text>
-                {i < 1 && <line x1={0} y1={ry + 14} x2={252} y2={ry + 14} />}
+                {i < 1 && <line x1={0} y1={ry + 16} x2={252} y2={ry + 16} />}
               </g>
             );
           })}
