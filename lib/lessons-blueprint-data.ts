@@ -37,9 +37,6 @@ export type BlueprintLayoutStop = {
   // room for a couple of short words before adjacent stops start to
   // collide, so this is a deliberately separate, curated display string.
   label: string;
-  // True for the 3 lessons added by the 2026-10 content expansion, so the
-  // component can flag them with a small "NEW" tag.
-  isNew?: true;
   // Wraps the label a fixed number of words per line instead of the
   // default even split at the halfway word — for a stop packed close
   // enough to its neighbors that the normal split is too wide to fit
@@ -65,10 +62,6 @@ export type BlueprintBranch = {
   // -1 = branch runs above the road, 1 = below.
   side: -1 | 1;
   trailhead: Point;
-  // True only for the one branch that predates the 2026-10 expansion
-  // (Claim to Restoration) — styled in the original clay/dashed treatment
-  // instead of the amber used for the 7 new branches.
-  isExisting?: true;
   lessons: BlueprintBranchLesson[];
 };
 
@@ -80,7 +73,7 @@ export const BLUEPRINT_TIERS: BlueprintTier[] = [
 ];
 
 export const BLUEPRINT_LAYOUT: BlueprintLayoutStop[] = [
-  { n: 1, slug: "financing-and-feasibility", x: 150, y: 601, tier: 1, icon: "chart", isNew: true,
+  { n: 1, slug: "financing-and-feasibility", x: 150, y: 601, tier: 1, icon: "chart",
     label: "Financing & Feasibility",
     teaser: "How a project actually gets funded before anything's designed." },
   { n: 2, slug: "whos-actually-running-the-job", x: 277, y: 608, tier: 1, icon: "orgchart",
@@ -92,7 +85,7 @@ export const BLUEPRINT_LAYOUT: BlueprintLayoutStop[] = [
   { n: 4, slug: "bidding-and-winning-work", x: 531, y: 558, tier: 1, icon: "gavel",
     label: "Bidding & Winning Work",
     teaser: "Chasing a real bid through screening, takeoff, and the lowest-bid myth." },
-  { n: 5, slug: "subcontractor-buyout-and-scope-gaps", x: 659, y: 574, tier: 1, icon: "puzzle", isNew: true,
+  { n: 5, slug: "subcontractor-buyout-and-scope-gaps", x: 659, y: 574, tier: 1, icon: "puzzle",
     label: "Buyout & Scope Gaps",
     teaser: "Turning a winning bid into signed subcontracts without a scope gap nobody notices." },
   { n: 6, slug: "permits-inspections-and-the-paper-trail", x: 786, y: 520, tier: 2, icon: "stamp",
@@ -101,7 +94,7 @@ export const BLUEPRINT_LAYOUT: BlueprintLayoutStop[] = [
   { n: 7, slug: "submittals-and-shop-drawings", x: 913, y: 500, tier: 2, icon: "papers",
     label: "Submittals & Shop Drawings",
     teaser: "Why nothing gets ordered until the approval loop closes." },
-  { n: 8, slug: "procurement-and-long-lead-logistics", x: 1040, y: 471, tier: 2, icon: "crate", isNew: true,
+  { n: 8, slug: "procurement-and-long-lead-logistics", x: 1040, y: 471, tier: 2, icon: "crate",
     label: "Procurement & Long-Lead",
     teaser: "Material delivery delays, laydown yards, and the gap between approved and on site." },
   { n: 9, slug: "jobsite-safety-in-practice", x: 1167, y: 476, tier: 2, icon: "hardhat",
@@ -250,7 +243,6 @@ export const BLUEPRINT_BRANCHES: BlueprintBranch[] = [
     attachSlug: "when-its-not-the-storms-fault",
     side: 1,
     trailhead: { x: 2880, y: 429 },
-    isExisting: true,
     lessons: [
       { slug: "claim-to-restoration", icon: "umbrella", x: 2854, y: 509, label: "Claim to Restoration",
         teaser: "A hailstorm claim from first notice of loss to the finished repair." },

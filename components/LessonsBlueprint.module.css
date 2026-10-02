@@ -196,28 +196,15 @@
   stroke-dasharray: 1 10;
   opacity: 0.9;
 }
-.spur.spurNew {
-  stroke: var(--amber);
-}
 
 .trailheadDot {
   stroke: none;
-}
-.trailheadDot.existing {
   fill: var(--clay);
-}
-.trailheadDot.new {
-  fill: var(--amber);
 }
 .trailheadRing {
   stroke-width: 1.3;
   opacity: 0.6;
-}
-.trailheadRing.existing {
   stroke: var(--clay);
-}
-.trailheadRing.new {
-  stroke: var(--amber);
 }
 
 .branchLabel {
@@ -226,12 +213,7 @@
   letter-spacing: 0.07em;
   text-transform: uppercase;
   font-weight: 600;
-}
-.branchLabel.existing {
   fill: var(--clay);
-}
-.branchLabel.new {
-  fill: var(--amber);
 }
 
 .stop .badge {
@@ -242,12 +224,6 @@
 .stop.branch .badge {
   stroke-dasharray: 4 5;
   stroke: var(--clay);
-}
-.stop.branchNew .badge {
-  stroke: var(--amber-soft);
-}
-.stop.new .badge {
-  stroke: var(--amber);
 }
 .stop .icon {
   stroke: var(--line);
@@ -264,23 +240,13 @@
 .stop .numBg {
   fill: var(--amber);
 }
-.stop .newTag {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  fill: var(--blue-deep);
-}
-.stop .newTagBg {
-  fill: var(--amber);
-}
 .stop .title {
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 14px;
   fill: var(--paper);
 }
-.stop.branch .title,
-.stop.branchNew .title {
+.stop.branch .title {
   font-size: 12px;
 }
 .stop .hit {

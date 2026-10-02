@@ -33,10 +33,8 @@ type Stop = {
   icon: keyof typeof BLUEPRINT_ICONS;
   teaser: string;
   tier?: 1 | 2 | 3 | 4;
-  isNew?: true;
   labelWordsPerLine?: number;
   branchLabel?: string;
-  branchIsExisting?: true;
 };
 
 type Branch = BlueprintBranch & {
@@ -105,7 +103,6 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
         icon: layout.icon,
         teaser: layout.teaser,
         tier: layout.tier,
-        isNew: layout.isNew,
         labelWordsPerLine: layout.labelWordsPerLine,
       };
     });
@@ -133,7 +130,6 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
           icon: bl.icon,
           teaser: bl.teaser,
           branchLabel: branch.label,
-          branchIsExisting: branch.isExisting,
         };
       });
       const byX = [...stops].sort((a, b) => a.x - b.x);
@@ -216,8 +212,7 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
     const labelLines = wrapLabel(stop.label, stop.labelWordsPerLine);
     const classNames = [
       styles.stop,
-      stop.kind === "branch" ? (stop.branchIsExisting ? styles.branch : styles.branchNew) : "",
-      stop.isNew ? styles.new : "",
+      stop.kind === "branch" ? styles.branch : "",
       isActive ? styles.active : "",
     ]
       .filter(Boolean)
@@ -248,14 +243,6 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
                 {stop.n}
               </text>
             </>
-          )}
-          {stop.isNew && (
-            <g transform="translate(-20,-62)">
-              <rect className={styles.newTagBg} width={40} height={14} />
-              <text className={styles.newTag} x={20} y={10} textAnchor="middle">
-                NEW
-              </text>
-            </g>
           )}
           <text className={styles.title} x={0} y={radius + 18} textAnchor="middle">
             {labelLines.map((line, i) => (
@@ -309,37 +296,25 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
 
         {branches.map((branch) => {
           const i = spurIndex++;
-          const spurClass = [styles.spur, branch.isExisting ? "" : styles.spurNew].filter(Boolean).join(" ");
-          const dotClass = branch.isExisting ? styles.existing : styles.new;
           return (
             <g key={branch.id}>
               <path
                 ref={(el) => {
                   spurRefs.current[i] = el;
                 }}
-                className={spurClass}
+                className={styles.spur}
                 d={branch.spurD}
               />
+              <circle className={styles.trailheadDot} cx={branch.trailhead.x} cy={branch.trailhead.y} r={5} />
               <circle
-                className={`${styles.trailheadDot} ${dotClass}`}
-                cx={branch.trailhead.x}
-                cy={branch.trailhead.y}
-                r={5}
-              />
-              <circle
-                className={`${styles.trailheadRing} ${dotClass}`}
+                className={styles.trailheadRing}
                 cx={branch.trailhead.x}
                 cy={branch.trailhead.y}
                 r={9}
                 fill="none"
               />
-              <text
-                className={`${styles.branchLabel} ${dotClass}`}
-                x={branch.labelX}
-                y={branch.labelY}
-                textAnchor="middle"
-              >
-                {(branch.isExisting ? "EXISTING BRANCH — " : "NEW BRANCH — ") + branch.label}
+              <text className={styles.branchLabel} x={branch.labelX} y={branch.labelY} textAnchor="middle">
+                {branch.label}
               </text>
             </g>
           );
