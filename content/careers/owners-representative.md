@@ -91,4 +91,5 @@ relatedIds:
   - career-construction-consultant
   - resume-specialized-construction
   - gethired-specialized-construction
+  - lesson-a-day-as-an-owners-rep
 ---

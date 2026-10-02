@@ -42,4 +42,5 @@ relatedIds:
   - concept-integrated-project-delivery
   - phase-construction
   - phase-idea-feasibility
+  - lesson-a-day-as-an-owners-rep
 ---

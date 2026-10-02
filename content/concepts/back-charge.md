@@ -41,4 +41,5 @@ relatedIds:
   - concept-non-conformance-report
   - concept-schedule-of-values
   - phase-construction
+  - lesson-coordinating-subs-as-a-superintendent
 ---

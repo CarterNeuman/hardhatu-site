@@ -31,4 +31,5 @@ relatedIds:
   - career-owners-representative
   - concept-daily-report
   - concept-pre-installation-meeting
+  - lesson-a-day-as-an-owners-rep
 ---

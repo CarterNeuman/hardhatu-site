@@ -34,4 +34,5 @@ relatedIds:
   - career-owners-representative
   - concept-long-lead-item
   - concept-procurement-log
+  - lesson-a-day-as-an-owners-rep
 ---

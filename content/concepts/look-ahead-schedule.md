@@ -35,4 +35,5 @@ relatedIds:
   - concept-pull-planning
   - phase-construction
   - concept-resource-loading
+  - lesson-coordinating-subs-as-a-superintendent
 ---

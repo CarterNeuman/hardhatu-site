@@ -45,4 +45,5 @@ relatedIds:
   - concept-first-article-inspection
   - concept-concrete-curing
   - concept-rough-in-plumbing
+  - lesson-coordinating-subs-as-a-superintendent
 ---

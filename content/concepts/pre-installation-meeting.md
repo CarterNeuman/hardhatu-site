@@ -38,4 +38,5 @@ relatedIds:
   - concept-oac-meeting-minutes
   - concept-mock-up
   - concept-warranty
+  - lesson-coordinating-subs-as-a-superintendent
 ---

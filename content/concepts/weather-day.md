@@ -37,4 +37,5 @@ relatedIds:
   - concept-daily-report
   - concept-baseline-schedule
   - phase-construction
+  - lesson-coordinating-subs-as-a-superintendent
 ---

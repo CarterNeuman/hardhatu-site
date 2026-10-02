@@ -34,4 +34,5 @@ relatedIds:
   - career-owners-representative
   - concept-mock-up
   - concept-non-conformance-report
+  - lesson-a-day-as-an-owners-rep
 ---
