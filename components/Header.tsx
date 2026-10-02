@@ -118,7 +118,7 @@ export function Header({
 
         {/* Desktop nav */}
         <nav ref={navRef} className="relative hidden items-center gap-1 md:flex">
-          <div className="relative">
+          <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
             <button
               onClick={() => toggle("careers")}
               className={`inline-flex items-center gap-1.5 px-3 py-2 text-[0.96rem] font-medium ${
@@ -130,7 +130,10 @@ export function Header({
               <Caret open={openMenu === "careers"} />
             </button>
             {openMenu === "careers" && (
-              <div className="absolute left-0 top-full grid min-w-[760px] grid-cols-4 gap-x-6 gap-y-4 border border-hairline bg-paper p-5 shadow-lg">
+              <div
+                className="absolute left-0 top-full grid min-w-[760px] grid-cols-4 gap-x-6 gap-y-4 border border-hairline bg-paper p-5 shadow-lg"
+                onClick={() => setOpenMenu(null)}
+              >
                 {careerGroups.map((group) => (
                   <div key={group.category}>
                     <Link
@@ -162,7 +165,7 @@ export function Header({
             )}
           </div>
 
-          <div className="relative">
+          <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
             <button
               onClick={() => toggle("concepts")}
               className={`inline-flex items-center gap-1.5 px-3 py-2 text-[0.96rem] font-medium ${
@@ -174,7 +177,10 @@ export function Header({
               <Caret open={openMenu === "concepts"} />
             </button>
             {openMenu === "concepts" && (
-              <div className="absolute left-0 top-full grid min-w-[680px] grid-cols-3 gap-x-6 gap-y-4 border border-hairline bg-paper p-5 shadow-lg">
+              <div
+                className="absolute left-0 top-full grid min-w-[680px] grid-cols-3 gap-x-6 gap-y-4 border border-hairline bg-paper p-5 shadow-lg"
+                onClick={() => setOpenMenu(null)}
+              >
                 {conceptGroups.map((group) => (
                   <div key={group.category}>
                     <Link
@@ -216,7 +222,7 @@ export function Header({
             </Link>
           ))}
 
-          <div className="relative">
+          <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
             <button
               onClick={() => toggle("gethired")}
               className={`inline-flex items-center gap-1.5 px-3 py-2 text-[0.96rem] font-medium ${
@@ -228,7 +234,10 @@ export function Header({
               <Caret open={openMenu === "gethired"} />
             </button>
             {openMenu === "gethired" && (
-              <div className="absolute left-0 top-full grid min-w-[360px] grid-cols-2 gap-x-6 gap-y-2.5 border border-hairline bg-paper p-5 shadow-lg">
+              <div
+                className="absolute left-0 top-full grid min-w-[360px] grid-cols-2 gap-x-6 gap-y-2.5 border border-hairline bg-paper p-5 shadow-lg"
+                onClick={() => setOpenMenu(null)}
+              >
                 {getHiredGuides.map((guide) => (
                   <Link
                     key={guide.id}
@@ -247,7 +256,7 @@ export function Header({
             )}
           </div>
 
-          <div className="relative">
+          <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
             <button
               onClick={() => toggle("interviews")}
               className={`inline-flex items-center gap-1.5 px-3 py-2 text-[0.96rem] font-medium ${
@@ -259,7 +268,10 @@ export function Header({
               <Caret open={openMenu === "interviews"} />
             </button>
             {openMenu === "interviews" && (
-              <div className="absolute right-0 top-full grid min-w-[520px] grid-cols-2 gap-x-6 gap-y-4 border border-hairline bg-paper p-5 shadow-lg">
+              <div
+                className="absolute right-0 top-full grid min-w-[520px] grid-cols-2 gap-x-6 gap-y-4 border border-hairline bg-paper p-5 shadow-lg"
+                onClick={() => setOpenMenu(null)}
+              >
                 {interviewGroups.map((group) => (
                   <div key={group.category}>
                     <p className="text-[0.68rem] font-semibold uppercase tracking-wide text-clay">
