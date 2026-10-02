@@ -70,4 +70,5 @@ relatedIds:
   - concept-ofci
   - resume-business
   - gethired-business
+  - lesson-procurement-and-long-lead-logistics
 ---

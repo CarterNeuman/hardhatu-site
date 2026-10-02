@@ -85,4 +85,5 @@ relatedIds:
   - concept-prompt-payment-act
   - resume-business
   - gethired-business
+  - lesson-financing-and-feasibility
 ---

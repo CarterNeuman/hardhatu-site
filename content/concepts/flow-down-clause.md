@@ -32,4 +32,5 @@ relatedIds:
   - concept-prime-contract
   - concept-subcontract-agreement
   - concept-prompt-payment-act
+  - lesson-subcontractor-buyout-and-scope-gaps
 ---

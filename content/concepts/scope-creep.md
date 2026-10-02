@@ -41,4 +41,5 @@ relatedIds:
   - concept-construction-change-directive
   - phase-construction
   - concept-cardinal-change
+  - lesson-subcontractor-buyout-and-scope-gaps
 ---

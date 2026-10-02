@@ -51,4 +51,5 @@ relatedIds:
   - concept-ofci
   - lesson-submittals-and-shop-drawings
   - concept-offsite-manufacturing
+  - lesson-procurement-and-long-lead-logistics
 ---

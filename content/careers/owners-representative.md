@@ -92,4 +92,5 @@ relatedIds:
   - resume-specialized-construction
   - gethired-specialized-construction
   - lesson-a-day-as-an-owners-rep
+  - lesson-financing-and-feasibility
 ---

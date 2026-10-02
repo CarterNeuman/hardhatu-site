@@ -109,4 +109,5 @@ relatedIds:
   - concept-cm-at-risk
   - concept-cm-as-advisor
   - career-gis-specialist
+  - lesson-financing-and-feasibility
 ---

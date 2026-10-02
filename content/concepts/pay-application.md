@@ -35,4 +35,5 @@ relatedIds:
   - concept-cost-code
   - concept-actual-cost
   - concept-conditional-unconditional-lien-waiver
+  - lesson-financing-and-feasibility
 ---

@@ -88,5 +88,6 @@ relatedIds:
   - lesson-value-engineering
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
+  - lesson-financing-and-feasibility
 image: "/images/careers/preconstruction-manager.jpg"
 ---

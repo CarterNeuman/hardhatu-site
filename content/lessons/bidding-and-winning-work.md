@@ -245,4 +245,5 @@ relatedIds:
   - exam-cpe
   - career-bid-coordinator
   - lesson-a-day-in-the-life-of-an-estimator
+  - lesson-subcontractor-buyout-and-scope-gaps
 ---

@@ -36,4 +36,5 @@ relatedIds:
   - career-preconstruction-manager
   - concept-long-lead-item
   - concept-notice-to-proceed
+  - lesson-subcontractor-buyout-and-scope-gaps
 ---

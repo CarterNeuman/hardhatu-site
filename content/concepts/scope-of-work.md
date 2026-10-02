@@ -40,4 +40,5 @@ relatedIds:
   - concept-fencing
   - phase-construction
   - lesson-bidding-and-winning-work
+  - lesson-subcontractor-buyout-and-scope-gaps
 ---

@@ -32,4 +32,5 @@ relatedIds:
   - career-project-manager
   - concept-long-lead-item
   - concept-critical-path
+  - lesson-procurement-and-long-lead-logistics
 ---

@@ -33,4 +33,5 @@ relatedIds:
   - concept-procurement-log
   - concept-purchase-order
   - concept-long-lead-item
+  - lesson-procurement-and-long-lead-logistics
 ---

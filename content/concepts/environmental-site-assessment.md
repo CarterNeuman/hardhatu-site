@@ -34,4 +34,5 @@ relatedIds:
   - career-risk-manager-construction
   - concept-hazardous-material-abatement
   - concept-npdes-construction-permit
+  - lesson-financing-and-feasibility
 ---

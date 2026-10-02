@@ -151,5 +151,6 @@ relatedIds:
   - resume-project-operations
   - gethired-project-operations
   - lesson-cost-control-and-forecasting-in-practice
+  - lesson-subcontractor-buyout-and-scope-gaps
 image: "/images/careers/project-manager.jpg"
 ---

@@ -36,4 +36,5 @@ relatedIds:
   - concept-subcontract-agreement
   - phase-construction
   - concept-material-delivery-log
+  - lesson-procurement-and-long-lead-logistics
 ---

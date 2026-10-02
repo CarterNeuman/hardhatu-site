@@ -34,4 +34,5 @@ relatedIds:
   - concept-ofci
   - concept-material-delivery-log
   - concept-systems-furniture
+  - lesson-procurement-and-long-lead-logistics
 ---

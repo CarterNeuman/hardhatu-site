@@ -108,5 +108,6 @@ relatedIds:
   - gethired-preconstruction-estimating
   - exam-cdt
   - lesson-a-day-in-the-life-of-an-estimator
+  - lesson-procurement-and-long-lead-logistics
 image: "/images/careers/estimator.jpg"
 ---

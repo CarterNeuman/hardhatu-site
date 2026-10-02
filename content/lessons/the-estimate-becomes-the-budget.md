@@ -185,4 +185,5 @@ relatedIds:
   - career-cost-engineer
   - career-project-manager
   - lesson-cost-control-and-forecasting-in-practice
+  - lesson-financing-and-feasibility
 ---
