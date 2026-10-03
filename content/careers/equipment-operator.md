@@ -4,6 +4,19 @@ title: Equipment Operator
 category: "Field & Trades"
 tagline: Runs the excavators, bulldozers, and cranes that move earth and materials, and for cranes specifically, has to hold a real federal certification to do it legally.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 42190
+    high: 48680
+  fiveYear:
+    low: 59850
+    high: 77170
+  twentyYear:
+    low: 77170
+    high: 101090
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Operating Engineers and Other Construction Equipment Operators (SOC 47-2073), national data"
+  asOf: "May 2025"
 whatIs: >
   An Equipment Operator runs heavy machinery on a construction site,
   excavators, bulldozers, loaders, graders, and cranes. Which certification

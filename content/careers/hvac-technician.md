@@ -4,6 +4,19 @@ title: HVAC Technician
 category: "Field & Trades"
 tagline: Installs and services the heating, cooling, and ventilation systems that keep a building livable, one of the few trades with a federal certification requirement baked into the job.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 40050
+    high: 48360
+  fiveYear:
+    low: 61010
+    high: 77060
+  twentyYear:
+    low: 77060
+    high: 95210
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Heating, Air Conditioning, and Refrigeration Mechanics and Installers (SOC 49-9021), national data"
+  asOf: "May 2025"
 whatIs: >
   An HVAC (Heating, Ventilation, and Air Conditioning) Technician installs,
   maintains, and repairs the systems that heat, cool, and ventilate a

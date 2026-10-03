@@ -4,6 +4,19 @@ title: "Concrete Worker (Cement Mason / Finisher)"
 category: "Field & Trades"
 tagline: Places, shapes, and finishes concrete before it sets, a narrow window to get a permanent, highly visible surface exactly right.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 39190
+    high: 47010
+  fiveYear:
+    low: 57020
+    high: 66870
+  twentyYear:
+    low: 66870
+    high: 85480
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Cement Masons and Concrete Finishers (SOC 47-2051), national data"
+  asOf: "May 2025"
 whatIs: >
   A Concrete Worker (also called a Cement Mason or Concrete Finisher)
   places, consolidates, and finishes concrete, floors, sidewalks,

@@ -4,6 +4,19 @@ title: Ironworker
 category: "Field & Trades"
 tagline: Erects the structural steel skeleton a building hangs from, often working at height on beams before any floor or safety net exists below.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 44580
+    high: 49880
+  fiveYear:
+    low: 62780
+    high: 82660
+  twentyYear:
+    low: 82660
+    high: 108260
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Structural Iron and Steel Workers (SOC 47-2221), national data"
+  asOf: "May 2025"
 whatIs: >
   An Ironworker erects and connects structural steel (and, in a related
   specialty, places reinforcing steel/"rebar" in concrete). Structural

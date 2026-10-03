@@ -4,6 +4,19 @@ title: Glazier
 category: "Field & Trades"
 tagline: Installs the glass, curtain wall, and storefront systems that give a building its skin, precision work where a fraction of an inch off is the difference between a weathertight seal and a leak.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 37300
+    high: 46320
+  fiveYear:
+    low: 57080
+    high: 66610
+  twentyYear:
+    low: 66610
+    high: 89790
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Glaziers (SOC 47-2121), national data"
+  asOf: "May 2025"
 whatIs: >
   A Glazier cuts, fits, and installs glass and metal glazing systems on a
   project, from full curtain wall and storefront systems on commercial

@@ -4,6 +4,19 @@ title: Plumber
 category: "Field & Trades"
 tagline: Installs and maintains the pipes and fixtures that bring in clean water and carry waste out, work that has to be right the first time, since most of it disappears behind a wall.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 44150
+    high: 50190
+  fiveYear:
+    low: 63800
+    high: 85110
+  twentyYear:
+    low: 85110
+    high: 108420
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Plumbers, Pipefitters, and Steamfitters (SOC 47-2152), national data — BLS tracks this trade jointly with Pipefitters/Steamfitters, so the figures match that career's"
+  asOf: "May 2025"
 whatIs: >
   A Plumber installs and maintains the water supply, drainage, and gas
   piping systems in a building, everything from the rough-in piping run

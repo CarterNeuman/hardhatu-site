@@ -4,6 +4,19 @@ title: Roofer
 category: "Field & Trades"
 tagline: Installs and repairs the one system every building depends on to keep water out, physically demanding work done almost entirely outdoors, at height.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 37460
+    high: 46260
+  fiveYear:
+    low: 55440
+    high: 65390
+  twentyYear:
+    low: 65390
+    high: 81720
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Roofers (SOC 47-2181), national data"
+  asOf: "May 2025"
 whatIs: >
   A Roofer installs, repairs, and replaces roofing systems, shingles, tile,
   metal, or low-slope membrane roofing, on new construction and existing

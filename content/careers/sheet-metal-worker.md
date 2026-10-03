@@ -4,6 +4,19 @@ title: Sheet Metal Worker
 category: "Field & Trades"
 tagline: Fabricates and installs the ductwork, flashing, and metal roofing systems that move air through a building and keep water out of it.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 38630
+    high: 47830
+  fiveYear:
+    low: 61800
+    high: 81610
+  twentyYear:
+    low: 81610
+    high: 105650
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Sheet Metal Workers (SOC 47-2211), national data"
+  asOf: "May 2025"
 whatIs: >
   A Sheet Metal Worker fabricates and installs sheet metal components on a
   project, most commonly HVAC ductwork, but also roofing panels,

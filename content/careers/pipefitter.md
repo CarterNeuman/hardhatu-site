@@ -4,6 +4,19 @@ title: Pipefitter / Steamfitter
 category: "Field & Trades"
 tagline: Installs and welds the high-pressure and process piping systems that move steam, chemicals, and fluids through commercial and industrial buildings, a distinct trade and apprenticeship from residential plumbing.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 44150
+    high: 50190
+  fiveYear:
+    low: 63800
+    high: 85110
+  twentyYear:
+    low: 85110
+    high: 108420
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Plumbers, Pipefitters, and Steamfitters (SOC 47-2152), national data — BLS tracks this trade jointly with Plumbers, so the figures match that career's"
+  asOf: "May 2025"
 whatIs: >
   A Pipefitter, also called a Steamfitter, installs and welds piping
   systems that carry steam, high-pressure fluids, and process materials,

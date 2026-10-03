@@ -4,6 +4,19 @@ title: Mason
 category: "Field & Trades"
 tagline: Builds with brick, block, and stone, work that's visible on the finished building in a way most structural trades aren't.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 44820
+    high: 51110
+  fiveYear:
+    low: 62120
+    high: 79350
+  twentyYear:
+    low: 79350
+    high: 100010
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Brickmasons and Blockmasons (SOC 47-2021), national data"
+  asOf: "May 2025"
 whatIs: >
   A Mason builds and repairs structures using brick, concrete masonry
   units (CMU), stone, and mortar, exterior brick veneer, structural CMU

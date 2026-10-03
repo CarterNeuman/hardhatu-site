@@ -4,6 +4,19 @@ title: Solar PV Installer
 category: "Field & Trades"
 tagline: Installs the rooftop and ground-mount solar panel systems behind the fastest-growing segment of the construction trades.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 41600
+    high: 46700
+  fiveYear:
+    low: 53140
+    high: 62870
+  twentyYear:
+    low: 62870
+    high: 79970
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Solar Photovoltaic Installers (SOC 47-2231), national data"
+  asOf: "May 2025"
 whatIs: >
   A Solar PV Installer mounts and wires photovoltaic panel systems on
   roofs, ground mounts, and carports, connecting them into a building's

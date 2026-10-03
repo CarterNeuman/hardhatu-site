@@ -4,6 +4,19 @@ title: Painter
 category: "Field & Trades"
 tagline: Applies the finish coat that's the most visible part of almost every building, and, on older buildings, has to know exactly what's under that old paint before touching it.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 37440
+    high: 44640
+  fiveYear:
+    low: 49400
+    high: 61660
+  twentyYear:
+    low: 61660
+    high: 78810
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Painters, Construction and Maintenance (SOC 47-2141), national data"
+  asOf: "May 2025"
 whatIs: >
   A Painter prepares surfaces and applies paint, stain, and coatings on
   new construction and renovation projects, both interior and exterior. No

@@ -4,6 +4,19 @@ title: "Construction Laborer"
 category: "Field & Trades"
 tagline: The most common way into the entire industry, no prior experience required, and a front-row seat to every trade before choosing which one to specialize in.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 35090
+    high: 38620
+  fiveYear:
+    low: 47120
+    high: 59740
+  twentyYear:
+    low: 59740
+    high: 78090
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Construction Laborers (SOC 47-2061), national data"
+  asOf: "May 2025"
 whatIs: >
   A Construction Laborer performs the general physical work a jobsite
   needs, material handling, site cleanup, basic demolition, and support

@@ -4,6 +4,19 @@ title: Elevator & Escalator Technician
 category: "Field & Trades"
 tagline: Installs, maintains, and repairs the elevators and escalators that move people and freight through a building, one of the highest-paid trades most newcomers have never heard of.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 59270
+    high: 79290
+  fiveYear:
+    low: 109910
+    high: 135720
+  twentyYear:
+    low: 135720
+    high: 158890
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Elevator and Escalator Installers and Repairers (SOC 47-4021), national data"
+  asOf: "May 2025"
 whatIs: >
   An Elevator & Escalator Technician, also called an elevator constructor
   or mechanic, installs new elevator and escalator systems as a building

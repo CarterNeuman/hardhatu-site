@@ -4,6 +4,19 @@ title: "Drywall Installer & Finisher (Taper)"
 category: "Field & Trades"
 tagline: Hangs and finishes the walls and ceilings of almost every interior space, the trade that turns a framed structure into rooms.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 38460
+    high: 47440
+  fiveYear:
+    low: 58930
+    high: 74230
+  twentyYear:
+    low: 74230
+    high: 102010
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Drywall and Ceiling Tile Installers (SOC 47-2081), national data"
+  asOf: "May 2025"
 whatIs: >
   A Drywall Installer (hanger) and Finisher (taper) install gypsum board on
   walls and ceilings, then tape, mud, and sand the joints to create a

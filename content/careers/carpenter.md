@@ -4,6 +4,19 @@ title: Carpenter
 category: "Field & Trades"
 tagline: Builds the wood and metal framing that gives a structure its shape, and the finish work that makes it look done.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 40410
+    high: 48510
+  fiveYear:
+    low: 60580
+    high: 76830
+  twentyYear:
+    low: 76830
+    high: 99910
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Carpenters (SOC 47-2031), national data"
+  asOf: "May 2025"
 whatIs: >
   A Carpenter builds and installs wood, metal-stud, and composite
   structures on a project, from framing walls, floors, and roofs early in

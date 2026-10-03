@@ -4,6 +4,19 @@ title: Welder
 category: "Field & Trades"
 tagline: Joins metal components with heat and pressure, and for structural work, has to prove it on a certification test before being allowed to do it on a real building.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 39240
+    high: 46790
+  fiveYear:
+    low: 53750
+    high: 63010
+  twentyYear:
+    low: 63010
+    high: 77530
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Welders, Cutters, Solderers, and Brazers (SOC 51-4121), national data"
+  asOf: "May 2025"
 whatIs: >
   A Welder joins metal components using heat, pressure, or both: most
   visibly, the structural steel connections that hold a building's frame
