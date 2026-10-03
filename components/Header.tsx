@@ -138,7 +138,7 @@ export function Header({
                   <div key={group.category}>
                     <Link
                       href={`/careers#${CATEGORY_SLUG[group.category] ?? ""}`}
-                      className="text-[0.68rem] font-semibold uppercase tracking-wide text-clay hover:text-navy"
+                      className="break-words text-[0.68rem] font-semibold uppercase tracking-wide text-clay hover:text-navy"
                     >
                       {group.category}
                     </Link>
@@ -147,7 +147,7 @@ export function Header({
                         <li key={item.id} className="py-1.5 first:pt-0 last:pb-0">
                           <Link
                             href={urlFor(item)}
-                            className="line-clamp-3 text-sm leading-snug text-ink hover:text-navy hover:underline"
+                            className="line-clamp-3 break-words text-sm leading-snug text-ink hover:text-navy hover:underline"
                           >
                             {item.title}
                           </Link>
@@ -185,7 +185,7 @@ export function Header({
                   <div key={group.category}>
                     <Link
                       href={`/concepts#${slugifyCategory(group.category)}`}
-                      className="text-[0.68rem] font-semibold uppercase tracking-wide text-clay hover:text-navy"
+                      className="break-words text-[0.68rem] font-semibold uppercase tracking-wide text-clay hover:text-navy"
                     >
                       {group.category}
                     </Link>
@@ -194,7 +194,7 @@ export function Header({
                         <li key={item.id} className="py-1.5 first:pt-0 last:pb-0">
                           <Link
                             href={urlFor(item)}
-                            className="line-clamp-2 text-sm leading-snug text-ink hover:text-navy hover:underline"
+                            className="line-clamp-2 break-words text-sm leading-snug text-ink hover:text-navy hover:underline"
                           >
                             {item.title}
                           </Link>
@@ -242,7 +242,7 @@ export function Header({
                   <Link
                     key={guide.id}
                     href={urlFor(guide)}
-                    className="text-sm leading-snug text-ink hover:text-navy hover:underline"
+                    className="break-words text-sm leading-snug text-ink hover:text-navy hover:underline"
                   >
                     {guide.category}
                   </Link>
@@ -274,7 +274,7 @@ export function Header({
               >
                 {interviewGroups.map((group) => (
                   <div key={group.category}>
-                    <p className="text-[0.68rem] font-semibold uppercase tracking-wide text-clay">
+                    <p className="break-words text-[0.68rem] font-semibold uppercase tracking-wide text-clay">
                       {group.category}
                     </p>
                     <ul className="mt-2 flex flex-col divide-y divide-hairline/70">
@@ -282,7 +282,7 @@ export function Header({
                         <li key={item.id} className="py-1.5 first:pt-0 last:pb-0">
                           <Link
                             href={urlFor(item)}
-                            className="line-clamp-2 text-sm leading-snug text-ink hover:text-navy hover:underline"
+                            className="line-clamp-2 break-words text-sm leading-snug text-ink hover:text-navy hover:underline"
                           >
                             {item.title}
                           </Link>
@@ -334,7 +334,7 @@ export function Header({
               <div key={group.category} className="mt-3 first:mt-0">
                 <Link
                   href={`/careers#${CATEGORY_SLUG[group.category] ?? ""}`}
-                  className="text-[0.68rem] font-semibold uppercase tracking-wide text-clay"
+                  className="break-words text-[0.68rem] font-semibold uppercase tracking-wide text-clay"
                   onClick={() => setMobileOpen(false)}
                 >
                   {group.category}
@@ -342,7 +342,7 @@ export function Header({
                 <ul className="mt-1.5 flex flex-col gap-1.5">
                   {group.items.slice(0, 3).map((item) => (
                     <li key={item.id}>
-                      <Link href={urlFor(item)} className="text-sm text-ink" onClick={() => setMobileOpen(false)}>
+                      <Link href={urlFor(item)} className="break-words text-sm text-ink" onClick={() => setMobileOpen(false)}>
                         {item.title}
                       </Link>
                     </li>
@@ -368,7 +368,7 @@ export function Header({
               <div key={group.category} className="mt-3 first:mt-0">
                 <Link
                   href={`/concepts#${slugifyCategory(group.category)}`}
-                  className="text-[0.68rem] font-semibold uppercase tracking-wide text-clay"
+                  className="break-words text-[0.68rem] font-semibold uppercase tracking-wide text-clay"
                   onClick={() => setMobileOpen(false)}
                 >
                   {group.category}
@@ -376,7 +376,7 @@ export function Header({
                 <ul className="mt-1.5 flex flex-col gap-1.5">
                   {group.items.slice(0, 3).map((item) => (
                     <li key={item.id}>
-                      <Link href={urlFor(item)} className="text-sm text-ink" onClick={() => setMobileOpen(false)}>
+                      <Link href={urlFor(item)} className="break-words text-sm text-ink" onClick={() => setMobileOpen(false)}>
                         {item.title}
                       </Link>
                     </li>
@@ -420,7 +420,7 @@ export function Header({
             <ul className="mt-1.5 flex flex-col gap-1.5">
               {getHiredGuides.map((guide) => (
                 <li key={guide.id}>
-                  <Link href={urlFor(guide)} className="text-sm text-ink" onClick={() => setMobileOpen(false)}>
+                  <Link href={urlFor(guide)} className="break-words text-sm text-ink" onClick={() => setMobileOpen(false)}>
                     {guide.category}
                   </Link>
                 </li>
@@ -442,13 +442,13 @@ export function Header({
           >
             {interviewGroups.map((group) => (
               <div key={group.category} className="mt-3 first:mt-0">
-                <p className="text-[0.68rem] font-semibold uppercase tracking-wide text-clay">
+                <p className="break-words text-[0.68rem] font-semibold uppercase tracking-wide text-clay">
                   {group.category}
                 </p>
                 <ul className="mt-1.5 flex flex-col gap-1.5">
                   {group.items.map((item) => (
                     <li key={item.id}>
-                      <Link href={urlFor(item)} className="text-sm text-ink" onClick={() => setMobileOpen(false)}>
+                      <Link href={urlFor(item)} className="break-words text-sm text-ink" onClick={() => setMobileOpen(false)}>
                         {item.title}
                       </Link>
                     </li>
