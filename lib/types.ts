@@ -54,7 +54,8 @@ export const CareerSchema = z.object({
   progression: z.array(z.string()).default([]),
   hirerTypes: z.array(z.string()).default([]),
   // Pay at three career-stage milestones — entry level, 5 years in, and 20
-  // years in — shown as a range timeline near the top of the career page.
+  // years in — shown as a range timeline right under the career's "What is
+  // a ___?" intro, the standard placement for every career page.
   // Career-only (not in `base`): pay doesn't apply to a Concept or a
   // Software profile. Optional and per-career; a career without this just
   // doesn't render the timeline yet. Always a range, never a single
