@@ -80,6 +80,20 @@ export const CareerSchema = z.object({
       asOf: z.string(),
     })
     .optional(),
+  // A standout callout (rendered via Callout, navy tone — NOT the muted
+  // Disclaimer used for the location/overtime caveats) explaining what the
+  // payTimeline chart above it doesn't capture: BLS OEWS excludes the
+  // self-employed and business owners entirely, and no federal survey
+  // publishes a reliable median income for a single trade's owner-
+  // operators (the self-employed sample within one detailed occupation is
+  // too thin to report). Free text per career, not a boolean + shared
+  // copy, since the real nuance (licensing path to going independent,
+  // typical business structure) differs trade to trade. Deliberately
+  // optional with no default: a career where owning a business isn't a
+  // realistic path (most union-employee trades — Elevator Tech, Millwright,
+  // Equipment Operator) should simply never get this field set, rather
+  // than forcing a note that doesn't apply.
+  ownerPayNote: z.string().optional(),
 });
 
 export const ConceptSchema = z.object({

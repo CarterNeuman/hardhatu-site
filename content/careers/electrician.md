@@ -17,6 +17,24 @@ payTimeline:
     high: 108510
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Electricians (SOC 47-2111), national data"
   asOf: "May 2025"
+ownerPayNote: >
+  These figures are wage-and-salary pay only. The Bureau of Labor
+  Statistics says so directly in its own methodology notes: the survey
+  "does not include the self-employed, owners and partners in
+  unincorporated firms." A licensed electrician who starts their own
+  company isn't represented anywhere in the chart above, and no federal
+  survey publishes a reliable median income for electrical contracting
+  business owners specifically. Census does track self-employment by
+  broad occupation group, but not narrowly enough to separate electricians
+  from every other trade; IRS data on sole proprietor income is reported
+  by industry sector, not by specific trade; and most owner-income figures
+  circulating online trace back to unsourced marketing content, not
+  government or trade-association data, so they're left out here rather
+  than repeated as fact. What is well established is the shape of it, not
+  a number: going independent trades a predictable paycheck for real
+  upside and real risk, since income then depends on steady work and
+  pricing jobs correctly, not a flat rate. Worth researching locally
+  before assuming it beats employee pay outright.
 whatIs: >
   An Electrician installs, maintains, and repairs the electrical systems in a
   building, wiring, panels, outlets, lighting, and increasingly low-voltage
