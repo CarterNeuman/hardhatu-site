@@ -94,6 +94,20 @@ export const CareerSchema = z.object({
   // Equipment Operator) should simply never get this field set, rather
   // than forcing a note that doesn't apply.
   ownerPayNote: z.string().optional(),
+  // A short, punchy sentence pulled out and rendered large/bold above the
+  // ownerPayNote body text in Callout (see components/Callout.tsx's
+  // `highlight` prop) — the "make it stand out more" treatment. Exists
+  // because no government or trade-association source publishes a clean
+  // owner/business-income figure at the single-trade level (confirmed
+  // across BLS OEWS, Census self-employment tables, and IRS sole-
+  // proprietorship data — the last of those actually averages in enough
+  // weekend-handyman Schedule C filers to come out *below* entry-level
+  // wages, which would undercut the point rather than support it), so the
+  // standout treatment carries the real, defensible claim (ownership isn't
+  // capped at an employee's wage) instead of a fabricated or misleading
+  // number. Optional in lockstep with ownerPayNote — only set where that
+  // is set.
+  ownerPayHighlight: z.string().optional(),
 });
 
 export const ConceptSchema = z.object({

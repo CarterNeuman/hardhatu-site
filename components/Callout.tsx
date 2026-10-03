@@ -12,10 +12,18 @@ export function Callout({
   label,
   tone,
   text,
+  highlight,
 }: {
   label: string;
   tone: "amber" | "clay" | "navy" | "steel";
   text: string;
+  // An optional short, punchy statement rendered large and bold above the
+  // body text, with a heavier accent border of its own — the "stand out
+  // more than the usual Callout" treatment (first used on the electrician
+  // ownerPayNote, where no sourced dollar figure exists but the upside/risk
+  // claim itself is worth leading with). Omit it and a Callout renders
+  // exactly as before.
+  highlight?: string;
 }) {
   const toneClasses = {
     amber: "border-amber/40 bg-amber-soft/40",
@@ -31,9 +39,26 @@ export function Callout({
     steel: "border-steel/40 bg-steel/[0.06]",
   }[tone];
 
+  // Solid-color pairing for the highlight's left accent + text, one step
+  // bolder than the soft tinted toneClasses above (which stay as the
+  // container's own border/background either way).
+  const highlightAccent = {
+    amber: "border-amber text-amber",
+    clay: "border-clay text-clay",
+    navy: "border-navy text-navy",
+    steel: "border-steel text-steel",
+  }[tone];
+
   return (
-    <div className={`mt-4 border ${toneClasses} px-4 py-3`}>
+    <div className={`mt-4 border ${highlight ? "border-2" : ""} ${toneClasses} px-4 py-3`}>
       <p className="text-xs font-semibold uppercase tracking-wide text-steel">{label}</p>
+      {highlight && (
+        <p
+          className={`mt-2 border-l-4 ${highlightAccent} pl-3 font-display text-xl font-bold leading-snug sm:text-2xl`}
+        >
+          {highlight}
+        </p>
+      )}
       <div className="[&>div]:mt-1 [&>div]:space-y-2 [&_p]:text-sm">
         <Prose text={text} />
       </div>
