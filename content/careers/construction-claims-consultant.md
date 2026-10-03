@@ -83,4 +83,5 @@ relatedIds:
   - concept-request-for-equitable-adjustment
   - resume-consultants-advisory
   - gethired-consultants-advisory
+image: "/images/careers/construction-claims-consultant.jpg"
 ---

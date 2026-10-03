@@ -71,4 +71,5 @@ relatedIds:
   - concept-davis-bacon-act
   - resume-business
   - gethired-business
+image: "/images/careers/certified-payroll-specialist.jpg"
 ---

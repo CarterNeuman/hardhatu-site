@@ -87,4 +87,5 @@ relatedIds:
   - concept-bim-execution-plan
   - resume-technology-design
   - gethired-technology-design
+image: "/images/careers/construction-technology-manager.jpg"
 ---

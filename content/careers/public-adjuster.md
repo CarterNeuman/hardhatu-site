@@ -88,4 +88,5 @@ relatedIds:
   - concept-reservation-of-rights-letter
   - resume-insurance-claims
   - gethired-insurance-claims
+image: "/images/careers/public-adjuster.jpg"
 ---
