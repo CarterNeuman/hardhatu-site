@@ -69,4 +69,5 @@ relatedIds:
   - concept-time-impact-analysis
   - resume-consultants-advisory
   - gethired-consultants-advisory
+image: "/images/careers/scheduling-delay-consultant.jpg"
 ---

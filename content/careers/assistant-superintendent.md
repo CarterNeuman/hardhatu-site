@@ -76,4 +76,5 @@ relatedIds:
   - software-bluebeam-revu
   - resume-project-operations
   - gethired-project-operations
+image: "/images/careers/assistant-superintendent.jpg"
 ---

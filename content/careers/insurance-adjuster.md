@@ -110,4 +110,5 @@ relatedIds:
   - concept-third-party-administrator
   - resume-insurance-claims
   - gethired-insurance-claims
+image: "/images/careers/insurance-adjuster.jpg"
 ---

@@ -86,4 +86,5 @@ relatedIds:
   - resume-business
   - gethired-business
   - lesson-financing-and-feasibility
+image: "/images/careers/construction-accountant.jpg"
 ---

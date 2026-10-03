@@ -78,4 +78,5 @@ relatedIds:
   - concept-wheelchair-lifts
   - gethired-field-trades
   - resume-field-trades
+image: "/images/careers/elevator-technician.jpg"
 ---

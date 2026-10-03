@@ -67,4 +67,5 @@ relatedIds:
   - concept-ai-in-construction
   - resume-technology-design
   - gethired-technology-design
+image: "/images/careers/construction-data-analyst.jpg"
 ---

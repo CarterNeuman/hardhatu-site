@@ -66,4 +66,5 @@ relatedIds:
   - career-business-development-manager
   - resume-business
   - gethired-business
+image: "/images/careers/construction-sales.jpg"
 ---

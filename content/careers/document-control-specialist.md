@@ -82,4 +82,5 @@ relatedIds:
   - resume-project-operations
   - gethired-project-operations
   - exam-cdt
+image: "/images/careers/document-control-specialist.jpg"
 ---

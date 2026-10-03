@@ -71,4 +71,5 @@ relatedIds:
   - resume-business
   - gethired-business
   - lesson-procurement-and-long-lead-logistics
+image: "/images/careers/procurement-manager.jpg"
 ---

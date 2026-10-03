@@ -105,4 +105,5 @@ relatedIds:
   - gethired-technology-design
   - exam-nate-ready-to-work
   - exam-fe
+image: "/images/careers/mep-engineer.jpg"
 ---

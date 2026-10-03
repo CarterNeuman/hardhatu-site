@@ -70,4 +70,5 @@ relatedIds:
   - interview-business
   - resume-business
   - gethired-business
+image: "/images/careers/business-development-manager.jpg"
 ---

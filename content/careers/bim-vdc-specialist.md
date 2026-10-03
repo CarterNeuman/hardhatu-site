@@ -83,5 +83,6 @@ relatedIds:
   - concept-cobie
   - resume-technology-design
   - gethired-technology-design
+image: "/images/careers/bim-vdc-specialist.jpg"
 ---
   - lesson-3d-modeling-in-practice

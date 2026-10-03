@@ -76,4 +76,5 @@ relatedIds:
   - concept-microgrid
   - gethired-specialized-construction
   - lesson-solar-and-renewable-energy-on-a-jobsite
+image: "/images/careers/renewable-energy-project-manager.jpg"
 ---

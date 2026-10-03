@@ -82,4 +82,5 @@ relatedIds:
   - career-scheduling-delay-consultant
   - resume-project-operations
   - gethired-project-operations
+image: "/images/careers/scheduler.jpg"
 ---

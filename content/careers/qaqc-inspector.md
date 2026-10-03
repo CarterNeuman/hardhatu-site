@@ -97,4 +97,5 @@ relatedIds:
   - gethired-project-operations
   - exam-cwi
   - exam-icc-building-inspector
+image: "/images/careers/qaqc-inspector.jpg"
 ---

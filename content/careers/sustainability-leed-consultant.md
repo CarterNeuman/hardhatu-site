@@ -87,4 +87,5 @@ relatedIds:
   - concept-carbon-accounting-scopes
   - resume-consultants-advisory
   - gethired-consultants-advisory
+image: "/images/careers/sustainability-leed-consultant.jpg"
 ---

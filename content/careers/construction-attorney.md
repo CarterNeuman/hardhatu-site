@@ -83,4 +83,5 @@ relatedIds:
   - resume-business
   - resume-consultants-advisory
   - gethired-business
+image: "/images/careers/construction-attorney.jpg"
 ---

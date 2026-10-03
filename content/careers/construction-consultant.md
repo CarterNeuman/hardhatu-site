@@ -67,4 +67,5 @@ relatedIds:
   - phase-idea-feasibility
   - resume-consultants-advisory
   - gethired-consultants-advisory
+image: "/images/careers/construction-consultant.jpg"
 ---

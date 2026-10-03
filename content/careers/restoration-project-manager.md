@@ -89,4 +89,5 @@ relatedIds:
   - concept-salvage-insurance
   - resume-specialized-construction
   - gethired-specialized-construction
+image: "/images/careers/restoration-project-manager.jpg"
 ---

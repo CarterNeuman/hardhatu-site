@@ -83,5 +83,6 @@ relatedIds:
   - gethired-technology-design
   - exam-fe
   - lesson-heavy-equipment-and-earthwork
+image: "/images/careers/surveyor.jpg"
 ---
   - lesson-drones-scanning-and-mapping

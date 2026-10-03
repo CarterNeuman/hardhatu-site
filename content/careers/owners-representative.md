@@ -93,4 +93,5 @@ relatedIds:
   - gethired-specialized-construction
   - lesson-a-day-as-an-owners-rep
   - lesson-financing-and-feasibility
+image: "/images/careers/owners-representative.jpg"
 ---

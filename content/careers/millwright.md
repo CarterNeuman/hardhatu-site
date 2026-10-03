@@ -81,4 +81,5 @@ relatedIds:
   - concept-loading-dock-equipment
   - gethired-field-trades
   - resume-field-trades
+image: "/images/careers/millwright.jpg"
 ---

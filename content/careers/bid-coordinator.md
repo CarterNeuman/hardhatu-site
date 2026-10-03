@@ -73,4 +73,5 @@ relatedIds:
   - career-value-engineering-consultant
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
+image: "/images/careers/bid-coordinator.jpg"
 ---

@@ -83,4 +83,5 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - lesson-building-envelope-and-glazing
+image: "/images/careers/glazier.jpg"
 ---

@@ -104,5 +104,6 @@ relatedIds:
   - concept-cobie
   - resume-specialized-construction
   - gethired-specialized-construction
+image: "/images/careers/facilities-manager.jpg"
 ---
   - lesson-3d-modeling-in-practice

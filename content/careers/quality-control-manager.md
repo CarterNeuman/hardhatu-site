@@ -114,4 +114,5 @@ relatedIds:
   - career-commissioning-agent
   - resume-project-operations
   - gethired-project-operations
+image: "/images/careers/quality-control-manager.jpg"
 ---

@@ -85,4 +85,5 @@ relatedIds:
   - concept-certified-restorer-designation
   - resume-insurance-claims
   - gethired-insurance-claims
+image: "/images/careers/insurance-restoration-estimator.jpg"
 ---

@@ -76,4 +76,5 @@ relatedIds:
   - concept-section-106-historic-review
   - resume-consultants-advisory
   - gethired-consultants-advisory
+image: "/images/careers/permit-expediter.jpg"
 ---

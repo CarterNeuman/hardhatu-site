@@ -86,4 +86,5 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - lesson-solar-and-renewable-energy-on-a-jobsite
+image: "/images/careers/solar-installer.jpg"
 ---

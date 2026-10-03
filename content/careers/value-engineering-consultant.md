@@ -72,4 +72,5 @@ relatedIds:
   - lesson-value-engineering
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
+image: "/images/careers/value-engineering-consultant.jpg"
 ---

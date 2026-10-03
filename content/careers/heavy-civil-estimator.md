@@ -79,4 +79,5 @@ relatedIds:
   - concept-blasting-rock-removal
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
+image: "/images/careers/heavy-civil-estimator.jpg"
 ---
