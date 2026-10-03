@@ -4,6 +4,19 @@ title: Electrician
 category: "Field & Trades"
 tagline: Installs and wires the systems that bring power, light, and data into a building, and keeps them from becoming a fire hazard.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 42640
+    high: 49430
+  fiveYear:
+    low: 63190
+    high: 83940
+  twentyYear:
+    low: 83940
+    high: 108510
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Electricians (SOC 47-2111), national data"
+  asOf: "May 2025"
 whatIs: >
   An Electrician installs, maintains, and repairs the electrical systems in a
   building, wiring, panels, outlets, lighting, and increasingly low-voltage

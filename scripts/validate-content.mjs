@@ -311,6 +311,30 @@ for (const { filePath, data, body } of entries) {
     warnings.push(`${filePath}: career has ${relatedIds.length} relatedIds but no recommendedIds yet — "Explore next" will show the full uncurated list`);
   }
 
+  if (data.payTimeline) {
+    const pt = data.payTimeline;
+    const bands = [["entry", pt.entry], ["fiveYear", pt.fiveYear], ["twentyYear", pt.twentyYear]];
+    for (const [bandName, band] of bands) {
+      if (!band || typeof band.low !== "number" || typeof band.high !== "number") {
+        errors.push(`${filePath}: payTimeline.${bandName} needs numeric low/high`);
+      } else if (band.low > band.high) {
+        errors.push(`${filePath}: payTimeline.${bandName}.low (${band.low}) is greater than its high (${band.high})`);
+      }
+    }
+    if (pt.entry && pt.fiveYear && pt.entry.low > pt.fiveYear.low) {
+      errors.push(`${filePath}: payTimeline.entry.low (${pt.entry.low}) is higher than fiveYear.low (${pt.fiveYear.low}) — bands should trend upward with experience`);
+    }
+    if (pt.fiveYear && pt.twentyYear && pt.fiveYear.low > pt.twentyYear.low) {
+      errors.push(`${filePath}: payTimeline.fiveYear.low (${pt.fiveYear.low}) is higher than twentyYear.low (${pt.twentyYear.low}) — bands should trend upward with experience`);
+    }
+    if (!pt.source) {
+      errors.push(`${filePath}: payTimeline is missing source`);
+    }
+    if (!pt.asOf) {
+      errors.push(`${filePath}: payTimeline is missing asOf`);
+    }
+  }
+
   if (data.careerId && !allIds.has(data.careerId)) {
     errors.push(`${filePath}: careerId references unknown id "${data.careerId}"`);
   }

@@ -7,6 +7,8 @@ import { Tag } from "@/components/Tag";
 import { SectionLabel } from "@/components/SectionLabel";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { ContentPhoto } from "@/components/ContentPhoto";
+import { PayTimeline } from "@/components/PayTimeline";
+import { Disclaimer } from "@/components/Disclaimer";
 
 export function generateStaticParams() {
   const { careers } = getAllContent();
@@ -48,6 +50,16 @@ export default async function CareerPage({
       <p className="mt-2 text-lg text-steel">{career.tagline}</p>
 
       {career.image && <ContentPhoto src={career.image} alt={career.title} />}
+
+      {career.payTimeline && (
+        <>
+          <PayTimeline payTimeline={career.payTimeline} />
+          <Disclaimer
+            lastReviewed={career.payTimeline.asOf}
+            message="Pay reflects the national wage distribution for this occupation, not a promise for any one job: entry level is the lower part of that range, 5 years in sits around the national median, and 20 years in is the upper part, since pay isn't actually tracked by years of experience. Real pay varies a lot by state, metro area, union status, and employer — scale these up or down for your market."
+          />
+        </>
+      )}
 
       <SectionLabel>What is a {career.title}?</SectionLabel>
       <p className="mt-2 leading-relaxed text-ink">{career.whatIs}</p>

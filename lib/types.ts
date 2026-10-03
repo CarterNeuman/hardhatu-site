@@ -53,6 +53,32 @@ export const CareerSchema = z.object({
     .optional(),
   progression: z.array(z.string()).default([]),
   hirerTypes: z.array(z.string()).default([]),
+  // Pay at three career-stage milestones — entry level, 5 years in, and 20
+  // years in — shown as a range timeline near the top of the career page.
+  // Career-only (not in `base`): pay doesn't apply to a Concept or a
+  // Software profile. Optional and per-career; a career without this just
+  // doesn't render the timeline yet. Always a range, never a single
+  // number — BLS doesn't track pay by years of experience, so these bands
+  // are estimates drawn from the national wage *distribution* for the
+  // occupation (entry ~ lower percentiles, 5-year ~ around the median,
+  // 20-year ~ upper percentiles), not a literal "at year 5 you'll earn
+  // exactly X" claim. See components/PayTimeline.tsx for the disclaimer
+  // that always ships alongside this data.
+  payTimeline: z
+    .object({
+      unit: z.enum(["annual", "hourly"]).default("annual"),
+      entry: z.object({ low: z.number(), high: z.number() }),
+      fiveYear: z.object({ low: z.number(), high: z.number() }),
+      twentyYear: z.object({ low: z.number(), high: z.number() }),
+      // e.g. "U.S. Bureau of Labor Statistics, Occupational Employment and
+      // Wage Statistics (OEWS)" — shown in the on-page disclaimer so the
+      // numbers are never unsourced.
+      source: z.string(),
+      // The data vintage, e.g. "May 2025" — kept separate from `source` so
+      // it can be checked/flagged for staleness without re-parsing a string.
+      asOf: z.string(),
+    })
+    .optional(),
 });
 
 export const ConceptSchema = z.object({
