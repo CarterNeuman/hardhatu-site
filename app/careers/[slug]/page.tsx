@@ -55,24 +55,6 @@ export default async function CareerPage({
       <SectionLabel>What is a {career.title}?</SectionLabel>
       <p className="mt-2 leading-relaxed text-ink">{career.whatIs}</p>
 
-      {career.payTimeline && (
-        <>
-          <PayTimeline payTimeline={career.payTimeline} />
-          <Disclaimer
-            lastReviewed={career.payTimeline.asOf}
-            message="Pay reflects the national wage distribution for this occupation, not a promise for any one job: entry level is the lower part of that range, 5 years in sits around the national median, and 20 years in is the upper part, since pay isn't actually tracked by years of experience. Real pay varies a lot by state, metro area, union status, and employer — scale these up or down for your market. These figures are base pay only: overtime, shift differentials, and per-project bonuses are standard across most construction trades and routinely push real earnings above what's shown here."
-          />
-          {career.ownerPayNote && (
-            <Callout
-              label="What this chart doesn't capture"
-              tone="navy"
-              text={career.ownerPayNote}
-              highlight={career.ownerPayHighlight}
-            />
-          )}
-        </>
-      )}
-
       {career.whatTheyDo.length > 0 && (
         <>
           <SectionLabel>What they do</SectionLabel>
@@ -117,6 +99,24 @@ export default async function CareerPage({
               <Tag key={sw}>{sw}</Tag>
             ))}
           </div>
+        </>
+      )}
+
+      {career.payTimeline && (
+        <>
+          <PayTimeline payTimeline={career.payTimeline} />
+          <Disclaimer
+            lastReviewed={career.payTimeline.asOf}
+            message="Pay reflects the national wage distribution for this occupation, not a promise for any one job: entry level is the lower part of that range, 5 years in sits around the national median, and 20 years in is the upper part, since pay isn't actually tracked by years of experience. Real pay varies a lot by state, metro area, union status, and employer — scale these up or down for your market. These figures are base pay only: overtime, shift differentials, and per-project bonuses are standard across most construction trades and routinely push real earnings above what's shown here."
+          />
+          {career.ownerPayNote && (
+            <Callout
+              label="What this chart doesn't capture"
+              tone="navy"
+              text={career.ownerPayNote}
+              highlight={career.ownerPayHighlight}
+            />
+          )}
         </>
       )}
 

@@ -21,25 +21,13 @@ ownerPayHighlight: >
   Building your own electrical company isn't capped at an employee's wage
   — it trades a guaranteed paycheck for real upside, and real risk.
 ownerPayNote: >
-  These figures are wage-and-salary pay only. The Bureau of Labor
-  Statistics says so directly in its own methodology notes: the survey
-  "does not include the self-employed, owners and partners in
-  unincorporated firms." A licensed electrician who starts their own
-  company isn't represented anywhere in the chart above, and no clean
-  figure exists to put in its place. Job-site "salary" pages for business
-  owners (ZipRecruiter, Salary.com, and similar) turn out to be regular
-  employee pay for a job titled "contractor," not owner income, once you
-  check what they're actually measuring. Census tracks self-employment by
-  broad occupation group, not narrowly enough to isolate electricians from
-  every other trade. The closest the IRS gets is average net income for
-  everyone who files a Schedule C under "Construction" as a sole
-  proprietor — a category dominated by weekend handymen and side-gig
-  filers rather than real companies, which is exactly why that number
-  comes out lower than entry-level wages and isn't trustworthy here
-  either. Most other owner-income figures circulating online trace back to
-  unsourced marketing content, not government or trade-association data.
-  Worth researching locally before trusting any number you find — real
-  margins vary enormously by market and by how the business is run.
+  These figures are wage-and-salary pay only — the Bureau of Labor
+  Statistics excludes the self-employed and business owners from this
+  survey entirely. No government or trade-association source publishes a
+  reliable owner-income figure at the single-trade level either: what's
+  out there online is either regular employee pay mislabeled "contractor,"
+  or too broad to mean much for electricians specifically. Worth
+  researching your own market before trusting any number you find.
 whatIs: >
   An Electrician installs, maintains, and repairs the electrical systems in a
   building, wiring, panels, outlets, lighting, and increasingly low-voltage
