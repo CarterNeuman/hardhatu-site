@@ -63,4 +63,5 @@ relatedIds:
   - phase-design
   - resume-technology-design
   - gethired-technology-design
+image: "/images/careers/cad-technician.jpg"
 ---

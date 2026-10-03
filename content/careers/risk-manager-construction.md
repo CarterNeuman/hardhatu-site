@@ -84,4 +84,5 @@ relatedIds:
   - concept-public-private-partnership
   - resume-business
   - gethired-business
+image: "/images/careers/risk-manager-construction.jpg"
 ---

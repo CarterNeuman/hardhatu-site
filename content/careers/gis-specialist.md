@@ -74,5 +74,6 @@ relatedIds:
   - career-construction-technology-manager
   - resume-technology-design
   - gethired-technology-design
+image: "/images/careers/gis-specialist.jpg"
 ---
   - lesson-drones-scanning-and-mapping

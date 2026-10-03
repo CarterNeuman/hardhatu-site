@@ -80,4 +80,5 @@ relatedIds:
   - concept-right-to-work-law
   - resume-business
   - gethired-business
+image: "/images/careers/hr-manager-construction.jpg"
 ---

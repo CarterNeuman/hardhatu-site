@@ -78,4 +78,5 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - lesson-mechanical-and-plumbing-rough-in
+image: "/images/careers/sheet-metal-worker.jpg"
 ---

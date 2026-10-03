@@ -72,4 +72,5 @@ relatedIds:
   - concept-swppp
   - resume-insurance-claims
   - gethired-insurance-claims
+image: "/images/careers/loss-control-engineer.jpg"
 ---

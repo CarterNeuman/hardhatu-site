@@ -74,4 +74,5 @@ relatedIds:
   - concept-miller-act
   - resume-insurance-claims
   - gethired-insurance-claims
+image: "/images/careers/surety-bond-underwriter.jpg"
 ---

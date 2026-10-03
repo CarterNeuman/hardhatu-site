@@ -74,4 +74,5 @@ relatedIds:
   - concept-loss-run-report
   - resume-insurance-claims
   - gethired-insurance-claims
+image: "/images/careers/builders-risk-underwriter.jpg"
 ---

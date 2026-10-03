@@ -76,4 +76,5 @@ relatedIds:
   - lesson-when-its-not-the-storms-fault
   - resume-consultants-advisory
   - gethired-consultants-advisory
+image: "/images/careers/expert-witness-construction-litigation.jpg"
 ---
