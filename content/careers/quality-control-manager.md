@@ -114,5 +114,21 @@ relatedIds:
   - career-commissioning-agent
   - resume-project-operations
   - gethired-project-operations
+recommendedIds:
+  - career-safety-manager
+  - career-superintendent
+  - software-bluebeam-revu
+  - concept-commissioning
+  - concept-non-conformance-report
+  - concept-special-inspection
+  - concept-mock-up
+  - concept-general-requirements
+  - concept-footing
+  - concept-slab-on-grade
+  - concept-rebar
+  - concept-concrete-curing
+  - concept-cmu
+  - concept-brick-veneer
+  - concept-mortar
 image: "/images/careers/quality-control-manager.jpg"
 ---

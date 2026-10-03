@@ -89,5 +89,21 @@ relatedIds:
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
   - lesson-financing-and-feasibility
+recommendedIds:
+  - career-senior-estimator
+  - career-estimator
+  - software-proest
+  - concept-pre-bid-meeting
+  - concept-value-engineering
+  - concept-constructability-review
+  - concept-request-for-proposal
+  - concept-request-for-qualifications
+  - concept-prequalification
+  - concept-fast-tracking
+  - concept-design-build
+  - concept-cm-at-risk
+  - concept-cm-as-advisor
+  - concept-integrated-project-delivery
+  - concept-plan-review
 image: "/images/careers/preconstruction-manager.jpg"
 ---

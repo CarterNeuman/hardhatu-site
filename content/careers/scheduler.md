@@ -82,5 +82,21 @@ relatedIds:
   - career-scheduling-delay-consultant
   - resume-project-operations
   - gethired-project-operations
+recommendedIds:
+  - career-project-manager
+  - career-project-engineer
+  - software-primavera-p6
+  - software-microsoft-project
+  - concept-critical-path
+  - concept-look-ahead-schedule
+  - concept-long-lead-item
+  - concept-baseline-schedule
+  - concept-milestone
+  - concept-float
+  - concept-acceleration
+  - concept-pull-planning
+  - concept-weather-day
+  - concept-liquidated-damages
+  - concept-no-damage-for-delay
 image: "/images/careers/scheduler.jpg"
 ---

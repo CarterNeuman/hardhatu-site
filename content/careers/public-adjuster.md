@@ -88,5 +88,21 @@ relatedIds:
   - concept-reservation-of-rights-letter
   - resume-insurance-claims
   - gethired-insurance-claims
+recommendedIds:
+  - career-insurance-adjuster
+  - career-construction-claims-consultant
+  - concept-scope-of-loss
+  - concept-actual-cash-value
+  - concept-depreciation
+  - concept-deductible
+  - concept-proof-of-loss
+  - concept-peril
+  - concept-overhead-and-profit-claims
+  - concept-claims-adjustment-process
+  - concept-named-perils-vs-open-perils
+  - concept-appraisal-clause
+  - concept-appraisal-umpire
+  - concept-anti-concurrent-causation
+  - concept-concealment-fraud-clause
 image: "/images/careers/public-adjuster.jpg"
 ---

@@ -86,5 +86,21 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - lesson-mechanical-and-plumbing-rough-in
+recommendedIds:
+  - career-plumber
+  - career-hvac-technician
+  - concept-fire-sprinkler-system
+  - concept-standpipe-system
+  - concept-fire-pump
+  - concept-wet-dry-sprinkler-systems
+  - concept-boiler
+  - career-welder
+  - career-mep-engineer
+  - exam-osha-10
+  - exam-nccer-core
+  - interview-field-trades
+  - lesson-building-sequence
+  - phase-construction
+  - gethired-field-trades
 image: "/images/careers/pipefitter.jpg"
 ---

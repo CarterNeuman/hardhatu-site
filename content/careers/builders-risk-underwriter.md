@@ -74,5 +74,21 @@ relatedIds:
   - concept-loss-run-report
   - resume-insurance-claims
   - gethired-insurance-claims
+recommendedIds:
+  - concept-builders-risk-insurance
+  - concept-peril
+  - concept-deductible
+  - career-insurance-adjuster
+  - career-risk-manager-construction
+  - interview-insurance-claims
+  - concept-named-perils-vs-open-perils
+  - concept-coinsurance-clause
+  - concept-commercial-property-insurance-form
+  - concept-flood-insurance-nfip
+  - concept-earthquake-insurance
+  - lesson-whos-on-the-hook
+  - concept-loss-run-report
+  - resume-insurance-claims
+  - gethired-insurance-claims
 image: "/images/careers/builders-risk-underwriter.jpg"
 ---

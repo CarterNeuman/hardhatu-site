@@ -73,5 +73,21 @@ relatedIds:
   - career-value-engineering-consultant
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
+recommendedIds:
+  - career-estimator
+  - career-senior-estimator
+  - software-bluebeam-revu
+  - concept-invitation-for-bid
+  - concept-bid
+  - concept-bid-leveling
+  - concept-addendum
+  - concept-request-for-proposal
+  - concept-prequalification
+  - career-preconstruction-manager
+  - interview-preconstruction-estimating
+  - lesson-bidding-and-winning-work
+  - phase-procurement-preconstruction
+  - career-value-engineering-consultant
+  - resume-preconstruction-estimating
 image: "/images/careers/bid-coordinator.jpg"
 ---

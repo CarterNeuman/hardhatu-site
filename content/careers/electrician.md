@@ -110,6 +110,22 @@ relatedIds:
   - exam-cpr-first-aid
   - exam-journeyman-electrician
   - lesson-electrical-rough-in
+recommendedIds:
+  - career-laborer
+  - career-elevator-technician
+  - concept-general-contractor
+  - concept-panel-board
+  - concept-conduit
+  - concept-rough-in-electrical
+  - concept-switchgear
+  - concept-transformer
+  - concept-low-voltage-cabling
+  - concept-fire-alarm-system
+  - concept-access-control-system
+  - concept-lockout-tagout
+  - concept-fire-rated-assembly
+  - concept-nfpa-70e
+  - concept-direct-digital-control
 image: "/images/careers/electrician.jpg"
 
 ---

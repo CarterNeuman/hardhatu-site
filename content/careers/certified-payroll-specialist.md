@@ -71,5 +71,18 @@ relatedIds:
   - concept-davis-bacon-act
   - resume-business
   - gethired-business
+recommendedIds:
+  - concept-certified-payroll
+  - concept-prevailing-wage
+  - concept-union-vs-open-shop
+  - concept-public-work-vs-private-work
+  - career-hr-manager-construction
+  - career-construction-accountant
+  - interview-business
+  - software-quickbooks
+  - career-risk-manager-construction
+  - concept-davis-bacon-act
+  - resume-business
+  - gethired-business
 image: "/images/careers/certified-payroll-specialist.jpg"
 ---

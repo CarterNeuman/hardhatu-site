@@ -104,6 +104,22 @@ relatedIds:
   - concept-cobie
   - resume-specialized-construction
   - gethired-specialized-construction
+recommendedIds:
+  - career-project-manager
+  - career-hvac-technician
+  - software-matterport
+  - software-procore
+  - concept-closeout
+  - concept-warranty
+  - concept-as-built-drawings
+  - concept-temporary-facilities
+  - concept-turnover
+  - concept-door-hardware
+  - concept-flooring
+  - concept-elevator
+  - concept-escalator
+  - concept-plumbing-fixtures
+  - concept-sump-pump
 image: "/images/careers/facilities-manager.jpg"
 ---
   - lesson-3d-modeling-in-practice

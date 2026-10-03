@@ -86,5 +86,18 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - lesson-solar-and-renewable-energy-on-a-jobsite
+recommendedIds:
+  - concept-net-zero-energy-building
+  - career-electrician
+  - career-roofer
+  - exam-osha-10
+  - interview-field-trades
+  - lesson-green-building-certification
+  - phase-construction
+  - career-renewable-energy-project-manager
+  - concept-solar-pv-interconnection
+  - gethired-field-trades
+  - resume-field-trades
+  - lesson-solar-and-renewable-energy-on-a-jobsite
 image: "/images/careers/solar-installer.jpg"
 ---

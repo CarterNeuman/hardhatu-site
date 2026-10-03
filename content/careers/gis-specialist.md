@@ -74,6 +74,20 @@ relatedIds:
   - career-construction-technology-manager
   - resume-technology-design
   - gethired-technology-design
+recommendedIds:
+  - concept-drone-mapping
+  - concept-reality-capture
+  - concept-site-survey
+  - concept-gps-machine-control
+  - career-surveyor
+  - career-drone-uav-specialist
+  - career-construction-data-analyst
+  - interview-technology-design
+  - phase-design
+  - phase-idea-feasibility
+  - career-construction-technology-manager
+  - resume-technology-design
+  - gethired-technology-design
 image: "/images/careers/gis-specialist.jpg"
 ---
   - lesson-drones-scanning-and-mapping

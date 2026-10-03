@@ -72,5 +72,16 @@ relatedIds:
   - concept-swppp
   - resume-insurance-claims
   - gethired-insurance-claims
+recommendedIds:
+  - concept-job-hazard-analysis
+  - concept-osha
+  - concept-total-recordable-incident-rate
+  - career-safety-manager
+  - career-risk-manager-construction
+  - interview-insurance-claims
+  - concept-experience-modification-rate
+  - concept-swppp
+  - resume-insurance-claims
+  - gethired-insurance-claims
 image: "/images/careers/loss-control-engineer.jpg"
 ---

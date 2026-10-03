@@ -83,5 +83,21 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - lesson-building-envelope-and-glazing
+recommendedIds:
+  - career-superintendent
+  - career-insurance-restoration-estimator
+  - concept-general-contractor
+  - concept-roofing-membrane
+  - concept-flashing
+  - concept-fall-protection
+  - concept-heat-illness-prevention
+  - concept-skylights
+  - phase-construction
+  - exam-osha-10
+  - exam-nccer-core
+  - interview-construction-general
+  - interview-field-trades
+  - career-sheet-metal-worker
+  - career-solar-installer
 image: "/images/careers/roofer.jpg"
 ---

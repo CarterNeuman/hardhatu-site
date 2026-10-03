@@ -82,5 +82,21 @@ relatedIds:
   - gethired-consultants-advisory
   - lesson-hvac-and-building-systems-in-practice
   - lesson-solar-and-renewable-energy-on-a-jobsite
+recommendedIds:
+  - career-mep-engineer
+  - career-quality-control-manager
+  - concept-commissioning
+  - concept-leed
+  - concept-green-building-certification
+  - concept-bms-integration
+  - concept-building-automation-system
+  - concept-overhead-coiling-doors
+  - concept-entrance-systems
+  - concept-hvac-balancing
+  - concept-data-center-infrastructure
+  - concept-lighting-control-system
+  - career-sustainability-leed-consultant
+  - interview-consultants-advisory
+  - lesson-green-building-certification
 image: "/images/careers/commissioning-agent.jpg"
 ---

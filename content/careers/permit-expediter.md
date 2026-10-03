@@ -76,5 +76,21 @@ relatedIds:
   - concept-section-106-historic-review
   - resume-consultants-advisory
   - gethired-consultants-advisory
+recommendedIds:
+  - concept-building-permit
+  - concept-plan-review
+  - concept-zoning-variances
+  - concept-building-code
+  - concept-architect
+  - career-owners-representative
+  - interview-consultants-advisory
+  - phase-permitting-approvals
+  - concept-ada-title-iii-compliance
+  - concept-life-safety-code-nfpa-101
+  - lesson-reading-a-set-of-plans
+  - lesson-permits-inspections-and-the-paper-trail
+  - concept-section-106-historic-review
+  - resume-consultants-advisory
+  - gethired-consultants-advisory
 image: "/images/careers/permit-expediter.jpg"
 ---

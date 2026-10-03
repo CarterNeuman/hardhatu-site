@@ -76,5 +76,20 @@ relatedIds:
   - concept-microgrid
   - gethired-specialized-construction
   - lesson-solar-and-renewable-energy-on-a-jobsite
+recommendedIds:
+  - concept-net-zero-energy-building
+  - concept-leed
+  - concept-green-building-certification
+  - career-solar-installer
+  - career-project-manager
+  - career-electrician
+  - exam-pmp
+  - lesson-green-building-certification
+  - phase-construction
+  - software-procore
+  - concept-solar-pv-interconnection
+  - concept-microgrid
+  - gethired-specialized-construction
+  - lesson-solar-and-renewable-energy-on-a-jobsite
 image: "/images/careers/renewable-energy-project-manager.jpg"
 ---

@@ -63,5 +63,15 @@ relatedIds:
   - phase-design
   - resume-technology-design
   - gethired-technology-design
+recommendedIds:
+  - career-bim-vdc-specialist
+  - career-surveyor
+  - exam-autodesk-certified-professional
+  - interview-technology-design
+  - software-autocad
+  - software-sketchup
+  - phase-design
+  - resume-technology-design
+  - gethired-technology-design
 image: "/images/careers/cad-technician.jpg"
 ---

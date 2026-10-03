@@ -82,5 +82,21 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - exam-cwi
+recommendedIds:
+  - career-superintendent
+  - career-ironworker
+  - concept-general-contractor
+  - concept-structural-steel
+  - concept-structural-welding
+  - concept-hot-work-permit
+  - concept-bolted-vs-welded-connections
+  - phase-construction
+  - exam-osha-10
+  - exam-nccer-core
+  - interview-construction-general
+  - interview-field-trades
+  - career-pipefitter
+  - career-qaqc-inspector
+  - gethired-field-trades
 image: "/images/careers/welder.jpg"
 ---

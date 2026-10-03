@@ -82,5 +82,21 @@ relatedIds:
   - resume-project-operations
   - gethired-project-operations
   - exam-cdt
+recommendedIds:
+  - career-project-engineer
+  - career-contracts-administrator
+  - software-procore
+  - software-bluebeam-revu
+  - concept-submittal
+  - concept-rfi
+  - concept-shop-drawings
+  - concept-cloud-document-control
+  - concept-as-built-drawings
+  - concept-closeout
+  - concept-procurement-log
+  - concept-submittal-log
+  - concept-transmittal
+  - concept-om-manuals
+  - concept-material-delivery-log
 image: "/images/careers/document-control-specialist.jpg"
 ---

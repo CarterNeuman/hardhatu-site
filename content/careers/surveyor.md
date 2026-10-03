@@ -83,6 +83,22 @@ relatedIds:
   - gethired-technology-design
   - exam-fe
   - lesson-heavy-equipment-and-earthwork
+recommendedIds:
+  - career-bim-vdc-specialist
+  - career-drone-uav-specialist
+  - concept-site-survey
+  - concept-grading
+  - concept-reality-capture
+  - concept-drone-mapping
+  - concept-gps-machine-control
+  - phase-construction
+  - career-cad-technician
+  - interview-technology-design
+  - lesson-bim-and-clash-detection
+  - phase-idea-feasibility
+  - phase-permitting-approvals
+  - career-civil-engineer
+  - career-gis-specialist
 image: "/images/careers/surveyor.jpg"
 ---
   - lesson-drones-scanning-and-mapping

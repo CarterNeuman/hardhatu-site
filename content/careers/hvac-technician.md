@@ -100,5 +100,21 @@ relatedIds:
   - exam-nate-ready-to-work
   - lesson-mechanical-and-plumbing-rough-in
   - lesson-hvac-and-building-systems-in-practice
+recommendedIds:
+  - career-facilities-manager
+  - career-sheet-metal-worker
+  - concept-general-contractor
+  - concept-commissioning
+  - concept-water-heater
+  - concept-ductwork
+  - concept-rooftop-unit
+  - concept-rough-in-hvac
+  - concept-chiller
+  - concept-air-handling-unit
+  - concept-lockout-tagout
+  - concept-net-zero-energy-building
+  - concept-energy-modeling
+  - concept-energy-code-compliance
+  - concept-boiler
 image: "/images/careers/hvac-technician.jpg"
 ---

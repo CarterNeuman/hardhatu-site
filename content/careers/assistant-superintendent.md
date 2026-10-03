@@ -76,5 +76,21 @@ relatedIds:
   - software-bluebeam-revu
   - resume-project-operations
   - gethired-project-operations
+recommendedIds:
+  - career-superintendent
+  - career-laborer
+  - software-procore
+  - software-bluebeam-revu
+  - concept-daily-report
+  - concept-punch-list
+  - concept-toolbox-talk
+  - concept-job-hazard-analysis
+  - concept-non-conformance-report
+  - career-safety-manager
+  - career-qaqc-inspector
+  - exam-osha-30
+  - exam-nccer-core
+  - interview-project-operations
+  - lesson-jobsite-safety-in-practice
 image: "/images/careers/assistant-superintendent.jpg"
 ---

@@ -80,5 +80,21 @@ relatedIds:
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
   - lesson-cost-control-and-forecasting-in-practice
+recommendedIds:
+  - career-estimator
+  - career-senior-estimator
+  - software-hcss-heavybid
+  - concept-change-order
+  - concept-4d-5d-bim
+  - concept-guaranteed-maximum-price
+  - concept-shared-savings-clause
+  - concept-cost-code
+  - concept-committed-cost
+  - concept-actual-cost
+  - concept-cost-to-complete
+  - career-quantity-surveyor
+  - career-preconstruction-manager
+  - career-construction-data-analyst
+  - interview-preconstruction-estimating
 image: "/images/careers/cost-engineer.jpg"
 ---

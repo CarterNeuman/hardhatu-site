@@ -66,5 +66,14 @@ relatedIds:
   - career-business-development-manager
   - resume-business
   - gethired-business
+recommendedIds:
+  - career-estimator
+  - career-preconstruction-manager
+  - concept-general-contractor
+  - interview-business
+  - software-buildertrend
+  - career-business-development-manager
+  - resume-business
+  - gethired-business
 image: "/images/careers/construction-sales.jpg"
 ---

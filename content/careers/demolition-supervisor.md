@@ -75,5 +75,18 @@ relatedIds:
   - concept-asbestos-abatement-regulation
   - resume-specialized-construction
   - gethired-specialized-construction
+recommendedIds:
+  - concept-demolition
+  - concept-hazardous-material-abatement
+  - concept-shoring
+  - career-environmental-remediation-specialist
+  - career-laborer
+  - career-equipment-operator
+  - exam-osha-30
+  - interview-specialized-construction
+  - phase-site-preparation-mobilization
+  - concept-asbestos-abatement-regulation
+  - resume-specialized-construction
+  - gethired-specialized-construction
 image: "/images/careers/demolition-supervisor.jpg"
 ---

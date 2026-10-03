@@ -76,5 +76,21 @@ relatedIds:
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
   - lesson-a-day-in-the-life-of-an-estimator
+recommendedIds:
+  - career-estimator
+  - career-cost-engineer
+  - software-stack
+  - software-proest
+  - software-hcss-heavybid
+  - concept-change-order
+  - concept-general-contractor
+  - concept-bid
+  - concept-bid-leveling
+  - concept-quantity-takeoff
+  - exam-cpe
+  - career-preconstruction-manager
+  - career-operations-manager
+  - interview-preconstruction-estimating
+  - lesson-bidding-and-winning-work
 image: "/images/careers/senior-estimator.jpg"
 ---

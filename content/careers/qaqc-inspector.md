@@ -97,5 +97,21 @@ relatedIds:
   - gethired-project-operations
   - exam-cwi
   - exam-icc-building-inspector
+recommendedIds:
+  - career-quality-control-manager
+  - career-assistant-superintendent
+  - software-procore
+  - software-bluebeam-revu
+  - concept-special-inspection
+  - concept-non-conformance-report
+  - concept-mock-up
+  - concept-structural-welding
+  - concept-concrete-curing
+  - concept-rebar
+  - concept-egress-requirements
+  - concept-final-inspection
+  - concept-first-article-inspection
+  - concept-pre-installation-meeting
+  - concept-joint-sealants
 image: "/images/careers/qaqc-inspector.jpg"
 ---

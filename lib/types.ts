@@ -6,6 +6,14 @@ const base = {
   title: z.string(),
   tier: z.enum(["free", "premium"]).default("free"),
   relatedIds: z.array(z.string()).default([]),
+  // Curated subset of relatedIds — the 10-15 most relevant connections,
+  // meant to be a couple of careers plus a handful of concepts/software
+  // for a career page, so "Explore next" reads as genuinely relevant
+  // rather than a wall of every tangential link. Capped at 15 so it can
+  // never regress into the problem it exists to solve. Optional/empty by
+  // default: a content type that hasn't been curated yet just falls back
+  // to showing its full relatedIds list (see RelatedLinks.tsx).
+  recommendedIds: z.array(z.string()).max(15).default([]),
   // Optional SEO/meta field. Falls back to a type-specific field (tagline,
   // definition, etc.) at render time if left blank in the content file.
   metaDescription: z.string().optional(),

@@ -78,5 +78,21 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - exam-cpr-first-aid
+recommendedIds:
+  - career-superintendent
+  - career-concrete-worker
+  - concept-general-contractor
+  - concept-cmu
+  - concept-brick-veneer
+  - concept-mortar
+  - concept-masonry-control-joint
+  - concept-silica-exposure-standard
+  - concept-stone-veneer
+  - concept-masonry-flashing-weeps
+  - concept-masonry-reinforcement
+  - phase-construction
+  - exam-osha-10
+  - exam-nccer-core
+  - interview-construction-general
 image: "/images/careers/mason.jpg"
 ---

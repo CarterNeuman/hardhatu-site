@@ -85,5 +85,21 @@ relatedIds:
   - concept-certified-restorer-designation
   - resume-insurance-claims
   - gethired-insurance-claims
+recommendedIds:
+  - career-insurance-adjuster
+  - career-public-adjuster
+  - software-xactimate
+  - concept-scope-of-loss
+  - concept-moisture-mapping
+  - concept-reconstruction
+  - concept-xactimate
+  - concept-overhead-and-profit-claims
+  - concept-water-damage-categories
+  - concept-water-damage-classes
+  - concept-psychrometrics
+  - concept-drying-log-documentation
+  - concept-certified-restorer-designation
+  - career-restoration-project-manager
+  - career-roofer
 image: "/images/careers/insurance-restoration-estimator.jpg"
 ---

@@ -73,5 +73,17 @@ relatedIds:
   - resume-technology-design
   - gethired-technology-design
   - lesson-drones-scanning-and-mapping
+recommendedIds:
+  - career-surveyor
+  - career-bim-vdc-specialist
+  - concept-site-survey
+  - concept-reality-capture
+  - concept-drone-mapping
+  - interview-technology-design
+  - career-gis-specialist
+  - career-construction-technology-manager
+  - resume-technology-design
+  - gethired-technology-design
+  - lesson-drones-scanning-and-mapping
 image: "/images/careers/drone-uav-specialist.jpg"
 ---

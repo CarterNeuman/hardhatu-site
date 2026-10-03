@@ -76,5 +76,14 @@ relatedIds:
   - career-business-development-manager
   - resume-business
   - gethired-business
+recommendedIds:
+  - career-project-manager
+  - career-senior-estimator
+  - concept-general-contractor
+  - interview-business
+  - software-viewpoint-vista
+  - career-business-development-manager
+  - resume-business
+  - gethired-business
 image: "/images/careers/operations-manager.jpg"
 ---

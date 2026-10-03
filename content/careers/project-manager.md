@@ -152,5 +152,21 @@ relatedIds:
   - gethired-project-operations
   - lesson-cost-control-and-forecasting-in-practice
   - lesson-subcontractor-buyout-and-scope-gaps
+recommendedIds:
+  - career-project-engineer
+  - career-owners-representative
+  - software-procore
+  - software-autodesk-build
+  - software-buildertrend
+  - concept-change-order
+  - concept-rfi
+  - concept-general-contractor
+  - concept-punch-list
+  - concept-closeout
+  - concept-mobilization
+  - concept-schedule-of-values
+  - concept-contingency
+  - concept-allowance
+  - concept-notice-to-proceed
 image: "/images/careers/project-manager.jpg"
 ---

@@ -69,5 +69,13 @@ relatedIds:
   - phase-procurement-preconstruction
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
+recommendedIds:
+  - career-estimator
+  - career-cost-engineer
+  - concept-unit-price-contract
+  - interview-preconstruction-estimating
+  - phase-procurement-preconstruction
+  - resume-preconstruction-estimating
+  - gethired-preconstruction-estimating
 image: "/images/careers/quantity-surveyor.jpg"
 ---

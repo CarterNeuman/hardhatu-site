@@ -83,5 +83,21 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - lesson-building-envelope-and-glazing
+recommendedIds:
+  - career-ironworker
+  - career-superintendent
+  - concept-curtain-wall
+  - concept-glazing
+  - concept-storefront-system
+  - concept-windows
+  - concept-doors-and-frames
+  - concept-door-hardware
+  - concept-building-envelope
+  - concept-waterproofing
+  - concept-flashing
+  - concept-wind-load-hurricane-code
+  - concept-joint-sealants
+  - career-elevator-technician
+  - exam-osha-10
 image: "/images/careers/glazier.jpg"
 ---

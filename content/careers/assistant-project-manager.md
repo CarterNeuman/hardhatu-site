@@ -68,5 +68,17 @@ relatedIds:
   - interview-project-operations
   - resume-project-operations
   - gethired-project-operations
+recommendedIds:
+  - concept-change-order
+  - concept-rfi
+  - concept-general-contractor
+  - career-project-engineer
+  - career-project-manager
+  - exam-capm
+  - exam-pmp
+  - interview-project-manager
+  - interview-project-operations
+  - resume-project-operations
+  - gethired-project-operations
 image: "/images/careers/assistant-project-manager.jpg"
 ---

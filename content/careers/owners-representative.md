@@ -93,5 +93,21 @@ relatedIds:
   - gethired-specialized-construction
   - lesson-a-day-as-an-owners-rep
   - lesson-financing-and-feasibility
+recommendedIds:
+  - career-project-manager
+  - career-business-development-manager
+  - concept-change-order
+  - concept-general-contractor
+  - concept-notice-to-proceed
+  - concept-performance-bond
+  - concept-request-for-proposal
+  - concept-request-for-qualifications
+  - concept-owner
+  - concept-architect
+  - concept-cm-as-advisor
+  - concept-building-permit
+  - concept-zoning-variances
+  - concept-leed
+  - concept-green-building-certification
 image: "/images/careers/owners-representative.jpg"
 ---

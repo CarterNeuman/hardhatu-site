@@ -108,5 +108,21 @@ relatedIds:
   - resume-project-operations
   - gethired-project-operations
   - exam-cdt
+recommendedIds:
+  - career-project-manager
+  - career-superintendent
+  - software-procore
+  - software-bluebeam-revu
+  - software-autodesk-build
+  - concept-rfi
+  - concept-general-contractor
+  - concept-submittal
+  - concept-addendum
+  - concept-as-built-drawings
+  - concept-shop-drawings
+  - concept-site-logistics-plan
+  - concept-architect
+  - concept-general-requirements
+  - concept-precast-concrete
 image: "/images/careers/project-engineer.jpg"
 ---

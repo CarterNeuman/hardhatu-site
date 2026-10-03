@@ -79,5 +79,21 @@ relatedIds:
   - concept-blasting-rock-removal
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
+recommendedIds:
+  - career-equipment-operator
+  - career-civil-engineer
+  - concept-grading
+  - concept-excavation
+  - concept-shoring
+  - concept-erosion-control
+  - concept-site-utilities
+  - concept-sanitary-sewer
+  - concept-storm-drainage
+  - concept-paving
+  - concept-quantity-takeoff
+  - concept-unit-price-contract
+  - concept-blasting-rock-removal
+  - career-estimator
+  - interview-preconstruction-estimating
 image: "/images/careers/heavy-civil-estimator.jpg"
 ---

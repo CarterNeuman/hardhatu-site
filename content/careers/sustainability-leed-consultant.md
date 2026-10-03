@@ -87,5 +87,21 @@ relatedIds:
   - concept-carbon-accounting-scopes
   - resume-consultants-advisory
   - gethired-consultants-advisory
+recommendedIds:
+  - career-construction-consultant
+  - career-commissioning-agent
+  - concept-insulation
+  - concept-air-barrier
+  - concept-leed
+  - concept-green-building-certification
+  - concept-net-zero-energy-building
+  - concept-embodied-carbon
+  - concept-energy-modeling
+  - concept-sustainable-site-development
+  - concept-well-building-standard
+  - concept-passive-house
+  - concept-environmental-product-declaration
+  - concept-life-cycle-assessment
+  - concept-carbon-accounting-scopes
 image: "/images/careers/sustainability-leed-consultant.jpg"
 ---

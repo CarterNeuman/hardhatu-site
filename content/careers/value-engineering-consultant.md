@@ -72,5 +72,16 @@ relatedIds:
   - lesson-value-engineering
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
+recommendedIds:
+  - concept-value-engineering
+  - concept-constructability-review
+  - career-cost-engineer
+  - career-estimator
+  - career-preconstruction-manager
+  - career-bid-coordinator
+  - interview-preconstruction-estimating
+  - lesson-value-engineering
+  - resume-preconstruction-estimating
+  - gethired-preconstruction-estimating
 image: "/images/careers/value-engineering-consultant.jpg"
 ---

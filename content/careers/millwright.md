@@ -81,5 +81,17 @@ relatedIds:
   - concept-loading-dock-equipment
   - gethired-field-trades
   - resume-field-trades
+recommendedIds:
+  - concept-rigging
+  - career-equipment-operator
+  - career-facilities-manager
+  - exam-osha-10
+  - exam-nccer-core
+  - interview-field-trades
+  - phase-construction
+  - phase-operations-maintenance
+  - concept-loading-dock-equipment
+  - gethired-field-trades
+  - resume-field-trades
 image: "/images/careers/millwright.jpg"
 ---

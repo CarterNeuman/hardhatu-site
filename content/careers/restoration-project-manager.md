@@ -89,5 +89,21 @@ relatedIds:
   - concept-salvage-insurance
   - resume-specialized-construction
   - gethired-specialized-construction
+recommendedIds:
+  - career-insurance-restoration-estimator
+  - career-insurance-adjuster
+  - concept-scope-of-loss
+  - concept-replacement-cost-value
+  - concept-subrogation
+  - concept-supplement-claims
+  - concept-mitigation
+  - concept-remediation
+  - concept-emergency-services
+  - concept-reconstruction
+  - concept-first-notice-of-loss
+  - concept-ordinance-or-law-coverage
+  - concept-catastrophe-claim
+  - concept-total-loss-vs-partial-loss
+  - concept-iicrc-standards
 image: "/images/careers/restoration-project-manager.jpg"
 ---

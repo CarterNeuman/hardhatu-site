@@ -94,5 +94,21 @@ relatedIds:
   - gethired-technology-design
   - exam-fe
   - lesson-concrete-and-foundations-in-practice
+recommendedIds:
+  - career-ironworker
+  - career-concrete-worker
+  - concept-structural-steel
+  - concept-foundation
+  - concept-rebar
+  - concept-footing
+  - concept-precast-concrete
+  - concept-shop-drawings
+  - concept-architect
+  - concept-seismic-design-category
+  - concept-wind-load-hurricane-code
+  - concept-post-tensioned-concrete
+  - concept-operable-partitions
+  - concept-concrete-admixtures
+  - concept-structural-steel-erection
 image: "/images/careers/structural-engineer.jpg"
 ---

@@ -76,5 +76,15 @@ relatedIds:
   - lesson-when-its-not-the-storms-fault
   - resume-consultants-advisory
   - gethired-consultants-advisory
+recommendedIds:
+  - career-construction-claims-consultant
+  - career-construction-consultant
+  - career-scheduling-delay-consultant
+  - interview-consultants-advisory
+  - lesson-schedule-delay-dispute
+  - career-construction-attorney
+  - lesson-when-its-not-the-storms-fault
+  - resume-consultants-advisory
+  - gethired-consultants-advisory
 image: "/images/careers/expert-witness-construction-litigation.jpg"
 ---

@@ -70,5 +70,15 @@ relatedIds:
   - interview-business
   - resume-business
   - gethired-business
+recommendedIds:
+  - concept-joint-venture
+  - concept-request-for-qualifications
+  - concept-prequalification
+  - career-construction-sales
+  - career-operations-manager
+  - career-owners-representative
+  - interview-business
+  - resume-business
+  - gethired-business
 image: "/images/careers/business-development-manager.jpg"
 ---

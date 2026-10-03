@@ -83,5 +83,21 @@ relatedIds:
   - concept-request-for-equitable-adjustment
   - resume-consultants-advisory
   - gethired-consultants-advisory
+recommendedIds:
+  - career-insurance-adjuster
+  - career-public-adjuster
+  - concept-change-order
+  - concept-scope-of-loss
+  - concept-delay-claim
+  - concept-termination-for-default
+  - concept-no-damage-for-delay
+  - concept-dispute-resolution
+  - concept-anti-concurrent-causation
+  - concept-business-interruption-insurance
+  - concept-wind-vs-water-causation
+  - concept-cardinal-change
+  - concept-constructive-acceleration
+  - concept-differing-site-conditions
+  - concept-notice-requirements
 image: "/images/careers/construction-claims-consultant.jpg"
 ---

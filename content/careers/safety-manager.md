@@ -126,5 +126,21 @@ relatedIds:
   - resume-project-operations
   - gethired-project-operations
   - exam-chst
+recommendedIds:
+  - career-superintendent
+  - career-quality-control-manager
+  - software-mitti
+  - software-hammertech
+  - concept-certificate-of-insurance
+  - concept-prequalification
+  - concept-stop-work-order
+  - concept-indemnification
+  - concept-builders-risk-insurance
+  - concept-general-liability-insurance
+  - concept-workers-compensation-insurance
+  - concept-waiver-of-subrogation
+  - concept-hazardous-material-abatement
+  - concept-fire-sprinkler-system
+  - concept-standpipe-system
 image: "/images/careers/safety-manager.jpg"
 ---

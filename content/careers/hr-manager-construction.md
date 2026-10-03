@@ -80,5 +80,21 @@ relatedIds:
   - concept-right-to-work-law
   - resume-business
   - gethired-business
+recommendedIds:
+  - career-contracts-administrator
+  - career-procurement-manager
+  - software-sage-300-cre
+  - concept-workers-compensation-insurance
+  - concept-prevailing-wage
+  - concept-certified-payroll
+  - concept-union-vs-open-shop
+  - concept-total-recordable-incident-rate
+  - concept-osha-recordable-incident
+  - concept-apprenticeship-program
+  - concept-independent-contractor-classification
+  - concept-non-compete-non-solicitation
+  - concept-right-to-work-law
+  - career-safety-manager
+  - career-construction-accountant
 image: "/images/careers/hr-manager-construction.jpg"
 ---

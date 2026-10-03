@@ -67,5 +67,16 @@ relatedIds:
   - concept-ai-in-construction
   - resume-technology-design
   - gethired-technology-design
+recommendedIds:
+  - career-bim-vdc-specialist
+  - career-cost-engineer
+  - software-procore
+  - concept-construction-management-software
+  - interview-technology-design
+  - career-gis-specialist
+  - career-construction-technology-manager
+  - concept-ai-in-construction
+  - resume-technology-design
+  - gethired-technology-design
 image: "/images/careers/construction-data-analyst.jpg"
 ---

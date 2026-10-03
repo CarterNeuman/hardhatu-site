@@ -103,6 +103,22 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - lesson-framing-and-rough-carpentry
+recommendedIds:
+  - career-superintendent
+  - career-drywall-installer
+  - software-sketchup
+  - concept-general-contractor
+  - concept-formwork
+  - concept-metal-studs
+  - concept-framing-lumber
+  - concept-engineered-lumber
+  - concept-rough-carpentry
+  - concept-finish-carpentry
+  - concept-insulation
+  - concept-flashing
+  - concept-vapor-barrier
+  - concept-air-barrier
+  - concept-doors-and-frames
 image: "/images/careers/carpenter.jpg"
 
 ---

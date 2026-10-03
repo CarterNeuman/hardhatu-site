@@ -68,5 +68,18 @@ relatedIds:
   - concept-deep-foundations
   - resume-specialized-construction
   - gethired-specialized-construction
+recommendedIds:
+  - concept-foundation
+  - concept-footing
+  - concept-shoring
+  - career-equipment-operator
+  - career-structural-engineer
+  - career-heavy-civil-estimator
+  - exam-osha-10
+  - interview-specialized-construction
+  - phase-site-preparation-mobilization
+  - concept-deep-foundations
+  - resume-specialized-construction
+  - gethired-specialized-construction
 image: "/images/careers/pile-driving-specialist.jpg"
 ---

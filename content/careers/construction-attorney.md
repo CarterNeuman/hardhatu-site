@@ -83,5 +83,21 @@ relatedIds:
   - resume-business
   - resume-consultants-advisory
   - gethired-business
+recommendedIds:
+  - career-contracts-administrator
+  - career-construction-claims-consultant
+  - concept-mechanics-lien
+  - concept-dispute-resolution
+  - concept-indemnification
+  - concept-liquidated-damages
+  - concept-termination-for-default
+  - concept-termination-for-convenience
+  - concept-force-majeure
+  - concept-lien-waiver
+  - concept-cardinal-change
+  - concept-differing-site-conditions
+  - concept-economic-loss-doctrine
+  - concept-professional-liability-insurance
+  - concept-spearin-doctrine
 image: "/images/careers/construction-attorney.jpg"
 ---

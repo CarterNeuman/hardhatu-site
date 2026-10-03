@@ -69,5 +69,21 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - exam-cpr-first-aid
+recommendedIds:
+  - career-carpenter
+  - career-painter
+  - concept-general-contractor
+  - concept-metal-studs
+  - concept-drywall
+  - concept-fire-rated-assembly
+  - concept-access-doors-panels
+  - concept-gypsum-board-finish-levels
+  - concept-wall-coverings
+  - phase-construction
+  - exam-osha-10
+  - exam-nccer-core
+  - interview-construction-general
+  - interview-field-trades
+  - gethired-field-trades
 image: "/images/careers/drywall-installer.jpg"
 ---

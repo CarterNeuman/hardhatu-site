@@ -110,5 +110,21 @@ relatedIds:
   - concept-third-party-administrator
   - resume-insurance-claims
   - gethired-insurance-claims
+recommendedIds:
+  - career-construction-claims-consultant
+  - career-public-adjuster
+  - software-xactimate
+  - concept-scope-of-loss
+  - concept-general-contractor
+  - concept-actual-cash-value
+  - concept-replacement-cost-value
+  - concept-depreciation
+  - concept-deductible
+  - concept-proof-of-loss
+  - concept-subrogation
+  - concept-supplement-claims
+  - concept-mitigation
+  - concept-remediation
+  - concept-emergency-services
 image: "/images/careers/insurance-adjuster.jpg"
 ---

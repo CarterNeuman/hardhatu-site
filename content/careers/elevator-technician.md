@@ -78,5 +78,19 @@ relatedIds:
   - concept-wheelchair-lifts
   - gethired-field-trades
   - resume-field-trades
+recommendedIds:
+  - concept-elevator
+  - concept-escalator
+  - career-electrician
+  - career-facilities-manager
+  - career-glazier
+  - exam-osha-10
+  - interview-field-trades
+  - phase-construction
+  - phase-operations-maintenance
+  - concept-material-freight-lifts
+  - concept-wheelchair-lifts
+  - gethired-field-trades
+  - resume-field-trades
 image: "/images/careers/elevator-technician.jpg"
 ---

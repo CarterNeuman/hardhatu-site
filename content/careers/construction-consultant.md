@@ -67,5 +67,15 @@ relatedIds:
   - phase-idea-feasibility
   - resume-consultants-advisory
   - gethired-consultants-advisory
+recommendedIds:
+  - career-construction-claims-consultant
+  - career-cost-engineer
+  - career-owners-representative
+  - career-expert-witness-construction-litigation
+  - career-sustainability-leed-consultant
+  - interview-consultants-advisory
+  - phase-idea-feasibility
+  - resume-consultants-advisory
+  - gethired-consultants-advisory
 image: "/images/careers/construction-consultant.jpg"
 ---

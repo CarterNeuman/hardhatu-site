@@ -94,6 +94,22 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - lesson-structural-steel-erection
+recommendedIds:
+  - career-superintendent
+  - career-welder
+  - concept-general-contractor
+  - concept-shop-drawings
+  - concept-rebar
+  - concept-precast-concrete
+  - concept-structural-steel
+  - concept-steel-decking
+  - concept-structural-welding
+  - concept-pre-engineered-metal-building
+  - concept-fall-protection
+  - concept-rigging
+  - concept-galvanizing-corrosion-protection
+  - concept-miscellaneous-metals
+  - concept-bolted-vs-welded-connections
 image: "/images/careers/ironworker.jpg"
 
 ---

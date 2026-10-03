@@ -109,5 +109,21 @@ relatedIds:
   - exam-cdt
   - lesson-a-day-in-the-life-of-an-estimator
   - lesson-procurement-and-long-lead-logistics
+recommendedIds:
+  - career-project-manager
+  - career-senior-estimator
+  - software-stack
+  - software-on-screen-takeoff
+  - software-proest
+  - concept-change-order
+  - concept-general-contractor
+  - concept-schedule-of-values
+  - concept-contingency
+  - concept-allowance
+  - concept-bid
+  - concept-addendum
+  - concept-pre-bid-meeting
+  - concept-scope-of-work
+  - concept-value-engineering
 image: "/images/careers/estimator.jpg"
 ---

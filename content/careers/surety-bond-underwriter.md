@@ -74,5 +74,20 @@ relatedIds:
   - concept-miller-act
   - resume-insurance-claims
   - gethired-insurance-claims
+recommendedIds:
+  - concept-surety-bonding-capacity
+  - concept-bid-bond
+  - concept-performance-bond
+  - concept-payment-bond
+  - career-contracts-administrator
+  - career-construction-accountant
+  - interview-insurance-claims
+  - concept-loss-run-report
+  - concept-indemnity-agreement-surety
+  - concept-little-miller-act
+  - lesson-whos-on-the-hook
+  - concept-miller-act
+  - resume-insurance-claims
+  - gethired-insurance-claims
 image: "/images/careers/surety-bond-underwriter.jpg"
 ---

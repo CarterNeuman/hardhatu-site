@@ -83,6 +83,22 @@ relatedIds:
   - concept-cobie
   - resume-technology-design
   - gethired-technology-design
+recommendedIds:
+  - career-project-manager
+  - career-surveyor
+  - software-autodesk-revit
+  - software-navisworks
+  - software-matterport
+  - concept-site-survey
+  - concept-bim
+  - concept-clash-detection
+  - concept-4d-5d-bim
+  - concept-digital-twin
+  - concept-augmented-reality-jobsite
+  - concept-bim-execution-plan
+  - concept-common-data-environment
+  - concept-cobie
+  - exam-autodesk-certified-professional
 image: "/images/careers/bim-vdc-specialist.jpg"
 ---
   - lesson-3d-modeling-in-practice

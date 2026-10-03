@@ -114,5 +114,21 @@ relatedIds:
   - gethired-business
   - exam-cdt
   - lesson-subcontractor-buyout-and-scope-gaps
+recommendedIds:
+  - career-project-manager
+  - career-hr-manager-construction
+  - software-quickbooks
+  - concept-change-order
+  - concept-general-contractor
+  - concept-mechanics-lien
+  - concept-retainage
+  - concept-payment-bond
+  - concept-performance-bond
+  - concept-certificate-of-insurance
+  - concept-invitation-for-bid
+  - concept-bid-bond
+  - concept-lien-waiver
+  - concept-construction-change-directive
+  - concept-subcontractor
 image: "/images/careers/contracts-administrator.jpg"
 ---

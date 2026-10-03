@@ -84,5 +84,21 @@ relatedIds:
   - concept-public-private-partnership
   - resume-business
   - gethired-business
+recommendedIds:
+  - career-safety-manager
+  - career-certified-payroll-specialist
+  - concept-builders-risk-insurance
+  - concept-general-liability-insurance
+  - concept-workers-compensation-insurance
+  - concept-waiver-of-subrogation
+  - concept-surety-bonding-capacity
+  - concept-indemnification
+  - concept-environmental-site-assessment
+  - concept-experience-modification-rate
+  - concept-loss-run-report
+  - concept-third-party-administrator
+  - concept-additional-insured-endorsement
+  - concept-ccip
+  - concept-ocip
 image: "/images/careers/risk-manager-construction.jpg"
 ---

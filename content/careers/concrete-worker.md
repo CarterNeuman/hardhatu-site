@@ -87,6 +87,22 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - lesson-concrete-and-foundations-in-practice
+recommendedIds:
+  - career-superintendent
+  - career-mason
+  - concept-foundation
+  - concept-general-contractor
+  - concept-footing
+  - concept-slab-on-grade
+  - concept-concrete-curing
+  - concept-waterproofing
+  - concept-retaining-wall
+  - concept-silica-exposure-standard
+  - concept-concrete-admixtures
+  - concept-post-tensioned-concrete
+  - concept-tilt-up-concrete
+  - concept-shotcrete
+  - concept-epoxy-resinous-flooring
 image: "/images/careers/concrete-worker.jpg"
 
 ---

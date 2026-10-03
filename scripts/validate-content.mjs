@@ -295,6 +295,22 @@ for (const { filePath, data, body } of entries) {
     }
   }
 
+  const recommendedIds = Array.isArray(data.recommendedIds) ? data.recommendedIds : [];
+  if (recommendedIds.length > 15) {
+    errors.push(`${filePath}: recommendedIds has ${recommendedIds.length} entries, max is 15 (it exists to stay a short curated list)`);
+  }
+  const relatedIdSet = new Set(relatedIds);
+  for (const recommendedId of recommendedIds) {
+    if (!allIds.has(recommendedId)) {
+      errors.push(`${filePath}: recommendedIds references unknown id "${recommendedId}"`);
+    } else if (!relatedIdSet.has(recommendedId)) {
+      errors.push(`${filePath}: recommendedIds includes "${recommendedId}" but it is not in relatedIds — recommendedIds must be a subset of relatedIds`);
+    }
+  }
+  if (data.id && data.id.startsWith("career-") && relatedIds.length > 0 && recommendedIds.length === 0) {
+    warnings.push(`${filePath}: career has ${relatedIds.length} relatedIds but no recommendedIds yet — "Explore next" will show the full uncurated list`);
+  }
+
   if (data.careerId && !allIds.has(data.careerId)) {
     errors.push(`${filePath}: careerId references unknown id "${data.careerId}"`);
   }

@@ -79,5 +79,19 @@ relatedIds:
   - concept-wheelchair-lifts
   - resume-specialized-construction
   - gethired-specialized-construction
+recommendedIds:
+  - concept-brick-veneer
+  - concept-mortar
+  - concept-masonry-control-joint
+  - concept-architect
+  - career-restoration-project-manager
+  - career-mason
+  - career-facilities-manager
+  - interview-specialized-construction
+  - phase-renovation-restoration-endoflife
+  - concept-section-106-historic-review
+  - concept-wheelchair-lifts
+  - resume-specialized-construction
+  - gethired-specialized-construction
 image: "/images/careers/historic-preservation-specialist.jpg"
 ---

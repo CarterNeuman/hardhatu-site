@@ -89,5 +89,21 @@ relatedIds:
   - concept-wetlands-permit-404
   - resume-specialized-construction
   - gethired-specialized-construction
+recommendedIds:
+  - career-facilities-manager
+  - career-safety-manager
+  - concept-demolition
+  - concept-hazardous-material-abatement
+  - concept-erosion-control
+  - concept-sustainable-site-development
+  - concept-mold-assessment-remediation
+  - concept-asbestos-abatement-regulation
+  - concept-environmental-site-assessment
+  - concept-lead-safe-work-practices
+  - concept-wetlands-permit-404
+  - phase-construction
+  - career-painter
+  - interview-specialized-construction
+  - lesson-green-building-certification
 image: "/images/careers/environmental-remediation-specialist.jpg"
 ---

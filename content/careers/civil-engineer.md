@@ -87,5 +87,21 @@ relatedIds:
   - resume-technology-design
   - gethired-technology-design
   - exam-fe
+recommendedIds:
+  - career-surveyor
+  - career-superintendent
+  - concept-grading
+  - concept-storm-drainage
+  - concept-sanitary-sewer
+  - concept-site-utilities
+  - concept-erosion-control
+  - concept-site-survey
+  - concept-architect
+  - concept-npdes-construction-permit
+  - concept-wetlands-permit-404
+  - concept-dewatering
+  - concept-geotechnical-report
+  - concept-soil-compaction-testing
+  - concept-blasting-rock-removal
 image: "/images/careers/civil-engineer.jpg"
 ---

@@ -105,5 +105,21 @@ relatedIds:
   - gethired-technology-design
   - exam-nate-ready-to-work
   - exam-fe
+recommendedIds:
+  - career-hvac-technician
+  - career-electrician
+  - software-autodesk-revit
+  - concept-air-handling-unit
+  - concept-ductwork
+  - concept-rooftop-unit
+  - concept-panel-board
+  - concept-switchgear
+  - concept-plumbing-fixtures
+  - concept-rough-in-electrical
+  - concept-rough-in-hvac
+  - concept-rough-in-plumbing
+  - concept-clash-detection
+  - concept-energy-code-compliance
+  - concept-direct-digital-control
 image: "/images/careers/mep-engineer.jpg"
 ---

@@ -82,5 +82,21 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - lesson-a-day-as-a-laborer
+recommendedIds:
+  - career-carpenter
+  - career-electrician
+  - concept-general-contractor
+  - concept-erosion-control
+  - concept-landscaping
+  - concept-fencing
+  - concept-personal-protective-equipment
+  - concept-heat-illness-prevention
+  - concept-stop-work-authority
+  - concept-safety-orientation
+  - concept-scaffolding-safety
+  - phase-construction
+  - career-concrete-worker
+  - exam-osha-10
+  - exam-nccer-core
 image: "/images/careers/laborer.jpg"
 ---

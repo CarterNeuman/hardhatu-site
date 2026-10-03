@@ -86,5 +86,21 @@ relatedIds:
   - resume-business
   - gethired-business
   - lesson-financing-and-feasibility
+recommendedIds:
+  - career-contracts-administrator
+  - career-procurement-manager
+  - software-quickbooks
+  - software-sage-300-cre
+  - software-viewpoint-vista
+  - concept-cost-plus-contract
+  - concept-pay-when-paid
+  - concept-surety-bonding-capacity
+  - concept-builders-risk-insurance
+  - concept-prevailing-wage
+  - concept-certified-payroll
+  - concept-prompt-payment-act
+  - career-hr-manager-construction
+  - interview-business
+  - lesson-getting-paid
 image: "/images/careers/construction-accountant.jpg"
 ---

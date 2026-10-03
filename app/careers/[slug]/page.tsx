@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllContent, getBySlug, getRelated } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, getRecommended } from "@/lib/content";
 import type { Career } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
 import { Tag } from "@/components/Tag";
@@ -38,6 +38,7 @@ export default async function CareerPage({
   const career = getBySlug("career", slug) as Career | undefined;
   if (!career) notFound();
   const related = getRelated(career);
+  const recommended = getRecommended(career);
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-10">
@@ -155,7 +156,7 @@ export default async function CareerPage({
         </>
       )}
 
-      <RelatedLinks items={related} />
+      <RelatedLinks items={related} recommended={recommended} />
     </article>
   );
 }

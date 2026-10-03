@@ -87,5 +87,21 @@ relatedIds:
   - concept-bim-execution-plan
   - resume-technology-design
   - gethired-technology-design
+recommendedIds:
+  - career-bim-vdc-specialist
+  - career-drone-uav-specialist
+  - software-procore
+  - software-autodesk-build
+  - concept-bim
+  - concept-digital-twin
+  - concept-construction-management-software
+  - concept-clash-detection
+  - concept-reality-capture
+  - concept-bms-integration
+  - concept-building-automation-system
+  - concept-structured-cabling-system
+  - concept-construction-robotics-automation
+  - concept-jobsite-iot-sensors
+  - concept-offsite-manufacturing
 image: "/images/careers/construction-technology-manager.jpg"
 ---

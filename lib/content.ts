@@ -178,6 +178,17 @@ export function getRelated(node: AnyContent): AnyContent[] {
     .filter((n): n is AnyContent => Boolean(n));
 }
 
+// The curated subset of getRelated() — recommendedIds resolved to real
+// content, meant to be the 10-15 items RelatedLinks shows up front. Empty
+// for any content item that hasn't been curated yet, which RelatedLinks
+// treats as "no curation yet, show the full related list instead".
+export function getRecommended(node: AnyContent): AnyContent[] {
+  const { byId } = getAllContent();
+  return node.recommendedIds
+    .map((id) => byId.get(id))
+    .filter((n): n is AnyContent => Boolean(n));
+}
+
 // urlFor, slugifyCategory, stripWikiLinks, and the three groupXByCategory
 // helpers are pure functions with no fs dependency — they live in
 // content-client.ts so client components (Header.tsx) can import them

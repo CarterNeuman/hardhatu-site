@@ -79,5 +79,21 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - exam-cpr-first-aid
+recommendedIds:
+  - career-drywall-installer
+  - career-environmental-remediation-specialist
+  - concept-general-contractor
+  - concept-finish-carpentry
+  - concept-drywall
+  - concept-paint
+  - concept-safety-data-sheet
+  - concept-lead-safe-work-practices
+  - phase-construction
+  - exam-osha-10
+  - exam-nccer-core
+  - interview-construction-general
+  - interview-field-trades
+  - gethired-field-trades
+  - resume-field-trades
 image: "/images/careers/painter.jpg"
 ---

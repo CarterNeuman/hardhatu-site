@@ -91,5 +91,21 @@ relatedIds:
   - exam-cpr-first-aid
   - exam-journeyman-plumber
   - lesson-mechanical-and-plumbing-rough-in
+recommendedIds:
+  - career-pipefitter
+  - career-mep-engineer
+  - concept-general-contractor
+  - concept-rough-in-plumbing
+  - concept-plumbing-fixtures
+  - concept-water-heater
+  - concept-backflow-preventer
+  - concept-sump-pump
+  - concept-sanitary-sewer
+  - concept-confined-space-entry
+  - concept-residential-appliances
+  - concept-foodservice-equipment
+  - concept-grease-interceptor
+  - concept-domestic-water-piping-materials
+  - concept-water-treatment-softening
 image: "/images/careers/plumber.jpg"
 ---

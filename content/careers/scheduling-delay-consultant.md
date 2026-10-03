@@ -69,5 +69,18 @@ relatedIds:
   - concept-time-impact-analysis
   - resume-consultants-advisory
   - gethired-consultants-advisory
+recommendedIds:
+  - career-scheduler
+  - career-construction-claims-consultant
+  - career-expert-witness-construction-litigation
+  - interview-consultants-advisory
+  - lesson-schedule-delay-dispute
+  - concept-constructive-acceleration
+  - concept-as-planned-vs-as-built-comparison
+  - concept-concurrent-delay
+  - concept-pacing-delay
+  - concept-time-impact-analysis
+  - resume-consultants-advisory
+  - gethired-consultants-advisory
 image: "/images/careers/scheduling-delay-consultant.jpg"
 ---

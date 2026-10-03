@@ -134,5 +134,21 @@ relatedIds:
   - exam-cpr-first-aid
   - exam-nccco-crane-operator
   - lesson-coordinating-subs-as-a-superintendent
+recommendedIds:
+  - career-project-manager
+  - career-project-engineer
+  - software-procore
+  - software-autodesk-build
+  - software-fieldwire
+  - concept-rfi
+  - concept-change-order
+  - concept-general-contractor
+  - concept-foundation
+  - concept-submittal
+  - concept-punch-list
+  - concept-mobilization
+  - concept-substantial-completion
+  - concept-certificate-of-occupancy
+  - concept-look-ahead-schedule
 image: "/images/careers/superintendent.jpg"
 ---

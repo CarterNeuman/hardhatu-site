@@ -101,6 +101,22 @@ relatedIds:
   - exam-cpr-first-aid
   - exam-nccco-crane-operator
   - lesson-heavy-equipment-and-earthwork
+recommendedIds:
+  - career-superintendent
+  - career-millwright
+  - concept-general-contractor
+  - concept-grading
+  - concept-excavation
+  - concept-shoring
+  - concept-competent-person
+  - concept-excavation-trenching-safety
+  - concept-crane-lift-plan
+  - concept-rigging
+  - concept-gps-machine-control
+  - concept-paving
+  - concept-site-utilities
+  - concept-storm-drainage
+  - concept-sanitary-sewer
 image: "/images/careers/equipment-operator.jpg"
 
 ---

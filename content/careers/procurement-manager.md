@@ -71,5 +71,20 @@ relatedIds:
   - resume-business
   - gethired-business
   - lesson-procurement-and-long-lead-logistics
+recommendedIds:
+  - career-estimator
+  - concept-change-order
+  - concept-purchase-order
+  - concept-mbe-wbe-dbe
+  - career-hr-manager-construction
+  - career-construction-accountant
+  - interview-business
+  - phase-procurement-preconstruction
+  - concept-job-order-contracting
+  - concept-procurement-log
+  - concept-ofci
+  - resume-business
+  - gethired-business
+  - lesson-procurement-and-long-lead-logistics
 image: "/images/careers/procurement-manager.jpg"
 ---

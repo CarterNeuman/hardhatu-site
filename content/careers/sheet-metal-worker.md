@@ -78,5 +78,21 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - lesson-mechanical-and-plumbing-rough-in
+recommendedIds:
+  - career-hvac-technician
+  - career-roofer
+  - concept-ductwork
+  - concept-rooftop-unit
+  - concept-air-handling-unit
+  - concept-roofing-membrane
+  - concept-flashing
+  - concept-ductwork-insulation
+  - career-mep-engineer
+  - exam-osha-10
+  - exam-nccer-core
+  - interview-field-trades
+  - lesson-building-sequence
+  - phase-construction
+  - gethired-field-trades
 image: "/images/careers/sheet-metal-worker.jpg"
 ---
