@@ -22,4 +22,5 @@ export const CONTENT_TYPE_DIR: Record<ContentType, string> = {
   cheatsheet: "cheatsheets",
   quiz: "quizzes",
   program: "programs",
+  actionplan: "action-plans",
 };

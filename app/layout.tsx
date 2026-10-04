@@ -50,17 +50,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="font-sans">
-        <Header
-          careerGroups={careerGroups}
-          interviewGroups={interviewGroups}
-          conceptGroups={conceptGroups}
-          getHiredGuides={getHiredOrdered}
-          careerCount={careers.length}
-          interviewCount={interviews.length}
-          conceptCount={concepts.length}
-        />
+        {/* print:hidden on both -- a printed/saved-as-PDF action plan (see
+            ActionPlanBuilder's "Print / save as PDF" button) should read
+            as a clean document, not a printout of the site's nav chrome. */}
+        <div className="print:hidden">
+          <Header
+            careerGroups={careerGroups}
+            interviewGroups={interviewGroups}
+            conceptGroups={conceptGroups}
+            getHiredGuides={getHiredOrdered}
+            careerCount={careers.length}
+            interviewCount={interviews.length}
+            conceptCount={concepts.length}
+          />
+        </div>
         <main>{children}</main>
-        <Footer careerGroups={careerGroups} careerCount={careers.length} />
+        <div className="print:hidden">
+          <Footer careerGroups={careerGroups} careerCount={careers.length} />
+        </div>
         <Analytics />
         {gaMeasurementId && (
           <>

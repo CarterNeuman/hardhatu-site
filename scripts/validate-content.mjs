@@ -86,6 +86,14 @@ const TYPE_CONFIG = {
     prefix: "program-",
     required: ["id", "title", "programType", "organization", "location", "tagline"],
   },
+  "action-plans": {
+    type: "actionplan",
+    prefix: "actionplan-",
+    // overview/dayByDay/targetEmployerTypes/recruiterOutreach deliberately
+    // not required here -- a comingSoon: true placeholder can omit them.
+    // The structural check below enforces the real minimums once live.
+    required: ["id", "title", "category", "tagline"],
+  },
 };
 
 let errors = [];
@@ -259,6 +267,39 @@ for (const [dir, config] of Object.entries(TYPE_CONFIG)) {
           errors.push(`${filePath}: questions[${i}] needs at least 2 options`);
         }
       });
+    }
+
+    if (config.type === "actionplan") {
+      const isComingSoon = data.comingSoon === true;
+      if (!isComingSoon) {
+        const dayByDay = Array.isArray(data.dayByDay) ? data.dayByDay : [];
+        const targetEmployerTypes = Array.isArray(data.targetEmployerTypes) ? data.targetEmployerTypes : [];
+        const outreach = data.recruiterOutreach || {};
+        if (!data.overview) {
+          errors.push(`${filePath}: overview is required once live (or set comingSoon: true)`);
+        }
+        if (dayByDay.length < 5) {
+          errors.push(
+            `${filePath}: dayByDay has ${dayByDay.length}, needs at least 5 once live -- a real skeleton (or set comingSoon: true)`
+          );
+        }
+        dayByDay.forEach((item, i) => {
+          if (!item.title || !item.detail) {
+            errors.push(`${filePath}: dayByDay[${i}] needs both "title" and "detail"`);
+          }
+          if (typeof item.dayStart !== "number" || typeof item.dayEnd !== "number") {
+            errors.push(`${filePath}: dayByDay[${i}] needs numeric "dayStart" and "dayEnd"`);
+          } else if (item.dayStart > item.dayEnd) {
+            errors.push(`${filePath}: dayByDay[${i}].dayStart (${item.dayStart}) is after dayEnd (${item.dayEnd})`);
+          }
+        });
+        if (targetEmployerTypes.length < 1) {
+          errors.push(`${filePath}: targetEmployerTypes needs at least 1 entry once live (or set comingSoon: true)`);
+        }
+        if (!outreach.emailTemplate) {
+          errors.push(`${filePath}: recruiterOutreach.emailTemplate is required once live (or set comingSoon: true)`);
+        }
+      }
     }
 
     if (data.id) {

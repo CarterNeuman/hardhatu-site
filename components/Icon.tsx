@@ -12,7 +12,8 @@ type IconKind =
   | "exam"
   | "cheatsheet"
   | "quiz"
-  | "program";
+  | "program"
+  | "actionplan";
 
 export function Icon({
   kind,
@@ -128,6 +129,17 @@ export function Icon({
         <path d="M9 9a3 3 0 1 1 4 2.8c-.8.4-1.4 1-1.4 2.2" {...common} />
         <line x1="11.6" y1="17.2" x2="11.6" y2="17.3" {...common} />
         <rect x="4" y="4" width="16" height="16" rx="1.5" {...common} />
+      </svg>
+    );
+  }
+  if (kind === "actionplan") {
+    return (
+      <svg viewBox="0 0 24 24" style={style} className={className} aria-hidden="true" focusable="false">
+        <rect x="4" y="5" width="16" height="15" rx="1" {...common} />
+        <line x1="4" y1="9.5" x2="20" y2="9.5" {...common} />
+        <line x1="8" y1="3.5" x2="8" y2="6.5" {...common} />
+        <line x1="16" y1="3.5" x2="16" y2="6.5" {...common} />
+        <path d="M8 14l1.6 1.6L13.5 12" {...common} />
       </svg>
     );
   }

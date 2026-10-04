@@ -14,6 +14,7 @@ import {
   CheatSheetSchema,
   CareerMatchQuizSchema,
   ProgramSchema,
+  ActionPlanSchema,
   type AnyContent,
   type Career,
   type Concept,
@@ -28,6 +29,7 @@ import {
   type CheatSheet,
   type CareerMatchQuiz,
   type Program,
+  type ActionPlan,
 } from "./types";
 import { CONTENT_TYPE_DIR } from "./content-registry";
 
@@ -48,7 +50,8 @@ type TypeConfig = {
     | typeof ExamPrepSchema
     | typeof CheatSheetSchema
     | typeof CareerMatchQuizSchema
-    | typeof ProgramSchema;
+    | typeof ProgramSchema
+    | typeof ActionPlanSchema;
 };
 
 // Every content type's folder name, id prefix, and validation schema.
@@ -69,6 +72,7 @@ export const TYPE_CONFIG: Record<ContentType, TypeConfig> = {
   cheatsheet: { dir: CONTENT_TYPE_DIR.cheatsheet, prefix: "cheatsheet-", schema: CheatSheetSchema },
   quiz: { dir: CONTENT_TYPE_DIR.quiz, prefix: "quiz-", schema: CareerMatchQuizSchema },
   program: { dir: CONTENT_TYPE_DIR.program, prefix: "program-", schema: ProgramSchema },
+  actionplan: { dir: CONTENT_TYPE_DIR.actionplan, prefix: "actionplan-", schema: ActionPlanSchema },
 };
 
 // The public URL slug reuses the id you already write in frontmatter
@@ -108,6 +112,7 @@ type ContentStore = {
   cheatsheets: CheatSheet[];
   quizzes: CareerMatchQuiz[];
   programs: Program[];
+  actionPlans: ActionPlan[];
   all: AnyContent[];
   byId: Map<string, AnyContent>;
 };
@@ -129,6 +134,7 @@ export function getAllContent(): ContentStore {
   const cheatsheets = loadType<CheatSheet>("cheatsheet");
   const quizzes = loadType<CareerMatchQuiz>("quiz");
   const programs = loadType<Program>("program");
+  const actionPlans = loadType<ActionPlan>("actionplan");
   const all = [
     ...careers,
     ...concepts,
@@ -142,6 +148,7 @@ export function getAllContent(): ContentStore {
     ...cheatsheets,
     ...quizzes,
     ...programs,
+    ...actionPlans,
   ];
 
   cache = {
@@ -157,6 +164,7 @@ export function getAllContent(): ContentStore {
     cheatsheets,
     quizzes,
     programs,
+    actionPlans,
     all,
     byId: new Map(all.map((node) => [node.id, node])),
   };

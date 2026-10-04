@@ -319,6 +319,108 @@ export const GetHiredSchema = z
     }
   });
 
+// A personalized action-plan skeleton, one per career category (the same
+// 8 umbrellas as Get Hired) -- the authored half of the "hybrid"
+// generation engine decided for the premium action-plan feature (see the
+// project's premium-action-plan-feasibility notes): a real, reviewed
+// structure per category that the generator adapts to one visitor's
+// specific inputs, not freeform AI generation and not a single
+// one-size-fits-all template. Its own content type (not folded into
+// GetHiredSchema) because it's authored and reviewed on its own timeline
+// -- most categories will sit at comingSoon: true for a while after this
+// schema ships, same pattern GetHiredSchema/ExamPrepSchema went through
+// before their content existed. This whole feature builds and runs with
+// no accounts, no database, and no payments (see build-sequencing notes):
+// the generator is a pure function over this content plus a visitor's
+// form inputs, computed entirely in the browser.
+export const ActionPlanSchema = z
+  .object({
+    ...base,
+    type: z.literal("actionplan"),
+    category: z.string(),
+    tagline: z.string(),
+    // True for a category that's selectable in the intake form before its
+    // real skeleton has been authored -- the "skeleton" state, same
+    // pattern as GetHiredSchema's comingSoon. The generator shows a
+    // "this category isn't ready yet" result instead of a plan.
+    comingSoon: z.boolean().default(false),
+    // Shown above the day-by-day list, once -- sets expectations for what
+    // this specific plan will and won't cover for this category.
+    overview: z.string().default(""),
+    // The actual day-by-day skeleton. dayStart/dayEnd are 1-indexed day
+    // offsets at the skeleton's *reference* pace -- the generator stretches
+    // or compresses these to fit a visitor's stated timeline, it doesn't
+    // reauthor the content (see lib/action-plan-generator.ts). appliesWhen
+    // lets one skeleton serve both a "just looking" and an "actively
+    // applying" visitor without maintaining two near-duplicate lists -- a
+    // step that only makes sense once someone is actually applying (a
+    // follow-up call, interview prep) is tagged "applying" and skipped for
+    // a "browsing" visitor's plan.
+    dayByDay: z
+      .array(
+        z.object({
+          dayStart: z.number(),
+          dayEnd: z.number(),
+          title: z.string(),
+          detail: z.string(),
+          appliesWhen: z.enum(["both", "browsing", "applying"]).default("both"),
+        })
+      )
+      .default([]),
+    // Concrete employer types/examples worth targeting for this category --
+    // the "find companies" piece, meant to be the feature's selling point.
+    // Deliberately distinct from Get Hired's whereToLook (job boards and
+    // channels to search); this is who to actually apply to once you're
+    // looking at a specific company.
+    targetEmployerTypes: z.array(z.string()).default([]),
+    // Outreach guidance for contacting a recruiter or hiring manager
+    // directly -- the piece that turns a company name into an actual
+    // application. Templates use bracketed [Placeholder] tokens; the
+    // generator fills in the ones it already knows (trade, location) and
+    // leaves the rest (company, recruiter name) for the visitor to fill in
+    // themselves, see lib/action-plan-generator.ts.
+    recruiterOutreach: z
+      .object({
+        tips: z.array(z.string()).default([]),
+        emailTemplate: z.string().default(""),
+        linkedinTemplate: z.string().default(""),
+        followUpTemplate: z.string().default(""),
+      })
+      .default({ tips: [], emailTemplate: "", linkedinTemplate: "", followUpTemplate: "" }),
+  })
+  .superRefine((data, ctx) => {
+    if (data.comingSoon) return;
+    if (!data.overview) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "overview is required once an action-plan skeleton is live (or set comingSoon: true)",
+        path: ["overview"],
+      });
+    }
+    if (data.dayByDay.length < 5) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message:
+          "dayByDay needs at least 5 entries once live -- a real skeleton, not a token gesture (or set comingSoon: true)",
+        path: ["dayByDay"],
+      });
+    }
+    if (data.targetEmployerTypes.length < 1) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "targetEmployerTypes needs at least 1 entry once live (or set comingSoon: true)",
+        path: ["targetEmployerTypes"],
+      });
+    }
+    if (!data.recruiterOutreach.emailTemplate) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "recruiterOutreach.emailTemplate is required once live (or set comingSoon: true)",
+        path: ["recruiterOutreach", "emailTemplate"],
+      });
+    }
+  });
+
 // A resume-building guide. Kept general-purpose: `careerId` is optional
 // because some guides will be construction-wide ("Construction Resume
 // Basics") and some will be written for one specific career ("Electrician
@@ -513,7 +615,8 @@ export type ContentType =
   | "exam"
   | "cheatsheet"
   | "quiz"
-  | "program";
+  | "program"
+  | "actionplan";
 
 export type Career = z.infer<typeof CareerSchema> & { slug: string; body: string };
 export type Concept = z.infer<typeof ConceptSchema> & { slug: string; body: string };
@@ -527,6 +630,7 @@ export type ExamPrep = z.infer<typeof ExamPrepSchema> & { slug: string; body: st
 export type CheatSheet = z.infer<typeof CheatSheetSchema> & { slug: string; body: string };
 export type CareerMatchQuiz = z.infer<typeof CareerMatchQuizSchema> & { slug: string; body: string };
 export type Program = z.infer<typeof ProgramSchema> & { slug: string; body: string };
+export type ActionPlan = z.infer<typeof ActionPlanSchema> & { slug: string; body: string };
 
 export type AnyContent =
   | Career
@@ -540,4 +644,5 @@ export type AnyContent =
   | ExamPrep
   | CheatSheet
   | CareerMatchQuiz
-  | Program;
+  | Program
+  | ActionPlan;

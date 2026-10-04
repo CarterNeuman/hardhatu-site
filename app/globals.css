@@ -6,3 +6,20 @@ body {
   background-color: #efede6; /* paper */
   color: #1c2b33; /* ink */
 }
+
+/* Print layout for the action-plan result screen (ActionPlanBuilder's
+   "Print / save as PDF" button). Nav/footer are hidden separately via
+   print:hidden in app/layout.tsx; these rules just make the printed page
+   itself readable: full-width content, no paper-colored background
+   eating ink, and a bit of breathing room at the top of each page. */
+@media print {
+  body {
+    background-color: #ffffff;
+  }
+  main {
+    max-width: none;
+  }
+  @page {
+    margin: 0.6in;
+  }
+}
