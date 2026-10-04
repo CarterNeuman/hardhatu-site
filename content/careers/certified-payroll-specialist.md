@@ -4,6 +4,19 @@ title: Certified Payroll Specialist
 category: "Business"
 tagline: Handles the specialized prevailing-wage payroll reporting that public-works contractors are legally required to file, a real back-office role built entirely around a concept this site already teaches.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 39500
+    high: 47990
+  fiveYear:
+    low: 58260
+    high: 69600
+  tenYear:
+    low: 69600
+    high: 81350
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Payroll and Timekeeping Clerks (SOC 43-3051), national data"
+  asOf: "May 2025"
 whatIs: >
   A Certified Payroll Specialist manages payroll for construction
   companies working on public and prevailing-wage projects, where

@@ -4,6 +4,19 @@ title: Procurement Manager
 category: "Business"
 tagline: Makes sure the right materials and equipment show up on the right jobsite at the right time, a job that's mostly invisible when it goes well and a schedule crisis when it doesn't.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 92490
+    high: 115550
+  fiveYear:
+    low: 148080
+    high: 182270
+  tenYear:
+    low: 182270
+    high: 223280
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Purchasing Managers (SOC 11-3061), national data"
+  asOf: "May 2025"
 whatIs: >
   A Procurement Manager sources and purchases the materials, equipment, and
   long-lead items a construction company needs across its projects,

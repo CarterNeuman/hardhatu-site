@@ -4,6 +4,19 @@ title: Construction Accountant
 category: "Business"
 tagline: Tracks the money on a job, job costing, retention, work-in-progress reporting, using accounting methods that look nothing like a typical retail or service business's books.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 56020
+    high: 67020
+  fiveYear:
+    low: 83680
+    high: 109810
+  tenYear:
+    low: 109810
+    high: 144090
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Accountants and Auditors (SOC 13-2011), national data"
+  asOf: "May 2025"
 whatIs: >
   A Construction Accountant manages the financial side of construction
   projects and companies using accounting methods specific to the

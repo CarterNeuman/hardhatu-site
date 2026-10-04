@@ -4,6 +4,19 @@ title: Business Development Manager
 category: "Business"
 tagline: Builds the relationships and pursuit strategy behind a contractor's biggest wins, the senior counterpart to Construction Sales focused on major, long-cycle pursuits rather than direct selling.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 73170
+    high: 100360
+  fiveYear:
+    low: 148270
+    high: 207340
+  tenYear:
+    low: 207340
+    high: 290540
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Sales Managers (SOC 11-2022), national data — the senior, strategic counterpart to Construction Sales is classified under this managerial sales occupation rather than a direct sales-rep code, matching this career's focus on pursuit strategy and go/no-go decisions over individual deal-closing"
+  asOf: "May 2025"
 whatIs: >
   A Business Development Manager builds and maintains the relationships
   that win a contractor major work, developers, owners, architects, and

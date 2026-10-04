@@ -4,6 +4,19 @@ title: "Human Resources Manager (Construction)"
 category: "Business"
 tagline: Handles hiring, employee relations, and compliance for a construction company's workforce, with construction-specific wrinkles a general HR role doesn't have to deal with.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 88200
+    high: 111110
+  fiveYear:
+    low: 149280
+    high: 199290
+  tenYear:
+    low: 199290
+    high: 267810
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Human Resources Managers (SOC 11-3121), national data"
+  asOf: "May 2025"
 whatIs: >
   A Human Resources Manager in construction runs the same core HR
   functions as any industry: recruiting, onboarding, benefits, employee

@@ -4,6 +4,19 @@ title: Risk Manager
 category: "Business"
 tagline: Owns a contracting company's own insurance and risk program, the contractor's-side counterpart to the insurance industry careers this site otherwise only covers from the claims side.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 64820
+    high: 83980
+  fiveYear:
+    low: 117330
+    high: 158250
+  tenYear:
+    low: 158250
+    high: 196110
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Financial Risk Specialists (SOC 13-2054), national data"
+  asOf: "May 2025"
 whatIs: >
   A Risk Manager designs and oversees a construction company's insurance
   and risk management program, deciding what coverage the company

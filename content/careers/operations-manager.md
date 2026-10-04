@@ -4,6 +4,19 @@ title: Operations Manager
 category: "Business"
 tagline: Oversees multiple project teams and their Project Managers at once, the role that scales a contractor's capacity beyond what one PM can run.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 50090
+    high: 72320
+  fiveYear:
+    low: 105770
+    high: 167280
+  tenYear:
+    low: 167280
+    high: 253390
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), General and Operations Managers (SOC 11-1021), national data"
+  asOf: "May 2025"
 whatIs: >
   An Operations Manager oversees a portfolio of active projects and the
   Project Managers running them, focusing on company-wide execution,

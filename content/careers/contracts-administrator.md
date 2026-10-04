@@ -4,6 +4,19 @@ title: Contracts Administrator
 category: "Business"
 tagline: Manages the paperwork that makes every relationship on a project legally enforceable, the prime contract, every subcontract, and every change to either.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 47880
+    high: 62640
+  fiveYear:
+    low: 83050
+    high: 114010
+  tenYear:
+    low: 114010
+    high: 150010
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Business Operations Specialists, All Other (SOC 13-1199), national data — the closest BLS classification for contract administration specifically, since no detailed occupation code exists just for it"
+  asOf: "May 2025"
 whatIs: >
   A Contracts Administrator drafts, reviews, and manages the contracts that
   govern a construction project, the prime contract between the owner and

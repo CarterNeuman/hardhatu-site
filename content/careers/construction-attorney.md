@@ -4,6 +4,33 @@ title: Construction Attorney
 category: "Business"
 tagline: Handles the contract disputes, lien claims, and bond claims that show up throughout a project, the legal career path most newcomers never realize sits behind half the vocabulary on this site.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 78360
+    high: 102990
+  fiveYear:
+    low: 159670
+    high: 221370
+  tenYear:
+    low: 221370
+    high: 351600
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Lawyers (SOC 23-1011), national data"
+  asOf: "May 2025"
+ownerPayHighlight: >
+  Making partner isn't a raise — it's buying a stake in the firm's own
+  profits, and at a firm with strong construction litigation or
+  transactional work, that stake can dwarf anything an associate's salary
+  could reach.
+ownerPayNote: >
+  These figures are wage-and-salary pay only — the Bureau of Labor
+  Statistics excludes partners' profit-sharing and equity distributions
+  from this survey, since partner income isn't a wage at all, it's a share
+  of the firm's earnings. Partner compensation varies enormously by firm
+  size, practice area, and how much business a partner personally brings
+  in, and no single published figure captures it meaningfully. Worth
+  understanding a specific firm's partnership track and compensation model
+  directly before counting on a number.
 whatIs: >
   A Construction Attorney represents owners, contractors, subcontractors,
   or sureties in the legal side of construction: drafting and negotiating
