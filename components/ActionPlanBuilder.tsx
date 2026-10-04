@@ -19,6 +19,7 @@ import {
   type GeneratedPlan,
 } from "@/lib/action-plan-generator";
 import { buildIcs, downloadIcs } from "@/lib/ics";
+import { ActionPlanPrintCalendar } from "@/components/ActionPlanPrintCalendar";
 import type { ActionPlan, GetHired, ResumeGuide } from "@/lib/types";
 
 export type SlimCareer = { id: string; title: string; slug: string };
@@ -165,14 +166,9 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
   if (plan) {
     return (
       <div className="mt-8">
-        <div className="hidden print:block">
-          <p className="font-display text-2xl font-bold text-ink">HardHatU</p>
-          <p className="text-sm text-steel">
-            Action plan generated {new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
-          </p>
-          <div className="mt-2 border-t border-hairline" />
-        </div>
+        <ActionPlanPrintCalendar days={plan.days} title={plan.careerTitle ?? plan.category} />
 
+        <div className="print:hidden">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-steel">
@@ -352,8 +348,9 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
             type="button"
             className="border border-ink px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-ink hover:text-paper"
           >
-            Print / save as PDF
+            Print your schedule
           </button>
+        </div>
         </div>
       </div>
     );
