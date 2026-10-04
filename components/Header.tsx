@@ -96,6 +96,13 @@ export function Header({
 
   const toggle = (menu: MenuKey) => setOpenMenu((current) => (current === menu ? null : menu));
 
+  // The general hiring guide (gethired-general) always sorts first in
+  // getHiredGuides (see app/layout.tsx), but the dropdown gives it its own
+  // full-width line above the 2x4 grid of the 8 category guides, rather
+  // than letting it land in a grid cell next to whichever guide follows it.
+  const generalGuide = getHiredGuides.find((g) => g.id === "gethired-general");
+  const categoryGuides = getHiredGuides.filter((g) => g.id !== "gethired-general");
+
   // Single-page sections that don't need their own dropdown. Order after
   // Lessons: Phases, Software, Career Quiz, then the Get Hired dropdown,
   // then the Interview Prep dropdown, then Get Qualified last.
@@ -235,19 +242,29 @@ export function Header({
             </button>
             {openMenu === "gethired" && (
               <div
-                className="absolute left-0 top-full grid min-w-[360px] grid-cols-2 gap-x-6 gap-y-2.5 border border-hairline bg-paper p-5 shadow-lg"
+                className="absolute left-0 top-full min-w-[360px] border border-hairline bg-paper p-5 shadow-lg"
                 onClick={() => setOpenMenu(null)}
               >
-                {getHiredGuides.map((guide) => (
+                {generalGuide && (
                   <Link
-                    key={guide.id}
-                    href={urlFor(guide)}
-                    className="break-words text-sm leading-snug text-ink hover:text-navy hover:underline"
+                    href={urlFor(generalGuide)}
+                    className="block break-words text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline"
                   >
-                    {guide.category}
+                    {generalGuide.category}
                   </Link>
-                ))}
-                <div className="col-span-full border-t border-hairline pt-3 text-sm">
+                )}
+                <div className="mt-2.5 grid grid-cols-2 gap-x-6 gap-y-2.5 border-t border-hairline pt-2.5">
+                  {categoryGuides.map((guide) => (
+                    <Link
+                      key={guide.id}
+                      href={urlFor(guide)}
+                      className="break-words text-sm leading-snug text-ink hover:text-navy hover:underline"
+                    >
+                      {guide.category}
+                    </Link>
+                  ))}
+                </div>
+                <div className="mt-3 border-t border-hairline pt-3 text-sm">
                   <Link href="/get-hired" className="font-semibold text-navy hover:underline">
                     How hiring actually works, by category →
                   </Link>

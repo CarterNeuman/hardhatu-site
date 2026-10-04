@@ -20,12 +20,12 @@ export const metadata: Metadata = {
 // pixel math below is just trigonometry around one center point (CX, CY) —
 // change R/NODE_W/NODE_H/HUB_SIZE and everything else follows.
 // ---------------------------------------------------------------------------
-const R = 420; // center-to-node-center radius
+const R = 445; // center-to-node-center radius
 const NODE_W = 212;
 const NODE_H = 180;
 const HUB_SIZE = 300;
 const BEAM_START_R = 160; // just outside the hub's edge
-const BEAM_END_R = 325; // short of the node card, so the beam doesn't run under it
+const BEAM_END_R = 288; // short of the node card, so the beam doesn't run under it
 const BEAM_WIDTH = 18;
 const BEAM_OUTLINE_WIDTH = BEAM_WIDTH + 2;
 const HIGHLIGHT_WIDTH = 6;
@@ -142,7 +142,7 @@ export default function GetHiredIndexPage() {
           eight satellite cards and the text stays legible, so it's replaced
           entirely by the plain grid further down. */}
       {generalGuide && (
-        <div className="mx-auto mt-10 hidden max-w-[1180px] px-6 xl:block">
+        <div className="mx-auto mt-10 hidden max-w-[1200px] px-6 xl:block">
           <div className="relative mx-auto" style={{ width: DIAGRAM.width, height: DIAGRAM.height }}>
             {NODE_GEOMETRY.map((geometry) => (
               <Beam key={geometry.category} geometry={geometry} />
@@ -256,6 +256,25 @@ function Beam({ geometry }: { geometry: NodeGeometry }) {
   );
 }
 
+// The hub and the 8 ring cards are narrow, fixed-height boxes — too tight
+// for a guide's full tagline (that full sentence still shows on the guide's
+// own page). Cuts at the nearest earlier clause break (colon/semicolon/
+// comma) when one lands inside the budget, since that reads as a complete
+// thought; otherwise falls back to the last whole word plus an ellipsis.
+// Never touches the guide's actual tagline field.
+function shortenForDiagram(text: string, maxChars: number): string {
+  const delimMatch = text.slice(0, maxChars + 1).match(/^[^:;,]*[:;,]/);
+  if (delimMatch) {
+    const clause = delimMatch[0].slice(0, -1).trim();
+    if (clause.length >= 20) return clause;
+  }
+  if (text.length <= maxChars) return text;
+  const slice = text.slice(0, maxChars);
+  const lastSpace = slice.lastIndexOf(" ");
+  const trimmed = (lastSpace > 20 ? slice.slice(0, lastSpace) : slice).trim();
+  return `${trimmed}…`;
+}
+
 function HubCard({ guide }: { guide: GetHired }) {
   return (
     <Link
@@ -272,7 +291,9 @@ function HubCard({ guide }: { guide: GetHired }) {
       <div className="flex w-[196px] flex-col items-center gap-2.5">
         <span className="text-[11px] font-bold uppercase tracking-wider text-amber-soft">Start here</span>
         <span className="font-display text-xl font-bold leading-tight text-paper">{guide.category}</span>
-        <span className="text-xs leading-snug text-amber-soft/85">{guide.tagline}</span>
+        <span className="line-clamp-3 text-xs leading-snug text-amber-soft/85">
+          {shortenForDiagram(guide.tagline, 100)}
+        </span>
         <span className="mt-0.5 text-xs font-bold uppercase tracking-wide text-amber-soft group-hover:underline">
           View the guide &rarr;
         </span>
@@ -316,7 +337,9 @@ function CategoryNode({
       <h3 className="font-display text-base font-bold leading-snug text-ink group-hover:text-navy">
         {guide.category}
       </h3>
-      <p className="line-clamp-2 flex-1 text-xs leading-snug text-steel">{guide.tagline}</p>
+      <p className="line-clamp-2 flex-1 text-xs leading-snug text-steel">
+        {shortenForDiagram(guide.tagline, 78)}
+      </p>
       <span className="text-[11px] font-bold uppercase tracking-wide text-navy">View guide &rarr;</span>
     </Link>
   );
