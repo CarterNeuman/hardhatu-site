@@ -4,6 +4,19 @@ title: Estimator
 category: "Preconstruction & Estimating"
 tagline: Prices the job before anyone breaks ground, so the bid actually makes money instead of just winning the work.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 48530
+    high: 61150
+  fiveYear:
+    low: 78740
+    high: 101850
+  tenYear:
+    low: 101850
+    high: 130820
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Cost Estimators (SOC 13-1051), national data — BLS doesn't track estimating/cost specialties as separate detailed occupations, so Estimator, Heavy Civil Estimator, Cost Engineer, and Quantity Surveyor all share this code and use the standard entry/median-75th/75th-90th mapping; see Bid Coordinator and Senior Estimator for the lower and upper parts of the same distribution"
+  asOf: "May 2025"
 whatIs: >
   An Estimator figures out what a project will cost before construction
   starts, so the company can submit a competitive bid that still leaves room

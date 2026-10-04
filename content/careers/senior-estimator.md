@@ -4,6 +4,19 @@ title: Senior Estimator
 category: "Preconstruction & Estimating"
 tagline: Leads the bid on the biggest, most complex jobs and mentors the estimators doing the takeoffs underneath them.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 61150
+    high: 78740
+  fiveYear:
+    low: 78740
+    high: 101850
+  tenYear:
+    low: 101850
+    high: 130820
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Cost Estimators (SOC 13-1051), national data — entry/5-year/10-year mapped to the upper part of this occupation's wage distribution (25th-90th percentile), since Senior Estimator and Preconstruction Manager both sit at the top of this site's estimating progression; see the Estimator page for the standard mapping and Bid Coordinator for the lower part of the same distribution"
+  asOf: "May 2025"
 whatIs: >
   A Senior Estimator leads the pricing effort on larger or more complex
   projects, often managing a team of estimators who handle individual

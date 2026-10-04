@@ -4,6 +4,19 @@ title: Preconstruction Manager
 category: "Preconstruction & Estimating"
 tagline: Runs everything that has to happen before a shovel hits the ground, estimating, scheduling, and design coordination pulled into one team's responsibility.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 61150
+    high: 78740
+  fiveYear:
+    low: 78740
+    high: 101850
+  tenYear:
+    low: 101850
+    high: 130820
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Cost Estimators (SOC 13-1051), national data — entry/5-year/10-year mapped to the upper part of this occupation's wage distribution (25th-90th percentile), since Senior Estimator and Preconstruction Manager both sit at the top of this site's estimating progression; see the Estimator page for the standard mapping and Bid Coordinator for the lower part of the same distribution"
+  asOf: "May 2025"
 whatIs: >
   A Preconstruction Manager leads a project's preconstruction phase,
   coordinating estimating, scheduling, constructability review, and early

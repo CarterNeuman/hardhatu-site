@@ -4,6 +4,19 @@ title: Value Engineering Consultant
 category: "Preconstruction & Estimating"
 tagline: Leads the structured process of finding ways to cut cost without cutting function, a specialized advisory role built around a concept most newcomers walk right past without realizing it's a distinct career.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 60640
+    high: 77950
+  fiveYear:
+    low: 101860
+    high: 133370
+  tenYear:
+    low: 133370
+    high: 171640
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Management Analysts (SOC 13-1111), national data — the closest BLS classification for an independent, specialized advisory role; no detailed occupation code exists for value engineering specifically"
+  asOf: "May 2025"
 whatIs: >
   A Value Engineering Consultant leads formal value engineering studies,
   a structured process for finding ways to deliver a project's required
