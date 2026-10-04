@@ -78,7 +78,7 @@ export default function HomePage() {
   return (
     <div>
       {/* ---------- hero ---------- */}
-      <section className="border-b border-hairline bg-[linear-gradient(135deg,rgba(241,225,188,0.45)_0%,#EFEDE6_35%,#EFEDE6_65%,rgba(31,63,82,0.12)_100%)]">
+      <section className="border-b border-hairline bg-paper">
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 py-14 md:grid-cols-[1.1fr_0.9fr] md:py-16">
           <div>
             <h1 className="font-display text-4xl font-bold leading-[1.05] text-ink md:text-5xl">
