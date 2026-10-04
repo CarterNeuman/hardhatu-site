@@ -44,6 +44,7 @@ const PATH_OPTIONS = [
     goesTo: "Field & Trades",
     href: `/careers#${CATEGORY_SLUG["Field & Trades"]}`,
     icon: PathIconHands,
+    accent: "amber" as const,
   },
   {
     label: "Running the job, keeping it organized",
@@ -51,6 +52,7 @@ const PATH_OPTIONS = [
     goesTo: "Project & Operations",
     href: `/careers#${CATEGORY_SLUG["Project & Operations"]}`,
     icon: PathIconOrg,
+    accent: "navy" as const,
   },
   {
     label: "Numbers, contracts, and the business side",
@@ -58,6 +60,7 @@ const PATH_OPTIONS = [
     goesTo: "Business & Estimating",
     href: `/careers#${CATEGORY_SLUG["Business"]}`,
     icon: PathIconLedger,
+    accent: "amber" as const,
   },
   {
     label: "Tech, design, and data",
@@ -65,6 +68,7 @@ const PATH_OPTIONS = [
     goesTo: "Technology & Design",
     href: `/careers#${CATEGORY_SLUG["Technology & Design"]}`,
     icon: PathIconMonitor,
+    accent: "navy" as const,
   },
 ];
 
@@ -74,7 +78,7 @@ export default function HomePage() {
   return (
     <div>
       {/* ---------- hero ---------- */}
-      <section className="border-b border-hairline bg-[linear-gradient(var(--tw-gradient-stops))] from-paper to-paper bg-hero-grid">
+      <section className="border-b border-hairline bg-[linear-gradient(135deg,rgba(241,225,188,0.45)_0%,#EFEDE6_35%,#EFEDE6_65%,rgba(31,63,82,0.12)_100%)]">
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 py-14 md:grid-cols-[1.1fr_0.9fr] md:py-16">
           <div>
             <h1 className="font-display text-4xl font-bold leading-[1.05] text-ink md:text-5xl">
@@ -90,7 +94,7 @@ export default function HomePage() {
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
                 href="/quizzes/find-your-career"
-                className="border border-ink bg-ink px-5 py-3 text-sm font-semibold text-paper transition-colors hover:bg-navy hover:border-navy"
+                className="border border-navy bg-navy px-5 py-3 text-sm font-semibold text-paper transition-colors hover:bg-ink hover:border-ink"
               >
                 Find Where You'd Fit
               </Link>
@@ -111,6 +115,10 @@ export default function HomePage() {
       {/* ---------- choose your path ---------- */}
       <section id="path" className="scroll-mt-16 border-b border-hairline">
         <div className="mx-auto max-w-6xl px-6 py-12">
+          <p className="mb-2 flex items-center gap-2.5 text-xs font-semibold uppercase tracking-wide text-amber">
+            <span aria-hidden="true" className="h-px w-5 bg-amber" />
+            Choose your path
+          </p>
           <h2 className="font-display text-2xl font-bold text-ink">What sounds more like you?</h2>
           <p className="mt-2 max-w-[60ch] text-steel">
             Pick whichever one feels closest. There's no wrong answer, and you can always
@@ -126,7 +134,9 @@ export default function HomePage() {
                 <Link
                   key={option.goesTo}
                   href={option.href}
-                  className="group flex flex-col gap-2.5 border border-hairline bg-white/40 p-4 transition-colors hover:border-navy hover:bg-white/70"
+                  className={`group flex flex-col gap-2.5 border border-hairline border-t-2 bg-white/40 p-4 transition-colors hover:border-navy hover:bg-white/70 ${
+                    option.accent === "navy" ? "border-t-navy" : "border-t-amber"
+                  }`}
                 >
                   <PathIcon className="text-clay" />
                   <h3 className="font-display text-base font-semibold text-ink group-hover:text-navy">
@@ -186,6 +196,10 @@ export default function HomePage() {
       {/* ---------- what you walk away with ---------- */}
       <section>
         <div className="mx-auto max-w-6xl px-6 py-12">
+          <p className="mb-2 flex items-center gap-2.5 text-xs font-semibold uppercase tracking-wide text-navy">
+            <span aria-hidden="true" className="h-px w-5 bg-navy" />
+            Why HardHatU
+          </p>
           <h2 className="font-display text-2xl font-bold text-ink">What you walk away with</h2>
           <p className="mt-2 max-w-[60ch] text-steel">
             This isn't generic career advice. It's built the way the industry actually talks,
