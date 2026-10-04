@@ -4,6 +4,19 @@ title: Scheduling & Delay Consultant
 category: "Consultants & Advisory"
 tagline: Called in specifically to answer one question in a dispute, what actually caused the delay, and whose fault was it, using schedule data rather than opinion.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 60640
+    high: 77950
+  fiveYear:
+    low: 77950
+    high: 101860
+  tenYear:
+    low: 101860
+    high: 133370
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Management Analysts (SOC 13-1111), national data — shares the lower part of this distribution (10th-75th percentile) with Construction Claims Consultant, a parallel litigation-support specialty that this site's own progression also shows feeding into Expert Witness"
+  asOf: "May 2025"
 whatIs: >
   A Scheduling & Delay Consultant provides specialized schedule analysis
   for construction disputes, determining the cause, responsibility, and

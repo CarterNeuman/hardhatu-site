@@ -4,6 +4,33 @@ title: "Expert Witness (Construction Litigation)"
 category: "Consultants & Advisory"
 tagline: Provides expert opinion testimony in a construction dispute, a role courts qualify case by case rather than one with its own license, though the underlying opinion sometimes requires one.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 77950
+    high: 101860
+  fiveYear:
+    low: 101860
+    high: 133370
+  tenYear:
+    low: 133370
+    high: 171640
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Management Analysts (SOC 13-1111), national data — entry/5-year/10-year mapped to the upper part of this occupation's wage distribution (25th-90th percentile), since this is the most senior role this site's own progression shows Construction Claims Consultant and Scheduling & Delay Consultant both feeding into after many years of practice"
+  asOf: "May 2025"
+ownerPayHighlight: >
+  Running your own testifying-expert practice means billing for your own
+  name and credibility — the opinion you're willing to put under oath is the
+  entire product, worth more the harder it is to find someone else qualified
+  to give it.
+ownerPayNote: >
+  These figures are wage-and-salary pay only — the Bureau of Labor
+  Statistics excludes the self-employed and independent practitioners from
+  this survey entirely, and most full-time expert witnesses bill as
+  independent consultants rather than employees. No reliable published
+  figure exists for expert-witness billing rates specifically; they vary
+  enormously by discipline, case complexity, and reputation. Worth
+  researching going rates in your specific underlying discipline before
+  counting on a number.
 whatIs: >
   A Construction Litigation Expert Witness provides expert opinion
   testimony on technical questions in a construction dispute, delay,

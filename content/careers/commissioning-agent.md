@@ -4,6 +4,19 @@ title: Commissioning Agent
 category: "Consultants & Advisory"
 tagline: Independently verifies that a building's MEP systems actually work as designed before turnover, distinct from QA/QC and unrepresented on this site despite commissioning existing as a concept since the original build.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 73990
+    high: 84130
+  fiveYear:
+    low: 104110
+    high: 132590
+  tenYear:
+    low: 132590
+    high: 164340
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Mechanical Engineers (SOC 17-2141), national data — the closest BLS classification given how closely commissioning work overlaps with the MEP systems an MEP Engineer designs; no separate detailed occupation exists for commissioning specifically"
+  asOf: "May 2025"
 whatIs: >
   A Commissioning Agent independently verifies that a building's
   mechanical, electrical, plumbing, and life-safety systems are

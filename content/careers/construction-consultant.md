@@ -4,6 +4,33 @@ title: "Construction Consultant (Cost/General)"
 category: "Consultants & Advisory"
 tagline: Brought in for independent expertise on a specific problem, a troubled budget, a stalled schedule, a process that isn't working, rather than to run the day-to-day project.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 60640
+    high: 77950
+  fiveYear:
+    low: 101860
+    high: 133370
+  tenYear:
+    low: 133370
+    high: 171640
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Management Analysts (SOC 13-1111), national data — the same code this site's Value Engineering Consultant, Construction Claims Consultant, and Scheduling & Delay Consultant pages share, since BLS has no detailed occupation specifically for independent construction advisory work; standard mapping, not the litigation-specific junior/senior slice those other two pages use"
+  asOf: "May 2025"
+ownerPayHighlight: >
+  Making Partner or Principal at a consulting firm means your income comes
+  from the firm's engagements, not a salary — real upside if you've built a
+  reputation clients call for by name, real risk if the pipeline of problem
+  projects dries up.
+ownerPayNote: >
+  These figures are wage-and-salary pay only — the Bureau of Labor
+  Statistics excludes partners' and principals' equity distributions from
+  this survey, since that income is a share of the firm's own engagements,
+  not a wage. Consulting firm ownership income varies enormously by firm
+  size, specialty, and how much business a partner personally brings in,
+  and no single published figure captures it meaningfully. Worth
+  understanding a specific firm's partnership track and buy-in terms
+  directly before counting on a number.
 whatIs: >
   A Construction Consultant provides independent, specialized expertise to
   owners, contractors, or attorneys on a specific project challenge,

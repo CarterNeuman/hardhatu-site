@@ -4,6 +4,19 @@ title: Construction Claims Consultant
 category: "Consultants & Advisory"
 tagline: Gets brought in when a project dispute is heading toward, or already in, a legal claim, to untangle what actually happened and what it's worth.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 60640
+    high: 77950
+  fiveYear:
+    low: 77950
+    high: 101860
+  tenYear:
+    low: 101860
+    high: 133370
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Management Analysts (SOC 13-1111), national data — entry/5-year/10-year mapped to the lower part of this occupation's wage distribution (10th-75th percentile), since this site's own progression shows Construction Claims Consultant feeding into Expert Witness; see Scheduling & Delay Consultant for the parallel specialty sharing this same slice and Expert Witness for the upper part of the same distribution"
+  asOf: "May 2025"
 whatIs: >
   A Construction Claims Consultant analyzes construction disputes,
   delay claims, cost overrun claims, defect claims, for whichever party

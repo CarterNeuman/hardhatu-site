@@ -4,6 +4,19 @@ title: "Sustainability / LEED Consultant"
 category: "Consultants & Advisory"
 tagline: Guides a project through green building certification, most often LEED, managing the credits, documentation, and coordination that turn a design intent into a certified building.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 52520
+    high: 64490
+  fiveYear:
+    low: 82220
+    high: 107970
+  tenYear:
+    low: 107970
+    high: 140010
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Environmental Scientists and Specialists, Including Health (SOC 19-2041), national data — the same code this site's Environmental/Remediation Specialist page uses; the closest classification for applied building-sustainability work, since no detailed occupation exists specifically for LEED/sustainability consulting"
+  asOf: "May 2025"
 whatIs: >
   A Sustainability or LEED Consultant advises project teams on green
   building strategy and manages the certification process for rating

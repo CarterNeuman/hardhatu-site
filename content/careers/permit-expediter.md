@@ -4,6 +4,32 @@ title: Permit Expediter
 category: "Consultants & Advisory"
 tagline: Navigates building permits, plan review, and zoning approvals on an owner's or GC's behalf, a specialized, low-visibility career built for someone detail-oriented who'd rather not work a jobsite.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 47880
+    high: 62640
+  fiveYear:
+    low: 83050
+    high: 114010
+  tenYear:
+    low: 114010
+    high: 150010
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Business Operations Specialists, All Other (SOC 13-1199), national data — the same code this site's Contracts Administrator page uses, since no detailed occupation exists specifically for permit expediting"
+  asOf: "May 2025"
+ownerPayHighlight: >
+  Owning an expediting firm means your income scales with how many clients'
+  projects you can push through plan review at once, not one employer's
+  payroll — the upside of juggling several permits comes with the risk of
+  none of them closing on schedule.
+ownerPayNote: >
+  These figures are wage-and-salary pay only — the Bureau of Labor
+  Statistics excludes the self-employed and business owners from this
+  survey entirely. No reliable published figure exists for expediting-firm
+  owner income specifically; it depends heavily on local jurisdiction
+  relationships, how many active projects a firm juggles at once, and how
+  the firm charges, a flat fee per permit or an hourly rate. Worth
+  researching your own market before trusting any number you find online.
 whatIs: >
   A Permit Expediter manages the process of getting a project through
   local building permit approval, plan review, and zoning sign-off,
