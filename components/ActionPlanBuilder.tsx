@@ -31,6 +31,11 @@ export type CategoryData = {
   getHiredGuide?: Pick<GetHired, "whereToLook" | "credentialsToHaveReady">;
   resumeGuide?: { slug: string; exampleBullets: string[] };
   lessonsByCareerId: Record<string, SlimLesson[]>;
+  // Shown when no specific career is picked (or that career has no
+  // lessons tied to it yet) -- a few lessons for the category as a
+  // whole, so "Not sure yet, keep it general" still gets real course
+  // suggestions instead of an empty section.
+  fallbackLessons: SlimLesson[];
 };
 
 const DEFAULT_HOURS = 10;
@@ -119,6 +124,7 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
       getHiredGuide: data.getHiredGuide as GetHired | undefined,
       resumeGuide: data.resumeGuide as ResumeGuide | undefined,
       lessonsForCareer: lessons,
+      categoryFallbackLessons: data.fallbackLessons,
       career,
       intake,
     });
@@ -283,6 +289,20 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
             </li>
           ))}
         </ul>
+        {plan.whereToLook.length > 0 && (
+          <>
+            <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-steel">
+              Where to actually look
+            </p>
+            <ul className="mt-2 flex flex-col gap-1.5">
+              {plan.whereToLook.map((place, i) => (
+                <li key={i} className="text-sm text-ink">
+                  {place}
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
         {plan.jobBoardLinks.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-2 print:hidden">
             {plan.jobBoardLinks.map((link) => (
@@ -420,6 +440,7 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
           value={location}
           onChange={(e) => setLocation(e.target.value)}
           placeholder="City, State"
+          maxLength={100}
           className="mt-1 block w-full border border-hairline bg-white/60 px-3 py-2 text-sm text-ink focus:border-navy focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-navy"
         />
       </div>
@@ -465,6 +486,7 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
           onChange={(e) => setCertsHeld(e.target.value)}
           placeholder="e.g. OSHA 10, valid driver's license"
           rows={2}
+          maxLength={500}
           className="mt-1 block w-full border border-hairline bg-white/60 px-3 py-2 text-sm text-ink focus:border-navy focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-navy"
         />
       </div>

@@ -30,6 +30,21 @@ export default function ActionPlanPage() {
         .map((l): SlimLesson => ({ id: l.id, slug: l.slug, title: l.title, minutes: l.minutes }));
     }
 
+    // Shown when a visitor picks "Not sure yet, keep it general" (no
+    // specific career) -- any lesson tied to at least one career in this
+    // category, deduped, so that path still gets real course
+    // suggestions instead of an empty section.
+    const categoryCareerIds = new Set(categoryCareers.map((c) => c.id));
+    const seenLessonIds = new Set<string>();
+    const fallbackLessons: SlimLesson[] = [];
+    for (const l of lessons) {
+      if (seenLessonIds.has(l.id)) continue;
+      if (!l.relatedIds.some((id) => categoryCareerIds.has(id))) continue;
+      seenLessonIds.add(l.id);
+      fallbackLessons.push({ id: l.id, slug: l.slug, title: l.title, minutes: l.minutes });
+      if (fallbackLessons.length >= 8) break;
+    }
+
     const skeleton = actionPlans.find((a) => a.category === category);
     const getHiredGuide = getHiredGuides.find((g) => g.category === category);
     const resumeGuide = resumes.find((r) => r.category === category);
@@ -43,6 +58,7 @@ export default function ActionPlanPage() {
         : undefined,
       resumeGuide: resumeGuide ? { slug: resumeGuide.slug, exampleBullets: resumeGuide.exampleBullets } : undefined,
       lessonsByCareerId,
+      fallbackLessons,
     };
   }
 

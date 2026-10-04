@@ -283,6 +283,9 @@ for (const [dir, config] of Object.entries(TYPE_CONFIG)) {
             `${filePath}: dayByDay has ${dayByDay.length}, needs at least 5 once live -- a real skeleton (or set comingSoon: true)`
           );
         }
+        const VALID_APPLIES_WHEN = new Set(["both", "browsing", "applying"]);
+        let browsingCount = 0;
+        let applyingCount = 0;
         dayByDay.forEach((item, i) => {
           if (!item.title || !item.detail) {
             errors.push(`${filePath}: dayByDay[${i}] needs both "title" and "detail"`);
@@ -292,7 +295,33 @@ for (const [dir, config] of Object.entries(TYPE_CONFIG)) {
           } else if (item.dayStart > item.dayEnd) {
             errors.push(`${filePath}: dayByDay[${i}].dayStart (${item.dayStart}) is after dayEnd (${item.dayEnd})`);
           }
+          const appliesWhen = item.appliesWhen ?? "both";
+          if (!VALID_APPLIES_WHEN.has(appliesWhen)) {
+            errors.push(
+              `${filePath}: dayByDay[${i}].appliesWhen is "${appliesWhen}", must be "both", "browsing", or "applying" -- catches a typo here instead of it surfacing as a Zod error with no file context at build time`
+            );
+          }
+          if (appliesWhen === "both" || appliesWhen === "browsing") browsingCount += 1;
+          if (appliesWhen === "both" || appliesWhen === "applying") applyingCount += 1;
         });
+        // Both intake statuses need a real plan, not just the shared
+        // "both" steps -- this is what actually caught, during review,
+        // that a skeleton could in principle ship with one status ending
+        // up with only 1-2 items (or zero) once filtered at generation
+        // time, which the generator itself has no way to flag since it
+        // only ever sees one status's input at a time.
+        if (dayByDay.length > 0) {
+          if (browsingCount < 3) {
+            errors.push(
+              `${filePath}: only ${browsingCount} dayByDay item(s) apply to "browsing" (appliesWhen "both" or "browsing") -- needs at least 3 so a browsing visitor gets a real plan`
+            );
+          }
+          if (applyingCount < 3) {
+            errors.push(
+              `${filePath}: only ${applyingCount} dayByDay item(s) apply to "applying" (appliesWhen "both" or "applying") -- needs at least 3 so an applying visitor gets a real plan`
+            );
+          }
+        }
         if (targetEmployerTypes.length < 1) {
           errors.push(`${filePath}: targetEmployerTypes needs at least 1 entry once live (or set comingSoon: true)`);
         }

@@ -18,6 +18,18 @@ export type CareerRef = { id: string; title: string; slug: string };
 
 export type ApplicationStatus = "browsing" | "applying";
 
+// Both free-text fields below are untrusted visitor input: never echoed
+// back as HTML (React escapes all text content, and neither field is ever
+// rendered with dangerouslySetInnerHTML), never used as a regex or SQL
+// pattern, and capped at the UI layer (ActionPlanBuilder's maxLength) so a
+// pathological paste can't bloat the page. certsHeld specifically is only
+// ever read, never displayed back verbatim, so garbage or foul language
+// typed there has no visible effect beyond possibly matching (or not
+// matching) a credential below -- see labelLooksHeld. location IS echoed,
+// into the outreach templates and the job-board search links, since it's
+// meant to personalize an outbound message the visitor will read and
+// edit before sending; it's inserted as plain text (job-board links
+// additionally run it through encodeURIComponent), never interpreted.
 export type ActionPlanIntake = {
   category: string;
   careerId?: string;
@@ -25,10 +37,13 @@ export type ActionPlanIntake = {
   location: string;
   hoursPerWeek: number;
   timelineWeeks: number;
-  // Free-text, comma or newline separated -- matched loosely (case-
-  // insensitive substring) against each credential's own text rather than
-  // forced into a fixed checklist, since real credential names vary (an
-  // "OSHA 10" card might get typed "osha-10" or "OSHA ten").
+  // Free-text, comma or newline separated -- matched against each
+  // credential's own short name (see extractCoreLabel/labelLooksHeld)
+  // rather than forced into a fixed checklist, since real credential
+  // names vary (an "OSHA 10" card might get typed "osha-10" or "OSHA
+  // ten"). Deliberately tolerant of anything, including nonsense or
+  // profanity: worst case a credential is marked "still need" that the
+  // visitor actually has, never a crash and never the input echoed back.
   certsHeld: string;
 };
 
@@ -94,11 +109,18 @@ function computeScale(skeleton: ActionPlan, intake: ActionPlanIntake): number {
   return REFERENCE_HOURS_PER_WEEK / hours;
 }
 
+// Fills [Token] placeholders with a replacer *function*, not a plain
+// string, on purpose. String.prototype.replace treats a string
+// replacement specially: "$&", "$1", "$`" and so on are live tokens in
+// that mini-syntax, so a visitor typing a location like "Earn $100, ask
+// for Pat" would otherwise have its "$1" silently reinterpreted instead
+// of inserted literally. A function replacer returns its value verbatim,
+// no matter what punctuation it contains.
 function fillTemplate(template: string, tokens: Record<string, string>): string {
   let result = template.trim();
   for (const [key, value] of Object.entries(tokens)) {
     if (!value) continue;
-    result = result.replace(new RegExp(`\\[${key}\\]`, "gi"), value);
+    result = result.replace(new RegExp(`\\[${key}\\]`, "gi"), () => value);
   }
   return result;
 }
@@ -108,6 +130,7 @@ export function buildActionPlan({
   getHiredGuide,
   resumeGuide,
   lessonsForCareer,
+  categoryFallbackLessons = [],
   career,
   intake,
   startDate = new Date(),
@@ -116,12 +139,18 @@ export function buildActionPlan({
   getHiredGuide?: GetHired;
   resumeGuide?: ResumeGuide;
   lessonsForCareer: LessonRef[];
+  // Shown when no specific career was picked (or that career happens to
+  // have no lessons tied to it yet) -- a few lessons for the category as
+  // a whole, so "Not sure yet, keep it general" doesn't come back with an
+  // empty Courses section. See app/action-plan/page.tsx for how this gets
+  // built.
+  categoryFallbackLessons?: LessonRef[];
   career?: CareerRef;
   intake: ActionPlanIntake;
   startDate?: Date;
 }): GeneratedPlan {
   const scale = computeScale(skeleton, intake);
-  const certsHeldText = intake.certsHeld.toLowerCase();
+  const certsHeldTokens = tokenize(intake.certsHeld);
 
   const days: GeneratedDayItem[] = skeleton.dayByDay
     .filter((item) => item.appliesWhen === "both" || item.appliesWhen === intake.status)
@@ -142,12 +171,13 @@ export function buildActionPlan({
   const qualifications: GeneratedQualification[] = (getHiredGuide?.credentialsToHaveReady ?? []).map(
     (label) => ({
       label,
-      have: certsHeldText.length > 0 && labelLooksHeld(label, certsHeldText),
+      have: certsHeldTokens.size > 0 && labelLooksHeld(label, certsHeldTokens),
     })
   );
 
   const trade = career?.title ?? skeleton.category;
-  const tokens = { Trade: trade, Location: intake.location };
+  const tokens = { Trade: trade, Location: intake.location.trim() };
+  const courses = lessonsForCareer.length > 0 ? lessonsForCareer : categoryFallbackLessons;
 
   return {
     category: skeleton.category,
@@ -155,7 +185,7 @@ export function buildActionPlan({
     status: intake.status,
     overview: skeleton.overview,
     qualifications,
-    courses: lessonsForCareer.slice(0, 4).map((lesson) => ({ lesson, href: `/lessons/${lesson.slug}` })),
+    courses: courses.slice(0, 4).map((lesson) => ({ lesson, href: `/lessons/${lesson.slug}` })),
     resumeBullets: resumeGuide?.exampleBullets.slice(0, 5) ?? [],
     resumeGuideHref: resumeGuide ? `/resumes/${resumeGuide.slug}` : undefined,
     days,
@@ -171,26 +201,78 @@ export function buildActionPlan({
   };
 }
 
-// Loose match: a credential "counts" as held if a few of its own
-// significant words show up in what the visitor typed. Intentionally
-// forgiving (a false "have it" just means one fewer item to double check,
-// not a broken plan) rather than a brittle exact-string match.
-function labelLooksHeld(label: string, certsHeldText: string): boolean {
-  const words = label
-    .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, " ")
-    .split(/\s+/)
-    .filter((w) => w.length > 2 && !STOPWORDS.has(w));
-  if (words.length === 0) return false;
-  const hits = words.filter((w) => certsHeldText.includes(w)).length;
-  return hits >= Math.max(1, Math.ceil(words.length * 0.4));
+// Splits free text into a set of lowercase word tokens, digits kept
+// (credential names lean on them, "OSHA 10"), everything else treated as
+// a separator. Used for both the credential label and the visitor's own
+// certsHeld text, so matching below is exact-token-against-exact-token,
+// never one string being a substring of the other -- that's the piece
+// that keeps a short, legitimate token like "ID" from matching against
+// unrelated words that merely contain those letters ("avoid", "said").
+function tokenize(text: string): Set<string> {
+  // Defensive against anything other than a real string reaching here --
+  // the current UI only ever hands this a string (a controlled textarea's
+  // value is always one), but buildActionPlan is a plain exported
+  // function, not fenced off from being called with bad input by some
+  // future caller, so this guards the actual crash rather than relying on
+  // the type annotation alone.
+  const safeText = typeof text === "string" ? text : String(text ?? "");
+  return new Set(
+    safeText
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, " ")
+      .split(/\s+/)
+      .filter((w) => w.length > 1)
+  );
 }
 
-const STOPWORDS = new Set(["and", "the", "for", "you", "your", "with", "have", "card", "valid", "whatever"]);
+// credentialsToHaveReady entries are written as a short name followed by
+// an explanation ("A valid driver's license. Many jobsites are outside
+// reliable public transit..."), the same style the Get Hired page's prose
+// bullet list is written for. Matching against the *whole* sentence
+// would mean a visitor has to type nearly the entire explanation before
+// it counts as a match (a real false negative this caught during review).
+// This pulls out just the leading short-name clause, up to whichever of
+// ", " / ". " / " and " comes first, and falls back to the full label if
+// none of those appear.
+function extractCoreLabel(label: string): string {
+  const delimiters = [", ", ". ", " and "];
+  let cut = label.length;
+  for (const d of delimiters) {
+    const i = label.indexOf(d);
+    if (i !== -1 && i < cut) cut = i;
+  }
+  return label.slice(0, cut);
+}
+
+const STOPWORDS = new Set([
+  "a", "an", "the", "and", "or", "if", "any", "in", "on", "of", "to", "is",
+  "for", "you", "your", "with", "have", "card", "valid", "whatever",
+]);
+
+function significantWords(text: string): string[] {
+  return [...tokenize(text)].filter((w) => !STOPWORDS.has(w));
+}
+
+// A credential "counts" as held only when most of its own significant
+// words show up as exact tokens in what the visitor typed, scaled to the
+// label's length so a two-word core ("drivers", "license") needs both,
+// not just one -- a single shared word was enough to flag a credential
+// as held under the old substring version, which is exactly the kind of
+// false positive a visitor pasting unrelated or nonsense text could
+// trigger by accident. Worst case either way is informational (one item
+// shows the wrong checkmark), never a crash and never anything the
+// visitor typed being shown back to them.
+function labelLooksHeld(label: string, certsHeldTokens: Set<string>): boolean {
+  const words = significantWords(extractCoreLabel(label));
+  if (words.length === 0) return false;
+  const hits = words.filter((w) => certsHeldTokens.has(w)).length;
+  const required = words.length === 1 ? 1 : Math.max(2, Math.ceil(words.length * 0.6));
+  return hits >= required;
+}
 
 function buildJobBoardLinks(trade: string, location: string): { label: string; href: string }[] {
   const q = encodeURIComponent(trade);
-  const l = encodeURIComponent(location || "");
+  const l = encodeURIComponent(location.trim());
   return [
     { label: "Search Indeed", href: `https://www.indeed.com/jobs?q=${q}&l=${l}` },
     { label: "Search LinkedIn Jobs", href: `https://www.linkedin.com/jobs/search/?keywords=${q}&location=${l}` },
