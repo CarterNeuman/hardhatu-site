@@ -104,6 +104,7 @@ export default async function CareerPage({
 
       {career.payTimeline && (
         <>
+          <SectionLabel>Pay expectations</SectionLabel>
           <PayTimeline payTimeline={career.payTimeline} />
           <Disclaimer
             lastReviewed={career.payTimeline.asOf}
