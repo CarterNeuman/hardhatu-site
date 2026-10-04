@@ -17,6 +17,18 @@ payTimeline:
     high: 79970
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Solar Photovoltaic Installers (SOC 47-2231), national data"
   asOf: "May 2025"
+ownerPayHighlight: >
+  Solar installation is one of the newer trades to build a contracting
+  business around — real upside as demand grows, real risk tied to incentives
+  and permitting that can shift by state.
+ownerPayNote: >
+  These figures are wage-and-salary pay only — BLS excludes the self-employed
+  and business owners entirely, and it's a new enough occupation that even
+  less owner-income data exists than for established trades. Solar contracting
+  income is also unusually exposed to policy: state incentives, utility
+  interconnection rules, and permitting timelines all move independently of
+  the actual installation work. Worth researching your own state's market
+  before trusting any number you find.
 whatIs: >
   A Solar PV Installer mounts and wires photovoltaic panel systems on
   roofs, ground mounts, and carports, connecting them into a building's

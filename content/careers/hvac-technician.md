@@ -17,6 +17,16 @@ payTimeline:
     high: 95210
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Heating, Air Conditioning, and Refrigeration Mechanics and Installers (SOC 49-9021), national data"
   asOf: "May 2025"
+ownerPayHighlight: >
+  An HVAC company's real upside often isn't the installs — it's the
+  maintenance contracts that keep paying after the job is done.
+ownerPayNote: >
+  These figures are wage-and-salary pay only — BLS excludes the self-employed
+  and business owners entirely. No reliable owner-income figure exists for
+  HVAC contracting specifically; most of what's online is marketing content,
+  not real data. Recurring service and maintenance agreements are a common way
+  HVAC companies smooth out the feast-or- famine swings other trades see —
+  worth researching your own market before assuming a number holds.
 whatIs: >
   An HVAC (Heating, Ventilation, and Air Conditioning) Technician installs,
   maintains, and repairs the systems that heat, cool, and ventilate a

@@ -17,6 +17,18 @@ payTimeline:
     high: 108420
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Plumbers, Pipefitters, and Steamfitters (SOC 47-2152), national data — BLS tracks this trade jointly with Plumbers, so the figures match that career's"
   asOf: "May 2025"
+ownerPayHighlight: >
+  Mechanical contracting — the business pipefitters often build toward — runs
+  on industrial and commercial bids: bigger contracts, bigger swings, real
+  upside when the pipeline of work holds.
+ownerPayNote: >
+  These figures are wage-and-salary pay only — BLS excludes the self-employed
+  and business owners entirely. No reliable owner-income figure exists for
+  mechanical contracting businesses specifically; pipefitting leans more
+  industrial and commercial than residential, so going independent usually
+  means bidding larger, less frequent jobs rather than a steady stream of
+  small ones. Worth researching your own market before trusting any number you
+  find.
 whatIs: >
   A Pipefitter, also called a Steamfitter, installs and welds piping
   systems that carry steam, high-pressure fluids, and process materials,

@@ -17,6 +17,17 @@ payTimeline:
     high: 77530
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Welders, Cutters, Solderers, and Brazers (SOC 51-4121), national data"
   asOf: "May 2025"
+ownerPayHighlight: >
+  Mobile welding and custom fabrication is a common path out of structural
+  steel work — real upside pricing your own jobs, real risk owning the
+  equipment and truck that make it mobile.
+ownerPayNote: >
+  These figures are wage-and-salary pay only — BLS excludes the self-employed
+  and business owners entirely. No reliable owner-income figure exists for
+  welding and fabrication businesses specifically; a mobile welding rig or a
+  small fabrication shop both take real equipment investment before the first
+  job is priced. Worth researching your own market before trusting any number
+  you find.
 whatIs: >
   A Welder joins metal components using heat, pressure, or both: most
   visibly, the structural steel connections that hold a building's frame

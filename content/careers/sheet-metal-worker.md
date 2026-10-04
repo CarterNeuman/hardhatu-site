@@ -17,6 +17,18 @@ payTimeline:
     high: 105650
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Sheet Metal Workers (SOC 47-2211), national data"
   asOf: "May 2025"
+ownerPayHighlight: >
+  A sheet metal company earns on two fronts — shop fabrication and field
+  installation — which can smooth out income swings a purely field-based trade
+  doesn't have.
+ownerPayNote: >
+  These figures are wage-and-salary pay only — BLS excludes the self-employed
+  and business owners entirely. No reliable owner-income figure exists for
+  sheet metal contracting specifically; running both shop fabrication and
+  field installation takes more overhead — equipment, shop space — than a
+  trade that's purely field-based, which changes the math on going
+  independent. Worth researching your own market before trusting any number
+  you find.
 whatIs: >
   A Sheet Metal Worker fabricates and installs sheet metal components on a
   project, most commonly HVAC ductwork, but also roofing panels,

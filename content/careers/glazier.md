@@ -17,6 +17,17 @@ payTimeline:
     high: 89790
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Glaziers (SOC 47-2121), national data"
   asOf: "May 2025"
+ownerPayHighlight: >
+  Running a glass and glazing company leans on bigger commercial contracts
+  than most trades — real upside on a good bid, real risk carrying the cost of
+  glass and crew between jobs.
+ownerPayNote: >
+  These figures are wage-and-salary pay only — BLS excludes the self-employed
+  and business owners entirely, and no government source publishes a reliable
+  owner-income figure for glazing contractors. Commercial glazing work is
+  often won through competitive bidding on larger jobs, so income tends to
+  track project pipeline more than a steady hourly rate. Worth researching
+  your own market before trusting any number you find online.
 whatIs: >
   A Glazier cuts, fits, and installs glass and metal glazing systems on a
   project, from full curtain wall and storefront systems on commercial

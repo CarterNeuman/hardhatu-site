@@ -17,6 +17,16 @@ payTimeline:
     high: 81720
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Roofers (SOC 47-2181), national data"
   asOf: "May 2025"
+ownerPayHighlight: >
+  Roofing income swings hard with the season and with storm work — real upside
+  after a bad hailstorm, real risk carrying a crew through a slow winter.
+ownerPayNote: >
+  These figures are wage-and-salary pay only — BLS excludes the self-employed
+  and business owners entirely, and no government source publishes a reliable
+  owner-income figure for roofing contractors. Roofing work is unusually
+  seasonal and storm-driven, so a business's income can look very different
+  year to year depending on weather alone. Worth researching your own market
+  and climate before trusting any number you find.
 whatIs: >
   A Roofer installs, repairs, and replaces roofing systems, shingles, tile,
   metal, or low-slope membrane roofing, on new construction and existing
