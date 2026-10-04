@@ -11,13 +11,24 @@ import type { Career } from "@/lib/types";
 // one). Always paired with <Disclaimer> on the career page — this
 // component only draws the numbers, it doesn't explain where they come
 // from.
+// Display labels for each milestone — kept separate from the schema's
+// field keys (entry/fiveYear/twentyYear in lib/types.ts), which stay as
+// the original "20-year" names for now. On Electrician, "twentyYear"
+// (mapped to the 75th-90th wage percentile) is shown as "10 years in":
+// BLS doesn't track pay by tenure at all, so this was always an estimate,
+// and for a trade with a ~4-5 year apprenticeship-to-journeyman pipeline,
+// top-of-scale pay is realistically reached well before year 20 — a
+// 20-year horizon undersold how fast electricians actually top out.
+// Revisit per career before rolling this label out further: a trade with
+// a strictly seniority-based union pay scale may genuinely take closer to
+// 20 years, where the original label was the more honest one.
 const MILESTONES: {
   key: "entry" | "fiveYear" | "twentyYear";
   label: string;
 }[] = [
   { key: "entry", label: "Entry level" },
   { key: "fiveYear", label: "5 years in" },
-  { key: "twentyYear", label: "20 years in" },
+  { key: "twentyYear", label: "10 years in" },
 ];
 
 function formatValue(n: number, unit: "annual" | "hourly") {
