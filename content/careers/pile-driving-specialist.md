@@ -4,6 +4,32 @@ title: Deep Foundation / Pile-Driving Specialist
 category: "Specialized Construction"
 tagline: Runs the specialized equipment that drives piles and caissons deep into the ground to support a structure where a standard foundation won't work, a real, well-paid niche most newcomers never see.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 48790
+    high: 58510
+  fiveYear:
+    low: 73300
+    high: 106430
+  tenYear:
+    low: 106430
+    high: 124600
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Pile-Driver Operators (SOC 47-2072), national data"
+  asOf: "May 2025"
+ownerPayHighlight: >
+  Starting your own deep-foundation contracting business means the pile-
+  driving rig and crane fleet are the real cost of entry — once that
+  equipment is paid off, every job's margin is yours instead of a rental
+  company's.
+ownerPayNote: >
+  These figures are wage-and-salary pay only — the Bureau of Labor
+  Statistics excludes the self-employed and business owners from this
+  survey entirely. No reliable published figure exists for deep-foundation
+  contractor income specifically; it depends heavily on how much
+  specialized equipment the business owns outright versus leases, and how
+  steady the pipeline of large-foundation work is in a given market. Worth
+  researching your own market before trusting any number you find online.
 whatIs: >
   A Deep Foundation Specialist, often called a Pile Driver, operates the
   specialized equipment that installs piles, caissons, and other deep

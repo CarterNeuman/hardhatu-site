@@ -4,6 +4,19 @@ title: "Owner's Representative"
 category: "Specialized Construction"
 tagline: Works for the owner and only the owner, brought in specifically because everyone else on a project (the GC, the architect, the CM) has their own interests to balance too.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 69690
+    high: 88550
+  fiveYear:
+    low: 114990
+    high: 151640
+  tenYear:
+    low: 151640
+    high: 189440
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Construction Managers (SOC 11-9021), national data — the same code this site's Project Manager, Superintendent, Renewable Energy Project Manager, and Restoration Project Manager pages use, since BLS doesn't track an owner's-representative role separately from general construction management"
+  asOf: "May 2025"
 whatIs: >
   An Owner's Representative is hired directly by a project owner to protect
   the owner's interests throughout a project, often starting before design

@@ -4,6 +4,19 @@ title: Facilities Manager
 category: "Specialized Construction"
 tagline: Keeps a building running well after the construction crew leaves, maintenance, repairs, and the small renovation projects that never really stop.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 64480
+    high: 82020
+  fiveYear:
+    low: 106660
+    high: 138870
+  tenYear:
+    low: 138870
+    high: 176120
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Facilities Managers (SOC 11-3013), national data"
+  asOf: "May 2025"
 whatIs: >
   A Facilities Manager oversees the ongoing maintenance, repair, and small
   renovation work in an already-built facility, an office building, a

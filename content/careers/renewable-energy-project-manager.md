@@ -4,6 +4,19 @@ title: Renewable Energy Project Manager
 category: "Specialized Construction"
 tagline: Manages solar, battery-storage, and microgrid builds from permitting through commissioning, the project-management path into the fastest-growing segment of the construction industry.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 69690
+    high: 88550
+  fiveYear:
+    low: 114990
+    high: 151640
+  tenYear:
+    low: 151640
+    high: 189440
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Construction Managers (SOC 11-9021), national data — the same code this site's general Project Manager and Superintendent pages use, since BLS doesn't track renewable-energy project management as a separate detailed occupation"
+  asOf: "May 2025"
 whatIs: >
   A Renewable Energy Project Manager runs solar, battery storage, and
   other renewable energy construction projects the same way a general

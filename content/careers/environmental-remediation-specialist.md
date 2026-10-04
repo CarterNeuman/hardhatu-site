@@ -4,6 +4,19 @@ title: Environmental/Remediation Specialist
 category: "Specialized Construction"
 tagline: Manages hazardous materials on a construction or demolition site, lead paint, asbestos, contaminated soil, where which certification is legally required depends entirely on which hazard is actually involved.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 52520
+    high: 64490
+  fiveYear:
+    low: 82220
+    high: 107970
+  tenYear:
+    low: 107970
+    high: 140010
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Environmental Scientists and Specialists, Including Health (SOC 19-2041), national data"
+  asOf: "May 2025"
 whatIs: >
   An Environmental/Remediation Specialist manages environmental hazards
   connected to a construction or demolition project, testing for

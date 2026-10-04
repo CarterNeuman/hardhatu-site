@@ -4,6 +4,32 @@ title: Demolition Supervisor
 category: "Specialized Construction"
 tagline: Runs the high-risk process of taking a structure down safely, a distinct specialty most newcomers don't realize is its own career track until they see the certification behind it.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 53280
+    high: 63400
+  fiveYear:
+    low: 79920
+    high: 101460
+  tenYear:
+    low: 101460
+    high: 128260
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), First-Line Supervisors of Construction Trades and Extraction Workers (SOC 47-1011), national data"
+  asOf: "May 2025"
+ownerPayHighlight: >
+  Running your own demolition contracting business means bidding jobs where
+  salvage and scrap value can swing the margin as much as labor does, on top
+  of the insurance and bonding costs a hazard-exposed trade like this
+  carries.
+ownerPayNote: >
+  These figures are wage-and-salary pay only — the Bureau of Labor
+  Statistics excludes the self-employed and business owners from this
+  survey entirely. No reliable published figure exists for a demolition
+  contractor's income specifically; it depends heavily on job mix, salvage
+  and scrap arrangements, and the insurance costs a hazard-heavy trade
+  like this carries. Worth researching your own market before trusting any
+  number you find online.
 whatIs: >
   A Demolition Supervisor plans and oversees the safe demolition of
   structures, sequencing the work, managing hazardous material concerns

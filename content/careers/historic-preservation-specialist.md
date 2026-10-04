@@ -4,6 +4,19 @@ title: Historic Preservation Specialist
 category: "Specialized Construction"
 tagline: Makes sure a landmark or historic building gets restored the right way rather than just the fast way, pairing with a Restoration Project Manager but for buildings where the standards are legal, not just practical.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 62300
+    high: 77960
+  fiveYear:
+    low: 99280
+    high: 126550
+  tenYear:
+    low: 126550
+    high: 161420
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Architects, Except Landscape and Naval (SOC 17-1011), national data — the closest BLS classification given this role's heavy overlap with preservation architecture and compliance review; no separate detailed occupation exists for historic preservation specifically"
+  asOf: "May 2025"
 whatIs: >
   A Historic Preservation Specialist plans and oversees restoration and
   rehabilitation work on historic and landmark-designated buildings,
