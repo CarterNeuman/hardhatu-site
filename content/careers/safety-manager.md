@@ -4,6 +4,19 @@ title: Safety Manager
 category: "Project & Operations"
 tagline: Owns the jobsite's safety program, training, inspections, and incident tracking, on projects large enough to need a dedicated safety role beyond what the superintendent handles day to day.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 55000
+    high: 69560
+  fiveYear:
+    low: 90150
+    high: 111690
+  tenYear:
+    low: 111690
+    high: 134950
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Occupational Health and Safety Specialists (SOC 19-5011), national data"
+  asOf: "May 2025"
 whatIs: >
   A Safety Manager builds and runs a project's (or a company's) safety
   program, training workers, conducting jobsite inspections, investigating

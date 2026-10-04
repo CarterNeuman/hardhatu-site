@@ -4,6 +4,19 @@ title: Project Engineer
 category: "Project & Operations"
 tagline: The project management team's problem-solver and paperwork owner, the entry point into a Project Manager career for most people who don't come up through the trades.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 61580
+    high: 78440
+  fiveYear:
+    low: 102320
+    high: 133100
+  tenYear:
+    low: 133100
+    high: 167970
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Project Management Specialists (SOC 13-1082), national data"
+  asOf: "May 2025"
 whatIs: >
   A Project Engineer (PE, not to be confused with a licensed Professional
   Engineer) supports a Project Manager by owning the day-to-day

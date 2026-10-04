@@ -4,6 +4,19 @@ title: QA/QC Inspector
 category: "Project & Operations"
 tagline: Physically inspects and tests completed work against the specifications, the hands-on counterpart to a Quality Control Manager's oversight role.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 47140
+    high: 58860
+  fiveYear:
+    low: 58860
+    high: 74690
+  tenYear:
+    low: 74690
+    high: 94710
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Construction and Building Inspectors (SOC 47-4011), national data — entry/5-year/10-year mapped to the lower half of this occupation's wage distribution (10th-75th percentile); see the Quality Control Manager page for the upper-half mapping of the same distribution"
+  asOf: "May 2025"
 whatIs: >
   A QA/QC Inspector performs the hands-on inspection and testing that a
   project's quality control program requires, checking completed work

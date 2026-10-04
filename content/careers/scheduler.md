@@ -4,6 +4,19 @@ title: Scheduler
 category: "Project & Operations"
 tagline: Builds and maintains the project schedule everyone else's work depends on, the person who can tell you exactly what happens if today's delay ripples forward.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 61580
+    high: 78440
+  fiveYear:
+    low: 102320
+    high: 133100
+  tenYear:
+    low: 133100
+    high: 167970
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Project Management Specialists (SOC 13-1082), national data — shares this SOC code with the Project Engineer page since BLS doesn't track scheduling as a separate detailed occupation from general project-management coordination"
+  asOf: "May 2025"
 whatIs: >
   A Scheduler builds, updates, and analyzes a construction project's
   schedule: sequencing thousands of activities, identifying the critical

@@ -4,6 +4,19 @@ title: Quality Control Manager
 category: "Project & Operations"
 tagline: Makes sure the finished work actually matches the contract specifications, the counterpart to a Safety Manager, protecting the project instead of the people.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 58860
+    high: 74690
+  fiveYear:
+    low: 74690
+    high: 94710
+  tenYear:
+    low: 94710
+    high: 114200
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Construction and Building Inspectors (SOC 47-4011), national data — entry/5-year/10-year mapped to the upper half of this occupation's wage distribution (25th-90th percentile); see the QA/QC Inspector page for the lower-half mapping of the same distribution"
+  asOf: "May 2025"
 whatIs: >
   A Quality Control (QC) Manager verifies that construction work complies
   with contract specifications, drawings, and applicable codes, inspecting
