@@ -4,6 +4,19 @@ title: Loss Control / Risk Engineer
 category: "Insurance & Claims"
 tagline: Inspects jobsites on the insurer's behalf to manage risk before a loss happens, distinct from a Safety Manager who does similar work but for the contractor, not the insurance company.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 55000
+    high: 69560
+  fiveYear:
+    low: 90150
+    high: 111690
+  tenYear:
+    low: 111690
+    high: 134950
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Occupational Health and Safety Specialists (SOC 19-5011), national data — the same code this site's Safety Manager page uses; BLS doesn't distinguish inspecting a site on an insurer's behalf from a contractor's own safety role"
+  asOf: "May 2025"
 whatIs: >
   A Loss Control Engineer, also called a Risk Engineer, inspects
   construction sites and facilities on behalf of an insurance company or

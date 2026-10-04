@@ -4,6 +4,19 @@ title: Surety Bond Underwriter
 category: "Insurance & Claims"
 tagline: Decides whether a contractor gets bonded at all, sitting behind every bid bond and performance bond this site already teaches without a career to represent it.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 55530
+    high: 64620
+  fiveYear:
+    low: 81370
+    high: 110390
+  tenYear:
+    low: 110390
+    high: 145160
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Insurance Underwriters (SOC 13-2053), national data — shares this code with Builder's Risk Underwriter as a parallel underwriting specialty; BLS doesn't track bonding versus property underwriting as separate occupations"
+  asOf: "May 2025"
 whatIs: >
   A Surety Bond Underwriter evaluates construction companies to decide
   whether to issue them surety bonds, and how much bonding capacity to

@@ -4,6 +4,19 @@ title: Insurance Restoration Estimator
 category: "Insurance & Claims"
 tagline: Writes the repair estimate that turns a damage inspection into a number, the estimating specialist inside a claim, distinct from the adjusters who decide what actually gets paid.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 48530
+    high: 61150
+  fiveYear:
+    low: 78740
+    high: 101850
+  tenYear:
+    low: 101850
+    high: 130820
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Cost Estimators (SOC 13-1051), national data — the same code this site's Estimator, Heavy Civil Estimator, Cost Engineer, and Quantity Surveyor pages share, since insurance-specific restoration estimating isn't tracked as its own detailed occupation"
+  asOf: "May 2025"
 whatIs: >
   An Insurance Restoration Estimator prepares detailed repair estimates for
   property damage tied to an insurance claim, usually working for a

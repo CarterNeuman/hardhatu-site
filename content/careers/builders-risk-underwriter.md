@@ -4,6 +4,19 @@ title: Builder's Risk Underwriter
 category: "Insurance & Claims"
 tagline: Decides what a builder's risk policy actually covers before a loss ever happens, the underwriting side of insurance this site had only ever covered from the claims side.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 55530
+    high: 64620
+  fiveYear:
+    low: 81370
+    high: 110390
+  tenYear:
+    low: 110390
+    high: 145160
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Insurance Underwriters (SOC 13-2053), national data — shares this code with Surety Bond Underwriter as a parallel underwriting specialty (different insurance product, same BLS occupation)"
+  asOf: "May 2025"
 whatIs: >
   A Builder's Risk Underwriter evaluates construction projects to decide
   whether to insure them, and on what terms, pricing and structuring

@@ -4,6 +4,32 @@ title: Public Adjuster
 category: "Insurance & Claims"
 tagline: Works for the policyholder, not the insurance company, the mirror image of the Insurance Adjuster role, hired to make sure a property owner's claim gets full and fair value.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 48850
+    high: 61160
+  fiveYear:
+    low: 78000
+    high: 98030
+  tenYear:
+    low: 98030
+    high: 117040
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Claims Adjusters, Examiners, and Investigators (SOC 13-1031), national data — shares this code with Insurance Adjuster; BLS doesn't track which side of a claim an adjuster represents as a separate occupation"
+  asOf: "May 2025"
+ownerPayHighlight: >
+  Owning a public adjusting firm means your income comes from a cut of the
+  claims you win for your clients, not a salary — a trade that rewards
+  negotiating a bigger settlement far more directly than any employee role
+  on this site's insurance side.
+ownerPayNote: >
+  These figures are wage-and-salary pay only — the Bureau of Labor
+  Statistics excludes the self-employed and firm owners from this survey
+  entirely. Public adjusting firm income is typically a contingency fee, a
+  percentage of whatever additional settlement the adjuster wins for the
+  policyholder, not a wage, and no reliable published figure exists for
+  what that nets out to. Worth researching your state's public-adjuster
+  fee caps and your own market before trusting any number you find online.
 whatIs: >
   A Public Adjuster represents a policyholder (not the insurance company)
   in a property insurance claim, inspecting the damage, preparing their

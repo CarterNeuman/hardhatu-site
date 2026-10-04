@@ -4,6 +4,33 @@ title: Insurance Adjuster (Property/Casualty)
 category: "Insurance & Claims"
 tagline: Investigates property damage claims and decides what the insurance company will actually pay to fix it.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 48850
+    high: 61160
+  fiveYear:
+    low: 78000
+    high: 98030
+  tenYear:
+    low: 98030
+    high: 117040
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Claims Adjusters, Examiners, and Investigators (SOC 13-1031), national data — shares this code with Public Adjuster, the mirror-image role representing the policyholder instead of the insurer"
+  asOf: "May 2025"
+ownerPayHighlight: >
+  Going independent or CAT doesn't mean steady raises — it means trading a
+  salary for per-claim contract work that can pay enormous sums during an
+  active storm season and very little in a quiet one.
+ownerPayNote: >
+  These figures are wage-and-salary pay only — the Bureau of Labor
+  Statistics excludes independent and catastrophe adjusters from this
+  survey when they work as self-employed contractors rather than company
+  employees, which is how most CAT adjusters are actually paid, a fee per
+  claim during a deployment, not a salary. No reliable published figure
+  captures that income specifically, since it swings heavily with how
+  active a given storm season is and how many claims one adjuster can
+  close. Worth researching current CAT deployment rates before counting on
+  a number.
 whatIs: >
   A Property/Casualty Insurance Adjuster inspects damage from events like
   fires, storms, and water leaks, then writes a scope of loss, an itemized
