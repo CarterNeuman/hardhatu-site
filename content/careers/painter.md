@@ -12,7 +12,7 @@ payTimeline:
   fiveYear:
     low: 49400
     high: 61660
-  twentyYear:
+  tenYear:
     low: 61660
     high: 78810
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Painters, Construction and Maintenance (SOC 47-2141), national data"

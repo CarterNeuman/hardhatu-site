@@ -12,7 +12,7 @@ payTimeline:
   fiveYear:
     low: 109910
     high: 135720
-  twentyYear:
+  tenYear:
     low: 135720
     high: 158890
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Elevator and Escalator Installers and Repairers (SOC 47-4021), national data"

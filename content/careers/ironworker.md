@@ -12,7 +12,7 @@ payTimeline:
   fiveYear:
     low: 62780
     high: 82660
-  twentyYear:
+  tenYear:
     low: 82660
     high: 108260
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Structural Iron and Steel Workers (SOC 47-2221), national data"

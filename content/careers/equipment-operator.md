@@ -12,7 +12,7 @@ payTimeline:
   fiveYear:
     low: 59850
     high: 77170
-  twentyYear:
+  tenYear:
     low: 77170
     high: 101090
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Operating Engineers and Other Construction Equipment Operators (SOC 47-2073), national data"

@@ -12,7 +12,7 @@ payTimeline:
   fiveYear:
     low: 57020
     high: 66870
-  twentyYear:
+  tenYear:
     low: 66870
     high: 85480
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Cement Masons and Concrete Finishers (SOC 47-2051), national data"

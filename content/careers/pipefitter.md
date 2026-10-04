@@ -12,7 +12,7 @@ payTimeline:
   fiveYear:
     low: 63800
     high: 85110
-  twentyYear:
+  tenYear:
     low: 85110
     high: 108420
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Plumbers, Pipefitters, and Steamfitters (SOC 47-2152), national data — BLS tracks this trade jointly with Plumbers, so the figures match that career's"

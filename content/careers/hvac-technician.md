@@ -12,7 +12,7 @@ payTimeline:
   fiveYear:
     low: 61010
     high: 77060
-  twentyYear:
+  tenYear:
     low: 77060
     high: 95210
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Heating, Air Conditioning, and Refrigeration Mechanics and Installers (SOC 49-9021), national data"

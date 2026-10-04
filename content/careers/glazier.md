@@ -12,7 +12,7 @@ payTimeline:
   fiveYear:
     low: 57080
     high: 66610
-  twentyYear:
+  tenYear:
     low: 66610
     high: 89790
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Glaziers (SOC 47-2121), national data"

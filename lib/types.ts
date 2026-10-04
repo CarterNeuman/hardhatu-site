@@ -53,24 +53,29 @@ export const CareerSchema = z.object({
     .optional(),
   progression: z.array(z.string()).default([]),
   hirerTypes: z.array(z.string()).default([]),
-  // Pay at three career-stage milestones — entry level, 5 years in, and 20
-  // years in — shown as a range timeline right under the career's "What is
-  // a ___?" intro, the standard placement for every career page.
+  // Pay at three career-stage milestones — entry level, 5 years in, and 10
+  // years in — shown as a "Pay expectations" range timeline under the
+  // Software section, the standard placement for every career page.
   // Career-only (not in `base`): pay doesn't apply to a Concept or a
   // Software profile. Optional and per-career; a career without this just
   // doesn't render the timeline yet. Always a range, never a single
-  // number — BLS doesn't track pay by years of experience, so these bands
+  // number — BLS doesn't track pay by years on the job, so these bands
   // are estimates drawn from the national wage *distribution* for the
   // occupation (entry ~ lower percentiles, 5-year ~ around the median,
-  // 20-year ~ upper percentiles), not a literal "at year 5 you'll earn
-  // exactly X" claim. See components/PayTimeline.tsx for the disclaimer
-  // that always ships alongside this data.
+  // tenYear ~ upper percentiles), not a literal "at year 5 you'll earn
+  // exactly X" claim. `tenYear` was originally named/labeled `twentyYear`;
+  // renamed because the 20-year framing undersold how fast most trades
+  // actually reach top-of-scale pay (e.g. Electrician's ~4-5 year
+  // apprenticeship-to-journeyman pipeline) — worth a second look per
+  // career if a trade's pay scale is more strictly seniority-based. See
+  // components/PayTimeline.tsx for the disclaimer that always ships
+  // alongside this data.
   payTimeline: z
     .object({
       unit: z.enum(["annual", "hourly"]).default("annual"),
       entry: z.object({ low: z.number(), high: z.number() }),
       fiveYear: z.object({ low: z.number(), high: z.number() }),
-      twentyYear: z.object({ low: z.number(), high: z.number() }),
+      tenYear: z.object({ low: z.number(), high: z.number() }),
       // e.g. "U.S. Bureau of Labor Statistics, Occupational Employment and
       // Wage Statistics (OEWS)" — shown in the on-page disclaimer so the
       // numbers are never unsourced.

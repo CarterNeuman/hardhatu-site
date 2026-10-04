@@ -12,7 +12,7 @@ payTimeline:
   fiveYear:
     low: 60580
     high: 76830
-  twentyYear:
+  tenYear:
     low: 76830
     high: 99910
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Carpenters (SOC 47-2031), national data"

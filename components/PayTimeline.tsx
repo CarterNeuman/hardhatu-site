@@ -2,7 +2,7 @@ import type { Career } from "@/lib/types";
 
 // Renders a career's payTimeline (see CareerSchema in lib/types.ts) as a
 // range-area trend chart: a navy wash between the "low" and "high" lines
-// as pay climbs across entry level, 5 years in, and 20 years in, with
+// as pay climbs across entry level, 5 years in, and 10 years in, with
 // every milestone's low/high directly labeled (one series — pay — so
 // color alone carries identity and no legend/axis-ticks are needed, per
 // the dataviz house rules: trend-over-time -> line/area, ~10% opacity
@@ -11,24 +11,19 @@ import type { Career } from "@/lib/types";
 // one). Always paired with <Disclaimer> on the career page — this
 // component only draws the numbers, it doesn't explain where they come
 // from.
-// Display labels for each milestone — kept separate from the schema's
-// field keys (entry/fiveYear/twentyYear in lib/types.ts), which stay as
-// the original "20-year" names for now. On Electrician, "twentyYear"
-// (mapped to the 75th-90th wage percentile) is shown as "10 years in":
-// BLS doesn't track pay by tenure at all, so this was always an estimate,
-// and for a trade with a ~4-5 year apprenticeship-to-journeyman pipeline,
-// top-of-scale pay is realistically reached well before year 20 — a
-// 20-year horizon undersold how fast electricians actually top out.
-// Revisit per career before rolling this label out further: a trade with
-// a strictly seniority-based union pay scale may genuinely take closer to
-// 20 years, where the original label was the more honest one.
+// The top milestone is "10 years in" (field key `tenYear`), not "20" —
+// renamed from the original `twentyYear` because BLS doesn't track pay by
+// tenure at all (the band was always an estimate off the wage
+// *distribution*, mapped to the 75th-90th percentile), and most trades'
+// apprenticeship-to-journeyman pipelines put top-of-scale pay well before
+// year 20. See the longer note in lib/types.ts.
 const MILESTONES: {
-  key: "entry" | "fiveYear" | "twentyYear";
+  key: "entry" | "fiveYear" | "tenYear";
   label: string;
 }[] = [
   { key: "entry", label: "Entry level" },
   { key: "fiveYear", label: "5 years in" },
-  { key: "twentyYear", label: "10 years in" },
+  { key: "tenYear", label: "10 years in" },
 ];
 
 function formatValue(n: number, unit: "annual" | "hourly") {

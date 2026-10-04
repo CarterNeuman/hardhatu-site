@@ -12,7 +12,7 @@ payTimeline:
   fiveYear:
     low: 47120
     high: 59740
-  twentyYear:
+  tenYear:
     low: 59740
     high: 78090
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Construction Laborers (SOC 47-2061), national data"

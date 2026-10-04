@@ -12,7 +12,7 @@ payTimeline:
   fiveYear:
     low: 63190
     high: 83940
-  twentyYear:
+  tenYear:
     low: 83940
     high: 108510
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Electricians (SOC 47-2111), national data"

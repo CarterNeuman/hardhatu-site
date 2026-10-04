@@ -12,7 +12,7 @@ payTimeline:
   fiveYear:
     low: 58930
     high: 74230
-  twentyYear:
+  tenYear:
     low: 74230
     high: 102010
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Drywall and Ceiling Tile Installers (SOC 47-2081), national data"

@@ -12,7 +12,7 @@ payTimeline:
   fiveYear:
     low: 65700
     high: 81500
-  twentyYear:
+  tenYear:
     low: 81500
     high: 93600
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Millwrights (SOC 49-9044), national data"

@@ -12,7 +12,7 @@ payTimeline:
   fiveYear:
     low: 62120
     high: 79350
-  twentyYear:
+  tenYear:
     low: 79350
     high: 100010
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Brickmasons and Blockmasons (SOC 47-2021), national data"

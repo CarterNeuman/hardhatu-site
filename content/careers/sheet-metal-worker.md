@@ -12,7 +12,7 @@ payTimeline:
   fiveYear:
     low: 61800
     high: 81610
-  twentyYear:
+  tenYear:
     low: 81610
     high: 105650
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Sheet Metal Workers (SOC 47-2211), national data"

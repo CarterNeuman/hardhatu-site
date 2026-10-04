@@ -313,7 +313,7 @@ for (const { filePath, data, body } of entries) {
 
   if (data.payTimeline) {
     const pt = data.payTimeline;
-    const bands = [["entry", pt.entry], ["fiveYear", pt.fiveYear], ["twentyYear", pt.twentyYear]];
+    const bands = [["entry", pt.entry], ["fiveYear", pt.fiveYear], ["tenYear", pt.tenYear]];
     for (const [bandName, band] of bands) {
       if (!band || typeof band.low !== "number" || typeof band.high !== "number") {
         errors.push(`${filePath}: payTimeline.${bandName} needs numeric low/high`);
@@ -324,8 +324,8 @@ for (const { filePath, data, body } of entries) {
     if (pt.entry && pt.fiveYear && pt.entry.low > pt.fiveYear.low) {
       errors.push(`${filePath}: payTimeline.entry.low (${pt.entry.low}) is higher than fiveYear.low (${pt.fiveYear.low}) — bands should trend upward with experience`);
     }
-    if (pt.fiveYear && pt.twentyYear && pt.fiveYear.low > pt.twentyYear.low) {
-      errors.push(`${filePath}: payTimeline.fiveYear.low (${pt.fiveYear.low}) is higher than twentyYear.low (${pt.twentyYear.low}) — bands should trend upward with experience`);
+    if (pt.fiveYear && pt.tenYear && pt.fiveYear.low > pt.tenYear.low) {
+      errors.push(`${filePath}: payTimeline.fiveYear.low (${pt.fiveYear.low}) is higher than tenYear.low (${pt.tenYear.low}) — bands should trend upward with experience`);
     }
     if (!pt.source) {
       errors.push(`${filePath}: payTimeline is missing source`);

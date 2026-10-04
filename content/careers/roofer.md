@@ -12,7 +12,7 @@ payTimeline:
   fiveYear:
     low: 55440
     high: 65390
-  twentyYear:
+  tenYear:
     low: 65390
     high: 81720
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Roofers (SOC 47-2181), national data"

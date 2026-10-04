@@ -12,7 +12,7 @@ payTimeline:
   fiveYear:
     low: 53140
     high: 62870
-  twentyYear:
+  tenYear:
     low: 62870
     high: 79970
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Solar Photovoltaic Installers (SOC 47-2231), national data"
