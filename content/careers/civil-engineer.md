@@ -4,6 +4,33 @@ title: Civil Engineer
 category: "Technology & Design"
 tagline: Designs the grading, drainage, and utility systems that make a site buildable before anyone can pour a foundation, the single biggest missing career on a site full of concepts that assume this role exists.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 68240
+    high: 79930
+  fiveYear:
+    low: 100840
+    high: 129680
+  tenYear:
+    low: 129680
+    high: 163220
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Civil Engineers (SOC 17-2051), national data — Structural Engineer shares this same code: BLS classifies structural engineering as a civil engineering sub-discipline rather than its own detailed occupation, so both pages carry identical figures"
+  asOf: "May 2025"
+ownerPayHighlight: >
+  Making Principal at a civil engineering firm means buying into the firm's
+  own fee income, not just a bigger title — and civil work's project-based
+  billing ties that income to the same boom-and-bust cycle as the site
+  development it designs.
+ownerPayNote: >
+  These figures are wage-and-salary pay only — the Bureau of Labor
+  Statistics excludes principals' and partners' equity distributions from
+  this survey, since that income isn't a wage, it's a share of the firm's
+  own fee revenue. Civil engineering firm ownership stakes vary enormously
+  by firm size, project mix, and how much business a principal personally
+  brings in, and no single published figure captures it meaningfully.
+  Worth understanding a specific firm's partnership track and buy-in terms
+  directly before counting on a number.
 whatIs: >
   A Civil Engineer designs the site-level systems a building depends on
   before construction can start: grading and earthwork, storm and

@@ -4,6 +4,19 @@ title: Construction Data Analyst
 category: "Technology & Design"
 tagline: Turns the mountain of data construction generates, costs, schedules, safety incidents, productivity, into answers that change how the next project gets planned.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 67240
+    high: 85660
+  fiveYear:
+    low: 120230
+    high: 158880
+  tenYear:
+    low: 158880
+    high: 199130
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Data Scientists (SOC 15-2051), national data — the closest BLS classification for data-analysis work; BLS folded most data-analyst duties into this broader code rather than tracking it as its own detailed occupation"
+  asOf: "May 2025"
 whatIs: >
   A Construction Data Analyst collects, organizes, and analyzes data across
   a construction company's projects, cost trends, schedule performance,

@@ -4,6 +4,32 @@ title: Structural Engineer
 category: "Technology & Design"
 tagline: Designs the structural steel, concrete, and foundation systems that keep a building standing, pairing with the trades that actually build what the drawings specify.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 68240
+    high: 79930
+  fiveYear:
+    low: 100840
+    high: 129680
+  tenYear:
+    low: 129680
+    high: 163220
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Civil Engineers (SOC 17-2051), national data — BLS has no separate detailed occupation for structural engineering; it's classified under the broader Civil Engineers code, the same one the Civil Engineer page uses, so the figures are identical by design, not a copy-paste mistake"
+  asOf: "May 2025"
+ownerPayHighlight: >
+  Making Principal at a structural firm means your stamp — and your firm's
+  liability exposure — backs every calculation the firm signs off on; the
+  ownership upside comes bundled with that exposure.
+ownerPayNote: >
+  These figures are wage-and-salary pay only — the Bureau of Labor
+  Statistics excludes principals' and partners' equity distributions from
+  this survey entirely, since that income is a share of the firm's fee
+  revenue, not a wage. Structural firm ownership stakes vary by firm size,
+  project type, and the liability exposure a principal personally carries,
+  and no single published figure captures it meaningfully. Worth
+  understanding a specific firm's partnership track and buy-in terms
+  directly before counting on a number.
 whatIs: >
   A Structural Engineer designs the systems that carry a building's
   loads, foundations, structural steel or concrete framing, and the

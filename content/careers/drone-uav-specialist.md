@@ -4,6 +4,19 @@ title: Drone/UAV Specialist
 category: "Technology & Design"
 tagline: Flies drones to capture aerial imagery, topographic data, and progress documentation for a project, one of the few construction roles with a hard federal license requirement.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 37520
+    high: 45430
+  fiveYear:
+    low: 54240
+    high: 66700
+  tenYear:
+    low: 66700
+    high: 81630
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Surveying and Mapping Technicians (SOC 17-3031), national data — no BLS code exists specifically for drone/UAV operation; this is the closest classification given how much of the role's field data-collection work overlaps with ground survey crews"
+  asOf: "May 2025"
 whatIs: >
   A Drone/UAV Specialist operates unmanned aircraft to capture aerial
   photos, video, and survey-grade topographic data for a construction

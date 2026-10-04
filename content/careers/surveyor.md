@@ -4,6 +4,32 @@ title: Surveyor
 category: "Technology & Design"
 tagline: Establishes the exact boundaries, elevations, and reference points a project gets built against, the one role where being off by an inch can mean a building in the wrong place.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 46880
+    high: 58170
+  fiveYear:
+    low: 75440
+    high: 98130
+  tenYear:
+    low: 98130
+    high: 125590
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Surveyors (SOC 17-1022), national data"
+  asOf: "May 2025"
+ownerPayHighlight: >
+  Owning your own surveying firm isn't just more billable hours — it's your
+  license backing every boundary you sign off on, with the liability
+  exposure and client-acquisition grind of running a business layered on
+  top.
+ownerPayNote: >
+  These figures are wage-and-salary pay only — the Bureau of Labor
+  Statistics excludes the self-employed and firm owners from this survey
+  entirely. No reliable published figure exists for surveying-firm owner
+  income specifically; it depends heavily on local market demand, how much
+  of the work a licensed surveyor can personally stamp and bill out, and
+  how large a crew the firm supports. Worth researching your own market
+  before trusting any number you find online.
 whatIs: >
   A (Land) Surveyor measures and maps land boundaries, elevations, and
   physical features, then translates that into the control points and

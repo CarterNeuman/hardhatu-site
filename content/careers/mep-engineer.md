@@ -4,6 +4,33 @@ title: MEP Engineer
 category: "Technology & Design"
 tagline: Designs the mechanical, electrical, and plumbing systems that make a building livable, work behind three of the site's most concept-dense trades with no design-side career representing any of them until now.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 73990
+    high: 84130
+  fiveYear:
+    low: 104110
+    high: 132590
+  tenYear:
+    low: 132590
+    high: 164340
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Mechanical Engineers (SOC 17-2141), national data — the closest single BLS classification for a role that spans mechanical, electrical, and plumbing design; HVAC/mechanical design makes up the bulk of most MEP scopes, and BLS has no combined or separate code for the electrical and plumbing design portions"
+  asOf: "May 2025"
+ownerPayHighlight: >
+  Making Principal at an MEP firm ties your income to the firm's own project
+  fees across mechanical, electrical, and plumbing design — real upside, but
+  tied to the same construction-cycle swings as the trades whose systems
+  your firm designs.
+ownerPayNote: >
+  These figures are wage-and-salary pay only — the Bureau of Labor
+  Statistics excludes principals' and partners' equity distributions from
+  this survey entirely, since that income is a share of the firm's fee
+  revenue, not a wage. MEP firm ownership stakes vary by firm size, which
+  systems the firm specializes in, and how much repeat design-build work a
+  principal brings in, and no single published figure captures it
+  meaningfully. Worth understanding a specific firm's partnership track
+  and buy-in terms directly before counting on a number.
 whatIs: >
   An MEP Engineer designs the mechanical (HVAC), electrical, and plumbing
   systems inside a building, sizing equipment, laying out distribution,

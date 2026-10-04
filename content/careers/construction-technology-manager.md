@@ -4,6 +4,19 @@ title: Construction Technology Manager
 category: "Technology & Design"
 tagline: Oversees BIM, drone, and software rollout across a whole company, the director-level counterpart to the hands-on specialists who execute technology on a single project.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 107550
+    high: 138060
+  fiveYear:
+    low: 175140
+    high: 220730
+  tenYear:
+    low: 220730
+    high: 297510
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Computer and Information Systems Managers (SOC 11-3021), national data"
+  asOf: "May 2025"
 whatIs: >
   A Construction Technology Manager oversees how a construction company
   adopts and standardizes technology across every project, not just one:

@@ -4,6 +4,19 @@ title: BIM/VDC Specialist
 category: "Technology & Design"
 tagline: Builds the 3D digital model of a project before it's built, so conflicts between trades get caught on a screen instead of on the jobsite.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 55650
+    high: 66150
+  fiveYear:
+    low: 66150
+    high: 80870
+  tenYear:
+    low: 80870
+    high: 99710
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Architectural and Civil Drafters (SOC 17-3011), national data — shares this code with CAD Technician: BLS doesn't track BIM/VDC work as a separate detailed occupation from drafting, so this uses the upper half of the same wage distribution (25th-90th percentile) that the CAD Technician page uses the lower half of"
+  asOf: "May 2025"
 whatIs: >
   A BIM (Building Information Modeling) or VDC (Virtual Design and
   Construction) Specialist builds and manages the 3D digital model that

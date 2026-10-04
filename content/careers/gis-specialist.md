@@ -4,6 +4,19 @@ title: GIS Specialist
 category: "Technology & Design"
 tagline: Works with the spatial data a Surveyor and Drone/UAV Specialist collect, turning raw location data into the maps and analysis a project actually uses.
 tier: free
+payTimeline:
+  unit: annual
+  entry:
+    low: 53740
+    high: 65670
+  fiveYear:
+    low: 81390
+    high: 101960
+  tenYear:
+    low: 101960
+    high: 126950
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Cartographers and Photogrammetrists (SOC 17-1021), national data"
+  asOf: "May 2025"
 whatIs: >
   A GIS (Geographic Information Systems) Specialist manages and analyzes
   spatial data, turning survey data, drone-captured photogrammetry, and
