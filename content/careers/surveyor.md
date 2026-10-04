@@ -18,10 +18,10 @@ payTimeline:
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Surveyors (SOC 17-1022), national data"
   asOf: "May 2025"
 ownerPayHighlight: >
-  Owning your own surveying firm isn't just more billable hours — it's your
-  license backing every boundary you sign off on, with the liability
-  exposure and client-acquisition grind of running a business layered on
-  top.
+  Owning your own surveying firm means real upside from every job your
+  license lets you sign off on and keep the margin from, not just more
+  billable hours — with the liability exposure and client-acquisition grind
+  of running a business layered on top.
 ownerPayNote: >
   These figures are wage-and-salary pay only — the Bureau of Labor
   Statistics excludes the self-employed and firm owners from this survey

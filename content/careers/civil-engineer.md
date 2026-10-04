@@ -18,10 +18,10 @@ payTimeline:
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Civil Engineers (SOC 17-2051), national data — Structural Engineer shares this same code: BLS classifies structural engineering as a civil engineering sub-discipline rather than its own detailed occupation, so both pages carry identical figures"
   asOf: "May 2025"
 ownerPayHighlight: >
-  Making Principal at a civil engineering firm means buying into the firm's
-  own fee income, not just a bigger title — and civil work's project-based
-  billing ties that income to the same boom-and-bust cycle as the site
-  development it designs.
+  Making Principal at a civil engineering firm means buying into the
+  firm's own fee income, not just a bigger title — real upside as the
+  firm's reputation and client list grow, tied to the same boom-and-bust
+  project cycle as the site development it designs.
 ownerPayNote: >
   These figures are wage-and-salary pay only — the Bureau of Labor
   Statistics excludes principals' and partners' equity distributions from

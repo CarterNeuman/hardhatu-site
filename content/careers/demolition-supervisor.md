@@ -19,9 +19,9 @@ payTimeline:
   asOf: "May 2025"
 ownerPayHighlight: >
   Running your own demolition contracting business means bidding jobs where
-  salvage and scrap value can swing the margin as much as labor does, on top
-  of the insurance and bonding costs a hazard-exposed trade like this
-  carries.
+  salvage and scrap value can push the margin well past what labor alone
+  would pay — real upside on the right job, with the insurance and bonding
+  costs a hazard-exposed trade like this carries as the tradeoff.
 ownerPayNote: >
   These figures are wage-and-salary pay only — the Bureau of Labor
   Statistics excludes the self-employed and business owners from this
