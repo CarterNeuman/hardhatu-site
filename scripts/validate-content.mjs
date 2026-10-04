@@ -303,6 +303,21 @@ for (const [dir, config] of Object.entries(TYPE_CONFIG)) {
           }
           if (appliesWhen === "both" || appliesWhen === "browsing") browsingCount += 1;
           if (appliesWhen === "both" || appliesWhen === "applying") applyingCount += 1;
+          const isRecurring = item.recurring === true;
+          const isAnchorEnd = item.anchorEnd === true;
+          if (isRecurring && isAnchorEnd) {
+            errors.push(
+              `${filePath}: dayByDay[${i}] can't be both recurring and anchorEnd -- a repeating cycle and a fixed last step are mutually exclusive`
+            );
+          }
+          if (isRecurring) {
+            const VALID_RECURRING_KIND = new Set(["outreach", "certification"]);
+            if (!VALID_RECURRING_KIND.has(item.recurringKind)) {
+              errors.push(
+                `${filePath}: dayByDay[${i}] is recurring but recurringKind is "${item.recurringKind}", must be "outreach" or "certification"`
+              );
+            }
+          }
         });
         // Both intake statuses need a real plan, not just the shared
         // "both" steps -- this is what actually caught, during review,

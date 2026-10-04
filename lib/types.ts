@@ -364,6 +364,25 @@ export const ActionPlanSchema = z
           title: z.string(),
           detail: z.string(),
           appliesWhen: z.enum(["both", "browsing", "applying"]).default("both"),
+          // Marks this item as a repeating cycle (reach out to more
+          // contacts, pursue another certification) rather than a one-time
+          // step. The generator repeats it across however much of the
+          // visitor's timeline is left after the one-time items, more
+          // often for more hours/week and more times for a longer
+          // timeline -- see computeDensityFactor in
+          // lib/action-plan-generator.ts. Requires recurringKind.
+          recurring: z.boolean().default(false),
+          // Which repeat cadence this recurring item uses -- outreach
+          // repeats faster (a few days apart) than pursuing another
+          // certification (which realistically takes longer each time).
+          recurringKind: z.enum(["outreach", "certification"]).optional(),
+          // Pins a one-time item to the very end of the generated
+          // timeline instead of a scaled position from its authored
+          // dayStart -- for a capstone step ("review your responses and
+          // decide your next move") that should always land last,
+          // whether the plan is 2 weeks or 10. Mutually exclusive with
+          // recurring.
+          anchorEnd: z.boolean().default(false),
         })
       )
       .default([]),
@@ -405,6 +424,22 @@ export const ActionPlanSchema = z
         path: ["dayByDay"],
       });
     }
+    data.dayByDay.forEach((item, i) => {
+      if (item.recurring && item.anchorEnd) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `dayByDay[${i}] can't be both recurring and anchorEnd -- a repeating cycle and a fixed last step are mutually exclusive`,
+          path: ["dayByDay", i],
+        });
+      }
+      if (item.recurring && !item.recurringKind) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `dayByDay[${i}] is recurring but has no recurringKind ("outreach" or "certification")`,
+          path: ["dayByDay", i, "recurringKind"],
+        });
+      }
+    });
     if (data.targetEmployerTypes.length < 1) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,

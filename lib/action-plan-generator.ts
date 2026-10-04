@@ -85,28 +85,112 @@ export type GeneratedPlan = {
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
 
 // The pace every skeleton is authored at: a steady, engaged search with
-// real hours to give it each week. A visitor who said they have fewer
-// hours available gets the same steps stretched over more calendar days
-// rather than content being cut -- nothing on the list gets skipped just
-// because someone has less time, it just takes longer to get through.
+// real hours to give it each week.
 const REFERENCE_HOURS_PER_WEEK = 10;
+
+// Bounds on how much the one-time early items (paperwork, resume, etc.)
+// can stretch when someone has fewer hours per week than the reference
+// pace. Deliberately narrow -- the "basic stuff" is meant to stay near
+// the start of the plan no matter how long the overall timeline runs,
+// the recurring items below are what actually absorb a longer timeline.
+const PACE_SCALE_MIN = 0.5;
+const PACE_SCALE_MAX = 2;
+
+// Bounds on how much faster or slower than the reference pace a
+// recurring item (another outreach round, another certification) repeats.
+const DENSITY_FACTOR_MIN = 0.2;
+const DENSITY_FACTOR_MAX = 3;
+
+type RecurringKind = "outreach" | "certification";
+
+// How often each kind of recurring item repeats at the reference pace
+// (densityFactor === 1), the floor that cadence can shrink to even at a
+// very high hours/week answer, and a sane cap on how many rounds a single
+// plan will ever show -- outreach is cheap and fast so it repeats often;
+// pursuing another certification realistically takes longer each time,
+// so it repeats on a longer cycle and caps lower.
+const RECURRING_CADENCE: Record<RecurringKind, { referenceDays: number; minDays: number; maxInstances: number }> = {
+  outreach: { referenceDays: 3, minDays: 2, maxInstances: 8 },
+  certification: { referenceDays: 7, minDays: 4, maxInstances: 4 },
+};
 
 function addDays(base: Date, days: number): Date {
   return new Date(base.getTime() + days * MS_PER_DAY);
 }
 
-// Scales the skeleton's authored day offsets to fit how much time the
-// visitor actually has. If they gave a target timeline, that wins (the
-// plan is stretched or compressed to land on that many weeks). Otherwise
-// pace alone decides: fewer hours per week than the reference pace spreads
-// the same steps over more days.
-function computeScale(skeleton: ActionPlan, intake: ActionPlanIntake): number {
-  const referenceSpanDays = skeleton.dayByDay.reduce((max, item) => Math.max(max, item.dayEnd), 1);
+function clamp(value: number, min: number, max: number): number {
+  return Math.min(max, Math.max(min, value));
+}
+
+// How many calendar days the whole plan should span. An explicit target
+// timeline wins outright, that's the visitor naming an actual deadline.
+// Otherwise pace alone decides: fewer hours per week than the reference
+// pace spreads the same amount of work over more days.
+function computeTotalDays(referenceSpanDays: number, intake: ActionPlanIntake): number {
   if (intake.timelineWeeks > 0) {
-    return (intake.timelineWeeks * 7) / referenceSpanDays;
+    return Math.max(1, intake.timelineWeeks * 7);
   }
   const hours = Math.max(intake.hoursPerWeek, 1);
-  return REFERENCE_HOURS_PER_WEEK / hours;
+  return Math.max(referenceSpanDays, Math.round(referenceSpanDays * (REFERENCE_HOURS_PER_WEEK / hours)));
+}
+
+// How much longer the one-time early items take when someone has fewer
+// hours per week than the reference pace, bounded (see PACE_SCALE_*) so
+// they stay clustered near the start of the plan rather than stretching
+// across whatever the full timeline ends up being.
+function computePaceScale(hoursPerWeek: number): number {
+  const hours = Math.max(hoursPerWeek, 1);
+  return clamp(REFERENCE_HOURS_PER_WEEK / hours, PACE_SCALE_MIN, PACE_SCALE_MAX);
+}
+
+// How much more or less often a recurring item repeats than the
+// reference pace. More hours per week than the reference pace means
+// shorter gaps between rounds -- literally more tasks on the schedule;
+// fewer hours per week means longer gaps and fewer tasks overall. This
+// is deliberately a *different* number from computePaceScale: the early
+// one-time items are bounded tightly so "the basic stuff" never drifts
+// far from day one, while recurring items are the piece meant to flex
+// the most with both hours/week and how long the timeline runs.
+function computeDensityFactor(hoursPerWeek: number): number {
+  const hours = Math.max(hoursPerWeek, 1);
+  return clamp(hours / REFERENCE_HOURS_PER_WEEK, DENSITY_FACTOR_MIN, DENSITY_FACTOR_MAX);
+}
+
+type RawDay = { dayStart: number; dayEnd: number; title: string; detail: string };
+
+// Expands one authored "recurring" item into however many repeat rounds
+// fit the visitor's timeline and pace. Always produces at least one round
+// (clamped to the end of the plan if the authored start would otherwise
+// fall past it) -- a plan with no time left for anything else should
+// still carry at least one reminder to keep reaching out or keep an eye
+// on certifications, never silently drop the theme entirely. Titles get a
+// "(round N of M)" suffix once there's more than one, so repeats read as
+// a cadence instead of looking like a duplicate-content bug.
+function expandRecurringItem(
+  item: ActionPlan["dayByDay"][number],
+  paceScale: number,
+  densityFactor: number,
+  totalDays: number
+): RawDay[] {
+  const kind: RecurringKind = item.recurringKind === "certification" ? "certification" : "outreach";
+  const cadence = RECURRING_CADENCE[kind];
+  const cadenceDays = Math.max(cadence.minDays, Math.round(cadence.referenceDays / densityFactor));
+  const scaledSpan = Math.max(1, Math.round((item.dayEnd - item.dayStart + 1) * paceScale));
+  const firstStart = Math.min(totalDays, Math.max(1, Math.round(item.dayStart * paceScale)));
+
+  const spans: { dayStart: number; dayEnd: number }[] = [];
+  let cursor = firstStart;
+  while (cursor <= totalDays && spans.length < cadence.maxInstances) {
+    spans.push({ dayStart: cursor, dayEnd: Math.min(totalDays, cursor + scaledSpan - 1) });
+    cursor += cadenceDays;
+  }
+
+  return spans.map((span, i) => ({
+    dayStart: span.dayStart,
+    dayEnd: span.dayEnd,
+    title: spans.length > 1 ? `${item.title} (round ${i + 1} of ${spans.length})` : item.title,
+    detail: item.detail,
+  }));
 }
 
 // Fills [Token] placeholders with a replacer *function*, not a plain
@@ -149,24 +233,52 @@ export function buildActionPlan({
   intake: ActionPlanIntake;
   startDate?: Date;
 }): GeneratedPlan {
-  const scale = computeScale(skeleton, intake);
   const certsHeldTokens = tokenize(intake.certsHeld);
 
-  const days: GeneratedDayItem[] = skeleton.dayByDay
-    .filter((item) => item.appliesWhen === "both" || item.appliesWhen === intake.status)
-    .map((item) => {
-      const scaledStart = Math.max(1, Math.round(item.dayStart * scale));
-      const scaledEnd = Math.max(scaledStart, Math.round(item.dayEnd * scale));
-      return {
-        dayStart: scaledStart,
-        dayEnd: scaledEnd,
-        title: item.title,
-        detail: item.detail,
-        startDate: addDays(startDate, scaledStart - 1),
-        endDate: addDays(startDate, scaledEnd - 1),
-      };
-    })
-    .sort((a, b) => a.dayStart - b.dayStart);
+  // Three independent dials, on purpose: totalDays is how far out the
+  // calendar runs (the visitor's stated timeline wins outright, hours/week
+  // only sets the length when no timeline was given); paceScale is how
+  // much longer the early one-time items take at fewer hours/week, kept
+  // narrow so "the basic stuff" stays near day one; densityFactor is how
+  // often a recurring item (another outreach round, another
+  // certification) repeats, which is what actually makes "more hours" or
+  // "a longer timeline" produce more tasks rather than just the same
+  // tasks spread thinner.
+  const referenceSpanDays = skeleton.dayByDay.reduce((max, item) => Math.max(max, item.dayEnd), 1);
+  const totalDays = computeTotalDays(referenceSpanDays, intake);
+  const paceScale = computePaceScale(intake.hoursPerWeek);
+  const densityFactor = computeDensityFactor(intake.hoursPerWeek);
+
+  const rawDays: RawDay[] = [];
+  for (const item of skeleton.dayByDay) {
+    if (item.appliesWhen !== "both" && item.appliesWhen !== intake.status) continue;
+    if (item.recurring) {
+      rawDays.push(...expandRecurringItem(item, paceScale, densityFactor, totalDays));
+      continue;
+    }
+    if (item.anchorEnd) {
+      // Always the plan's last step, whatever the timeline -- a capstone
+      // like "review your responses and decide your next move" should
+      // land at the very end whether the plan is 2 weeks or 10, not at a
+      // position scaled from its authored day offset.
+      const span = Math.max(1, Math.round((item.dayEnd - item.dayStart + 1) * paceScale));
+      const scaledEnd = totalDays;
+      const scaledStart = Math.max(1, scaledEnd - span + 1);
+      rawDays.push({ dayStart: scaledStart, dayEnd: scaledEnd, title: item.title, detail: item.detail });
+      continue;
+    }
+    const scaledStart = Math.min(totalDays, Math.max(1, Math.round(item.dayStart * paceScale)));
+    const scaledEnd = Math.min(totalDays, Math.max(scaledStart, Math.round(item.dayEnd * paceScale)));
+    rawDays.push({ dayStart: scaledStart, dayEnd: scaledEnd, title: item.title, detail: item.detail });
+  }
+
+  const days: GeneratedDayItem[] = rawDays
+    .map((item) => ({
+      ...item,
+      startDate: addDays(startDate, item.dayStart - 1),
+      endDate: addDays(startDate, item.dayEnd - 1),
+    }))
+    .sort((a, b) => a.dayStart - b.dayStart || a.dayEnd - b.dayEnd);
 
   const qualifications: GeneratedQualification[] = (getHiredGuide?.credentialsToHaveReady ?? []).map(
     (label) => ({

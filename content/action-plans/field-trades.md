@@ -11,9 +11,13 @@ overview: >
   it's about momentum: getting your paperwork and credentials in order,
   building a short list of real employers instead of applying into the
   void, and reaching out in a way that actually gets a callback. The
-  plan below is written for a 14-day sprint at a steady pace. If you
-  said you have fewer hours a week to give it, the same steps still
-  happen, just spread out over more days so nothing gets skipped.
+  plan below is written for a 14-day sprint at a steady pace. The basic
+  stuff (paperwork, your resume) always lands near the start no matter
+  how long your timeline is. Outreach and pursuing another certification
+  repeat for as long as your plan runs: fewer hours a week or a shorter
+  timeline means fewer rounds of each, more hours or a longer timeline
+  means more, so a long search stays active instead of trailing off
+  after the first couple of weeks.
 dayByDay:
   - dayStart: 1
     dayEnd: 1
@@ -52,24 +56,23 @@ dayByDay:
     appliesWhen: applying
   - dayStart: 7
     dayEnd: 8
-    title: "Contact two or three more on your list"
-    detail: "Don't wait to hear back from the first one before reaching out to the next. Trade hiring moves fast and in parallel, so your odds go up with every real conversation you start."
+    title: "Reach out to your next leads, and follow up on anyone who's gone quiet"
+    detail: "Contact 2 to 3 more names from your list in parallel, don't wait to hear back from one before reaching out to the next, trade hiring moves fast and your odds go up with every real conversation you start. If it's been three business days since your last message with no answer, that's the point to follow up, not to assume it's a no, use the follow-up template below. Still short on responses after a couple of rounds of this? Add a construction-focused staffing agency to your list if you haven't already, they can place you on a jobsite fast while you keep working the rest."
     appliesWhen: applying
+    recurring: true
+    recurringKind: outreach
   - dayStart: 9
     dayEnd: 9
     title: "Decide if you're ready to move from browsing to applying"
     detail: "If the trades you've been reading about still feel right, this is the point to pick one and start reaching out for real, using the outreach guidance below."
     appliesWhen: browsing
-  - dayStart: 9
-    dayEnd: 10
-    title: "Follow up on anything with no response"
-    detail: "Three business days with no answer is the right point to follow up, not to assume it's a no. Use the follow-up template below, it takes under a minute to send."
-    appliesWhen: applying
-  - dayStart: 11
-    dayEnd: 11
-    title: "Expand your list if you're still short on responses"
-    detail: "Add a construction-focused staffing agency if you haven't already, they can place you on a jobsite fast while you keep working the rest of your list."
-    appliesWhen: applying
+  - dayStart: 8
+    dayEnd: 9
+    title: "Pursue one more certification or credential for your trade"
+    detail: "Beyond OSHA 10, look at what else makes you more hireable for your specific trade: an NCCER core or module certification, a forklift or aerial-lift card, First Aid/CPR, or a manufacturer-specific equipment certification. Each one is a concrete reason for a foreman to pick you over another entry-level applicant, worth lining up your next one now instead of waiting until a job asks for it."
+    appliesWhen: both
+    recurring: true
+    recurringKind: certification
   - dayStart: 12
     dayEnd: 12
     title: "Prep for any interview or on-site conversation that's been scheduled"
@@ -77,9 +80,10 @@ dayByDay:
     appliesWhen: applying
   - dayStart: 13
     dayEnd: 14
-    title: "Second round of follow-ups, and a real decision point"
-    detail: "By now you should know which contacts are worth staying on and which ones have gone cold. Keep the warm ones going and add fresh names to replace the ones that didn't pan out."
+    title: "Review your responses and decide your next move"
+    detail: "By now you should know which contacts are worth staying on and which have gone cold. Keep the warm ones going, add fresh names to replace the ones that didn't pan out, and if you're not getting traction, this is also a good point to pick up another certification or widen your search."
     appliesWhen: applying
+    anchorEnd: true
 targetEmployerTypes:
   - "Union signatory contractors for your specific trade, ask your local directly which contractors are signatory in your area"
   - "ABC (Associated Builders and Contractors) member open-shop contractors, searchable by local chapter"
