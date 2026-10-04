@@ -6,60 +6,52 @@ tagline: "The parts of getting hired that are true no matter which of the eight 
 comingSoon: false
 lastReviewed: "2026-10"
 howHiringWorks: >
-  Every one of the eight guides below assumes you already know who's actually
-  doing the hiring, and that's rarely obvious if you're new to the industry. A
-  single project usually involves an [[concept-owner|owner]] paying for it, a
-  [[concept-general-contractor|general contractor]] running it day to day, and
-  a stack of [[concept-subcontractor|subcontractors]] the GC hires for
-  specific scopes of work, sometimes with a construction manager acting on the
-  owner's behalf instead of a GC. A posting for "carpenters needed on a $40M
-  mixed-use project" rarely says which of those you'd actually be applying to,
-  a GC, a framing subcontractor working under that GC, or a staffing agency
-  placing you on whichever crew needs people that week. Knowing which one
-  you're talking to tells you who interviews you, how fast they can say yes,
-  and who actually signs your paycheck.
+  Every guide below assumes you already know who's actually doing the
+  hiring, and that's rarely obvious if you're new to this industry. A
+  project usually involves an [[concept-owner|owner]] paying for it, a
+  [[concept-general-contractor|general contractor]] running it day to day,
+  and a stack of [[concept-subcontractor|subcontractors]] hired for
+  specific scopes, sometimes with a construction manager standing in for
+  the GC. A posting rarely says which one you'd actually be applying to,
+  and knowing that tells you who interviews you, how fast they can say
+  yes, and who signs your paycheck.
 
-  The postings themselves use a vocabulary that gets assumed rather than
-  explained. A per diem is a daily stipend on top of wage for a travel job,
-  meant to cover lodging and meals, not a bonus. Prevailing wage means the job
-  is on public or government-funded work and pays a legally set rate for your
-  trade and region, usually above the open market.
-  [[concept-union-vs-open-shop|Union vs. open shop]] describes two entirely
-  different hiring and training pipelines, not a quality judgment on either
-  one. "Must pass background check and drug screen" shows up on nearly every
-  real posting and isn't a red flag specific to that employer. And a line like
-  "safety-first culture" is marketing language nearly every company uses,
-  worth confirming for yourself either way rather than taking it at face
-  value.
 
-  Pay works differently depending on which of the eight categories you're
-  headed toward, and it's worth knowing that before an offer surprises you.
-  Field trades pay hourly with real overtime and often per diem on top;
-  project and operations roles are usually salaried with an annual bonus;
-  business, sales, and some consulting roles layer commission or fee-based pay
-  on top of a base. A lot of construction hiring is also tied to a specific
-  project's timeline rather than an evergreen headcount slot, which is why
-  postings often want someone who can start within days, and why a layoff at a
-  project's end isn't the red flag it would be in most other industries. It
-  usually just means the project ended.
+  The postings themselves use a vocabulary that often goes unexplained. A
+  per diem is a daily stipend for a travel job, covering lodging and
+  meals, not a bonus. Prevailing wage means the job is on public or
+  government-funded work and pays a legally set, often above-market rate.
+  [[concept-union-vs-open-shop|Union vs. open shop]] describes two
+  different hiring and training pipelines, not a quality judgment, and a
+  background check or drug screen shows up on nearly every real posting
+  rather than being a red flag specific to one employer.
 
-  Relationships move hiring decisions at every level of this industry, from a
-  friend getting you on as a laborer to a consulting principal's own network
-  landing the firm's next engagement, so treat your network as a real tactic
-  everywhere you look, not a backup plan. It also helps to know which kind of
-  credential you're dealing with before you start applying. Some, like a
-  professional engineering license or an accounting degree, are gatekeepers
-  you need before you can even apply. Others, like an
-  [[concept-apprenticeship-program|apprenticeship]] or an OSHA 10 card, are
-  things you earn on the way in or shortly after being hired. The guide for
-  your path spells out exactly which kind applies to you.
 
-  None of this replaces the category-specific guide for the path you're
-  actually headed toward, it's what holds true no matter which of the eight
-  you pick. If you already know your path, jump straight to its guide below
-  for the real step-by-step checklist, where to look, and what to do today. If
-  you don't know yet, the career quiz on this site is a faster way to find out
-  than reading all eight.
+  Pay works differently depending on which category you're headed toward,
+  so it's worth knowing before an offer surprises you. Field trades
+  usually pay hourly with real overtime and per diem; project and
+  operations roles are typically salaried with an annual bonus; and
+  business, sales, and consulting roles often layer commission or fees on
+  a base. A lot of construction hiring is also tied to a project's
+  timeline rather than a permanent headcount, so a layoff at a project's
+  end usually just means the project ended, not that anything went wrong.
+
+
+  Relationships move hiring decisions at every level of this industry,
+  from a friend getting you on as a laborer to a principal's own network
+  landing a firm's next engagement, so treat your network as a real
+  tactic, not a backup plan. It also helps to know which kind of
+  credential you're dealing with: some, like a professional engineering
+  license, are gatekeepers you need before you can even apply, while
+  others, like an [[concept-apprenticeship-program|apprenticeship]] or an
+  OSHA 10 card, are things you earn on the way in. The guide for your path
+  spells out exactly which kind applies to you.
+
+
+  None of this replaces the guide for the path you're actually headed
+  toward, it's just what holds true no matter which of the eight you
+  pick. Jump to that guide below for the real checklist, or take the
+  career quiz if you haven't settled on a path yet.
 checklist:
   - step: "Figure out which of the eight paths actually fits"
     detail: "Everything else on this page, and every guide below, changes depending on which umbrella you're headed toward. If you're not sure yet, the career quiz is faster than reading all eight guides to find out."
