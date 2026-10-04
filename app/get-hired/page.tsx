@@ -20,17 +20,17 @@ export const metadata: Metadata = {
 // pixel math below is just trigonometry around one center point (CX, CY) —
 // change R/NODE_W/NODE_H/HUB_SIZE and everything else follows.
 // ---------------------------------------------------------------------------
-const R = 445; // center-to-node-center radius
-const NODE_W = 212;
-const NODE_H = 180;
-const HUB_SIZE = 300;
-const BEAM_START_R = 160; // just outside the hub's edge
-const BEAM_END_R = 288; // short of the node card, so the beam doesn't run under it
-const BEAM_WIDTH = 18;
+const R = 330; // center-to-node-center radius
+const NODE_W = 180;
+const NODE_H = 160;
+const HUB_SIZE = 240;
+const BEAM_START_R = 130; // just outside the hub's edge
+const BEAM_END_R = 194; // short of the node card, so the beam doesn't run under it
+const BEAM_WIDTH = 14;
 const BEAM_OUTLINE_WIDTH = BEAM_WIDTH + 2;
-const HIGHLIGHT_WIDTH = 6;
-const FLANGE_LENGTH = 34;
-const FLANGE_THICKNESS = 6;
+const HIGHLIGHT_WIDTH = 5;
+const FLANGE_LENGTH = 26;
+const FLANGE_THICKNESS = 5;
 const DIAGRAM_MARGIN = 20;
 
 // Colors mirror tailwind.config.ts's navy/amber-soft tokens. Inline <div>
@@ -142,7 +142,7 @@ export default function GetHiredIndexPage() {
           eight satellite cards and the text stays legible, so it's replaced
           entirely by the plain grid further down. */}
       {generalGuide && (
-        <div className="mx-auto mt-10 hidden max-w-[1200px] px-6 xl:block">
+        <div className="mx-auto mt-10 hidden max-w-[960px] px-6 xl:block">
           <div className="relative mx-auto" style={{ width: DIAGRAM.width, height: DIAGRAM.height }}>
             {NODE_GEOMETRY.map((geometry) => (
               <Beam key={geometry.category} geometry={geometry} />
@@ -256,24 +256,23 @@ function Beam({ geometry }: { geometry: NodeGeometry }) {
   );
 }
 
-// The hub and the 8 ring cards are narrow, fixed-height boxes — too tight
-// for a guide's full tagline (that full sentence still shows on the guide's
-// own page). Cuts at the nearest earlier clause break (colon/semicolon/
-// comma) when one lands inside the budget, since that reads as a complete
-// thought; otherwise falls back to the last whole word plus an ellipsis.
-// Never touches the guide's actual tagline field.
-function shortenForDiagram(text: string, maxChars: number): string {
-  const delimMatch = text.slice(0, maxChars + 1).match(/^[^:;,]*[:;,]/);
-  if (delimMatch) {
-    const clause = delimMatch[0].slice(0, -1).trim();
-    if (clause.length >= 20) return clause;
-  }
-  if (text.length <= maxChars) return text;
-  const slice = text.slice(0, maxChars);
-  const lastSpace = slice.lastIndexOf(" ");
-  const trimmed = (lastSpace > 20 ? slice.slice(0, lastSpace) : slice).trim();
-  return `${trimmed}…`;
-}
+// Short, hand-written lines for the hub and the 8 ring cards — purpose-
+// built to actually fit and read cleanly in these small boxes, rather than
+// a truncated slice of the guide's full tagline (which still shows in full
+// on the guide's own page; these are a separate, catchier blurb just for
+// the diagram).
+const GENERAL_BLURB = "Everything that's true before you pick a path.";
+
+const CATEGORY_BLURBS: Record<string, string> = {
+  "Field & Trades": "Union or open shop — two real doors into the trades.",
+  "Project & Operations": "80% of firms can't fill these roles fast enough.",
+  "Preconstruction & Estimating": "One of the industry's hardest roles to fill in 2026.",
+  Business: "The back office is aging out — and hiring fast.",
+  "Technology & Design": "Hired on proof, not pedigree.",
+  "Specialized Construction": "Solar and disaster restoration are booming right now.",
+  "Insurance & Claims": "Licensed, storm-ready adjusters are in real demand.",
+  "Consultants & Advisory": "A booming field, but you need a track record first.",
+};
 
 function HubCard({ guide }: { guide: GetHired }) {
   return (
@@ -288,13 +287,11 @@ function HubCard({ guide }: { guide: GetHired }) {
         clipPath: OCTAGON_CLIP,
       }}
     >
-      <div className="flex w-[196px] flex-col items-center gap-2.5">
-        <span className="text-[11px] font-bold uppercase tracking-wider text-amber-soft">Start here</span>
-        <span className="font-display text-xl font-bold leading-tight text-paper">{guide.category}</span>
-        <span className="line-clamp-3 text-xs leading-snug text-amber-soft/85">
-          {shortenForDiagram(guide.tagline, 100)}
-        </span>
-        <span className="mt-0.5 text-xs font-bold uppercase tracking-wide text-amber-soft group-hover:underline">
+      <div className="flex w-[150px] flex-col items-center gap-1.5">
+        <span className="text-[9px] font-bold uppercase tracking-wider text-amber-soft">Start here</span>
+        <span className="font-display text-base font-bold leading-tight text-paper">{guide.category}</span>
+        <span className="line-clamp-2 text-[11px] leading-snug text-amber-soft/85">{GENERAL_BLURB}</span>
+        <span className="mt-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-soft group-hover:underline">
           View the guide &rarr;
         </span>
       </div>
@@ -302,8 +299,8 @@ function HubCard({ guide }: { guide: GetHired }) {
         <span
           key={i}
           aria-hidden="true"
-          className="absolute h-[9px] w-[9px] rounded-full bg-amber-soft"
-          style={{ left: `calc(${px}% - 4.5px)`, top: `calc(${py}% - 4.5px)` }}
+          className="absolute h-[7px] w-[7px] rounded-full bg-amber-soft"
+          style={{ left: `calc(${px}% - 3.5px)`, top: `calc(${py}% - 3.5px)` }}
         />
       ))}
     </Link>
@@ -320,27 +317,26 @@ function CategoryNode({
   index: number;
 }) {
   const Icon = CATEGORY_ICONS[guide.category] ?? CategoryIconHands;
+  const blurb = CATEGORY_BLURBS[guide.category] ?? guide.tagline;
   const accentClass = index % 2 === 0 ? "border-t-amber" : "border-t-navy";
   const dotClass = index % 2 === 0 ? "bg-amber" : "bg-navy";
 
   return (
     <Link
       href={urlFor(guide)}
-      className={`group absolute flex flex-col gap-2 border border-hairline bg-white/40 p-4 pt-[18px] transition-colors hover:border-navy hover:bg-white/70 ${accentClass}`}
+      className={`group absolute flex flex-col gap-1.5 border border-hairline bg-white/40 p-3 pt-[14px] transition-colors hover:border-navy hover:bg-white/70 ${accentClass}`}
       style={{ left: geometry.left, top: geometry.top, width: NODE_W, height: NODE_H, borderTopWidth: 3 }}
     >
-      <span aria-hidden="true" className={`absolute left-2.5 top-2.5 h-[6px] w-[6px] rounded-full ${dotClass}`} />
+      <span aria-hidden="true" className={`absolute left-2 top-2 h-[5px] w-[5px] rounded-full ${dotClass}`} />
       <div className="flex items-start justify-between">
         <Icon className="text-clay" />
-        <span className="text-[10px] text-steel">0{index + 1}</span>
+        <span className="text-[9px] text-steel">0{index + 1}</span>
       </div>
-      <h3 className="font-display text-base font-bold leading-snug text-ink group-hover:text-navy">
+      <h3 className="font-display text-sm font-bold leading-snug text-ink group-hover:text-navy">
         {guide.category}
       </h3>
-      <p className="line-clamp-2 flex-1 text-xs leading-snug text-steel">
-        {shortenForDiagram(guide.tagline, 78)}
-      </p>
-      <span className="text-[11px] font-bold uppercase tracking-wide text-navy">View guide &rarr;</span>
+      <p className="line-clamp-2 flex-1 text-[11px] leading-snug text-steel">{blurb}</p>
+      <span className="text-[10px] font-bold uppercase tracking-wide text-navy">View guide &rarr;</span>
     </Link>
   );
 }
@@ -353,8 +349,8 @@ type IconProps = { className?: string };
 
 function iconSvgProps() {
   return {
-    width: 22,
-    height: 22,
+    width: 18,
+    height: 18,
     viewBox: "0 0 24 24",
     fill: "none",
     stroke: "currentColor",
