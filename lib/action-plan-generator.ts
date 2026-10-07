@@ -14,7 +14,21 @@ import type { ActionPlan, GetHired, ResumeGuide } from "./types";
 // server component can still pass a slimmed-down Lesson/Career straight
 // through without any casting.
 export type LessonRef = { id: string; slug: string; title: string; minutes: number };
-export type CareerRef = { id: string; title: string; slug: string };
+export type CareerRef = {
+  id: string;
+  title: string;
+  slug: string;
+  // Entry-level pay for this specific career, carried straight through
+  // from the career page's own already-sourced payTimeline.entry (see
+  // CareerSchema in lib/types.ts) -- never a new or separately-looked-up
+  // figure. Undefined for a career with no payTimeline authored yet.
+  entryPay?: { low: number; high: number; unit: "annual" | "hourly"; source: string; asOf: string };
+};
+// A slim Concept projection -- just enough to link to it and show why it's
+// worth knowing (definition), same spirit as LessonRef. Used both for the
+// "Go further" recommendations and (on the component side) for linking
+// jargon in the day-by-day text back to its concept page.
+export type ConceptRef = { id: string; slug: string; title: string; definition: string };
 
 export type ApplicationStatus = "browsing" | "applying";
 
@@ -76,6 +90,12 @@ export type GeneratedPlan = {
   courses: { lesson: LessonRef; href: string }[];
   resumeBullets: string[];
   resumeGuideHref?: string;
+  // A few concepts worth understanding deeply beyond the minimum courses
+  // above, to help someone who wants to stand out, not just meet the bar.
+  goFurther: { concept: ConceptRef; href: string }[];
+  interviewPrepHref?: string;
+  examPrepHref?: string;
+  entryPay?: CareerRef["entryPay"];
   days: GeneratedDayItem[];
   targetEmployerTypes: string[];
   whereToLook: string[];
@@ -285,6 +305,12 @@ export function buildActionPlan({
   resumeGuide,
   lessonsForCareer,
   categoryFallbackLessons = [],
+  conceptsForCareer = [],
+  categoryFallbackConcepts = [],
+  careerInterviewPrepHref,
+  categoryInterviewPrepHref,
+  careerExamPrepHref,
+  categoryExamPrepHref,
   career,
   intake,
   startDate = new Date(),
@@ -299,6 +325,20 @@ export function buildActionPlan({
   // empty Courses section. See app/action-plan/page.tsx for how this gets
   // built.
   categoryFallbackLessons?: LessonRef[];
+  // Concepts tied to the chosen specific career, and a category-wide
+  // fallback -- same "specific wins, else category-wide" pattern as
+  // lessons above. Surfaced as "Go further" recommendations.
+  conceptsForCareer?: ConceptRef[];
+  categoryFallbackConcepts?: ConceptRef[];
+  // Hrefs for this career's (or, failing that, this category's)
+  // Interview Prep / Exam Prep guide, if one exists -- a specific
+  // career's own guide wins over the category-wide one. Exam Prep
+  // coverage is uneven across careers, so this is often undefined, which
+  // is fine, the section just doesn't render (see ActionPlanBuilder).
+  careerInterviewPrepHref?: string;
+  categoryInterviewPrepHref?: string;
+  careerExamPrepHref?: string;
+  categoryExamPrepHref?: string;
   career?: CareerRef;
   intake: ActionPlanIntake;
   startDate?: Date;
@@ -360,6 +400,10 @@ export function buildActionPlan({
   const trade = career?.title ?? skeleton.category;
   const tokens = { Trade: trade, Location: intake.location.trim() };
   const courses = lessonsForCareer.length > 0 ? lessonsForCareer : categoryFallbackLessons;
+  const conceptPool = conceptsForCareer.length > 0 ? conceptsForCareer : categoryFallbackConcepts;
+  const goFurther = conceptPool.slice(0, 4).map((concept) => ({ concept, href: `/concepts/${concept.slug}` }));
+  const interviewPrepHref = careerInterviewPrepHref ?? categoryInterviewPrepHref;
+  const examPrepHref = careerExamPrepHref ?? categoryExamPrepHref;
 
   const headline = buildHeadline(trade, intake.location, intake.status, intake.hoursPerWeek, totalDays);
 
@@ -373,6 +417,10 @@ export function buildActionPlan({
     courses: courses.slice(0, 4).map((lesson) => ({ lesson, href: `/lessons/${lesson.slug}` })),
     resumeBullets: resumeGuide?.exampleBullets.slice(0, 5) ?? [],
     resumeGuideHref: resumeGuide ? `/resumes/${resumeGuide.slug}` : undefined,
+    goFurther,
+    interviewPrepHref,
+    examPrepHref,
+    entryPay: career?.entryPay,
     days,
     targetEmployerTypes: skeleton.targetEmployerTypes,
     whereToLook: getHiredGuide?.whereToLook ?? [],

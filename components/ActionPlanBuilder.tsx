@@ -20,10 +20,17 @@ import {
 } from "@/lib/action-plan-generator";
 import { buildIcs, downloadIcs } from "@/lib/ics";
 import { ActionPlanPrintCalendar } from "@/components/ActionPlanPrintCalendar";
+import { Disclaimer } from "@/components/Disclaimer";
 import type { ActionPlan, GetHired, ResumeGuide } from "@/lib/types";
 
-export type SlimCareer = { id: string; title: string; slug: string };
+export type SlimCareer = {
+  id: string;
+  title: string;
+  slug: string;
+  entryPay?: { low: number; high: number; unit: "annual" | "hourly"; source: string; asOf: string };
+};
 export type SlimLesson = { id: string; slug: string; title: string; minutes: number };
+export type SlimConcept = { id: string; slug: string; title: string; definition: string };
 
 export type CategoryData = {
   category: string;
@@ -37,6 +44,12 @@ export type CategoryData = {
   // whole, so "Not sure yet, keep it general" still gets real course
   // suggestions instead of an empty section.
   fallbackLessons: SlimLesson[];
+  conceptsByCareerId: Record<string, SlimConcept[]>;
+  fallbackConcepts: SlimConcept[];
+  interviewPrepHrefByCareerId: Record<string, string>;
+  categoryInterviewPrepHref?: string;
+  examPrepHrefByCareerId: Record<string, string>;
+  categoryExamPrepHref?: string;
 };
 
 const DEFAULT_HOURS = 10;
@@ -69,6 +82,13 @@ function TemplateBlock({ label, text }: { label: string; text: string }) {
       <pre className="mt-2 whitespace-pre-wrap font-sans text-sm leading-relaxed text-ink">{text}</pre>
     </div>
   );
+}
+
+// Mirrors PayTimeline.tsx's own formatter so the same figure reads the
+// same way wherever it shows up on the site.
+function formatPay(n: number, unit: "annual" | "hourly"): string {
+  if (unit === "hourly") return `$${n.toFixed(2)}/hr`;
+  return `$${Math.round(n / 1000)}k/yr`;
 }
 
 function formatDateRange(start: Date, end: Date): string {
@@ -111,6 +131,7 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
     }
     const career = data.careers.find((c) => c.id === careerId);
     const lessons = careerId ? data.lessonsByCareerId[careerId] ?? [] : [];
+    const careerConcepts = careerId ? data.conceptsByCareerId[careerId] ?? [] : [];
     const intake: ActionPlanIntake = {
       category,
       careerId: careerId || undefined,
@@ -126,6 +147,12 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
       resumeGuide: data.resumeGuide as ResumeGuide | undefined,
       lessonsForCareer: lessons,
       categoryFallbackLessons: data.fallbackLessons,
+      conceptsForCareer: careerConcepts,
+      categoryFallbackConcepts: data.fallbackConcepts,
+      careerInterviewPrepHref: careerId ? data.interviewPrepHrefByCareerId[careerId] : undefined,
+      categoryInterviewPrepHref: data.categoryInterviewPrepHref,
+      careerExamPrepHref: careerId ? data.examPrepHrefByCareerId[careerId] : undefined,
+      categoryExamPrepHref: data.categoryExamPrepHref,
       career,
       intake,
     });
@@ -193,6 +220,19 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
         <SectionLabel>Overview</SectionLabel>
         <p className="mt-2 leading-relaxed text-ink">{plan.overview}</p>
 
+        {plan.entryPay && (
+          <>
+            <SectionLabel>What you can expect to earn starting out</SectionLabel>
+            <p className="mt-2 text-2xl font-bold text-navy">
+              {formatPay(plan.entryPay.low, plan.entryPay.unit)}&ndash;{formatPay(plan.entryPay.high, plan.entryPay.unit)}
+            </p>
+            <Disclaimer
+              lastReviewed={plan.entryPay.asOf}
+              message={`Entry-level pay from the national wage distribution for this occupation (${plan.entryPay.source}), not a promise for any one job. Real pay varies by state, metro area, union status, and employer -- scale this for your market. Base pay only: overtime and shift differentials are standard across most construction trades.`}
+            />
+          </>
+        )}
+
         {plan.qualifications.length > 0 && (
           <>
             <SectionLabel>Qualifications</SectionLabel>
@@ -233,6 +273,25 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
           </>
         )}
 
+        {plan.goFurther.length > 0 && (
+          <>
+            <SectionLabel>Go further</SectionLabel>
+            <p className="mt-1 text-xs italic text-steel">
+              Beyond what's required to get in the door -- worth understanding deeply to stand out once you're there.
+            </p>
+            <ul className="mt-2 flex flex-col gap-1.5">
+              {plan.goFurther.map(({ concept, href }) => (
+                <li key={concept.id} className="text-sm text-ink">
+                  <Link href={href} className="font-medium text-navy hover:underline">
+                    {concept.title}
+                  </Link>
+                  <span className="text-steel"> &mdash; {concept.definition}</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+
         {plan.resumeBullets.length > 0 && (
           <>
             <SectionLabel>Resume bullets to use for inspiration</SectionLabel>
@@ -248,6 +307,30 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
                 See the full resume guide &rarr;
               </Link>
             )}
+          </>
+        )}
+
+        {(plan.interviewPrepHref || plan.examPrepHref) && (
+          <>
+            <SectionLabel>Keep going</SectionLabel>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {plan.interviewPrepHref && (
+                <Link
+                  href={plan.interviewPrepHref}
+                  className="border border-hairline px-3 py-1.5 text-xs font-semibold text-navy transition-colors hover:border-navy"
+                >
+                  Interview Prep guide &rarr;
+                </Link>
+              )}
+              {plan.examPrepHref && (
+                <Link
+                  href={plan.examPrepHref}
+                  className="border border-hairline px-3 py-1.5 text-xs font-semibold text-navy transition-colors hover:border-navy"
+                >
+                  Exam Prep guide &rarr;
+                </Link>
+              )}
+            </div>
           </>
         )}
 
