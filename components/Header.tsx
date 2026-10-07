@@ -45,7 +45,7 @@ const CATEGORY_SLUG: Record<string, string> = {
   "Consultants & Advisory": "consultants-advisory",
 };
 
-type MenuKey = "careers" | "concepts" | "gethired" | "interviews";
+type MenuKey = "careers" | "concepts" | "gethired" | "interviews" | "resources";
 
 export function Header({
   careerGroups,
@@ -104,14 +104,14 @@ export function Header({
   const categoryGuides = getHiredGuides.filter((g) => g.id !== "gethired-general");
 
   // Single-page sections that don't need their own dropdown. Order after
-  // Lessons: Phases, Software, Career Quiz, then the Get Hired dropdown,
-  // then the Interview Prep dropdown, then Get Qualified last.
+  // Lessons: Phases, Career Quiz, then the Get Hired dropdown, then the
+  // Interview Prep dropdown, then the Resources dropdown (Get Qualified +
+  // Software, merged so the bar doesn't carry two more plain links), then
+  // the Take Your First Step / Action Plan button set apart on its own.
   const midLinks = [
     { href: "/phases", label: "Phases" },
-    { href: "/software", label: "Software" },
     { href: "/quizzes/find-your-career", label: "Career Quiz" },
   ];
-  const finalLinks = [{ href: "/exams", label: "Get Qualified" }];
 
   return (
     <header className="sticky top-0 z-40 border-b border-hairline bg-paper">
@@ -124,7 +124,8 @@ export function Header({
         </Link>
 
         {/* Desktop nav */}
-        <nav ref={navRef} className="relative hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-4 md:flex">
+        <nav ref={navRef} className="relative flex items-center gap-1">
           <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
             <button
               onClick={() => toggle("careers")}
@@ -317,12 +318,50 @@ export function Header({
             )}
           </div>
 
-          {finalLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="px-3 py-2 text-[0.96rem] font-medium text-ink hover:text-navy">
-              {link.label}
-            </Link>
-          ))}
+          <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
+            <button
+              onClick={() => toggle("resources")}
+              className={`inline-flex items-center gap-1.5 px-3 py-2 text-[0.96rem] font-medium ${
+                openMenu === "resources" ? "text-navy" : "text-ink hover:text-navy"
+              }`}
+              aria-expanded={openMenu === "resources"}
+            >
+              Resources
+              <Caret open={openMenu === "resources"} />
+            </button>
+            {openMenu === "resources" && (
+              <div
+                className="absolute right-0 top-full min-w-[260px] border border-hairline bg-paper p-5 shadow-lg"
+                onClick={() => setOpenMenu(null)}
+              >
+                <ul className="flex flex-col divide-y divide-hairline/70">
+                  <li className="pb-2.5">
+                    <Link href="/exams" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
+                      Get Qualified
+                    </Link>
+                    <p className="mt-0.5 text-xs leading-snug text-steel">Practice banks for real industry certifications.</p>
+                  </li>
+                  <li className="pt-2.5">
+                    <Link href="/software" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
+                      Software
+                    </Link>
+                    <p className="mt-0.5 text-xs leading-snug text-steel">The tools you'll actually touch on the job.</p>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
         </nav>
+
+        <span aria-hidden="true" className="h-6 w-px bg-hairline" />
+
+        <Link
+          href="/action-plan"
+          className="whitespace-nowrap border border-navy bg-navy px-4 py-2 text-[0.88rem] font-semibold text-paper transition-colors hover:border-ink hover:bg-ink"
+        >
+          Take Your First Step
+        </Link>
+        </div>
 
         {/* Mobile toggle */}
         <button
@@ -342,6 +381,14 @@ export function Header({
           ref={mobileNavRef}
           className="max-h-[calc(100vh-56px)] overflow-y-auto border-t border-hairline bg-paper px-6 pb-4 md:hidden"
         >
+          <Link
+            href="/action-plan"
+            className="mt-3 block border border-navy bg-navy px-4 py-3 text-center text-[0.96rem] font-semibold text-paper"
+            onClick={() => setMobileOpen(false)}
+          >
+            Take Your First Step
+          </Link>
+
           <MobileSection
             label="Careers"
             open={openMenu === "careers"}
@@ -482,16 +529,26 @@ export function Header({
             </Link>
           </MobileSection>
 
-          {finalLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="block border-t border-hairline py-3 text-[0.96rem] font-medium text-ink"
-              onClick={() => setMobileOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
+          <MobileSection
+            label="Resources"
+            open={openMenu === "resources"}
+            onToggle={() => toggle("resources")}
+          >
+            <ul className="flex flex-col gap-3">
+              <li>
+                <Link href="/exams" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
+                  Get Qualified
+                </Link>
+                <p className="mt-0.5 text-xs leading-snug text-steel">Practice banks for real industry certifications.</p>
+              </li>
+              <li>
+                <Link href="/software" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
+                  Software
+                </Link>
+                <p className="mt-0.5 text-xs leading-snug text-steel">The tools you'll actually touch on the job.</p>
+              </li>
+            </ul>
+          </MobileSection>
         </nav>
       )}
     </header>
