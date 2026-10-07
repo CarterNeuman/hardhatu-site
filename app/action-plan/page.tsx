@@ -74,7 +74,7 @@ export default function ActionPlanPage() {
         <h1 className="mt-2 font-display text-4xl font-bold text-ink">Build your action plan</h1>
         <p className="mt-3 text-lg leading-relaxed text-ink">
           Tell us where you are in the process and we'll put together a day-by-day plan: qualifications to
-          line up, courses worth taking, resume bullets to borrow, who to actually apply to, and exactly how
+          line up, courses worth taking, resume bullets to use for inspiration, who to actually apply to, and exactly how
           to reach out.
         </p>
         <p className="mt-2 text-sm text-steel">

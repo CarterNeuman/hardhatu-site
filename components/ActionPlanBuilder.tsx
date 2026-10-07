@@ -234,7 +234,7 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
 
         {plan.resumeBullets.length > 0 && (
           <>
-            <SectionLabel>Resume bullets to borrow</SectionLabel>
+            <SectionLabel>Resume bullets to use for inspiration</SectionLabel>
             <ul className="mt-2 flex flex-col gap-1.5">
               {plan.resumeBullets.map((bullet, i) => (
                 <li key={i} className="text-sm text-ink">
