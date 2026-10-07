@@ -71,7 +71,7 @@ export default function ActionPlanPage() {
           might hand to another person. */}
       <div className="print:hidden">
         <p className="text-xs font-semibold uppercase tracking-wide text-clay">In testing, not yet public</p>
-        <h1 className="mt-2 font-display text-4xl font-bold text-ink">Build your action plan</h1>
+        <h1 className="mt-2 font-display text-4xl font-bold text-ink">Build your Action Plan</h1>
         <p className="mt-3 text-lg leading-relaxed text-ink">
           Tell us where you are in the process and we'll put together a day-by-day plan: qualifications to
           line up, courses worth taking, resume bullets to use for inspiration, who to actually apply to, and exactly how

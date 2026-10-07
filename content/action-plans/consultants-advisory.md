@@ -118,8 +118,9 @@ recruiterOutreach:
 
 
     My name is [Your Name], and I'm exploring [Trade] opportunities
-    in the [Location] area. The engagement I'd point to first is
-    [Engagement and Number], and I hold [Credential].
+    in the [Location] area. The project I'd point to first is
+    [Project and Result] -- for example, a dispute value, savings
+    delivered, or claims defended -- and I hold [Credential].
 
 
     I'd welcome the chance to discuss any current or upcoming openings
@@ -135,13 +136,13 @@ recruiterOutreach:
   linkedinTemplate: >
     Hi [Recruiter or Hiring Manager Name], I'm exploring [Trade]
     opportunities in [Location] and have followed [Company]'s work in
-    this space. The engagement I'd point to first is [Engagement and
-    Number]. Would you be open to a quick call about current or
+    this space. The project I'd point to first is [Project and
+    Result]. Would you be open to a quick call about current or
     upcoming openings?
   followUpTemplate: >
     Hi [Recruiter or Hiring Manager Name], following up on the message
     I sent on [Date Sent] about opportunities at [Company]. Still very
-    interested, happy to share more detail on [Engagement and Number]
+    interested, happy to share more detail on [Project and Result]
     whenever is convenient. Let me know if there's anything else you
     need from me.
 relatedIds:

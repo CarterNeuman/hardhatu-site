@@ -139,7 +139,7 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
 
   function handleDownloadIcs() {
     if (!plan || plan === "coming-soon") return;
-    const name = plan.careerTitle ? `${plan.careerTitle} action plan` : `${plan.category} action plan`;
+    const name = plan.careerTitle ? `${plan.careerTitle} Action Plan` : `${plan.category} Action Plan`;
     downloadIcs(`hardhatu-${plan.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-plan.ics`, buildIcs(plan.days, name));
   }
 
@@ -148,7 +148,7 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
       <div className="mt-8 border border-hairline bg-amber-soft/40 p-6">
         <p className="font-display text-xl font-bold text-ink">This category's plan isn't ready yet</p>
         <p className="mt-2 text-sm leading-relaxed text-steel">
-          {category} doesn't have an action-plan skeleton written yet. The Field & Trades plan is the first
+          {category} doesn't have an Action Plan skeleton written yet. The Field & Trades Action Plan is the first
           one built, the rest are coming. In the meantime, the Get Hired guide for {category} covers the
           same ground in checklist form.
         </p>
@@ -175,7 +175,7 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
               {plan.status === "applying" ? "Actively applying" : "Just looking"}
             </p>
             <h2 className="font-display text-3xl font-bold text-ink">
-              {plan.careerTitle ?? plan.category} action plan
+              {plan.careerTitle ?? plan.category} Action Plan
             </h2>
           </div>
           <div className="print:hidden flex gap-2">
