@@ -392,6 +392,14 @@ export const ActionPlanSchema = z
     // channels to search); this is who to actually apply to once you're
     // looking at a specific company.
     targetEmployerTypes: z.array(z.string()).default([]),
+    // Generic job-board links (Indeed, LinkedIn Jobs, apprenticeship.gov)
+    // make sense for most categories but actively mislead a category like
+    // Consultants & Advisory, whose own content says these roles come
+    // from referrals and a track record and rarely show up on a general
+    // board at all. Defaults to true so most categories don't need to set
+    // it; a category whose getHiredGuide/whereToLook already says "these
+    // boards don't really work for this role" should set it to false.
+    jobBoardsUseful: z.boolean().default(true),
     // Outreach guidance for contacting a recruiter or hiring manager
     // directly -- the piece that turns a company name into an actual
     // application. Templates use bracketed [Placeholder] tokens; the

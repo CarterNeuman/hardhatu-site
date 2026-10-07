@@ -5,6 +5,12 @@ category: "Consultants & Advisory"
 tagline: "A real day-by-day plan for building toward consulting or advisory work: why almost nobody gets hired in directly, the narrow junior-analyst door that does exist, and how to get known before you need the job."
 comingSoon: false
 lastReviewed: "2026-10"
+# These roles are reached through referrals and a track record, not a
+# general job board -- the Get Hired guide says so directly (whereToLook
+# leads with "referrals... drive more hiring in this category than any
+# job board"). Showing Indeed/LinkedIn/apprenticeship.gov buttons here
+# would contradict that.
+jobBoardsUseful: false
 overview: >
   This plan assumes you've already read the Consultants & Advisory Get
   Hired guide: this is the one category on the site where the job

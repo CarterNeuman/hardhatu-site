@@ -64,17 +64,24 @@ export default function ActionPlanPage() {
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-10">
-      <p className="text-xs font-semibold uppercase tracking-wide text-clay">In testing, not yet public</p>
-      <h1 className="mt-2 font-display text-4xl font-bold text-ink">Build your action plan</h1>
-      <p className="mt-3 text-lg leading-relaxed text-ink">
-        Tell us where you are in the process and we'll put together a day-by-day plan: qualifications to
-        line up, courses worth taking, resume bullets to borrow, who to actually apply to, and exactly how
-        to reach out.
-      </p>
-      <p className="mt-2 text-sm text-steel">
-        Nothing you enter here is saved to an account yet, this is an early preview. Build a plan, try the
-        calendar download and the print view, and leave feedback on anything that feels off.
-      </p>
+      {/* The print calendar (ActionPlanPrintCalendar) has its own
+          print-only header with the logo and plan title -- this intro
+          block is marketing copy and a "not yet public" preview notice,
+          neither of which belongs on a printed physical schedule someone
+          might hand to another person. */}
+      <div className="print:hidden">
+        <p className="text-xs font-semibold uppercase tracking-wide text-clay">In testing, not yet public</p>
+        <h1 className="mt-2 font-display text-4xl font-bold text-ink">Build your action plan</h1>
+        <p className="mt-3 text-lg leading-relaxed text-ink">
+          Tell us where you are in the process and we'll put together a day-by-day plan: qualifications to
+          line up, courses worth taking, resume bullets to borrow, who to actually apply to, and exactly how
+          to reach out.
+        </p>
+        <p className="mt-2 text-sm text-steel">
+          Nothing you enter here is saved to an account yet, this is an early preview. Build a plan, try the
+          calendar download and the print view, and leave feedback on anything that feels off.
+        </p>
+      </div>
 
       <ActionPlanBuilder dataByCategory={dataByCategory} />
     </article>

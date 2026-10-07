@@ -12,10 +12,18 @@ import type { GeneratedDayItem } from "@/lib/action-plan-generator";
 
 const DEFAULT_SPAN_DAYS = 14;
 const DAYS_PER_ROW = 7;
+// Hard ceiling on how many days this prints -- this is meant to stay a
+// compact, grab-and-go physical schedule (that was the whole point of
+// the redesign), not grow into a dozens-of-pages booklet for a visitor
+// who picked a long timeline. A plan longer than this keeps going online
+// once sign-in exists; the print view covers the first stretch of it.
+const MAX_PRINT_DAYS = 28;
 
 export function ActionPlanPrintCalendar({ days, title }: { days: GeneratedDayItem[]; title: string }) {
   const maxDayEnd = days.reduce((max, item) => Math.max(max, item.dayEnd), 0);
-  const totalDays = Math.max(DEFAULT_SPAN_DAYS, maxDayEnd);
+  const planLength = Math.max(DEFAULT_SPAN_DAYS, maxDayEnd);
+  const totalDays = Math.min(MAX_PRINT_DAYS, planLength);
+  const isTruncated = planLength > totalDays;
   const rowCount = Math.ceil(totalDays / DAYS_PER_ROW);
   const dayNumbers = Array.from({ length: rowCount * DAYS_PER_ROW }, (_, i) => i + 1);
 
@@ -64,7 +72,9 @@ export function ActionPlanPrintCalendar({ days, title }: { days: GeneratedDayIte
       </div>
 
       <p className="mt-4 text-[9px] text-steel">
-        hardhatU &middot; this schedule is informational, not a guarantee of being hired.
+        {isTruncated
+          ? `hardhatU \u00b7 this schedule is informational, not a guarantee of being hired. Your full ${planLength}-day plan continues online -- come back anytime to see what's next.`
+          : "hardhatU \u00b7 this schedule is informational, not a guarantee of being hired."}
       </p>
     </div>
   );

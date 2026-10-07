@@ -303,7 +303,7 @@ export function buildActionPlan({
     days,
     targetEmployerTypes: skeleton.targetEmployerTypes,
     whereToLook: getHiredGuide?.whereToLook ?? [],
-    jobBoardLinks: buildJobBoardLinks(trade, intake.location),
+    jobBoardLinks: skeleton.jobBoardsUseful ? buildJobBoardLinks(trade, intake.location) : [],
     recruiterOutreach: {
       tips: skeleton.recruiterOutreach.tips,
       emailTemplate: fillTemplate(skeleton.recruiterOutreach.emailTemplate, tokens),
@@ -342,18 +342,25 @@ function tokenize(text: string): Set<string> {
 // reliable public transit..."), the same style the Get Hired page's prose
 // bullet list is written for. Matching against the *whole* sentence
 // would mean a visitor has to type nearly the entire explanation before
-// it counts as a match (a real false negative this caught during review).
-// This pulls out just the leading short-name clause, up to whichever of
-// ", " / ". " / " and " comes first, and falls back to the full label if
-// none of those appear.
+// it counts as a match. This pulls out just the leading short-name
+// clause, up to whichever of ", " / ". " / " and " / " or " / ": " comes
+// first (scanned with any parenthetical content stripped out first, so a
+// stray "or"/"," *inside* a parenthetical list like "(water damage, fire,
+// or mold)" doesn't cut the clause early), and falls back to the full
+// label if none of those appear.
+function stripParens(label: string): string {
+  return label.replace(/\([^)]*\)/g, " ");
+}
+
 function extractCoreLabel(label: string): string {
-  const delimiters = [", ", ". ", " and "];
-  let cut = label.length;
+  const flat = stripParens(label);
+  const delimiters = [", ", ". ", " and ", " or ", ": "];
+  let cut = flat.length;
   for (const d of delimiters) {
-    const i = label.indexOf(d);
+    const i = flat.indexOf(d);
     if (i !== -1 && i < cut) cut = i;
   }
-  return label.slice(0, cut);
+  return flat.slice(0, cut);
 }
 
 const STOPWORDS = new Set([
@@ -361,20 +368,84 @@ const STOPWORDS = new Set([
   "for", "you", "your", "with", "have", "card", "valid", "whatever",
 ]);
 
+// Generic nouns that describe *what kind of thing* a credential is
+// rather than *which* credential it is -- every entry on the Get Hired
+// page's credentialsToHaveReady list uses one of these, so leaving them
+// in the "significant words" count means a visitor has to type the whole
+// phrase ("Procore Certification") instead of just the distinguishing
+// word ("Procore") before it registers as held.
+const GENERIC_CREDENTIAL_WORDS = new Set([
+  "certification", "certifications", "certificate", "certificates",
+  "certified", "license", "licensed", "licensing", "licenses",
+  "credential", "credentials", "credentialed", "admission", "admissions",
+]);
+
 function significantWords(text: string): string[] {
-  return [...tokenize(text)].filter((w) => !STOPWORDS.has(w));
+  return [...tokenize(text)].filter((w) => !STOPWORDS.has(w) && !GENERIC_CREDENTIAL_WORDS.has(w));
 }
 
-// A credential "counts" as held only when most of its own significant
-// words show up as exact tokens in what the visitor typed, scaled to the
-// label's length so a two-word core ("drivers", "license") needs both,
-// not just one -- a single shared word was enough to flag a credential
-// as held under the old substring version, which is exactly the kind of
-// false positive a visitor pasting unrelated or nonsense text could
-// trigger by accident. Worst case either way is informational (one item
-// shows the wrong checkmark), never a crash and never anything the
-// visitor typed being shown back to them.
+// Pulls out short, exact-identity phrases a visitor would realistically
+// type for a credential -- its parenthetical short code ("(PE)", "(CPE)"),
+// any bare all-caps acronym in the label ("OSHA", "NCCCO", "HAZWOPER",
+// "CPA"), and an acronym immediately followed by a number ("OSHA 10") as
+// one combined phrase. Each returned phrase is a list of lowercase
+// tokens; labelLooksHeld treats a credential as held if *any single*
+// phrase's tokens are all present in what the visitor typed, so "CCM or
+// CCP" (two acronyms joined by "or" in the label) matches on either one.
+function extractIdentityPhrases(label: string): string[][] {
+  const phrases: string[][] = [];
+  const seen = new Set<string>();
+  const add = (text: string) => {
+    const toks = [...tokenize(text)];
+    if (toks.length === 0) return;
+    const key = toks.join(" ");
+    if (seen.has(key)) return;
+    seen.add(key);
+    phrases.push(toks);
+  };
+
+  const parenRe = /\(([^)]*)\)/g;
+  let m: RegExpExecArray | null;
+  while ((m = parenRe.exec(label))) {
+    const inner = m[1].trim();
+    // Only a short uppercase code counts as an identity phrase here -- a
+    // parenthetical *list* like "(water damage, fire/smoke, or mold)"
+    // describes variants, not the credential's own short name.
+    if (/^[A-Z0-9]{2,8}([\s-][A-Z0-9]{1,8}){0,2}$/.test(inner)) add(inner);
+  }
+
+  const withoutParens = stripParens(label);
+  const acronymRe = /\b[A-Z]{2,8}(?:-[A-Z0-9]{1,8})?\b/g;
+  const bareAcronyms: { word: string; index: number }[] = [];
+  while ((m = acronymRe.exec(withoutParens))) {
+    bareAcronyms.push({ word: m[0], index: m.index });
+    add(m[0]);
+  }
+  for (const { word, index } of bareAcronyms) {
+    const rest = withoutParens.slice(index + word.length, index + word.length + 6);
+    const numMatch = rest.match(/^\s+(\d{1,3})\b/);
+    if (numMatch) add(`${word} ${numMatch[1]}`);
+  }
+
+  return phrases;
+}
+
+// A credential "counts" as held either when the visitor typed one of its
+// short identity phrases outright (an acronym, a parenthetical code, an
+// "OSHA 10"-style combo -- see extractIdentityPhrases), or, failing that,
+// when most of its core clause's remaining significant words show up as
+// exact tokens in what the visitor typed, scaled to that clause's length
+// so a two-word core ("drivers", "license") needs both, not just one --
+// a single shared word was enough to flag a credential as held under the
+// old substring version, which is exactly the kind of false positive a
+// visitor pasting unrelated or nonsense text could trigger by accident.
+// Worst case either way is informational (one item shows the wrong
+// checkmark), never a crash and never anything the visitor typed being
+// shown back to them.
 function labelLooksHeld(label: string, certsHeldTokens: Set<string>): boolean {
+  for (const phrase of extractIdentityPhrases(label)) {
+    if (phrase.every((t) => certsHeldTokens.has(t))) return true;
+  }
   const words = significantWords(extractCoreLabel(label));
   if (words.length === 0) return false;
   const hits = words.filter((w) => certsHeldTokens.has(w)).length;
