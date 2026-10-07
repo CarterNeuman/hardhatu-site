@@ -177,6 +177,7 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
             <h2 className="font-display text-3xl font-bold text-ink">
               {plan.careerTitle ?? plan.category} Action Plan
             </h2>
+            <p className="mt-1 max-w-md text-sm leading-relaxed text-steel">{plan.headline}</p>
           </div>
           <div className="print:hidden flex gap-2">
             <button
@@ -251,9 +252,17 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
         )}
 
         <SectionLabel>Your day-by-day plan</SectionLabel>
-        <p className="mt-1 text-xs italic text-steel print:hidden">
-          Checking an item off only lasts while this tab stays open, nothing here saves yet.
-        </p>
+        <div className="mt-1 flex flex-wrap items-baseline justify-between gap-2 print:hidden">
+          <p className="text-xs italic text-steel">
+            Checking an item off only lasts while this tab stays open, nothing here saves yet -- full
+            progress-tracking that survives a reload is planned for once accounts exist.
+          </p>
+          {checkedDays.size > 0 && (
+            <p className="shrink-0 text-xs font-semibold uppercase tracking-wide text-navy">
+              {checkedDays.size} of {plan.days.length} done
+            </p>
+          )}
+        </div>
         <ol className="mt-3 flex flex-col gap-3">
           {plan.days.map((item, i) => (
             <li key={i} className="flex gap-3 border-l-2 border-hairline pl-4">

@@ -65,6 +65,12 @@ export type GeneratedPlan = {
   category: string;
   careerTitle?: string;
   status: ApplicationStatus;
+  // A one-line, personalized framing sentence -- see buildHeadline below.
+  // Not authored per category: computed purely from the visitor's own
+  // inputs (hours/week, timeline, status, location), so it scales
+  // automatically as those inputs change rather than needing new copy
+  // written for every combination.
+  headline: string;
   overview: string;
   qualifications: GeneratedQualification[];
   courses: { lesson: LessonRef; href: string }[];
@@ -209,6 +215,70 @@ function fillTemplate(template: string, tokens: Record<string, string>): string 
   return result;
 }
 
+// How much weekly time someone has to give this, independent of how
+// long the overall timeline runs -- "I have 3 hours a week" and "I have
+// 3 hours a week for the next year" call for different vocabulary than
+// "I have 35 hours a week for the next two weeks", even though a timeline
+// dial alone can't tell those apart.
+type EffortTier = "light" | "steady" | "intense";
+
+function computeEffortTier(hoursPerWeek: number): EffortTier {
+  if (hoursPerWeek <= 5) return "light";
+  if (hoursPerWeek <= 15) return "steady";
+  return "intense";
+}
+
+// How much runway the plan actually has, after totalDays is computed --
+// a short plan reads as a sprint, a long one as a sustained build,
+// whatever pace produced that length.
+type HorizonTier = "sprint" | "build" | "marathon";
+
+function computeHorizonTier(totalDays: number): HorizonTier {
+  if (totalDays <= 14) return "sprint";
+  if (totalDays <= 42) return "build";
+  return "marathon";
+}
+
+const EFFORT_OPENING: Record<EffortTier, string> = {
+  light: "A steady, no-pressure",
+  steady: "A focused",
+  intense: "An all-in",
+};
+
+const STATUS_VERB: Record<ApplicationStatus, string> = {
+  browsing: "way to explore",
+  applying: "push to land",
+};
+
+const HORIZON_CLOSE: Record<HorizonTier, (totalDays: number) => string> = {
+  sprint: (d) => `fast -- ${d} days, start to finish`,
+  build: (d) => `over the next ${d} days`,
+  marathon: (d) => `as a long-haul build -- ${d} days, paced to last`,
+};
+
+// Builds the one-line headline shown at the top of a generated plan.
+// Deliberately generic phrase-composition, not per-category copy: every
+// word is chosen from hoursPerWeek (effort), the computed totalDays
+// (horizon), status (verb), and the visitor's own location/trade --
+// four independent inputs, so the sentence actually changes shape across
+// the realistic range of answers instead of just restating the same
+// template with different nouns swapped in.
+function buildHeadline(
+  trade: string,
+  location: string,
+  status: ApplicationStatus,
+  hoursPerWeek: number,
+  totalDays: number
+): string {
+  const effort = computeEffortTier(hoursPerWeek);
+  const horizon = computeHorizonTier(totalDays);
+  const locationPhrase = location.trim() ? ` in ${location.trim()}` : "";
+  return (
+    `${EFFORT_OPENING[effort]} ${STATUS_VERB[status]} ${trade} work${locationPhrase}, ` +
+    `${HORIZON_CLOSE[horizon](totalDays)}.`
+  );
+}
+
 export function buildActionPlan({
   skeleton,
   getHiredGuide,
@@ -291,10 +361,13 @@ export function buildActionPlan({
   const tokens = { Trade: trade, Location: intake.location.trim() };
   const courses = lessonsForCareer.length > 0 ? lessonsForCareer : categoryFallbackLessons;
 
+  const headline = buildHeadline(trade, intake.location, intake.status, intake.hoursPerWeek, totalDays);
+
   return {
     category: skeleton.category,
     careerTitle: career?.title,
     status: intake.status,
+    headline,
     overview: skeleton.overview,
     qualifications,
     courses: courses.slice(0, 4).map((lesson) => ({ lesson, href: `/lessons/${lesson.slug}` })),
