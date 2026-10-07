@@ -93,6 +93,12 @@ export type GeneratedPlan = {
   // A few concepts worth understanding deeply beyond the minimum courses
   // above, to help someone who wants to stand out, not just meet the bar.
   goFurther: { concept: ConceptRef; href: string }[];
+  // The full concept pool goFurther was sliced from (not capped at 4) --
+  // used to auto-link jargon that shows up in the day-by-day task text
+  // back to its concept page (see components/GlossaryText.tsx), so a
+  // term doesn't need to be one of the 4 featured "Go further" picks to
+  // still get linked where it actually appears.
+  glossaryConcepts: ConceptRef[];
   interviewPrepHref?: string;
   examPrepHref?: string;
   entryPay?: CareerRef["entryPay"];
@@ -418,6 +424,7 @@ export function buildActionPlan({
     resumeBullets: resumeGuide?.exampleBullets.slice(0, 5) ?? [],
     resumeGuideHref: resumeGuide ? `/resumes/${resumeGuide.slug}` : undefined,
     goFurther,
+    glossaryConcepts: conceptPool,
     interviewPrepHref,
     examPrepHref,
     entryPay: career?.entryPay,

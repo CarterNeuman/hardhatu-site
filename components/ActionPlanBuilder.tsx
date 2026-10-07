@@ -21,6 +21,7 @@ import {
 import { buildIcs, downloadIcs } from "@/lib/ics";
 import { ActionPlanPrintCalendar } from "@/components/ActionPlanPrintCalendar";
 import { Disclaimer } from "@/components/Disclaimer";
+import { GlossaryText, buildGlossaryIndex } from "@/components/GlossaryText";
 import type { ActionPlan, GetHired, ResumeGuide } from "@/lib/types";
 
 export type SlimCareer = {
@@ -112,6 +113,11 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
 
   const categoryData = dataByCategory[category];
   const careerOptions = categoryData?.careers ?? [];
+
+  const glossaryIndex = useMemo(() => {
+    if (!plan || plan === "coming-soon") return [];
+    return buildGlossaryIndex(plan.glossaryConcepts);
+  }, [plan]);
 
   function toggleDay(index: number) {
     setCheckedDays((prev) => {
@@ -362,8 +368,12 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
                 <p className="text-xs font-semibold uppercase tracking-wide text-clay">
                   {formatDateRange(item.startDate, item.endDate)}
                 </p>
-                <p className={`font-medium text-ink ${checkedDays.has(i) ? "line-through" : ""}`}>{item.title}</p>
-                <p className="mt-0.5 text-sm text-steel">{item.detail}</p>
+                <p className={`font-medium text-ink ${checkedDays.has(i) ? "line-through" : ""}`}>
+                  <GlossaryText text={item.title} index={glossaryIndex} />
+                </p>
+                <p className="mt-0.5 text-sm text-steel">
+                  <GlossaryText text={item.detail} index={glossaryIndex} />
+                </p>
               </div>
             </li>
           ))}
