@@ -283,7 +283,7 @@ export function Header({
             </button>
             {openMenu === "resources" && (
               <div
-                className="absolute right-0 top-full min-w-[280px] border border-hairline bg-paper p-5 shadow-lg"
+                className="absolute right-0 top-full min-w-[300px] border border-hairline bg-paper p-5 shadow-lg"
                 onClick={() => setOpenMenu(null)}
               >
                 <ul className="flex flex-col divide-y divide-hairline/70">
@@ -299,13 +299,24 @@ export function Header({
                     </Link>
                     <p className="mt-0.5 text-xs leading-snug text-steel">Practice banks for real industry certifications.</p>
                   </li>
-                  <li className="pt-2.5">
+                  <li className="py-2.5">
                     <Link href="/software" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
                       Software
                     </Link>
                     <p className="mt-0.5 text-xs leading-snug text-steel">The tools you'll actually touch on the job.</p>
                   </li>
+                  <li className="pt-2.5">
+                    <Link href="/resumes" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
+                      Resume Guide
+                    </Link>
+                    <p className="mt-0.5 text-xs leading-snug text-steel">What recruiters look for, by category.</p>
+                  </li>
                 </ul>
+                <div className="mt-3 border-t border-hairline pt-3 text-sm">
+                  <Link href="/resources" className="font-semibold text-navy hover:underline">
+                    Browse all resources →
+                  </Link>
+                </div>
               </div>
             )}
           </div>
@@ -478,7 +489,20 @@ export function Header({
                 </Link>
                 <p className="mt-0.5 text-xs leading-snug text-steel">The tools you'll actually touch on the job.</p>
               </li>
+              <li>
+                <Link href="/resumes" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
+                  Resume Guide
+                </Link>
+                <p className="mt-0.5 text-xs leading-snug text-steel">What recruiters look for, by category.</p>
+              </li>
             </ul>
+            <Link
+              href="/resources"
+              className="mt-3 block text-sm font-semibold text-navy"
+              onClick={() => setMobileOpen(false)}
+            >
+              Browse all resources →
+            </Link>
           </MobileSection>
         </nav>
       )}

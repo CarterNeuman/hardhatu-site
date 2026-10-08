@@ -1,6 +1,6 @@
 // Thin-stroke, blueprint-style icons that distinguish content types at a
 // glance without relying on color alone (build-brief.md section 9).
-type IconKind =
+export type IconKind =
   | "career"
   | "concept"
   | "phase"
