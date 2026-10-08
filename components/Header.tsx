@@ -123,9 +123,10 @@ export function Header({
           </span>
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden items-center gap-4 md:flex">
-        <nav ref={navRef} className="relative flex items-center gap-1">
+        {/* Desktop nav -- centered in the space between the logo and the
+            CTA button via flex-1 + justify-center, rather than hugging
+            the right edge. */}
+        <nav ref={navRef} className="relative hidden flex-1 items-center justify-center gap-1 md:flex">
           <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
             <button
               onClick={() => toggle("careers")}
@@ -353,15 +354,12 @@ export function Header({
           </div>
         </nav>
 
-        <span aria-hidden="true" className="h-6 w-px bg-hairline" />
-
         <Link
           href="/action-plan"
-          className="whitespace-nowrap border border-navy bg-navy px-4 py-2 text-[0.88rem] font-semibold text-paper transition-colors hover:border-ink hover:bg-ink"
+          className="hidden shrink-0 whitespace-nowrap border border-amber bg-amber px-4 py-2 text-[0.88rem] font-semibold text-paper transition-colors hover:border-clay hover:bg-clay md:inline-block"
         >
           Take Your First Step
         </Link>
-        </div>
 
         {/* Mobile toggle */}
         <button
@@ -383,7 +381,7 @@ export function Header({
         >
           <Link
             href="/action-plan"
-            className="mt-3 block border border-navy bg-navy px-4 py-3 text-center text-[0.96rem] font-semibold text-paper"
+            className="mt-3 block border border-amber bg-amber px-4 py-3 text-center text-[0.96rem] font-semibold text-paper"
             onClick={() => setMobileOpen(false)}
           >
             Take Your First Step
