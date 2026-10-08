@@ -9,16 +9,15 @@ import {
   type SlimConcept,
 } from "@/components/ActionPlanBuilder";
 
-// This page is intentionally not linked from the site nav (see the
+// Linked from the site header's "Take Your First Step" entry (see the
 // build-sequencing notes in the premium-action-plan-feasibility project
-// doc): it's built and tested on its own branch, shared with friends via
-// a Vercel preview-deployment link, before it ever gets a nav entry or
-// an accounts/payments gate. Reachable by direct URL only for now.
+// doc). No accounts/payments gate yet -- the generator is a pure,
+// client-side function with nothing saved between visits (see
+// ActionPlanBuilder's own comment for that tradeoff).
 export const metadata: Metadata = {
-  title: "Action Plan (Preview)",
+  title: "Action Plan",
   description:
-    "Build a personalized, day-by-day plan for getting hired in construction. In testing, not yet linked from the site.",
-  robots: { index: false, follow: false },
+    "Build a personalized, day-by-day plan for getting hired in construction.",
 };
 
 export default function ActionPlanPage() {
@@ -141,20 +140,18 @@ export default function ActionPlanPage() {
     <article className="mx-auto max-w-3xl px-6 py-10">
       {/* The print calendar (ActionPlanPrintCalendar) has its own
           print-only header with the logo and plan title -- this intro
-          block is marketing copy and a "not yet public" preview notice,
-          neither of which belongs on a printed physical schedule someone
-          might hand to another person. */}
+          block is marketing copy that doesn't belong on a printed
+          physical schedule someone might hand to another person. */}
       <div className="print:hidden">
-        <p className="text-xs font-semibold uppercase tracking-wide text-clay">In testing, not yet public</p>
-        <h1 className="mt-2 font-display text-4xl font-bold text-ink">Build your Action Plan</h1>
+        <h1 className="font-display text-4xl font-bold text-ink">Build your Action Plan</h1>
         <p className="mt-3 text-lg leading-relaxed text-ink">
           Tell us where you are in the process and we'll put together a day-by-day plan: qualifications to
           line up, courses worth taking, resume bullets to use for inspiration, who to actually apply to, and exactly how
           to reach out.
         </p>
         <p className="mt-2 text-sm text-steel">
-          Nothing you enter here is saved to an account yet, this is an early preview. Build a plan, try the
-          calendar download and the print view, and leave feedback on anything that feels off.
+          Nothing you enter here is saved yet, accounts aren't live yet. Download the calendar (.ics) or print
+          your schedule if you want to keep a copy.
         </p>
       </div>
 

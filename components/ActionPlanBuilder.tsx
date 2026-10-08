@@ -181,9 +181,8 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
       <div className="mt-8 border border-hairline bg-amber-soft/40 p-6">
         <p className="font-display text-xl font-bold text-ink">This category's plan isn't ready yet</p>
         <p className="mt-2 text-sm leading-relaxed text-steel">
-          {category} doesn't have an Action Plan skeleton written yet. The Field & Trades Action Plan is the first
-          one built, the rest are coming. In the meantime, the Get Hired guide for {category} covers the
-          same ground in checklist form.
+          {category} doesn't have an Action Plan skeleton written yet. In the meantime, the Get Hired guide for{" "}
+          {category} covers the same ground in checklist form.
         </p>
         <button
           onClick={reset}
