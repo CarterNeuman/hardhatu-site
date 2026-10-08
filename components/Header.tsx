@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { urlFor, slugifyCategory } from "@/lib/content-client";
-import type { Career, Concept, GetHired, InterviewPrep } from "@/lib/types";
+import type { Career, Concept, GetHired } from "@/lib/types";
 
 // The "Solid Mark, Tile Badge" logo — a rounded navy tile holding a solid
 // hardhat silhouette, its brim and rib lines etched in reverse, with an
@@ -31,7 +31,6 @@ export function HardHatMark({ size = 22, className = "" }: { size?: number; clas
 }
 
 type CareerGroup = { category: string; items: Career[] };
-type InterviewGroup = { category: string; items: InterviewPrep[] };
 type ConceptGroup = { category: string; items: Concept[] };
 
 const CATEGORY_SLUG: Record<string, string> = {
@@ -45,23 +44,19 @@ const CATEGORY_SLUG: Record<string, string> = {
   "Consultants & Advisory": "consultants-advisory",
 };
 
-type MenuKey = "careers" | "concepts" | "gethired" | "interviews" | "resources";
+type MenuKey = "careers" | "concepts" | "gethired" | "resources";
 
 export function Header({
   careerGroups,
-  interviewGroups,
   conceptGroups,
   getHiredGuides,
   careerCount,
-  interviewCount,
   conceptCount,
 }: {
   careerGroups: CareerGroup[];
-  interviewGroups: InterviewGroup[];
   conceptGroups: ConceptGroup[];
   getHiredGuides: GetHired[];
   careerCount: number;
-  interviewCount: number;
   conceptCount: number;
 }) {
   const [openMenu, setOpenMenu] = useState<MenuKey | null>(null);
@@ -105,8 +100,8 @@ export function Header({
 
   // Single-page sections that don't need their own dropdown. Order after
   // Lessons: Phases, Career Quiz, then the Get Hired dropdown, then the
-  // Interview Prep dropdown, then the Resources dropdown (Get Qualified +
-  // Software, merged so the bar doesn't carry two more plain links), then
+  // Resources dropdown (Interview Prep + Get Qualified + Software, merged
+  // so the bar doesn't carry three more plain/standalone entries), then
   // the Take Your First Step / Action Plan button set apart on its own.
   const midLinks = [
     { href: "/phases", label: "Phases" },
@@ -130,7 +125,7 @@ export function Header({
           <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
             <button
               onClick={() => toggle("careers")}
-              className={`inline-flex items-center gap-1.5 px-3 py-2 text-[0.96rem] font-medium ${
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 text-[0.96rem] font-medium ${
                 openMenu === "careers" ? "text-navy" : "text-ink hover:text-navy"
               }`}
               aria-expanded={openMenu === "careers"}
@@ -177,7 +172,7 @@ export function Header({
           <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
             <button
               onClick={() => toggle("concepts")}
-              className={`inline-flex items-center gap-1.5 px-3 py-2 text-[0.96rem] font-medium ${
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 text-[0.96rem] font-medium ${
                 openMenu === "concepts" ? "text-navy" : "text-ink hover:text-navy"
               }`}
               aria-expanded={openMenu === "concepts"}
@@ -221,12 +216,12 @@ export function Header({
             )}
           </div>
 
-          <Link href="/lessons" className="px-3 py-2 text-[0.96rem] font-medium text-ink hover:text-navy">
+          <Link href="/lessons" className="whitespace-nowrap px-3 py-2 text-[0.96rem] font-medium text-ink hover:text-navy">
             Lessons
           </Link>
 
           {midLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="px-3 py-2 text-[0.96rem] font-medium text-ink hover:text-navy">
+            <Link key={link.href} href={link.href} className="whitespace-nowrap px-3 py-2 text-[0.96rem] font-medium text-ink hover:text-navy">
               {link.label}
             </Link>
           ))}
@@ -234,7 +229,7 @@ export function Header({
           <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
             <button
               onClick={() => toggle("gethired")}
-              className={`inline-flex items-center gap-1.5 px-3 py-2 text-[0.96rem] font-medium ${
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 text-[0.96rem] font-medium ${
                 openMenu === "gethired" ? "text-navy" : "text-ink hover:text-navy"
               }`}
               aria-expanded={openMenu === "gethired"}
@@ -277,52 +272,8 @@ export function Header({
 
           <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
             <button
-              onClick={() => toggle("interviews")}
-              className={`inline-flex items-center gap-1.5 px-3 py-2 text-[0.96rem] font-medium ${
-                openMenu === "interviews" ? "text-navy" : "text-ink hover:text-navy"
-              }`}
-              aria-expanded={openMenu === "interviews"}
-            >
-              Interview Prep
-              <Caret open={openMenu === "interviews"} />
-            </button>
-            {openMenu === "interviews" && (
-              <div
-                className="absolute right-0 top-full grid min-w-[520px] grid-cols-2 gap-x-6 gap-y-4 border border-hairline bg-paper p-5 shadow-lg"
-                onClick={() => setOpenMenu(null)}
-              >
-                {interviewGroups.map((group) => (
-                  <div key={group.category}>
-                    <p className="break-words text-[0.68rem] font-semibold uppercase tracking-wide text-clay">
-                      {group.category}
-                    </p>
-                    <ul className="mt-2 flex flex-col divide-y divide-hairline/70">
-                      {group.items.map((item) => (
-                        <li key={item.id} className="py-1.5 first:pt-0 last:pb-0">
-                          <Link
-                            href={urlFor(item)}
-                            className="line-clamp-2 break-words text-sm leading-snug text-ink hover:text-navy hover:underline"
-                          >
-                            {item.title}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-                <div className="col-span-full border-t border-hairline pt-3 text-sm">
-                  <Link href="/interviews" className="font-semibold text-navy hover:underline">
-                    All {interviewCount} interview guides →
-                  </Link>
-                </div>
-              </div>
-            )}
-          </div>
-
-          <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
-            <button
               onClick={() => toggle("resources")}
-              className={`inline-flex items-center gap-1.5 px-3 py-2 text-[0.96rem] font-medium ${
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 text-[0.96rem] font-medium ${
                 openMenu === "resources" ? "text-navy" : "text-ink hover:text-navy"
               }`}
               aria-expanded={openMenu === "resources"}
@@ -332,11 +283,17 @@ export function Header({
             </button>
             {openMenu === "resources" && (
               <div
-                className="absolute right-0 top-full min-w-[260px] border border-hairline bg-paper p-5 shadow-lg"
+                className="absolute right-0 top-full min-w-[280px] border border-hairline bg-paper p-5 shadow-lg"
                 onClick={() => setOpenMenu(null)}
               >
                 <ul className="flex flex-col divide-y divide-hairline/70">
                   <li className="pb-2.5">
+                    <Link href="/interviews" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
+                      Interview Prep
+                    </Link>
+                    <p className="mt-0.5 text-xs leading-snug text-steel">Common questions and what to expect, by role.</p>
+                  </li>
+                  <li className="py-2.5">
                     <Link href="/exams" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
                       Get Qualified
                     </Link>
@@ -498,41 +455,17 @@ export function Header({
           </MobileSection>
 
           <MobileSection
-            label="Interview Prep"
-            open={openMenu === "interviews"}
-            onToggle={() => toggle("interviews")}
-          >
-            {interviewGroups.map((group) => (
-              <div key={group.category} className="mt-3 first:mt-0">
-                <p className="break-words text-[0.68rem] font-semibold uppercase tracking-wide text-clay">
-                  {group.category}
-                </p>
-                <ul className="mt-1.5 flex flex-col gap-1.5">
-                  {group.items.map((item) => (
-                    <li key={item.id}>
-                      <Link href={urlFor(item)} className="break-words text-sm text-ink" onClick={() => setMobileOpen(false)}>
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-            <Link
-              href="/interviews"
-              className="mt-3 block text-sm font-semibold text-navy"
-              onClick={() => setMobileOpen(false)}
-            >
-              All {interviewCount} interview guides →
-            </Link>
-          </MobileSection>
-
-          <MobileSection
             label="Resources"
             open={openMenu === "resources"}
             onToggle={() => toggle("resources")}
           >
             <ul className="flex flex-col gap-3">
+              <li>
+                <Link href="/interviews" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
+                  Interview Prep
+                </Link>
+                <p className="mt-0.5 text-xs leading-snug text-steel">Common questions and what to expect, by role.</p>
+              </li>
               <li>
                 <Link href="/exams" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
                   Get Qualified

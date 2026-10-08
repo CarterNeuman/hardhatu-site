@@ -5,7 +5,6 @@ import "./globals.css";
 import {
   getAllContent,
   groupCareersByCategory,
-  groupInterviewsByCategory,
   groupConceptsByCategory,
 } from "@/lib/content";
 import { CAREER_CATEGORY_ORDER } from "@/lib/types";
@@ -28,9 +27,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-  const { careers, interviews, concepts, getHiredGuides } = getAllContent();
+  const { careers, concepts, getHiredGuides } = getAllContent();
   const careerGroups = groupCareersByCategory(careers);
-  const interviewGroups = groupInterviewsByCategory(interviews);
   const conceptGroups = groupConceptsByCategory(concepts);
   // Get Hired has exactly one guide per career category (no sub-items to
   // group), so the nav just needs it in the site's standard category
@@ -56,11 +54,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="print:hidden">
           <Header
             careerGroups={careerGroups}
-            interviewGroups={interviewGroups}
             conceptGroups={conceptGroups}
             getHiredGuides={getHiredOrdered}
             careerCount={careers.length}
-            interviewCount={interviews.length}
             conceptCount={concepts.length}
           />
         </div>
