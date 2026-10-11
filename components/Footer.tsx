@@ -18,7 +18,7 @@ export function Footer({
           <div className="flex items-center gap-2 font-display text-lg font-bold text-paper">
             <HardHatMark size={28} />
             <span>
-              hardhat<span className="text-amber-soft">U</span>
+              breakground<span className="text-amber-soft">U</span>
             </span>
           </div>
           <p className="mt-2.5 max-w-[32ch] text-sm text-paper/70">
