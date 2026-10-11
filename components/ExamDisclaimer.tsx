@@ -19,7 +19,7 @@ export function ExamDisclaimer({
   return (
     <div className="mt-4 border border-hairline bg-amber-soft/40 px-3 py-2 text-xs text-steel">
       <p>
-        HardHatU is an independent study resource and is not affiliated
+        BreakGroundU is an independent study resource and is not affiliated
         with, endorsed by, or sponsored by{organization ? ` ${organization}` : " the organization that administers this exam"}.
         "{examName}" and any related names are trademarks of their respective
         owners, referenced here only so you can find the right exam to

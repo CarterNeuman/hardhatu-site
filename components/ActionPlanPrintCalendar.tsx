@@ -36,7 +36,7 @@ export function ActionPlanPrintCalendar({ days, title }: { days: GeneratedDayIte
       <div className="flex items-center gap-3 border-b-2 border-navy pb-3">
         <HardHatMark size={34} />
         <p className="font-display text-xl font-bold text-ink">
-          hardhat<span className="text-amber">U</span>
+          breakground<span className="text-amber">U</span>
         </p>
         <div className="ml-auto text-right">
           <p className="font-display text-lg font-bold text-ink">{title}</p>
@@ -73,8 +73,8 @@ export function ActionPlanPrintCalendar({ days, title }: { days: GeneratedDayIte
 
       <p className="mt-4 text-[9px] text-steel">
         {isTruncated
-          ? `hardhatU \u00b7 this schedule is informational, not a guarantee of being hired. Your full ${planLength}-day plan continues online -- come back anytime to see what's next.`
-          : "hardhatU \u00b7 this schedule is informational, not a guarantee of being hired."}
+          ? `breakgroundU \u00b7 this schedule is informational, not a guarantee of being hired. Your full ${planLength}-day plan continues online -- come back anytime to see what's next.`
+          : "breakgroundU \u00b7 this schedule is informational, not a guarantee of being hired."}
       </p>
     </div>
   );

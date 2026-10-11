@@ -323,7 +323,7 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
         <g className={styles.titleblock} transform="translate(30,24)">
           <rect x={0} y={0} width={252} height={74} strokeWidth={1.5} />
           {[
-            ["PROJECT", "HardHatU Learning Path"],
+            ["PROJECT", "BreakGroundU Learning Path"],
             ["STOPS", `${allStops.length} lessons`],
           ].map(([label, value], i) => {
             const ry = 24 + i * 36;

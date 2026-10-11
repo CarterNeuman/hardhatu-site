@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Why HardHatU exists and who it's built for.",
+  description: "Why BreakGroundU exists and who it's built for.",
 };
 
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-14">
-      <h1 className="font-display text-4xl font-bold text-ink">About HardHatU</h1>
+      <h1 className="font-display text-4xl font-bold text-ink">About BreakGroundU</h1>
       <p className="mt-4 text-lg leading-relaxed text-steel">
-        HardHatU exists to help people new to construction see the whole industry clearly,
+        BreakGroundU exists to help people new to construction see the whole industry clearly,
         the careers, the terminology, the process, and the path to actually getting hired,
         before they have to learn it the hard way on a jobsite or in an interview.
       </p>
@@ -23,7 +23,7 @@ export default function AboutPage() {
             degree, but the industry is hard to see from the outside. A high schooler
             weighing options, or an adult considering a career change, rarely gets a clear
             picture of what the jobs actually involve, what they pay, what credentials
-            matter, or how a project even comes together. HardHatU is an attempt to close
+            matter, or how a project even comes together. BreakGroundU is an attempt to close
             that gap with a single, free, honest reference.
           </p>
         </section>
@@ -42,7 +42,7 @@ export default function AboutPage() {
         <section>
           <h2 className="font-display text-2xl font-bold text-ink">Where it's headed</h2>
           <p className="mt-3">
-            HardHatU is an independent, still-growing project. Careers and concepts are, and
+            BreakGroundU is an independent, still-growing project. Careers and concepts are, and
             will always stay, completely free. Over time the site will add more content
             (lessons, interview and certification prep, real jobsite photography) and eventually
             some optional accounts for the deeper study material, but the core reference

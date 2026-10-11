@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
-const CONTACT_EMAIL = "contact@hardhatu.com";
+const CONTACT_EMAIL = "contact@breakgroundu.com";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with HardHatU: questions, corrections, and feedback.",
+  description: "Get in touch with BreakGroundU: questions, corrections, and feedback.",
 };
 
 export default function ContactPage() {
@@ -12,7 +12,7 @@ export default function ContactPage() {
     <div className="mx-auto max-w-3xl px-6 py-14">
       <h1 className="font-display text-4xl font-bold text-ink">Contact</h1>
       <p className="mt-4 text-lg leading-relaxed text-steel">
-        HardHatU is an independent, growing project, so this is a real inbox read by a real
+        BreakGroundU is an independent, growing project, so this is a real inbox read by a real
         person, not a support team. Expect a genuine reply, just not necessarily a fast one.
       </p>
 

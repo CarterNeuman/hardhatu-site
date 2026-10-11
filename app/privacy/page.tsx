@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
-const CONTACT_EMAIL = "contact@hardhatu.com";
+const CONTACT_EMAIL = "contact@breakgroundu.com";
 const LAST_UPDATED = "October 1, 2026";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "What HardHatU collects, what it doesn't, and how that may change over time.",
+  description: "What BreakGroundU collects, what it doesn't, and how that may change over time.",
 };
 
 export default function PrivacyPage() {
@@ -18,8 +18,8 @@ export default function PrivacyPage() {
         <section>
           <h2 className="font-display text-2xl font-bold text-ink">Overview</h2>
           <p className="mt-3">
-            HardHatU is a free reference site operated independently, referred to here as
-            "HardHatU," "we," or "us." This policy explains what information the site
+            BreakGroundU is a free reference site operated independently, referred to here as
+            "BreakGroundU," "we," or "us." This policy explains what information the site
             collects today and how that may change as new features are added. If you have
             questions, reach out at{" "}
             <a href={`mailto:${CONTACT_EMAIL}`} className="text-amber underline decoration-amber/40 underline-offset-2 hover:text-clay hover:decoration-clay">
@@ -31,7 +31,7 @@ export default function PrivacyPage() {
         <section>
           <h2 className="font-display text-2xl font-bold text-ink">What we collect today</h2>
           <p className="mt-3">
-            HardHatU does not currently have user accounts, sign-ups, comments, or any form
+            BreakGroundU does not currently have user accounts, sign-ups, comments, or any form
             that collects personal information. There is nothing to fill in and nothing to
             submit, you can read the entire site anonymously.
           </p>
@@ -42,7 +42,7 @@ export default function PrivacyPage() {
             information. Vercel Analytics runs without setting tracking cookies. Google
             Analytics does set cookies, described below, and uses them to distinguish
             repeat visits from the same browser. Neither tool is used to identify a
-            specific person, and HardHatU does not combine this data with anything that
+            specific person, and BreakGroundU does not combine this data with anything that
             would.
           </p>
         </section>
@@ -81,7 +81,7 @@ export default function PrivacyPage() {
         <section>
           <h2 className="font-display text-2xl font-bold text-ink">Children's privacy</h2>
           <p className="mt-3">
-            HardHatU is written with high schoolers and other newcomers to the industry in
+            BreakGroundU is written with high schoolers and other newcomers to the industry in
             mind, and the site does not knowingly collect personal information from anyone,
             regardless of age, since there's currently no mechanism to submit any. If that
             ever changes for a future feature, this policy will be updated first and any
@@ -93,7 +93,7 @@ export default function PrivacyPage() {
         <section>
           <h2 className="font-display text-2xl font-bold text-ink">What may change</h2>
           <p className="mt-3">
-            HardHatU plans to eventually offer optional accounts for some deeper study
+            BreakGroundU plans to eventually offer optional accounts for some deeper study
             content (lessons, interview prep, and certification prep), while careers and concepts
             stay free and open. If and when accounts launch, this policy will be rewritten
             to explain exactly what account information is collected, how it's stored, and

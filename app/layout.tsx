@@ -18,8 +18,8 @@ import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "HardHatU: Explore Careers & Learn the Industry",
-    template: "%s | HardHatU",
+    default: "BreakGroundU: Explore Careers & Learn the Industry",
+    template: "%s | BreakGroundU",
   },
   description:
     "A free, interconnected guide to construction careers, terms, and the building process, for anyone new to the industry.",

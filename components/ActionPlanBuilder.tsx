@@ -173,7 +173,7 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
   function handleDownloadIcs() {
     if (!plan || plan === "coming-soon") return;
     const name = plan.careerTitle ? `${plan.careerTitle} Action Plan` : `${plan.category} Action Plan`;
-    downloadIcs(`hardhatu-${plan.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-plan.ics`, buildIcs(plan.days, name));
+    downloadIcs(`breakgroundu-${plan.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-plan.ics`, buildIcs(plan.days, name));
   }
 
   if (plan === "coming-soon") {

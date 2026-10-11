@@ -7,7 +7,7 @@ import type { IconKind } from "@/components/Icon";
 export const metadata: Metadata = {
   title: "Resources",
   description:
-    "Interview prep, certification study guides, the software you'll actually use on the job, and resume guidance -- every HardHatU resource in one place.",
+    "Interview prep, certification study guides, the software you'll actually use on the job, and resume guidance -- every BreakGroundU resource in one place.",
 };
 
 type PinColor = "amber" | "clay";

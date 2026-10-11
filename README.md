@@ -1,4 +1,4 @@
-# HardHatU — site scaffold
+# BreakGroundU — site scaffold
 
 This is the first 10% slice: a working Next.js site with the schema, the
 design system, SEO basics, and one real example of each content type

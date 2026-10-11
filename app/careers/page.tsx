@@ -8,7 +8,7 @@ import { slugifyCategory } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Careers",
   description:
-    "Browse every construction career on HardHatU, grouped by category, from field trades to insurance claims to consulting.",
+    "Browse every construction career on BreakGroundU, grouped by category, from field trades to insurance claims to consulting.",
 };
 
 export default function CareersIndexPage() {

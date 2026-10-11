@@ -39,7 +39,7 @@ export function buildIcs(days: GeneratedDayItem[], calendarName: string): string
   const lines: string[] = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//HardHatU//Action Plan//EN",
+    "PRODID:-//BreakGroundU//Action Plan//EN",
     "CALSCALE:GREGORIAN",
     `X-WR-CALNAME:${escapeIcsText(calendarName)}`,
   ];
@@ -48,7 +48,7 @@ export function buildIcs(days: GeneratedDayItem[], calendarName: string): string
     const exclusiveEnd = new Date(item.endDate.getTime() + 24 * 60 * 60 * 1000);
     lines.push(
       "BEGIN:VEVENT",
-      `UID:hardhatu-action-plan-${now}-${i}@hardhatu.com`,
+      `UID:breakgroundu-action-plan-${now}-${i}@breakgroundu.com`,
       `DTSTAMP:${now}T000000Z`,
       `DTSTART;VALUE=DATE:${toIcsDate(item.startDate)}`,
       `DTEND;VALUE=DATE:${toIcsDate(exclusiveEnd)}`,

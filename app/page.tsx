@@ -87,7 +87,7 @@ export default function HomePage() {
             </h1>
             <p className="mt-4 max-w-[46ch] text-lg leading-relaxed text-ink">
               You already know more about construction than you think, you just don't have
-              the vocabulary yet. HardHatU teaches you the real careers, the terms people actually
+              the vocabulary yet. BreakGroundU teaches you the real careers, the terms people actually
               use on a jobsite, and the concepts that build your foundation, so you walk in
               already speaking the language.
             </p>
@@ -198,7 +198,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-6 py-12">
           <p className="mb-2 flex items-center gap-2.5 text-xs font-semibold uppercase tracking-wide text-navy">
             <span aria-hidden="true" className="h-px w-5 bg-navy" />
-            Why HardHatU
+            Why BreakGroundU
           </p>
           <h2 className="font-display text-2xl font-bold text-ink">What you walk away with</h2>
           <p className="mt-2 max-w-[60ch] text-steel">

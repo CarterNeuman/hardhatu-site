@@ -118,7 +118,7 @@ sections:
       disorganized weeks on site. For readers who like this kind of
       detail-heavy coordination work, the Procurement Manager role sits
       alongside roles like [[career-estimator|Estimator]] and construction
-      accounting on the business side of a job, and the HardHatU
+      accounting on the business side of a job, and the BreakGroundU
       [[interview-business|Business interview guide]] covers how those roles
       divide up the work.
     quiz:

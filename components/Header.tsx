@@ -114,7 +114,7 @@ export function Header({
         <Link href="/" className="flex shrink-0 items-center gap-2 font-display text-[1.8rem] font-bold tracking-tight text-ink">
           <HardHatMark size={35} />
           <span>
-            hardhat<span className="text-amber">U</span>
+            breakground<span className="text-amber">U</span>
           </span>
         </Link>
 

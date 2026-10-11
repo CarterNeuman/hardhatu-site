@@ -105,7 +105,7 @@ sections:
       agreement, are both ways of keeping that boundary honest from the start.
       For readers drawn to this kind of precision, a
       [[career-contracts-administrator|Contracts Administrator]] spends entire
-      days on exactly this work, and the HardHatU
+      days on exactly this work, and the BreakGroundU
       [[interview-business|Business interview guide]] has more on what that
       career looks like.
     quiz:

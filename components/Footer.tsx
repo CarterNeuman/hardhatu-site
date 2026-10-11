@@ -70,7 +70,7 @@ export function Footer({
       </div>
       <div className="border-t border-paper/15">
         <div className="mx-auto flex max-w-6xl flex-col-reverse items-start gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-paper/60">HardHatU: an early, growing guide to the industry.</p>
+          <p className="text-xs text-paper/60">BreakGroundU: an early, growing guide to the industry.</p>
           <ul className="flex flex-wrap gap-4">
             <li><Link href="/about" className="text-xs text-paper/70 hover:text-paper hover:underline">About</Link></li>
             <li><Link href="/contact" className="text-xs text-paper/70 hover:text-paper hover:underline">Contact</Link></li>
