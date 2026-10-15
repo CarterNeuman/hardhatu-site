@@ -5,26 +5,25 @@ import Link from "next/link";
 import { urlFor, slugifyCategory } from "@/lib/content-client";
 import type { Career, Concept, GetHired } from "@/lib/types";
 
-// The "Solid Mark, Tile Badge" logo — a rounded navy tile holding a solid
-// hardhat silhouette, its brim and rib lines etched in reverse, with an
-// amber knob at the peak. Colors are fixed rather than currentColor since
+// The "Solid Mark, Tile Badge" logo — a rounded navy tile holding a
+// shovel breaking a cracked ground line, amber handle, amber knob where
+// it meets the blade. Colors are fixed rather than currentColor since
 // the mark is its own self-contained badge, unlike the old thin-stroke icon.
+// (Component name kept as HardHatMark to avoid touching its three import
+// sites; it no longer draws a hard hat.)
 export function HardHatMark({ size = 22, className = "" }: { size?: number; className?: string }) {
   return (
     <svg viewBox="0 0 200 200" width={size} height={size} className={className} aria-hidden="true">
       <rect x="2" y="2" width="196" height="196" rx="28" fill="#1F3F52" />
-      <g transform="translate(30,47.5) scale(0.7)">
-        <path
-          d="M15,110 Q15,30 100,20 Q185,30 185,110 Q100,145 15,110 Z"
-          fill="#EFEDE6"
-          stroke="#EFEDE6"
-          strokeWidth={3}
-        />
-        <path d="M45,100 Q100,122 155,100" fill="none" stroke="#1F3F52" strokeWidth={2.5} />
-        <line x1="70" y1="38" x2="70" y2="103" stroke="#1F3F52" strokeWidth={2} />
-        <line x1="100" y1="28" x2="100" y2="118" stroke="#1F3F52" strokeWidth={2} />
-        <line x1="130" y1="38" x2="130" y2="103" stroke="#1F3F52" strokeWidth={2} />
-        <circle cx="100" cy="20" r="6" fill="#B67F1E" />
+      <polygon points="20,130 82,130 70,137 86,144 20,144" fill="#EFEDE6" />
+      <polygon points="180,130 118,130 130,137 114,144 180,144" fill="#EFEDE6" />
+      <g transform="translate(-6,-6)">
+        <g transform="translate(100,100) scale(0.95) rotate(-25) translate(-100,-100)">
+          <line x1="100" y1="35" x2="100" y2="118" stroke="#B67F1E" strokeWidth={10} strokeLinecap="round" />
+          <path d="M78,105 L122,105 L114,142 A6,6 0 0 1 108,148 L92,148 A6,6 0 0 1 86,142 Z" fill="#EFEDE6" />
+          <line x1="100" y1="112" x2="100" y2="140" stroke="#1F3F52" strokeWidth={2} />
+          <circle cx="100" cy="100" r="7" fill="#B67F1E" />
+        </g>
       </g>
     </svg>
   );
