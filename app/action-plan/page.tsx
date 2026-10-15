@@ -7,6 +7,7 @@ import {
   type SlimCareer,
   type SlimLesson,
   type SlimConcept,
+  type SlimSoftware,
 } from "@/components/ActionPlanBuilder";
 
 // Linked from the site header's "Take Your First Step" entry (see the
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 export default function ActionPlanPage() {
-  const { careers, getHiredGuides, resumes, lessons, concepts, interviews, exams, actionPlans } = getAllContent();
+  const { careers, getHiredGuides, resumes, lessons, concepts, software, interviews, exams, actionPlans } = getAllContent();
 
   const dataByCategory: Record<string, CategoryData> = {};
   for (const category of CAREER_CATEGORY_ORDER) {
@@ -82,6 +83,34 @@ export default function ActionPlanPage() {
       if (fallbackLessons.length >= 8) break;
     }
 
+    // Software tied to each specific career in this category -- reuses
+    // the career's own already-authored `software` id list (the same one
+    // its own career page's Software section renders), not a new
+    // per-career mapping authored just for this feature.
+    const softwareByCareerId: Record<string, SlimSoftware[]> = {};
+    for (const career of categoryCareers) {
+      softwareByCareerId[career.id] = career.software
+        .map((id) => software.find((s) => s.id === id))
+        .filter((s): s is NonNullable<typeof s> => Boolean(s))
+        .map((s): SlimSoftware => ({ id: s.id, slug: s.slug, title: s.title, whatItIs: s.whatItIs }));
+    }
+
+    // Category-wide fallback, same "Not sure yet, keep it general"
+    // purpose as fallbackLessons/fallbackConcepts -- any software tied
+    // to at least one career in this category, deduped.
+    const seenSoftwareIds = new Set<string>();
+    const fallbackSoftware: SlimSoftware[] = [];
+    outer: for (const career of categoryCareers) {
+      for (const id of career.software) {
+        if (seenSoftwareIds.has(id)) continue;
+        const s = software.find((sw) => sw.id === id);
+        if (!s) continue;
+        seenSoftwareIds.add(id);
+        fallbackSoftware.push({ id: s.id, slug: s.slug, title: s.title, whatItIs: s.whatItIs });
+        if (fallbackSoftware.length >= 6) break outer;
+      }
+    }
+
     // Same category-wide fallback, for concepts.
     const seenConceptIds = new Set<string>();
     const fallbackConcepts: SlimConcept[] = [];
@@ -117,6 +146,18 @@ export default function ActionPlanPage() {
     }
     const categoryExamPrepHref = exams.find((e) => !e.careerId && e.category === category);
 
+    // Same career-wins-else-category precedence as the href-only maps
+    // above, but carrying each exam's own title too -- needed to phrase
+    // a real calendar task ("Work through OSHA 10 practice questions"),
+    // not just link to it. Reuses the same exam lookups, no new data.
+    const examPrepTaskByCareerId: Record<string, { title: string; href: string }> = {};
+    for (const e of exams) {
+      if (e.careerId) examPrepTaskByCareerId[e.careerId] = { title: e.title, href: `/exams/${e.slug}` };
+    }
+    const categoryExamPrepTask = categoryExamPrepHref
+      ? { title: categoryExamPrepHref.title, href: `/exams/${categoryExamPrepHref.slug}` }
+      : undefined;
+
     dataByCategory[category] = {
       category,
       careers: careerRefs,
@@ -127,12 +168,16 @@ export default function ActionPlanPage() {
       resumeGuide: resumeGuide ? { slug: resumeGuide.slug, exampleBullets: resumeGuide.exampleBullets } : undefined,
       lessonsByCareerId,
       fallbackLessons,
+      softwareByCareerId,
+      fallbackSoftware,
       conceptsByCareerId,
       fallbackConcepts,
       interviewPrepHrefByCareerId,
       categoryInterviewPrepHref: categoryInterviewPrepHref ? `/interviews/${categoryInterviewPrepHref.slug}` : undefined,
       examPrepHrefByCareerId,
       categoryExamPrepHref: categoryExamPrepHref ? `/exams/${categoryExamPrepHref.slug}` : undefined,
+      examPrepTaskByCareerId,
+      categoryExamPrepTask,
     };
   }
 
@@ -146,8 +191,8 @@ export default function ActionPlanPage() {
         <h1 className="font-display text-4xl font-bold text-ink">Build your Action Plan</h1>
         <p className="mt-3 text-lg leading-relaxed text-ink">
           Tell us where you are in the process and we'll put together a day-by-day plan: qualifications to
-          line up, courses worth taking, resume bullets to use for inspiration, who to actually apply to, and exactly how
-          to reach out.
+          line up, real lessons/software/exam prep worked into the schedule itself, resume bullets to use for
+          inspiration, who to actually apply to, and exactly how to reach out.
         </p>
         <p className="mt-2 text-sm text-steel">
           Nothing you enter here is saved yet, accounts aren't live yet. Download the calendar (.ics) or print

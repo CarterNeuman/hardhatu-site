@@ -14,6 +14,7 @@ import type { ActionPlan, GetHired, ResumeGuide } from "./types";
 // server component can still pass a slimmed-down Lesson/Career straight
 // through without any casting.
 export type LessonRef = { id: string; slug: string; title: string; minutes: number };
+export type SoftwareRef = { id: string; slug: string; title: string; whatItIs: string };
 export type CareerRef = {
   id: string;
   title: string;
@@ -68,6 +69,15 @@ export type GeneratedDayItem = {
   detail: string;
   startDate: Date;
   endDate: Date;
+  // Set only for a skill-building item woven in from the visitor's own
+  // matched lessons/software/exam prep (see buildSkillItems below) --
+  // every authored skeleton item (paperwork, outreach, certification,
+  // the capstone) leaves this undefined. Lets the result screen link
+  // straight to the source page and show a small "Lesson"/"Software"/
+  // "Exam Prep" tag, instead of every day-by-day item reading as plain
+  // text.
+  kind?: "lesson" | "software" | "examPrep";
+  href?: string;
 };
 
 export type GeneratedQualification = {
@@ -188,7 +198,14 @@ function computeDensityFactor(hoursPerWeek: number): number {
   return clamp(hours / REFERENCE_HOURS_PER_WEEK, DENSITY_FACTOR_MIN, DENSITY_FACTOR_MAX);
 }
 
-type RawDay = { dayStart: number; dayEnd: number; title: string; detail: string };
+type RawDay = {
+  dayStart: number;
+  dayEnd: number;
+  title: string;
+  detail: string;
+  kind?: "lesson" | "software" | "examPrep";
+  href?: string;
+};
 
 // Expands one authored "recurring" item into however many repeat rounds
 // fit the visitor's timeline and pace. Always produces at least one round
@@ -223,6 +240,98 @@ function expandRecurringItem(
     title: spans.length > 1 ? `${item.title} (round ${i + 1} of ${spans.length})` : item.title,
     detail: item.detail,
   }));
+}
+
+export type SkillItem = {
+  kind: "lesson" | "software" | "examPrep";
+  title: string;
+  detail: string;
+  href: string;
+};
+
+// How often a skill-building item (a lesson, a software profile, a round
+// of exam-prep practice) lands on the calendar. Unlike outreach/
+// certification, a skill-building round never repeats the same content
+// twice -- once every matched item has had its turn the rotation simply
+// stops, since "redo the lesson you already did" isn't a sensible task
+// the way "send another round of outreach" is.
+const SKILL_BUILDING_REFERENCE_DAYS = 4;
+const SKILL_BUILDING_MIN_DAYS = 2;
+// Where the first skill-building item lands, at the reference pace --
+// after the very first paperwork/resume items, but early enough that
+// learning starts alongside the job search rather than only once outreach
+// is already underway.
+const SKILL_BUILDING_FIRST_DAY = 3;
+
+// Builds the ordered pool of skill-building items for one generated plan:
+// up to 4 matched lessons, then up to 3 matched software profiles, then
+// one exam-prep practice round if a relevant guide exists. Order matters
+// here (it's also the rotation order on the calendar) -- lessons first
+// since they're the broadest on-ramp, software next since it's concrete
+// and fast to skim, exam prep last since it's the most exam-specific and
+// only relevant to someone actually pursuing that credential.
+function buildSkillItems(
+  lessons: LessonRef[],
+  software: SoftwareRef[],
+  examTask: { title: string; href: string } | undefined
+): SkillItem[] {
+  const items: SkillItem[] = [];
+  for (const lesson of lessons.slice(0, 4)) {
+    items.push({
+      kind: "lesson",
+      title: `Complete the lesson: ${lesson.title}`,
+      detail: `${lesson.minutes} min -- real working knowledge, not just what it takes to get hired.`,
+      href: `/lessons/${lesson.slug}`,
+    });
+  }
+  for (const sw of software.slice(0, 3)) {
+    items.push({
+      kind: "software",
+      title: `Get familiar with ${sw.title}`,
+      detail: sw.whatItIs,
+      href: `/software/${sw.slug}`,
+    });
+  }
+  if (examTask) {
+    items.push({
+      kind: "examPrep",
+      title: `Work through ${examTask.title} practice questions`,
+      detail: "A few questions at a time keeps the material fresh without turning into a study marathon.",
+      href: examTask.href,
+    });
+  }
+  return items;
+}
+
+// Spreads the skill-building pool across the calendar at a cadence that
+// scales with densityFactor, the same dial the outreach/certification
+// rounds use -- more hours per week or a longer timeline means shorter
+// gaps between items. Never repeats an item: once the pool is exhausted,
+// the rotation simply stops (see buildSkillItems' comment for why).
+// Always places at least the first item, clamped to the plan's last day,
+// so a very tight plan still gets one learning task rather than none.
+function expandSkillBuildingItems(
+  items: SkillItem[],
+  paceScale: number,
+  densityFactor: number,
+  totalDays: number
+): RawDay[] {
+  if (items.length === 0) return [];
+  const cadenceDays = Math.max(SKILL_BUILDING_MIN_DAYS, Math.round(SKILL_BUILDING_REFERENCE_DAYS / densityFactor));
+  const firstDay = Math.min(totalDays, Math.max(1, Math.round(SKILL_BUILDING_FIRST_DAY * paceScale)));
+
+  const result: RawDay[] = [];
+  let cursor = firstDay;
+  for (const item of items) {
+    if (cursor > totalDays) break;
+    result.push({ dayStart: cursor, dayEnd: cursor, title: item.title, detail: item.detail, kind: item.kind, href: item.href });
+    cursor += cadenceDays;
+  }
+  if (result.length === 0) {
+    const first = items[0];
+    result.push({ dayStart: totalDays, dayEnd: totalDays, title: first.title, detail: first.detail, kind: first.kind, href: first.href });
+  }
+  return result;
 }
 
 // Fills [Token] placeholders with a replacer *function*, not a plain
@@ -311,12 +420,16 @@ export function buildActionPlan({
   resumeGuide,
   lessonsForCareer,
   categoryFallbackLessons = [],
+  softwareForCareer = [],
+  categoryFallbackSoftware = [],
   conceptsForCareer = [],
   categoryFallbackConcepts = [],
   careerInterviewPrepHref,
   categoryInterviewPrepHref,
   careerExamPrepHref,
   categoryExamPrepHref,
+  careerExamPrepTask,
+  categoryExamPrepTask,
   career,
   intake,
   startDate = new Date(),
@@ -331,6 +444,12 @@ export function buildActionPlan({
   // empty Courses section. See app/action-plan/page.tsx for how this gets
   // built.
   categoryFallbackLessons?: LessonRef[];
+  // Software tied to the chosen specific career, and a category-wide
+  // fallback -- same "specific wins, else category-wide" pattern as
+  // lessons above. Woven into the day-by-day skill-building rotation
+  // (see buildSkillItems), not just a side list.
+  softwareForCareer?: SoftwareRef[];
+  categoryFallbackSoftware?: SoftwareRef[];
   // Concepts tied to the chosen specific career, and a category-wide
   // fallback -- same "specific wins, else category-wide" pattern as
   // lessons above. Surfaced as "Go further" recommendations.
@@ -345,6 +464,12 @@ export function buildActionPlan({
   categoryInterviewPrepHref?: string;
   careerExamPrepHref?: string;
   categoryExamPrepHref?: string;
+  // Same career-wins-else-category precedence as the href-only fields
+  // above, but carrying the exam's own title too -- needed to phrase a
+  // real calendar task ("Work through OSHA 10 practice questions"), not
+  // just link to it.
+  careerExamPrepTask?: { title: string; href: string };
+  categoryExamPrepTask?: { title: string; href: string };
   career?: CareerRef;
   intake: ActionPlanIntake;
   startDate?: Date;
@@ -387,6 +512,19 @@ export function buildActionPlan({
     const scaledEnd = Math.min(totalDays, Math.max(scaledStart, Math.round(item.dayEnd * paceScale)));
     rawDays.push({ dayStart: scaledStart, dayEnd: scaledEnd, title: item.title, detail: item.detail });
   }
+
+  // Weave in real site content as actual dated tasks, not just a side
+  // "Courses to take" list -- a rotation through the visitor's matched
+  // lessons, then relevant software, then exam-prep practice, same pace
+  // dial (densityFactor) the outreach/certification rounds use.
+  const softwarePool = softwareForCareer.length > 0 ? softwareForCareer : categoryFallbackSoftware;
+  const examTask = careerExamPrepTask ?? categoryExamPrepTask;
+  const skillItems = buildSkillItems(
+    lessonsForCareer.length > 0 ? lessonsForCareer : categoryFallbackLessons,
+    softwarePool,
+    examTask
+  );
+  rawDays.push(...expandSkillBuildingItems(skillItems, paceScale, densityFactor, totalDays));
 
   const days: GeneratedDayItem[] = rawDays
     .map((item) => ({

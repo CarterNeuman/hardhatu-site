@@ -32,6 +32,7 @@ export type SlimCareer = {
 };
 export type SlimLesson = { id: string; slug: string; title: string; minutes: number };
 export type SlimConcept = { id: string; slug: string; title: string; definition: string };
+export type SlimSoftware = { id: string; slug: string; title: string; whatItIs: string };
 
 export type CategoryData = {
   category: string;
@@ -45,15 +46,35 @@ export type CategoryData = {
   // whole, so "Not sure yet, keep it general" still gets real course
   // suggestions instead of an empty section.
   fallbackLessons: SlimLesson[];
+  // Same "specific career wins, else category-wide fallback" pattern as
+  // lessons above, for software -- woven into the day-by-day
+  // skill-building rotation, not just a side list.
+  softwareByCareerId: Record<string, SlimSoftware[]>;
+  fallbackSoftware: SlimSoftware[];
   conceptsByCareerId: Record<string, SlimConcept[]>;
   fallbackConcepts: SlimConcept[];
   interviewPrepHrefByCareerId: Record<string, string>;
   categoryInterviewPrepHref?: string;
   examPrepHrefByCareerId: Record<string, string>;
   categoryExamPrepHref?: string;
+  // Same career-wins-else-category precedence as the href-only fields
+  // above, but carrying each exam's own title too -- used to phrase the
+  // skill-building rotation's exam-prep task, not just link to it.
+  examPrepTaskByCareerId: Record<string, { title: string; href: string }>;
+  categoryExamPrepTask?: { title: string; href: string };
 };
 
 const DEFAULT_HOURS = 10;
+
+// Small badge text for a skill-building day-by-day item (see
+// GeneratedDayItem's `kind` in lib/action-plan-generator.ts) -- lets the
+// calendar visually distinguish "go learn this" tasks from the authored
+// paperwork/outreach/certification items around them.
+const SKILL_KIND_LABEL: Record<"lesson" | "software" | "examPrep", string> = {
+  lesson: "Lesson",
+  software: "Software",
+  examPrep: "Exam Prep",
+};
 
 function TemplateBlock({ label, text }: { label: string; text: string }) {
   const [copied, setCopied] = useState(false);
@@ -137,6 +158,7 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
     }
     const career = data.careers.find((c) => c.id === careerId);
     const lessons = careerId ? data.lessonsByCareerId[careerId] ?? [] : [];
+    const softwareItems = careerId ? data.softwareByCareerId[careerId] ?? [] : [];
     const careerConcepts = careerId ? data.conceptsByCareerId[careerId] ?? [] : [];
     const intake: ActionPlanIntake = {
       category,
@@ -153,12 +175,16 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
       resumeGuide: data.resumeGuide as ResumeGuide | undefined,
       lessonsForCareer: lessons,
       categoryFallbackLessons: data.fallbackLessons,
+      softwareForCareer: softwareItems,
+      categoryFallbackSoftware: data.fallbackSoftware,
       conceptsForCareer: careerConcepts,
       categoryFallbackConcepts: data.fallbackConcepts,
       careerInterviewPrepHref: careerId ? data.interviewPrepHrefByCareerId[careerId] : undefined,
       categoryInterviewPrepHref: data.categoryInterviewPrepHref,
       careerExamPrepHref: careerId ? data.examPrepHrefByCareerId[careerId] : undefined,
       categoryExamPrepHref: data.categoryExamPrepHref,
+      careerExamPrepTask: careerId ? data.examPrepTaskByCareerId[careerId] : undefined,
+      categoryExamPrepTask: data.categoryExamPrepTask,
       career,
       intake,
     });
@@ -364,11 +390,22 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
                 {checkedDays.has(i) && <span className="block h-full w-full bg-navy" />}
               </button>
               <div className={checkedDays.has(i) ? "opacity-50" : undefined}>
-                <p className="text-xs font-semibold uppercase tracking-wide text-clay">
+                <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-clay">
                   {formatDateRange(item.startDate, item.endDate)}
+                  {item.kind && (
+                    <span className="border border-navy px-1.5 py-0.5 text-navy">
+                      {SKILL_KIND_LABEL[item.kind]}
+                    </span>
+                  )}
                 </p>
                 <p className={`font-medium text-ink ${checkedDays.has(i) ? "line-through" : ""}`}>
-                  <GlossaryText text={item.title} index={glossaryIndex} />
+                  {item.href ? (
+                    <Link href={item.href} className="hover:underline">
+                      {item.title}
+                    </Link>
+                  ) : (
+                    <GlossaryText text={item.title} index={glossaryIndex} />
+                  )}
                 </p>
                 <p className="mt-0.5 text-sm text-steel">
                   <GlossaryText text={item.detail} index={glossaryIndex} />
