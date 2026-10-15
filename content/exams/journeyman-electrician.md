@@ -13,11 +13,11 @@ tagline: Not one national exam but a state-by-state licensing process, earned on
 questions:
   - question: "In Texas (used here as a representative example, since licensing is state by state), how many total hours of on-the-job training under a licensed Master Electrician does becoming a Journeyman Electrician require?"
     options:
-      - "2,000 hours"
-      - "4,000 hours"
+      - "As many as 12,000 hours total before eligibility"
+      - "Only 4,000 hours total before eligibility"
+      - "Only 2,000 hours total before eligibility"
       - "8,000 hours total (7,000 hours makes a candidate eligible to sit the exam itself)"
-      - "12,000 hours"
-    answerIndex: 2
+    answerIndex: 3
     explanation: >
       The 7,000-hour exam-eligibility threshold and the 8,000-hour full
       licensure threshold are two different numbers worth keeping
@@ -25,21 +25,21 @@ questions:
       count, but the license itself still requires finishing it.
   - question: "What reference material can a candidate bring into Texas's journeyman electrician exam?"
     options:
-      - "No reference material at all, fully closed book"
       - "A soft-bound National Electrical Code (NEC) book of the current edition; loose-leaf or spiral-bound copies aren't allowed"
+      - "No reference material at all, fully closed book"
       - "Any electrical textbook of the candidate's choosing"
-      - "A personal binder of handwritten notes"
-    answerIndex: 1
+      - "A personal binder filled with the candidate's own handwritten notes"
+    answerIndex: 0
     explanation: >
       "Open book" here means one specific, approved reference in one
       specific format, not an open invitation to bring whatever study
       material feels useful.
   - question: "Who actually administers the Texas journeyman electrician exam, separate from the state licensing board itself?"
     options:
-      - "TDLR staff proctor it directly"
+      - "The apprentice's own employer, administered in-house"
       - "PSI, a third-party testing vendor contracted by the state"
-      - "The apprentice's own employer"
-      - "NCEES"
+      - "NCEES, the national engineering exam board"
+      - "TDLR staff proctor it directly"
     answerIndex: 1
     explanation: >
       States commonly contract the actual exam delivery out to a
@@ -48,11 +48,11 @@ questions:
       exams.
   - question: "Since March 2025, what changed about the format of Texas's journeyman electrician exam?"
     options:
-      - "It became fully closed-book"
       - "It split into two separate parts, a knowledge portion and a calculations portion"
       - "It dropped the NEC code reference requirement entirely"
-      - "It became a single pass/fail question"
-    answerIndex: 1
+      - "It became a single combined pass/fail question overall"
+      - "It became a fully closed-book exam with no reference allowed"
+    answerIndex: 0
     explanation: >
       Licensing exams do get revised over time, which is itself worth
       knowing, checking the current Candidate Information Bulletin
@@ -60,11 +60,11 @@ questions:
       material.
   - question: "What does \"open book\" actually mean on this kind of exam, in practice?"
     options:
-      - "Any printed material at all is allowed"
       - "A specific, approved reference, in a specific format, is allowed, not an open-ended \"anything goes\""
-      - "There's no real exam at all"
+      - "There's no real exam at all, just a paperwork review"
+      - "Any printed material at all is allowed"
       - "Internet access during the exam is allowed"
-    answerIndex: 1
+    answerIndex: 0
     explanation: >
       Candidates sometimes assume "open book" means the material
       barely matters. In practice it just changes what kind of
@@ -72,11 +72,11 @@ questions:
       application.
   - question: "Which part of an NEC-based licensing exam tends to trip up someone who assumes \"open book\" means minimal preparation is needed?"
     options:
-      - "None; open-book exams are generally trivial"
-      - "The calculations portion, since knowing roughly where to look in the code doesn't help if the math itself can't be done correctly under time pressure"
       - "There is no calculations portion on any state's exam"
       - "The code itself is never actually tested"
-    answerIndex: 1
+      - "The calculations portion, since knowing roughly where to look in the code doesn't help if the math itself can't be done correctly under time pressure"
+      - "None; open-book exams are generally trivial"
+    answerIndex: 2
     explanation: >
       Navigating to the right code section is only half the battle on
       a calculations-heavy question, actually working the math
@@ -84,43 +84,43 @@ questions:
       preparation from just owning a code book.
   - question: "Under whose supervision does an electrical apprentice legally work while accumulating hours toward journeyman licensure?"
     options:
-      - "Any licensed tradesperson, regardless of trade"
-      - "A Master Electrician licensed in that state"
-      - "A general contractor holding no electrical license"
       - "No supervision is legally required"
-    answerIndex: 1
+      - "A general contractor holding no electrical license"
+      - "A Master Electrician licensed in that state"
+      - "Any licensed tradesperson, regardless of trade"
+    answerIndex: 2
     explanation: >
       The supervising license has to be the right kind, a Master
       Electrician specifically, not just any licensed trade
       professional on site.
   - question: "What has to happen to an apprentice's hours for them to count officially toward licensure eligibility?"
     options:
+      - "Hours only count if performed on public projects"
+      - "Only union-tracked hours count anywhere"
       - "Nothing; self-reported hours are accepted at face value"
       - "They must be documented on a formal Experience Verification Form, signed by each supervising Master Electrician"
-      - "Only union-tracked hours count anywhere"
-      - "Hours only count if performed on public projects"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       Keeping that documentation current as supervisors change over
       the years matters, gaps in signed verification can delay an
       otherwise-qualified application.
   - question: "What does a Journeyman Electrician license actually let someone do that an apprentice legally cannot?"
     options:
-      - "Nothing changes practically"
-      - "Work unsupervised, without a Master Electrician directly overseeing the work"
       - "Only inspect other electricians' completed work"
+      - "Nothing really changes in practice day to day"
+      - "Work unsupervised, without a Master Electrician directly overseeing the work"
       - "Automatically become a Master Electrician"
-    answerIndex: 1
+    answerIndex: 2
     explanation: >
       That shift to unsupervised work is the entire point of the
       license, not a formality layered on top of experience someone
       already effectively has.
   - question: "What's true about NEC code editions and licensing exams across different states?"
     options:
-      - "Every state uses the exact same NEC edition at the exact same time"
-      - "States adopt NEC editions on their own timelines, so the correct edition to study depends on exactly which state and testing window"
-      - "The NEC is only updated once a decade"
       - "No state actually requires the NEC for licensing"
+      - "States adopt NEC editions on their own timelines, so the correct edition to study depends on exactly which state and testing window"
+      - "Every state uses the exact same NEC edition at the exact same time"
+      - "The NEC is only updated once a decade"
     answerIndex: 1
     explanation: >
       Studying an outdated edition because it's what a friend used
@@ -128,21 +128,21 @@ questions:
       avoidable mistake.
   - question: "How does OSHA 10/30 certification relate to electrical licensing itself?"
     options:
+      - "Electricians are categorically exempt from all OSHA requirements"
       - "It's legally mandatory nationwide for every electrician"
       - "It isn't a nationwide legal requirement for electricians, though several states require it specifically on public construction projects"
       - "It replaces the journeyman exam entirely"
-      - "Electricians are categorically exempt from all OSHA requirements"
-    answerIndex: 1
+    answerIndex: 2
     explanation: >
       OSHA 10/30 and journeyman licensing are two separate
       requirements that happen to both apply to the same worker in
       some states, not one substituting for the other.
   - question: "What's the practical, real-world reason state licensing exists for electricians, beyond paperwork?"
     options:
-      - "Pure bureaucracy with no functional purpose"
-      - "Faulty electrical work is a leading cause of structure fires and electrocution; licensure verifies a baseline of code knowledge before someone works unsupervised"
-      - "It exists purely as a state revenue source"
       - "It exists only to protect union jobs"
+      - "Faulty electrical work is a leading cause of structure fires and electrocution; licensure verifies a baseline of code knowledge before someone works unsupervised"
+      - "Pure bureaucracy with no functional purpose"
+      - "It exists purely as a state revenue source"
     answerIndex: 1
     explanation: >
       The hour requirements and documentation exist because the
@@ -151,21 +151,21 @@ questions:
       sake.
   - question: "A journeyman electrician moves to a different state. What's generally true about whether their license transfers?"
     options:
-      - "All states automatically honor every other state's license"
       - "Reciprocity varies: some states have formal agreements, others require retesting or an entirely new application"
       - "It's illegal to ever work in a different state as an electrician"
+      - "All states automatically honor every other state's license"
       - "Only a federal license exists, so this situation can't occur"
-    answerIndex: 1
+    answerIndex: 0
     explanation: >
       Checking the specific destination state's reciprocity rules
       before assuming a license carries over avoids a genuinely
       common, costly surprise.
   - question: "What does a Texas journeyman electrician application fee of $30 actually cover?"
     options:
-      - "The full cost of the exam itself"
+      - "The full cost of the exam itself, bundled into one fee"
       - "Just the application review; exam fees are separate, set by the testing vendor's own fee schedule"
+      - "Ongoing continuing education credit hours"
       - "A lifetime license with no further costs ever"
-      - "Continuing education credits"
     answerIndex: 1
     explanation: >
       The low application fee is easy to mistake for the whole cost
@@ -173,11 +173,11 @@ questions:
       documented hours are the real investment.
   - question: "Why does this site use Texas as a representative example instead of giving one nationwide answer for journeyman electrician licensing?"
     options:
-      - "Because Texas is the only state that licenses electricians"
-      - "Because hour requirements, fees, exam providers, and NEC edition adoption all vary by state, so one real state's numbers illustrate the pattern without claiming to be universal"
-      - "Because electricians don't need licenses anywhere else"
       - "Because this is federally regulated instead of state-regulated"
-    answerIndex: 1
+      - "Because electricians don't need licenses anywhere else"
+      - "Because hour requirements, fees, exam providers, and NEC edition adoption all vary by state, so one real state's numbers illustrate the pattern without claiming to be universal"
+      - "Because Texas is the only state that licenses electricians"
+    answerIndex: 2
     explanation: >
       The same approach this site uses for the Adjuster License,
       picking one real, verified state as a concrete example rather

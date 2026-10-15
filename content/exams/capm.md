@@ -13,11 +13,11 @@ tagline: An entry-level project management credential with no professional exper
 questions:
   - question: "What's the core eligibility difference between the CAPM and the PMP?"
     options:
+      - "CAPM requires more experience than the PMP, since it's a broader credential"
       - "There's no real difference, both require the same years of experience"
       - "CAPM requires no professional project management experience at all, only a secondary degree and some training hours; the PMP requires years of documented experience"
-      - "CAPM is only open to people who already hold a PMP"
-      - "CAPM requires more experience than the PMP, since it's a broader credential"
-    answerIndex: 1
+      - "CAPM is only open to candidates who have already earned a PMP first"
+    answerIndex: 2
     explanation: >
       CAPM is built specifically as an entry point: a secondary degree
       (a high school diploma, GED, or equivalent) and some project
@@ -28,11 +28,11 @@ questions:
       demands.
   - question: "How many hours of project management education does PMI require before sitting the CAPM exam?"
     options:
-      - "None, no training is required"
       - "At least 23 hours of project management education"
-      - "The same 35 hours the PMP requires"
-      - "100 hours, more than the PMP requires"
-    answerIndex: 1
+      - "The exact same 35 hours of education that the PMP itself requires"
+      - "A full 100 hours, more than even the PMP itself requires"
+      - "None at all, no training hours are required to sit for it"
+    answerIndex: 0
     explanation: >
       CAPM's training requirement is lighter than the PMP's, 23 hours
       versus 35, reflecting that CAPM is designed as an entry-level
@@ -41,11 +41,11 @@ questions:
       partner can satisfy this requirement.
   - question: "What's the exam's structure: how many questions, and how long do you get?"
     options:
-      - "150 questions, 180 minutes"
       - "180 questions, 240 minutes, the same as the PMP"
       - "50 questions, 60 minutes"
       - "150 questions with no time limit"
-    answerIndex: 0
+      - "150 questions, 180 minutes"
+    answerIndex: 3
     explanation: >
       The CAPM exam is 150 questions over 180 minutes (3 hours), 15 of
       which are unscored pretest questions PMI uses to field-test
@@ -54,11 +54,11 @@ questions:
       don't while you're taking it.
   - question: "Which domain carries the most weight on the CAPM exam?"
     options:
-      - "Agile Frameworks/Methodologies"
+      - "Agile Frameworks and Methodologies as their own separate domain"
+      - "Predictive, Plan-Based Methodologies as their own separate domain"
       - "Project Management Fundamentals and Core Concepts, at 36% of the exam"
-      - "Business Analysis Frameworks"
-      - "Predictive, Plan-Based Methodologies"
-    answerIndex: 1
+      - "Business Analysis Frameworks as their own separate tested domain"
+    answerIndex: 2
     explanation: >
       Project Management Fundamentals and Core Concepts is the single
       largest domain at 36%, the foundational vocabulary and concepts
@@ -68,11 +68,11 @@ questions:
       and Predictive, Plan-Based Methodologies (17%).
   - question: "Why does an entry-level exam like the CAPM dedicate real weight (27%) to Business Analysis Frameworks?"
     options:
-      - "It doesn't, Business Analysis isn't actually tested"
       - "Because gathering and documenting requirements and stakeholder needs is treated as core project-management literacy, not a separate specialty"
       - "It's only there for people planning to become business analysts instead of project managers"
-      - "It's a leftover domain from an older, unrelated exam"
-    answerIndex: 1
+      - "It's simply a leftover domain carried over from an older, unrelated exam"
+      - "It doesn't actually appear on the exam at all, despite what the outline says"
+    answerIndex: 0
     explanation: >
       PMI's current CAPM outline treats business analysis skills,
       identifying stakeholders, gathering and documenting requirements,
@@ -83,11 +83,11 @@ questions:
       entry-level project management literacy looks like.
   - question: "Agile Frameworks/Methodologies (20%) actually outweighs Predictive, Plan-Based Methodologies (17%) on the CAPM exam. What does that tell you about the exam's expectations?"
     options:
-      - "The exam assumes agile has fully replaced traditional predictive project management"
       - "Even at the entry level, PMI expects familiarity with adaptive/agile concepts, not just traditional waterfall-style planning"
+      - "The exam assumes agile has fully replaced traditional predictive project management"
+      - "Agile-related questions are entirely optional and can simply be skipped"
       - "It's a typo; predictive methodologies are still weighted higher in practice"
-      - "Agile questions are optional and can be skipped"
-    answerIndex: 1
+    answerIndex: 0
     explanation: >
       A construction PM's daily reality is mostly predictive
       (phases, a baseline schedule, formal change orders), so it's
@@ -100,8 +100,8 @@ questions:
     options:
       - "Predictive (waterfall)"
       - "Adaptive/agile"
-      - "Critical path scheduling"
       - "Earned value management"
+      - "Critical path scheduling"
     answerIndex: 1
     explanation: >
       Short, repeated cycles with built-in feedback and the ability
@@ -111,11 +111,11 @@ questions:
       changes formally against that fixed baseline.
   - question: "In a predictive, plan-based project, how is a scope change typically handled once the baseline is set?"
     options:
-      - "Informally, whenever someone on the team feels it's needed"
       - "Through a formal change control process, evaluating impact before the baseline itself is revised"
-      - "Scope can never change once a predictive project starts"
+      - "Scope is treated as fixed and can never change once a predictive project starts"
+      - "Informally, whenever someone on the team feels it's needed"
       - "The customer decides changes directly with individual team members"
-    answerIndex: 1
+    answerIndex: 0
     explanation: >
       Predictive approaches commit to a scope and schedule baseline
       up front, so a change has to go through a formal process,
@@ -126,10 +126,10 @@ questions:
   - question: "Who is the CAPM most realistically built for?"
     options:
       - "Someone with 10+ years running major projects who wants a capstone credential"
+      - "Licensed professional engineers who need it as a formal legal requirement to practice"
       - "Someone earlier in a project-management track, without the professional experience the PMP requires yet, looking to formalize their knowledge"
       - "Only full-time students with no construction industry connection at all"
-      - "Licensed engineers who need it as a legal requirement to practice"
-    answerIndex: 1
+    answerIndex: 2
     explanation: >
       CAPM is designed for exactly the gap the PMP leaves open: someone
       moving from a role like Project Engineer toward Assistant
@@ -138,11 +138,11 @@ questions:
       accumulated the years of documented experience the PMP requires.
   - question: "How does PMI report whether you passed the CAPM exam?"
     options:
+      - "A simple letter grade ranging anywhere from A down to F"
       - "A single published cut score, like 70%, that every candidate is measured against"
-      - "A criterion-referenced pass/fail result, with no fixed passing percentage published"
       - "PMI never tells you whether you passed, only your raw score"
-      - "A letter grade from A to F"
-    answerIndex: 1
+      - "A criterion-referenced pass/fail result, with no fixed passing percentage published"
+    answerIndex: 3
     explanation: >
       Like the PMP, PMI has never published a fixed CAPM passing
       score. Scoring is criterion-referenced, set through
@@ -152,11 +152,11 @@ questions:
       instead.
   - question: "What does it cost to sit the CAPM exam, and does PMI membership change that?"
     options:
+      - "A flat $1,000, comparable to a full graduate-level certification program"
+      - "It's completely free to take; only the required training hours cost money"
       - "A flat $500 for everyone, membership makes no difference"
       - "$225 for PMI members and $300 for non-members, the same $75 gap membership closes on the PMP"
-      - "It's free, only the training hours cost money"
-      - "$1,000, comparable to a graduate certification"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       CAPM costs $225 for PMI members and $300 for non-members, and a
       retake costs the same as the original exam either way. Joining
@@ -166,11 +166,11 @@ questions:
       later.
   - question: "Where can you actually take the CAPM exam?"
     options:
-      - "Only at a physical Pearson VUE test center, no exceptions"
       - "Either a Pearson VUE test center or an online proctored exam from home, both delivering the same 150-question, 3-hour format"
-      - "Only online; test centers don't offer the CAPM"
-      - "At any public library with a computer"
-    answerIndex: 1
+      - "Only available online; physical test centers don't offer the CAPM at all"
+      - "Only at a physical Pearson VUE test center, no exceptions"
+      - "At any public library branch that happens to have a computer available"
+    answerIndex: 0
     explanation: >
       Like the PMP, PMI delivers the CAPM through Pearson VUE with two
       valid options: an in-person test center or an online proctored
@@ -179,11 +179,11 @@ questions:
       security standards.
   - question: "Does the CAPM certification expire once you've earned it?"
     options:
-      - "No, it's valid for life once earned"
-      - "Yes, it's valid for three years and has to be renewed with continuing education, not just held onto"
+      - "It only expires if you happen to change employers during the three years"
+      - "No, it's valid for life once earned, with no renewal ever required"
       - "It expires after one year unless you retake the full exam"
-      - "It only expires if you change employers"
-    answerIndex: 1
+      - "Yes, it's valid for three years and has to be renewed with continuing education, not just held onto"
+    answerIndex: 3
     explanation: >
       CAPM isn't a one-and-done credential. It's valid for three years
       from the date PMI awards it, and keeping it active means earning
@@ -193,10 +193,10 @@ questions:
   - question: "How does CAPM's renewal requirement compare to the PMP's?"
     options:
       - "They're identical: both require 60 PDUs every three years"
-      - "CAPM requires 15 PDUs every three years (at least 9 from Education, up to 6 from Giving Back), a fraction of the PMP's 60-PDU requirement"
+      - "Neither credential requires any kind of renewal once it's been earned"
       - "CAPM requires more PDUs than the PMP, since it's the newer credential"
-      - "Neither credential requires any renewal once earned"
-    answerIndex: 1
+      - "CAPM requires 15 PDUs every three years (at least 9 from Education, up to 6 from Giving Back), a fraction of the PMP's 60-PDU requirement"
+    answerIndex: 3
     explanation: >
       CAPM's 15-PDU, three-year renewal (at least 9 from Education
       activities, up to 6 from Giving Back activities like volunteering
@@ -206,11 +206,11 @@ questions:
       credential active afterward.
   - question: "Once you've earned your 15 renewal PDUs, what does PMI charge to actually process the CAPM renewal?"
     options:
+      - "A percentage of your annual salary"
       - "Nothing; PDUs alone are sufficient with no fee"
       - "$60 for PMI members and $150 for non-members"
       - "The same $300 as a full exam retake"
-      - "A percentage of your annual salary"
-    answerIndex: 1
+    answerIndex: 2
     explanation: >
       Earning the PDUs isn't the last step, there's also a renewal
       fee once the cycle closes: $60 for PMI members and $150 for

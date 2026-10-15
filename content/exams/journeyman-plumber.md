@@ -13,11 +13,11 @@ tagline: A state-by-state licensing process built on a two-tier apprenticeship p
 questions:
   - question: "In Texas (used here as a representative example, since licensing is state by state), what's the typical hour requirement to progress from registered apprentice to Journeyman Plumber?"
     options:
-      - "4,000 hours total"
-      - "8,000 hours total"
+      - "As little as 4,000 hours total for the first tier"
+      - "As little as 8,000 hours total for the first tier"
+      - "As many as 20,000 hours total, far above the real figure"
       - "A two-step path: roughly 4,000 hours to reach Tradesman Plumber, then roughly 8,000 more hours under a licensed plumber to reach Journeyman"
-      - "20,000 hours"
-    answerIndex: 2
+    answerIndex: 3
     explanation: >
       Texas uses a two-tier structure (apprentice to Tradesman, then
       Tradesman to Journeyman), which adds up to roughly 12,000 hours
@@ -25,11 +25,11 @@ questions:
       other trades' single-tier journeyman structure.
   - question: "Who administers Texas's plumbing licensing exams?"
     options:
+      - "NCEES, the national engineering exam board"
       - "PSI, the same vendor used for electrical licensing"
       - "The Texas State Board of Plumbing Examiners (TSBPE) directly"
-      - "The EPA"
-      - "NCEES"
-    answerIndex: 1
+      - "The EPA, the federal environmental protection agency"
+    answerIndex: 2
     explanation: >
       Not every trade's exam delivery works the same way even
       within the same state. Texas's plumbing board administers its
@@ -37,20 +37,20 @@ questions:
       electrical board uses PSI.
   - question: "What continuing education is required annually to keep a Texas plumbing license in good standing?"
     options:
-      - "None"
       - "6 hours per year"
-      - "40 hours per year"
+      - "None"
       - "Only required once every 5 years"
-    answerIndex: 1
+      - "40 hours per year"
+    answerIndex: 0
     explanation: >
       A modest but real annual requirement, easy to let lapse without
       tracking it against the license's own renewal date.
   - question: "Which plumbing-specific certification does this site name as \"helpful\" (not legally required) for a Plumber career, separate from the journeyman license itself?"
     options:
-      - "LEED Green Associate"
+      - "CDT, the construction documents credential"
       - "Backflow-prevention certification, for working on potable water systems"
-      - "PMP"
-      - "CDT"
+      - "LEED Green Associate certification"
+      - "PMP, the project management credential"
     answerIndex: 1
     explanation: >
       Backflow prevention protects drinking water from contamination
@@ -60,8 +60,8 @@ questions:
     options:
       - "They're the same credential with different names"
       - "A Tradesman Plumber generally works under more restriction than a fully licensed Journeyman, an intermediate step rather than the final tier"
-      - "Tradesman is a higher credential than Journeyman"
       - "Only Journeyman requires any documented hours at all"
+      - "Tradesman is a higher credential than Journeyman"
     answerIndex: 1
     explanation: >
       Treating "Tradesman" and "Journeyman" as interchangeable is a
@@ -69,21 +69,21 @@ questions:
       different scopes of what someone can legally do unsupervised.
   - question: "Beyond Journeyman, what's the next tier in the standard plumbing licensing progression?"
     options:
-      - "There is no tier above Journeyman"
+      - "Plumbing Engineer, a title that doesn't actually exist"
+      - "Senior Plumber, an informal title with no exam"
+      - "There is no licensing tier above Journeyman at all"
       - "Master Plumber, typically requiring additional years of experience as a Journeyman first"
-      - "Senior Plumber"
-      - "Plumbing Engineer"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       Master Plumber sits above Journeyman in most states' structure,
       often required to pull permits or own a plumbing business,
       not just to do the work.
   - question: "Which code is a plumbing licensing exam typically based on?"
     options:
-      - "The National Electrical Code (NEC)"
+      - "LEED v5, the green-building rating system"
       - "The International Plumbing Code (IPC) or the Uniform Plumbing Code (UPC), depending on which the jurisdiction has adopted"
-      - "OSHA 1926"
-      - "LEED v5"
+      - "The National Electrical Code (NEC)"
+      - "OSHA 1926, the construction safety standard"
     answerIndex: 1
     explanation: >
       Unlike the NEC, which is close to a national standard for
@@ -92,32 +92,32 @@ questions:
       studying the wrong one.
   - question: "Why does it actually matter whether a jurisdiction has adopted the IPC or the UPC?"
     options:
-      - "It doesn't; the two codes are identical"
       - "The two codes differ in real technical requirements, like drainage, venting, and fixture provisions, so studying the wrong one means studying the wrong material"
       - "Only one of them is a real, adopted code anywhere"
       - "The UPC only applies outside the United States"
-    answerIndex: 1
+      - "It doesn't; the two codes are identical"
+    answerIndex: 0
     explanation: >
       This is a genuine technical difference, not a branding
       distinction, which is exactly why confirming the local
       jurisdiction's adopted code matters before exam prep starts.
   - question: "What does a Texas Journeyman Plumber license cost to apply for and renew annually, roughly?"
     options:
-      - "A $40 exam fee and a $40 annual renewal"
-      - "A $500 exam fee with no renewal needed afterward"
       - "Free to apply, $1,000 to renew"
+      - "A $500 exam fee with no renewal needed afterward"
+      - "A $40 exam fee and a $40 annual renewal"
       - "A $40 exam fee, renewed only once every 10 years"
-    answerIndex: 0
+    answerIndex: 2
     explanation: >
       Modest, recurring fees relative to the years of documented
       hours that actually form the real barrier to entry.
   - question: "How does plumbing's total licensing timeline in a two-tier state like Texas compare to an electrician's in the same state?"
     options:
-      - "They're identical"
-      - "Plumbing's combined apprentice-to-journeyman path (roughly 12,000 hours across two tiers) runs notably longer than electrical's roughly 8,000-hour single-tier path to journeyman"
-      - "Electrician licensing takes longer"
       - "Neither trade actually requires documented hours"
-    answerIndex: 1
+      - "They're identical in length and structure, state to state"
+      - "Plumbing's combined apprentice-to-journeyman path (roughly 12,000 hours across two tiers) runs notably longer than electrical's roughly 8,000-hour single-tier path to journeyman"
+      - "Electrician licensing actually takes notably longer overall"
+    answerIndex: 2
     explanation: >
       Two trades that look similar on the surface (apprenticeship,
       journeyman license, state board) can still have meaningfully
@@ -125,11 +125,11 @@ questions:
       structures its tiers.
   - question: "What does OSHA 10 or 30 have to do with becoming a licensed plumber?"
     options:
-      - "It's a legal substitute for the journeyman license"
-      - "It's a separate, state-by-state requirement, mandatory on public projects in several states, not part of plumbing licensure itself"
       - "It's required nationwide for all plumbers specifically"
+      - "It's a legal substitute for the journeyman license"
       - "It replaces the backflow-prevention certification"
-    answerIndex: 1
+      - "It's a separate, state-by-state requirement, mandatory on public projects in several states, not part of plumbing licensure itself"
+    answerIndex: 3
     explanation: >
       Same pattern as electrical licensing: OSHA 10/30 and the
       journeyman license are two separate requirements that
@@ -137,20 +137,20 @@ questions:
       for the other.
   - question: "A plumber wants to legally work on backflow prevention devices protecting potable water systems. What's typically required beyond the journeyman license?"
     options:
-      - "Nothing further is required"
-      - "A separate backflow-prevention certification"
       - "A master's degree in environmental engineering"
       - "An EPA Section 608 certification"
-    answerIndex: 1
+      - "A separate backflow-prevention certification"
+      - "Nothing further is required"
+    answerIndex: 2
     explanation: >
       This is its own add-on certification, not something automatically
       covered by journeyman licensure alone.
   - question: "Why does this site use Texas as a representative example instead of giving one nationwide plumbing licensing answer?"
     options:
-      - "Because Texas is the only state that licenses plumbers"
-      - "Because licensing structure, hour requirements, administering body, and even which code (IPC vs UPC) applies all vary by state, so one state's real numbers illustrate the pattern without claiming to be universal"
-      - "Because plumbers don't need licenses elsewhere"
       - "Because this is federally regulated instead"
+      - "Because licensing structure, hour requirements, administering body, and even which code (IPC vs UPC) applies all vary by state, so one state's real numbers illustrate the pattern without claiming to be universal"
+      - "Because Texas is the only state that licenses plumbers"
+      - "Because plumbers don't need licenses elsewhere"
     answerIndex: 1
     explanation: >
       Same reasoning this site applies to the Adjuster License and
@@ -158,22 +158,22 @@ questions:
       example beats a flattened, misleading nationwide average.
   - question: "What documented proof is typically required for hours worked toward plumbing licensure?"
     options:
-      - "Nothing; self-reported hours are accepted at face value"
-      - "Formal experience verification, typically signed off by the supervising licensed plumber(s)"
       - "Only union-tracked records count anywhere"
-      - "A notarized personal diary"
-    answerIndex: 1
+      - "Nothing; self-reported hours are accepted at face value"
+      - "A notarized personal diary kept by the apprentice alone"
+      - "Formal experience verification, typically signed off by the supervising licensed plumber(s)"
+    answerIndex: 3
     explanation: >
       Same documentation discipline as electrical licensing,
       signed verification from supervisors along the way, not
       self-reporting after the fact.
   - question: "What's the practical, real-world reason plumbing licensure exists at this level of rigor?"
     options:
-      - "Pure bureaucracy with no functional purpose"
       - "Improperly installed plumbing can contaminate drinking water and cause property-damaging leaks or sewage backups; licensure verifies competence before someone works unsupervised"
-      - "It exists only to protect union jobs"
       - "It's required uniformly by federal law"
-    answerIndex: 1
+      - "It exists only to protect union jobs"
+      - "Pure bureaucracy with no functional purpose"
+    answerIndex: 0
     explanation: >
       The health and property-damage stakes behind plumbing work are
       exactly why the hour requirements and documentation aren't

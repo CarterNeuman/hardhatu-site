@@ -13,9 +13,9 @@ tagline: A BCSP credential that requires real construction safety experience bef
 questions:
   - question: "What work experience does BCSP require to even become eligible for the CHST exam?"
     options:
-      - "No experience required; it's open to anyone"
+      - "A full 10 years of relevant safety experience"
       - "3 years of experience in construction safety, with at least 35% of job duties requiring technical safety/health/environment skills and knowledge"
-      - "10 years of experience"
+      - "No experience required; it's open to anyone"
       - "A 4-year safety engineering degree, no experience needed"
     answerIndex: 1
     explanation: >
@@ -25,81 +25,81 @@ questions:
   - question: "Does BCSP require a minimum level of formal education for CHST eligibility?"
     options:
       - "Yes, a bachelor's degree is mandatory"
-      - "No minimum education requirement is specified for the CHST"
       - "Yes, an associate's degree minimum"
       - "Yes, but only a high school diploma, with no equivalent accepted"
-    answerIndex: 1
+      - "No minimum education requirement is specified for the CHST"
+    answerIndex: 3
     explanation: >
       This is part of why BCSP credentials are common among people
       who moved into safety from the trades or a superintendent
       track, not just from a dedicated safety degree program.
   - question: "How long is the CHST exam?"
     options:
-      - "1 hour"
       - "4 hours"
-      - "8 hours"
       - "30 minutes"
-    answerIndex: 1
+      - "8 hours"
+      - "1 hour"
+    answerIndex: 0
     explanation: >
       A substantial exam, administered through BCSP directly rather
       than a training provider.
   - question: "Roughly what does the standard CHST exam fee run?"
     options:
-      - "$50"
+      - "A flat $5,000, far above what BCSP actually charges"
       - "$300 standard (with a combined application-plus-exam option around $426, or a bundle around $550 to $676)"
-      - "$5,000"
       - "It's free with BCSP membership"
+      - "Just $50, far below what BCSP actually charges"
     answerIndex: 1
     explanation: >
       The exact total depends on which option a candidate chooses,
       standalone exam, combined application, or a bundle.
   - question: "How long is a CHST recertification cycle?"
     options:
-      - "1 year"
-      - "2 years"
       - "5 years"
+      - "2 years"
       - "It never needs renewing"
-    answerIndex: 2
+      - "1 year"
+    answerIndex: 0
     explanation: >
       A 5-year cycle, after which continuing education points are
       required to maintain the credential.
   - question: "How many continuing education points does a CHST holder need per recertification cycle, and what's one specific requirement within that total?"
     options:
+      - "5 points, with no ethics requirement"
       - "100 points, with no specific breakdown"
       - "20 points, including at least 0.5 points specifically from ethics courses"
-      - "5 points, with no ethics requirement"
-      - "1,000 points, renewed annually"
-    answerIndex: 1
+      - "A full 1,000 points, renewed every single year"
+    answerIndex: 2
     explanation: >
       The ethics-specific carve-out within the 20-point total is a
       detail worth knowing, not all 20 points can come from the same
       kind of activity.
   - question: "What's the CHST renewal fee?"
     options:
-      - "$25"
       - "$145"
       - "$1,200"
+      - "$25"
       - "There is no renewal fee, only the points requirement"
-    answerIndex: 1
+    answerIndex: 0
     explanation: >
       A separate, modest fee required on top of the continuing
       education points to actually recertify.
   - question: "Which organization issues the CHST credential?"
     options:
-      - "OSHA directly"
+      - "OSHA, directly through its own certification office"
+      - "NCCER, the National Center for Construction Education"
       - "The Board of Certified Safety Professionals (BCSP)"
-      - "NCCER"
-      - "AWS"
-    answerIndex: 1
+      - "AWS, the American Welding Society's credentialing arm"
+    answerIndex: 2
     explanation: >
       BCSP is a national board issuing multiple related safety
       credentials, CHST among them, not a training provider itself.
   - question: "Which career on this site names the CHST directly as a helpful credential?"
     options:
-      - "Equipment Operator"
-      - "Safety Manager"
       - "Estimator"
+      - "Safety Manager"
       - "Document Control Specialist"
+      - "Equipment Operator"
     answerIndex: 1
     explanation: >
       Safety Manager's own page names CHST by name, alongside the
@@ -107,65 +107,65 @@ questions:
       credential for the role.
   - question: "What's the relationship between CHST and BCSP's other credentials, like the Associate Safety Professional (ASP) or Certified Safety Professional (CSP)?"
     options:
-      - "CHST is identical to CSP"
-      - "CHST, ASP, and CSP are related but separate BCSP credentials, each with its own eligibility bar, with CSP generally sitting as a longer-term, more advanced goal"
       - "CHST replaces the need for CSP entirely"
+      - "CHST is functionally identical to CSP in every respect"
       - "ASP and CSP don't actually exist"
-    answerIndex: 1
+      - "CHST, ASP, and CSP are related but separate BCSP credentials, each with its own eligibility bar, with CSP generally sitting as a longer-term, more advanced goal"
+    answerIndex: 3
     explanation: >
       These credentials form a family, not a single tier, worth
       understanding as separate steps rather than interchangeable
       options.
   - question: "Is OSHA 30 the same thing as CHST?"
     options:
-      - "Yes, interchangeable"
-      - "No; OSHA 30 is a 30-hour training course/completion card, while CHST is a BCSP credential requiring years of real experience and a separate 4-hour exam, a meaningfully higher bar"
+      - "Yes, they're fully interchangeable with no real distinction"
       - "CHST replaces OSHA 30 as a legal requirement"
       - "OSHA 30 is a prerequisite baked directly into the CHST exam itself"
-    answerIndex: 1
+      - "No; OSHA 30 is a 30-hour training course/completion card, while CHST is a BCSP credential requiring years of real experience and a separate 4-hour exam, a meaningfully higher bar"
+    answerIndex: 3
     explanation: >
       Conflating a training course completion card with a
       credential requiring years of documented experience and its
       own exam is a real, common mix-up worth avoiding.
   - question: "What does the \"35% of job duties\" language in CHST's eligibility requirement actually filter for?"
     options:
-      - "Nothing; any job title qualifies automatically"
       - "That safety, health, and environmental work be a real, substantial part of the role's actual duties, not just a title or occasional task"
-      - "That someone works exactly 35% of a full-time schedule"
       - "It only applies to union safety roles"
-    answerIndex: 1
+      - "That someone works exactly 35% of a full-time schedule"
+      - "Nothing; any job title qualifies automatically"
+    answerIndex: 0
     explanation: >
       A title alone ("safety coordinator," for example) doesn't
       automatically satisfy this, the actual day-to-day duties have
       to meet that threshold.
   - question: "What does earning the CHST signal to an employer, beyond passing a single test?"
     options:
-      - "Nothing beyond test-taking ability"
-      - "Verified real-world construction safety experience plus demonstrated knowledge, built specifically around jobsite safety rather than general industry safety"
+      - "Nothing beyond basic test-taking ability on exam day"
       - "That the holder has an engineering degree"
       - "That the holder is licensed to practice law"
-    answerIndex: 1
+      - "Verified real-world construction safety experience plus demonstrated knowledge, built specifically around jobsite safety rather than general industry safety"
+    answerIndex: 3
     explanation: >
       The experience prerequisite is what makes the credential mean
       more than just passing a test, it verifies a real track record
       first.
   - question: "What's true about CHST's focus compared to some other safety credentials?"
     options:
+      - "It only covers general office safety, not jobsite conditions"
       - "It's identical to a general industry-only safety credential"
-      - "It's specifically built around construction jobsite safety, not general industry or a single narrow specialty"
-      - "It only covers office safety"
       - "It's a design credential, not a safety one"
-    answerIndex: 1
+      - "It's specifically built around construction jobsite safety, not general industry or a single narrow specialty"
+    answerIndex: 3
     explanation: >
       The construction-specific focus is part of what makes it a
       direct match for Safety Manager roles on actual jobsites.
   - question: "For someone using this site to plan a path toward construction safety work, what's the realistic sequencing toward CHST?"
     options:
-      - "CHST comes before any real construction experience at all"
-      - "Real construction safety experience (3+ years, with safety as a substantial duty) comes first, with CHST then verifying and formalizing that background through BCSP's exam"
-      - "CHST is purely theoretical, with no experience requirement at all"
       - "It's only available to people with engineering degrees"
-    answerIndex: 1
+      - "CHST comes before any real construction experience at all"
+      - "CHST is purely theoretical, with no experience requirement at all"
+      - "Real construction safety experience (3+ years, with safety as a substantial duty) comes first, with CHST then verifying and formalizing that background through BCSP's exam"
+    answerIndex: 3
     explanation: >
       The 3-year experience requirement makes this sequencing
       explicit, there's no path to CHST that skips building real

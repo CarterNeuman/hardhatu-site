@@ -13,10 +13,10 @@ tagline: An entry-level, no-experience-required credential from the Construction
 questions:
   - question: "What's the actual prerequisite to sit the CDT exam?"
     options:
-      - "A bachelor's degree in architecture"
       - "Several years of construction administration experience"
-      - "A high school diploma or equivalent, no construction experience required"
       - "An active leadership position in a CSI chapter"
+      - "A high school diploma or equivalent, no construction experience required"
+      - "Specifically a bachelor's degree in architecture or engineering"
     answerIndex: 2
     explanation: >
       CDT is deliberately CSI's foundational, no-prerequisite
@@ -26,11 +26,11 @@ questions:
       experience.
   - question: "How many questions are on the CDT exam, and how much of it actually counts toward your score?"
     options:
-      - "100 questions, all scored"
+      - "Only 50 questions total, administered as an open-book exam"
+      - "100 questions total, with every single one scored"
       - "120 questions, including 20 unscored pretest questions mixed in without being identified"
-      - "50 questions, open-book"
       - "75 questions, timed at 30 minutes"
-    answerIndex: 1
+    answerIndex: 2
     explanation: >
       20 of the 120 questions are unscored pretest items being
       field-tested for future versions of the exam, and there's no way
@@ -38,11 +38,11 @@ questions:
       treated as if it counts.
   - question: "How long do you actually get to complete the CDT exam?"
     options:
-      - "60 minutes"
+      - "A full 4 hours of total appointment time"
+      - "It's completely untimed, with no appointment limit at all"
       - "120 minutes of exam time, inside a 180-minute total testing appointment"
-      - "4 hours"
-      - "It's untimed"
-    answerIndex: 1
+      - "Just 60 minutes of total exam time"
+    answerIndex: 2
     explanation: >
       The extra 60 minutes beyond the 120-minute exam itself covers
       check-in and administrative time, not additional time to answer
@@ -50,11 +50,11 @@ questions:
       FE exam uses for engineers.
   - question: "Where is the CDT exam administered?"
     options:
-      - "Only at a local CSI chapter meeting"
       - "Computer-based at Prometric testing centers, with a remote online-proctored option available"
-      - "Paper-based, mailed in"
+      - "Only in person at a local CSI chapter meeting"
       - "Only live during CSI's national convention"
-    answerIndex: 1
+      - "Paper-based only, filled out and mailed in by hand"
+    answerIndex: 0
     explanation: >
       Prometric test centers are the standard in-person option, but CSI
       also offers remote online proctoring for people who'd rather test
@@ -62,10 +62,10 @@ questions:
       person.
   - question: "CSI runs the CDT exam on a defined schedule rather than year-round. What's actually true about that?"
     options:
-      - "It's available to test on any day of the year"
-      - "It's offered in scheduled cycles, each with its own registration window and a separate, later testing window"
-      - "It's only offered once every 5 years"
       - "Testing dates are announced with no advance notice"
+      - "It's offered in scheduled cycles, each with its own registration window and a separate, later testing window"
+      - "It's available to test on any day of the year"
+      - "It's only offered once every 5 years, on a fixed schedule"
     answerIndex: 1
     explanation: >
       CSI runs cycles like a fall and spring testing window each year.
@@ -74,22 +74,22 @@ questions:
       than for an exam you can schedule whenever you're ready.
   - question: "What does \"Second Chance Insurance\" refer to in CSI's certification program?"
     options:
+      - "A warranty covering damage to your printed certificate"
+      - "Liability insurance coverage specifically for CDT holders"
       - "Health insurance covering exam-day emergencies"
       - "An optional add-on fee that guarantees one free retake if you don't pass on your first attempt"
-      - "A warranty on your printed certificate"
-      - "Liability insurance for CDT holders"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       It's purchased alongside your original exam registration, at a
       lower price for CSI members than non-members, and it only pays off
       if you actually need the retake.
   - question: "Which of these best describes what the CDT exam actually tests?"
     options:
-      - "Memorizing one specific company's drafting standards"
+      - "Hands-on CAD software skills using one specific brand of drafting program exclusively"
+      - "Memorizing one specific company's drafting standards, with nothing else tested"
       - "Understanding the construction documentation process, project delivery methods, and how specifications, contracts, and drawings work together across a project's phases"
-      - "Hands-on CAD software skills"
-      - "Building code memorization specific to one state"
-    answerIndex: 1
+      - "Building code memorization specific to one single state, nothing broader"
+    answerIndex: 2
     explanation: >
       The exam is about process literacy across the whole documentation
       system, not software proficiency or a single jurisdiction's code,
@@ -97,11 +97,11 @@ questions:
       regions.
   - question: "What is CSI's MasterFormat, and why does the CDT exam care about it?"
     options:
-      - "A scheduling software package"
+      - "A specific project-scheduling software package used on jobsites"
+      - "A specific brand name of blueprint printing paper"
       - "A standardized numbering and organization system for construction specifications that the exam expects you to understand how to navigate"
-      - "A union certification program"
-      - "A brand of blueprint paper"
-    answerIndex: 1
+      - "A union-run certification program for apprentice drafters"
+    answerIndex: 2
     explanation: >
       MasterFormat is the same division-based organizing system this
       site's own Construction 101 concepts are built around, so
@@ -109,9 +109,9 @@ questions:
       for the CDT and navigating this site's content.
   - question: "A CDT holder wants to later pursue CSI's Certified Construction Specifier (CCS) credential. What's required first?"
     options:
-      - "Nothing; CCS has no prerequisites"
+      - "A separate, entirely unrelated college degree program"
       - "Passing the CDT exam, which is required before registering for CCS, CCCA, or CCPR"
-      - "A separate, unrelated degree"
+      - "Nothing; CCS has no prerequisites"
       - "Five years as a CSI chapter president"
     answerIndex: 1
     explanation: >
@@ -121,9 +121,9 @@ questions:
       has.
   - question: "Once earned, how long does a CDT certification last before needing to be renewed?"
     options:
-      - "1 year"
-      - "3 years"
-      - "5 years"
+      - "Just 3 years from the date it's issued"
+      - "Just 1 year from the date it's issued"
+      - "Just 5 years from the date it's issued"
       - "It doesn't expire and doesn't require renewal"
     answerIndex: 3
     explanation: >
@@ -133,11 +133,11 @@ questions:
       requirement.
   - question: "What's the difference in cost between testing in-person versus remote online-proctored for the CDT exam?"
     options:
-      - "Remote testing always costs more"
       - "In-person testing carries an added fee on top of the standard exam registration cost"
-      - "They cost exactly the same in every case"
+      - "Remote testing always costs more than the in-person option"
       - "Remote testing isn't allowed for the CDT"
-    answerIndex: 1
+      - "They cost exactly the same in every case"
+    answerIndex: 0
     explanation: >
       Testing in person at a Prometric center adds a fee beyond the base
       registration cost, which is one more reason remote online
@@ -145,33 +145,33 @@ questions:
       without a strong preference either way.
   - question: "Which role on this site most directly names the CDT as a recognized, helpful credential?"
     options:
-      - "Structural Engineer"
+      - "Equipment Operator Lead"
+      - "Structural Engineer Aide"
+      - "Land Surveyor"
       - "Document Control Specialist"
-      - "Equipment Operator"
-      - "Surveyor"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       Document Control Specialist's own page names the CDT by name as a
       recognized credential for the role, since the job is built almost
       entirely around the documentation process the CDT exam covers.
   - question: "A submittal comes back stamped \"Revise and Resubmit.\" What does that status actually mean?"
     options:
-      - "The item is approved and can be fabricated immediately"
-      - "The item isn't approved as submitted, and the contractor needs to make the noted changes and submit it again before proceeding"
       - "The item was lost in transit and needs to be resent"
       - "It means the same thing as \"Approved as Noted\""
-    answerIndex: 1
+      - "The item is approved and can be fabricated immediately"
+      - "The item isn't approved as submitted, and the contractor needs to make the noted changes and submit it again before proceeding"
+    answerIndex: 3
     explanation: >
       "Revise and Resubmit" and "Approved as Noted" are different
       statuses with different consequences, confusing the two is a real
       and costly mistake in practice, not just an exam trick.
   - question: "In the project delivery framework the CDT covers, where do a specification and a drawing sit relative to each other?"
     options:
-      - "Specifications replace the need for drawings entirely"
+      - "Specifications only apply to the owner, never binding on the contractor performing the work"
+      - "Specifications replace the need for drawings entirely, making drawings unnecessary paperwork"
+      - "Drawings are legally optional if specs are detailed enough, since specs alone define the whole scope"
       - "They work together: drawings show quantity, location, and dimension, while specs describe quality, materials, and execution requirements, neither one alone is a complete set of instructions"
-      - "Drawings are legally optional if specs are detailed enough"
-      - "Specifications only apply to the owner, not the contractor"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       Treating either document as sufficient on its own is a common,
       expensive misunderstanding. The CDT exam specifically tests
@@ -179,11 +179,11 @@ questions:
       redundant.
   - question: "Who does the CDT actually tend to attract, based on what the credential is designed for?"
     options:
-      - "Only licensed architects"
       - "A broad mix, students, document control and contract administration staff, estimators, and anyone wanting a foundational, cross-role understanding of construction documentation"
-      - "Only people already holding a PE license"
-      - "Exclusively specification writers"
-    answerIndex: 1
+      - "Exclusively professional specification writers with CSI certification, nobody else in the industry"
+      - "Only architects who are already fully licensed and registered in that state"
+      - "Only people already holding a separate PE license in that discipline"
+    answerIndex: 0
     explanation: >
       Because it requires no prior construction experience, the CDT
       draws a wider range of people than most construction

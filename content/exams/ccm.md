@@ -12,11 +12,11 @@ tagline: A construction-specific management credential (unlike the more general 
 questions:
   - question: "Before you can even sit the CCM exam, what does CMAA require you to do?"
     options:
-      - "Nothing, anyone can register and test immediately"
       - "Submit an application documenting your experience, get it verified by references, and be approved into candidacy first"
-      - "Pass the PMP exam as a prerequisite"
       - "Complete a 4-year construction management degree with no exceptions"
-    answerIndex: 1
+      - "Pass the PMP exam first, as a required prerequisite credential"
+      - "Nothing at all, anyone can simply register and sit for the exam immediately"
+    answerIndex: 0
     explanation: >
       Unlike an exam you can just register and sit for, the CCM gates
       the exam itself behind an application: you document your
@@ -28,10 +28,10 @@ questions:
   - question: "What does CMAA mean by \"Responsible-in-Charge\" (RIC) experience?"
     options:
       - "Any time spent physically present on a construction site"
-      - "Experience where you held real accountability for supervising construction management staff or work, not just being involved"
-      - "Time spent as an unpaid intern"
       - "Any construction-related coursework, regardless of fieldwork"
-    answerIndex: 1
+      - "Time spent working as an unpaid intern without real supervisory duties"
+      - "Experience where you held real accountability for supervising construction management staff or work, not just being involved"
+    answerIndex: 3
     explanation: >
       RIC is specifically about accountability, having real
       responsibility for supervising construction management work,
@@ -42,11 +42,11 @@ questions:
       same thing.
   - question: "How many months of RIC experience does CMAA require, at minimum, regardless of education background?"
     options:
-      - "12 months"
-      - "24 months"
-      - "48 months"
       - "There's no minimum, education alone can qualify you"
-    answerIndex: 2
+      - "24 months"
+      - "12 months"
+      - "48 months"
+    answerIndex: 3
     explanation: >
       48 months of RIC experience is the baseline across every
       eligibility path, whether you hold a construction-management
@@ -56,10 +56,10 @@ questions:
       48-month RIC requirement).
   - question: "Which knowledge domain carries the most weight on the CCM exam?"
     options:
-      - "Sustainability"
+      - "Technology and Information Systems"
       - "Program & Project Management, at 20% of the exam"
-      - "Technology"
-      - "Risk Management"
+      - "Sustainability and Environmental Compliance"
+      - "Risk Management and Insurance"
     answerIndex: 1
     explanation: >
       Program & Project Management is the largest single domain at
@@ -70,11 +70,11 @@ questions:
       Technology at 5% each.
   - question: "Sustainability and Technology are each worth only 5% of the CCM exam, the smallest of its 10 domains. What does their inclusion at all tell you?"
     options:
-      - "They're legacy domains CMAA plans to remove"
       - "CMAA treats them as real, current parts of a construction manager's job, just not as central as core domains like cost or safety"
-      - "They only apply to LEED-certified projects"
       - "They're bonus questions that don't count toward your score"
-    answerIndex: 1
+      - "They're legacy domains that CMAA has already announced plans to remove"
+      - "They only apply to projects that are specifically pursuing LEED certification"
+    answerIndex: 0
     explanation: >
       A small weighting isn't the same as an irrelevant one. CMAA's
       10-domain structure reflects that today's construction manager
@@ -84,11 +84,11 @@ questions:
       dominate the exam the way Program & Project Management does.
   - question: "What's the CCM exam's actual structure: how many questions, and how much time do you get?"
     options:
-      - "100 questions, 90 minutes"
       - "175 questions (150 scored, 25 unscored pilot items), 240 minutes"
-      - "50 questions with no time limit"
-      - "300 questions, 8 hours"
-    answerIndex: 1
+      - "As many as 300 questions, spread across a full 8-hour exam day"
+      - "Only 50 questions, with no overall time limit imposed"
+      - "100 questions total, administered over a 90-minute window"
+    answerIndex: 0
     explanation: >
       The exam is 175 multiple-choice questions over 240 minutes (4
       hours), but only 150 of those actually count toward your score,
@@ -97,11 +97,11 @@ questions:
       there's no way to tell which ones don't count while testing.
   - question: "What passing score does CMAA require on the CCM exam?"
     options:
-      - "50%"
-      - "60%"
       - "72% or higher"
+      - "60%"
+      - "50%"
       - "90% or higher"
-    answerIndex: 2
+    answerIndex: 0
     explanation: >
       CMAA requires an overall score of 72% or higher to pass, a
       published, fixed cut score, a real difference from PMI's
@@ -109,11 +109,11 @@ questions:
       published at all.
   - question: "How often does a CCM need to recertify, and what does that require?"
     options:
-      - "Never, the CCM doesn't expire"
+      - "Every 10 years, with no professional-development points required at all"
+      - "Never; once earned, the CCM credential simply doesn't expire"
+      - "Every single year, by retaking the entire full exam from scratch"
       - "Every 3 years, by earning 25 professional-development points related to construction management (no carryover between cycles)"
-      - "Every year, by retaking the full exam"
-      - "Every 10 years, with no points required"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       CCM certification isn't a one-time credential, it has to be
       actively maintained: 25 points every 3 years, earned through
@@ -123,11 +123,11 @@ questions:
       commitment, not a single hurdle cleared once.
   - question: "What's the core difference between the CCM and the PMP, beyond one being construction-specific?"
     options:
-      - "There's no real difference, they test identical material"
       - "The CCM gates the exam itself behind a verified-experience application, while the PMP only requires documenting eligibility, not third-party reference verification, before testing"
       - "The PMP is construction-specific and the CCM is not"
+      - "There's no real difference, they test identical material"
       - "The CCM has no experience requirement at all, unlike the PMP"
-    answerIndex: 1
+    answerIndex: 0
     explanation: >
       Both credentials require real project management experience,
       but the CCM's process goes further: your experience has to be
@@ -139,11 +139,11 @@ questions:
       more general management credential like the PMP.
   - question: "A change to the original contract scope comes up mid-project and needs to be priced, approved, and documented before the work proceeds. Which CCM knowledge domain does this fall under?"
     options:
-      - "Sustainability"
       - "Contract Administration"
-      - "Technology"
-      - "Risk Management"
-    answerIndex: 1
+      - "Technology Domain"
+      - "Risk Management Domain"
+      - "Sustainability Domain"
+    answerIndex: 0
     explanation: >
       Managing exactly this kind of change, pricing it, routing it
       through approval, and documenting it properly against the
@@ -152,10 +152,10 @@ questions:
       directive concepts describe in construction-specific detail.
   - question: "How is the cost of pursuing a CCM actually structured?"
     options:
-      - "A single flat exam fee, nothing else"
+      - "A single flat exam fee, with absolutely nothing else to pay"
       - "A non-refundable application fee (higher for non-members than CMAA members) to be reviewed for candidacy, plus a separate exam fee once you're approved"
-      - "CMAA covers all costs; the credential is free to pursue"
       - "You pay only if you fail the exam, as a retake penalty"
+      - "CMAA covers all costs; the credential is free to pursue"
     answerIndex: 1
     explanation: >
       Unlike an exam you just register and pay for, CCM's cost comes
@@ -167,11 +167,11 @@ questions:
       application fee back.
   - question: "How is the CCM exam actually delivered once you're approved to test?"
     options:
+      - "A take-home exam that can be completed with no overall time limit"
+      - "An oral exam conducted by a CMAA board member"
       - "Paper-and-pencil only, mailed in for grading"
       - "A computer-based test, either at an in-person testing center or through live remote proctoring from home"
-      - "An oral exam conducted by a CMAA board member"
-      - "A take-home exam with no time limit"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       The CCM is a computer-based test that can be taken either at an
       in-person testing center or through live remote proctoring,
@@ -181,11 +181,11 @@ questions:
       exam.
   - question: "What does it mean that the CCM credential is accredited under ANSI/ANAB to the ISO/IEC 17024 standard?"
     options:
+      - "It replaces the need for the reference-verified experience application"
       - "It's a marketing claim with no real substance behind it"
       - "An independent, internationally recognized accreditation body has verified that CMAA's certification program itself meets a formal standard for how personnel certifications should be developed and administered"
       - "It means the credential is only valid for ANSI member companies"
-      - "It replaces the need for the reference-verified experience application"
-    answerIndex: 1
+    answerIndex: 2
     explanation: >
       ISO/IEC 17024 is an international standard specifically for
       bodies that certify people, and ANSI's National Accreditation
@@ -197,10 +197,10 @@ questions:
       gate itself.
   - question: "If a CCM lets a renewal cycle pass without earning enough renewal points, what's the fallback option CMAA allows?"
     options:
-      - "None; the credential is permanently revoked with no path back"
+      - "Paying a one-time larger fine instead of earning renewal points"
       - "Retaking and passing the current CCM exam instead of submitting renewal points, though doing so commits them to exam-based renewal going forward"
-      - "Paying a larger fine instead of earning points"
-      - "Automatic renewal regardless of points earned"
+      - "Automatic renewal granted regardless of how many points were earned"
+      - "None; the credential is permanently revoked with no path back"
     answerIndex: 1
     explanation: >
       CMAA does allow an alternative to the usual 25-renewal-point
@@ -211,11 +211,11 @@ questions:
       simple shortcut.
   - question: "Within the CCM's 25-point recertification requirement, is any specific topic mandatory rather than open to any professional-development activity?"
     options:
+      - "Yes, at least half the points must come from a university course"
+      - "Yes, all 25 points must come from safety training specifically"
       - "No, all 25 points can come from any construction-management-related activity"
       - "Yes, at least one point has to come specifically from a professional-development activity on construction safety or ethics"
-      - "Yes, all 25 points must come from safety training specifically"
-      - "Yes, at least half the points must come from a university course"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       Most of the 25 renewal points are flexible, earned through
       whatever construction-management-related training or

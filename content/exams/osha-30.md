@@ -11,11 +11,11 @@ tagline: The deeper safety credential typically expected of supervisors and supe
 questions:
   - question: "Who is the OSHA 30-Hour Construction course actually built for?"
     options:
-      - "Brand-new hires who've never set foot on a jobsite"
+      - "Anyone who already completed OSHA 10 at some point, regardless of their current role"
+      - "Brand-new hires who've never set foot on a jobsite before their very first day"
+      - "Only full-time OSHA compliance officers employed directly by the agency itself"
       - "Supervisors, foremen, and anyone with safety responsibility over other workers"
-      - "Only OSHA compliance officers"
-      - "Anyone who already has an OSHA 10 card, regardless of role"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       OSHA 10 builds basic hazard awareness for any worker. OSHA 30 is
       built for people who have to manage that awareness for a crew,
@@ -23,10 +23,10 @@ questions:
       procedures, and hazard mitigation, not just recognition.
   - question: "The 30-hour course's mandatory topics include 6 hours on the Focus Four hazards, with a specific minimum carved out for one of them. Which hazard has its own required minimum, and how much?"
     options:
-      - "Struck-by, minimum 2 hours"
-      - "Falls, minimum 1.5 hours"
-      - "Electrocution, minimum 3 hours"
       - "Caught-in or -between, minimum 1 hour"
+      - "Falls, minimum 1.5 hours"
+      - "Struck-by, minimum 2 hours"
+      - "Electrocution, minimum 3 hours"
     answerIndex: 1
     explanation: >
       Falls get a required minimum of 1.5 hours within the 6-hour Focus
@@ -35,11 +35,11 @@ questions:
       biggest cause of construction fatalities.
   - question: "Beyond the mandatory topics, OSHA 30 requires trainees to complete elective modules. How does that requirement work?"
     options:
-      - "Electives are optional; only the mandatory topics count toward the 30 hours"
+      - "Every elective topic on the full list must be completed before certification"
+      - "One single elective topic, chosen entirely by the employer, covering all 12 remaining hours"
+      - "Electives are entirely optional; only the mandatory topics actually count toward the 30 hours"
       - "At least 6 elective topics, each a minimum of 30 minutes, totaling 12 required elective hours"
-      - "One elective topic, chosen by the employer, covering the full 12 remaining hours"
-      - "Every elective topic on the list must be completed"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       The mandatory topics only add up to 14 hours. To reach 30, a
       trainee has to complete at least 6 electives (from a list that
@@ -48,11 +48,11 @@ questions:
       trainer can spend deepening any topic.
   - question: "A legitimate OSHA 30 course has a minimum delivery timeline. What is it?"
     options:
-      - "It can be completed in a single long day"
-      - "A minimum of 2 calendar days, same as OSHA 10"
       - "A minimum of 4 calendar days, since trainers can only deliver 7.5 instructional hours per day"
-      - "There's no minimum; providers can schedule it however they want"
-    answerIndex: 2
+      - "A minimum of 2 calendar days total, the same minimum schedule used for OSHA 10"
+      - "It can be completed in a single very long training day if the provider allows it"
+      - "There's no minimum at all; providers are free to schedule it however works best for them"
+    answerIndex: 0
     explanation: >
       With a 7.5-hour daily cap on instructional time, 30 hours of
       real content can't legitimately be compressed into a day or two.
@@ -60,11 +60,11 @@ questions:
       is a red flag that it wasn't run to program requirements.
   - question: "A worker needs to enter a space that's large enough to work in but has limited entry/exit and isn't designed for continuous occupancy, like a manhole or a storage tank. Before authorizing entry, what does a supervisor need to determine first?"
     options:
+      - "Whether the space has ever been entered safely by any crew in the past"
       - "Whether the space is a permit-required confined space with its own hazard controls before anyone goes in"
-      - "Nothing extra; if it's not a trench, standard PPE is enough"
-      - "Only whether the worker has claustrophobia"
-      - "Whether the space has ever been entered safely before"
-    answerIndex: 0
+      - "Only whether the individual worker happens to be claustrophobic that day"
+      - "Nothing extra is needed; if the space isn't a trench, standard PPE already covers it"
+    answerIndex: 1
     explanation: >
       Confined space entry is one of the topics OSHA 30 adds specifically
       because it's a supervisor's call to make, not an individual
@@ -74,11 +74,11 @@ questions:
       entry, not just a judgment call in the moment.
   - question: "Who is responsible for the daily inspection of a scaffold before a crew works on it?"
     options:
-      - "Whoever built the scaffold, one time, when it was erected"
-      - "A designated competent person, before each work shift"
-      - "It only needs inspecting if it's over 20 feet tall"
       - "The general contractor's insurance carrier, on a set schedule"
-    answerIndex: 1
+      - "Whoever built the scaffold, one time, when it was erected"
+      - "It only needs inspecting if it's over 20 feet tall"
+      - "A designated competent person, before each work shift"
+    answerIndex: 3
     explanation: >
       A competent person, someone able to identify existing and
       predictable scaffold hazards and with the authority to fix them,
@@ -88,11 +88,11 @@ questions:
       job.
   - question: "OSHA 30's \"Managing Safety and Health\" module is a mandatory topic, not an elective. Why does the course treat a documented safety and health program as its own required subject?"
     options:
-      - "Because paperwork alone satisfies OSHA compliance"
+      - "Because having the paperwork on file alone is enough to satisfy an OSHA inspection"
+      - "It exists mainly to protect the company's legal position if a lawsuit is ever filed"
+      - "Because OSHA requires every company above a certain size to hire a dedicated full-time safety officer"
       - "Because a program built around identifying and controlling hazards before an injury happens is what separates a proactive site from one that just reacts to incidents"
-      - "It's mainly there to protect the company in a lawsuit"
-      - "Because OSHA requires every company to hire a full-time safety officer"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       A written safety and health program means job hazard analyses,
       training, and inspections happen before something goes wrong,
@@ -101,11 +101,11 @@ questions:
       one of the elective options.
   - question: "Ergonomics is one of OSHA 30's elective topics. Which of these is a genuine ergonomic risk factor the module would flag on a jobsite?"
     options:
+      - "A worker wearing a hard hat that fits properly and meets current standards"
+      - "A crew rotating evenly between two different tasks that are both equally light"
       - "A worker repeatedly lifting heavy material from an awkward, bent-over position"
-      - "A worker wearing a hard hat that fits properly"
-      - "A jobsite with more natural light than usual"
-      - "A crew rotating between two different but equally light tasks"
-    answerIndex: 0
+      - "A jobsite that happens to have more natural daylight than usual that week"
+    answerIndex: 2
     explanation: >
       Ergonomic injuries build up gradually from awkward postures,
       repetitive motion, and heavy manual handling rather than from a
@@ -115,11 +115,11 @@ questions:
       gets a chronic injury.
   - question: "A backup alarm on a piece of mechanized equipment isn't working. Under the \"Motor Vehicles and Mechanized Equipment\" topic, whose responsibility is it to catch that before it becomes a struck-by incident?"
     options:
-      - "Only the equipment operator's, since they're the one driving it"
+      - "The equipment manufacturer's, determined only after an incident has already happened"
+      - "Nobody's in particular; backup alarms are considered optional safety features"
+      - "Only the equipment operator's, since they're the one physically driving it"
       - "Supervision's, through routine equipment inspection and enforcement, not just hoping an individual worker notices"
-      - "Nobody's; backup alarms are optional safety features"
-      - "The equipment manufacturer's, after the fact"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       OSHA 10 covers recognizing a broken alarm as an individual
       hazard. OSHA 30 adds the supervisor's side of that same problem:
@@ -128,11 +128,11 @@ questions:
       spot.
   - question: "Compared to the OSHA 10-Hour course, what is the core difference in how OSHA 30 approaches the same Focus Four hazards?"
     options:
-      - "OSHA 30 skips the Focus Four entirely and only covers new topics"
+      - "OSHA 30 skips the Focus Four entirely, replacing them with a completely separate topic list"
+      - "OSHA 30 is designed only for office staff and doesn't address any field hazards at all"
       - "OSHA 30 spends more time on the same hazards and adds the management side: programs, procedures, and supervisory responsibility for controlling them"
-      - "OSHA 30 only applies to office staff, not field hazards"
-      - "There's no real difference; OSHA 30 is just OSHA 10 repeated"
-    answerIndex: 1
+      - "There's no real difference; OSHA 30 is essentially just OSHA 10 repeated word for word"
+    answerIndex: 2
     explanation: >
       Both courses are built around the same Focus Four hazards
       because they're still the leading causes of death in
@@ -143,11 +143,11 @@ questions:
       and excavation protective systems.
   - question: "How far can a worker be from the nearest portable fire extinguisher on a construction site under OSHA's travel-distance rule?"
     options:
-      - "No more than 50 feet"
-      - "No more than 75 feet"
-      - "No more than 100 feet"
       - "There's no maximum, only a minimum number of extinguishers per floor"
-    answerIndex: 2
+      - "No more than 100 feet"
+      - "No more than 75 feet"
+      - "No more than 50 feet"
+    answerIndex: 1
     explanation: >
       Construction's fire protection standard (1926.150) sets a 100-foot
       maximum travel distance, longer than the 75-foot figure many
@@ -156,11 +156,11 @@ questions:
       since they sound like they should be the same rule.
   - question: "Who is legally allowed to operate a crane on a construction site under OSHA's crane operator requirements?"
     options:
-      - "Any experienced worker the supervisor trusts to run it"
+      - "Only a representative sent directly from the equipment's original manufacturer"
+      - "Anyone at all, as long as a spotter happens to be present nearby"
       - "An operator certified or qualified through an accredited crane operator testing organization"
-      - "Only the equipment's original manufacturer representative"
-      - "Anyone, as long as a spotter is also present"
-    answerIndex: 1
+      - "Any experienced worker that a supervisor personally trusts enough to run it"
+    answerIndex: 2
     explanation: >
       OSHA's crane standard (1926.1427) requires operators to be
       certified or otherwise qualified through a recognized
@@ -170,11 +170,11 @@ questions:
       on reputation alone.
   - question: "On an excavation site, who has the authority to classify the soil type and determine what protective system (shoring, shielding, or sloping) a trench actually needs?"
     options:
-      - "The equipment operator digging the trench"
+      - "Whoever happens to be the equipment operator actually digging the trench that day"
+      - "It's determined once at the very start of the project and is never reevaluated afterward"
       - "A designated competent person, based on an actual evaluation of the soil and site conditions"
-      - "Whoever is available first thing in the morning"
-      - "It's determined once, at the start of the project, and never reevaluated"
-    answerIndex: 1
+      - "Whoever happens to be available and on site first thing that morning"
+    answerIndex: 2
     explanation: >
       A competent person has to evaluate soil type and site conditions,
       and that evaluation isn't a one-time formality, conditions like
@@ -184,11 +184,11 @@ questions:
       of OSHA 10's basic trench-hazard awareness.
   - question: "When a workplace injury meets OSHA's recordability criteria, whose responsibility is it to log it on the OSHA 300 log?"
     options:
-      - "The injured worker's, since they experienced it"
+      - "Nobody's in particular, unless the injury happens to result in a fatality"
+      - "OSHA's directly, since the agency maintains injury records centrally"
+      - "The injured worker's personally, since they're the one who experienced it"
       - "The employer's, typically handled through supervision and safety staff, not the individual worker"
-      - "OSHA's, since they maintain records centrally"
-      - "Nobody's, unless the injury results in a fatality"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       Recordkeeping is an employer obligation, and in practice that
       responsibility usually lands on the supervisor closest to the
@@ -198,11 +198,11 @@ questions:
       calculated from.
   - question: "A subcontractor's crew creates an unguarded floor opening, but a different subcontractor's worker is the one who falls through it. Under OSHA's multi-employer citation policy, can the general contractor's supervisor be held responsible even though their own crew didn't create the hazard?"
     options:
-      - "No, only the employer whose crew physically created the hazard can ever be cited"
+      - "No, only the employer whose own crew physically created the hazard can ever be cited at all"
+      - "No, general contractors are automatically and entirely exempt from citations over subcontractor hazards"
       - "Yes, if the GC qualifies as the \"controlling employer\" with the authority to have required the hazard fixed and didn't"
-      - "No, general contractors are automatically exempt from citations for subcontractor hazards"
-      - "Yes, but only if the GC's own employees were also injured"
-    answerIndex: 1
+      - "Yes, but only in cases where the GC's own direct employees were also injured"
+    answerIndex: 2
     explanation: >
       OSHA's multi-employer citation policy recognizes that a jobsite
       often has a creating, exposing, correcting, and controlling

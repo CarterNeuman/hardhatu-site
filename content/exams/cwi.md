@@ -13,11 +13,11 @@ tagline: A three-part certification verifying the separate skill of inspecting a
 questions:
   - question: "What are the different paths to becoming eligible for the CWI exam, based on education and experience?"
     options:
-      - "Only a 4-year engineering degree qualifies"
       - "A sliding scale: a bachelor's degree plus 1 year of welding experience, up to no formal schooling plus 12 years of welding experience, with options in between"
       - "Only a dedicated welding certificate program qualifies"
+      - "Only a 4-year engineering degree qualifies"
       - "Experience alone never qualifies; a degree is always required"
-    answerIndex: 1
+    answerIndex: 0
     explanation: >
       AWS deliberately built eligibility to recognize that deep
       hands-on welding experience can substitute for formal
@@ -25,20 +25,20 @@ questions:
   - question: "What's required of every CWI candidate regardless of their education/experience path?"
     options:
       - "A background check"
-      - "A vision test"
       - "A current union membership card"
+      - "A vision test"
       - "A letter from a current employer"
-    answerIndex: 1
+    answerIndex: 2
     explanation: >
       Inspection work depends on actually being able to see weld
       quality clearly, which is why this applies universally rather
       than being tied to a specific eligibility path.
   - question: "How many separate exam parts make up the CWI certification, and what does each cover?"
     options:
-      - "One combined exam covering everything at once"
+      - "Only a single practical hands-on component, nothing written"
       - "Three parts: Fundamentals (written), Practical (hands-on), and Code Book (open-book application)"
-      - "Only a practical hands-on component"
-      - "Two parts, written and oral"
+      - "Just two parts total: a written test and an oral interview"
+      - "One combined exam covering everything at once"
     answerIndex: 1
     explanation: >
       Each part tests a genuinely different skill, book knowledge,
@@ -46,95 +46,95 @@ questions:
       one exam trying to cover all three at once.
   - question: "What's the format of Part A (Fundamentals)?"
     options:
-      - "Open-book, 20 questions"
       - "Computer-based, 150 questions covering testing methods, fabrication math, safety, metallurgy, and welding symbols"
-      - "A purely verbal interview"
+      - "Open-book only, covering just 20 total questions"
       - "Hands-on only, with no written questions"
-    answerIndex: 1
+      - "A purely verbal interview with no written component at all"
+    answerIndex: 0
     explanation: >
       This is the broadest knowledge check of the three parts,
       covering foundational material rather than any single code.
   - question: "What does Part C (Code Book) actually allow a candidate to bring into the exam?"
     options:
+      - "Nothing at all; Part C is treated as fully closed-book"
+      - "Unrestricted internet access during the entire exam"
       - "Any welding textbook of the candidate's choosing"
       - "One specific, approved code reference, open-book, with roughly 50 to 65 questions on applying it"
-      - "Internet access during the exam"
-      - "Nothing; Part C is fully closed-book"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       Like other "open book" exams covered on this site, this means
       one specific, approved reference, not an open invitation to
       bring any material at all.
   - question: "What passing score does each individual CWI exam part require?"
     options:
-      - "50%"
-      - "60%"
-      - "72%"
       - "90%"
+      - "50%"
+      - "72%"
+      - "60%"
     answerIndex: 2
     explanation: >
       That 72% threshold applies separately to each of the three
       parts, not as an average across all three combined.
   - question: "What are the three certification levels in AWS's welding inspector credential family, from entry to advanced?"
     options:
-      - "Junior, Senior, and Master"
       - "Associate CWI (CAWI), CWI, and Senior CWI (SCWI)"
+      - "Level 1, Level 2, and Level 3 certification tiers"
+      - "Junior, Senior, and Master welding inspector tiers"
       - "Apprentice, Journeyman, and Master"
-      - "Level 1, Level 2, and Level 3"
-    answerIndex: 1
+    answerIndex: 0
     explanation: >
       CWI itself sits in the middle of this ladder, with SCWI
       requiring additional qualifications beyond standard CWI
       certification.
   - question: "Roughly what does initial CWI certification cost?"
     options:
-      - "Around $100"
       - "Around $1,220 to $1,520, depending on AWS membership status, before any optional training seminar"
-      - "Around $10,000"
-      - "It's free with AWS membership"
-    answerIndex: 1
+      - "It's completely free of charge with active AWS membership"
+      - "Around $100 total, membership included"
+      - "Around $10,000 total, far above the real cost"
+    answerIndex: 0
     explanation: >
       A meaningfully higher cost than most entry-level credentials
       covered on this site, reflecting the credential's weight and
       the three-part exam behind it.
   - question: "How long does a CWI certification stay valid before needing renewal?"
     options:
-      - "1 year"
-      - "3 years"
       - "9 years, with renewal applications due at years 3 and 6"
+      - "Just 3 years, with no renewal applications at all"
+      - "Just 1 year, with no renewal applications at all"
       - "It never expires"
-    answerIndex: 2
+    answerIndex: 0
     explanation: >
       That 9-year cycle with two interim renewal checkpoints is a
       genuinely different structure from most other credentials on
       this site.
   - question: "At each renewal checkpoint, what are a CWI holder's options to maintain the credential?"
     options:
-      - "Only retaking the full three-part exam"
-      - "Confirming continued relevant work experience, retaking Part B, completing 80 Professional Development Hours, or earning a Certified Radiographic Interpreter credential, several valid paths"
-      - "Nothing is required until the full 9 years are up"
       - "Paying a fee alone, with no activity requirement"
-    answerIndex: 1
+      - "Nothing is required until the full 9 years are up"
+      - "Confirming continued relevant work experience, retaking Part B, completing 80 Professional Development Hours, or earning a Certified Radiographic Interpreter credential, several valid paths"
+      - "Only retaking the entire full three-part exam from scratch"
+    answerIndex: 2
     explanation: >
       There's real flexibility in how someone keeps the credential
       active, not one mandatory path for every holder.
   - question: "Which career on this site names the CWI directly as a preferred credential?"
     options:
       - "Structural Engineer"
+      - "Safety Manager"
       - "QA/QC Inspector"
       - "Equipment Operator"
-      - "Safety Manager"
-    answerIndex: 1
+    answerIndex: 2
     explanation: >
       QA/QC Inspector's own page names CWI by name as a relevant
       specialty certification for welding inspection work
       specifically.
   - question: "Is a CWI the same thing as the welding certification a structural welder earns to a code like AWS D1.1?"
     options:
-      - "Yes, identical"
-      - "No; a welder's code certification verifies they can perform welds to a specific code and process, while CWI verifies the separate skill of inspecting and judging other people's welds against that code"
       - "CWI replaces the need for welders to certify at all"
+      - "No; a welder's code certification verifies they can perform welds to a specific code and process, while CWI verifies the separate skill of inspecting and judging other people's welds against that code"
       - "They're issued by two entirely unrelated organizations"
+      - "Yes, they're completely identical credentials with no real distinction"
     answerIndex: 1
     explanation: >
       Performing a weld to code and inspecting someone else's weld
@@ -142,21 +142,21 @@ questions:
       with its own credential.
   - question: "Why does CWI eligibility accept a path with no formal education at all, given enough experience?"
     options:
+      - "This path was discontinued"
       - "It doesn't; a degree is always mandatory"
       - "AWS designed the eligibility ladder to recognize deep hands-on experience as a real substitute for formal schooling, not just the reverse"
       - "Experience-only candidates automatically become Senior CWI"
-      - "This path was discontinued"
-    answerIndex: 1
+    answerIndex: 2
     explanation: >
       12 years of real welding work experience is treated as a
       legitimate, independent eligibility path, not a lesser
       workaround.
   - question: "What does Part B (Practical) actually test, beyond written questions?"
     options:
-      - "Nothing hands-on; it's all written"
+      - "Only a candidate's public speaking ability in front of a panel"
       - "Application of welding procedure specifications and inspection methods, plus actual execution of required welds, alongside 46 related questions"
-      - "Only public speaking ability"
-      - "Typing speed on inspection reports"
+      - "Nothing hands-on at all; the entire part is written"
+      - "Simply how fast a candidate can type inspection reports"
     answerIndex: 1
     explanation: >
       This is the part of the exam that actually verifies someone
@@ -166,8 +166,8 @@ questions:
     options:
       - "CWI is the very first step, before any welding experience at all"
       - "CWI is generally a next step after real welding (or related technical) experience and education, not a replacement for building that background first"
-      - "Welding experience is irrelevant to CWI"
       - "CWI is only available to people who have never welded"
+      - "Welding experience is irrelevant to CWI"
     answerIndex: 1
     explanation: >
       The eligibility requirements themselves make this explicit,

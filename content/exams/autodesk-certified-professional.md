@@ -12,11 +12,11 @@ tagline: A software-specific credential proving hands-on proficiency in AutoCAD 
 questions:
   - question: "Is there a single Autodesk Certified Professional exam that covers both AutoCAD and Revit?"
     options:
-      - "Yes, one combined exam covers all Autodesk software"
       - "No, AutoCAD and Revit each have their own separate exams, and Revit is further split into discipline-specific tracks like architectural, structural, mechanical, and electrical design"
+      - "Yes, one combined exam covers all Autodesk software"
       - "No, only AutoCAD has a professional-level exam"
       - "Yes, but only for people who already hold a BIM Manager certification"
-    answerIndex: 1
+    answerIndex: 0
     explanation: >
       Autodesk Certified Professional isn't one general exam, it's a
       family of tool- and discipline-specific credentials: AutoCAD for
@@ -26,10 +26,10 @@ questions:
       testing the workflows that discipline actually uses.
   - question: "What's the exam's basic structure: how long do you get, and roughly how many questions?"
     options:
-      - "8 hours, 300 questions"
-      - "A 120-minute exam with roughly 45 to 60 questions, using formats like multiple-choice, drag-and-drop, and graphic interpretation"
       - "30 minutes, 10 questions, all multiple-choice"
-      - "There's no time limit at all"
+      - "A 120-minute exam with roughly 45 to 60 questions, using formats like multiple-choice, drag-and-drop, and graphic interpretation"
+      - "As long as 8 hours, covering 300 total questions"
+      - "There's no time limit imposed on the exam at all"
     answerIndex: 1
     explanation: >
       Professional-level Autodesk exams run 120 minutes with roughly 45 to
@@ -39,10 +39,10 @@ questions:
   - question: "How much real-world experience does Autodesk generally recommend before attempting a Professional-level exam like Revit for Architectural Design?"
     options:
       - "No experience recommended, it's an entry-level exam"
-      - "Roughly 400 to 1,200 hours of real-world experience with the software in that discipline"
-      - "A minimum of 5 years, the same as the CPE"
       - "Autodesk requires a college degree instead of hours of experience"
-    answerIndex: 1
+      - "A strict minimum of 5 years, the same as the CPE requires"
+      - "Roughly 400 to 1,200 hours of real-world experience with the software in that discipline"
+    answerIndex: 3
     explanation: >
       Unlike the entry-level Autodesk Certified User exams, the
       Professional-level exams assume real hands-on time with the
@@ -51,11 +51,11 @@ questions:
       and complex problem-solving, not basic tool familiarity.
   - question: "Which of these is a knowledge domain tested on the Revit for Architectural Design Professional exam?"
     options:
+      - "Concrete mix design calculations specific to a jobsite"
       - "OSHA fall protection requirements"
+      - "Union labor agreements between contractors and trade unions"
       - "Modeling, documentation, collaboration and coordination, project standards and settings, families, and information analysis"
-      - "Concrete mix design"
-      - "Union labor agreements"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       The Revit for Architectural Design exam tests the practical
       workflow of actually producing a building model in Revit: building
@@ -65,11 +65,11 @@ questions:
       information built into the model.
   - question: "Where are Autodesk Professional-level exams administered?"
     options:
-      - "Only at Autodesk's own headquarters"
-      - "At Pearson VUE testing centers in person, or online with remote proctoring through Pearson OnVUE"
-      - "Only through a mailed paper exam"
+      - "Only through a mailed paper exam sent to Autodesk's offices"
       - "They're taken directly inside the Revit or AutoCAD software"
-    answerIndex: 1
+      - "Only in person at Autodesk's own corporate headquarters"
+      - "At Pearson VUE testing centers in person, or online with remote proctoring through Pearson OnVUE"
+    answerIndex: 3
     explanation: >
       Autodesk partners with Pearson VUE to deliver these exams, either
       in person at a physical testing center or remotely with online
@@ -77,10 +77,10 @@ questions:
       how and where they sit the exam.
   - question: "How long does an Autodesk Certified Professional credential stay valid once earned?"
     options:
-      - "It expires after 6 months"
-      - "3 years, after which retesting is required to renew it"
       - "It never expires under any circumstances"
+      - "3 years, after which retesting is required to renew it"
       - "1 year, the shortest of any credential on this site"
+      - "It expires after just 6 months regardless of use"
     answerIndex: 1
     explanation: >
       The credential is valid for 3 years, after which a candidate has to
@@ -89,10 +89,10 @@ questions:
       how quickly software workflows and tool versions change.
   - question: "If a candidate doesn't pass a Professional-level exam on the first attempt, what's Autodesk's retake policy?"
     options:
-      - "No retakes are allowed at all"
-      - "A candidate can retake after 7 days, up to three attempts total in a year; after three failed attempts, a full year must pass before retrying"
-      - "Unlimited immediate retakes with no waiting period"
       - "A retake requires re-purchasing an entirely new certification track"
+      - "A candidate can retake after 7 days, up to three attempts total in a year; after three failed attempts, a full year must pass before retrying"
+      - "No retakes are allowed at all, under any circumstances whatsoever"
+      - "Unlimited immediate retakes with no waiting period"
     answerIndex: 1
     explanation: >
       Candidates wait at least 7 days between attempts and are limited to
@@ -102,11 +102,11 @@ questions:
       low-stakes and repeatable on demand.
   - question: "Does Autodesk publish one universal passing score across all its certification exams?"
     options:
+      - "Yes, all exams require a perfect, unblemished score to pass"
       - "Yes, every exam requires exactly 80% to pass"
       - "No, the passing score varies by exam and isn't disclosed in advance, candidates only receive a pass/fail result"
-      - "Yes, all exams require a perfect score"
       - "No fixed passing standard exists at all, every candidate passes automatically"
-    answerIndex: 1
+    answerIndex: 2
     explanation: >
       Like PMI's PMP and CAPM, Autodesk doesn't publish a single fixed
       cut score across its exams, the passing threshold varies by
@@ -115,11 +115,11 @@ questions:
       for.
   - question: "Why might a CAD technician and a BIM/VDC specialist end up pursuing different Autodesk Certified Professional exams?"
     options:
-      - "They wouldn't, only one exam exists for all Autodesk software users"
       - "Because the tool- and discipline-specific structure means a CAD technician's day-to-day AutoCAD work and a BIM specialist's Revit-based coordination work call for different certifications entirely"
-      - "Because only BIM specialists are eligible for Autodesk certification"
       - "Because CAD technicians are required to hold a BIM Management certification first"
-    answerIndex: 1
+      - "They wouldn't, only one exam exists for all Autodesk software users"
+      - "Because only BIM specialists are eligible for Autodesk certification"
+    answerIndex: 0
     explanation: >
       A CAD technician working primarily in AutoCAD would pursue the
       AutoCAD for Design and Drafting exam, while a BIM/VDC specialist
@@ -129,11 +129,11 @@ questions:
       day to day, not one generic software-literacy test.
   - question: "What happens to a candidate's certification when Autodesk releases a new software version?"
     options:
-      - "It's automatically upgraded at no cost, no action needed"
       - "Certification tied to a particular software version never expires on its own, but staying current requires passing both the newest recertification exam and the full prior-release exam"
+      - "Autodesk doesn't release new exam versions for its software, ever"
+      - "It's automatically upgraded at no cost, no action needed"
       - "The old certification becomes permanently invalid the day a new version ships"
-      - "Autodesk doesn't release new exam versions, ever"
-    answerIndex: 1
+    answerIndex: 0
     explanation: >
       A version-specific certification doesn't expire just because a new
       software release comes out, but maintaining current status requires
@@ -143,11 +143,11 @@ questions:
       rather than just "certified on an old version."
   - question: "Roughly what does an Autodesk Certified Professional exam voucher cost?"
     options:
-      - "It's free, like Procore Certification"
-      - "Around $200 at list price, though discounted vouchers (student, bulk, or promotional) sometimes bring it closer to $150"
       - "A flat $1,000, similar to the PMP's non-member fee"
+      - "It's completely free, the same as Procore Certification"
+      - "Around $200 at list price, though discounted vouchers (student, bulk, or promotional) sometimes bring it closer to $150"
       - "There's no set price; it's negotiated individually with Autodesk"
-    answerIndex: 1
+    answerIndex: 2
     explanation: >
       A standard ACP exam voucher runs around $200, though discounted
       pricing through education channels, bulk purchases, or occasional
@@ -157,11 +157,11 @@ questions:
       rather than industry-wide credentials.
   - question: "Once you purchase an Autodesk Certified Professional exam voucher, how long do you have to actually use it?"
     options:
-      - "It never expires; vouchers are valid indefinitely"
-      - "12 months from the date of purchase"
       - "30 days, a much tighter window than most other credentials on this site"
+      - "It never expires; vouchers are valid indefinitely"
       - "Exactly 3 years, matching the certification's own validity period"
-    answerIndex: 1
+      - "12 months from the date of purchase"
+    answerIndex: 3
     explanation: >
       An unused exam voucher expires 12 months after purchase, separate
       from the 3-year validity period the certification itself carries
@@ -170,11 +170,11 @@ questions:
       first.
   - question: "What languages are Autodesk's Professional-level (ACP) exams currently offered in?"
     options:
-      - "English only"
       - "Over a dozen languages, matching Procore's multilingual catalog"
+      - "English only"
       - "Only Spanish and French"
       - "Whatever language the testing center's default system language is set to"
-    answerIndex: 0
+    answerIndex: 1
     explanation: >
       Autodesk's Professional-level exams are currently English only,
       unlike its entry-level Autodesk Certified User (ACU) exams, which
@@ -183,11 +183,11 @@ questions:
       spans French, Spanish, German, and Chinese in addition to English.
   - question: "How does Autodesk Certified User (ACU) differ from Autodesk Certified Professional (ACP)?"
     options:
+      - "ACU is only for students, and ACP is only for working professionals with a degree"
       - "They're the same credential with two different names"
       - "ACU is an entry-level exam testing basic tool familiarity with no real-world-experience recommendation, while ACP is the advanced tier assuming hundreds of hours of hands-on experience"
-      - "ACU is only for students, and ACP is only for working professionals with a degree"
       - "ACU tests Revit exclusively, and ACP tests AutoCAD exclusively"
-    answerIndex: 1
+    answerIndex: 2
     explanation: >
       ACU sits below ACP in Autodesk's certification structure, testing
       fundamental tool familiarity without assuming much real-world
@@ -198,11 +198,11 @@ questions:
       straight to the Professional level.
   - question: "During an Autodesk Certified Professional exam, can a candidate open the actual software (AutoCAD, Revit, and so on) to work through a question?"
     options:
-      - "Yes, the exam runs inside the live software the whole time"
-      - "No, questions are answered without access to the real software, using formats like multiple-choice, drag-and-drop, and graphic interpretation instead"
       - "Only during the final 30 minutes of the exam"
       - "Yes, but only for the Revit-based exams, not AutoCAD"
-    answerIndex: 1
+      - "Yes, the exam runs inside the live software the whole time"
+      - "No, questions are answered without access to the real software, using formats like multiple-choice, drag-and-drop, and graphic interpretation instead"
+    answerIndex: 3
     explanation: >
       The exam tests whether a candidate already knows the workflow, not
       whether they can look it up in the moment, so there's no live

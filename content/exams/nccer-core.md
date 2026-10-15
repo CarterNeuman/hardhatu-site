@@ -11,11 +11,11 @@ tagline: The foundational credential behind most NCCER craft-training pathways, 
 questions:
   - question: "How is NCCER's Core Curriculum different from a credential like OSHA 10 or OSHA 30?"
     options:
-      - "It's just a longer version of the same safety-only training"
+      - "It's really just a longer version of the exact same safety-only training content"
+      - "It completely replaces the need for either OSHA 10 or OSHA 30 training"
       - "It's a foundational skills credential covering tools, math, drawings, and employability, not only safety, and it's the prerequisite most trade-specific NCCER training builds on"
-      - "It replaces OSHA 10 and 30 entirely"
-      - "It's only for people who already hold a journeyman license"
-    answerIndex: 1
+      - "It's intended only for people who already hold a full journeyman license"
+    answerIndex: 2
     explanation: >
       OSHA 10 and 30 are safety credentials. Core includes a safety module,
       but its real job is broader, giving someone with zero construction
@@ -25,11 +25,11 @@ questions:
       already have.
   - question: "To actually earn credit for an NCCER module, what does a trainee need to complete beyond a written test?"
     options:
-      - "Nothing, the written test alone is sufficient"
+      - "Nothing extra; the written multiple-choice test alone is considered sufficient"
+      - "A signed reference letter from a current or former employer"
       - "A hands-on performance evaluation, demonstrating the skill safely and correctly under an evaluator's observation"
-      - "A separate essay describing the skill"
-      - "A employer reference letter"
-    answerIndex: 1
+      - "A separate written essay describing how the skill is performed"
+    answerIndex: 2
     explanation: >
       NCCER pairs a written knowledge test with a performance
       verification component for its craft credentials, someone has to
@@ -39,10 +39,10 @@ questions:
       who wasn't there to see the training happen.
   - question: "Why is an NCCER credential often described as \"portable\"?"
     options:
-      - "It's a small physical card that fits in a wallet"
+      - "It automatically and directly transfers into a full state contractor's license"
       - "The results are tracked in a system any accredited training program or employer can recognize, so a worker doesn't have to redo Core training just because they switch employers or move to a different NCCER-accredited program"
-      - "It automatically transfers into a state contractor's license"
       - "It only works at the specific training center that issued it"
+      - "It's simply a small physical card designed to fit inside a wallet"
     answerIndex: 1
     explanation: >
       Unlike a certificate that only means something to the one company
@@ -53,11 +53,11 @@ questions:
       a different accredited program later.
   - question: "A tape measure reads 5 feet 6-3/4 inches on one board and 2 feet 9-1/2 inches on another. What's the total length if the two are joined end to end?"
     options:
-      - "7 feet 4-1/4 inches"
       - "8 feet 4-1/4 inches"
+      - "7 feet 4-1/4 inches"
       - "8 feet 3-1/4 inches"
       - "8 feet 4-3/4 inches"
-    answerIndex: 1
+    answerIndex: 0
     explanation: >
       Add the inches first: 6-3/4 + 9-1/2 = 16-1/4 inches. Since 16-1/4
       inches is more than a foot, carry 12 inches over as 1 foot,
@@ -68,11 +68,11 @@ questions:
       up on a tape measure and a set of drawings.
   - question: "Before using a claw hammer, the Hand Tools module teaches you to check the handle and head. What are you actually checking for?"
     options:
-      - "Whether the brand name is still legible"
+      - "Nothing in particular; hand tools don't really need any pre-use inspection"
+      - "Whether the manufacturer's brand name stamp is still clearly legible"
       - "Cracks, splits, or a loose head that could fly off or fail mid-swing"
-      - "Whether the handle color matches your other tools"
-      - "Nothing; hand tools don't need pre-use inspection"
-    answerIndex: 1
+      - "Whether the handle's color happens to match the rest of your tool set"
+    answerIndex: 2
     explanation: >
       A hand tool doesn't need a battery or a cord to hurt someone, a
       cracked handle or a loose head can fail under force and send metal
@@ -82,11 +82,11 @@ questions:
       people skip checking them.
   - question: "A circular saw's blade guard is sticking a little, so it doesn't snap back over the blade quite as fast as usual. What does the Power Tools module say to do?"
     options:
-      - "Tape or wedge the guard open since it's slower anyway"
-      - "Keep using it; a slow guard still eventually covers the blade"
+      - "Keep using the saw; a slow-closing guard still eventually covers the blade anyway"
       - "Stop using the saw until the guard is repaired or the tool is replaced; never remove, block, or bypass a safety guard"
-      - "Only worry about it if the saw is used outdoors"
-    answerIndex: 2
+      - "Tape or wedge the guard open since it's moving slower than it should anyway"
+      - "Only worry about a slow guard if the saw happens to be used outdoors"
+    answerIndex: 1
     explanation: >
       A guard that's disabled, taped back, or just sluggish isn't doing
       its job at the one moment it matters, right after the cut, when an
@@ -95,11 +95,11 @@ questions:
       a reason to work around it.
   - question: "On a set of construction drawings, a dimension line runs between two points with a number next to it. What does that number tell you?"
     options:
-      - "The page number the detail continues on"
-      - "The exact measured distance between those two specific points"
-      - "The name of the material used in that area"
       - "The date the drawing was last revised"
-    answerIndex: 1
+      - "The page number the detail continues on"
+      - "The name of the material used in that area"
+      - "The exact measured distance between those two specific points"
+    answerIndex: 3
     explanation: >
       Dimension lines are how a drawing communicates precise measurements
       without you having to scale the page with a ruler, which is
@@ -110,10 +110,10 @@ questions:
   - question: "A crew lead gives you an instruction you don't fully understand. What does the Basic Communication Skills module say to do?"
     options:
       - "Guess at what they meant and proceed, since asking questions looks inexperienced"
-      - "Wait until the task is finished, then mention if something seemed off"
       - "Ask for clarification before starting, since a wrong guess can waste time, damage material, or cause a safety incident"
+      - "Wait until the entire task is finished, then mention afterward if something seemed off"
       - "Ask a coworker instead of the crew lead, so the crew lead doesn't find out you were unsure"
-    answerIndex: 2
+    answerIndex: 1
     explanation: >
       On a jobsite, a misunderstood instruction doesn't just cost time,
       it can mean cutting the wrong material, missing a hazard warning,
@@ -123,10 +123,10 @@ questions:
       other work.
   - question: "Which of these falls under \"Basic Employability Skills\" rather than a hands-on craft skill?"
     options:
-      - "Reading a tape measure to the nearest 1/16 inch"
+      - "Being able to operate a circular saw safely under direct supervision"
       - "Showing up on time, working well with a crew, and maintaining a professional attitude toward supervisors and coworkers"
-      - "Operating a circular saw safely"
-      - "Reading a dimension line on a drawing"
+      - "Reading a tape measure accurately to the nearest sixteenth of an inch"
+      - "Correctly reading a single dimension line on a construction drawing"
     answerIndex: 1
     explanation: >
       Employability skills are the soft skills, reliability, attitude,
@@ -137,10 +137,10 @@ questions:
       or don't.
   - question: "When manually lifting a heavy box off the ground, what does the Materials Handling module say to do?"
     options:
-      - "Bend at the waist, keep your legs straight, and lift with your back"
+      - "Twist your torso mid-lift to turn and set the load down faster"
       - "Bend your knees, keep the load close to your body, and lift with your legs, not your back"
-      - "Twist your torso while lifting to save time"
       - "Lift as fast as possible to minimize how long you're holding the weight"
+      - "Bend at the waist, keep your legs straight, and lift with your back"
     answerIndex: 1
     explanation: >
       Lifting with a straight back and bent legs keeps the strain on
@@ -151,11 +151,11 @@ questions:
       on later, just introduced here at the most basic, universal level.
   - question: "How many total training hours does earning NCCER's Core Curriculum credential require?"
     options:
-      - "Exactly 80 hours everywhere, no exceptions"
       - "There's no single national number; it varies by state and training provider, for example Florida's Department of Education requires a 150-hour program while many other providers complete the same modules in closer to 80 hours"
-      - "A fixed 40 hours, matching one work week"
+      - "A fixed 40 hours nationwide, matching a single standard work week"
+      - "Exactly 80 hours everywhere in the country, with no state exceptions"
       - "NCCER doesn't track hours at all, only pass or fail on the exams"
-    answerIndex: 1
+    answerIndex: 0
     explanation: >
       Core's total training time depends on where and how it's
       delivered. Florida's Department of Education, for instance,
@@ -166,11 +166,11 @@ questions:
       what's standardized.
   - question: "Where is NCCER's Core Curriculum most commonly delivered?"
     options:
-      - "Only at NCCER's own corporate headquarters"
-      - "A wide range of settings, including high schools, community colleges, pre-apprenticeship and registered apprenticeship programs, correctional facility reentry programs, and training run directly by contractors and industry associations"
-      - "Exclusively through four-year university engineering programs"
+      - "Only in person at NCCER's own corporate headquarters location"
       - "Only through a self-paced online course with no instructor"
-    answerIndex: 1
+      - "Exclusively through four-year university engineering programs"
+      - "A wide range of settings, including high schools, community colleges, pre-apprenticeship and registered apprenticeship programs, correctional facility reentry programs, and training run directly by contractors and industry associations"
+    answerIndex: 3
     explanation: >
       Core Curriculum shows up almost everywhere entry-level
       construction training happens: high school career and technical
@@ -182,11 +182,11 @@ questions:
       into the field.
   - question: "How can an employer confirm that a job candidate's NCCER credential is genuine, without calling the training center that issued it?"
     options:
-      - "They can't; there's no way to verify an NCCER credential after the fact"
-      - "NCCER's National Registry tracks every credential centrally, and a tool like Credential Engine lets an employer verify it online in real time"
       - "They have to mail NCCER a written request and wait several weeks"
-      - "Only the original instructor can confirm a credential is real"
-    answerIndex: 1
+      - "Only the original instructor who taught the course can ever confirm a credential is real"
+      - "NCCER's National Registry tracks every credential centrally, and a tool like Credential Engine lets an employer verify it online in real time"
+      - "They can't; there's no way to verify an NCCER credential after the fact"
+    answerIndex: 2
     explanation: >
       This is a big part of what makes NCCER credentials useful to
       employers: the results live in NCCER's National Registry, a
@@ -196,11 +196,11 @@ questions:
       becomes something you can actually confirm in minutes.
   - question: "What is NCCER's Digital Wallet, and why does it matter on a jobsite?"
     options:
-      - "A cryptocurrency payment system for training fees"
+      - "A backup paper copy of a training certificate, kept in case the digital one is lost"
+      - "A discount membership card usable at participating construction tool retailers"
       - "A phone-accessible credential record, powered by BuilderFax, that generates a QR code an employer can scan for instant verification"
-      - "A discount card for construction tool retailers"
-      - "A backup paper copy of a training certificate"
-    answerIndex: 1
+      - "A cryptocurrency-based payment system used specifically for training course fees"
+    answerIndex: 2
     explanation: >
       The Digital Wallet puts a worker's NCCER credential history on
       their phone, powered by BuilderFax, and generates a QR code that
@@ -211,11 +211,11 @@ questions:
       then.
   - question: "Which of Core Curriculum's 10 modules is an elective rather than something every trainee completes?"
     options:
-      - "Introduction to Construction Math"
       - "Basic Safety"
       - "Basic Rigging"
       - "Introduction to Construction Drawings"
-    answerIndex: 2
+      - "Introduction to Construction Math"
+    answerIndex: 1
     explanation: >
       Nine of Core's modules (the career-paths introduction, safety,
       math, hand tools, power tools, drawings, communication,

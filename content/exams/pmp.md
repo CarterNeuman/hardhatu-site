@@ -13,10 +13,10 @@ tagline: A widely recognized project management credential (not construction-spe
 questions:
   - question: "What actually drove PMI's July 2026 overhaul of the PMP exam content outline?"
     options:
-      - "A new edition of the PMBOK Guide"
+      - "A formal merger between PMI and another major professional certifying body"
       - "A Job Task Analysis (JTA) study of how the role has actually changed in practice, not a new PMBOK edition"
-      - "A drop in exam pass rates that PMI wanted to reverse"
-      - "A merger between PMI and another certifying body"
+      - "The release of a brand new edition of the PMBOK Guide itself"
+      - "A noticeable drop in exam pass rates that PMI specifically wanted to reverse"
     answerIndex: 1
     explanation: >
       PMI periodically runs a Job Task Analysis, surveying practitioners
@@ -27,11 +27,11 @@ questions:
       prep material that assumes otherwise.
   - question: "The 2026 update significantly rebalanced the exam's three domains. Which domain saw the largest increase in weighting?"
     options:
+      - "All three domains stayed within a few points of their old weighting"
       - "People, up from 33% to 42%"
       - "Process, which grew to take up half the exam"
       - "Business Environment, roughly tripling from 8% to 26%"
-      - "All three domains stayed within a few points of their old weighting"
-    answerIndex: 2
+    answerIndex: 3
     explanation: >
       Business Environment jumped from 8% to 26% of the exam, the
       biggest shift in the update, while People (42% to 33%) and
@@ -41,11 +41,11 @@ questions:
       questions rather than mechanical process questions.
   - question: "How many questions are on the current PMP exam, and how long do you get?"
     options:
-      - "100 questions, 2 hours"
       - "180 questions, 240 minutes, with two scheduled 10-minute breaks"
-      - "50 questions, 90 minutes"
-      - "180 questions with no breaks allowed"
-    answerIndex: 1
+      - "100 questions total, administered over a 2-hour testing window"
+      - "180 questions total, with no scheduled breaks allowed during testing"
+      - "Only 50 questions, administered over a 90-minute testing window"
+    answerIndex: 0
     explanation: >
       The exam is 180 questions over a 4-hour (240-minute) session,
       split by two built-in 10-minute breaks where the clock pauses.
@@ -55,10 +55,10 @@ questions:
       count while you're taking it.
   - question: "Beyond traditional multiple-choice, what kind of question formats does the current PMP exam use?"
     options:
-      - "Only true/false questions"
+      - "Only simple true-or-false questions throughout the entire exam"
       - "Matching, point-and-click, graphic- and case-based scenarios, and other interactive formats, not just pick-one-of-four"
-      - "Oral questions administered by a live proctor"
-      - "Only fill-in-the-blank numeric answers"
+      - "Only fill-in-the-blank questions requiring a typed numeric answer"
+      - "Oral questions read aloud and answered verbally to a live proctor"
     answerIndex: 1
     explanation: >
       The current exam leans on interactive formats, matching items to
@@ -70,11 +70,11 @@ questions:
       realistic scenarios.
   - question: "PMI describes today's PMP as testing project management across predictive, agile, and hybrid approaches. Roughly how is that split?"
     options:
-      - "Almost entirely predictive (waterfall-style) project management"
       - "Roughly 40% predictive, with the remaining 60% split between agile and hybrid approaches"
+      - "Almost entirely predictive, waterfall-style project management with little else"
+      - "The exam's content outline doesn't address delivery approach as a topic at all"
       - "Entirely agile, predictive project management is no longer tested"
-      - "The exam doesn't address delivery approach at all"
-    answerIndex: 1
+    answerIndex: 0
     explanation: >
       A construction PM's world is mostly predictive, phases, a
       baseline schedule, formal change orders, but the PMP exam
@@ -85,11 +85,11 @@ questions:
       everything.
   - question: "Which combination of education and experience is one of PMI's valid eligibility paths for sitting the PMP exam?"
     options:
-      - "A bachelor's degree with no project experience required at all"
-      - "A high school diploma plus 5 years of project management experience, or a bachelor's degree plus 3 years"
-      - "Any degree plus exactly 1 year of experience, no exceptions"
       - "A PMP is available with no education or experience requirement, only the exam"
-    answerIndex: 1
+      - "Any degree at all plus exactly 1 year of documented project experience, no exceptions"
+      - "A high school diploma plus 5 years of project management experience, or a bachelor's degree plus 3 years"
+      - "A bachelor's degree with no project experience required at all"
+    answerIndex: 2
     explanation: >
       PMI sets several valid paths, more experience required at each
       lower education tier: a high school diploma or associate's
@@ -100,10 +100,10 @@ questions:
       separates the PMP from its entry-level counterpart.
   - question: "Alongside the education/experience requirement, what else does PMI require before you can sit the PMP exam?"
     options:
-      - "Nothing else, education and experience alone are sufficient"
+      - "Nothing else is required, education and experience alone are considered sufficient"
       - "35 hours of project management education or training (a current CAPM credential counts toward this)"
-      - "A letter of recommendation from a licensed PE"
-      - "Membership in a labor union"
+      - "Active membership in a recognized labor union or trade association"
+      - "A signed letter of recommendation from a licensed professional engineer"
     answerIndex: 1
     explanation: >
       PMI requires 35 contact hours of project management training on
@@ -114,10 +114,10 @@ questions:
       PMP rather than a separate, unrelated credential.
   - question: "What's the core difference between the CAPM and the PMP, beyond the CAPM simply being \"easier\"?"
     options:
-      - "There's no real difference, they test the same material"
+      - "The PMP is only available to people who have already passed the CAPM first"
       - "CAPM is an entry-level credential with no professional experience requirement, while the PMP requires years of documented project management experience"
-      - "CAPM is construction-specific and the PMP is not"
-      - "The PMP is only for people who have already passed the CAPM"
+      - "CAPM is a construction-specific credential, while the PMP applies to any industry"
+      - "There's no real difference between them, they test essentially the same material"
     answerIndex: 1
     explanation: >
       CAPM is built for someone early in a project-management track,
@@ -128,11 +128,11 @@ questions:
       with terminology and process.
   - question: "How does PMI report whether you passed the PMP exam?"
     options:
-      - "A single published cut score, like 70%, that everyone is measured against"
       - "A criterion-referenced pass/fail result, with performance reported by domain rather than a single published passing percentage"
-      - "PMI doesn't disclose whether you passed until weeks later"
-      - "A letter grade from A to F"
-    answerIndex: 1
+      - "A single published cut score, like 70%, that everyone is measured against"
+      - "PMI doesn't disclose whether you passed or failed until several weeks later"
+      - "A simple letter grade ranging from A at the top down to F"
+    answerIndex: 0
     explanation: >
       PMI has never published a fixed passing score. Scoring is
       criterion-referenced, set through psychometric analysis of the
@@ -142,11 +142,11 @@ questions:
       number that doesn't actually exist.
   - question: "If you don't pass the PMP exam on your first attempt, what's PMI's retake policy?"
     options:
-      - "No retakes are allowed, ever"
+      - "No retakes are allowed under any circumstances, ever, for any reason"
+      - "You must wait exactly 5 full years before you're allowed to retake it"
       - "Up to three attempts total within one year of your eligibility being approved"
-      - "Unlimited retakes with no waiting period"
-      - "You must wait exactly 5 years before retaking"
-    answerIndex: 1
+      - "Unlimited retakes are allowed, with no waiting period between attempts"
+    answerIndex: 2
     explanation: >
       PMI allows up to three attempts within your one-year eligibility
       period, so a first miss isn't the end of the road, but it does
@@ -154,11 +154,11 @@ questions:
       around rather than something to treat as unlimited.
   - question: "If you need to retake the PMP exam, roughly what does it cost, separate from the original exam fee?"
     options:
-      - "Retakes are free; only the first attempt costs anything"
-      - "Roughly $275 for members and $375 for non-members, cheaper than the original fee but still a real cost to budget for"
+      - "Retakes are completely free of charge; only the very first attempt costs anything"
       - "The same as the full original exam fee, with no discount for retaking"
-      - "PMI charges a flat $1,000 regardless of membership status"
-    answerIndex: 1
+      - "PMI charges a flat $1,000 retake fee regardless of your membership status"
+      - "Roughly $275 for members and $375 for non-members, cheaper than the original fee but still a real cost to budget for"
+    answerIndex: 3
     explanation: >
       A retake costs less than the original exam fee, roughly $275 for
       members and $375 for non-members, but it's not free, and it's
@@ -168,11 +168,11 @@ questions:
       eats into a clock that doesn't pause.
   - question: "As of August 2026, roughly what does it cost to sit the PMP exam?"
     options:
-      - "A flat $100 for everyone"
-      - "$445 for PMI members and $675 for non-members, up from $405 and $655"
-      - "Around $2,000, similar to a graduate-level certification"
       - "It's free once you meet the eligibility requirements"
-    answerIndex: 1
+      - "Around $2,000, similar to a graduate-level certification"
+      - "$445 for PMI members and $675 for non-members, up from $405 and $655"
+      - "A flat $100 fee for every candidate, regardless of membership status"
+    answerIndex: 2
     explanation: >
       PMI raised its PMP exam fee starting in August 2026, to $445 for
       members and $675 for non-members. Joining PMI (roughly $139 a
@@ -181,11 +181,11 @@ questions:
       of member access to study resources and local chapter events.
   - question: "Where can you actually sit the PMP exam?"
     options:
-      - "Only at a physical Pearson VUE test center, no exceptions"
       - "Either an in-person Pearson VUE test center or an online proctored exam taken from home, using the same questions and security standards either way"
+      - "Only at a physical Pearson VUE test center, no exceptions"
       - "Only as an online exam; test centers were discontinued"
-      - "At any public library with a computer"
-    answerIndex: 1
+      - "At any public library branch that happens to have a computer available"
+    answerIndex: 0
     explanation: >
       PMI delivers the PMP exam through Pearson VUE, with two equally
       valid options: an in-person test center or an online proctored
@@ -197,11 +197,11 @@ questions:
       center.
   - question: "Once you've earned the PMP, what does PMI require to keep it active?"
     options:
-      - "Nothing; the PMP never expires once earned"
       - "60 Professional Development Units (PDUs) over a rolling three-year Continuing Certification Requirements (CCR) cycle, including a minimum number earned through formal education"
-      - "Retaking the full exam every year"
+      - "Retaking the entire full exam from scratch once every single year"
+      - "Nothing at all; the PMP credential never expires once it's been earned"
       - "A fixed number of volunteer hours only, with no education requirement"
-    answerIndex: 1
+    answerIndex: 0
     explanation: >
       The PMP isn't a one-and-done credential. Holders need 60 PDUs
       every three-year CCR cycle to keep it active, with a minimum
@@ -212,11 +212,11 @@ questions:
       credential at risk, not just a late fee.
   - question: "What happens if your PMP application gets selected for PMI's audit process?"
     options:
-      - "Your application is automatically rejected"
       - "You have a window of time (commonly cited as 90 days) to submit supporting documentation, like signed experience verification and proof of your 35 hours of project management education"
-      - "Nothing changes; the audit is purely informational"
+      - "Nothing changes at all; the audit process is treated as purely informational"
+      - "Your entire application is automatically and permanently rejected outright"
       - "You're required to retake all your college coursework"
-    answerIndex: 1
+    answerIndex: 0
     explanation: >
       PMI selects a percentage of applications for audit at random,
       PMI doesn't publish the exact rate, though it's commonly

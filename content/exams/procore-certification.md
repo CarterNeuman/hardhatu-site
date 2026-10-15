@@ -14,10 +14,10 @@ questions:
   - question: "How many different role-based certification tracks does Procore currently offer?"
     options:
       - "Just one, a single generic Procore Certification for everyone"
-      - "Around 11 role-based tracks, including Project Manager, Superintendent, Subcontractor, Owner, Estimator, and several others"
-      - "Only two: General Contractor and Owner"
+      - "Only two tracks exist: General Contractor and Owner"
       - "It's the same as the LEED credential, one shared exam"
-    answerIndex: 1
+      - "Around 11 role-based tracks, including Project Manager, Superintendent, Subcontractor, Owner, Estimator, and several others"
+    answerIndex: 3
     explanation: >
       Procore's certification program is genuinely role-based, tracks
       exist for Project Manager, Superintendent, Subcontractor, Architect,
@@ -26,11 +26,11 @@ questions:
       the platform rather than one generic overview.
   - question: "How much does it cost to earn a Procore Certification?"
     options:
-      - "Several hundred dollars per exam, similar to the PMP or CCM"
-      - "Nothing, all Procore certification courses are free"
       - "A monthly subscription fee"
       - "It's only available to Procore's own paying customers"
-    answerIndex: 1
+      - "Several hundred dollars per exam, similar to the PMP or CCM"
+      - "Nothing, all Procore certification courses are free"
+    answerIndex: 3
     explanation: >
       Every Procore certification course is completely free and open to
       anyone with an interest in learning the platform, not gated behind
@@ -39,11 +39,11 @@ questions:
       an application or exam fee.
   - question: "How is Procore Certification actually delivered?"
     options:
-      - "In-person at a Procore office"
-      - "Self-paced online training courses through Procore's own learning platform"
       - "A single proctored exam with no coursework beforehand"
-      - "Only through a college partnership"
-    answerIndex: 1
+      - "Only in person at a physical Procore company office"
+      - "Self-paced online training courses through Procore's own learning platform"
+      - "Only available through an official college partnership program"
+    answerIndex: 2
     explanation: >
       Procore Certification runs entirely through self-paced online
       courses on Procore's learning platform, working through role-
@@ -51,11 +51,11 @@ questions:
       standalone proctored exam the way most other credentials here work.
   - question: "Roughly how long does the Superintendent Certification take to complete, and what tools does it cover?"
     options:
-      - "About 30 minutes, covering only Daily Log"
       - "About 3.5 hours total, covering roughly 18 tools including Daily Log, RFIs, Punch List, Inspections, Schedule, Change Events, and Timesheets"
-      - "40 hours, the same commitment as the NCCER Core"
       - "It only covers financial tools, not field tools"
-    answerIndex: 1
+      - "40 hours, the same commitment as the NCCER Core"
+      - "About 30 minutes, covering only Daily Log"
+    answerIndex: 0
     explanation: >
       The Superintendent track runs about 3.5 hours across six sections
       (navigation, core tools, project management, resource management,
@@ -64,11 +64,11 @@ questions:
       to day, from Daily Log and RFIs to Change Events and Timesheets.
   - question: "What does the Estimator-track certification focus on, and roughly how long does it take?"
     options:
-      - "The same 3.5-hour curriculum as the Superintendent track"
-      - "Estimator-specific tools, in a shorter roughly 1-hour course"
-      - "It doesn't exist, estimators aren't covered by Procore Certification"
       - "A 40-hour deep dive into every Procore tool"
-    answerIndex: 1
+      - "It doesn't exist, estimators aren't covered by Procore Certification"
+      - "Estimator-specific tools, in a shorter roughly 1-hour course"
+      - "The same 3.5-hour curriculum as the Superintendent track"
+    answerIndex: 2
     explanation: >
       Course length varies by role, and the Estimator track is one of the
       shorter ones, roughly an hour, reflecting a narrower set of tools
@@ -76,10 +76,10 @@ questions:
       broader role like Project Manager or Superintendent.
   - question: "What credential do you receive after completing a Procore Certification course?"
     options:
-      - "A physical wall certificate mailed to your home"
-      - "A verifiable digital certificate you can add to your LinkedIn profile"
       - "A wallet card, like the OSHA 10/30 completion cards"
+      - "A verifiable digital certificate you can add to your LinkedIn profile"
       - "Nothing, completion isn't tracked or documented"
+      - "A physical wall certificate mailed to your home"
     answerIndex: 1
     explanation: >
       Procore issues a verifiable digital certificate on completion,
@@ -89,11 +89,11 @@ questions:
       projects on.
   - question: "Does Procore publish a fixed number of exam questions or a required passing score for its certification exams?"
     options:
+      - "Yes, but only specifically for the Admin certification track"
       - "Yes, every track requires exactly 100 questions and a 70% pass rate, published up front"
       - "No, Procore doesn't publish specific question counts or passing score requirements for its certification exams the way PMI or CMAA do"
-      - "Yes, but only for the Admin track"
       - "No exams exist at all, only video-watching requirements"
-    answerIndex: 1
+    answerIndex: 2
     explanation: >
       Unlike PMI's or CMAA's exams, which publish (or explicitly decline
       to publish) a defined scoring standard, Procore doesn't publicly
@@ -102,11 +102,11 @@ questions:
       training-oriented structure compared to a industry-wide credential.
   - question: "Who is eligible to pursue a Procore Certification?"
     options:
-      - "Only employees of companies that pay for a Procore license"
       - "Anyone with an interest in learning Procore, regardless of employer or current role"
       - "Only current college students in construction management programs"
-      - "Only people who already hold a PMP or CCM"
-    answerIndex: 1
+      - "Only people who already hold a separate PMP or CCM credential"
+      - "Only employees of companies that pay for a Procore license"
+    answerIndex: 0
     explanation: >
       Procore markets the program as open to "anyone with an appetite for
       learning," which is part of why it's realistic for someone still
@@ -115,11 +115,11 @@ questions:
       uses the platform.
   - question: "Why might a Project Manager and a Superintendent at the same company end up with different Procore certifications?"
     options:
-      - "They wouldn't, Procore only offers one certification regardless of role"
-      - "Because each role-based track covers a different set of tools relevant to that job, so their coursework and final content genuinely differ"
       - "Because only Project Managers are allowed to get certified"
       - "Because Superintendent certification requires a college degree and PM certification doesn't"
-    answerIndex: 1
+      - "Because each role-based track covers a different set of tools relevant to that job, so their coursework and final content genuinely differ"
+      - "They wouldn't, Procore only offers one certification regardless of role"
+    answerIndex: 2
     explanation: >
       A Project Manager's track leans toward tools like financial
       management and preconstruction, while the Superintendent track
@@ -128,11 +128,11 @@ questions:
       certification actually study meaningfully different material.
   - question: "How does the effort required for a Procore Certification generally compare to something like the PMP or CCM?"
     options:
-      - "It's identical, all three require years of experience and a multi-hour proctored exam"
       - "It's much lower, most tracks take roughly 1 to 4 hours of self-paced coursework with no experience requirement, cost, or third-party verification"
+      - "There's no meaningful difference in scope between any of the three"
+      - "It's identical, all three require years of experience and a multi-hour proctored exam"
       - "Procore Certification actually takes longer than the PMP"
-      - "There's no meaningful difference in scope"
-    answerIndex: 1
+    answerIndex: 0
     explanation: >
       Procore Certification is intentionally lower-stakes than an
       industry credential like the PMP or CCM, most tracks run from about
@@ -144,8 +144,8 @@ questions:
     options:
       - "Yes, every track expires after 3 years, matching Autodesk's renewal cycle"
       - "No, once earned it never expires, unlike most other credentials covered on this site"
-      - "Yes, it expires after 1 year unless retaken"
       - "It expires the moment you leave the company that uses Procore"
+      - "Yes, it expires after just 1 year unless it's retaken"
     answerIndex: 1
     explanation: >
       Unlike the PMP, CAPM, CCM, LEED Green Associate, or Autodesk
@@ -156,11 +156,11 @@ questions:
       recertification requirements.
   - question: "If a candidate doesn't pass a Procore Certification's final exam on the first try, what happens?"
     options:
-      - "The candidate is permanently barred from that certification track"
       - "Most tracks allow a retake after additional study, without the strict waiting periods or attempt limits some other credentials impose"
-      - "They must wait exactly one full year before retrying, same as Autodesk after three failed attempts"
+      - "The candidate is permanently barred from that certification track"
       - "They must pay a retake fee equal to the CCM's exam fee"
-    answerIndex: 1
+      - "They must wait exactly one full year before retrying, same as Autodesk after three failed attempts"
+    answerIndex: 0
     explanation: >
       Procore's retake approach is notably informal compared to
       credentials like Autodesk's (7-day wait, capped at three attempts
@@ -170,11 +170,11 @@ questions:
       design.
   - question: "Beyond English, what does Procore offer its certification training in?"
     options:
-      - "Nothing; Procore Certification is English-only, like Autodesk's Professional-level exams"
-      - "Multiple languages, including French, Spanish, German, and Chinese"
       - "Only Spanish, no other language options exist"
+      - "Nothing; Procore Certification is English-only, like Autodesk's Professional-level exams"
       - "Sign language interpretation only, no other translations"
-    answerIndex: 1
+      - "Multiple languages, including French, Spanish, German, and Chinese"
+    answerIndex: 3
     explanation: >
       Procore's certification catalog includes training in French,
       Spanish, German, and Chinese alongside English, a real point of
@@ -183,10 +183,10 @@ questions:
       beyond the English-speaking construction market.
   - question: "How many people have earned a Procore Certification, based on Procore's own reporting?"
     options:
-      - "Fewer than 500, since the program only recently launched"
-      - "Procore has reported well over 95,000 certified professionals across its community"
-      - "Exactly 10,000, a number that hasn't changed in years"
       - "Procore doesn't track or report this number at all"
+      - "Procore has reported well over 95,000 certified professionals across its community"
+      - "Fewer than 500, since the program only recently launched"
+      - "Exactly 10,000, a number that hasn't changed in years"
     answerIndex: 1
     explanation: >
       Procore has reported a certified community well past 95,000
@@ -196,10 +196,10 @@ questions:
       over time.
   - question: "Has Procore's list of certification tracks stayed fixed since the program launched?"
     options:
-      - "Yes, it's been frozen at exactly the same tracks with no additions"
-      - "No, the catalog keeps expanding, a Procore Pay track has been added alongside the original role-based lineup"
       - "No, Procore has actually reduced the number of tracks over time"
+      - "No, the catalog keeps expanding, a Procore Pay track has been added alongside the original role-based lineup"
       - "The catalog is rebuilt from scratch every year with entirely new tracks"
+      - "Yes, it's been frozen at exactly the same tracks with no additions"
     answerIndex: 1
     explanation: >
       Procore's certification catalog isn't static, it's grown since the

@@ -13,11 +13,11 @@ tagline: Nearly every state requires a property & casualty adjuster license befo
 questions:
   - question: "Do all 50 states require an individual to hold an adjuster license before handling claims there?"
     options:
+      - "No state in the entire country requires an adjuster license at all"
+      - "Only federal licensing exists, states have no role in adjuster licensing"
       - "Yes, every single state requires an adjuster license with no exceptions"
       - "No, roughly 15 states have no adjuster licensing requirement at all, while most other states do require one"
-      - "No state in the country requires an adjuster license"
-      - "Only federal licensing exists, states have no role in adjuster licensing"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       Around 15 states (including Illinois, Massachusetts, and
       Pennsylvania among others) don't require an individual adjuster
@@ -26,11 +26,11 @@ questions:
       rather than assuming one national standard applies everywhere.
   - question: "What is a \"designated home state\" (DHS), and why do Texas and Florida matter for adjusters who don't live there?"
     options:
-      - "It's a federal designation with no connection to individual states"
       - "It lets a non-resident claim Texas or Florida as their home-state license even without living there, since both states offer this option and dozens of other states accept it through reciprocity"
-      - "It only applies to adjusters who already hold a CCM certification"
-      - "It means an adjuster can only ever work in that one state"
-    answerIndex: 1
+      - "It only applies to adjusters who already hold a separate CCM or PMP certification first"
+      - "It's a federal designation issued directly by the federal government, with no connection to individual states at all"
+      - "It simply means an adjuster can only ever legally work in that one single state for their entire career"
+    answerIndex: 0
     explanation: >
       Texas and Florida both let non-residents designate either state as
       their "home state" for licensing purposes, and over 30 other states
@@ -40,11 +40,11 @@ questions:
       they've never lived in either state.
   - question: "What does licensing reciprocity actually let an adjuster do?"
     options:
-      - "Nothing, reciprocity is just a marketing term with no real effect"
       - "Practice in multiple reciprocal states using one home-state license, rather than passing a separate exam and completing separate licensing in every state"
-      - "Skip the licensing exam entirely in their home state"
       - "Automatically become licensed as an insurance agent, not just an adjuster"
-    answerIndex: 1
+      - "Skip the licensing exam entirely, even in their own home state"
+      - "Nothing, reciprocity is just a marketing term with no real effect"
+    answerIndex: 0
     explanation: >
       Reciprocity means an adjuster with a resident license from a
       qualifying home state, often Texas or Florida, can apply for
@@ -55,10 +55,10 @@ questions:
   - question: "Are all states equally open to reciprocity?"
     options:
       - "Yes, every state accepts every other state's adjuster license without exception"
+      - "No, reciprocity was eliminated nationwide back in 2026 entirely"
       - "No, a handful of states (including California, New York, and Hawaii among others) offer limited or no reciprocity, requiring their own separate education and exam"
-      - "No, reciprocity was eliminated nationwide in 2026"
       - "Reciprocity only applies to adjusters working commercial claims, never residential"
-    answerIndex: 1
+    answerIndex: 2
     explanation: >
       A small group of states, California, New York, Hawaii, and a few
       others, don't participate in reciprocity the way most states do,
@@ -68,11 +68,11 @@ questions:
       hold elsewhere.
   - question: "Using Texas's All Lines adjuster exam as a representative example, what's a typical exam's basic structure?"
     options:
+      - "As many as 500 questions spread over a full 8 hours"
       - "10 questions, 15 minutes, no minimum score"
-      - "150 questions over 150 minutes (2.5 hours), with a scaled score of 70 or higher required to pass"
-      - "500 questions over 8 hours"
       - "An oral-only exam with no written component"
-    answerIndex: 1
+      - "150 questions over 150 minutes (2.5 hours), with a scaled score of 70 or higher required to pass"
+    answerIndex: 3
     explanation: >
       Texas's All Lines adjuster exam, one of the most common paths into
       the profession because of the designated-home-state option, runs
@@ -81,11 +81,11 @@ questions:
       sense of scale for what a state licensing exam actually looks like.
   - question: "What kind of foundational insurance concepts show up across state adjuster exams, regardless of which state's exam you're taking?"
     options:
+      - "Only general state traffic law, unrelated to insurance claims"
       - "Only construction building codes, nothing insurance-specific"
+      - "Only general state and federal tax law, unrelated to insurance"
       - "Core concepts like the principle of indemnity, insurable interest, negligence, and the distinction between an insurance binder and a full policy"
-      - "Only tax law"
-      - "Only state traffic law"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       Regardless of which state's exam you sit, foundational
       property-and-casualty concepts like indemnity, insurable interest,
@@ -94,10 +94,10 @@ questions:
       not state-specific trivia.
   - question: "On a property claim, what's the core difference between replacement cost value (RCV) and actual cash value (ACV)?"
     options:
-      - "There's no real difference, they're two names for the same number"
-      - "RCV pays what it costs to replace the damaged item new, while ACV subtracts depreciation from that replacement cost"
-      - "ACV always pays more than RCV"
       - "RCV only applies to commercial claims, never residential"
+      - "RCV pays what it costs to replace the damaged item new, while ACV subtracts depreciation from that replacement cost"
+      - "ACV always pays out more money to the policyholder than RCV does"
+      - "There's no real difference, they're two names for the same number"
     answerIndex: 1
     explanation: >
       RCV reflects the cost to actually replace a damaged item with a new
@@ -107,11 +107,11 @@ questions:
       questions and in real settlement conversations with policyholders.
   - question: "What does an \"All Lines\" adjuster license typically add, compared to a more limited Property & Casualty-only license?"
     options:
-      - "Nothing, the two licenses are functionally identical"
-      - "Authority to also adjust workers' compensation and inland/ocean marine claims, areas usually excluded from a standard Property & Casualty license"
       - "The ability to sell insurance policies directly to consumers"
-      - "Automatic licensure to practice law"
-    answerIndex: 1
+      - "Automatic licensure to practice law in any state nationwide"
+      - "Authority to also adjust workers' compensation and inland/ocean marine claims, areas usually excluded from a standard Property & Casualty license"
+      - "Nothing, the two licenses are functionally identical"
+    answerIndex: 2
     explanation: >
       An All Lines designation typically extends beyond standard property
       and liability claims to also cover workers' compensation and marine
@@ -119,10 +119,10 @@ questions:
       adjuster license usually doesn't include.
   - question: "Beyond insurance fundamentals, what kind of state-specific material tends to make licensing exams genuinely challenging?"
     options:
-      - "Nothing state-specific is ever tested"
+      - "Nothing state-specific is ever tested on the standalone state exam, since it's all generic insurance material"
       - "State-specific statutes and regulations, like unfair claim settlement practices laws and required claim-response timeframes, which vary by state and don't show up in general insurance textbooks"
-      - "Only federal tax code"
-      - "Only material about states other than the one you're testing in"
+      - "Only material about states other than the one you happen to be testing in that day"
+      - "Only federal tax code and IRS regulations, entirely unrelated to insurance claims handling"
     answerIndex: 1
     explanation: >
       The state-specific section, unfair claim settlement practices laws,
@@ -133,11 +133,11 @@ questions:
       state's exam you're actually sitting.
   - question: "If you're building a career as a catastrophe adjuster who travels to work storm claims across several states, why does understanding reciprocity actually matter for your career, not just for passing one exam?"
     options:
-      - "It doesn't matter, one license works everywhere automatically"
+      - "Because only public adjusters need to think about reciprocity, not independent adjusters working the same storm"
+      - "Because reciprocity only determines your pay rate, not your actual ability to legally work"
+      - "It doesn't matter at all, since one home-state license automatically works everywhere nationwide"
       - "Because your ability to legally work a storm in a given state depends on whether that state accepts your home-state license through reciprocity, or requires you to hold a separate license there"
-      - "Because reciprocity determines your pay rate, not your ability to work"
-      - "Because only public adjusters need to think about reciprocity, not independent adjusters"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       A catastrophe adjuster's whole business model depends on being
       deployable to wherever storm damage happens next, so knowing which
@@ -147,11 +147,11 @@ questions:
       to legally work.
   - question: "Realistically, what does it cost in fixed state fees to get licensed as a Texas All Lines adjuster, using Texas as a representative example?"
     options:
-      - "Around $140 total: roughly $49 for the Pearson VUE exam, about $41 for fingerprinting, and a $50 state application fee"
-      - "A flat $1,000 regardless of any individual fees"
-      - "Nothing; Texas issues adjuster licenses free of charge"
       - "Around $5,000, comparable to a professional engineering license"
-    answerIndex: 0
+      - "A flat $1,000 fee, regardless of any individual line-item costs"
+      - "Nothing; Texas issues adjuster licenses free of charge"
+      - "Around $140 total: roughly $49 for the Pearson VUE exam, about $41 for fingerprinting, and a $50 state application fee"
+    answerIndex: 3
     explanation: >
       The core state fees add up to roughly $140: about $49 for the
       Pearson VUE exam itself, around $41 for fingerprinting and a
@@ -160,11 +160,11 @@ questions:
       pre-licensing education the way some other states do.
   - question: "Is there a way to become licensed in Texas without sitting the separate state licensing exam at all?"
     options:
-      - "No, every applicant must pass the standalone state exam regardless of any coursework"
       - "Yes, completing a TDI-approved 40-hour prelicensing course with a monitored final exam can substitute for the separate state exam"
       - "Yes, but only if you already hold a PMP or CCM certification"
+      - "No, every applicant must pass the standalone state exam regardless of any coursework"
       - "Yes, simply paying a higher application fee waives the exam requirement"
-    answerIndex: 1
+    answerIndex: 0
     explanation: >
       Texas offers an exam-exemption pathway: passing the monitored
       final exam built into a TDI-approved 40-hour prelicensing course
@@ -174,11 +174,11 @@ questions:
       is filed promptly citing that course completion.
   - question: "Once licensed in Texas, what does it take to keep an adjuster license active through renewal?"
     options:
+      - "Retaking the entire full licensing exam again every two years"
       - "Nothing; Texas adjuster licenses never require renewal or continuing education"
       - "24 continuing education hours every two years, including at least 3 hours of ethics and at least 12 classroom or classroom-equivalent hours"
-      - "Retaking the full licensing exam every two years"
       - "60 hours every year, matching the PMP's PDU requirement"
-    answerIndex: 1
+    answerIndex: 2
     explanation: >
       Texas requires 24 CE hours within each two-year license term, with
       at least 3 of those hours specifically in ethics and at least 12
@@ -189,11 +189,11 @@ questions:
       before the state system updates.
   - question: "After a hurricane or other declared disaster overwhelms local claim volume, how does a state's emergency (catastrophe) adjuster license actually work?"
     options:
-      - "It permanently licenses any adjuster in that state going forward"
       - "It's a temporary license, typically valid less than 180 days, that lets an already-licensed nonresident adjuster help with disaster claims without the usual exam, fingerprinting, or background check"
-      - "It only applies to adjusters who are residents of the disaster-affected state"
-      - "It requires the same full licensing process as a standard license, just processed faster"
-    answerIndex: 1
+      - "It requires the same full licensing process as a standard license, just processed on an expedited timeline"
+      - "It only applies to adjusters who are already residents of that specific disaster-affected state"
+      - "It permanently licenses any adjuster in that state going forward, forever, with no expiration date at all"
+    answerIndex: 0
     explanation: >
       When a government official declares a state of emergency, a
       state's insurance commissioner can activate emergency adjuster
@@ -204,11 +204,11 @@ questions:
       disaster area fast, not to create a new permanent licensing path.
   - question: "Can a resident of the disaster-affected state use an emergency adjuster license to start working claims without going through standard licensing?"
     options:
+      - "No emergency licensing exception exists at all for either residents or nonresidents"
       - "Yes, residents get the same exam/fingerprinting waiver as anyone else during a declared emergency"
+      - "Yes, but only if they happen to be related to someone who already holds a license"
       - "No, the emergency-license waiver is specifically for nonresident adjusters already licensed elsewhere; a resident of that state still has to complete standard licensing regardless of the emergency"
-      - "Yes, but only if they're related to someone who already holds a license"
-      - "No emergency licensing exception exists for residents or nonresidents"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       It's a meaningful distinction: emergency licensing exists to bring
       in outside help fast, already-licensed, already-vetted nonresident

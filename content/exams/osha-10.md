@@ -11,11 +11,11 @@ tagline: The entry-level safety credential most construction employers expect be
 questions:
   - question: "Which four hazards does OSHA's \"Focus Four\" cover, the ones responsible for the majority of construction worker deaths?"
     options:
-      - "Falls, electrocution, struck-by, and caught-in or -between"
       - "Fire, chemical exposure, noise, and ergonomic strain"
+      - "Falls, electrocution, struck-by, and caught-in or -between"
       - "Vehicle accidents, falls, chemical spills, and heat stress"
       - "Falls, fire, noise, and repetitive motion injury"
-    answerIndex: 0
+    answerIndex: 1
     explanation: >
       OSHA calls these the Focus Four (sometimes the "Fatal Four") because
       together they account for the majority of construction fatalities
@@ -23,11 +23,11 @@ questions:
       to recognizing and avoiding one of these four.
   - question: "On a typical construction site (not scaffolds or steel erection, which have their own separate rules), OSHA requires fall protection starting at what height?"
     options:
+      - "10 feet"
       - "4 feet"
       - "6 feet"
-      - "10 feet"
       - "15 feet"
-    answerIndex: 1
+    answerIndex: 2
     explanation: >
       6 feet is the general construction threshold under 29 CFR 1926.501.
       It's a common trap on the real exam because scaffolds have their own,
@@ -36,11 +36,11 @@ questions:
       one universal answer on a construction site.
   - question: "Why does the 10-hour course spend time on Ground Fault Circuit Interrupters (GFCIs)?"
     options:
-      - "They prevent power tool motors from overheating"
+      - "They prevent power tool motors from overheating during extended continuous use on a jobsite"
+      - "They're required only on portable generators, not on permanent building circuits or extension cords"
+      - "They extend battery life on cordless tools by cutting power once the charge drops too low"
       - "They cut power fast enough to prevent a fatal shock when a tool or cord develops a ground fault"
-      - "They extend battery life on cordless tools"
-      - "They're only required on portable generators"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       A GFCI monitors current and shuts power off in a fraction of a
       second if it senses current leaking to ground, which is exactly what
@@ -49,10 +49,10 @@ questions:
       defenses on a typical jobsite.
   - question: "Where does personal protective equipment (PPE) sit in OSHA's hierarchy of hazard controls?"
     options:
-      - "First: PPE should always be tried before anything else"
+      - "Second, applied immediately after the hazard itself has been physically eliminated from the task"
       - "Last: only after elimination, substitution, engineering, and administrative controls have been used or ruled out"
-      - "PPE isn't part of the hierarchy of controls"
-      - "Second, right after eliminating the hazard entirely"
+      - "PPE sits outside the hierarchy entirely, treated as a separate, unranked layer of protection"
+      - "First, since trying PPE before any other control saves time on fast-moving jobsite tasks"
     answerIndex: 1
     explanation: >
       PPE protects the individual wearing it and only works if it's worn
@@ -64,10 +64,10 @@ questions:
   - question: "An unprotected trench becomes a caught-in/between hazard requiring a protective system (shoring, shielding, or sloping) at what depth, unless it's cut into stable rock?"
     options:
       - "3 feet"
-      - "5 feet"
-      - "8 feet"
       - "10 feet"
-    answerIndex: 1
+      - "8 feet"
+      - "5 feet"
+    answerIndex: 3
     explanation: >
       5 feet is the trigger depth under OSHA's excavation standard (1926.652).
       A competent person still has to evaluate soil type and site
@@ -77,10 +77,10 @@ questions:
       because dirt is so much heavier than it looks.
   - question: "You're working near a dump truck that's backing up, and you notice its back-up alarm isn't sounding. What does OSHA 10's hazard-avoidance approach say to do?"
     options:
-      - "Keep working; a broken alarm is the driver's responsibility, not yours"
+      - "Assume the driver can already see you clearly through a side mirror or backup camera"
       - "Stop, get clear of the truck's path or get eye contact with the driver or a spotter, and report the broken alarm"
-      - "Assume the driver can already see you in a mirror"
-      - "Wait until a break to mention it to someone"
+      - "Keep working normally, since a broken backup alarm is solely the equipment operator's responsibility"
+      - "Wait until the next scheduled break to casually mention the broken alarm to a supervisor"
     answerIndex: 1
     explanation: >
       Struck-by incidents involving backing equipment are a leading cause
@@ -90,11 +90,11 @@ questions:
       gets fixed before someone else is caught by it.
   - question: "Cutting or grinding concrete and masonry dry throws respirable crystalline silica into the air. Why does OSHA 10 treat this as a serious health hazard rather than just dust and cleanup?"
     options:
-      - "It's mainly a fire risk around welding sparks"
+      - "It mainly causes short-term eye and skin irritation that clears up once exposure stops"
+      - "It's mainly a fire and combustion risk when fine particles build up near welding sparks"
       - "Long-term exposure can cause silicosis and other serious, sometimes fatal lung disease, even though symptoms may not appear for years"
-      - "It's classified as a nuisance dust with no real long-term health effects"
-      - "It mainly irritates the eyes, not the lungs"
-    answerIndex: 1
+      - "It's classified as a nuisance dust, uncomfortable to breathe but with no documented long-term effects"
+    answerIndex: 2
     explanation: >
       Silica dust particles are small enough to lodge deep in the lungs,
       and the damage builds up silently over years of exposure, which is
@@ -104,11 +104,11 @@ questions:
       as the only defense.
   - question: "Under OSHA's Hazard Communication standard, where would you look to learn about the specific hazards of a chemical product you're about to use on site?"
     options:
-      - "The delivery truck's shipping manifest"
-      - "The product's Safety Data Sheet (SDS)"
       - "The brand name and logo on the container"
       - "You don't need to check if it's already been brought on site"
-    answerIndex: 1
+      - "The delivery truck's shipping manifest"
+      - "The product's Safety Data Sheet (SDS)"
+    answerIndex: 3
     explanation: >
       Every hazardous chemical on a jobsite is required to have an SDS
       available, listing its hazards, safe handling, and what to do if
@@ -117,10 +117,10 @@ questions:
       alone.
   - question: "Which of the following is a right OSHA 10 explicitly covers, protected under federal law?"
     options:
-      - "The right to a pay increase if a hazard is found"
+      - "The right to leave the jobsite immediately and without notice whenever conditions feel unsafe"
       - "The right to file a complaint with OSHA about a hazard without being fired or punished for it"
-      - "The right to skip PPE whenever it's uncomfortable"
-      - "The right to leave the jobsite at any time without notice"
+      - "The right to an automatic pay increase whenever a workplace hazard is formally identified"
+      - "The right to skip required PPE whenever it feels too uncomfortable to wear on a hot day"
     answerIndex: 1
     explanation: >
       Workers can file a confidential complaint asking OSHA to inspect a
@@ -130,11 +130,11 @@ questions:
       help if a worker feels unsafe reporting it.
   - question: "Scaffolds have their own fall-protection rule, separate from the general construction 6-foot threshold. At what height does fall protection become required on a scaffold?"
     options:
-      - "4 feet"
       - "6 feet"
       - "10 feet"
+      - "4 feet"
       - "15 feet"
-    answerIndex: 2
+    answerIndex: 1
     explanation: >
       10 feet is the scaffold-specific threshold (1926.451), different
       from the 6-foot general construction rule. It's a favorite "gotcha"
@@ -142,10 +142,10 @@ questions:
       protection number applies everywhere on a site.
   - question: "A worker starts showing heavy sweating, weakness, and nausea on a hot afternoon. A coworker notices they've stopped sweating and seem confused. What does that change in symptoms most likely signal?"
     options:
-      - "The worker is fine, they're just cooling down"
+      - "A normal reaction to a full day of physical labor that resolves on its own without attention"
       - "A progression from heat exhaustion toward heat stroke, a medical emergency"
-      - "Simple dehydration that water alone will fix within the hour"
-      - "A normal reaction to physical labor that doesn't need attention"
+      - "A sign the worker is simply cooling down and adjusting after exertion, nothing to monitor"
+      - "Simple dehydration that a bottle of water and a short break will fully resolve within the hour"
     answerIndex: 1
     explanation: >
       Heat exhaustion (heavy sweating, weakness, nausea) can progress to
@@ -156,11 +156,11 @@ questions:
       the course wants a worker to catch early rather than shrug off.
   - question: "When setting up an extension ladder against a wall, what's the correct base-to-height ratio to keep it from kicking out?"
     options:
-      - "1 foot of base distance for every 4 feet of height to the support point"
       - "The ladder should lean as vertically as possible, almost straight up"
+      - "1 foot of base distance for every 4 feet of height to the support point"
       - "Base distance doesn't matter as long as the ladder is tied off at the top"
       - "1 foot of base distance for every 10 feet of height"
-    answerIndex: 0
+    answerIndex: 1
     explanation: >
       The 4-to-1 rule (1 foot out for every 4 feet up) keeps an extension
       ladder at a safe climbing angle, too vertical and it can tip
@@ -169,11 +169,11 @@ questions:
       access.
   - question: "OSHA's construction noise standard sets a permissible exposure limit for an 8-hour workday. What is it?"
     options:
+      - "100 decibels"
+      - "90 decibels"
       - "70 decibels"
       - "80 decibels"
-      - "90 decibels"
-      - "100 decibels"
-    answerIndex: 2
+    answerIndex: 1
     explanation: >
       90 decibels averaged over an 8-hour day is the construction
       standard's limit (1926.52), different from general industry's
@@ -182,10 +182,10 @@ questions:
       Above that limit, hearing protection is required.
   - question: "What's the safest way to manually lift a heavy box off the ground?"
     options:
-      - "Bend at the waist, keep your legs straight, and lift with your back"
+      - "Lift as fast as possible so the load spends less total time under strain on your back"
       - "Bend your knees, keep the load close to your body, and lift with your legs"
-      - "Twist at the waist while lifting to save time"
-      - "Lift as fast as possible to reduce time under load"
+      - "Twist at the waist mid-lift to turn and set the load down in one single motion"
+      - "Bend at the waist, keep your legs straight, and let your lower back carry the weight"
     answerIndex: 1
     explanation: >
       Lifting with your legs instead of your back, keeping the load
@@ -196,11 +196,11 @@ questions:
       not from one dramatic moment.
   - question: "A crew is working overhead on scaffolding. What protects a worker walking underneath from a falling tool or piece of debris?"
     options:
-      - "Nothing extra is needed if the worker below is wearing a hard hat"
+      - "Falling-object protection requirements only apply on demolition sites, not general construction"
+      - "Nothing extra is needed below overhead work as long as every worker there is wearing a hard hat"
+      - "A verbal warning shouted down just before something is dropped from above the work area"
       - "Toe boards, debris nets, or a barricaded drop zone below the overhead work, in addition to hard hats"
-      - "A verbal warning shouted right before something is dropped"
-      - "Falling-object protection only applies to demolition sites"
-    answerIndex: 1
+    answerIndex: 3
     explanation: >
       A hard hat alone doesn't stop something heavy or sharp from a
       real height. Toe boards keep loose material from rolling off an
