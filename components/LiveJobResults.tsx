@@ -15,7 +15,7 @@
 // notes for the full reasoning behind this and the relevance/resilience
 // choices below.
 import { useEffect, useState } from "react";
-import { SectionLabel } from "@/components/SectionLabel";
+import { AccordionSubLabel } from "@/components/ActionPlanAccordion";
 import {
   compareToEntryPay,
   formatPostedRelative,
@@ -102,7 +102,7 @@ export function LiveJobResults({
 
   return (
     <div className="print:hidden">
-      <SectionLabel>Live openings near you</SectionLabel>
+      <AccordionSubLabel>Live openings near you</AccordionSubLabel>
       <p className="mt-1 text-sm text-steel">
         Showing live results for {trade} near {location}.
       </p>

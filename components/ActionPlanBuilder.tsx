@@ -24,6 +24,11 @@ import { ActionPlanPrintCalendar } from "@/components/ActionPlanPrintCalendar";
 import { LiveJobResults } from "@/components/LiveJobResults";
 import { Disclaimer } from "@/components/Disclaimer";
 import { GlossaryText, buildGlossaryIndex } from "@/components/GlossaryText";
+import {
+  ActionPlanAccordionSection,
+  AccordionSubLabel,
+  useActionPlanAccordionControls,
+} from "@/components/ActionPlanAccordion";
 import type { ActionPlan, GetHired, ResumeGuide } from "@/lib/types";
 
 export type SlimCareer = {
@@ -139,6 +144,7 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
   const [certsHeld, setCertsHeld] = useState("");
   const [plan, setPlan] = useState<GeneratedPlan | "coming-soon" | null>(null);
   const [checkedDays, setCheckedDays] = useState<Set<number>>(new Set());
+  const accordionControls = useActionPlanAccordionControls();
 
   const categoryData = dataByCategory[category];
   const careerOptions = categoryData?.careers ?? [];
@@ -230,6 +236,88 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
   }
 
   if (plan) {
+    const { containerRef: accordionContainerRef, label: accordionToggleLabel, toggleAll: toggleAllAccordions } =
+      accordionControls;
+
+    const hasPay = Boolean(plan.entryPay);
+    const hasQualificationsSection =
+      plan.qualifications.length > 0 || plan.courses.length > 0 || plan.goFurther.length > 0;
+    const hasResumePrepSection =
+      plan.resumeBullets.length > 0 || Boolean(plan.interviewPrepHref) || Boolean(plan.examPrepHref);
+    const hasFindOpeningsSection =
+      plan.targetEmployerTypes.length > 0 || plan.whereToLook.length > 0 || plan.jobBoardLinks.length > 0;
+
+    // Shown under Overview so a first-time visitor knows what each
+    // dropdown below actually answers before opening any of them --
+    // built from which sections this specific plan actually has rather
+    // than a fixed list, since a category like Consultants & Advisory
+    // never gets a "Where to Find Openings" section at all.
+    const legendItems = [
+      hasPay && { title: "Pay", blurb: "what to actually expect to earn, so you know if it's worth it to you." },
+      hasQualificationsSection && {
+        title: "Qualifications & Courses",
+        blurb: "what to have ready, and where to learn what you're missing.",
+      },
+      hasResumePrepSection && {
+        title: "Resume & Interview Prep",
+        blurb: "get your application and talking points in order.",
+      },
+      {
+        title: "Your Day-by-Day Plan",
+        blurb: "the actual schedule -- start here once you're ready to move.",
+      },
+      hasFindOpeningsSection && {
+        title: "Where to Find Openings",
+        blurb: "your target employers, plus live postings near you.",
+      },
+      {
+        title: "Reach Out to Recruiters & Hiring Managers",
+        blurb: "exactly what to say, and to whom.",
+      },
+    ].filter((item): item is { title: string; blurb: string } => Boolean(item));
+
+    const payTeaser = plan.entryPay
+      ? `${formatPay(plan.entryPay.low, plan.entryPay.unit).replace(/\/(yr|hr)$/, "")}–${formatPay(plan.entryPay.high, plan.entryPay.unit)}`
+      : undefined;
+
+    const qualificationsTeaserParts: string[] = [];
+    if (plan.qualifications.length > 0) {
+      const needCount = plan.qualifications.filter((q) => !q.have).length;
+      qualificationsTeaserParts.push(needCount === 0 ? "all set" : `${needCount} to line up`);
+    }
+    if (plan.courses.length > 0) {
+      qualificationsTeaserParts.push(`${plan.courses.length} course${plan.courses.length === 1 ? "" : "s"}`);
+    }
+    if (plan.goFurther.length > 0) {
+      qualificationsTeaserParts.push(`${plan.goFurther.length} go further`);
+    }
+    const qualificationsTeaser = qualificationsTeaserParts.join(" \u00b7 ") || undefined;
+
+    const resumePrepTeaserParts: string[] = [];
+    if (plan.resumeBullets.length > 0) {
+      resumePrepTeaserParts.push(`${plan.resumeBullets.length} bullet${plan.resumeBullets.length === 1 ? "" : "s"}`);
+    }
+    const guideCount = [plan.resumeGuideHref, plan.interviewPrepHref, plan.examPrepHref].filter(Boolean).length;
+    if (guideCount > 0) {
+      resumePrepTeaserParts.push(`${guideCount} guide${guideCount === 1 ? "" : "s"}`);
+    }
+    const resumePrepTeaser = resumePrepTeaserParts.join(" \u00b7 ") || undefined;
+
+    const dayByDayTeaser = `${plan.days.length} step${plan.days.length === 1 ? "" : "s"} \u00b7 ${checkedDays.size} of ${plan.days.length} done`;
+
+    const findOpeningsTeaserParts: string[] = [];
+    if (plan.targetEmployerTypes.length > 0) {
+      findOpeningsTeaserParts.push(
+        `${plan.targetEmployerTypes.length} employer type${plan.targetEmployerTypes.length === 1 ? "" : "s"}`
+      );
+    }
+    if (plan.jobBoardLinks.length > 0 && location.trim()) {
+      findOpeningsTeaserParts.push("live openings near you");
+    }
+    const findOpeningsTeaser = findOpeningsTeaserParts.join(" \u00b7 ") || undefined;
+
+    const outreachTeaser = `${plan.recruiterOutreach.tips.length} tip${plan.recruiterOutreach.tips.length === 1 ? "" : "s"} \u00b7 3 templates`;
+
     return (
       <div className="mt-8">
         <ActionPlanPrintCalendar days={plan.days} title={plan.careerTitle ?? plan.category} />
@@ -258,232 +346,273 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
 
         <SectionLabel>Overview</SectionLabel>
         <p className="mt-2 leading-relaxed text-ink">{plan.overview}</p>
-
-        {plan.entryPay && (
+        {legendItems.length > 0 && (
           <>
-            <SectionLabel>
-              {plan.isEntryRole === false ? "What this role pays" : "What you can expect to earn starting out"}
-            </SectionLabel>
-            <p className="mt-2 text-2xl font-bold text-navy">
-              {formatPay(plan.entryPay.low, plan.entryPay.unit)}&ndash;{formatPay(plan.entryPay.high, plan.entryPay.unit)}
+            <p className="mt-3 text-sm leading-relaxed text-ink">
+              Everything below is sorted into sections so you can jump straight to what you're
+              wondering about -- nothing here assumes you've already read what's above it.
             </p>
-            <Disclaimer
-              lastReviewed={plan.entryPay.asOf}
-              message={
-                plan.isEntryRole === false
-                  ? `${plan.careerTitle ?? "This role"} is typically reached through promotion or years of experience in a related role, not a day-one starting point -- this is the lower end of the national wage distribution for people already working in it (${plan.entryPay.source}), not a promise for any one job and not what someone brand new to the field would start at. Real pay varies by state, metro area, union status, and employer, so scale this for your market. Base pay only: overtime and shift differentials are standard across most construction trades.`
-                  : `Entry-level pay from the national wage distribution for this occupation (${plan.entryPay.source}), not a promise for any one job. Real pay varies by state, metro area, union status, and employer, so scale this for your market. Base pay only: overtime and shift differentials are standard across most construction trades.`
-              }
-            />
-          </>
-        )}
-
-        {plan.qualifications.length > 0 && (
-          <>
-            <SectionLabel>Qualifications</SectionLabel>
-            <ul className="mt-2 flex flex-col gap-1.5">
-              {plan.qualifications.map((q, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-ink">
-                  <span
-                    className={
-                      q.have
-                        ? "mt-0.5 inline-block h-3 w-3 shrink-0 border border-navy bg-navy"
-                        : "mt-0.5 inline-block h-3 w-3 shrink-0 border border-hairline"
-                    }
-                    aria-hidden="true"
-                  />
-                  <span>
-                    {q.label}
-                    {q.have ? <span className="ml-2 text-xs font-semibold uppercase text-navy">Have it</span> : null}
-                  </span>
+            <ul className="mt-2 flex flex-col gap-1 text-sm leading-relaxed text-ink">
+              {legendItems.map((item) => (
+                <li key={item.title}>
+                  <span className="font-semibold text-navy">{item.title}</span> &ndash; {item.blurb}
                 </li>
               ))}
             </ul>
           </>
         )}
 
-        {plan.courses.length > 0 && (
-          <>
-            <SectionLabel>Courses to take</SectionLabel>
-            <ul className="mt-2 flex flex-col gap-1.5">
-              {plan.courses.map(({ lesson, href }) => (
-                <li key={lesson.id} className="text-sm text-ink">
-                  <Link href={href} className="font-medium text-navy hover:underline">
-                    {lesson.title}
-                  </Link>
-                  <span className="text-steel"> &middot; {lesson.minutes} min</span>
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
-
-        {plan.goFurther.length > 0 && (
-          <>
-            <SectionLabel>Go further</SectionLabel>
-            <p className="mt-1 text-xs italic text-steel">
-              Beyond what's required to get in the door -- worth understanding deeply to stand out once you're there.
-            </p>
-            <ul className="mt-2 flex flex-col gap-1.5">
-              {plan.goFurther.map(({ concept, href }) => (
-                <li key={concept.id} className="text-sm text-ink">
-                  <Link href={href} className="font-medium text-navy hover:underline">
-                    {concept.title}
-                  </Link>
-                  <span className="text-steel"> &mdash; {concept.definition}</span>
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
-
-        {plan.resumeBullets.length > 0 && (
-          <>
-            <SectionLabel>Resume bullets to use for inspiration</SectionLabel>
-            <ul className="mt-2 flex flex-col gap-1.5">
-              {plan.resumeBullets.map((bullet, i) => (
-                <li key={i} className="text-sm text-ink">
-                  {bullet}
-                </li>
-              ))}
-            </ul>
-            {plan.resumeGuideHref && (
-              <Link href={plan.resumeGuideHref} className="mt-2 inline-block text-sm font-semibold text-navy hover:underline">
-                See the full resume guide &rarr;
-              </Link>
-            )}
-          </>
-        )}
-
-        {(plan.interviewPrepHref || plan.examPrepHref) && (
-          <>
-            <SectionLabel>Keep going</SectionLabel>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {plan.interviewPrepHref && (
-                <Link
-                  href={plan.interviewPrepHref}
-                  className="border border-hairline px-3 py-1.5 text-xs font-semibold text-navy transition-colors hover:border-navy"
-                >
-                  Interview Prep guide &rarr;
-                </Link>
-              )}
-              {plan.examPrepHref && (
-                <Link
-                  href={plan.examPrepHref}
-                  className="border border-hairline px-3 py-1.5 text-xs font-semibold text-navy transition-colors hover:border-navy"
-                >
-                  Exam Prep guide &rarr;
-                </Link>
-              )}
-            </div>
-          </>
-        )}
-
-        <SectionLabel>Your day-by-day plan</SectionLabel>
-        <div className="mt-1 flex flex-wrap items-baseline justify-between gap-2 print:hidden">
-          <p className="text-xs italic text-steel">
-            Checking an item off only lasts while this tab stays open, nothing here saves yet -- full
-            progress-tracking that survives a reload is planned for once accounts exist.
-          </p>
-          {checkedDays.size > 0 && (
-            <p className="shrink-0 text-xs font-semibold uppercase tracking-wide text-navy">
-              {checkedDays.size} of {plan.days.length} done
-            </p>
-          )}
+        <div className="mt-7 flex items-baseline justify-between gap-3">
+          <SectionLabel>Your Personalized Action Plan</SectionLabel>
+          <button
+            type="button"
+            onClick={toggleAllAccordions}
+            className="shrink-0 border border-hairline px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-navy transition-colors hover:border-navy print:hidden"
+          >
+            {accordionToggleLabel}
+          </button>
         </div>
-        <ol className="mt-3 flex flex-col gap-3">
-          {plan.days.map((item, i) => (
-            <li key={i} className="flex gap-3 border-l-2 border-hairline pl-4">
-              <button
-                type="button"
-                onClick={() => toggleDay(i)}
-                className="print:hidden mt-1 h-4 w-4 shrink-0 border border-hairline"
-                aria-pressed={checkedDays.has(i)}
-                aria-label={checkedDays.has(i) ? "Mark not done" : "Mark done"}
-              >
-                {checkedDays.has(i) && <span className="block h-full w-full bg-navy" />}
-              </button>
-              <div className={checkedDays.has(i) ? "opacity-50" : undefined}>
-                <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-clay">
-                  {formatDateRange(item.startDate, item.endDate)}
-                  {item.kind && (
-                    <span className="border border-navy px-1.5 py-0.5 text-navy">
-                      {SKILL_KIND_LABEL[item.kind]}
-                    </span>
-                  )}
-                </p>
-                <p className={`font-medium text-ink ${checkedDays.has(i) ? "line-through" : ""}`}>
-                  {item.href ? (
-                    <Link href={item.href} className="hover:underline">
-                      {item.title}
-                    </Link>
-                  ) : (
-                    <GlossaryText text={item.title} index={glossaryIndex} />
-                  )}
-                </p>
-                <p className="mt-0.5 text-sm text-steel">
-                  <GlossaryText text={item.detail} index={glossaryIndex} />
-                </p>
-              </div>
-            </li>
-          ))}
-        </ol>
 
-        <SectionLabel>Companies worth targeting</SectionLabel>
-        <ul className="mt-2 flex flex-col gap-1.5">
-          {plan.targetEmployerTypes.map((type, i) => (
-            <li key={i} className="text-sm text-ink">
-              {type}
-            </li>
-          ))}
-        </ul>
-        {plan.whereToLook.length > 0 && (
-          <>
-            <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-steel">
-              Where to actually look
-            </p>
-            <ul className="mt-2 flex flex-col gap-1.5">
-              {plan.whereToLook.map((place, i) => (
+        <div ref={accordionContainerRef} className="mt-2 flex flex-col print:hidden">
+          {plan.entryPay && (
+            <ActionPlanAccordionSection title="Pay" teaser={payTeaser} defaultOpen>
+              <p className="text-2xl font-bold text-navy">
+                {formatPay(plan.entryPay.low, plan.entryPay.unit)}&ndash;{formatPay(plan.entryPay.high, plan.entryPay.unit)}
+              </p>
+              <Disclaimer
+                lastReviewed={plan.entryPay.asOf}
+                message={
+                  plan.isEntryRole === false
+                    ? `${plan.careerTitle ?? "This role"} is typically reached through promotion or years of experience in a related role, not a day-one starting point -- this is the lower end of the national wage distribution for people already working in it (${plan.entryPay.source}), not a promise for any one job and not what someone brand new to the field would start at. Real pay varies by state, metro area, union status, and employer, so scale this for your market. Base pay only: overtime and shift differentials are standard across most construction trades.`
+                    : `Entry-level pay from the national wage distribution for this occupation (${plan.entryPay.source}), not a promise for any one job. Real pay varies by state, metro area, union status, and employer, so scale this for your market. Base pay only: overtime and shift differentials are standard across most construction trades.`
+                }
+              />
+            </ActionPlanAccordionSection>
+          )}
+
+          {(plan.qualifications.length > 0 || plan.courses.length > 0 || plan.goFurther.length > 0) && (
+            <ActionPlanAccordionSection title="Qualifications & Courses" teaser={qualificationsTeaser}>
+              {plan.qualifications.length > 0 && (
+                <>
+                  <AccordionSubLabel>Have these ready</AccordionSubLabel>
+                  <ul className="mt-2 flex flex-col gap-1.5">
+                    {plan.qualifications.map((q, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-ink">
+                        <span
+                          className={
+                            q.have
+                              ? "mt-0.5 inline-block h-3 w-3 shrink-0 border border-navy bg-navy"
+                              : "mt-0.5 inline-block h-3 w-3 shrink-0 border border-hairline"
+                          }
+                          aria-hidden="true"
+                        />
+                        <span>
+                          {q.label}
+                          {q.have ? <span className="ml-2 text-xs font-semibold uppercase text-navy">Have it</span> : null}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+
+              {plan.courses.length > 0 && (
+                <>
+                  <AccordionSubLabel>Courses to take</AccordionSubLabel>
+                  <ul className="mt-2 flex flex-col gap-1.5">
+                    {plan.courses.map(({ lesson, href }) => (
+                      <li key={lesson.id} className="text-sm text-ink">
+                        <Link href={href} className="font-medium text-navy hover:underline">
+                          {lesson.title}
+                        </Link>
+                        <span className="text-steel"> &middot; {lesson.minutes} min</span>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+
+              {plan.goFurther.length > 0 && (
+                <>
+                  <AccordionSubLabel>Go further</AccordionSubLabel>
+                  <p className="mt-1 text-xs italic text-steel">
+                    Beyond what's required to get in the door -- worth understanding deeply to stand out once you're there.
+                  </p>
+                  <ul className="mt-2 flex flex-col gap-1.5">
+                    {plan.goFurther.map(({ concept, href }) => (
+                      <li key={concept.id} className="text-sm text-ink">
+                        <Link href={href} className="font-medium text-navy hover:underline">
+                          {concept.title}
+                        </Link>
+                        <span className="text-steel"> &mdash; {concept.definition}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </ActionPlanAccordionSection>
+          )}
+
+          {(plan.resumeBullets.length > 0 || plan.interviewPrepHref || plan.examPrepHref) && (
+            <ActionPlanAccordionSection title="Resume & Interview Prep" teaser={resumePrepTeaser}>
+              {plan.resumeBullets.length > 0 && (
+                <>
+                  <AccordionSubLabel>Resume bullets to use for inspiration</AccordionSubLabel>
+                  <ul className="mt-2 flex flex-col gap-1.5">
+                    {plan.resumeBullets.map((bullet, i) => (
+                      <li key={i} className="text-sm text-ink">
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                  {plan.resumeGuideHref && (
+                    <Link href={plan.resumeGuideHref} className="mt-2 inline-block text-sm font-semibold text-navy hover:underline">
+                      See the full resume guide &rarr;
+                    </Link>
+                  )}
+                </>
+              )}
+
+              {(plan.interviewPrepHref || plan.examPrepHref) && (
+                <>
+                  <AccordionSubLabel>Keep going</AccordionSubLabel>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {plan.interviewPrepHref && (
+                      <Link
+                        href={plan.interviewPrepHref}
+                        className="border border-hairline px-3 py-1.5 text-xs font-semibold text-navy transition-colors hover:border-navy"
+                      >
+                        Interview Prep guide &rarr;
+                      </Link>
+                    )}
+                    {plan.examPrepHref && (
+                      <Link
+                        href={plan.examPrepHref}
+                        className="border border-hairline px-3 py-1.5 text-xs font-semibold text-navy transition-colors hover:border-navy"
+                      >
+                        Exam Prep guide &rarr;
+                      </Link>
+                    )}
+                  </div>
+                </>
+              )}
+            </ActionPlanAccordionSection>
+          )}
+
+          <ActionPlanAccordionSection title="Your Day-by-Day Plan" teaser={dayByDayTeaser}>
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-xs italic text-steel">
+                Checking an item off only lasts while this tab stays open, nothing here saves yet -- full
+                progress-tracking that survives a reload is planned for once accounts exist.
+              </p>
+              {checkedDays.size > 0 && (
+                <p className="shrink-0 text-xs font-semibold uppercase tracking-wide text-navy">
+                  {checkedDays.size} of {plan.days.length} done
+                </p>
+              )}
+            </div>
+            <ol className="mt-3 flex flex-col gap-3">
+              {plan.days.map((item, i) => (
+                <li key={i} className="flex gap-3 border-l-2 border-hairline pl-4">
+                  <button
+                    type="button"
+                    onClick={() => toggleDay(i)}
+                    className="print:hidden mt-1 h-4 w-4 shrink-0 border border-hairline"
+                    aria-pressed={checkedDays.has(i)}
+                    aria-label={checkedDays.has(i) ? "Mark not done" : "Mark done"}
+                  >
+                    {checkedDays.has(i) && <span className="block h-full w-full bg-navy" />}
+                  </button>
+                  <div className={checkedDays.has(i) ? "opacity-50" : undefined}>
+                    <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-clay">
+                      {formatDateRange(item.startDate, item.endDate)}
+                      {item.kind && (
+                        <span className="border border-navy px-1.5 py-0.5 text-navy">
+                          {SKILL_KIND_LABEL[item.kind]}
+                        </span>
+                      )}
+                    </p>
+                    <p className={`font-medium text-ink ${checkedDays.has(i) ? "line-through" : ""}`}>
+                      {item.href ? (
+                        <Link href={item.href} className="hover:underline">
+                          {item.title}
+                        </Link>
+                      ) : (
+                        <GlossaryText text={item.title} index={glossaryIndex} />
+                      )}
+                    </p>
+                    <p className="mt-0.5 text-sm text-steel">
+                      <GlossaryText text={item.detail} index={glossaryIndex} />
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </ActionPlanAccordionSection>
+
+          {(plan.targetEmployerTypes.length > 0 || plan.whereToLook.length > 0 || plan.jobBoardLinks.length > 0) && (
+            <ActionPlanAccordionSection title="Where to Find Openings" teaser={findOpeningsTeaser}>
+              {plan.targetEmployerTypes.length > 0 && (
+                <>
+                  <AccordionSubLabel>Companies worth targeting</AccordionSubLabel>
+                  <ul className="mt-2 flex flex-col gap-1.5">
+                    {plan.targetEmployerTypes.map((type, i) => (
+                      <li key={i} className="text-sm text-ink">
+                        {type}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+              {plan.whereToLook.length > 0 && (
+                <>
+                  <AccordionSubLabel>Where to actually look</AccordionSubLabel>
+                  <ul className="mt-2 flex flex-col gap-1.5">
+                    {plan.whereToLook.map((place, i) => (
+                      <li key={i} className="text-sm text-ink">
+                        {place}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+              {plan.jobBoardLinks.length > 0 && location.trim() && (
+                <LiveJobResults trade={plan.careerTitle ?? plan.category} location={location} entryPay={plan.entryPay} />
+              )}
+              {plan.jobBoardLinks.length > 0 && (
+                <>
+                  <AccordionSubLabel>Or search these yourself</AccordionSubLabel>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {plan.jobBoardLinks.map((link) => (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="border border-hairline px-3 py-1.5 text-xs font-semibold text-navy transition-colors hover:border-navy"
+                      >
+                        {link.label} &rarr;
+                      </a>
+                    ))}
+                  </div>
+                </>
+              )}
+            </ActionPlanAccordionSection>
+          )}
+
+          <ActionPlanAccordionSection title="Reach Out to Recruiters & Hiring Managers" teaser={outreachTeaser}>
+            <ul className="flex flex-col gap-1.5">
+              {plan.recruiterOutreach.tips.map((tip, i) => (
                 <li key={i} className="text-sm text-ink">
-                  {place}
+                  {tip}
                 </li>
               ))}
             </ul>
-          </>
-        )}
-        {plan.jobBoardLinks.length > 0 && location.trim() && (
-          <LiveJobResults trade={plan.careerTitle ?? plan.category} location={location} entryPay={plan.entryPay} />
-        )}
-        {plan.jobBoardLinks.length > 0 && (
-          <div className="mt-6 print:hidden">
-            <p className="text-xs font-semibold uppercase tracking-wide text-steel">Or search these yourself</p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {plan.jobBoardLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border border-hairline px-3 py-1.5 text-xs font-semibold text-navy transition-colors hover:border-navy"
-                >
-                  {link.label} &rarr;
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
-
-        <SectionLabel>Reaching out to recruiters and hiring managers</SectionLabel>
-        <ul className="mt-2 flex flex-col gap-1.5">
-          {plan.recruiterOutreach.tips.map((tip, i) => (
-            <li key={i} className="text-sm text-ink">
-              {tip}
-            </li>
-          ))}
-        </ul>
-        <TemplateBlock label="Email template" text={plan.recruiterOutreach.emailTemplate} />
-        <TemplateBlock label="LinkedIn message template" text={plan.recruiterOutreach.linkedinTemplate} />
-        <TemplateBlock label="Follow-up template" text={plan.recruiterOutreach.followUpTemplate} />
+            <TemplateBlock label="Email template" text={plan.recruiterOutreach.emailTemplate} />
+            <TemplateBlock label="LinkedIn message template" text={plan.recruiterOutreach.linkedinTemplate} />
+            <TemplateBlock label="Follow-up template" text={plan.recruiterOutreach.followUpTemplate} />
+          </ActionPlanAccordionSection>
+        </div>
 
         <div className="mt-8 border border-amber bg-amber-soft/40 px-4 py-3 print:hidden">
           <p className="text-xs font-semibold uppercase tracking-wide text-clay">A plan, not a promise</p>
