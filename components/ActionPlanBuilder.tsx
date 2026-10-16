@@ -1,11 +1,12 @@
 "use client";
 
-// The action-plan generator's intake form and result screen. Pure
-// client-side: no accounts, no database, no network call beyond the page
-// load that already happened -- generation itself is lib/action-plan-
+// The action-plan generator's intake form and result screen. Still no
+// accounts, no database, generation itself is lib/action-plan-
 // generator.ts's buildActionPlan() running on data this component already
-// has in memory. Per the build-sequencing decision, a generated plan
-// lives only in this component's state (plus, for the day-by-day
+// has in memory. The one exception is LiveJobResults below, which makes
+// its own client-side call to /api/jobs for live listings -- everything
+// else here stays exactly as before: no network call, and a generated
+// plan lives only in this component's state (plus, for the day-by-day
 // checkboxes, nothing persisted at all) -- closing the tab loses it, and
 // that's a known, intentional tradeoff for this phase, not a bug.
 import { useMemo, useState } from "react";
@@ -20,6 +21,7 @@ import {
 } from "@/lib/action-plan-generator";
 import { buildIcs, downloadIcs } from "@/lib/ics";
 import { ActionPlanPrintCalendar } from "@/components/ActionPlanPrintCalendar";
+import { LiveJobResults } from "@/components/LiveJobResults";
 import { Disclaimer } from "@/components/Disclaimer";
 import { GlossaryText, buildGlossaryIndex } from "@/components/GlossaryText";
 import type { ActionPlan, GetHired, ResumeGuide } from "@/lib/types";
@@ -437,19 +439,25 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
             </ul>
           </>
         )}
+        {plan.jobBoardLinks.length > 0 && location.trim() && (
+          <LiveJobResults trade={plan.careerTitle ?? plan.category} location={location} entryPay={plan.entryPay} />
+        )}
         {plan.jobBoardLinks.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-2 print:hidden">
-            {plan.jobBoardLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-hairline px-3 py-1.5 text-xs font-semibold text-navy transition-colors hover:border-navy"
-              >
-                {link.label} &rarr;
-              </a>
-            ))}
+          <div className="mt-6 print:hidden">
+            <p className="text-xs font-semibold uppercase tracking-wide text-steel">Or search these yourself</p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {plan.jobBoardLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border border-hairline px-3 py-1.5 text-xs font-semibold text-navy transition-colors hover:border-navy"
+                >
+                  {link.label} &rarr;
+                </a>
+              ))}
+            </div>
           </div>
         )}
 
