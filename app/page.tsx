@@ -73,7 +73,11 @@ const PATH_OPTIONS = [
 ];
 
 export default function HomePage() {
-  const { careers, phases, software } = getAllContent();
+  const { careers, concepts, phases, software } = getAllContent();
+  // Floor to the nearest hundred so the homepage stat never overclaims as
+  // the glossary grows past a round number mid-batch (see chat: the
+  // "number lead" hero rework, 2026-10-16).
+  const roundedConceptCount = Math.floor(concepts.length / 100) * 100;
 
   return (
     <div>
@@ -82,14 +86,15 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 py-14 md:grid-cols-[1.1fr_0.9fr] md:py-16">
           <div>
             <h1 className="font-display text-4xl font-bold leading-[1.05] text-ink md:text-5xl">
-              Every building you've ever stood in started with someone's first day on a
-              jobsite.
+              <span className="text-amber">{careers.length}</span> careers.{" "}
+              <span className="text-amber">{roundedConceptCount}+</span> concepts. One
+              connected map of how construction actually works.
             </h1>
             <p className="mt-4 max-w-[46ch] text-lg leading-relaxed text-ink">
-              You already know more about construction than you think, you just don't have
-              the vocabulary yet. BreakGroundU teaches you the real careers, the terms people actually
-              use on a jobsite, and the concepts that build your foundation, so you walk in
-              already speaking the language.
+              Every career links to the concepts, software, and certifications it actually
+              touches, and those link right back. Give it twenty minutes and you'll walk
+              away with more real jobsite vocabulary than most people pick up in a summer
+              on site.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
@@ -108,6 +113,41 @@ export default function HomePage() {
           </div>
           <div className="flex justify-center">
             <HeroSlideshow />
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- what you walk away with (moved directly under the
+          hero, see chat: the proof backing the headline's numbers should
+          be one scroll away, not four) ---------- */}
+      <section className="border-b border-hairline">
+        <div className="mx-auto max-w-6xl px-6 py-12">
+          <p className="mb-2 flex items-center gap-2.5 text-xs font-semibold uppercase tracking-wide text-navy">
+            <span aria-hidden="true" className="h-px w-5 bg-navy" />
+            Why BreakGroundU
+          </p>
+          <h2 className="font-display text-2xl font-bold text-ink">What you walk away with</h2>
+          <p className="mt-2 max-w-[60ch] text-steel">
+            This isn't generic career advice. It's built the way the industry actually talks,
+            so the time you spend here is time that actually transfers.
+          </p>
+          <div className="mt-7 grid grid-cols-1 gap-5 md:grid-cols-3">
+            <Benefit icon={BenefitIconHelmet} title="The real language, not a textbook version">
+              Every term, tool, and certification here ties back to what OSHA, the PMI, NCCCO,
+              and the people on an actual jobsite call it, not a simplified stand-in. Walk into
+              an interview or a first day already speaking the language instead of catching up
+              for six months.
+            </Benefit>
+            <Benefit icon={BenefitIconNetwork} title="Everything connects, so it actually sticks">
+              A career links to the concepts and software it touches, and those link right back.
+              You're not memorizing a glossary, you're building the same mental map someone with
+              five years in the field already carries around, just faster.
+            </Benefit>
+            <Benefit icon={BenefitIconCompass} title="Find out before you commit to anything">
+              No tuition, no application, no quitting a job to "try it out" first. Explore a
+              dozen careers in an evening and find out which one actually fits before you spend
+              real time or money finding out the hard way.
+            </Benefit>
           </div>
         </div>
       </section>
@@ -193,38 +233,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ---------- what you walk away with ---------- */}
-      <section>
-        <div className="mx-auto max-w-6xl px-6 py-12">
-          <p className="mb-2 flex items-center gap-2.5 text-xs font-semibold uppercase tracking-wide text-navy">
-            <span aria-hidden="true" className="h-px w-5 bg-navy" />
-            Why BreakGroundU
-          </p>
-          <h2 className="font-display text-2xl font-bold text-ink">What you walk away with</h2>
-          <p className="mt-2 max-w-[60ch] text-steel">
-            This isn't generic career advice. It's built the way the industry actually talks,
-            so the time you spend here is time that actually transfers.
-          </p>
-          <div className="mt-7 grid grid-cols-1 gap-5 md:grid-cols-3">
-            <Benefit icon={BenefitIconHelmet} title="The real language, not a textbook version">
-              Every term, tool, and certification here ties back to what OSHA, the PMI, NCCCO,
-              and the people on an actual jobsite call it, not a simplified stand-in. Walk into
-              an interview or a first day already speaking the language instead of catching up
-              for six months.
-            </Benefit>
-            <Benefit icon={BenefitIconNetwork} title="Everything connects, so it actually sticks">
-              A career links to the concepts and software it touches, and those link right back.
-              You're not memorizing a glossary, you're building the same mental map someone with
-              five years in the field already carries around, just faster.
-            </Benefit>
-            <Benefit icon={BenefitIconCompass} title="Find out before you commit to anything">
-              No tuition, no application, no quitting a job to "try it out" first. Explore a
-              dozen careers in an evening and find out which one actually fits before you spend
-              real time or money finding out the hard way.
-            </Benefit>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
