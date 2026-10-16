@@ -124,7 +124,7 @@ export function Header({
           <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
             <button
               onClick={() => toggle("careers")}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 text-[0.96rem] font-medium ${
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 text-[1.02rem] font-semibold ${
                 openMenu === "careers" ? "text-navy" : "text-ink hover:text-navy"
               }`}
               aria-expanded={openMenu === "careers"}
@@ -171,7 +171,7 @@ export function Header({
           <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
             <button
               onClick={() => toggle("concepts")}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 text-[0.96rem] font-medium ${
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 text-[1.02rem] font-semibold ${
                 openMenu === "concepts" ? "text-navy" : "text-ink hover:text-navy"
               }`}
               aria-expanded={openMenu === "concepts"}
@@ -215,12 +215,12 @@ export function Header({
             )}
           </div>
 
-          <Link href="/lessons" className="whitespace-nowrap px-3 py-2 text-[0.96rem] font-medium text-ink hover:text-navy">
+          <Link href="/lessons" className="whitespace-nowrap px-3 py-2 text-[1.02rem] font-semibold text-ink hover:text-navy">
             Lessons
           </Link>
 
           {midLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="whitespace-nowrap px-3 py-2 text-[0.96rem] font-medium text-ink hover:text-navy">
+            <Link key={link.href} href={link.href} className="whitespace-nowrap px-3 py-2 text-[1.02rem] font-semibold text-ink hover:text-navy">
               {link.label}
             </Link>
           ))}
@@ -228,7 +228,7 @@ export function Header({
           <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
             <button
               onClick={() => toggle("gethired")}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 text-[0.96rem] font-medium ${
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 text-[1.02rem] font-semibold ${
                 openMenu === "gethired" ? "text-navy" : "text-ink hover:text-navy"
               }`}
               aria-expanded={openMenu === "gethired"}
@@ -272,7 +272,7 @@ export function Header({
           <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
             <button
               onClick={() => toggle("resources")}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 text-[0.96rem] font-medium ${
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 text-[1.02rem] font-semibold ${
                 openMenu === "resources" ? "text-navy" : "text-ink hover:text-navy"
               }`}
               aria-expanded={openMenu === "resources"}
