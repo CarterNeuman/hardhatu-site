@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { getAllContent } from "@/lib/content";
+import { getAllContent, stripWikiLinks, urlFor } from "@/lib/content";
 import { Icon } from "@/components/Icon";
 import { CATEGORY_SLUG } from "@/components/Header";
 import { HeroSlideshow } from "@/components/HeroSlideshow";
+import { SiteSearch, type SearchItem } from "@/components/SiteSearch";
 
 const LEARN_SECTIONS = [
   {
@@ -73,11 +74,43 @@ const PATH_OPTIONS = [
 ];
 
 export default function HomePage() {
-  const { careers, concepts, phases, software } = getAllContent();
+  const { careers, concepts, phases, software, lessons, exams, interviews } = getAllContent();
   // Floor to the nearest hundred so the homepage stat never overclaims as
   // the glossary grows past a round number mid-batch (see chat: the
   // "number lead" hero rework, 2026-10-16).
   const roundedConceptCount = Math.floor(concepts.length / 100) * 100;
+
+  // One flattened list across every real content type, for the hero's
+  // sitewide search (see chat: 2026-10-16). Each type's own index page
+  // already picks a short "description" field per type for its cards
+  // (career -> tagline, concept -> definition, etc.); this reuses exactly
+  // those same fields so a search result reads the same way its own
+  // listing page already does.
+  const searchItems: SearchItem[] = [
+    ...careers.map((c) => ({ id: c.id, title: c.title, description: c.tagline, type: "career" as const, href: urlFor(c) })),
+    ...concepts.map((c) => ({ id: c.id, title: c.title, description: c.definition, type: "concept" as const, href: urlFor(c) })),
+    ...lessons.map((l) => {
+      const firstParagraph =
+        stripWikiLinks(l.sections[0]?.content ?? "").split(/\n\s*\n/)[0]?.trim() ?? "";
+      return {
+        id: l.id,
+        title: l.title,
+        description: `${l.minutes} min: ${firstParagraph}`,
+        type: "lesson" as const,
+        href: urlFor(l),
+      };
+    }),
+    ...software.map((s) => ({ id: s.id, title: s.title, description: s.whatItIs, type: "software" as const, href: urlFor(s) })),
+    ...exams.map((e) => ({ id: e.id, title: e.title, description: e.tagline, type: "exam" as const, href: urlFor(e) })),
+    ...interviews.map((i) => ({ id: i.id, title: i.title, description: i.tagline, type: "interview" as const, href: urlFor(i) })),
+    ...phases.map((p) => ({
+      id: p.id,
+      title: p.title,
+      description: stripWikiLinks(p.whatHappens).slice(0, 140),
+      type: "phase" as const,
+      href: urlFor(p),
+    })),
+  ];
 
   return (
     <div>
@@ -110,6 +143,7 @@ export default function HomePage() {
                 Learn the Terms
               </Link>
             </div>
+            <SiteSearch items={searchItems} />
           </div>
           <div className="flex justify-center">
             <HeroSlideshow />
