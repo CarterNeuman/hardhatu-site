@@ -4,6 +4,7 @@ title: "Expert Witness (Construction Litigation)"
 category: "Consultants & Advisory"
 tagline: Provides expert opinion testimony in a construction dispute, a role courts qualify case by case rather than one with its own license, though the underlying opinion sometimes requires one.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

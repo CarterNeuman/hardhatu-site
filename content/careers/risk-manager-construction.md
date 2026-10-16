@@ -4,6 +4,7 @@ title: Risk Manager
 category: "Business"
 tagline: Owns a contracting company's own insurance and risk program, the contractor's-side counterpart to the insurance industry careers this site otherwise only covers from the claims side.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

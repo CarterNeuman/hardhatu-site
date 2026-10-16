@@ -4,6 +4,7 @@ title: Restoration Project Manager
 category: "Specialized Construction"
 tagline: Runs the actual rebuild after property damage, the project management counterpart to the estimators and adjusters who scope and price the claim.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

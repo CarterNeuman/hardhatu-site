@@ -4,6 +4,7 @@ title: Safety Manager
 category: "Project & Operations"
 tagline: Owns the jobsite's safety program, training, inspections, and incident tracking, on projects large enough to need a dedicated safety role beyond what the superintendent handles day to day.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

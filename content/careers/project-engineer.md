@@ -4,6 +4,7 @@ title: Project Engineer
 category: "Project & Operations"
 tagline: The project management team's problem-solver and paperwork owner, the entry point into a Project Manager career for most people who don't come up through the trades.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

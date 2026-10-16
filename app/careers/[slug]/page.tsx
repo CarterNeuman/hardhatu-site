@@ -10,6 +10,7 @@ import { ContentPhoto } from "@/components/ContentPhoto";
 import { PayTimeline } from "@/components/PayTimeline";
 import { Disclaimer } from "@/components/Disclaimer";
 import { Callout } from "@/components/Callout";
+import { CareerEntryBadge } from "@/components/CareerEntryBadge";
 
 export function generateStaticParams() {
   const { careers } = getAllContent();
@@ -45,7 +46,10 @@ export default async function CareerPage({
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-10">
-      <TypeBadge type="career" tier={career.tier} />
+      <div className="flex items-center gap-2">
+        <TypeBadge type="career" tier={career.tier} />
+        {career.isEntryRole && <CareerEntryBadge />}
+      </div>
       <h1 className="mt-2 font-display text-4xl font-bold text-ink">{career.title}</h1>
       <p className="mt-1 text-xs uppercase tracking-wide text-steel">{career.category}</p>
       <p className="mt-2 text-lg text-steel">{career.tagline}</p>
@@ -105,10 +109,14 @@ export default async function CareerPage({
       {career.payTimeline && (
         <>
           <SectionLabel>Pay expectations</SectionLabel>
-          <PayTimeline payTimeline={career.payTimeline} />
+          <PayTimeline payTimeline={career.payTimeline} isEntryRole={career.isEntryRole} />
           <Disclaimer
             lastReviewed={career.payTimeline.asOf}
-            message="Pay reflects the national wage distribution for this occupation, not a promise for any one job: entry level is the lower part of that range, 5 years in sits around the national median, and 10 years in is the upper part, since pay isn't actually tracked by years on the job. Real pay varies a lot by state, metro area, union status, and employer — scale these up or down for your market. These figures are base pay only: overtime, shift differentials, and per-project bonuses are standard across most construction trades and routinely push real earnings above what's shown here."
+            message={
+              career.isEntryRole
+                ? "Pay reflects the national wage distribution for this occupation, not a promise for any one job: entry level is the lower part of that range, 5 years in sits around the national median, and 10 years in is the upper part, since pay isn't actually tracked by years on the job. Real pay varies a lot by state, metro area, union status, and employer, so scale these up or down for your market. These figures are base pay only: overtime, shift differentials, and per-project bonuses are standard across most construction trades and routinely push real earnings above what's shown here."
+                : `${career.title} is typically reached through promotion or years of experience in a related role, not a day-one starting point, so this chart shows the pay range for people already working as a ${career.title} rather than entry-level pay. "Lower range" is the lower part of the national wage distribution for this occupation, "typical" sits around the national median, and "top of scale" is the upper part, since pay isn't actually tracked by years on the job. Real pay varies a lot by state, metro area, union status, and employer, so scale these up or down for your market.`
+            }
           />
           {career.ownerPayNote && (
             <Callout

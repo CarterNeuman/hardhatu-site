@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { ContentCard } from "./ContentCard";
+import { CareerEntryBadge } from "./CareerEntryBadge";
 import { CategorySection } from "./CategorySection";
 import { CATEGORY_SLUG } from "./Header";
 import { slugifyCategory } from "@/lib/content-client";
@@ -110,7 +111,12 @@ export function CareerExplorer({
           {filtered.length > 0 ? (
             <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {filtered.map((career) => (
-                <ContentCard key={career.id} item={career} description={career.tagline} />
+                <ContentCard
+                  key={career.id}
+                  item={career}
+                  description={career.tagline}
+                  badge={career.isEntryRole ? <CareerEntryBadge /> : undefined}
+                />
               ))}
             </div>
           ) : (
@@ -129,7 +135,12 @@ export function CareerExplorer({
             collapsible
           >
             {group.items.map((career) => (
-              <ContentCard key={career.id} item={career} description={career.tagline} />
+              <ContentCard
+                key={career.id}
+                item={career}
+                description={career.tagline}
+                badge={career.isEntryRole ? <CareerEntryBadge /> : undefined}
+              />
             ))}
           </CategorySection>
         ))

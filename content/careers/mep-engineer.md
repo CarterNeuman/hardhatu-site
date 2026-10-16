@@ -4,6 +4,7 @@ title: MEP Engineer
 category: "Technology & Design"
 tagline: Designs the mechanical, electrical, and plumbing systems that make a building livable, work behind three of the site's most concept-dense trades with no design-side career representing any of them until now.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

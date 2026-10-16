@@ -4,6 +4,7 @@ title: BIM/VDC Specialist
 category: "Technology & Design"
 tagline: Builds the 3D digital model of a project before it's built, so conflicts between trades get caught on a screen instead of on the jobsite.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

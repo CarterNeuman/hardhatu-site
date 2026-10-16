@@ -4,6 +4,7 @@ title: Assistant Project Manager
 category: "Project & Operations"
 tagline: The step between Project Engineer and Project Manager, carrying real ownership of pieces of the budget and schedule instead of just documenting them.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

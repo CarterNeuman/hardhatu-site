@@ -4,6 +4,7 @@ title: Surveyor
 category: "Technology & Design"
 tagline: Establishes the exact boundaries, elevations, and reference points a project gets built against, the one role where being off by an inch can mean a building in the wrong place.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

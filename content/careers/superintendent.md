@@ -4,6 +4,7 @@ title: Superintendent
 category: "Project & Operations"
 tagline: Runs the jobsite day-to-day so the schedule, the safety, and the actual sequence of work all hold together.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

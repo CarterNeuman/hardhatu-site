@@ -4,6 +4,7 @@ title: Construction Claims Consultant
 category: "Consultants & Advisory"
 tagline: Gets brought in when a project dispute is heading toward, or already in, a legal claim, to untangle what actually happened and what it's worth.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

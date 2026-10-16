@@ -4,6 +4,7 @@ title: Heavy Civil Estimator
 category: "Preconstruction & Estimating"
 tagline: Estimates earthwork, utilities, and infrastructure work using an entirely different cost basis than pricing a building, opening the door to a whole side of the industry this site hadn't represented yet.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

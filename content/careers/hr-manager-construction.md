@@ -4,6 +4,7 @@ title: "Human Resources Manager (Construction)"
 category: "Business"
 tagline: Handles hiring, employee relations, and compliance for a construction company's workforce, with construction-specific wrinkles a general HR role doesn't have to deal with.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

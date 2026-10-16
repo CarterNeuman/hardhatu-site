@@ -4,6 +4,7 @@ title: Contracts Administrator
 category: "Business"
 tagline: Manages the paperwork that makes every relationship on a project legally enforceable, the prime contract, every subcontract, and every change to either.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

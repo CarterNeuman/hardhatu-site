@@ -4,6 +4,7 @@ title: "Sustainability / LEED Consultant"
 category: "Consultants & Advisory"
 tagline: Guides a project through green building certification, most often LEED, managing the credits, documentation, and coordination that turn a design intent into a certified building.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

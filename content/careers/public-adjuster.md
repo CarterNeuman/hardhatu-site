@@ -4,6 +4,7 @@ title: Public Adjuster
 category: "Insurance & Claims"
 tagline: Works for the policyholder, not the insurance company, the mirror image of the Insurance Adjuster role, hired to make sure a property owner's claim gets full and fair value.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

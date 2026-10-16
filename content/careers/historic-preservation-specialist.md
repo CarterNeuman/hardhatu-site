@@ -4,6 +4,7 @@ title: Historic Preservation Specialist
 category: "Specialized Construction"
 tagline: Makes sure a landmark or historic building gets restored the right way rather than just the fast way, pairing with a Restoration Project Manager but for buildings where the standards are legal, not just practical.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

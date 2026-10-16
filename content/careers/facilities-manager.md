@@ -4,6 +4,7 @@ title: Facilities Manager
 category: "Specialized Construction"
 tagline: Keeps a building running well after the construction crew leaves, maintenance, repairs, and the small renovation projects that never really stop.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

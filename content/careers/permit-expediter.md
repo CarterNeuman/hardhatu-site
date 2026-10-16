@@ -4,6 +4,7 @@ title: Permit Expediter
 category: "Consultants & Advisory"
 tagline: Navigates building permits, plan review, and zoning approvals on an owner's or GC's behalf, a specialized, low-visibility career built for someone detail-oriented who'd rather not work a jobsite.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

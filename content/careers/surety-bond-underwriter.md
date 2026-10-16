@@ -4,6 +4,7 @@ title: Surety Bond Underwriter
 category: "Insurance & Claims"
 tagline: Decides whether a contractor gets bonded at all, sitting behind every bid bond and performance bond this site already teaches without a career to represent it.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

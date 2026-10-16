@@ -4,6 +4,7 @@ title: Cost Engineer
 category: "Preconstruction & Estimating"
 tagline: Tracks and forecasts a project's cost all the way through construction, not just at the bid, the estimator's counterpart for the life of the job rather than just its start.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

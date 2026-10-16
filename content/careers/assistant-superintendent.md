@@ -4,6 +4,7 @@ title: Assistant Superintendent
 category: "Project & Operations"
 tagline: Runs the field alongside the Superintendent, the natural next step for someone who wants to manage a jobsite rather than move into the office.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

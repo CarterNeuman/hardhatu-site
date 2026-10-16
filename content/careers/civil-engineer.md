@@ -4,6 +4,7 @@ title: Civil Engineer
 category: "Technology & Design"
 tagline: Designs the grading, drainage, and utility systems that make a site buildable before anyone can pour a foundation, the single biggest missing career on a site full of concepts that assume this role exists.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

@@ -4,6 +4,7 @@ title: Quality Control Manager
 category: "Project & Operations"
 tagline: Makes sure the finished work actually matches the contract specifications, the counterpart to a Safety Manager, protecting the project instead of the people.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

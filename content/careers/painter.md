@@ -4,6 +4,7 @@ title: Painter
 category: "Field & Trades"
 tagline: Applies the finish coat that's the most visible part of almost every building, and, on older buildings, has to know exactly what's under that old paint before touching it.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

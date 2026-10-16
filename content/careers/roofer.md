@@ -4,6 +4,7 @@ title: Roofer
 category: "Field & Trades"
 tagline: Installs and repairs the one system every building depends on to keep water out, physically demanding work done almost entirely outdoors, at height.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

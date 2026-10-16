@@ -4,6 +4,7 @@ title: Electrician
 category: "Field & Trades"
 tagline: Installs and wires the systems that bring power, light, and data into a building, and keeps them from becoming a fire hazard.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

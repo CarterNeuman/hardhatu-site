@@ -4,6 +4,7 @@ title: Elevator & Escalator Technician
 category: "Field & Trades"
 tagline: Installs, maintains, and repairs the elevators and escalators that move people and freight through a building, one of the highest-paid trades most newcomers have never heard of.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

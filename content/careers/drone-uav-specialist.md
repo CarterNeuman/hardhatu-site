@@ -4,6 +4,7 @@ title: Drone/UAV Specialist
 category: "Technology & Design"
 tagline: Flies drones to capture aerial imagery, topographic data, and progress documentation for a project, one of the few construction roles with a hard federal license requirement.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

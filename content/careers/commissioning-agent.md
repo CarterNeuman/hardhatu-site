@@ -4,6 +4,7 @@ title: Commissioning Agent
 category: "Consultants & Advisory"
 tagline: Independently verifies that a building's MEP systems actually work as designed before turnover, distinct from QA/QC and unrepresented on this site despite commissioning existing as a concept since the original build.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

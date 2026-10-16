@@ -4,6 +4,7 @@ title: Construction Technology Manager
 category: "Technology & Design"
 tagline: Oversees BIM, drone, and software rollout across a whole company, the director-level counterpart to the hands-on specialists who execute technology on a single project.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

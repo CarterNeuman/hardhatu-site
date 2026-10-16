@@ -4,6 +4,7 @@ title: Builder's Risk Underwriter
 category: "Insurance & Claims"
 tagline: Decides what a builder's risk policy actually covers before a loss ever happens, the underwriting side of insurance this site had only ever covered from the claims side.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

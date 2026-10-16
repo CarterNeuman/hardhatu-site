@@ -4,6 +4,7 @@ title: Insurance Adjuster (Property/Casualty)
 category: "Insurance & Claims"
 tagline: Investigates property damage claims and decides what the insurance company will actually pay to fix it.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

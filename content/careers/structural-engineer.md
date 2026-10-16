@@ -4,6 +4,7 @@ title: Structural Engineer
 category: "Technology & Design"
 tagline: Designs the structural steel, concrete, and foundation systems that keep a building standing, pairing with the trades that actually build what the drawings specify.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

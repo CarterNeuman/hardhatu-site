@@ -4,6 +4,7 @@ title: Bid Coordinator
 category: "Preconstruction & Estimating"
 tagline: Manages the logistics of getting a bid out the door on time, a realistic first job for someone interested in estimating who isn't ready to price a project yet.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

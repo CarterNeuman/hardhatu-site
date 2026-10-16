@@ -31,6 +31,12 @@ export type SlimCareer = {
   title: string;
   slug: string;
   entryPay?: { low: number; high: number; unit: "annual" | "hourly"; source: string; asOf: string };
+  // Carried straight through from the career's own `isEntryRole` field
+  // (see CareerSchema in lib/types.ts) -- whether entryPay above is
+  // actual day-one pay or just the lower end of a role normally reached
+  // through promotion. See the "What you can expect to earn" section
+  // below for where this changes the copy.
+  isEntryRole?: boolean;
 };
 export type SlimLesson = { id: string; slug: string; title: string; minutes: number };
 export type SlimConcept = { id: string; slug: string; title: string; definition: string };
@@ -255,13 +261,19 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
 
         {plan.entryPay && (
           <>
-            <SectionLabel>What you can expect to earn starting out</SectionLabel>
+            <SectionLabel>
+              {plan.isEntryRole === false ? "What this role pays" : "What you can expect to earn starting out"}
+            </SectionLabel>
             <p className="mt-2 text-2xl font-bold text-navy">
               {formatPay(plan.entryPay.low, plan.entryPay.unit)}&ndash;{formatPay(plan.entryPay.high, plan.entryPay.unit)}
             </p>
             <Disclaimer
               lastReviewed={plan.entryPay.asOf}
-              message={`Entry-level pay from the national wage distribution for this occupation (${plan.entryPay.source}), not a promise for any one job. Real pay varies by state, metro area, union status, and employer -- scale this for your market. Base pay only: overtime and shift differentials are standard across most construction trades.`}
+              message={
+                plan.isEntryRole === false
+                  ? `${plan.careerTitle ?? "This role"} is typically reached through promotion or years of experience in a related role, not a day-one starting point -- this is the lower end of the national wage distribution for people already working in it (${plan.entryPay.source}), not a promise for any one job and not what someone brand new to the field would start at. Real pay varies by state, metro area, union status, and employer, so scale this for your market. Base pay only: overtime and shift differentials are standard across most construction trades.`
+                  : `Entry-level pay from the national wage distribution for this occupation (${plan.entryPay.source}), not a promise for any one job. Real pay varies by state, metro area, union status, and employer, so scale this for your market. Base pay only: overtime and shift differentials are standard across most construction trades.`
+              }
             />
           </>
         )}

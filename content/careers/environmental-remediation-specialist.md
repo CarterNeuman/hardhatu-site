@@ -4,6 +4,7 @@ title: Environmental/Remediation Specialist
 category: "Specialized Construction"
 tagline: Manages hazardous materials on a construction or demolition site, lead paint, asbestos, contaminated soil, where which certification is legally required depends entirely on which hazard is actually involved.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

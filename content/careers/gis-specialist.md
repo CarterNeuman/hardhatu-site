@@ -4,6 +4,7 @@ title: GIS Specialist
 category: "Technology & Design"
 tagline: Works with the spatial data a Surveyor and Drone/UAV Specialist collect, turning raw location data into the maps and analysis a project actually uses.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

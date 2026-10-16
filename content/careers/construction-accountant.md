@@ -4,6 +4,7 @@ title: Construction Accountant
 category: "Business"
 tagline: Tracks the money on a job, job costing, retention, work-in-progress reporting, using accounting methods that look nothing like a typical retail or service business's books.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

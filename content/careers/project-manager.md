@@ -4,6 +4,7 @@ title: Project Manager
 category: "Project & Operations"
 tagline: Runs the business side of a construction project so the people building it can focus on building it.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

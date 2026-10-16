@@ -4,6 +4,7 @@ title: CAD Technician
 category: "Technology & Design"
 tagline: Turns a designer's or engineer's sketch and markup into a precise, buildable drawing, often the fastest way into the design side of construction without an architecture or engineering degree.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

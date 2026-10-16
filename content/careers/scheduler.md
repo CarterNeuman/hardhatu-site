@@ -4,6 +4,7 @@ title: Scheduler
 category: "Project & Operations"
 tagline: Builds and maintains the project schedule everyone else's work depends on, the person who can tell you exactly what happens if today's delay ripples forward.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

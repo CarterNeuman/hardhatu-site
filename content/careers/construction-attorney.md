@@ -4,6 +4,7 @@ title: Construction Attorney
 category: "Business"
 tagline: Handles the contract disputes, lien claims, and bond claims that show up throughout a project, the legal career path most newcomers never realize sits behind half the vocabulary on this site.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

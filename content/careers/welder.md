@@ -4,6 +4,7 @@ title: Welder
 category: "Field & Trades"
 tagline: Joins metal components with heat and pressure, and for structural work, has to prove it on a certification test before being allowed to do it on a real building.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

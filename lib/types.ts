@@ -53,6 +53,29 @@ export const CareerSchema = z.object({
     .optional(),
   progression: z.array(z.string()).default([]),
   hirerTypes: z.array(z.string()).default([]),
+  // Whether this career is a day-one entry point -- someone with zero
+  // prior construction/industry experience can start here (a trade
+  // apprenticeship, or an office/field role whose own progression[0] is
+  // the career's own title). Drives the "Entry" badge on career cards and
+  // the career detail page, and relabels the pay-expectations chart and
+  // the Action Plan's "what you can expect to earn" copy: a career where
+  // this is false is normally *reached* through promotion from something
+  // else, so its own payTimeline.entry band is pay for the promotion, not
+  // pay for someone brand new to the field -- the chart and copy should
+  // say "lower / typical / top of scale" rather than imply day-one pay.
+  // No default and required on every career on purpose, so adding a new
+  // career forces an explicit, considered answer instead of silently
+  // inheriting a guess. Classification rule used across the existing 78
+  // careers: true for every Field & Trades career (the apprenticeship
+  // phase requires no prior experience, even though it has its own title
+  // on the progression ladder) and for any career outside the trades
+  // whose own progression[0] is an exact match to its own title (e.g. Bid
+  // Coordinator, CAD Technician, Document Control Specialist, Project
+  // Engineer); false otherwise, including careers reached via a
+  // promotion-only first rung (Senior Estimator) and careers gated by a
+  // credential even where the credentialed first rung shares the page
+  // (Engineer in Training, insurance/underwriting trainee roles).
+  isEntryRole: z.boolean(),
   // Pay at three career-stage milestones — entry level, 5 years in, and 10
   // years in — shown as a "Pay expectations" range timeline under the
   // Software section, the standard placement for every career page.

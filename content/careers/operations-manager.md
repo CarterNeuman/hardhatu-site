@@ -4,6 +4,7 @@ title: Operations Manager
 category: "Business"
 tagline: Oversees multiple project teams and their Project Managers at once, the role that scales a contractor's capacity beyond what one PM can run.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

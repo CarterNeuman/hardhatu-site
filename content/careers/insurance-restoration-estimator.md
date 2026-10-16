@@ -4,6 +4,7 @@ title: Insurance Restoration Estimator
 category: "Insurance & Claims"
 tagline: Writes the repair estimate that turns a damage inspection into a number, the estimating specialist inside a claim, distinct from the adjusters who decide what actually gets paid.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

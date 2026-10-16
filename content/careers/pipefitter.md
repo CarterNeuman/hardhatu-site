@@ -4,6 +4,7 @@ title: Pipefitter / Steamfitter
 category: "Field & Trades"
 tagline: Installs and welds the high-pressure and process piping systems that move steam, chemicals, and fluids through commercial and industrial buildings, a distinct trade and apprenticeship from residential plumbing.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

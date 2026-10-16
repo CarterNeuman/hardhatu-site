@@ -4,6 +4,7 @@ title: Scheduling & Delay Consultant
 category: "Consultants & Advisory"
 tagline: Called in specifically to answer one question in a dispute, what actually caused the delay, and whose fault was it, using schedule data rather than opinion.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

@@ -4,6 +4,7 @@ title: Senior Estimator
 category: "Preconstruction & Estimating"
 tagline: Leads the bid on the biggest, most complex jobs and mentors the estimators doing the takeoffs underneath them.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

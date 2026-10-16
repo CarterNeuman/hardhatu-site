@@ -4,6 +4,7 @@ title: Procurement Manager
 category: "Business"
 tagline: Makes sure the right materials and equipment show up on the right jobsite at the right time, a job that's mostly invisible when it goes well and a schedule crisis when it doesn't.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

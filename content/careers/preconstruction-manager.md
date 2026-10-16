@@ -4,6 +4,7 @@ title: Preconstruction Manager
 category: "Preconstruction & Estimating"
 tagline: Runs everything that has to happen before a shovel hits the ground, estimating, scheduling, and design coordination pulled into one team's responsibility.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

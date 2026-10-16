@@ -4,6 +4,7 @@ title: Mason
 category: "Field & Trades"
 tagline: Builds with brick, block, and stone, work that's visible on the finished building in a way most structural trades aren't.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

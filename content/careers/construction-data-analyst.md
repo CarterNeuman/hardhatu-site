@@ -4,6 +4,7 @@ title: Construction Data Analyst
 category: "Technology & Design"
 tagline: Turns the mountain of data construction generates, costs, schedules, safety incidents, productivity, into answers that change how the next project gets planned.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

@@ -4,6 +4,7 @@ title: Loss Control / Risk Engineer
 category: "Insurance & Claims"
 tagline: Inspects jobsites on the insurer's behalf to manage risk before a loss happens, distinct from a Safety Manager who does similar work but for the contractor, not the insurance company.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

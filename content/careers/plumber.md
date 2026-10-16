@@ -4,6 +4,7 @@ title: Plumber
 category: "Field & Trades"
 tagline: Installs and maintains the pipes and fixtures that bring in clean water and carry waste out, work that has to be right the first time, since most of it disappears behind a wall.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

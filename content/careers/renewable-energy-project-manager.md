@@ -4,6 +4,7 @@ title: Renewable Energy Project Manager
 category: "Specialized Construction"
 tagline: Manages solar, battery-storage, and microgrid builds from permitting through commissioning, the project-management path into the fastest-growing segment of the construction industry.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

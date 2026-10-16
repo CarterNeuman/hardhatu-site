@@ -4,6 +4,7 @@ title: Certified Payroll Specialist
 category: "Business"
 tagline: Handles the specialized prevailing-wage payroll reporting that public-works contractors are legally required to file, a real back-office role built entirely around a concept this site already teaches.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

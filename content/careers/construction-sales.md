@@ -4,6 +4,7 @@ title: "Construction Sales / Business Development"
 category: "Business"
 tagline: Wins the work that everyone else on the project team eventually gets to build, relationship-driven sales in an industry where the next job usually comes from the last client.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

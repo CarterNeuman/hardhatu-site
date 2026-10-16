@@ -11,19 +11,36 @@ import type { Career } from "@/lib/types";
 // one). Always paired with <Disclaimer> on the career page — this
 // component only draws the numbers, it doesn't explain where they come
 // from.
-// The top milestone is "10 years in" (field key `tenYear`), not "20" —
+// The top milestone is "10 years in" (field key `tenYear`), not "20" --
 // renamed from the original `twentyYear` because BLS doesn't track pay by
 // tenure at all (the band was always an estimate off the wage
 // *distribution*, mapped to the 75th-90th percentile), and most trades'
 // apprenticeship-to-journeyman pipelines put top-of-scale pay well before
 // year 20. See the longer note in lib/types.ts.
-const MILESTONES: {
-  key: "entry" | "fiveYear" | "tenYear";
-  label: string;
-}[] = [
-  { key: "entry", label: "Entry level" },
-  { key: "fiveYear", label: "5 years in" },
-  { key: "tenYear", label: "10 years in" },
+//
+// Labels come in two sets, picked by the career's own `isEntryRole` (see
+// CareerSchema in lib/types.ts). For an entry-accessible career the
+// payTimeline.entry band really is day-one pay, so "Entry level" is
+// accurate. For a career that's normally reached through promotion (a
+// Senior Estimator, say), that same band is the lower end of what people
+// in that role earn -- not pay for someone brand new to the field -- so
+// the milestone labels switch to a plain low/typical/top-of-scale framing
+// instead of implying a 0-year starting point that doesn't exist for that
+// role. Same three field keys either way -- only the label text changes.
+const ENTRY_LABELS: Record<"entry" | "fiveYear" | "tenYear", string> = {
+  entry: "Entry level",
+  fiveYear: "5 years in",
+  tenYear: "10 years in",
+};
+const PROMOTION_LABELS: Record<"entry" | "fiveYear" | "tenYear", string> = {
+  entry: "Lower range",
+  fiveYear: "Typical",
+  tenYear: "Top of scale",
+};
+const MILESTONE_KEYS: ("entry" | "fiveYear" | "tenYear")[] = [
+  "entry",
+  "fiveYear",
+  "tenYear",
 ];
 
 function formatValue(n: number, unit: "annual" | "hourly") {
@@ -50,12 +67,15 @@ const SANS = "'IBM Plex Sans', sans-serif";
 
 export function PayTimeline({
   payTimeline,
+  isEntryRole,
 }: {
   payTimeline: NonNullable<Career["payTimeline"]>;
+  isEntryRole: boolean;
 }) {
   const { unit, source, asOf } = payTimeline;
-  const bands = MILESTONES.map(({ key, label }) => ({
-    label,
+  const labels = isEntryRole ? ENTRY_LABELS : PROMOTION_LABELS;
+  const bands = MILESTONE_KEYS.map((key) => ({
+    label: labels[key],
     ...payTimeline[key],
   }));
   const max = Math.max(...bands.map((b) => b.high));
@@ -73,7 +93,7 @@ export function PayTimeline({
     <div className="mt-5 border border-hairline bg-white/40 px-4 py-4">
       <div className="flex items-baseline justify-between">
         <p className="text-xs font-semibold uppercase tracking-wide text-steel">
-          Pay by experience, nationally
+          {isEntryRole ? "Pay by experience, nationally" : "Pay for this role, nationally"}
         </p>
         {asOf && <p className="text-[10px] text-steel">as of {asOf}</p>}
       </div>

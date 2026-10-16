@@ -4,6 +4,7 @@ title: Carpenter
 category: "Field & Trades"
 tagline: Builds the wood and metal framing that gives a structure its shape, and the finish work that makes it look done.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

@@ -4,6 +4,7 @@ title: Equipment Operator
 category: "Field & Trades"
 tagline: Runs the excavators, bulldozers, and cranes that move earth and materials, and for cranes specifically, has to hold a real federal certification to do it legally.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

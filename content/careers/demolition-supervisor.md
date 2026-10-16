@@ -4,6 +4,7 @@ title: Demolition Supervisor
 category: "Specialized Construction"
 tagline: Runs the high-risk process of taking a structure down safely, a distinct specialty most newcomers don't realize is its own career track until they see the certification behind it.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

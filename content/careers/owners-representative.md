@@ -4,6 +4,7 @@ title: "Owner's Representative"
 category: "Specialized Construction"
 tagline: Works for the owner and only the owner, brought in specifically because everyone else on a project (the GC, the architect, the CM) has their own interests to balance too.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

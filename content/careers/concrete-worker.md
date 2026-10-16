@@ -4,6 +4,7 @@ title: "Concrete Worker (Cement Mason / Finisher)"
 category: "Field & Trades"
 tagline: Places, shapes, and finishes concrete before it sets, a narrow window to get a permanent, highly visible surface exactly right.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

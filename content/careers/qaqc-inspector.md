@@ -4,6 +4,7 @@ title: QA/QC Inspector
 category: "Project & Operations"
 tagline: Physically inspects and tests completed work against the specifications, the hands-on counterpart to a Quality Control Manager's oversight role.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

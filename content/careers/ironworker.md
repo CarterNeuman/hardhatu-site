@@ -4,6 +4,7 @@ title: Ironworker
 category: "Field & Trades"
 tagline: Erects the structural steel skeleton a building hangs from, often working at height on beams before any floor or safety net exists below.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

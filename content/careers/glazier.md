@@ -4,6 +4,7 @@ title: Glazier
 category: "Field & Trades"
 tagline: Installs the glass, curtain wall, and storefront systems that give a building its skin, precision work where a fraction of an inch off is the difference between a weathertight seal and a leak.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

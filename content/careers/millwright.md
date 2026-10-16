@@ -4,6 +4,7 @@ title: Millwright
 category: "Field & Trades"
 tagline: Installs, aligns, and maintains the heavy industrial machinery inside a facility, an entry point into manufacturing and industrial construction most newcomers never hear about.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

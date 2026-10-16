@@ -4,6 +4,7 @@ title: Document Control Specialist
 category: "Project & Operations"
 tagline: Owns the submittal logs, RFI logs, and drawing revisions that keep everyone on a project working from the same current information, a real entry point into the office side of construction.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

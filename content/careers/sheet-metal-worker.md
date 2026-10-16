@@ -4,6 +4,7 @@ title: Sheet Metal Worker
 category: "Field & Trades"
 tagline: Fabricates and installs the ductwork, flashing, and metal roofing systems that move air through a building and keep water out of it.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

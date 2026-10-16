@@ -4,6 +4,7 @@ title: Solar PV Installer
 category: "Field & Trades"
 tagline: Installs the rooftop and ground-mount solar panel systems behind the fastest-growing segment of the construction trades.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

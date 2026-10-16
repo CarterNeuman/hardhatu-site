@@ -4,6 +4,7 @@ title: Business Development Manager
 category: "Business"
 tagline: Builds the relationships and pursuit strategy behind a contractor's biggest wins, the senior counterpart to Construction Sales focused on major, long-cycle pursuits rather than direct selling.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

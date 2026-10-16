@@ -4,6 +4,7 @@ title: HVAC Technician
 category: "Field & Trades"
 tagline: Installs and services the heating, cooling, and ventilation systems that keep a building livable, one of the few trades with a federal certification requirement baked into the job.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

@@ -46,6 +46,7 @@ export default function ActionPlanPage() {
             asOf: c.payTimeline.asOf,
           }
         : undefined,
+      isEntryRole: c.isEntryRole,
     }));
 
     const lessonsByCareerId: Record<string, SlimLesson[]> = {};

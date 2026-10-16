@@ -4,6 +4,7 @@ title: Quantity Surveyor
 category: "Preconstruction & Estimating"
 tagline: Measures and values construction work in detail, a title that comes out of the UK/Commonwealth surveying tradition but increasingly shows up at U.S. firms with international ties.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

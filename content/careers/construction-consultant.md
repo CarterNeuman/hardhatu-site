@@ -4,6 +4,7 @@ title: "Construction Consultant (Cost/General)"
 category: "Consultants & Advisory"
 tagline: Brought in for independent expertise on a specific problem, a troubled budget, a stalled schedule, a process that isn't working, rather than to run the day-to-day project.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

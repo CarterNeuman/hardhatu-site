@@ -4,6 +4,7 @@ title: Deep Foundation / Pile-Driving Specialist
 category: "Specialized Construction"
 tagline: Runs the specialized equipment that drives piles and caissons deep into the ground to support a structure where a standard foundation won't work, a real, well-paid niche most newcomers never see.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

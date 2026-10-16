@@ -24,6 +24,12 @@ export type CareerRef = {
   // CareerSchema in lib/types.ts) -- never a new or separately-looked-up
   // figure. Undefined for a career with no payTimeline authored yet.
   entryPay?: { low: number; high: number; unit: "annual" | "hourly"; source: string; asOf: string };
+  // Carried straight through from the career's own `isEntryRole` field
+  // (see CareerSchema in lib/types.ts). Drives whether the result
+  // screen's "what you can expect to earn" section frames entryPay as
+  // day-one pay or as the lower end of a role normally reached through
+  // promotion -- same reasoning as PayTimeline's label switch.
+  isEntryRole?: boolean;
 };
 // A slim Concept projection -- just enough to link to it and show why it's
 // worth knowing (definition), same spirit as LessonRef. Used both for the
@@ -112,6 +118,7 @@ export type GeneratedPlan = {
   interviewPrepHref?: string;
   examPrepHref?: string;
   entryPay?: CareerRef["entryPay"];
+  isEntryRole?: boolean;
   days: GeneratedDayItem[];
   targetEmployerTypes: string[];
   whereToLook: string[];
@@ -566,6 +573,7 @@ export function buildActionPlan({
     interviewPrepHref,
     examPrepHref,
     entryPay: career?.entryPay,
+    isEntryRole: career?.isEntryRole,
     days,
     targetEmployerTypes: skeleton.targetEmployerTypes,
     whereToLook: getHiredGuide?.whereToLook ?? [],

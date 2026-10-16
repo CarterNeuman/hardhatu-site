@@ -4,6 +4,7 @@ title: Estimator
 category: "Preconstruction & Estimating"
 tagline: Prices the job before anyone breaks ground, so the bid actually makes money instead of just winning the work.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

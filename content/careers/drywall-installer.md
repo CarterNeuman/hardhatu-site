@@ -4,6 +4,7 @@ title: "Drywall Installer & Finisher (Taper)"
 category: "Field & Trades"
 tagline: Hangs and finishes the walls and ceilings of almost every interior space, the trade that turns a framed structure into rooms.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:

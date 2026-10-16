@@ -4,6 +4,7 @@ title: Value Engineering Consultant
 category: "Preconstruction & Estimating"
 tagline: Leads the structured process of finding ways to cut cost without cutting function, a specialized advisory role built around a concept most newcomers walk right past without realizing it's a distinct career.
 tier: free
+isEntryRole: false
 payTimeline:
   unit: annual
   entry:

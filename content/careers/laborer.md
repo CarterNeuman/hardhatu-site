@@ -4,6 +4,7 @@ title: "Construction Laborer"
 category: "Field & Trades"
 tagline: The most common way into the entire industry, no prior experience required, and a front-row seat to every trade before choosing which one to specialize in.
 tier: free
+isEntryRole: true
 payTimeline:
   unit: annual
   entry:
