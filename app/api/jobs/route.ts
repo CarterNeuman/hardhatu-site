@@ -24,15 +24,21 @@ import {
 // quietly staying the only option. See lib/job-search.ts for the pure
 // logic (query building, normalization, rate limiting) this route just
 // wires up to a live fetch call.
+//
+// Adzuna's real offering turned out to be a scarce one-time trial quota
+// for this account (not an ongoing daily free tier as its public docs
+// describe for non-commercial use), so this route has two extra layers
+// specifically to protect that budget while testing, on top of the
+// caching/rate-limiting already here for the ongoing-traffic case: see
+// JOBS_MOCK_MODE and ADZUNA_MAX_CALLS_PER_PROCESS below.
 
 export const dynamic = "force-dynamic";
 
 const COUNTRY = "us";
 // How long Adzuna's own responses are cached (via fetch's built-in
-// revalidate option, not a hand-rolled cache store) -- the real lever
-// for staying well under the 250/day free-tier cap as traffic grows.
-// Many visitors searching similar trade+location combos within this
-// window share one upstream call instead of each spending one.
+// revalidate option, not a hand-rolled cache store). Many visitors (or
+// repeated test loads) searching the same trade+location combo within
+// this window share one upstream call instead of each spending one.
 const SEARCH_CACHE_SECONDS = 60 * 60 * 3;
 // The category taxonomy basically never changes, so this is cached much
 // longer -- one upstream call a day covers every visitor, not one per
@@ -57,6 +63,98 @@ async function fetchWithTimeout(url: string, revalidateSeconds: number): Promise
   }
 }
 
+// A hard backstop on top of response caching and the per-IP rate
+// limiter above: counts every real network call this warm server
+// process makes to Adzuna (categories + search combined, since both
+// draw from the same account quota) and refuses once the configured
+// ceiling is hit, logging clearly rather than silently doing nothing.
+// Caching and rate limiting should keep real usage far below this
+// during normal testing, but this exists so a scarce trial quota (not
+// an ongoing daily free tier) can never get burned through by, say,
+// Next's dev-mode fast-refresh re-running this route more than
+// expected, or testing more distinct trade+location combos in one
+// sitting than intended. Resets only when the server process restarts
+// -- that's a known, deliberate limitation of an in-memory counter, not
+// a substitute for watching Adzuna's own dashboard while testing.
+const MAX_REAL_CALLS_PER_PROCESS = Number(process.env.ADZUNA_MAX_CALLS_PER_PROCESS) || 5;
+let realCallCount = 0;
+
+function tryConsumeRealCall(label: string): boolean {
+  if (realCallCount >= MAX_REAL_CALLS_PER_PROCESS) {
+    console.warn(
+      `[jobs] real Adzuna call budget (${MAX_REAL_CALLS_PER_PROCESS}) exhausted for this server process, skipping the ${label} call. Restart the server or raise ADZUNA_MAX_CALLS_PER_PROCESS to allow more.`
+    );
+    return false;
+  }
+  realCallCount += 1;
+  console.warn(`[jobs] making real Adzuna call ${realCallCount}/${MAX_REAL_CALLS_PER_PROCESS} this process (${label})`);
+  return true;
+}
+
+// Canned, clearly-fake listings for local visual/UX testing with zero
+// real Adzuna calls -- see JOBS_MOCK_MODE in .env.example. Deliberately
+// run through the same normalizeListing() every real response goes
+// through, so this exercises the actual rendering pipeline, not a
+// hand-built shortcut, and deliberately varied (today/this
+// week/two-weeks-old, below/typical/above/predicted/no pay data) so
+// every visual state in LiveJobResults.tsx -- every badge, every
+// posted-date label -- can be checked without spending a single real
+// token.
+function buildMockResult(what: string, where: string): JobSearchResult {
+  const daysAgo = (n: number) => new Date(Date.now() - n * 24 * 60 * 60 * 1000).toISOString();
+  const rawListings = [
+    {
+      id: "mock-1",
+      title: `${what} - General Contractor`,
+      company: { display_name: "Sample Construction Co. (mock data)" },
+      location: { display_name: where },
+      salary_min: 58000,
+      salary_max: 72000,
+      salary_is_predicted: false,
+      created: daysAgo(1),
+      redirect_url: "https://example.com/mock-listing-1",
+      description: "Example listing for local visual testing only -- not a real job posting.",
+    },
+    {
+      id: "mock-2",
+      title: `${what} (Entry Level)`,
+      company: { display_name: "Example Builders LLC (mock data)" },
+      location: { display_name: where },
+      salary_min: 38000,
+      salary_max: 44000,
+      salary_is_predicted: false,
+      created: daysAgo(6),
+      redirect_url: "https://example.com/mock-listing-2",
+      description: "Example listing for local visual testing only -- not a real job posting.",
+    },
+    {
+      id: "mock-3",
+      title: `Senior ${what}`,
+      company: { display_name: "Placeholder Development Group (mock data)" },
+      location: { display_name: where },
+      salary_min: 95000,
+      salary_max: 115000,
+      salary_is_predicted: true,
+      created: daysAgo(0),
+      redirect_url: "https://example.com/mock-listing-3",
+      description: "Example listing for local visual testing only -- not a real job posting.",
+    },
+    {
+      id: "mock-4",
+      title: `${what} Trainee`,
+      company: { display_name: "Test Data Partners (mock data)" },
+      location: { display_name: where },
+      created: daysAgo(14),
+      redirect_url: "https://example.com/mock-listing-4",
+      description: "Example listing with no salary data, to check that case renders cleanly too.",
+    },
+  ];
+  const listings = rawListings
+    .map(normalizeListing)
+    .filter((listing): listing is NonNullable<typeof listing> => listing !== null);
+  return { ok: true, query: { what, where }, listings };
+}
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const what = cleanTrade(searchParams.get("what") ?? "");
@@ -76,6 +174,13 @@ export async function GET(request: Request) {
     return fail("rate_limited");
   }
 
+  // Local-only escape hatch: set JOBS_MOCK_MODE=1 in .env.local (never
+  // in Vercel) to see every visual state of the live-jobs section
+  // without touching Adzuna at all, real key or not. See .env.example.
+  if (process.env.JOBS_MOCK_MODE === "1") {
+    return NextResponse.json<JobSearchResult>(buildMockResult(what, where));
+  }
+
   const appId = process.env.ADZUNA_APP_ID;
   const appKey = process.env.ADZUNA_APP_KEY;
   if (!appId || !appKey) {
@@ -88,25 +193,36 @@ export async function GET(request: Request) {
   }
 
   // Resolve the construction-flavored category tag from Adzuna's own
-  // taxonomy (never hardcoded -- see pickConstructionCategoryTag). A
-  // failure here only means the search below runs without a category
-  // filter, never a reason to fail the whole request.
+  // taxonomy (never hardcoded -- see pickConstructionCategoryTag). Only
+  // attempted if the call budget allows it; skipping this specifically
+  // (rather than failing the whole request) just means the search below
+  // runs without a category filter, the same graceful degradation as a
+  // failed categories call always had.
   let categoryTag: string | undefined;
-  try {
-    const categoriesUrl = buildAdzunaCategoriesUrl(appId, appKey, COUNTRY);
-    const categoriesRes = await fetchWithTimeout(categoriesUrl, CATEGORY_CACHE_SECONDS);
-    if (categoriesRes.ok) {
-      const categoriesBody: unknown = await categoriesRes.json();
-      const results =
-        categoriesBody && typeof categoriesBody === "object"
-          ? (categoriesBody as Record<string, unknown>).results
-          : undefined;
-      categoryTag = pickConstructionCategoryTag(results);
-    } else {
-      console.warn(`[jobs] Adzuna categories call returned ${categoriesRes.status}`);
+  if (tryConsumeRealCall("categories")) {
+    try {
+      const categoriesUrl = buildAdzunaCategoriesUrl(appId, appKey, COUNTRY);
+      const categoriesRes = await fetchWithTimeout(categoriesUrl, CATEGORY_CACHE_SECONDS);
+      if (categoriesRes.ok) {
+        const categoriesBody: unknown = await categoriesRes.json();
+        const results =
+          categoriesBody && typeof categoriesBody === "object"
+            ? (categoriesBody as Record<string, unknown>).results
+            : undefined;
+        categoryTag = pickConstructionCategoryTag(results);
+      } else {
+        console.warn(`[jobs] Adzuna categories call returned ${categoriesRes.status}`);
+      }
+    } catch (err) {
+      console.warn("[jobs] network error fetching Adzuna categories", err);
     }
-  } catch (err) {
-    console.warn("[jobs] network error fetching Adzuna categories", err);
+  }
+
+  // The search call itself is the one that actually produces results,
+  // so exhausting the budget here does fail the whole request rather
+  // than degrading further -- there's nothing left to show without it.
+  if (!tryConsumeRealCall("search")) {
+    return fail("budget_exhausted");
   }
 
   const searchUrl = buildAdzunaSearchUrl({

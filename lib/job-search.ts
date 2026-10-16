@@ -207,7 +207,18 @@ export type JobSearchResult =
   | { ok: true; query: { what: string; where: string; categoryTag?: string }; listings: JobListing[] }
   | {
       ok: false;
-      reason: "not_configured" | "invalid_input" | "rate_limited" | "upstream_error" | "network_error";
+      reason:
+        | "not_configured"
+        | "invalid_input"
+        | "rate_limited"
+        | "upstream_error"
+        | "network_error"
+        // This server process has hit its configured ceiling on real
+        // Adzuna calls (see ADZUNA_MAX_CALLS_PER_PROCESS in
+        // app/api/jobs/route.ts) -- a hard backstop on top of caching
+        // and the per-IP rate limiter, specifically so a scarce trial
+        // quota can't get burned through by a runaway dev session.
+        | "budget_exhausted";
     };
 
 export type RateLimiter = { check: (key: string) => boolean };
