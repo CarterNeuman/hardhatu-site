@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 88550
-    high: 114990
+    low: 85000
+    high: 105000
   fiveYear:
-    low: 114990
-    high: 151640
+    low: 115000
+    high: 145000
   tenYear:
-    low: 151640
-    high: 189440
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Construction Managers (SOC 11-9021), national data — entry/5-year/10-year mapped to the upper half of this occupation's wage distribution (25th-90th percentile); BLS doesn't track assistant-level titles separately, see the Assistant Project Manager / Assistant Superintendent pages for the lower-half mapping of the same distribution"
-  asOf: "May 2025"
+    low: 175000
+    high: 230000
+  source: "Payscale, ZipRecruiter, and 4 Corner Resources Construction Project Manager data cross-checked against The Birm Group's 2026 commercial-GC survey and a 2026 construction salary guide; senior PMs at large GCs in high-cost metros regularly clear the generic BLS ceiling of $151,640"
+  asOf: "October 2026"
 whatIs: >
   A Project Manager (PM) owns a construction project's budget, schedule, and contracts.
   They're the main point of contact between the owner, the architect, and the people

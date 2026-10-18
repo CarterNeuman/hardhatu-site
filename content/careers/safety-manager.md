@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 55000
-    high: 69560
+    low: 62000
+    high: 78000
   fiveYear:
-    low: 90150
-    high: 111690
+    low: 88000
+    high: 112000
   tenYear:
-    low: 111690
-    high: 134950
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Occupational Health and Safety Specialists (SOC 19-5011), national data"
-  asOf: "May 2025"
+    low: 115000
+    high: 150000
+  source: "Payscale's Safety Manager, Construction data cross-checked against The Birm Group's construction safety manager salary research, including sector premiums for industrial and data-center work"
+  asOf: "October 2026"
 whatIs: >
   A Safety Manager builds and runs a project's (or a company's) safety
   program, training workers, conducting jobsite inspections, investigating

@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 64820
-    high: 83980
+    low: 65000
+    high: 88000
   fiveYear:
-    low: 117330
-    high: 158250
+    low: 105000
+    high: 145000
   tenYear:
-    low: 158250
-    high: 196110
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Financial Risk Specialists (SOC 13-2054), national data"
-  asOf: "May 2025"
+    low: 150000
+    high: 200000
+  source: "ZipRecruiter's Construction Risk Manager data, a disclosed general-contractor Risk Manager posting, and disclosed Director of Risk Management postings at two major commercial GCs"
+  asOf: "October 2026"
 whatIs: >
   A Risk Manager designs and oversees a construction company's insurance
   and risk management program, deciding what coverage the company

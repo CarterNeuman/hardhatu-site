@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 60640
-    high: 77950
+    low: 65000
+    high: 85000
   fiveYear:
-    low: 77950
-    high: 101860
+    low: 90000
+    high: 130000
   tenYear:
-    low: 101860
-    high: 133370
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Management Analysts (SOC 13-1111), national data — entry/5-year/10-year mapped to the lower part of this occupation's wage distribution (10th-75th percentile), since this site's own progression shows Construction Claims Consultant feeding into Expert Witness; see Scheduling & Delay Consultant for the parallel specialty sharing this same slice and Expert Witness for the upper part of the same distribution"
-  asOf: "May 2025"
+    low: 140000
+    high: 180000
+  source: "Real US Construction Claims Consultant job postings triangulated with a UK construction-disputes salary guide's Consultant-to-Director ladder shape and specialty-firm career-ladder titles; claims consulting at firms like HKA, Secretariat, and Hill International pays a premium over generic management-consulting benchmarks"
+  asOf: "2024-2026"
 whatIs: >
   A Construction Claims Consultant analyzes construction disputes,
   delay claims, cost overrun claims, defect claims, for whichever party

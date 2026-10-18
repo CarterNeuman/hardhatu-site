@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 55000
-    high: 69560
+    low: 62000
+    high: 82000
   fiveYear:
-    low: 90150
-    high: 111690
+    low: 100000
+    high: 135000
   tenYear:
-    low: 111690
-    high: 134950
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Occupational Health and Safety Specialists (SOC 19-5011), national data — the same code this site's Safety Manager page uses; BLS doesn't distinguish inspecting a site on an insurer's behalf from a contractor's own safety role"
-  asOf: "May 2025"
+    low: 135000
+    high: 172000
+  source: "Disclosed Zurich Risk Engineering Consultant and Travelers Senior Risk Control Consultant, Construction job postings and ZipRecruiter Senior Risk Engineer data; this role carries a technical/engineering pay premium once it specializes into insurer-side risk engineering, which the generic occupational-health-and-safety BLS code doesn't capture"
+  asOf: "October 2026"
 whatIs: >
   A Loss Control Engineer, also called a Risk Engineer, inspects
   construction sites and facilities on behalf of an insurance company or

@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 48530
-    high: 61150
+    low: 68000
+    high: 85000
   fiveYear:
-    low: 78740
-    high: 101850
+    low: 90000
+    high: 120000
   tenYear:
-    low: 101850
-    high: 130820
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Cost Estimators (SOC 13-1051), national data — BLS doesn't track estimating/cost specialties as separate detailed occupations, so Estimator, Heavy Civil Estimator, Cost Engineer, and Quantity Surveyor all share this code and use the standard entry/median-75th/75th-90th mapping; see Bid Coordinator and Senior Estimator for the lower and upper parts of the same distribution"
-  asOf: "May 2025"
+    low: 125000
+    high: 156000
+  source: "Payscale's US Quantity Surveyor data cross-referenced against Novatr's US quantity-surveying career-ladder salary breakdown; a comparatively rare standalone US title, so the 90th-percentile ceiling is the most reliable anchor point"
+  asOf: "October 2026"
 whatIs: >
   A Quantity Surveyor measures and values construction work throughout a
   project, similar territory to an Estimator and a Cost Engineer, with

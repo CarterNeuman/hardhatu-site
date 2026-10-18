@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 60640
-    high: 77950
+    low: 62000
+    high: 82000
   fiveYear:
-    low: 77950
-    high: 101860
+    low: 85000
+    high: 125000
   tenYear:
-    low: 101860
-    high: 133370
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Management Analysts (SOC 13-1111), national data — shares the lower part of this distribution (10th-75th percentile) with Construction Claims Consultant, a parallel litigation-support specialty that this site's own progression also shows feeding into Expert Witness"
-  asOf: "May 2025"
+    low: 130000
+    high: 170000
+  source: "A UK construction claims and disputes salary guide's forensic-schedule-analyst ladder, adjusted for the US market and cross-checked against Construction Claims Consultant postings; no large-sample US survey exists for this exact specialty, so this sits a notch below Construction Claims Consultant at comparable seniority"
+  asOf: "May 2024, adjusted 2026"
 whatIs: >
   A Scheduling & Delay Consultant provides specialized schedule analysis
   for construction disputes, determining the cause, responsibility, and

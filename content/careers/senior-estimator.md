@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 61150
-    high: 78740
+    low: 105000
+    high: 130000
   fiveYear:
-    low: 78740
-    high: 101850
+    low: 150000
+    high: 180000
   tenYear:
-    low: 101850
-    high: 130820
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Cost Estimators (SOC 13-1051), national data — entry/5-year/10-year mapped to the upper part of this occupation's wage distribution (25th-90th percentile), since Senior Estimator and Preconstruction Manager both sit at the top of this site's estimating progression; see the Estimator page for the standard mapping and Bid Coordinator for the lower part of the same distribution"
-  asOf: "May 2025"
+    low: 190000
+    high: 230000
+  source: "The Birm Group's 2026 Construction Salary Survey (Senior/Chief Estimator regional medians) cross-referenced against a construction-specific pay guide and Payscale's broader national sample as a lower-bound check; the generic BLS Cost Estimators ceiling of $130,820 badly understated this title"
+  asOf: "October 2026"
 whatIs: >
   A Senior Estimator leads the pricing effort on larger or more complex
   projects, often managing a team of estimators who handle individual

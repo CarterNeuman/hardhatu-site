@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 48530
-    high: 61150
+    low: 70000
+    high: 88000
   fiveYear:
-    low: 78740
-    high: 101850
+    low: 98000
+    high: 128000
   tenYear:
-    low: 101850
-    high: 130820
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Cost Estimators (SOC 13-1051), national data — BLS doesn't track estimating/cost specialties as separate detailed occupations, so Estimator, Heavy Civil Estimator, Cost Engineer, and Quantity Surveyor all share this code and use the standard entry/median-75th/75th-90th mapping; see Bid Coordinator and Senior Estimator for the lower and upper parts of the same distribution"
-  asOf: "May 2025"
+    low: 135000
+    high: 168000
+  source: "Real heavy-civil Estimator job postings at infrastructure/sitework general contractors, cross-referenced against Payscale's Heavy Civil Estimator sample and the site's general Estimator benchmarks, reflecting the premium heavy civil and DOT work commands"
+  asOf: "October 2026"
 whatIs: >
   A Heavy Civil Estimator prices infrastructure and site work, roads,
   bridges, utilities, earthwork, and similar heavy civil projects, using

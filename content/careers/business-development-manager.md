@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 73170
-    high: 100360
+    low: 65000
+    high: 85000
   fiveYear:
-    low: 148270
-    high: 207340
+    low: 95000
+    high: 130000
   tenYear:
-    low: 207340
-    high: 290540
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Sales Managers (SOC 11-2022), national data — the senior, strategic counterpart to Construction Sales is classified under this managerial sales occupation rather than a direct sales-rep code, matching this career's focus on pursuit strategy and go/no-go decisions over individual deal-closing"
-  asOf: "May 2025"
+    low: 140000
+    high: 180000
+  source: "Real Business Development Manager job postings at commercial general contractors cross-checked against ZipRecruiter's generalist percentile data; the generic Sales Managers BLS code spans finance and tech sales leadership and significantly overstates real construction-company pay"
+  asOf: "October 2026"
 whatIs: >
   A Business Development Manager builds and maintains the relationships
   that win a contractor major work, developers, owners, architects, and

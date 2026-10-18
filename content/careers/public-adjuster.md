@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 48850
-    high: 61160
+    low: 40000
+    high: 61000
   fiveYear:
-    low: 78000
-    high: 98030
+    low: 61000
+    high: 104000
   tenYear:
-    low: 98030
-    high: 117040
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Claims Adjusters, Examiners, and Investigators (SOC 13-1031), national data — shares this code with Insurance Adjuster; BLS doesn't track which side of a claim an adjuster represents as a separate occupation"
-  asOf: "May 2025"
+    low: 110000
+    high: 250000
+  source: "Public-adjusting industry income reporting on the contingency-fee structure (typically 10-20% of settlement, capped lower in some states) cross-referenced against BLS claims-adjuster data as a salaried-income floor; income here is driven by claim volume and size rather than a wage scale, so the band is intentionally wide"
+  asOf: "October 2026"
 ownerPayHighlight: >
   Owning a public adjusting firm means your income comes from a cut of the
   claims you win for your clients, not a salary — a trade that rewards

@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 56020
-    high: 67020
+    low: 45000
+    high: 55000
   fiveYear:
-    low: 83680
-    high: 109810
+    low: 60000
+    high: 75000
   tenYear:
-    low: 109810
-    high: 144090
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Accountants and Auditors (SOC 13-2011), national data"
-  asOf: "May 2025"
+    low: 85000
+    high: 110000
+  source: "Payscale's Construction Accountant and Construction Accounting Manager data cross-checked against a real senior construction accountant job posting; the generic Accountants and Auditors BLS code overstates this title's real ceiling"
+  asOf: "October 2026"
 whatIs: >
   A Construction Accountant manages the financial side of construction
   projects and companies using accounting methods specific to the

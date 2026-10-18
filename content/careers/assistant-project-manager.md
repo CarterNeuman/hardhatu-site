@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 69690
-    high: 88550
+    low: 58000
+    high: 73000
   fiveYear:
-    low: 88550
-    high: 114990
+    low: 76000
+    high: 95000
   tenYear:
-    low: 114990
-    high: 151640
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Construction Managers (SOC 11-9021), national data — BLS doesn't track assistant-level titles separately from the full Construction Manager title, so this uses the lower half of the same wage distribution (10th-75th percentile) that the Project Manager / Superintendent pages use the upper half of"
-  asOf: "May 2025"
+    low: 105000
+    high: 130000
+  source: "Payscale's Assistant Project Manager, Construction data blended with a 2026 construction salary guide and The Birm Group's 2026 survey band for Assistant PM/Project Engineer roles"
+  asOf: "October 2026"
 whatIs: >
   An Assistant Project Manager (APM) supports a Project Manager with more
   ownership than a Project Engineer typically holds, managing specific

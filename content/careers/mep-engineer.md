@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 73990
-    high: 84130
+    low: 72000
+    high: 85000
   fiveYear:
-    low: 104110
-    high: 132590
+    low: 105000
+    high: 135000
   tenYear:
-    low: 132590
-    high: 164340
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Mechanical Engineers (SOC 17-2141), national data — the closest single BLS classification for a role that spans mechanical, electrical, and plumbing design; HVAC/mechanical design makes up the bulk of most MEP scopes, and BLS has no combined or separate code for the electrical and plumbing design portions"
-  asOf: "May 2025"
+    low: 135000
+    high: 175000
+  source: "The existing Mechanical Engineers BLS code (confidence: medium, pending a dedicated follow-up search), nudged upward at the top of scale to reflect well-documented 2025-2026 demand-driven pay premiums for senior MEP engineers in data-center and semiconductor-fab markets"
+  asOf: "2026, partial independent verification"
 ownerPayHighlight: >
   Making Principal at an MEP firm ties your income to the firm's own project
   fees across mechanical, electrical, and plumbing design — real upside, but

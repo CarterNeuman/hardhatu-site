@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 55530
-    high: 64620
+    low: 70000
+    high: 100000
   fiveYear:
-    low: 81370
-    high: 110390
+    low: 115000
+    high: 165000
   tenYear:
-    low: 110390
-    high: 145160
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Insurance Underwriters (SOC 13-2053), national data — shares this code with Surety Bond Underwriter as a parallel underwriting specialty (different insurance product, same BLS occupation)"
-  asOf: "May 2025"
+    low: 165000
+    high: 230000
+  source: "Disclosed nationwide base-pay ranges from live Zurich, Berkshire Hathaway Specialty Insurance, and Liberty Mutual construction-property/builder's-risk underwriting job postings (pay-transparency-law disclosures); the generic BLS Insurance Underwriters code understated this specialized line"
+  asOf: "October 2026"
 whatIs: >
   A Builder's Risk Underwriter evaluates construction projects to decide
   whether to insure them, and on what terms, pricing and structuring

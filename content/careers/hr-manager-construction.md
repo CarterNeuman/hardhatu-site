@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 88200
-    high: 111110
+    low: 60000
+    high: 75000
   fiveYear:
-    low: 149280
-    high: 199290
+    low: 75000
+    high: 95000
   tenYear:
-    low: 199290
-    high: 267810
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Human Resources Managers (SOC 11-3121), national data"
-  asOf: "May 2025"
+    low: 115000
+    high: 150000
+  source: "Real HR Manager, Construction job postings at commercial GCs and industrial/electrical contractors; the generic Human Resources Managers BLS code spans tech and finance HR leadership and significantly overstates construction-company pay"
+  asOf: "October 2026"
 whatIs: >
   A Human Resources Manager in construction runs the same core HR
   functions as any industry: recruiting, onboarding, benefits, employee

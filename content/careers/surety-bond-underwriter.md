@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 55530
-    high: 64620
+    low: 80000
+    high: 110000
   fiveYear:
-    low: 81370
-    high: 110390
+    low: 109000
+    high: 180000
   tenYear:
-    low: 110390
-    high: 145160
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Insurance Underwriters (SOC 13-2053), national data — shares this code with Builder's Risk Underwriter as a parallel underwriting specialty; BLS doesn't track bonding versus property underwriting as separate occupations"
-  asOf: "May 2025"
+    low: 180000
+    high: 254000
+  source: "Disclosed nationwide base-pay ranges from live Travelers construction-surety job postings (Account Executive/Underwriter through Managing Director, Construction Surety); contract-bond underwriting is a distinct, higher-paid specialty from general property/casualty underwriting and shouldn't share Builder's Risk Underwriter's numbers"
+  asOf: "October 2026"
 whatIs: >
   A Surety Bond Underwriter evaluates construction companies to decide
   whether to issue them surety bonds, and how much bonding capacity to

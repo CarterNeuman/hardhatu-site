@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 47880
-    high: 62640
+    low: 40000
+    high: 50000
   fiveYear:
-    low: 83050
-    high: 114010
+    low: 52000
+    high: 68000
   tenYear:
-    low: 114010
-    high: 150010
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Business Operations Specialists, All Other (SOC 13-1199), national data — the same code this site's Contracts Administrator page uses, since no detailed occupation exists specifically for permit expediting"
-  asOf: "May 2025"
+    low: 70000
+    high: 95000
+  source: "DOL PERM wage-filing data for Permit Expediter and a real Los Angeles permit-expediting job posting; real pay here runs lower than the generic business-operations-specialist BLS mapping implied, not higher, with the top of scale allowing for senior/principal expediters in dense metros"
+  asOf: "2024-2026"
 ownerPayHighlight: >
   Owning an expediting firm means your income scales with how many clients'
   projects you can push through plan review at once, not one employer's

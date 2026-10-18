@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 67240
-    high: 85660
+    low: 70000
+    high: 88000
   fiveYear:
-    low: 120230
-    high: 158880
+    low: 92000
+    high: 118000
   tenYear:
-    low: 158880
-    high: 199130
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Data Scientists (SOC 15-2051), national data — the closest BLS classification for data-analysis work; BLS folded most data-analyst duties into this broader code rather than tracking it as its own detailed occupation"
-  asOf: "May 2025"
+    low: 120000
+    high: 145000
+  source: "DOL wage-filing data for this exact title at real AEC and construction firms, cross-checked against industry-sourced data-analyst pay by sector; the generic Data Scientists BLS code pulls in big-tech and finance pay far above what construction companies actually pay"
+  asOf: "October 2026"
 whatIs: >
   A Construction Data Analyst collects, organizes, and analyzes data across
   a construction company's projects, cost trends, schedule performance,

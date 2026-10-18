@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 48530
-    high: 61150
+    low: 65000
+    high: 80000
   fiveYear:
-    low: 78740
-    high: 101850
+    low: 90000
+    high: 115000
   tenYear:
-    low: 101850
-    high: 130820
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Cost Estimators (SOC 13-1051), national data — BLS doesn't track estimating/cost specialties as separate detailed occupations, so Estimator, Heavy Civil Estimator, Cost Engineer, and Quantity Surveyor all share this code and use the standard entry/median-75th/75th-90th mapping; see Bid Coordinator and Senior Estimator for the lower and upper parts of the same distribution"
-  asOf: "May 2025"
+    low: 125000
+    high: 155000
+  source: "Payscale's Cost Engineer data cross-referenced against an AACE-certification-premium owner-vs-GC pay ladder and ZipRecruiter's Project Cost Engineer percentiles, since BLS's generic Cost Estimators code understates senior, certified cost engineers"
+  asOf: "October 2026"
 whatIs: >
   A Cost Engineer applies cost estimating, cost control, and forecasting
   methods across a project's full lifecycle, not just the initial bid an

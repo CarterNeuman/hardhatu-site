@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 88550
-    high: 114990
+    low: 95000
+    high: 115000
   fiveYear:
-    low: 114990
-    high: 151640
+    low: 130000
+    high: 160000
   tenYear:
-    low: 151640
-    high: 189440
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Construction Managers (SOC 11-9021), national data — entry/5-year/10-year mapped to the upper half of this occupation's wage distribution (25th-90th percentile); BLS doesn't track assistant-level titles separately, see the Assistant Project Manager / Assistant Superintendent pages for the lower-half mapping of the same distribution"
-  asOf: "May 2025"
+    low: 190000
+    high: 260000
+  source: "Payscale's Construction Superintendent data blended with The Birm Group's 2026 construction salary survey (Superintendent I through General Superintendent IV) and a 2026 construction salary guide; general and senior superintendents at large commercial GCs commonly clear $190,000 to $260,000 in base salary alone"
+  asOf: "October 2026"
 whatIs: >
   A Superintendent ("super") is the general contractor's senior person
   physically on site every day, responsible for the means and methods of

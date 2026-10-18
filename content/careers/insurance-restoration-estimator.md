@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 48530
-    high: 61150
+    low: 49000
+    high: 62000
   fiveYear:
-    low: 78740
-    high: 101850
+    low: 77000
+    high: 102000
   tenYear:
-    low: 101850
-    high: 130820
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Cost Estimators (SOC 13-1051), national data — the same code this site's Estimator, Heavy Civil Estimator, Cost Engineer, and Quantity Surveyor pages share, since insurance-specific restoration estimating isn't tracked as its own detailed occupation"
-  asOf: "May 2025"
+    low: 102000
+    high: 125000
+  source: "Payscale's dedicated Insurance Restoration Estimator title page, cross-checked against ZipRecruiter's Insurance Restoration Project Manager data and real senior-restoration-estimator job postings"
+  asOf: "October 2026"
 whatIs: >
   An Insurance Restoration Estimator prepares detailed repair estimates for
   property damage tied to an insurance claim, usually working for a

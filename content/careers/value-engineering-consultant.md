@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 60640
-    high: 77950
+    low: 90000
+    high: 115000
   fiveYear:
-    low: 101860
-    high: 133370
+    low: 130000
+    high: 155000
   tenYear:
-    low: 133370
-    high: 171640
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Management Analysts (SOC 13-1111), national data — the closest BLS classification for an independent, specialized advisory role; no detailed occupation code exists for value engineering specifically"
-  asOf: "May 2025"
+    low: 165000
+    high: 200000
+  source: "ZipRecruiter's Value Engineer percentile data cross-referenced against Velvetjobs' national average and range for the specialized certified consultant/facilitator role, not the much lower-paid generic value-engineering coordinator category"
+  asOf: "October 2026"
 whatIs: >
   A Value Engineering Consultant leads formal value engineering studies,
   a structured process for finding ways to deliver a project's required

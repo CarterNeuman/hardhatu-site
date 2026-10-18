@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 60640
-    high: 77950
+    low: 58000
+    high: 75000
   fiveYear:
-    low: 101860
-    high: 133370
+    low: 80000
+    high: 108000
   tenYear:
-    low: 133370
-    high: 171640
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Management Analysts (SOC 13-1111), national data — the same code this site's Value Engineering Consultant, Construction Claims Consultant, and Scheduling & Delay Consultant pages share, since BLS has no detailed occupation specifically for independent construction advisory work; standard mapping, not the litigation-specific junior/senior slice those other two pages use"
-  asOf: "May 2025"
+    low: 120000
+    high: 160000
+  source: "Payscale's Construction Consultant and Cost Consultant US salary data; real aggregator data for this generalist title tops out lower than the standard management-analyst mapping implied"
+  asOf: "September 2026"
 ownerPayHighlight: >
   Making Partner or Principal at a consulting firm means your income comes
   from the firm's engagements, not a salary — real upside if you've built a

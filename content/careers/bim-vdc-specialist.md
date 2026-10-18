@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 55650
-    high: 66150
+    low: 62000
+    high: 75000
   fiveYear:
-    low: 66150
-    high: 80870
+    low: 80000
+    high: 100000
   tenYear:
-    low: 80870
-    high: 99710
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Architectural and Civil Drafters (SOC 17-3011), national data — shares this code with CAD Technician: BLS doesn't track BIM/VDC work as a separate detailed occupation from drafting, so this uses the upper half of the same wage distribution (25th-90th percentile) that the CAD Technician page uses the lower half of"
-  asOf: "May 2025"
+    low: 105000
+    high: 135000
+  source: "Novatr's BIM/VDC role salary breakdown and 4 Corner Resources' VDC Engineer data, cross-checked against DOL wage-filing data for this exact title; the generic Architectural and Civil Drafters BLS code badly understates this role once VDC/coordination responsibilities are added"
+  asOf: "October 2026"
 whatIs: >
   A BIM (Building Information Modeling) or VDC (Virtual Design and
   Construction) Specialist builds and manages the 3D digital model that

@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 58860
-    high: 74690
+    low: 65000
+    high: 80000
   fiveYear:
-    low: 74690
-    high: 94710
+    low: 85000
+    high: 105000
   tenYear:
-    low: 94710
-    high: 114200
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Construction and Building Inspectors (SOC 47-4011), national data — entry/5-year/10-year mapped to the upper half of this occupation's wage distribution (25th-90th percentile); see the QA/QC Inspector page for the lower-half mapping of the same distribution"
-  asOf: "May 2025"
+    low: 115000
+    high: 160000
+  source: "Payscale's Quality Control Manager, Construction data blended with a construction-QC-specific pay breakdown and ZipRecruiter data; federal and heavy-civil QC managers commonly land well above the generic BLS-derived ceiling of $114,200"
+  asOf: "October 2026"
 whatIs: >
   A Quality Control (QC) Manager verifies that construction work complies
   with contract specifications, drawings, and applicable codes, inspecting

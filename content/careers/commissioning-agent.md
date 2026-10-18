@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 73990
-    high: 84130
+    low: 58000
+    high: 78000
   fiveYear:
-    low: 104110
-    high: 132590
+    low: 85000
+    high: 115000
   tenYear:
-    low: 132590
-    high: 164340
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Mechanical Engineers (SOC 17-2141), national data — the closest BLS classification given how closely commissioning work overlaps with the MEP systems an MEP Engineer designs; no separate detailed occupation exists for commissioning specifically"
-  asOf: "May 2025"
+    low: 140000
+    high: 195000
+  source: "Payscale's Commissioning Agent data blended with DOL PERM wage-filing data and posted salary bands for data-center commissioning roles; the mission-critical/data-center commissioning niche pushes the real senior ceiling well above the generic Mechanical Engineers BLS proxy"
+  asOf: "September 2026"
 whatIs: >
   A Commissioning Agent independently verifies that a building's
   mechanical, electrical, plumbing, and life-safety systems are

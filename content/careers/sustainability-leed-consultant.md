@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 52520
-    high: 64490
+    low: 50000
+    high: 62000
   fiveYear:
-    low: 82220
-    high: 107970
+    low: 65000
+    high: 85000
   tenYear:
-    low: 107970
-    high: 140010
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Environmental Scientists and Specialists, Including Health (SOC 19-2041), national data — the same code this site's Environmental/Remediation Specialist page uses; the closest classification for applied building-sustainability work, since no detailed occupation exists specifically for LEED/sustainability consulting"
-  asOf: "May 2025"
+    low: 90000
+    high: 120000
+  source: "Payscale's Sustainability Consultant (Green Building skills) data; real pay for this narrower, documentation and certification-focused role tops out lower than the generic Environmental Scientists BLS mapping implied"
+  asOf: "2026"
 whatIs: >
   A Sustainability or LEED Consultant advises project teams on green
   building strategy and manages the certification process for rating

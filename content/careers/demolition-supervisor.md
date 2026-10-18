@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 53280
-    high: 63400
+    low: 55000
+    high: 70000
   fiveYear:
-    low: 79920
-    high: 101460
+    low: 85000
+    high: 110000
   tenYear:
-    low: 101460
-    high: 128260
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), First-Line Supervisors of Construction Trades and Extraction Workers (SOC 47-1011), national data"
-  asOf: "May 2025"
+    low: 125000
+    high: 160000
+  source: "Real 2026 Demolition Superintendent job postings cross-checked against Payscale's title sample; demolition supervision carries hazard and certification premiums (asbestos abatement, structural, explosives coordination) the generic BLS trades-supervisor code doesn't capture"
+  asOf: "September 2026"
 ownerPayHighlight: >
   Running your own demolition contracting business means bidding jobs where
   salvage and scrap value can push the margin well past what labor alone

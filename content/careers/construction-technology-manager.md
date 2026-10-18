@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 107550
-    high: 138060
+    low: 78000
+    high: 95000
   fiveYear:
-    low: 175140
-    high: 220730
+    low: 105000
+    high: 135000
   tenYear:
-    low: 220730
-    high: 297510
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Computer and Information Systems Managers (SOC 11-3021), national data"
-  asOf: "May 2025"
+    low: 140000
+    high: 175000
+  source: "Real Director of Construction Technology job postings at a national general contractor and a mid-size regional GC, used to bracket this Manager-level title a rung below Director; the generic Computer and Information Systems Managers BLS code produces a ceiling that exceeds even real Director-level construction-technology pay"
+  asOf: "2025-2026"
 whatIs: >
   A Construction Technology Manager oversees how a construction company
   adopts and standardizes technology across every project, not just one:

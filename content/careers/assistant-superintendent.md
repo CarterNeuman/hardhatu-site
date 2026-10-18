@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 69690
-    high: 88550
+    low: 58000
+    high: 76000
   fiveYear:
-    low: 88550
-    high: 114990
+    low: 80000
+    high: 96000
   tenYear:
-    low: 114990
-    high: 151640
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Construction Managers (SOC 11-9021), national data — BLS doesn't track assistant-level titles separately from the full Construction Manager title, so this uses the lower half of the same wage distribution (10th-75th percentile) that the Project Manager / Superintendent pages use the upper half of"
-  asOf: "May 2025"
+    low: 105000
+    high: 134000
+  source: "Payscale's Assistant Construction Superintendent data combined with The Birm Group's 2026 construction salary survey; field supervision carries a modest premium over the office-side Assistant PM track once per diem/vehicle allowances are factored in"
+  asOf: "October 2026"
 whatIs: >
   An Assistant Superintendent supports the Superintendent in running the
   day-to-day field operations of a construction site, supervising crews,

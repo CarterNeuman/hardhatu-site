@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 48530
-    high: 61150
+    low: 66000
+    high: 82000
   fiveYear:
-    low: 78740
-    high: 101850
+    low: 92000
+    high: 118000
   tenYear:
-    low: 101850
-    high: 130820
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Cost Estimators (SOC 13-1051), national data — BLS doesn't track estimating/cost specialties as separate detailed occupations, so Estimator, Heavy Civil Estimator, Cost Engineer, and Quantity Surveyor all share this code and use the standard entry/median-75th/75th-90th mapping; see Bid Coordinator and Senior Estimator for the lower and upper parts of the same distribution"
-  asOf: "May 2025"
+    low: 128000
+    high: 158000
+  source: "Payscale and Salary.com national Estimator data cross-referenced against The Birm Group's 2026 Construction Salary Survey and real market pay guides for mid-level estimators, including mission-critical/data-center market premiums"
+  asOf: "October 2026"
 whatIs: >
   An Estimator figures out what a project will cost before construction
   starts, so the company can submit a competitive bid that still leaves room

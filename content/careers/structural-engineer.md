@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 68240
-    high: 79930
+    low: 68000
+    high: 80000
   fiveYear:
-    low: 100840
-    high: 129680
+    low: 102000
+    high: 132000
   tenYear:
-    low: 129680
-    high: 163220
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Civil Engineers (SOC 17-2051), national data — BLS has no separate detailed occupation for structural engineering; it's classified under the broader Civil Engineers code, the same one the Civil Engineer page uses, so the figures are identical by design, not a copy-paste mistake"
-  asOf: "May 2025"
+    low: 135000
+    high: 172000
+  source: "Derived from the Civil Engineer data (Payscale, ASCE 2026 Salary Survey) with a modest differentiation at the mid and senior bands (confidence: low-medium, pending a dedicated NCSEA/ACEC survey search), reflecting the SE-licensed structural-engineer pay premium reported in industry compensation surveys; BLS has no separate code for this occupation, so the site previously just copied Civil Engineer's figures verbatim"
+  asOf: "2026, partial independent verification"
 ownerPayHighlight: >
   Making Principal at a structural firm means your stamp — and your firm's
   liability exposure — backs every calculation the firm signs off on; the

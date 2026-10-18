@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 92490
-    high: 115550
+    low: 80000
+    high: 95000
   fiveYear:
-    low: 148080
-    high: 182270
+    low: 110000
+    high: 135000
   tenYear:
-    low: 182270
-    high: 223280
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Purchasing Managers (SOC 11-3061), national data"
-  asOf: "May 2025"
+    low: 140000
+    high: 170000
+  source: "Real Procurement Manager job postings at heavy-civil and commercial general contractors cross-checked against construction-and-engineering-industry-specific salary data; the all-industry Purchasing Managers BLS code is pulled up by higher-paying sectors (defense, pharma, tech) that pay above construction's actual median"
+  asOf: "October 2026"
 whatIs: >
   A Procurement Manager sources and purchases the materials, equipment, and
   long-lead items a construction company needs across its projects,

@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 48850
-    high: 61160
+    low: 46000
+    high: 59000
   fiveYear:
-    low: 78000
-    high: 98030
+    low: 75000
+    high: 98000
   tenYear:
-    low: 98030
-    high: 117040
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Claims Adjusters, Examiners, and Investigators (SOC 13-1031), national data — shares this code with Public Adjuster, the mirror-image role representing the policyholder instead of the insurer"
-  asOf: "May 2025"
+    low: 98000
+    high: 140000
+  source: "Payscale's Property Claims Adjuster and Senior Claims Adjuster percentile data and a disclosed Liberty Mutual senior field claims adjuster posting; entry and median pay were already close to accurate, the ceiling needed raising to reflect specialized large-loss/CAT adjusters"
+  asOf: "October 2026"
 ownerPayHighlight: >
   Going independent or CAT doesn't mean steady raises — it means trading a
   salary for per-claim contract work that can pay enormous sums during an

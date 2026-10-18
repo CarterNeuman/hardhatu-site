@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 69690
-    high: 88550
+    low: 72000
+    high: 90000
   fiveYear:
-    low: 114990
-    high: 151640
+    low: 105000
+    high: 140000
   tenYear:
-    low: 151640
-    high: 189440
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Construction Managers (SOC 11-9021), national data — the same code this site's general Project Manager and Superintendent pages use, since BLS doesn't track renewable-energy project management as a separate detailed occupation"
-  asOf: "May 2025"
+    low: 140000
+    high: 185000
+  source: "ZipRecruiter's Solar Project Manager data and company-reported pay at solar/renewable firms, cross-checked against real senior utility-scale solar PM postings"
+  asOf: "2026"
 whatIs: >
   A Renewable Energy Project Manager runs solar, battery storage, and
   other renewable energy construction projects the same way a general

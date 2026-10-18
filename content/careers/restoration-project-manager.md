@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 69690
-    high: 88550
+    low: 42000
+    high: 52000
   fiveYear:
-    low: 114990
-    high: 151640
+    low: 58000
+    high: 78000
   tenYear:
-    low: 151640
-    high: 189440
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Construction Managers (SOC 11-9021), national data — the same code this site's general Project Manager and Superintendent pages use, since BLS doesn't track restoration project management as a separate detailed occupation"
-  asOf: "May 2025"
+    low: 90000
+    high: 120000
+  source: "Payscale's Restoration Project Manager data, ZipRecruiter's Insurance Restoration Project Manager data, and real restoration-industry employer pay, confirming this insurance-funded reconstruction role (SERVPRO/Paul Davis/BELFOR-type firms) is a genuinely different, lower-paying segment than general commercial-GC project management, not a data error"
+  asOf: "September 2026"
 whatIs: >
   A Restoration Project Manager manages the reconstruction and repair work
   after property damage, fire, water, storm, or other loss, coordinating

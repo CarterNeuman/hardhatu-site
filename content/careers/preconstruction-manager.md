@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 61150
-    high: 78740
+    low: 90000
+    high: 105000
   fiveYear:
-    low: 78740
-    high: 101850
+    low: 110000
+    high: 135000
   tenYear:
-    low: 101850
-    high: 130820
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Cost Estimators (SOC 13-1051), national data — entry/5-year/10-year mapped to the upper part of this occupation's wage distribution (25th-90th percentile), since Senior Estimator and Preconstruction Manager both sit at the top of this site's estimating progression; see the Estimator page for the standard mapping and Bid Coordinator for the lower part of the same distribution"
-  asOf: "May 2025"
+    low: 140000
+    high: 165000
+  source: "Payscale and Salary.com national Pre-Construction Manager data cross-referenced against The Birm Group's regional Preconstruction Manager/Director survey; real data places this role above plain Estimator but, perhaps counterintuitively, below what major-GC Senior/Chief Estimators earn, since the title covers a broader mix of company sizes and a more coordination-focused scope"
+  asOf: "October 2026"
 whatIs: >
   A Preconstruction Manager leads a project's preconstruction phase,
   coordinating estimating, scheduling, constructability review, and early

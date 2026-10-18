@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 47140
-    high: 58860
+    low: 46000
+    high: 59000
   fiveYear:
-    low: 58860
-    high: 74690
+    low: 58000
+    high: 75000
   tenYear:
-    low: 74690
-    high: 94710
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Construction and Building Inspectors (SOC 47-4011), national data — entry/5-year/10-year mapped to the lower half of this occupation's wage distribution (10th-75th percentile); see the Quality Control Manager page for the upper-half mapping of the same distribution"
-  asOf: "May 2025"
+    low: 80000
+    high: 112000
+  source: "BLS Construction and Building Inspectors detailed occupation data cross-checked against ZipRecruiter's Construction Inspector percentiles; the entry and typical bands were already close to accurate, only the top of scale needed raising"
+  asOf: "October 2026"
 whatIs: >
   A QA/QC Inspector performs the hands-on inspection and testing that a
   project's quality control program requires, checking completed work

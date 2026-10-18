@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 48790
-    high: 58510
+    low: 68000
+    high: 85000
   fiveYear:
-    low: 73300
-    high: 106430
+    low: 95000
+    high: 125000
   tenYear:
-    low: 106430
-    high: 124600
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Pile-Driver Operators (SOC 47-2072), national data"
-  asOf: "May 2025"
+    low: 135000
+    high: 166000
+  source: "Real job postings for Deep Foundations/Pile-Driving Superintendent roles cross-checked against hourly foreman/general-foreman pay data; the generic BLS Pile-Driver Operators code measures hourly machine-operator pay, not the supervisory/specialist track this title describes"
+  asOf: "2026 postings"
 ownerPayHighlight: >
   Starting your own deep-foundation contracting business means the pile-
   driving rig and crane fleet are the real cost of entry — once that

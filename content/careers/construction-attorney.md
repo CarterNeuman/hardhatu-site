@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 78360
-    high: 102990
+    low: 65000
+    high: 85000
   fiveYear:
-    low: 159670
-    high: 221370
+    low: 100000
+    high: 145000
   tenYear:
-    low: 221370
-    high: 351600
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Lawyers (SOC 23-1011), national data"
-  asOf: "May 2025"
+    low: 160000
+    high: 230000
+  source: "Payscale's Construction Attorney data combined with BLS's own industry-specific pay for lawyers employed in the building-construction industries; the generic all-industry Lawyers code is skewed upward by BigLaw partner pay that has little to do with a construction company's in-house counsel"
+  asOf: "October 2026"
 ownerPayHighlight: >
   Making partner isn't a raise — it's buying a stake in the firm's own
   profits, and at a firm with strong construction litigation or

@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 39500
-    high: 47990
+    low: 42000
+    high: 50000
   fiveYear:
-    low: 58260
-    high: 69600
+    low: 58000
+    high: 72000
   tenYear:
-    low: 69600
-    high: 81350
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Payroll and Timekeeping Clerks (SOC 43-3051), national data"
-  asOf: "May 2025"
+    low: 75000
+    high: 95000
+  source: "Real construction-industry Certified Payroll Specialist job postings; this specialized, compliance-heavy role (prevailing wage, DIR reporting, union payroll) runs above the generic BLS Payroll and Timekeeping Clerks code at the senior end"
+  asOf: "October 2026"
 whatIs: >
   A Certified Payroll Specialist manages payroll for construction
   companies working on public and prevailing-wage projects, where

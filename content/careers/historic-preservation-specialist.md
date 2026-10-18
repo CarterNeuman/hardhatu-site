@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 62300
-    high: 77960
+    low: 58000
+    high: 70000
   fiveYear:
-    low: 99280
-    high: 126550
+    low: 78000
+    high: 95000
   tenYear:
-    low: 126550
-    high: 161420
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Architects, Except Landscape and Naval (SOC 17-1011), national data — the closest BLS classification given this role's heavy overlap with preservation architecture and compliance review; no separate detailed occupation exists for historic preservation specifically"
-  asOf: "May 2025"
+    low: 95000
+    high: 120000
+  source: "Salary.com's Architectural Historic Preserve Project Manager data cross-checked against Payscale's Preservation Architect figures and a reported industry earnings profile; most people holding this title are preservation specialists, not fully licensed architects, so the prior licensed-architect BLS proxy overstated pay"
+  asOf: "October 2026"
 whatIs: >
   A Historic Preservation Specialist plans and oversees restoration and
   rehabilitation work on historic and landmark-designated buildings,

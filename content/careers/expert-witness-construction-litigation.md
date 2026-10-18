@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 77950
-    high: 101860
+    low: 100000
+    high: 140000
   fiveYear:
-    low: 101860
-    high: 133370
+    low: 160000
+    high: 220000
   tenYear:
-    low: 133370
-    high: 171640
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Management Analysts (SOC 13-1111), national data — entry/5-year/10-year mapped to the upper part of this occupation's wage distribution (25th-90th percentile), since this is the most senior role this site's own progression shows Construction Claims Consultant and Scheduling & Delay Consultant both feeding into after many years of practice"
-  asOf: "May 2025"
+    low: 280000
+    high: 450000
+  source: "SEAK's Survey of Expert Witness Fees and reported hourly billing rates for construction and engineering experts, converted to an annual-income estimate at conservative-to-higher billable-hour utilization and cross-checked against a real salaried construction-expert posting; no source gives a direct annual-salary distribution for this title, so this is a derived estimate, kept clearly above Construction Claims Consultant and Scheduling & Delay Consultant per this site's own progression"
+  asOf: "2024-2026"
 ownerPayHighlight: >
   Running your own testifying-expert practice means billing for your own
   name and credibility — the opinion you're willing to put under oath is the

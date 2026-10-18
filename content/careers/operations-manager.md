@@ -8,16 +8,16 @@ isEntryRole: false
 payTimeline:
   unit: annual
   entry:
-    low: 50090
-    high: 72320
+    low: 52000
+    high: 70000
   fiveYear:
-    low: 105770
-    high: 167280
+    low: 75000
+    high: 95000
   tenYear:
-    low: 167280
-    high: 253390
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), General and Operations Managers (SOC 11-1021), national data"
-  asOf: "May 2025"
+    low: 110000
+    high: 145000
+  source: "ZipRecruiter's Construction Operations Manager percentile data cross-checked against a real general-contractor Operations Manager posting; the generic General and Operations Managers BLS code spans every industry and overstates construction-specific pay"
+  asOf: "October 2026"
 whatIs: >
   An Operations Manager oversees a portfolio of active projects and the
   Project Managers running them, focusing on company-wide execution,
