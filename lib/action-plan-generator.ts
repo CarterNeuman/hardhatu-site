@@ -212,6 +212,12 @@ type RawDay = {
   detail: string;
   kind?: "lesson" | "software" | "examPrep";
   href?: string;
+  // Internal-only tie-break for the final sort below -- never reaches the
+  // public GeneratedDayItem shape (stripped out right after sorting).
+  // Guarantees the anchorEnd capstone renders last among same-day items
+  // instead of landing wherever an otherwise-equal sort happens to place
+  // it relative to another item that lands on the plan's final day.
+  anchorEnd?: boolean;
 };
 
 // Expands one authored "recurring" item into however many repeat rounds
@@ -230,13 +236,28 @@ function expandRecurringItem(
 ): RawDay[] {
   const kind: RecurringKind = item.recurringKind === "certification" ? "certification" : "outreach";
   const cadence = RECURRING_CADENCE[kind];
-  const cadenceDays = Math.max(cadence.minDays, Math.round(cadence.referenceDays / densityFactor));
+  const baseCadenceDays = Math.max(cadence.minDays, Math.round(cadence.referenceDays / densityFactor));
   const scaledSpan = Math.max(1, Math.round((item.dayEnd - item.dayStart + 1) * paceScale));
   const firstStart = Math.min(totalDays, Math.max(1, Math.round(item.dayStart * paceScale)));
 
+  // How many rounds the pace-based cadence would naturally produce
+  // between firstStart and the end of the plan, capped at maxInstances.
+  // When effort (hours/week) is the limiting factor, this comes in below
+  // maxInstances and the natural cadence below is left alone. When a
+  // long timeline means the natural cadence would reach maxInstances
+  // well before totalDays, that used to leave a long dead gap before the
+  // anchorEnd capstone -- instead, spread the capped round count evenly
+  // across the remaining plan so the last round lands near the end.
+  const naturalCount = Math.max(1, Math.floor((totalDays - firstStart) / baseCadenceDays) + 1);
+  const instanceCount = Math.min(cadence.maxInstances, naturalCount);
+  const cadenceDays =
+    instanceCount > 1 && naturalCount > cadence.maxInstances
+      ? Math.max(cadence.minDays, Math.floor((totalDays - firstStart) / (instanceCount - 1)))
+      : baseCadenceDays;
+
   const spans: { dayStart: number; dayEnd: number }[] = [];
   let cursor = firstStart;
-  while (cursor <= totalDays && spans.length < cadence.maxInstances) {
+  while (cursor <= totalDays && spans.length < instanceCount) {
     spans.push({ dayStart: cursor, dayEnd: Math.min(totalDays, cursor + scaledSpan - 1) });
     cursor += cadenceDays;
   }
@@ -483,6 +504,19 @@ export function buildActionPlan({
 }): GeneratedPlan {
   const certsHeldTokens = tokenize(intake.certsHeld);
 
+  // Defends the pure generator against a NaN/Infinity slipping through
+  // from a future caller that skips the intake form's own clamping (not
+  // reachable from the real UI today, since ActionPlanBuilder always
+  // sends clamped numbers) -- every downstream day offset is computed
+  // from these two fields, so a non-finite value here would otherwise
+  // propagate silently into every scaled date on the plan instead of
+  // falling back to something sane.
+  const safeIntake: ActionPlanIntake = {
+    ...intake,
+    hoursPerWeek: Number.isFinite(intake.hoursPerWeek) ? intake.hoursPerWeek : REFERENCE_HOURS_PER_WEEK,
+    timelineWeeks: Number.isFinite(intake.timelineWeeks) ? intake.timelineWeeks : 0,
+  };
+
   // Three independent dials, on purpose: totalDays is how far out the
   // calendar runs (the visitor's stated timeline wins outright, hours/week
   // only sets the length when no timeline was given); paceScale is how
@@ -493,9 +527,9 @@ export function buildActionPlan({
   // "a longer timeline" produce more tasks rather than just the same
   // tasks spread thinner.
   const referenceSpanDays = skeleton.dayByDay.reduce((max, item) => Math.max(max, item.dayEnd), 1);
-  const totalDays = computeTotalDays(referenceSpanDays, intake);
-  const paceScale = computePaceScale(intake.hoursPerWeek);
-  const densityFactor = computeDensityFactor(intake.hoursPerWeek);
+  const totalDays = computeTotalDays(referenceSpanDays, safeIntake);
+  const paceScale = computePaceScale(safeIntake.hoursPerWeek);
+  const densityFactor = computeDensityFactor(safeIntake.hoursPerWeek);
 
   const rawDays: RawDay[] = [];
   for (const item of skeleton.dayByDay) {
@@ -512,7 +546,7 @@ export function buildActionPlan({
       const span = Math.max(1, Math.round((item.dayEnd - item.dayStart + 1) * paceScale));
       const scaledEnd = totalDays;
       const scaledStart = Math.max(1, scaledEnd - span + 1);
-      rawDays.push({ dayStart: scaledStart, dayEnd: scaledEnd, title: item.title, detail: item.detail });
+      rawDays.push({ dayStart: scaledStart, dayEnd: scaledEnd, title: item.title, detail: item.detail, anchorEnd: true });
       continue;
     }
     const scaledStart = Math.min(totalDays, Math.max(1, Math.round(item.dayStart * paceScale)));
@@ -534,12 +568,21 @@ export function buildActionPlan({
   rawDays.push(...expandSkillBuildingItems(skillItems, paceScale, densityFactor, totalDays));
 
   const days: GeneratedDayItem[] = rawDays
-    .map((item) => ({
+    .sort((a, b) => {
+      // The anchorEnd capstone is guaranteed to render last, full stop,
+      // not just win same-day ties -- a recurring item's own last round
+      // can legitimately share or even edge past the capstone's start
+      // day once cadence spreading (see expandRecurringItem) stretches
+      // rounds across a long timeline, and the capstone should still
+      // read as the plan's final step either way.
+      if (a.anchorEnd !== b.anchorEnd) return a.anchorEnd ? 1 : -1;
+      return a.dayStart - b.dayStart || a.dayEnd - b.dayEnd;
+    })
+    .map(({ anchorEnd, ...item }) => ({
       ...item,
       startDate: addDays(startDate, item.dayStart - 1),
       endDate: addDays(startDate, item.dayEnd - 1),
-    }))
-    .sort((a, b) => a.dayStart - b.dayStart || a.dayEnd - b.dayEnd);
+    }));
 
   const qualifications: GeneratedQualification[] = (getHiredGuide?.credentialsToHaveReady ?? []).map(
     (label) => ({
@@ -556,7 +599,7 @@ export function buildActionPlan({
   const interviewPrepHref = careerInterviewPrepHref ?? categoryInterviewPrepHref;
   const examPrepHref = careerExamPrepHref ?? categoryExamPrepHref;
 
-  const headline = buildHeadline(trade, intake.location, intake.status, intake.hoursPerWeek, totalDays);
+  const headline = buildHeadline(trade, intake.location, intake.status, safeIntake.hoursPerWeek, totalDays);
 
   return {
     category: skeleton.category,

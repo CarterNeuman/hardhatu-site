@@ -56,12 +56,12 @@ export function ActionPlanPrintCalendar({ days, title }: { days: GeneratedDayIte
               </div>
               <div className="flex min-h-[1.5in] flex-col gap-1.5 p-1.5">
                 {tasks.length === 0 ? (
-                  <p className="text-[9px] italic text-steel">Open day</p>
+                  <p className="text-[10px] italic text-steel">Open day</p>
                 ) : (
                   tasks.map((task, i) => (
                     <div key={i} className="flex items-start gap-1.5">
                       <span aria-hidden="true" className="mt-0.5 inline-block h-2.5 w-2.5 shrink-0 border border-ink" />
-                      <span className="text-[9px] leading-snug text-ink">{task.title}</span>
+                      <span className="line-clamp-2 text-[10px] leading-snug text-ink">{task.title}</span>
                     </div>
                   ))
                 )}
@@ -71,7 +71,7 @@ export function ActionPlanPrintCalendar({ days, title }: { days: GeneratedDayIte
         })}
       </div>
 
-      <p className="mt-4 text-[9px] text-steel">
+      <p className="mt-4 text-[10px] text-steel">
         {isTruncated
           ? `breakgroundU \u00b7 this schedule is informational, not a guarantee of being hired. Your full ${planLength}-day plan continues online -- come back anytime to see what's next.`
           : "breakgroundU \u00b7 this schedule is informational, not a guarantee of being hired."}

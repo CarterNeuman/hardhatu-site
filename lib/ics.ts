@@ -21,21 +21,29 @@ function escapeIcsText(text: string): string {
 }
 
 function foldLine(line: string): string {
-  // iCalendar lines are supposed to wrap at 75 octets with a leading space
-  // on the continuation; most calendar apps tolerate long lines fine, but
-  // folding keeps this spec-correct for stricter importers.
+  // iCalendar lines are supposed to wrap at 75 octets per line, and that
+  // budget includes the leading space RFC 5545 requires on a continuation
+  // line -- so each continuation carries 74 octets of content, not 75.
+  // Most calendar apps tolerate a line that runs one octet over, but
+  // folding at the spec-correct width keeps stricter importers happy.
   if (line.length <= 75) return line;
-  let result = "";
-  let rest = line;
-  while (rest.length > 75) {
-    result += rest.slice(0, 75) + "\r\n ";
-    rest = rest.slice(75);
+  let result = line.slice(0, 75);
+  let rest = line.slice(75);
+  while (rest.length > 0) {
+    result += "\r\n " + rest.slice(0, 74);
+    rest = rest.slice(74);
   }
-  return result + rest;
+  return result;
 }
 
 export function buildIcs(days: GeneratedDayItem[], calendarName: string): string {
   const now = toIcsDate(new Date());
+  // Separate from `now` (date-only, used for DTSTAMP below) on purpose:
+  // a UID only needs to be unique, and two downloads made later the same
+  // day used to produce identical UIDs since both runs reset `i` to 0
+  // against the same date-only value. Millisecond resolution closes that
+  // without needing a real random-number source.
+  const uidSeed = Date.now().toString(36);
   const lines: string[] = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
@@ -48,7 +56,7 @@ export function buildIcs(days: GeneratedDayItem[], calendarName: string): string
     const exclusiveEnd = new Date(item.endDate.getTime() + 24 * 60 * 60 * 1000);
     lines.push(
       "BEGIN:VEVENT",
-      `UID:breakgroundu-action-plan-${now}-${i}@breakgroundu.com`,
+      `UID:breakgroundu-action-plan-${uidSeed}-${i}@breakgroundu.com`,
       `DTSTAMP:${now}T000000Z`,
       `DTSTART;VALUE=DATE:${toIcsDate(item.startDate)}`,
       `DTEND;VALUE=DATE:${toIcsDate(exclusiveEnd)}`,

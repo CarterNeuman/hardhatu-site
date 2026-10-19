@@ -109,6 +109,7 @@ function TemplateBlock({ label, text }: { label: string; text: string }) {
         <button
           onClick={copy}
           type="button"
+          aria-label={copied ? `Copied ${label}` : `Copy ${label}`}
           className="print:hidden text-xs font-semibold text-navy hover:underline"
         >
           {copied ? "Copied" : "Copy"}
