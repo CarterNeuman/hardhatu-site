@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getAllContent } from "@/lib/content";
 import { CAREER_CATEGORY_ORDER } from "@/lib/types";
+import { BlueprintMark } from "@/components/BlueprintMark";
 import {
   ActionPlanBuilder,
   type CategoryData,
@@ -189,7 +190,11 @@ export default function ActionPlanPage() {
           block is marketing copy that doesn't belong on a printed
           physical schedule someone might hand to another person. */}
       <div className="print:hidden">
-        <h1 className="font-display text-4xl font-bold text-ink">Stop planning to start. Start.</h1>
+        <div className="flex items-center gap-3">
+          <BlueprintMark size={40} />
+          <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-navy">Blueprint</p>
+        </div>
+        <h1 className="mt-3 font-display text-4xl font-bold text-ink">Stop planning to start. Start.</h1>
         <p className="mt-3 text-lg leading-relaxed text-ink">
           Tell us where you're at and get a real day-by-day plan back, not just advice: credentials to line
           up, exactly who to apply to, what to say when you reach out, and real lessons worked right into
