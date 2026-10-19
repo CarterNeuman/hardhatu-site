@@ -16,9 +16,9 @@ import {
 // client-side function with nothing saved between visits (see
 // ActionPlanBuilder's own comment for that tradeoff).
 export const metadata: Metadata = {
-  title: "Action Plan",
+  title: "Blueprint",
   description:
-    "Build a personalized, day-by-day plan for getting hired in construction.",
+    "A free, personalized day-by-day plan for getting hired in construction: credentials to line up, who to apply to, and what to say.",
 };
 
 export default function ActionPlanPage() {
@@ -189,15 +189,14 @@ export default function ActionPlanPage() {
           block is marketing copy that doesn't belong on a printed
           physical schedule someone might hand to another person. */}
       <div className="print:hidden">
-        <h1 className="font-display text-4xl font-bold text-ink">Build your Action Plan</h1>
+        <h1 className="font-display text-4xl font-bold text-ink">Stop planning to start. Start.</h1>
         <p className="mt-3 text-lg leading-relaxed text-ink">
-          Tell us where you are in the process and we'll put together a day-by-day plan: qualifications to
-          line up, real lessons/software/exam prep worked into the schedule itself, resume bullets to use for
-          inspiration, who to actually apply to, and exactly how to reach out.
+          Tell us where you're at and get a real day-by-day plan back, not just advice: credentials to line
+          up, exactly who to apply to, what to say when you reach out, and real lessons worked right into
+          the calendar.
         </p>
         <p className="mt-2 text-sm text-steel">
-          Nothing you enter here is saved yet, accounts aren't live yet. Download the calendar (.ics) or print
-          your schedule if you want to keep a copy.
+          Free, no account needed yet. Download it as a calendar file, or print it and keep it in the truck.
         </p>
       </div>
 

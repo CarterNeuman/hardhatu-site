@@ -47,7 +47,7 @@ export function buildIcs(days: GeneratedDayItem[], calendarName: string): string
   const lines: string[] = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//BreakGroundU//Action Plan//EN",
+    "PRODID:-//BreakGroundU//Blueprint//EN",
     "CALSCALE:GREGORIAN",
     `X-WR-CALNAME:${escapeIcsText(calendarName)}`,
   ];

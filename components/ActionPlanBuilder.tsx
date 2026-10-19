@@ -213,7 +213,7 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
 
   function handleDownloadIcs() {
     if (!plan || plan === "coming-soon") return;
-    const name = plan.careerTitle ? `${plan.careerTitle} Action Plan` : `${plan.category} Action Plan`;
+    const name = plan.careerTitle ? `${plan.careerTitle} Blueprint` : `${plan.category} Blueprint`;
     downloadIcs(`breakgroundu-${plan.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-plan.ics`, buildIcs(plan.days, name));
   }
 
@@ -222,7 +222,7 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
       <div className="mt-8 border border-hairline bg-amber-soft/40 p-6">
         <p className="font-display text-xl font-bold text-ink">This category's plan isn't ready yet</p>
         <p className="mt-2 text-sm leading-relaxed text-steel">
-          {category} doesn't have an Action Plan skeleton written yet. In the meantime, the Get Hired guide for{" "}
+          {category} doesn't have a Blueprint written yet. In the meantime, the Get Hired guide for{" "}
           {category} covers the same ground in checklist form.
         </p>
         <button
@@ -330,7 +330,7 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
               {plan.status === "applying" ? "Actively applying" : "Just looking"}
             </p>
             <h2 className="font-display text-3xl font-bold text-ink">
-              {plan.careerTitle ?? plan.category} Action Plan
+              {plan.careerTitle ?? plan.category} Blueprint
             </h2>
             <p className="mt-1 max-w-md text-sm leading-relaxed text-steel">{plan.headline}</p>
           </div>
@@ -364,7 +364,7 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
         )}
 
         <div className="mt-7 flex items-baseline justify-between gap-3">
-          <SectionLabel>Your Personalized Action Plan</SectionLabel>
+          <SectionLabel>Your Personalized Blueprint</SectionLabel>
           <button
             type="button"
             onClick={toggleAllAccordions}

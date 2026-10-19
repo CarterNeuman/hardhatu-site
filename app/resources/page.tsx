@@ -100,7 +100,7 @@ export default function ResourcesIndexPage() {
       <div className="mx-auto max-w-6xl px-6 py-10 text-sm text-steel">
         Not sure which of these you need yet?{" "}
         <Link href="/action-plan" className="font-semibold text-navy hover:underline">
-          Build your Action Plan
+          Build your Blueprint
         </Link>{" "}
         and we'll point you to the right ones for where you are.
       </div>
