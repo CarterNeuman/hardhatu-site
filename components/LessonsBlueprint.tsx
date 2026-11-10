@@ -46,7 +46,7 @@ type Branch = BlueprintBranch & {
 };
 
 const SHEET_W = 900;
-const SHEET_H = 1780;
+const SHEET_H = 2330;
 const TOOLTIP_W = 252;
 const TOOLTIP_H = 190;
 const MAIN_BADGE_R = 31.875; // 42.5 decreased 25%, per request -- branch badges (BRANCH_BADGE_R) are untouched

@@ -156,10 +156,13 @@
      svg's own viewBox providing the aspect ratio), so there's never
      anything wider than the container to scroll to. Vertical scroll
      (overflow-y) is the only gesture, matching the road's own
-     top-to-bottom direction. SHEET_W in LessonsBlueprint.tsx (684) was
-     deliberately kept narrow for this: a wider intrinsic sheet would
-     scale badge/title text down too small to read on a phone-width
-     container. */
+     top-to-bottom direction. SHEET_W in LessonsBlueprint.tsx (900) was
+     deliberately kept narrow enough for this: a much wider intrinsic
+     sheet would scale badge/title text down too small to read on a
+     phone-width container. Each max-width below is ~1cm (~38px) wider
+     on each side than the previous pass, widening the visible diagram
+     on screen -- this is a container-size change only, it doesn't touch
+     SHEET_W or the switchback geometry itself. */
   overflow-x: hidden;
   overflow-y: auto;
   border: 1px solid var(--line-dim);
@@ -167,7 +170,7 @@
   -webkit-overflow-scrolling: touch;
   max-height: 80vh;
   width: 100%;
-  max-width: 480px;
+  max-width: 556px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -179,13 +182,13 @@
 @media (min-width: 640px) {
   .sheetScroll {
     max-height: 82vh;
-    max-width: 600px;
+    max-width: 676px;
   }
 }
 @media (min-width: 1000px) {
   .sheetScroll {
     max-height: 85vh;
-    max-width: 720px;
+    max-width: 796px;
   }
 }
 
