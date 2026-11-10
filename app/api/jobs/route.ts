@@ -1,12 +1,10 @@
 import { NextResponse } from "next/server";
 import {
-  buildAdzunaCategoriesUrl,
   buildAdzunaSearchUrl,
   cleanLocation,
   cleanTrade,
   jobSearchRateLimiter,
   normalizeListing,
-  pickConstructionCategoryTag,
   type JobSearchResult,
 } from "@/lib/job-search";
 
@@ -40,12 +38,19 @@ const COUNTRY = "us";
 // repeated test loads) searching the same trade+location combo within
 // this window share one upstream call instead of each spending one.
 const SEARCH_CACHE_SECONDS = 60 * 60 * 3;
-// The category taxonomy basically never changes, so this is cached much
-// longer -- one upstream call a day covers every visitor, not one per
-// search.
-const CATEGORY_CACHE_SECONDS = 60 * 60 * 24;
 const FETCH_TIMEOUT_MS = 6_000;
+// What the result screen actually shows -- unchanged.
 const MAX_RESULTS = 8;
+// What gets requested from Adzuna, on purpose larger than MAX_RESULTS.
+// normalizeListing (lib/job-search.ts) drops any raw entry missing a
+// title or a working link, so asking Adzuna for exactly 8 and hoping
+// all 8 survive normalization risks showing fewer than 8 even when 8+
+// real openings exist for a search. Asking for a bigger page and then
+// slicing down to MAX_RESULTS after normalization/filtering (below)
+// means a handful of incomplete entries can get dropped without
+// shrinking what the visitor actually sees. Still exactly one upstream
+// call either way -- results_per_page doesn't change that.
+const FETCH_RESULTS = 15;
 
 type FailureReason = Extract<JobSearchResult, { ok: false }>["reason"];
 
@@ -65,9 +70,8 @@ async function fetchWithTimeout(url: string, revalidateSeconds: number): Promise
 
 // A hard backstop on top of response caching and the per-IP rate
 // limiter above: counts every real network call this warm server
-// process makes to Adzuna (categories + search combined, since both
-// draw from the same account quota) and refuses once the configured
-// ceiling is hit, logging clearly rather than silently doing nothing.
+// process makes to Adzuna and refuses once the configured ceiling is
+// hit, logging clearly rather than silently doing nothing.
 // Caching and rate limiting should keep real usage far below this
 // during normal testing, but this exists so a scarce trial quota (not
 // an ongoing daily free tier) can never get burned through by, say,
@@ -192,32 +196,17 @@ export async function GET(request: Request) {
     return fail("not_configured");
   }
 
-  // Resolve the construction-flavored category tag from Adzuna's own
-  // taxonomy (never hardcoded -- see pickConstructionCategoryTag). Only
-  // attempted if the call budget allows it; skipping this specifically
-  // (rather than failing the whole request) just means the search below
-  // runs without a category filter, the same graceful degradation as a
-  // failed categories call always had.
-  let categoryTag: string | undefined;
-  if (tryConsumeRealCall("categories")) {
-    try {
-      const categoriesUrl = buildAdzunaCategoriesUrl(appId, appKey, COUNTRY);
-      const categoriesRes = await fetchWithTimeout(categoriesUrl, CATEGORY_CACHE_SECONDS);
-      if (categoriesRes.ok) {
-        const categoriesBody: unknown = await categoriesRes.json();
-        const results =
-          categoriesBody && typeof categoriesBody === "object"
-            ? (categoriesBody as Record<string, unknown>).results
-            : undefined;
-        categoryTag = pickConstructionCategoryTag(results);
-      } else {
-        console.warn(`[jobs] Adzuna categories call returned ${categoriesRes.status}`);
-      }
-    } catch (err) {
-      console.warn("[jobs] network error fetching Adzuna categories", err);
-    }
-  }
-
+  // Deliberately no category filter: Adzuna auto-classifies each
+  // listing into its own taxonomy, and that classification is often
+  // wrong for construction-adjacent roles (a general contractor's "VDC
+  // Manager" posting showed up filed under "Energy, Oil & Gas Jobs",
+  // not "Trade & Construction Jobs" -- confirmed live while debugging
+  // a "no results" report for Preconstruction Manager/Atlanta that
+  // turned out to be exactly this). Filtering on that tag can silently
+  // zero out a real, relevant result instead of excluding noise.
+  // title_only below already keeps results on-topic for the searched
+  // career title, so this isn't trading relevance for anything.
+  //
   // The search call itself is the one that actually produces results,
   // so exhausting the budget here does fail the whole request rather
   // than degrading further -- there's nothing left to show without it.
@@ -232,8 +221,7 @@ export async function GET(request: Request) {
     what,
     where,
     maxDaysOld: 30,
-    categoryTag,
-    resultsPerPage: MAX_RESULTS,
+    resultsPerPage: FETCH_RESULTS,
   });
 
   try {
@@ -257,7 +245,7 @@ export async function GET(request: Request) {
       .filter((listing): listing is NonNullable<typeof listing> => listing !== null)
       .slice(0, MAX_RESULTS);
 
-    return NextResponse.json<JobSearchResult>({ ok: true, query: { what, where, categoryTag }, listings });
+    return NextResponse.json<JobSearchResult>({ ok: true, query: { what, where }, listings });
   } catch (err) {
     console.error(`[jobs] network error contacting Adzuna for "${what}" near "${where}"`, err);
     return fail("network_error");

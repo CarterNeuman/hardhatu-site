@@ -111,7 +111,9 @@ export function LiveJobResults({
 
       {status === "empty" && (
         <p className="mt-3 text-sm text-steel">
-          No live openings matched right now. Try the search links below instead, or check back soon.
+          No live openings matched this search in our job feed right now. That is not a sign this career
+          has no real openings, it just means this one feed came up empty today. Use the search links
+          below to check further, or check back soon.
         </p>
       )}
 

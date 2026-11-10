@@ -66,7 +66,6 @@ export type AdzunaSearchParams = {
   where: string;
   distanceMiles?: number;
   maxDaysOld?: number;
-  categoryTag?: string;
   resultsPerPage?: number;
   page?: number;
 };
@@ -77,55 +76,38 @@ export type AdzunaSearchParams = {
 // interpreted as an extra query parameter or break out of its own
 // field, however it's typed (this is the fix for the "location string
 // containing its own query syntax" risk flagged in the brainstorm).
+//
+// IMPORTANT, confirmed live against Adzuna's own Swagger spec
+// (developer.adzuna.com/activedocs) while debugging a "no results"
+// report: `title_only` is NOT a 0/1 boolean flag that narrows `what` --
+// it's its own keyword field ("Keywords to find, but only in the
+// title"). The previous version of this function sent
+// `what=<career title>&title_only=1`, which Adzuna read as two
+// unrelated searches: the real keywords in `what` (loosely, not
+// requiring every word), and a literal search for the digit "1" in the
+// title via `title_only`. Live test case: searching "Electrician" near
+// Houston this old way returned 8 results, none of them electricians
+// ("Inspector 1", "Banking Specialist 1", titles that merely contain a
+// "1") while the correct form below returned 211, all genuinely
+// electrician postings. Put the real keywords into `title_only`
+// directly and don't set `what` at all.
 export function buildAdzunaSearchUrl(params: AdzunaSearchParams): string {
   const page = params.page ?? 1;
   const url = new URL(`https://api.adzuna.com/v1/api/jobs/${params.country}/search/${page}`);
   const q = url.searchParams;
   q.set("app_id", params.appId);
   q.set("app_key", params.appKey);
-  q.set("what", params.what);
   q.set("where", params.where);
-  // Restrict keyword matching to the job title only, not the full body
-  // text -- a stray mention of the trade buried in an unrelated
-  // listing's description no longer counts as a match. See the
-  // relevance brainstorm.
-  q.set("title_only", "1");
+  q.set("title_only", params.what);
   q.set("results_per_page", String(params.resultsPerPage ?? 10));
   q.set("content-type", "application/json");
-  // Distance unit (miles vs km) isn't confirmed anywhere in Adzuna's
-  // public docs as of this writing -- 25 is a reasonable starting
-  // radius either way, worth checking against the live API/dashboard
-  // once a real key exists rather than asserted as fact here.
-  q.set("distance", String(params.distanceMiles ?? 25));
+  // Confirmed live via Adzuna's own Swagger spec: `distance` is
+  // kilometres, not miles (defaults to 5km if unset) -- the previous
+  // comment here flagged this as unconfirmed; it's now settled. ~40km
+  // covers a realistic ~25-mile commute radius.
+  q.set("distance", String(params.distanceMiles ?? 40));
   if (params.maxDaysOld !== undefined) q.set("max_days_old", String(params.maxDaysOld));
-  if (params.categoryTag) q.set("category", params.categoryTag);
   return url.toString();
-}
-
-export function buildAdzunaCategoriesUrl(appId: string, appKey: string, country: string): string {
-  const url = new URL(`https://api.adzuna.com/v1/api/jobs/${country}/categories`);
-  url.searchParams.set("app_id", appId);
-  url.searchParams.set("app_key", appKey);
-  return url.toString();
-}
-
-// Picks the construction/trades-flavored category tag out of Adzuna's
-// own category list, instead of hardcoding a guessed tag string -- the
-// real taxonomy is only retrievable live, per-country, with a real key
-// (see the project notes). Returns undefined, not a guess, when nothing
-// matches, so the search still runs without a category filter rather
-// than silently filtering on a wrong tag. Accepts fully untrusted input
-// (the parsed body of a third-party API response) and never throws.
-export function pickConstructionCategoryTag(raw: unknown): string | undefined {
-  if (!Array.isArray(raw)) return undefined;
-  for (const entry of raw) {
-    if (!entry || typeof entry !== "object") continue;
-    const e = entry as Record<string, unknown>;
-    if (typeof e.label === "string" && typeof e.tag === "string" && /construction/i.test(e.label)) {
-      return e.tag;
-    }
-  }
-  return undefined;
 }
 
 // Normalizes one raw Adzuna result object into a JobListing, or returns
@@ -204,7 +186,7 @@ export function formatPostedRelative(postedAt: string | null, now: Date = new Da
 }
 
 export type JobSearchResult =
-  | { ok: true; query: { what: string; where: string; categoryTag?: string }; listings: JobListing[] }
+  | { ok: true; query: { what: string; where: string }; listings: JobListing[] }
   | {
       ok: false;
       reason:
