@@ -45,8 +45,8 @@ type Branch = BlueprintBranch & {
   labelY: number;
 };
 
-const SHEET_W = 1450;
-const SHEET_H = 3920;
+const SHEET_W = 684;
+const SHEET_H = 2980;
 const TOOLTIP_W = 252;
 const TOOLTIP_H = 190;
 const MAIN_BADGE_R = 42.5;
@@ -162,19 +162,11 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
   const spurRefs = useRef<(SVGPathElement | null)[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // The road runs top-to-bottom now, so scrolling straight down from the
-  // top already starts at lesson 1 — nothing special needed there. But
-  // the sheet is wider than a phone screen, and the road only roughly
-  // centers horizontally (it wiggles, and branches fan out to either
-  // side), so a narrow viewport left at its default scroll position
-  // would open on empty margin or a branch instead of the road itself.
-  // Center the horizontal scroll on mount so the road is what's on
-  // screen first; branches are still one swipe away either direction.
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    el.scrollLeft = (el.scrollWidth - el.clientWidth) / 2;
-  }, []);
+  // The road runs top-to-bottom, so scrolling straight down from the top
+  // already starts at lesson 1 — nothing special needed there. The sheet
+  // now scales to the container's own width (see the CSS), so there's no
+  // horizontal scroll to center: every switchback and branch is already
+  // on screen at the current scroll position, just narrower or wider.
 
   // Draw-in animation: the road and every branch spur "draw themselves" on
   // mount by animating stroke-dashoffset from the path's full length to

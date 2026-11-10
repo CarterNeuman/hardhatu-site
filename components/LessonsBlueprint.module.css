@@ -151,51 +151,41 @@
 
 .sheetScroll {
   margin-top: 22px;
-  /* Vertical scroll is the primary gesture (the road itself runs top to
-     bottom); horizontal is a fallback for anyone on a screen narrower
-     than the sheet's fixed display width, same role overflow-x played
-     in the old horizontal layout, just on the other axis now. */
-  overflow-x: auto;
+  /* No horizontal scroll at any viewport: the svg below always renders at
+     exactly this container's width (width:100%, height:auto, with the
+     svg's own viewBox providing the aspect ratio), so there's never
+     anything wider than the container to scroll to. Vertical scroll
+     (overflow-y) is the only gesture, matching the road's own
+     top-to-bottom direction. SHEET_W in LessonsBlueprint.tsx (684) was
+     deliberately kept narrow for this: a wider intrinsic sheet would
+     scale badge/title text down too small to read on a phone-width
+     container. */
+  overflow-x: hidden;
   overflow-y: auto;
   border: 1px solid var(--line-dim);
   background: var(--blue);
   -webkit-overflow-scrolling: touch;
   max-height: 80vh;
-  height: 820px;
-  max-width: 760px;
+  width: 100%;
+  max-width: 480px;
   margin-left: auto;
   margin-right: auto;
 }
 .sheetScroll svg {
   display: block;
-  /* A fixed pixel width (not 100%) so stop labels stay a true, legible
-     size on a narrow phone instead of shrinking to fit — same approach
-     the old horizontal version used, just scrolled on the other axis.
-     Height follows the sheet's own aspect ratio (SHEET_H / SHEET_W in
-     LessonsBlueprint.tsx) so nothing stretches. */
-  width: 700px;
-  height: 1892px;
+  width: 100%;
+  height: auto;
 }
-@media (min-width: 820px) {
+@media (min-width: 640px) {
   .sheetScroll {
-    height: 860px;
     max-height: 82vh;
-    max-width: 1000px;
-  }
-  .sheetScroll svg {
-    width: 950px;
-    height: 2568px;
+    max-width: 600px;
   }
 }
-@media (min-width: 1300px) {
+@media (min-width: 1000px) {
   .sheetScroll {
-    height: 920px;
     max-height: 85vh;
-    max-width: 1350px;
-  }
-  .sheetScroll svg {
-    width: 1300px;
-    height: 3514px;
+    max-width: 720px;
   }
 }
 
