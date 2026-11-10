@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { useUser } from "@clerk/nextjs";
+import { SignInButton, useUser } from "@clerk/nextjs";
 import { urlFor } from "@/lib/content-client";
 import { CAREER_CATEGORY_ORDER } from "@/lib/types";
 import type { Career, Lesson } from "@/lib/types";
@@ -153,7 +153,7 @@ export function CareerMatchQuiz({
   const [result, setResult] = useState<string | null>(null);
 
   const allCareers = useMemo(() => Object.values(careersByCategory).flat(), [careersByCategory]);
-  const { isSignedIn } = useUser();
+  const { isSignedIn, isLoaded } = useUser();
   const savedResultRef = useRef<string | null>(null);
 
   // Computed here (not inside the `if (result)` block below) so this hook
@@ -237,6 +237,38 @@ export function CareerMatchQuiz({
   }
 
   if (result) {
+    // Don't flash the sign-in gate for a split second while Clerk is
+    // still figuring out whether someone's signed in -- wait for
+    // isLoaded first. Once loaded, a signed-out visitor sees a short
+    // sign-in prompt instead of the real result; the quiz logic above
+    // has already run either way, so signing in doesn't mean retaking it.
+    if (!isLoaded) {
+      return <div className="mt-6" aria-hidden="true" />;
+    }
+
+    if (!isSignedIn) {
+      return (
+        <div className="mt-6 border border-hairline bg-amber-soft px-6 py-10 text-center sm:px-10">
+          <h2 className="font-display text-3xl font-bold leading-tight text-ink sm:text-4xl">
+            Your results are ready.
+          </h2>
+          <p className="mx-auto mt-3 max-w-[48ch] leading-relaxed text-ink">
+            Sign in free to see which careers match your answers, plus where to start learning.
+          </p>
+          <div className="mt-6 flex justify-center">
+            <SignInButton mode="modal">
+              <button
+                type="button"
+                className="bg-navy px-6 py-3 text-base font-semibold text-paper transition-colors hover:bg-ink"
+              >
+                Sign In to See My Results
+              </button>
+            </SignInButton>
+          </div>
+        </div>
+      );
+    }
+
     const slug = CATEGORY_SLUG[result] ?? "";
 
     const recommendedLessons = (CATEGORY_LESSONS[result] ?? [])
