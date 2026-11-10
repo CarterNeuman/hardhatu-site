@@ -46,7 +46,7 @@ type Branch = BlueprintBranch & {
 };
 
 const SHEET_W = 900;
-const SHEET_H = 2330;
+const SHEET_H = 2030;
 // A handful of branch stops (the ones in the outer-most columns) have
 // titles long enough that their wrapped text ran right up to -- a couple
 // past -- the drafting border and the sheet's own edge at the old

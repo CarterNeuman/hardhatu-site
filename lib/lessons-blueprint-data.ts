@@ -100,7 +100,7 @@ export const BLUEPRINT_TIERS: BlueprintTier[] = [
   { n: 1, label: "TIER 1", sub: "ORIENTATION", x: 350, y: 68 },
   { n: 2, label: "TIER 2", sub: "EARLY FIELDWORK", x: 578, y: 389 },
   { n: 3, label: "TIER 3", sub: "MONEY & CONTRACTS", x: 578, y: 779 },
-  { n: 4, label: "TIER 4", sub: "ADVANCED PRACTICE", x: 602, y: 1405 },
+  { n: 4, label: "TIER 4", sub: "ADVANCED PRACTICE", x: 602, y: 1320 },
 ];
 
 export const BLUEPRINT_LAYOUT: BlueprintLayoutStop[] = [
@@ -259,12 +259,12 @@ export const BLUEPRINT_BRANCHES: BlueprintBranch[] = [
     id: "sustainability-and-systems",
     label: "Sustainability & Systems",
     attachSlug: "green-building-certification",
-    side: -1,
-    trailhead: { x: 414, y: 1611.2 },
+    side: 1,
+    trailhead: { x: 486, y: 1611.2 },
     lessons: [
-      { slug: "hvac-and-building-systems-in-practice", icon: "gauge", x: 119.5, y: 1860.4, label: "HVAC & Building Systems",
+      { slug: "hvac-and-building-systems-in-practice", icon: "gauge", x: 840.5, y: 1740.1, label: "HVAC & Building Systems",
         teaser: "Refrigerant rules, rooftop units, and commissioning the systems that prove it works." },
-      { slug: "solar-and-renewable-energy-on-a-jobsite", icon: "leaf", x: 59.5, y: 1998.1, label: "Solar & Renewable Energy",
+      { slug: "solar-and-renewable-energy-on-a-jobsite", icon: "leaf", x: 780.5, y: 1877.8, label: "Solar & Renewable Energy",
         teaser: "Interconnection, net metering, and keeping the lights on when the grid goes down." },
     ],
   },
@@ -275,7 +275,7 @@ export const BLUEPRINT_BRANCHES: BlueprintBranch[] = [
     side: -1,
     trailhead: { x: 286, y: 1820 },
     lessons: [
-      { slug: "claim-to-restoration", icon: "umbrella", x: 89.5, y: 2188.1, label: "Claim to Restoration",
+      { slug: "claim-to-restoration", icon: "umbrella", x: 89.5, y: 1860.4, label: "Claim to Restoration",
         teaser: "A hailstorm claim from first notice of loss to the finished repair." },
     ],
   },
