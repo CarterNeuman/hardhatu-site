@@ -1,7 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { useUser } from "@clerk/nextjs";
 import { urlFor } from "@/lib/content-client";
 import { CAREER_CATEGORY_ORDER } from "@/lib/types";
 import type { Career, Lesson } from "@/lib/types";
@@ -152,6 +153,53 @@ export function CareerMatchQuiz({
   const [result, setResult] = useState<string | null>(null);
 
   const allCareers = useMemo(() => Object.values(careersByCategory).flat(), [careersByCategory]);
+  const { isSignedIn } = useUser();
+  const savedResultRef = useRef<string | null>(null);
+
+  // Computed here (not inside the `if (result)` block below) so this hook
+  // always runs in the same order regardless of whether a result exists
+  // yet -- React requires that. Same matching logic as before: specific
+  // careers the answers pointed to, highest-scored first, falling back to
+  // the winning category's other careers if that doesn't fill all slots.
+  const matches = useMemo<Career[]>(() => {
+    if (!result) return [];
+    const scored = allCareers
+      .filter((career) => (careerScores[career.id] ?? 0) > 0)
+      .sort((a, b) => (careerScores[b.id] ?? 0) - (careerScores[a.id] ?? 0));
+    const out: Career[] = [];
+    const seen = new Set<string>();
+    for (const career of scored) {
+      if (out.length >= MAX_MATCHES) break;
+      out.push(career);
+      seen.add(career.id);
+    }
+    if (out.length < MAX_MATCHES) {
+      for (const career of careersByCategory[result] ?? []) {
+        if (out.length >= MAX_MATCHES) break;
+        if (!seen.has(career.id)) {
+          out.push(career);
+          seen.add(career.id);
+        }
+      }
+    }
+    return out;
+  }, [result, careerScores, allCareers, careersByCategory]);
+
+  // Save the result once per completed attempt, signed-in users only.
+  // Best-effort: a failed save never affects the quiz UX, it's analytics,
+  // not a feature the visitor depends on.
+  useEffect(() => {
+    if (!result || !isSignedIn) return;
+    if (savedResultRef.current === result) return;
+    savedResultRef.current = result;
+    fetch("/api/quiz-results", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ resultCategory: result, matchedCareerIds: matches.map((c) => c.id) }),
+    }).catch(() => {
+      // Swallowed deliberately, see lib/buttondown.ts for the same pattern.
+    });
+  }, [result, isSignedIn, matches]);
 
   function pick(option: QuizOption) {
     const nextCategoryScores = { ...categoryScores };
@@ -190,31 +238,6 @@ export function CareerMatchQuiz({
 
   if (result) {
     const slug = CATEGORY_SLUG[result] ?? "";
-
-    // Lead with whichever specific careers the actual answers pointed
-    // toward (via pointsToCareerIds), highest-scored first. If that
-    // didn't produce enough signal, one hard fallback: the winning
-    // category's other careers fill the remaining slots.
-    const scored = allCareers
-      .filter((career) => (careerScores[career.id] ?? 0) > 0)
-      .sort((a, b) => (careerScores[b.id] ?? 0) - (careerScores[a.id] ?? 0));
-
-    const matches: Career[] = [];
-    const seen = new Set<string>();
-    for (const career of scored) {
-      if (matches.length >= MAX_MATCHES) break;
-      matches.push(career);
-      seen.add(career.id);
-    }
-    if (matches.length < MAX_MATCHES) {
-      for (const career of careersByCategory[result] ?? []) {
-        if (matches.length >= MAX_MATCHES) break;
-        if (!seen.has(career.id)) {
-          matches.push(career);
-          seen.add(career.id);
-        }
-      }
-    }
 
     const recommendedLessons = (CATEGORY_LESSONS[result] ?? [])
       .map((rec) => {

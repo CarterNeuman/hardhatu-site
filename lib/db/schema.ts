@@ -36,3 +36,22 @@ export const userProgress = pgTable(
 );
 
 export type UserProgressRow = typeof userProgress.$inferSelect;
+
+// One row per completed career-match quiz attempt. Separate from
+// userProgress (that table tracks "done/not done" on existing content,
+// this captures what the quiz actually told the person) -- the richest
+// first-party signal the site collects, since it's a stated career
+// interest tied to a real identity, not just a page view.
+export const quizResults = pgTable("quiz_results", {
+  id: serial("id").primaryKey(),
+  userId: text("user_id").notNull(),
+  // The winning CAREER_CATEGORY_ORDER string, e.g. "Field & Trades".
+  resultCategory: text("result_category").notNull(),
+  // Up to MAX_MATCHES career ids the quiz surfaced on the result screen,
+  // highest-scored first.
+  matchedCareerIds: text("matched_career_ids").array().notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
+export type QuizResultRow = typeof quizResults.$inferSelect;
+

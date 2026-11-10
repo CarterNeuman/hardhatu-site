@@ -1,7 +1,7 @@
 import { neon } from "@neondatabase/serverless";
 import { drizzle } from "drizzle-orm/neon-http";
-import { eq, and } from "drizzle-orm";
-import { userProgress } from "@/lib/db/schema";
+import { eq, and, sql as dsql } from "drizzle-orm";
+import { userProgress, quizResults } from "@/lib/db/schema";
 
 // Neon's HTTP driver (not a persistent TCP connection) -- the right choice
 // for Vercel's serverless functions, which are short-lived and would
@@ -54,3 +54,59 @@ export async function deleteProgress(userId: string, contentType: string, conten
       )
     );
 }
+
+// Save one completed career-match quiz attempt for a signed-in user.
+// Insert-only (no upsert): someone can retake the quiz and get a
+// different result, and every attempt is a real data point worth keeping,
+// not something to overwrite.
+export async function saveQuizResult(userId: string, resultCategory: string, matchedCareerIds: string[]) {
+  return db.insert(quizResults).values({ userId, resultCategory, matchedCareerIds }).returning();
+}
+
+// --- Aggregate/analytics queries, used by the internal /admin/analytics
+// page. These intentionally return small, pre-aggregated result sets
+// (never raw per-user rows) since the page is a dashboard, not an export.
+
+// How many distinct signed-in users have any progress row at all. A
+// rough "activated users" count, not the same as total signups (Clerk
+// has no API call here to compare against).
+export async function getActiveUserCount() {
+  const rows = await db
+    .select({ userId: userProgress.userId })
+    .from(userProgress)
+    .groupBy(userProgress.userId);
+  return rows.length;
+}
+
+// Completion counts per piece of content, most-completed first. Powers
+// the "what's actually being used" view -- GA4 only sees page views,
+// this sees who finished something.
+export async function getCompletionCounts(limit = 50) {
+  return db
+    .select({
+      contentType: userProgress.contentType,
+      contentId: userProgress.contentId,
+      count: dsql<number>`count(distinct ${userProgress.userId})`.mapWith(Number),
+    })
+    .from(userProgress)
+    .where(eq(userProgress.status, "completed"))
+    .groupBy(userProgress.contentType, userProgress.contentId)
+    .orderBy(dsql`count(distinct ${userProgress.userId}) desc`)
+    .limit(limit);
+}
+
+// How many times each career category has won the quiz, most-matched
+// first. The aggregate shape of "what are people actually interested
+// in," safe to share with a partner/advertiser since it's category
+// counts, never an individual's result.
+export async function getQuizResultCounts() {
+  return db
+    .select({
+      resultCategory: quizResults.resultCategory,
+      count: dsql<number>`count(*)`.mapWith(Number),
+    })
+    .from(quizResults)
+    .groupBy(quizResults.resultCategory)
+    .orderBy(dsql`count(*) desc`);
+}
+
