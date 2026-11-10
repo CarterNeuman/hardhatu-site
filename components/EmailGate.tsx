@@ -1,11 +1,19 @@
 "use client";
 
-// A soft, non-authenticated email-capture gate. Not a real login and not a
+// A soft, non-authenticated engagement gate. Not a real login and not a
 // security boundary: the site is statically generated, so the gated content
 // is still present in the page's HTML, this only blurs/covers it on the
-// client until the visitor's browser has a "subscribed" flag in
-// localStorage. That's intentional for now, this is a lead-capture step,
-// not the real account-based paywall planned for a future "premium" tier.
+// client. That's intentional for now, this is a soft nudge, not the real
+// account-based paywall planned for a future "premium" tier.
+//
+// Behavior (reworked 2026-11-10, now that Clerk sign-in exists):
+//  - Signed-in visitors never see this at all -- they already have an
+//    account, there's nothing left to ask them for.
+//  - Signed-out visitors get a "create a free account" nudge that opens
+//    Clerk's sign-in modal, instead of the old separate email-capture form.
+//    Every real signup also joins the Buttondown mailing list automatically
+//    now (see app/api/webhooks/clerk/route.ts), so this still feeds the same
+//    list the old email form did, just through the real account path.
 //
 // Two variants:
 //  - "timed" (default): content is visible for `delaySeconds`, then the
@@ -15,10 +23,14 @@
 //    Career Match Quiz's result screen, where the result itself is the
 //    thing being gated rather than a page someone's already reading.
 
-import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
+import { SignInButton, useUser } from "@clerk/nextjs";
 
-const STORAGE_KEY = "hhu_subscribed";
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// Dismissing the gate ("No thanks, keep reading") just hides it for this
+// browser, same as before. Renamed from the old "hhu_subscribed" key since
+// the meaning changed -- this no longer means "gave us an email," it means
+// "chose not to see the sign-in nudge."
+const STORAGE_KEY = "hhu_gate_dismissed";
 
 export function EmailGate({
   source,
@@ -27,42 +39,47 @@ export function EmailGate({
   children,
 }: {
   // A short tag identifying where this gate was shown, e.g.
-  // "lesson:building-sequence" or "quiz-result". Sent along with the
-  // submitted email so the list can be segmented by what someone was
-  // reading when they signed up.
+  // "lesson:building-sequence" or "quiz-result". Not sent anywhere today
+  // (the old /api/subscribe call is gone from this component), kept on the
+  // prop so call sites don't all need touching, and in case per-location
+  // tagging is useful again later (e.g. passed into the sign-in flow).
   source: string;
   variant?: "timed" | "immediate";
   delaySeconds?: number;
   children: ReactNode;
 }) {
+  const { isLoaded, isSignedIn } = useUser();
   const [showGate, setShowGate] = useState(false);
-  const [email, setEmail] = useState("");
-  const [company, setCompany] = useState(""); // honeypot, real visitors never fill this
-  const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
-  const [errorMsg, setErrorMsg] = useState("");
   const headingId = useId();
-  const emailInputId = useId();
-  const emailInputRef = useRef<HTMLInputElement>(null);
+  const signInButtonRef = useRef<HTMLButtonElement>(null);
 
   // Move focus into the dialog as soon as it appears, so a keyboard or
-  // screen-reader user lands on the email field instead of wherever
+  // screen-reader user lands on the Sign In button instead of wherever
   // focus happened to be on the (now inert) page behind it.
   useEffect(() => {
     if (showGate) {
-      emailInputRef.current?.focus();
+      signInButtonRef.current?.focus();
     }
   }, [showGate]);
 
   useEffect(() => {
-    let alreadySubscribed = false;
+    // Wait for Clerk to actually report auth state before deciding
+    // anything, so a signed-in visitor never sees even a flash of the gate
+    // while the page loads. Once we know someone's signed in, never show it.
+    if (!isLoaded || isSignedIn) {
+      setShowGate(false);
+      return;
+    }
+
+    let dismissed = false;
     try {
-      alreadySubscribed = localStorage.getItem(STORAGE_KEY) === "1";
+      dismissed = localStorage.getItem(STORAGE_KEY) === "1";
     } catch {
       // Private browsing / storage blocked: fall back to showing the gate
       // like a first-time visitor rather than crashing.
-      alreadySubscribed = false;
+      dismissed = false;
     }
-    if (alreadySubscribed) return;
+    if (dismissed) return;
 
     if (variant === "immediate") {
       setShowGate(true);
@@ -70,45 +87,21 @@ export function EmailGate({
     }
     const timer = setTimeout(() => setShowGate(true), delaySeconds * 1000);
     return () => clearTimeout(timer);
-  }, [variant, delaySeconds]);
+  }, [isLoaded, isSignedIn, variant, delaySeconds]);
 
-  async function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    if (!EMAIL_RE.test(email)) {
-      setStatus("error");
-      setErrorMsg("Enter a valid email address.");
-      return;
-    }
-    setStatus("submitting");
+  function dismiss() {
     try {
-      const res = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, source, company }),
-      });
-      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
-      if (!res.ok || !data.ok) {
-        setStatus("error");
-        setErrorMsg(data.error || "Something went wrong. Try again in a moment.");
-        return;
-      }
-      try {
-        localStorage.setItem(STORAGE_KEY, "1");
-      } catch {
-        // Storage blocked: the gate will just reappear next page, not fatal.
-      }
-      setShowGate(false);
-      setStatus("idle");
+      localStorage.setItem(STORAGE_KEY, "1");
     } catch {
-      setStatus("error");
-      setErrorMsg("Something went wrong. Try again in a moment.");
+      // Storage blocked: the gate will just reappear next page, not fatal.
     }
+    setShowGate(false);
   }
 
   return (
     <div className="relative">
       {/* `inert` (not just aria-hidden) is what actually keeps this content
-          out of the tab order while the gate is up — aria-hidden alone hides
+          out of the tab order while the gate is up -- aria-hidden alone hides
           it from screen readers but doesn't stop keyboard focus from
           landing on a link that's invisible and blurred behind the modal. */}
       <div
@@ -128,46 +121,30 @@ export function EmailGate({
         >
           <div className="w-full max-w-sm border border-hairline bg-paper p-6 shadow-lg">
             <p id={headingId} className="font-display text-xl font-bold text-ink">
-              {variant === "immediate" ? "Enter your email to see your result" : "Keep learning, it's free"}
+              {variant === "immediate" ? "Sign in to see your result" : "Keep learning, it's free"}
             </p>
             <p className="mt-2 text-sm leading-relaxed text-steel">
-              Drop your email to keep going. No password, no spam, just your next step into
-              construction.
+              Create a free account to save your progress and pick up where you left off, on any
+              device.
             </p>
-            <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-2">
-              <input
-                type="text"
-                value={company}
-                onChange={(e) => setCompany(e.target.value)}
-                tabIndex={-1}
-                autoComplete="off"
-                aria-hidden="true"
-                className="hidden"
-              />
-              <label htmlFor={emailInputId} className="sr-only">
-                Email address
-              </label>
-              <input
-                ref={emailInputRef}
-                id={emailInputId}
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@email.com"
-                className="border border-hairline bg-white/60 px-3 py-2 text-sm text-ink focus:border-navy focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-navy"
-              />
-              {status === "error" && <p className="text-xs text-clay">{errorMsg}</p>}
+            <SignInButton mode="modal">
               <button
-                type="submit"
-                disabled={status === "submitting"}
-                className="mt-1 bg-navy px-4 py-2 text-sm font-semibold text-paper transition-colors hover:bg-ink disabled:opacity-60"
+                ref={signInButtonRef}
+                type="button"
+                className="mt-4 w-full bg-navy px-4 py-2 text-sm font-semibold text-paper transition-colors hover:bg-ink"
               >
-                {status === "submitting" ? "Submitting..." : "Continue reading"}
+                Sign In
               </button>
-            </form>
-            <a href="/" className="mt-3 block text-center text-xs text-steel hover:underline">
-              No thanks, take me back
+            </SignInButton>
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                dismiss();
+              }}
+              className="mt-3 block text-center text-xs text-steel hover:underline"
+            >
+              No thanks, keep reading
             </a>
           </div>
         </div>
