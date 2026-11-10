@@ -11,6 +11,37 @@ import { Icon } from "@/components/Icon";
 
 const MAX_MATCHES = 4;
 
+// Google sign-in (unlike Clerk's email-code flow, which stays inside the
+// modal with no navigation) redirects the whole tab out to Google and
+// back, a real page reload that wipes any state held only in React
+// memory. A visitor who finishes the quiz, hits the sign-in gate, and
+// signs in with Google would otherwise land back on a blank quiz instead
+// of their result. Fix: stash the finished result in sessionStorage the
+// moment it's computed, and restore it on mount if present, so a page
+// reload (OAuth redirect included) picks up right where it left off.
+// sessionStorage, not localStorage, deliberately: this should survive a
+// same-tab reload, not persist indefinitely across visits.
+const PENDING_RESULT_KEY = "hhu_quiz_pending_result";
+
+type StoredQuizResult = {
+  result: string;
+  categoryScores: Record<string, number>;
+  careerScores: Record<string, number>;
+};
+
+function readStoredResult(): StoredQuizResult | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = window.sessionStorage.getItem(PENDING_RESULT_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (parsed && typeof parsed.result === "string") return parsed as StoredQuizResult;
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 type QuizOption = { label: string; pointsToCategories: string[]; pointsToCareerIds: string[] };
 type QuizQuestion = { question: string; options: QuizOption[] };
 
@@ -148,13 +179,32 @@ export function CareerMatchQuiz({
   lessonsById: Record<string, Lesson>;
 }) {
   const [step, setStep] = useState(0);
-  const [categoryScores, setCategoryScores] = useState<Record<string, number>>({});
-  const [careerScores, setCareerScores] = useState<Record<string, number>>({});
-  const [result, setResult] = useState<string | null>(null);
+  const [categoryScores, setCategoryScores] = useState<Record<string, number>>(
+    () => readStoredResult()?.categoryScores ?? {}
+  );
+  const [careerScores, setCareerScores] = useState<Record<string, number>>(
+    () => readStoredResult()?.careerScores ?? {}
+  );
+  const [result, setResult] = useState<string | null>(() => readStoredResult()?.result ?? null);
 
   const allCareers = useMemo(() => Object.values(careersByCategory).flat(), [careersByCategory]);
   const { isSignedIn, isLoaded } = useUser();
   const savedResultRef = useRef<string | null>(null);
+
+  // Keep the stash fresh any time a result exists, so it's there to
+  // restore from if a sign-in redirect reloads the page next.
+  useEffect(() => {
+    if (!result) return;
+    try {
+      window.sessionStorage.setItem(
+        PENDING_RESULT_KEY,
+        JSON.stringify({ result, categoryScores, careerScores })
+      );
+    } catch {
+      // sessionStorage can throw (private browsing, storage disabled) --
+      // worst case the restart-after-reload bug returns, not fatal.
+    }
+  }, [result, categoryScores, careerScores]);
 
   // Computed here (not inside the `if (result)` block below) so this hook
   // always runs in the same order regardless of whether a result exists
@@ -234,6 +284,11 @@ export function CareerMatchQuiz({
     setCategoryScores({});
     setCareerScores({});
     setResult(null);
+    try {
+      window.sessionStorage.removeItem(PENDING_RESULT_KEY);
+    } catch {
+      // Non-fatal, see the stash effect above.
+    }
   }
 
   if (result) {
