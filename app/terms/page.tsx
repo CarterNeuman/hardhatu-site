@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 const CONTACT_EMAIL = "contact@breakgroundu.com";
-const LAST_UPDATED = "September 29, 2026";
+const LAST_UPDATED = "November 10, 2026";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -26,6 +27,36 @@ export default function TermsPage() {
         </section>
 
         <section>
+          <h2 className="font-display text-2xl font-bold text-ink">Accounts</h2>
+          <p className="mt-3">
+            Careers and Concepts are free to read without an account. Lessons, Interview Prep,
+            Exam Prep, Get Hired guidance, Resume Guides, Phases, Software profiles, and the
+            Action Plan require a free account; the Career Match Quiz can be taken by anyone, but
+            you need to sign in to see your result. Accounts are free, there is no paid tier
+            today.
+          </p>
+          <p className="mt-3">
+            You must be at least 13 years old to create an account. Sign-in is handled by our
+            authentication provider (Clerk), using either a one-time emailed code or a Google
+            account; we don't collect or store a password ourselves. You're responsible for
+            keeping your sign-in method (your email inbox, or your Google account) secure, since
+            whoever controls it can sign in as you.
+          </p>
+          <p className="mt-3">
+            We may suspend or terminate an account that violates these terms. You can delete your
+            own account at any time, see the Privacy Policy's "Data retention and deletion"
+            section for how. For what account information we collect and how it's used, see our{" "}
+            <Link
+              href="/privacy"
+              className="text-amber underline decoration-amber/40 underline-offset-2 hover:text-clay hover:decoration-clay"
+            >
+              Privacy Policy
+            </Link>
+            .
+          </p>
+        </section>
+
+        <section>
           <h2 className="font-display text-2xl font-bold text-ink">Educational purpose only</h2>
           <p className="mt-3">
             Everything on BreakGroundU is for general education and orientation, not
@@ -36,15 +67,20 @@ export default function TermsPage() {
             relevant licensing board, employer, or official source before relying on them
             for a real decision.
           </p>
+          <p className="mt-3">
+            The Career Match Quiz is a quick, self-reported starting point for exploring careers
+            that might fit you, not a vocational assessment, aptitude test, or guarantee of fit or
+            employability in any career it surfaces.
+          </p>
         </section>
 
         <section>
           <h2 className="font-display text-2xl font-bold text-ink">Free to use</h2>
           <p className="mt-3">
-            The careers and concepts sections are free to read and will stay that way.
-            Some future sections (deeper lessons, interview prep, certification prep) may eventually
-            require a free account or a subscription. There are no accounts or paid
-            features today, and this page will be updated before that changes.
+            Careers and Concepts are free to read and will stay that way. Account sign-in for the
+            rest of the site's content is also free today, there's no paid subscription or paywall
+            on BreakGroundU right now. If that ever changes, this page will be updated first, and
+            any content that's free today won't be moved behind a paywall without notice here.
           </p>
         </section>
 
@@ -65,7 +101,8 @@ export default function TermsPage() {
             Some pages link to outside websites or embed videos from services like YouTube.
             BreakGroundU doesn't control that content and isn't responsible for it. Those
             services have their own terms, which apply once you follow a link or play an
-            embedded video.
+            embedded video. This is separate from the sign-in, hosting, and email providers that
+            help run BreakGroundU itself, which the Privacy Policy covers.
           </p>
         </section>
 
