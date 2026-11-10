@@ -7,3 +7,4 @@
 
 # leftover sync tarballs, not part of the app
 *.tar.gz
+tsconfig.tsbuildinfo

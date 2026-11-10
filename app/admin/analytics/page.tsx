@@ -14,9 +14,14 @@ export const dynamic = "force-dynamic";
 export default async function AdminAnalyticsPage() {
   const user = await currentUser();
   const adminEmail = process.env.ADMIN_EMAIL;
-  const email = user?.emailAddresses?.[0]?.emailAddress;
+  // Resolve the PRIMARY email specifically -- emailAddresses[0] is not
+  // guaranteed to be the primary one once an account has more than one
+  // address (e.g. email-code sign-up later linked to a Google account).
+  const email =
+    user?.emailAddresses?.find((e) => e.id === user.primaryEmailAddressId)?.emailAddress ??
+    user?.emailAddresses?.[0]?.emailAddress;
 
-  if (!adminEmail || !email || email !== adminEmail) {
+  if (!adminEmail || !email || email.toLowerCase() !== adminEmail.toLowerCase()) {
     redirect("/");
   }
 
