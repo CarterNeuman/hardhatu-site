@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { Show, SignInButton, UserButton } from "@clerk/nextjs";
 import { urlFor, slugifyCategory } from "@/lib/content-client";
 import type { Career, Concept, GetHired } from "@/lib/types";
 
@@ -333,16 +333,16 @@ export function Header({
             never requires this; it's purely "sign in to save your spot" on
             Lessons/Action Plan progress. */}
         <div className="hidden shrink-0 items-center md:flex">
-          <SignedOut>
+          <Show when="signed-out">
             <SignInButton mode="modal">
               <button className="whitespace-nowrap px-3 py-2 text-[0.92rem] font-semibold text-ink hover:text-navy">
                 Sign In
               </button>
             </SignInButton>
-          </SignedOut>
-          <SignedIn>
-            <UserButton afterSignOutUrl="/" />
-          </SignedIn>
+          </Show>
+          <Show when="signed-in">
+            <UserButton />
+          </Show>
         </div>
 
         {/* Mobile toggle */}
@@ -372,7 +372,7 @@ export function Header({
           </Link>
 
           <div className="mt-3 flex items-center justify-between border border-hairline px-4 py-3">
-            <SignedOut>
+            <Show when="signed-out">
               <SignInButton mode="modal">
                 <button
                   className="text-[0.96rem] font-semibold text-ink"
@@ -381,11 +381,11 @@ export function Header({
                   Sign In
                 </button>
               </SignInButton>
-            </SignedOut>
-            <SignedIn>
+            </Show>
+            <Show when="signed-in">
               <span className="text-[0.96rem] font-semibold text-ink">Your account</span>
-              <UserButton afterSignOutUrl="/" />
-            </SignedIn>
+              <UserButton />
+            </Show>
           </div>
 
           <MobileSection

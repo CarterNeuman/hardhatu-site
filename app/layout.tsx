@@ -39,7 +39,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   );
 
   return (
-    <ClerkProvider>
     <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -50,22 +49,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="font-sans">
-        {/* print:hidden on both -- a printed/saved-as-PDF action plan (see
-            ActionPlanBuilder's "Print / save as PDF" button) should read
-            as a clean document, not a printout of the site's nav chrome. */}
-        <div className="print:hidden">
-          <Header
-            careerGroups={careerGroups}
-            conceptGroups={conceptGroups}
-            getHiredGuides={getHiredOrdered}
-            careerCount={careers.length}
-            conceptCount={concepts.length}
-          />
-        </div>
-        <main>{children}</main>
-        <div className="print:hidden">
-          <Footer careerGroups={careerGroups} careerCount={careers.length} />
-        </div>
+        {/* ClerkProvider wraps everything inside <body> rather than <html>
+            itself -- Clerk's Core 3 release (2026-03-03) requires this. */}
+        <ClerkProvider afterSignOutUrl="/">
+          {/* print:hidden on both -- a printed/saved-as-PDF action plan (see
+              ActionPlanBuilder's "Print / save as PDF" button) should read
+              as a clean document, not a printout of the site's nav chrome. */}
+          <div className="print:hidden">
+            <Header
+              careerGroups={careerGroups}
+              conceptGroups={conceptGroups}
+              getHiredGuides={getHiredOrdered}
+              careerCount={careers.length}
+              conceptCount={concepts.length}
+            />
+          </div>
+          <main>{children}</main>
+          <div className="print:hidden">
+            <Footer careerGroups={careerGroups} careerCount={careers.length} />
+          </div>
+        </ClerkProvider>
         <Analytics />
         {gaMeasurementId && (
           <>
@@ -85,6 +88,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         )}
       </body>
     </html>
-    </ClerkProvider>
   );
 }
