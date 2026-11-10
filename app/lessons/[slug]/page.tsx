@@ -8,6 +8,7 @@ import { QuizBlock } from "@/components/LessonQuiz";
 import { Prose } from "@/components/Prose";
 import { ContentPhoto } from "@/components/ContentPhoto";
 import { EmailGate } from "@/components/EmailGate";
+import { MarkCompleteButton } from "@/components/MarkCompleteButton";
 
 export function generateStaticParams() {
   const { lessons } = getAllContent();
@@ -63,6 +64,10 @@ export default async function LessonPage({
             </div>
           );
         })}
+
+        <div className="mt-8 border-t border-hairline pt-6">
+          <MarkCompleteButton contentType="lesson" contentId={lesson.slug} />
+        </div>
 
         <RelatedLinks items={related} />
       </EmailGate>

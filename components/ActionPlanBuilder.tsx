@@ -1,16 +1,18 @@
 "use client";
 
-// The action-plan generator's intake form and result screen. Still no
-// accounts, no database, generation itself is lib/action-plan-
-// generator.ts's buildActionPlan() running on data this component already
-// has in memory. The one exception is LiveJobResults below, which makes
-// its own client-side call to /api/jobs for live listings -- everything
-// else here stays exactly as before: no network call, and a generated
-// plan lives only in this component's state (plus, for the day-by-day
-// checkboxes, nothing persisted at all) -- closing the tab loses it, and
-// that's a known, intentional tradeoff for this phase, not a bug.
-import { useMemo, useState } from "react";
+// The action-plan generator's intake form and result screen. Generation
+// itself is lib/action-plan-generator.ts's buildActionPlan() running on
+// data this component already has in memory -- no database involved, and
+// a generated plan still lives only in this component's state, so closing
+// the tab loses the plan itself (intentional for this phase, not a bug).
+// The two exceptions: LiveJobResults below makes its own client-side call
+// to /api/jobs for live listings, and the day-by-day checkboxes below
+// persist to /api/progress for the signed-in user (see the hydration
+// effect and toggleDay), so re-generating the same plan later picks the
+// checkmarks back up even though the plan text itself is rebuilt fresh.
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { useUser } from "@clerk/nextjs";
 import { CAREER_CATEGORY_ORDER } from "@/lib/types";
 import { SectionLabel } from "@/components/SectionLabel";
 import {
@@ -146,6 +148,16 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
   const [plan, setPlan] = useState<GeneratedPlan | "coming-soon" | null>(null);
   const [checkedDays, setCheckedDays] = useState<Set<number>>(new Set());
   const accordionControls = useActionPlanAccordionControls();
+  // Day-by-day checkboxes persist to the signed-in user's account via
+  // /api/progress (see the hydration effect and toggleDay below) --
+  // the page itself is hard-gated (EmailGate, variant="immediate"), so
+  // in practice this is always true by the time someone can click a
+  // checkbox, but it's still checked defensively rather than assumed.
+  const { isSignedIn } = useUser();
+  // Set false whenever a fresh plan is generated, true the moment the
+  // visitor clicks a checkbox -- lets the hydration fetch below avoid
+  // clobbering a click that landed before it resolved.
+  const toggledSincePlanRef = useRef(false);
 
   const categoryData = dataByCategory[category];
   const careerOptions = categoryData?.careers ?? [];
@@ -155,12 +167,58 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
     return buildGlossaryIndex(plan.glossaryConcepts);
   }, [plan]);
 
+  // Pull back which day-by-day steps this user already checked off for
+  // this exact plan (same category + career), so re-opening a Blueprint
+  // picks up where they left off instead of starting blank. Keyed by
+  // array index, not a persisted plan id, since the plan itself is
+  // regenerated fresh each time rather than stored -- see toggleDay.
+  useEffect(() => {
+    if (!plan || plan === "coming-soon" || !isSignedIn) return;
+    let cancelled = false;
+    const prefix = `${category}:${careerId || "general"}:`;
+    fetch("/api/progress")
+      .then((res) => res.json())
+      .then((data: { ok?: boolean; progress?: Array<{ contentType: string; contentId: string }> }) => {
+        if (cancelled || !data?.ok) return;
+        if (toggledSincePlanRef.current) return;
+        const done = new Set<number>();
+        for (const row of data.progress ?? []) {
+          if (row.contentType !== "actionPlanStep" || !row.contentId.startsWith(prefix)) continue;
+          const index = Number(row.contentId.slice(prefix.length));
+          if (Number.isInteger(index)) done.add(index);
+        }
+        setCheckedDays(done);
+      })
+      .catch(() => {
+        // Leave checkedDays as the freshly-reset empty set from
+        // handleSubmit -- a failed load just means a blank-looking
+        // plan the user can still re-check by hand.
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [plan, isSignedIn, category, careerId]);
+
   function toggleDay(index: number) {
+    toggledSincePlanRef.current = true;
+    const nowChecked = !checkedDays.has(index);
     setCheckedDays((prev) => {
       const next = new Set(prev);
-      if (next.has(index)) next.delete(index);
-      else next.add(index);
+      if (nowChecked) next.add(index);
+      else next.delete(index);
       return next;
+    });
+
+    if (!isSignedIn || !plan || plan === "coming-soon") return;
+    const contentId = `${category}:${careerId || "general"}:${index}`;
+    fetch("/api/progress", {
+      method: nowChecked ? "POST" : "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ contentType: "actionPlanStep", contentId }),
+    }).catch(() => {
+      // Best effort -- the checkbox already reflects what the user
+      // asked for in this tab; if the save fails silently, the next
+      // visit's hydration just won't carry it, not a broken UI now.
     });
   }
 
@@ -204,6 +262,7 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
       intake,
     });
     setCheckedDays(new Set());
+    toggledSincePlanRef.current = false;
     setPlan(generated);
   }
 
@@ -503,8 +562,8 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
           <ActionPlanAccordionSection title="Your Day-by-Day Plan" teaser={dayByDayTeaser}>
             <div className="flex flex-wrap items-baseline justify-between gap-2">
               <p className="text-xs italic text-steel">
-                Checking an item off only lasts while this tab stays open, nothing here saves yet -- full
-                progress-tracking that survives a reload is planned for once accounts exist.
+                Checking an item off saves to your account, so it'll still be checked next time you come
+                back to this plan.
               </p>
               {checkedDays.size > 0 && (
                 <p className="shrink-0 text-xs font-semibold uppercase tracking-wide text-navy">
