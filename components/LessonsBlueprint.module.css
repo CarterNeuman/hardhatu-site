@@ -254,7 +254,7 @@
 }
 .stop .num {
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 11px; /* 15px decreased 25%, to match the smaller main badge/numBg circle */
   fill: var(--blue-deep);
 }
 .stop .numBg {

@@ -70,97 +70,102 @@ export type BlueprintBranch = {
   lessons: BlueprintBranchLesson[];
 };
 
-// Switchback rework (2026-11): the road now zigzags left-right in a
-// tight triangle wave (period-3) down a narrower sheet, so it reads as a
-// winding mountain road with real switchbacks instead of a gentle curve,
-// and the sheet now scales to the container's own width (width:100% /
-// height:auto in the CSS) instead of a fixed pixel width with horizontal
-// scroll — so there's no side-to-side scrolling at any viewport. SHEET_W
-// was deliberately narrowed (from 1450 to 684) specifically so that
-// width:100% scaling keeps badge/title text legible on a phone; going
-// wider would shrink mobile text too much. Each of the 8 branches now
-// lives in its own fixed outer column (just inside the sheet's left or
-// right edge, per its own side field) running a small internal zigzag,
-// which keeps them clear of the switchback main road without needing
-// the road to dodge around them. Every coordinate here was verified
-// overlap-free with a geometric check (each stop's badge+hit circle and
-// title-backdrop rectangle, plus each branch label's text box, checked
-// pairwise against every other one) before being written in — not just
-// eyeballed. Content (labels, teasers, tiers, icons, wordsPerLine) is
-// unchanged from before this rework; only x/y coordinates moved.
+// Switchback rework, widened + icons shrunk (2026-11): main-lesson badges
+// are 25% smaller than the original design (radius 31.875 vs 42.5) --
+// branch badges are untouched. The smaller main badges, combined with a
+// wider sheet (SHEET_W 684 -> 900), let the main road's x-amplitude grow
+// a lot (the switchback swings much further side to side) while the
+// vertical pitch between stops actually shrinks (most consecutive stops
+// now clear each other horizontally, needing less forced vertical gap),
+// so the sheet is shorter top-to-bottom too (SHEET_H ~2980 -> ~1780)
+// even though it's visually wider. The sheet still scales to the
+// container's own width (width:100% / height:auto in the CSS), so
+// there's no horizontal scrolling at any viewport regardless of how
+// wide SHEET_W gets. Each of the 8 branches still lives in its own
+// fixed outer column just inside the sheet's left/right edge. Tier
+// labels are placed clear of every stop/branch-label box AND the
+// title-block info card in the top-left corner (a collision missed in
+// the initial pass -- caught by reviewing a rendered screenshot, not
+// by the geometric check, since the title block isn't a stop). Every
+// coordinate here was verified overlap-free with a geometric check
+// (each stop's badge+hit circle and title-backdrop rectangle, plus
+// each branch label's text box, checked pairwise against every other
+// one) before being written in. Content (labels, teasers, tiers, icons,
+// wordsPerLine) is unchanged from before this rework; only coordinates
+// and the main badge/icon size moved.
 
 export const BLUEPRINT_TIERS: BlueprintTier[] = [
-  { n: 1, label: "TIER 1", sub: "ORIENTATION", x: 370, y: 140 },
-  { n: 2, label: "TIER 2", sub: "EARLY FIELDWORK", x: 549, y: 856 },
-  { n: 3, label: "TIER 3", sub: "MONEY & CONTRACTS", x: 564, y: 1628 },
-  { n: 4, label: "TIER 4", sub: "ADVANCED PRACTICE", x: 414, y: 2520 },
+  { n: 1, label: "TIER 1", sub: "ORIENTATION", x: 368, y: 122 },
+  { n: 2, label: "TIER 2", sub: "EARLY FIELDWORK", x: 734, y: 542 },
+  { n: 3, label: "TIER 3", sub: "MONEY & CONTRACTS", x: 770, y: 818 },
+  { n: 4, label: "TIER 4", sub: "ADVANCED PRACTICE", x: 746, y: 914 },
 ];
 
 export const BLUEPRINT_LAYOUT: BlueprintLayoutStop[] = [
-  { n: 1, slug: "financing-and-feasibility", x: 260, y: 140, tier: 1, icon: "chart",
+  { n: 1, slug: "financing-and-feasibility", x: 275, y: 140, tier: 1, icon: "chart",
     label: "Financing & Feasibility",
     teaser: "How a project actually gets funded before anything's designed." },
-  { n: 2, slug: "whos-actually-running-the-job", x: 342, y: 305, tier: 1, icon: "orgchart",
+  { n: 2, slug: "whos-actually-running-the-job", x: 450, y: 196, tier: 1, icon: "orgchart",
     label: "Who's Running the Job",
     teaser: "Owner, architect, GC, subs, owner's rep, and who actually directs whom." },
-  { n: 3, slug: "reading-a-set-of-plans", x: 424, y: 470, tier: 1, icon: "plans",
+  { n: 3, slug: "reading-a-set-of-plans", x: 625, y: 252, tier: 1, icon: "plans",
     label: "Reading the Plans",
     teaser: "Title blocks, sheet series, scale, and what to do when a drawing won't answer you." },
-  { n: 4, slug: "bidding-and-winning-work", x: 260, y: 526, tier: 1, icon: "gavel",
+  { n: 4, slug: "bidding-and-winning-work", x: 275, y: 308, tier: 1, icon: "gavel",
     label: "Bidding & Winning Work",
     teaser: "Chasing a real bid through screening, takeoff, and the lowest-bid myth." },
-  { n: 5, slug: "subcontractor-buyout-and-scope-gaps", x: 342, y: 691, tier: 1, icon: "puzzle",
+  { n: 5, slug: "subcontractor-buyout-and-scope-gaps", x: 450, y: 364, tier: 1, icon: "puzzle",
     label: "Buyout & Scope Gaps",
     teaser: "Turning a winning bid into signed subcontracts without a scope gap nobody notices." },
-  { n: 6, slug: "permits-inspections-and-the-paper-trail", x: 424, y: 856, tier: 2, icon: "stamp",
+  { n: 6, slug: "permits-inspections-and-the-paper-trail", x: 625, y: 420, tier: 2, icon: "stamp",
     label: "Permits & Inspections",
     teaser: "How a job stays legal: permitting, plan review, and special inspections." },
-  { n: 7, slug: "submittals-and-shop-drawings", x: 260, y: 912, tier: 2, icon: "papers",
+  { n: 7, slug: "submittals-and-shop-drawings", x: 275, y: 476, tier: 2, icon: "papers",
     label: "Submittals & Shop Drawings",
     teaser: "Why nothing gets ordered until the approval loop closes." },
-  { n: 8, slug: "procurement-and-long-lead-logistics", x: 342, y: 1077, tier: 2, icon: "crate",
+  { n: 8, slug: "procurement-and-long-lead-logistics", x: 450, y: 532, tier: 2, icon: "crate",
     label: "Procurement & Long-Lead",
     teaser: "Material delivery delays, laydown yards, and the gap between approved and on site." },
-  { n: 9, slug: "jobsite-safety-in-practice", x: 424, y: 1242, tier: 2, icon: "hardhat",
+  { n: 9, slug: "jobsite-safety-in-practice", x: 625, y: 588, tier: 2, icon: "hardhat",
     label: "Jobsite Safety",
     teaser: "A real JHA, a toolbox talk, and a worker who exercises stop work authority." },
-  { n: 10, slug: "from-dirt-to-deck", x: 260, y: 1298, tier: 2, icon: "shovel",
+  { n: 10, slug: "from-dirt-to-deck", x: 275, y: 644, tier: 2, icon: "shovel",
     label: "From Dirt to Deck",
     teaser: "Earthwork and foundations up close, grading through the pour." },
-  { n: 11, slug: "building-sequence", x: 342, y: 1463, tier: 2, icon: "building",
+  { n: 11, slug: "building-sequence", x: 450, y: 700, tier: 2, icon: "building",
     label: "Building Sequence",
     teaser: "Foundation to finish, the physical order a building actually goes up in." },
-  { n: 12, slug: "change-order-basics", x: 424, y: 1628, tier: 3, icon: "editdoc",
+  { n: 12, slug: "change-order-basics", x: 625, y: 756, tier: 3, icon: "editdoc",
     label: "Change Order Basics",
     teaser: "Why a verbal change order is the mistake that keeps repeating." },
-  { n: 13, slug: "getting-paid", x: 260, y: 1684, tier: 3, icon: "dollar",
+  { n: 13, slug: "getting-paid", x: 275, y: 812, tier: 3, icon: "dollar",
     label: "Getting Paid",
     teaser: "Schedule of values, retainage, bonds, and a lien threat that closes it out." },
-  { n: 14, slug: "choosing-how-to-build-it", x: 342, y: 1849, tier: 3, icon: "fork",
+  { n: 14, slug: "choosing-how-to-build-it", x: 450, y: 868, tier: 3, icon: "fork",
     label: "Choosing How to Build It",
     teaser: "Design-Bid-Build vs. Design-Build vs. CM at Risk, and who's liable when." },
-  { n: 15, slug: "whos-on-the-hook", x: 424, y: 2014, tier: 3, icon: "shield",
+  { n: 15, slug: "whos-on-the-hook", x: 625, y: 924, tier: 3, icon: "shield",
     label: "Who's on the Hook",
     teaser: "Bonds, builder's risk, and why an uninsured sub doesn't get on site." },
-  { n: 16, slug: "the-estimate-becomes-the-budget", x: 260, y: 2070, tier: 3, icon: "gauge",
+  { n: 16, slug: "the-estimate-becomes-the-budget", x: 275, y: 980, tier: 3, icon: "gauge",
     label: "Estimate Becomes Budget",
     teaser: "Cost codes, committed vs. actual, and how a good bid still loses money." },
-  { n: 17, slug: "schedule-delay-dispute", x: 342, y: 2235, tier: 3, icon: "clockx", labelWordsPerLine: 2,
+  { n: 17, slug: "schedule-delay-dispute", x: 450, y: 1036, tier: 3, icon: "clockx", labelWordsPerLine: 2,
     label: "Schedule Delay Dispute",
     teaser: "Float burns up, an acceleration order lands, and it ends in arbitration." },
-  { n: 18, slug: "bim-and-clash-detection", x: 424, y: 2400, tier: 4, icon: "cube", labelWordsPerLine: 2,
+  { n: 18, slug: "bim-and-clash-detection", x: 625, y: 1092, tier: 4, icon: "cube", labelWordsPerLine: 2,
     label: "BIM & Clash Detection",
     teaser: "Catching a beam-and-ductwork conflict months before it hits the field." },
-  { n: 19, slug: "value-engineering", x: 260, y: 2456, tier: 4, icon: "bulb",
+  { n: 19, slug: "value-engineering", x: 275, y: 1148, tier: 4, icon: "bulb",
     label: "Value Engineering",
     teaser: "A cost-saving substitution that looks fine on paper, until it isn't." },
-  { n: 20, slug: "green-building-certification", x: 342, y: 2621, tier: 4, icon: "leaf",
+  { n: 20, slug: "green-building-certification", x: 450, y: 1204, tier: 4, icon: "leaf",
     label: "Green Building Cert",
     teaser: "Choosing LEED, chasing net zero, and commissioning the systems that prove it." },
-  { n: 21, slug: "project-closeout", x: 424, y: 2786, tier: 4, icon: "clipboard",
+  { n: 21, slug: "project-closeout", x: 625, y: 1260, tier: 4, icon: "clipboard",
     label: "Project Closeout",
     teaser: "Punch list, the CO delay nobody saw coming, and the binder that outlives the job." },
-  { n: 22, slug: "when-its-not-the-storms-fault", x: 260, y: 2842, tier: 4, icon: "magnifier",
+  { n: 22, slug: "when-its-not-the-storms-fault", x: 275, y: 1316, tier: 4, icon: "magnifier",
     label: "Not the Storm's Fault",
     teaser: "A crack years later, tracing it to design, construction, or neglect." },
 ];
@@ -171,11 +176,11 @@ export const BLUEPRINT_BRANCHES: BlueprintBranch[] = [
     label: "Running the Job",
     attachSlug: "whos-actually-running-the-job",
     side: -1,
-    trailhead: { x: 306, y: 305 },
+    trailhead: { x: 414, y: 196 },
     lessons: [
-      { slug: "a-day-as-an-owners-rep", icon: "orgchart", x: 119.5, y: 236.1, label: "A Day as an Owner's Rep",
+      { slug: "a-day-as-an-owners-rep", icon: "orgchart", x: 119.5, y: 127.1, label: "A Day as an Owner's Rep",
         teaser: "OAC meetings, first article inspections, and protecting the owner's interests day to day." },
-      { slug: "coordinating-subs-as-a-superintendent", icon: "hardhat", x: 59.5, y: 373.9, label: "Coordinating Subs",
+      { slug: "coordinating-subs-as-a-superintendent", icon: "hardhat", x: 59.5, y: 264.9, label: "Coordinating Subs",
         teaser: "Look-ahead schedules, pull planning, and catching problems before they cost a day." },
     ],
   },
@@ -184,11 +189,11 @@ export const BLUEPRINT_BRANCHES: BlueprintBranch[] = [
     label: "Business & Estimating",
     attachSlug: "bidding-and-winning-work",
     side: 1,
-    trailhead: { x: 296, y: 526 },
+    trailhead: { x: 311, y: 308 },
     lessons: [
-      { slug: "a-day-in-the-life-of-an-estimator", icon: "magnifier", x: 624.5, y: 457.1, label: "A Day as an Estimator",
+      { slug: "a-day-in-the-life-of-an-estimator", icon: "magnifier", x: 840.5, y: 239.1, label: "A Day as an Estimator",
         teaser: "Conceptual budgets, takeoffs, and building the number behind the number." },
-      { slug: "cost-control-and-forecasting-in-practice", icon: "chart", x: 564.5, y: 594.9, label: "Cost Control & Forecasting",
+      { slug: "cost-control-and-forecasting-in-practice", icon: "chart", x: 780.5, y: 376.9, label: "Cost Control & Forecasting",
         teaser: "Cost performance index, productivity, and catching trouble before the report does." },
     ],
   },
@@ -197,9 +202,9 @@ export const BLUEPRINT_BRANCHES: BlueprintBranch[] = [
     label: "Entry-Level Crew",
     attachSlug: "jobsite-safety-in-practice",
     side: -1,
-    trailhead: { x: 388, y: 1242 },
+    trailhead: { x: 589, y: 588 },
     lessons: [
-      { slug: "a-day-as-a-laborer", icon: "shovel", x: 89.5, y: 1242, label: "A Day as a Laborer",
+      { slug: "a-day-as-a-laborer", icon: "shovel", x: 89.5, y: 588, label: "A Day as a Laborer",
         teaser: "Safety orientation, heat risk, and the credential that travels between employers." },
     ],
   },
@@ -208,11 +213,11 @@ export const BLUEPRINT_BRANCHES: BlueprintBranch[] = [
     label: "Earthwork & Concrete",
     attachSlug: "from-dirt-to-deck",
     side: 1,
-    trailhead: { x: 296, y: 1298 },
+    trailhead: { x: 311, y: 644 },
     lessons: [
-      { slug: "heavy-equipment-and-earthwork", icon: "excavator", x: 624.5, y: 1229.1, label: "Heavy Equipment & Earthwork",
+      { slug: "heavy-equipment-and-earthwork", icon: "excavator", x: 840.5, y: 575.1, label: "Heavy Equipment & Earthwork",
         teaser: "Excavation safety, shoring, and the rules that keep heavy equipment from killing someone." },
-      { slug: "concrete-and-foundations-in-practice", icon: "cube", x: 564.5, y: 1366.9, label: "Concrete & Foundations",
+      { slug: "concrete-and-foundations-in-practice", icon: "cube", x: 780.5, y: 712.9, label: "Concrete & Foundations",
         teaser: "Slump tests, curing, and proving concrete actually hit its strength." },
     ],
   },
@@ -221,17 +226,17 @@ export const BLUEPRINT_BRANCHES: BlueprintBranch[] = [
     label: "Trade-Specific",
     attachSlug: "building-sequence",
     side: -1,
-    trailhead: { x: 306, y: 1463 },
+    trailhead: { x: 414, y: 700 },
     lessons: [
-      { slug: "structural-steel-erection", icon: "building", x: 119.5, y: 1432, label: "Structural Steel Erection",
+      { slug: "structural-steel-erection", icon: "building", x: 119.5, y: 778, label: "Structural Steel Erection",
         teaser: "Raising steel beam by beam, and the fall-protection rules that go with it." },
-      { slug: "framing-and-rough-carpentry", icon: "hammer", x: 59.5, y: 1569.8, label: "Framing & Carpentry",
+      { slug: "framing-and-rough-carpentry", icon: "hammer", x: 59.5, y: 915.8, label: "Framing & Carpentry",
         teaser: "From studs to a building's actual shape." },
-      { slug: "electrical-rough-in", icon: "bulb", x: 119.5, y: 1707.5, label: "Electrical Rough-In",
+      { slug: "electrical-rough-in", icon: "bulb", x: 119.5, y: 1053.5, label: "Electrical Rough-In",
         teaser: "Wiring a building before the walls close up." },
-      { slug: "mechanical-and-plumbing-rough-in", icon: "fork", x: 59.5, y: 1845.2, label: "Mechanical & Plumbing",
+      { slug: "mechanical-and-plumbing-rough-in", icon: "fork", x: 59.5, y: 1191.2, label: "Mechanical & Plumbing",
         teaser: "The fight for ceiling space between ductwork and pipe." },
-      { slug: "building-envelope-and-glazing", icon: "shield", x: 119.5, y: 1983, label: "Building Envelope & Glazing",
+      { slug: "building-envelope-and-glazing", icon: "shield", x: 119.5, y: 1329, label: "Building Envelope & Glazing",
         teaser: "Curtain wall, glazing, and closing the building in." },
     ],
   },
@@ -240,11 +245,11 @@ export const BLUEPRINT_BRANCHES: BlueprintBranch[] = [
     label: "Tech & Reality Capture",
     attachSlug: "bim-and-clash-detection",
     side: 1,
-    trailhead: { x: 460, y: 2400 },
+    trailhead: { x: 661, y: 1092 },
     lessons: [
-      { slug: "3d-modeling-in-practice", icon: "cube", x: 624.5, y: 2331.1, label: "3D Modeling in Practice",
+      { slug: "3d-modeling-in-practice", icon: "cube", x: 840.5, y: 1023.1, label: "3D Modeling in Practice",
         teaser: "LOD, BIM execution plans, and a model's life before and after clash detection." },
-      { slug: "drones-scanning-and-mapping", icon: "magnifier", x: 564.5, y: 2468.9, label: "Drones, Scanning & Mapping",
+      { slug: "drones-scanning-and-mapping", icon: "magnifier", x: 780.5, y: 1160.9, label: "Drones, Scanning & Mapping",
         teaser: "Turning a jobsite into data, from FAA rules to photogrammetry." },
     ],
   },
@@ -253,11 +258,11 @@ export const BLUEPRINT_BRANCHES: BlueprintBranch[] = [
     label: "Sustainability & Systems",
     attachSlug: "green-building-certification",
     side: -1,
-    trailhead: { x: 306, y: 2621 },
+    trailhead: { x: 414, y: 1204 },
     lessons: [
-      { slug: "hvac-and-building-systems-in-practice", icon: "gauge", x: 119.5, y: 2552.1, label: "HVAC & Building Systems",
+      { slug: "hvac-and-building-systems-in-practice", icon: "gauge", x: 119.5, y: 1519, label: "HVAC & Building Systems",
         teaser: "Refrigerant rules, rooftop units, and commissioning the systems that prove it works." },
-      { slug: "solar-and-renewable-energy-on-a-jobsite", icon: "leaf", x: 59.5, y: 2689.9, label: "Solar & Renewable Energy",
+      { slug: "solar-and-renewable-energy-on-a-jobsite", icon: "leaf", x: 59.5, y: 1656.8, label: "Solar & Renewable Energy",
         teaser: "Interconnection, net metering, and keeping the lights on when the grid goes down." },
     ],
   },
@@ -266,9 +271,9 @@ export const BLUEPRINT_BRANCHES: BlueprintBranch[] = [
     label: "Claim to Restoration",
     attachSlug: "when-its-not-the-storms-fault",
     side: 1,
-    trailhead: { x: 296, y: 2842 },
+    trailhead: { x: 311, y: 1316 },
     lessons: [
-      { slug: "claim-to-restoration", icon: "umbrella", x: 594.5, y: 2842, label: "Claim to Restoration",
+      { slug: "claim-to-restoration", icon: "umbrella", x: 810.5, y: 1350.9, label: "Claim to Restoration",
         teaser: "A hailstorm claim from first notice of loss to the finished repair." },
     ],
   },

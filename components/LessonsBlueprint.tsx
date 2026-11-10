@@ -45,11 +45,11 @@ type Branch = BlueprintBranch & {
   labelY: number;
 };
 
-const SHEET_W = 684;
-const SHEET_H = 2980;
+const SHEET_W = 900;
+const SHEET_H = 1780;
 const TOOLTIP_W = 252;
 const TOOLTIP_H = 190;
-const MAIN_BADGE_R = 42.5;
+const MAIN_BADGE_R = 31.875; // 42.5 decreased 25%, per request -- branch badges (BRANCH_BADGE_R) are untouched
 const BRANCH_BADGE_R = 30;
 
 // Splits a short on-diagram label into lines for the SVG <tspan> stack
@@ -264,8 +264,8 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
           <StopIcon name={stop.icon} scale={iconScale} />
           {stop.kind === "main" && (
             <>
-              <circle className={styles.numBg} cx={30} cy={-30} r={15} />
-              <text className={styles.num} x={30} y={-24.4} textAnchor="middle">
+              <circle className={styles.numBg} cx={22.5} cy={-22.5} r={11.25} />
+              <text className={styles.num} x={22.5} y={-18.3} textAnchor="middle">
                 {stop.n}
               </text>
             </>
@@ -375,7 +375,7 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
           })}
         </g>
 
-        {mainStops.map((stop, idx) => renderStop(stop, idx, MAIN_BADGE_R, 1.5625))}
+        {mainStops.map((stop, idx) => renderStop(stop, idx, MAIN_BADGE_R, 1.171875))}
 
         {branches.map((branch) =>
           branch.stops.map((stop, idx) => renderStop(stop, idx, BRANCH_BADGE_R, 1.1))
