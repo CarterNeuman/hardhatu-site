@@ -119,9 +119,11 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 py-14 md:grid-cols-[1.1fr_0.9fr] md:py-16">
           <div>
             <h1 className="font-display text-4xl font-bold leading-[1.05] text-ink md:text-5xl">
-              <span className="text-amber">{careers.length}</span> careers.{" "}
-              <span className="text-amber">{roundedConceptCount}+</span> concepts. One
-              connected map of how construction actually works.
+              <span className="block">
+                <span className="text-amber">{careers.length}</span> careers.{" "}
+                <span className="text-amber">{roundedConceptCount}+</span> concepts.
+              </span>
+              <span className="block">One connected map of how construction actually works.</span>
             </h1>
             <p className="mt-4 max-w-[46ch] text-lg leading-relaxed text-ink">
               Every career links to the concepts, software, and certifications it actually
