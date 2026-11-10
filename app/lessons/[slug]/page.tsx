@@ -53,7 +53,7 @@ export default async function LessonPage({
 
       {lesson.image && <ContentPhoto src={lesson.image} alt={lesson.title} />}
 
-      <EmailGate source={`lesson:${lesson.slug}`}>
+      <EmailGate source={`lesson:${lesson.slug}`} variant="immediate">
         {lesson.sections.map((section, i) => {
           const quizIndex = section.quiz ? quizSeen++ : -1;
           return (

@@ -45,7 +45,7 @@ export default async function InterviewPage({
       <h1 className="mt-2 font-display text-4xl font-bold text-ink">{interview.title}</h1>
       <p className="mt-3 text-lg leading-relaxed text-ink">{interview.tagline}</p>
 
-      <EmailGate source={`interview:${interview.slug}`}>
+      <EmailGate source={`interview:${interview.slug}`} variant="immediate">
       {interview.body && (
         <div className="mt-4">
           <Prose text={interview.body} />

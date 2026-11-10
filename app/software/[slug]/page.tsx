@@ -51,7 +51,7 @@ export default async function SoftwarePage({
 
       {software.image && <ContentPhoto src={software.image} alt={software.title} />}
 
-      <EmailGate source={`software:${software.slug}`}>
+      <EmailGate source={`software:${software.slug}`} variant="immediate">
       <SectionLabel>What it does</SectionLabel>
       <p className="mt-2 leading-relaxed text-ink">{software.whatItDoes}</p>
 

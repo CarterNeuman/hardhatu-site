@@ -52,7 +52,7 @@ export default async function PhasePage({
 
       {phase.image && <ContentPhoto src={phase.image} alt={phase.title} />}
 
-      <EmailGate source={`phase:${phase.slug}`}>
+      <EmailGate source={`phase:${phase.slug}`} variant="immediate">
       <SectionLabel>What happens</SectionLabel>
       <Prose text={phase.whatHappens} />
 

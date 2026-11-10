@@ -8,6 +8,7 @@ import { RelatedLinks } from "@/components/RelatedLinks";
 import { Disclaimer } from "@/components/Disclaimer";
 import { Callout } from "@/components/Callout";
 import { ContentPhoto } from "@/components/ContentPhoto";
+import { EmailGate } from "@/components/EmailGate";
 
 export function generateStaticParams() {
   const { concepts } = getAllContent();
@@ -42,6 +43,7 @@ export default async function ConceptPage({
   const hasStaleRisk = Boolean(concept.typicalCost) || Boolean(concept.lastReviewed);
 
   return (
+    <EmailGate source={`concept:${concept.slug}`} allowGuest>
     <article className="mx-auto max-w-3xl px-6 py-10">
       <TypeBadge type="concept" tier={concept.tier} />
       <h1 className="mt-2 font-display text-4xl font-bold text-ink">{concept.title}</h1>
@@ -86,5 +88,6 @@ export default async function ConceptPage({
 
       <RelatedLinks items={related} />
     </article>
+    </EmailGate>
   );
 }

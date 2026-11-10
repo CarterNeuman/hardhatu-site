@@ -53,7 +53,7 @@ export default async function ExamPage({
       <p className="mt-1 text-xs uppercase tracking-wide text-steel">{exam.examName}</p>
       <p className="mt-3 text-lg leading-relaxed text-ink">{exam.tagline}</p>
 
-      <EmailGate source={`exam:${exam.slug}`}>
+      <EmailGate source={`exam:${exam.slug}`} variant="immediate">
       {exam.body && (
         <div className="mt-4">
           <Prose text={exam.body} />

@@ -11,6 +11,7 @@ import { PayTimeline } from "@/components/PayTimeline";
 import { Disclaimer } from "@/components/Disclaimer";
 import { Callout } from "@/components/Callout";
 import { CareerEntryBadge } from "@/components/CareerEntryBadge";
+import { EmailGate } from "@/components/EmailGate";
 
 export function generateStaticParams() {
   const { careers } = getAllContent();
@@ -45,6 +46,7 @@ export default async function CareerPage({
   const recommended = getRecommended(career);
 
   return (
+    <EmailGate source={`career:${career.slug}`} allowGuest>
     <article className="mx-auto max-w-3xl px-6 py-10">
       <div className="flex items-center gap-2">
         <TypeBadge type="career" tier={career.tier} />
@@ -188,5 +190,6 @@ export default async function CareerPage({
 
       <RelatedLinks items={related} recommended={recommended} />
     </article>
+    </EmailGate>
   );
 }

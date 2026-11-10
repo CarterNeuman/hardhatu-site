@@ -7,7 +7,6 @@ import { CAREER_CATEGORY_ORDER } from "@/lib/types";
 import type { Career, Lesson } from "@/lib/types";
 import { CATEGORY_SLUG } from "@/components/Header";
 import { Icon } from "@/components/Icon";
-import { EmailGate } from "@/components/EmailGate";
 
 const MAX_MATCHES = 4;
 
@@ -225,7 +224,6 @@ export function CareerMatchQuiz({
       .filter((entry): entry is { lesson: Lesson; blurb: string } => entry !== null);
 
     return (
-      <EmailGate variant="immediate" source="quiz-result">
         <div className="mt-6">
           <div className="border border-hairline bg-amber-soft px-6 py-8 sm:px-10 sm:py-10">
             <h2 className="font-display text-4xl font-bold leading-[0.95] text-ink sm:text-5xl">
@@ -314,7 +312,6 @@ export function CareerMatchQuiz({
             </button>
           </div>
         </div>
-      </EmailGate>
     );
   }
 

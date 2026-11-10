@@ -64,7 +64,7 @@ export default async function GetHiredPage({
       </div>
       <p className="mt-3 text-lg leading-relaxed text-ink">{guide.tagline}</p>
 
-      <EmailGate source={`gethired:${guide.slug}`}>
+      <EmailGate source={`gethired:${guide.slug}`} variant="immediate">
       {guide.comingSoon ? (
         <p className="mt-6 text-sm italic text-steel">
           This guide is coming soon. Check back, or explore the related pages below in the

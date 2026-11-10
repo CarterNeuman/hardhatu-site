@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getAllContent } from "@/lib/content";
 import { CAREER_CATEGORY_ORDER } from "@/lib/types";
 import { BlueprintMark } from "@/components/BlueprintMark";
+import { EmailGate } from "@/components/EmailGate";
 import {
   ActionPlanBuilder,
   type CategoryData,
@@ -13,9 +14,10 @@ import {
 
 // Linked from the site header's "Take Your First Step" entry (see the
 // build-sequencing notes in the premium-action-plan-feasibility project
-// doc). No accounts/payments gate yet -- the generator is a pure,
-// client-side function with nothing saved between visits (see
-// ActionPlanBuilder's own comment for that tradeoff).
+// doc). Gated behind sign-in (2026-11-10, part of the site-wide gating
+// pass) via EmailGate below -- the generator itself is still a pure,
+// client-side function with nothing saved between visits once signed in
+// (see ActionPlanBuilder's own comment for that tradeoff).
 export const metadata: Metadata = {
   title: "Blueprint",
   description:
@@ -184,6 +186,7 @@ export default function ActionPlanPage() {
   }
 
   return (
+    <EmailGate source="action-plan" variant="immediate">
     <article className="mx-auto max-w-3xl px-6 py-10">
       {/* The print calendar (ActionPlanPrintCalendar) has its own
           print-only header with the logo and plan title -- this intro
@@ -201,11 +204,12 @@ export default function ActionPlanPage() {
           the calendar.
         </p>
         <p className="mt-2 text-sm text-steel">
-          Free, no account needed yet. Download it as a calendar file, or print it and keep it in the truck.
+          Free with a quick sign-in. Download it as a calendar file, or print it and keep it in the truck.
         </p>
       </div>
 
       <ActionPlanBuilder dataByCategory={dataByCategory} />
     </article>
+    </EmailGate>
   );
 }

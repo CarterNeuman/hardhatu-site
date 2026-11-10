@@ -45,7 +45,7 @@ export default async function ResumeGuidePage({
       <h1 className="mt-2 font-display text-4xl font-bold text-ink">{resume.title}</h1>
       <p className="mt-3 text-lg leading-relaxed text-ink">{resume.tagline}</p>
 
-      <EmailGate source={`resume:${resume.slug}`}>
+      <EmailGate source={`resume:${resume.slug}`} variant="immediate">
       {resume.body && (
         <div className="mt-4">
           <Prose text={resume.body} />
