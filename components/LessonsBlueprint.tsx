@@ -45,7 +45,7 @@ type Branch = BlueprintBranch & {
   labelY: number;
 };
 
-const SHEET_W = 1050;
+const SHEET_W = 1450;
 const SHEET_H = 3920;
 const TOOLTIP_W = 252;
 const TOOLTIP_H = 190;
@@ -238,6 +238,20 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
       .filter(Boolean)
       .join(" ");
 
+    // The dotted road/spur line runs straight through where a stop's own
+    // title sits (it has to pass close by on its way to the next stop),
+    // so without this the dashes read as cutting through the words. This
+    // backdrop — sized a little generously, same color as the sheet
+    // behind it — blanks that one small patch, leaving the dashes visibly
+    // running up to the title and picking up again after it, the way a
+    // trail marker's label breaks a dashed line on a map.
+    const titleFontPx = stop.kind === "main" ? 16 : 13;
+    const longestLine = Math.max(...labelLines.map((l) => l.length));
+    const backdropW = longestLine * titleFontPx * 0.62 + 14;
+    const backdropTop = radius + 22 - titleFontPx * 0.75 - 4;
+    const backdropH =
+      (labelLines.length - 1) * 18 + titleFontPx * 1.5 + 8;
+
     return (
       <g key={key} transform={`translate(${stop.x},${stop.y})`}>
         <Link
@@ -264,6 +278,14 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
               </text>
             </>
           )}
+          <rect
+            className={styles.titleBackdrop}
+            x={-backdropW / 2}
+            y={backdropTop}
+            width={backdropW}
+            height={backdropH}
+            pointerEvents="none"
+          />
           <text className={styles.title} x={0} y={radius + 22} textAnchor="middle">
             {labelLines.map((line, i) => (
               <tspan key={i} x={0} dy={i === 0 ? 0 : 18}>
