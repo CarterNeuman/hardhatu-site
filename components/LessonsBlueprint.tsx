@@ -45,12 +45,12 @@ type Branch = BlueprintBranch & {
   labelY: number;
 };
 
-const SHEET_W = 3000;
-const SHEET_H = 878;
+const SHEET_W = 1050;
+const SHEET_H = 3920;
 const TOOLTIP_W = 252;
 const TOOLTIP_H = 190;
-const MAIN_BADGE_R = 34;
-const BRANCH_BADGE_R = 24;
+const MAIN_BADGE_R = 42.5;
+const BRANCH_BADGE_R = 30;
 
 // Splits a short on-diagram label into lines for the SVG <tspan> stack
 // below each stop's icon. Default (no wordsPerLine) is an even split at
@@ -72,7 +72,7 @@ function wrapLabel(label: string, wordsPerLine?: number): string[] {
   return lines;
 }
 
-function StopIcon({ name, scale = 1.25 }: { name: keyof typeof BLUEPRINT_ICONS; scale?: number }) {
+function StopIcon({ name, scale = 1.5625 }: { name: keyof typeof BLUEPRINT_ICONS; scale?: number }) {
   const t = -12 * scale;
   return (
     <g
@@ -132,22 +132,27 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
           branchLabel: branch.label,
         };
       });
-      const byX = [...stops].sort((a, b) => a.x - b.x);
+      // The road runs top-to-bottom now, so a branch's own stops are
+      // ordered by y (how far along the branch they sit) rather than x
+      // (the old along-shelf axis), or the spur would zigzag between
+      // them instead of drawing a single path through in sequence.
+      const byProgress = [...stops].sort((a, b) => a.y - b.y);
       const spurD = smoothPath([
         { x: attach.x, y: attach.y },
         branch.trailhead,
-        ...byX.map((s) => ({ x: s.x, y: s.y })),
+        ...byProgress.map((s) => ({ x: s.x, y: s.y })),
       ]);
       const ys = stops.map((s) => s.y);
       const xs = stops.map((s) => s.x);
-      // A branch below the road (side 1) places its label past the
-      // stops' own title text, not just past their badges — otherwise
-      // the label collides with the title of whichever stop is
-      // lowest. One above the road (side -1) only needs to clear the
-      // badges themselves, since the titles there hang below the
-      // badges, away from the label.
-      const labelY = branch.side === -1 ? Math.min(...ys) - 50 : Math.max(...ys) + 90;
+      // The road now runs top-to-bottom, so each branch's own lessons
+      // stack vertically beside it rather than sitting in a horizontal
+      // row. A label centered among them (like the old above/below
+      // placement) would land right on top of one of their title
+      // texts, so instead it sits like a small trailhead sign: centered
+      // over the branch's stops left-to-right, just above the topmost
+      // one, clear of every stop's badge and title underneath it.
       const labelX = (Math.min(...xs) + Math.max(...xs)) / 2;
+      const labelY = Math.min(...ys) - 60;
       return { ...branch, attach, stops, spurD, labelX, labelY };
     }).filter((b): b is Branch => b !== null);
   }, [mainBySlug, bySlug]);
@@ -155,6 +160,21 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
   const [activeKey, setActiveKey] = useState<string | null>(null);
   const roadRef = useRef<SVGPathElement>(null);
   const spurRefs = useRef<(SVGPathElement | null)[]>([]);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // The road runs top-to-bottom now, so scrolling straight down from the
+  // top already starts at lesson 1 — nothing special needed there. But
+  // the sheet is wider than a phone screen, and the road only roughly
+  // centers horizontally (it wiggles, and branches fan out to either
+  // side), so a narrow viewport left at its default scroll position
+  // would open on empty margin or a branch instead of the road itself.
+  // Center the horizontal scroll on mount so the road is what's on
+  // screen first; branches are still one swipe away either direction.
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollLeft = (el.scrollWidth - el.clientWidth) / 2;
+  }, []);
 
   // Draw-in animation: the road and every branch spur "draw themselves" on
   // mount by animating stroke-dashoffset from the path's full length to
@@ -238,15 +258,15 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
           <StopIcon name={stop.icon} scale={iconScale} />
           {stop.kind === "main" && (
             <>
-              <circle className={styles.numBg} cx={24} cy={-24} r={12} />
-              <text className={styles.num} x={24} y={-19.5} textAnchor="middle">
+              <circle className={styles.numBg} cx={30} cy={-30} r={15} />
+              <text className={styles.num} x={30} y={-24.4} textAnchor="middle">
                 {stop.n}
               </text>
             </>
           )}
-          <text className={styles.title} x={0} y={radius + 18} textAnchor="middle">
+          <text className={styles.title} x={0} y={radius + 22} textAnchor="middle">
             {labelLines.map((line, i) => (
-              <tspan key={i} x={0} dy={i === 0 ? 0 : 16}>
+              <tspan key={i} x={0} dy={i === 0 ? 0 : 18}>
                 {line}
               </tspan>
             ))}
@@ -258,7 +278,7 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
   }
 
   return (
-    <div className={styles.sheetScroll} id="sheetScroll">
+    <div className={styles.sheetScroll} id="sheetScroll" ref={scrollRef}>
       <svg
         viewBox={`0 0 ${SHEET_W} ${SHEET_H}`}
         role="img"
@@ -341,10 +361,10 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
           })}
         </g>
 
-        {mainStops.map((stop, idx) => renderStop(stop, idx, MAIN_BADGE_R, 1.25))}
+        {mainStops.map((stop, idx) => renderStop(stop, idx, MAIN_BADGE_R, 1.5625))}
 
         {branches.map((branch) =>
-          branch.stops.map((stop, idx) => renderStop(stop, idx, BRANCH_BADGE_R, 0.88))
+          branch.stops.map((stop, idx) => renderStop(stop, idx, BRANCH_BADGE_R, 1.1))
         )}
 
         {activeStop && (

@@ -142,30 +142,46 @@
 @keyframes nudge {
   0%,
   100% {
-    transform: translateX(0);
+    transform: translateY(0);
   }
   50% {
-    transform: translateX(6px);
+    transform: translateY(6px);
   }
 }
 
 .sheetScroll {
   margin-top: 22px;
+  /* Vertical scroll is the primary gesture (the road itself runs top to
+     bottom); horizontal is a fallback for anyone on a screen narrower
+     than the sheet's fixed display width, same role overflow-x played
+     in the old horizontal layout, just on the other axis now. */
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: auto;
   border: 1px solid var(--line-dim);
   background: var(--blue);
   -webkit-overflow-scrolling: touch;
+  max-height: 78vh;
+  height: 760px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .sheetScroll svg {
   display: block;
-  width: 1900px;
-  height: 556px;
+  /* A fixed pixel width (not 100%) so stop labels stay a true, legible
+     size on a narrow phone instead of shrinking to fit — same approach
+     the old horizontal version used, just scrolled on the other axis. */
+  width: 700px;
+  height: 2613px;
 }
-@media (min-width: 1500px) {
+@media (min-width: 900px) {
+  .sheetScroll {
+    height: 860px;
+    max-width: 820px;
+  }
   .sheetScroll svg {
-    width: 2500px;
-    height: 731px;
+    width: 800px;
+    height: 2987px;
   }
 }
 
@@ -243,11 +259,11 @@
 .stop .title {
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
   fill: var(--paper);
 }
 .stop.branch .title {
-  font-size: 12px;
+  font-size: 13px;
 }
 .stop .hit {
   fill: transparent;

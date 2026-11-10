@@ -26,11 +26,11 @@ export default function LessonsIndexPage() {
             The Learning Blueprint
           </h1>
           <p className={`${styles.intro} mt-4 text-base leading-relaxed sm:text-lg`}>
-            Every lesson, plotted as a stop on one winding road, unrolled across a single
-            blueprint sheet. The road runs roughly in learning order and climbs as the
-            material gets harder, <strong>cresting at the most technical lessons</strong>{" "}
-            before coming back down to closeout. Scroll the sheet sideways to walk the
-            whole path, or hover any stop for a preview.
+            Every lesson, plotted as a stop on one winding road, unrolled down a single
+            blueprint sheet. The road runs in learning order, weaving back and forth as
+            it climbs, with <strong>8 themed branches</strong> forking off to the side for
+            extra lessons along the way. Scroll down to walk the whole path, or hover any
+            stop for a preview.
           </p>
 
           <div className={styles.topRow}>
@@ -38,7 +38,7 @@ export default function LessonsIndexPage() {
               Swipe or scroll to explore
               <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path
-                  d="M3 12h17M14 6l6 6-6 6"
+                  d="M12 3v17M6 14l6 6 6-6"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth={2}
