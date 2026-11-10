@@ -178,18 +178,31 @@ export function CareerMatchQuiz({
   careersByCategory: Record<string, Career[]>;
   lessonsById: Record<string, Lesson>;
 }) {
+  // Deliberately plain defaults here, not a sessionStorage read -- the
+  // server has no access to sessionStorage, so seeding these from it on
+  // first render would make the client's first render disagree with
+  // what the server sent down, a hydration mismatch (React requires the
+  // two to match exactly). Restoring a stashed result happens in the
+  // effect below instead, which only ever runs after hydration.
   const [step, setStep] = useState(0);
-  const [categoryScores, setCategoryScores] = useState<Record<string, number>>(
-    () => readStoredResult()?.categoryScores ?? {}
-  );
-  const [careerScores, setCareerScores] = useState<Record<string, number>>(
-    () => readStoredResult()?.careerScores ?? {}
-  );
-  const [result, setResult] = useState<string | null>(() => readStoredResult()?.result ?? null);
+  const [categoryScores, setCategoryScores] = useState<Record<string, number>>({});
+  const [careerScores, setCareerScores] = useState<Record<string, number>>({});
+  const [result, setResult] = useState<string | null>(null);
 
   const allCareers = useMemo(() => Object.values(careersByCategory).flat(), [careersByCategory]);
   const { isSignedIn, isLoaded } = useUser();
   const savedResultRef = useRef<string | null>(null);
+
+  // Runs once after mount (post-hydration, client-only), restoring a
+  // stashed result if a sign-in redirect reloaded the page mid-quiz.
+  useEffect(() => {
+    const stored = readStoredResult();
+    if (!stored) return;
+    setCategoryScores(stored.categoryScores);
+    setCareerScores(stored.careerScores);
+    setResult(stored.result);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Keep the stash fresh any time a result exists, so it's there to
   // restore from if a sign-in redirect reloads the page next.
