@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { urlFor, slugifyCategory } from "@/lib/content-client";
 import type { Career, Concept, GetHired } from "@/lib/types";
 
@@ -328,6 +329,22 @@ export function Header({
           Take Your First Step
         </Link>
 
+        {/* Account -- signed-in/out state, desktop only. Browsing the site
+            never requires this; it's purely "sign in to save your spot" on
+            Lessons/Action Plan progress. */}
+        <div className="hidden shrink-0 items-center md:flex">
+          <SignedOut>
+            <SignInButton mode="modal">
+              <button className="whitespace-nowrap px-3 py-2 text-[0.92rem] font-semibold text-ink hover:text-navy">
+                Sign In
+              </button>
+            </SignInButton>
+          </SignedOut>
+          <SignedIn>
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
+        </div>
+
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen((v) => !v)}
@@ -353,6 +370,23 @@ export function Header({
           >
             Take Your First Step
           </Link>
+
+          <div className="mt-3 flex items-center justify-between border border-hairline px-4 py-3">
+            <SignedOut>
+              <SignInButton mode="modal">
+                <button
+                  className="text-[0.96rem] font-semibold text-ink"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Sign In
+                </button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <span className="text-[0.96rem] font-semibold text-ink">Your account</span>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
+          </div>
 
           <MobileSection
             label="Careers"
