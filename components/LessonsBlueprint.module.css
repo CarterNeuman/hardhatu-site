@@ -160,9 +160,14 @@
      deliberately kept narrow enough for this: a much wider intrinsic
      sheet would scale badge/title text down too small to read on a
      phone-width container. Each max-width below is ~1cm (~38px) wider
-     on each side than the previous pass, widening the visible diagram
+     on each side than the pass before it, widening the visible diagram
      on screen -- this is a container-size change only, it doesn't touch
-     SHEET_W or the switchback geometry itself. */
+     SHEET_W or the switchback geometry itself. This round's bump pairs
+     with LessonsBlueprint.tsx's new SIDE_MARGIN (added blank viewBox
+     margin either side of the content, to stop branch titles grazing
+     the drafting border) -- the two were sized together so badges
+     render at essentially the same on-screen size as before, not
+     visibly smaller inside a wider frame. */
   overflow-x: hidden;
   overflow-y: auto;
   border: 1px solid var(--line-dim);
@@ -170,7 +175,7 @@
   -webkit-overflow-scrolling: touch;
   max-height: 80vh;
   width: 100%;
-  max-width: 556px;
+  max-width: 632px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -182,13 +187,13 @@
 @media (min-width: 640px) {
   .sheetScroll {
     max-height: 82vh;
-    max-width: 676px;
+    max-width: 752px;
   }
 }
 @media (min-width: 1000px) {
   .sheetScroll {
     max-height: 85vh;
-    max-width: 796px;
+    max-width: 872px;
   }
 }
 

@@ -17,7 +17,7 @@ export default function LessonsIndexPage() {
   return (
     <div>
       <section className={styles.exhibit}>
-        <div className="mx-auto max-w-[1256px] px-5 py-9 sm:py-14">
+        <div className="mx-auto max-w-[1332px] px-5 py-9 sm:py-14">
           <p className={styles.eyebrow}>Lessons</p>
           <h1
             className={`${styles.heading} mt-3 font-display text-4xl font-bold sm:text-5xl`}
@@ -55,7 +55,7 @@ export default function LessonsIndexPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1228px] px-6 py-10">
+      <section className="mx-auto max-w-[1304px] px-6 py-10">
         <details className="group">
           <summary className="cursor-pointer font-display text-lg font-semibold text-ink [&::-webkit-details-marker]:hidden">
             Browse all {lessons.length} lessons as a list

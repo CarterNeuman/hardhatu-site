@@ -47,6 +47,17 @@ type Branch = BlueprintBranch & {
 
 const SHEET_W = 900;
 const SHEET_H = 2330;
+// A handful of branch stops (the ones in the outer-most columns) have
+// titles long enough that their wrapped text ran right up to -- a couple
+// past -- the drafting border and the sheet's own edge at the old
+// SHEET_W. Rather than re-run the coordinate generator (which would move
+// every stop), this adds blank margin on both sides of the drawing: the
+// background/grid/border now span the wider SIDE_MARGIN-padded canvas,
+// while every stop keeps its exact authored x/y from lessons-blueprint-data.ts
+// and is just drawn inside a group shifted right by SIDE_MARGIN, so the
+// whole picture sits centered with real breathing room on both edges.
+const SIDE_MARGIN = 48;
+const CANVAS_W = SHEET_W + SIDE_MARGIN * 2;
 const TOOLTIP_W = 252;
 const TOOLTIP_H = 190;
 const MAIN_BADGE_R = 31.875; // 42.5 decreased 25%, per request -- branch badges (BRANCH_BADGE_R) are untouched
@@ -294,7 +305,7 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
   return (
     <div className={styles.sheetScroll} id="sheetScroll" ref={scrollRef}>
       <svg
-        viewBox={`0 0 ${SHEET_W} ${SHEET_H}`}
+        viewBox={`0 0 ${CANVAS_W} ${SHEET_H}`}
         role="img"
         aria-label="The Learning Blueprint: a winding road connecting all 22 main lessons, grouped into four tiers from orientation basics to advanced practice, with 8 themed branches running their own short side roads out to 17 more lessons."
       >
@@ -303,18 +314,23 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
             <path d="M40 0H0V40" fill="none" stroke="rgba(207,232,242,.06)" strokeWidth={1} />
           </pattern>
         </defs>
-        <rect x={0} y={0} width={SHEET_W} height={SHEET_H} fill="var(--blue)" />
-        <rect x={0} y={0} width={SHEET_W} height={SHEET_H} fill="url(#hhu-grid)" />
+        <rect x={0} y={0} width={CANVAS_W} height={SHEET_H} fill="var(--blue)" />
+        <rect x={0} y={0} width={CANVAS_W} height={SHEET_H} fill="url(#hhu-grid)" />
         <rect
           x={14}
           y={14}
-          width={SHEET_W - 28}
+          width={CANVAS_W - 28}
           height={SHEET_H - 28}
           fill="none"
           stroke="var(--line-dim)"
           strokeWidth={2}
         />
 
+        {/* Everything below is positioned using the authored coordinate
+            space (0..SHEET_W), unchanged from lessons-blueprint-data.ts --
+            this group just centers that whole drawing inside the wider,
+            SIDE_MARGIN-padded canvas above. */}
+        <g transform={`translate(${SIDE_MARGIN},0)`}>
         {BLUEPRINT_TIERS.map((t) => (
           <g key={t.n}>
             <text className={styles.tierLabel} x={t.x} y={t.y} textAnchor="middle">
@@ -401,6 +417,7 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
             </div>
           </foreignObject>
         )}
+        </g>
       </svg>
     </div>
   );
