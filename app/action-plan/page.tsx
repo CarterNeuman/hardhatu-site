@@ -83,11 +83,12 @@ export default async function ActionPlanPage({
           Free with a quick sign-in. Download it as a calendar file, or print it and keep it in the truck.
         </p>
         {savedPlanCount > 0 && !initialPlan && (
-          <p className="mt-3 text-sm">
-            <Link href="/action-plan/my-plans" className="font-semibold text-navy hover:underline">
-              View your saved plan{savedPlanCount === 1 ? "" : "s"} ({savedPlanCount}) &rarr;
-            </Link>
-          </p>
+          <Link
+            href="/action-plan/my-plans"
+            className="mt-3 inline-block border border-navy px-3 py-1.5 text-xs font-semibold text-navy transition-colors hover:bg-navy hover:text-paper"
+          >
+            View your saved plan{savedPlanCount === 1 ? "" : "s"} ({savedPlanCount})
+          </Link>
         )}
       </div>
 

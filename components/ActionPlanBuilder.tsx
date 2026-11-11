@@ -26,7 +26,8 @@ import {
   AccordionSubLabel,
   useActionPlanAccordionControls,
 } from "@/components/ActionPlanAccordion";
-import { generateActionPlan, type CategoryData } from "@/lib/action-plan-data";
+import { generateActionPlan } from "@/lib/action-plan-generate";
+import type { CategoryData } from "@/lib/action-plan-data";
 
 export type { SlimCareer, SlimLesson, SlimConcept, SlimSoftware, CategoryData } from "@/lib/action-plan-data";
 

@@ -3,7 +3,8 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
 import { getActionPlansForUser, getProgressForUser } from "@/lib/db";
-import { buildActionPlanDataByCategory, generateActionPlan } from "@/lib/action-plan-data";
+import { buildActionPlanDataByCategory } from "@/lib/action-plan-data";
+import { generateActionPlan } from "@/lib/action-plan-generate";
 import { BlueprintMark } from "@/components/BlueprintMark";
 import { DeletePlanButton } from "@/components/DeletePlanButton";
 

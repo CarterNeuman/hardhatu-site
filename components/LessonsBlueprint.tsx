@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
+import { useUser } from "@clerk/nextjs";
 import type { Lesson } from "@/lib/types";
 import {
   BLUEPRINT_LAYOUT,
@@ -96,6 +97,36 @@ function StopIcon({ name, scale = 1.5625 }: { name: keyof typeof BLUEPRINT_ICONS
 
 export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
   const bySlug = useMemo(() => new Map(lessons.map((l) => [l.slug, l])), [lessons]);
+
+  // Which lesson slugs are already marked complete, so each stop's icon
+  // on the road can show it (2026-11-10) -- same /api/progress GET
+  // LessonCompletionProvider uses on a lesson's own page, just read
+  // here for every lesson at once instead of one at a time. Signed-out
+  // visitors never see a completed stop (completedSlugs stays empty),
+  // same fail-closed behavior as the rest of the progress features.
+  const { isLoaded, isSignedIn } = useUser();
+  const [completedSlugs, setCompletedSlugs] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    if (!isLoaded || !isSignedIn) return;
+    let cancelled = false;
+    fetch("/api/progress")
+      .then((res) => res.json())
+      .then((data: { ok?: boolean; progress?: { contentType: string; contentId: string }[] }) => {
+        if (cancelled || !data?.ok) return;
+        const slugs = (data.progress ?? [])
+          .filter((row) => row.contentType === "lesson")
+          .map((row) => row.contentId);
+        setCompletedSlugs(new Set(slugs));
+      })
+      .catch(() => {
+        // Network hiccup: the road just shows nothing as completed
+        // rather than blocking on a retry loop.
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [isLoaded, isSignedIn]);
 
   const mainStops = useMemo<Stop[]>(() => {
     return BLUEPRINT_LAYOUT.map((layout: BlueprintLayoutStop) => {
@@ -232,14 +263,21 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
   function renderStop(stop: Stop, idx: number, radius: number, iconScale: number) {
     const key = `${stop.kind}:${stop.slug}`;
     const isActive = activeKey === key;
+    const isCompleted = completedSlugs.has(stop.slug);
     const labelLines = wrapLabel(stop.label, stop.labelWordsPerLine);
     const classNames = [
       styles.stop,
       stop.kind === "branch" ? styles.branch : "",
       isActive ? styles.active : "",
+      isCompleted ? styles.completed : "",
     ]
       .filter(Boolean)
       .join(" ");
+    // Top-left corner of this stop's badge, same distance-from-center
+    // the main stops already use for their number badge (just mirrored
+    // to the opposite corner so the two never collide).
+    const checkOff = radius * 0.72;
+    const checkR = radius * 0.34;
 
     // The dotted road/spur line runs straight through where a stop's own
     // title sits (it has to pass close by on its way to the next stop),
@@ -266,9 +304,10 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
           onFocus={() => setActiveKey(key)}
           onBlur={() => setActiveKey((k) => (k === key ? null : k))}
           aria-label={
-            stop.kind === "main"
+            (stop.kind === "main"
               ? `Lesson ${stop.n}: ${stop.title}`
-              : `${stop.branchLabel} branch, lesson ${stop.n} of ${stop.total}: ${stop.title}`
+              : `${stop.branchLabel} branch, lesson ${stop.n} of ${stop.total}: ${stop.title}`) +
+            (isCompleted ? " (completed)" : "")
           }
         >
           <circle className={styles.badge} r={radius} />
@@ -280,6 +319,16 @@ export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
                 {stop.n}
               </text>
             </>
+          )}
+          {isCompleted && (
+            <g className={styles.completeBadge}>
+              <circle className={styles.completeMark} cx={-checkOff} cy={-checkOff} r={checkR} />
+              <path
+                className={styles.completeCheck}
+                d={`M ${-checkOff - checkR * 0.5} ${-checkOff} L ${-checkOff - checkR * 0.1} ${-checkOff + checkR * 0.45} L ${-checkOff + checkR * 0.55} ${-checkOff - checkR * 0.55}`}
+                fill="none"
+              />
+            </g>
           )}
           <rect
             className={styles.titleBackdrop}

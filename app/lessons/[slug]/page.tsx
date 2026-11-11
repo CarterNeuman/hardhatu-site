@@ -9,6 +9,7 @@ import { Prose } from "@/components/Prose";
 import { ContentPhoto } from "@/components/ContentPhoto";
 import { EmailGate } from "@/components/EmailGate";
 import { MarkCompleteButton } from "@/components/MarkCompleteButton";
+import { LessonCompletionProvider, LessonCompletionBadge } from "@/components/LessonCompletion";
 
 export function generateStaticParams() {
   const { lessons } = getAllContent();
@@ -48,29 +49,34 @@ export default async function LessonPage({
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-10">
-      <TypeBadge type="lesson" tier={lesson.tier} />
-      <h1 className="mt-2 font-display text-4xl font-bold text-ink">{lesson.title}</h1>
-      <p className="mt-1 text-xs uppercase tracking-wide text-steel">{lesson.minutes} min read</p>
-
-      {lesson.image && <ContentPhoto src={lesson.image} alt={lesson.title} />}
-
-      <EmailGate source={`lesson:${lesson.slug}`} variant="immediate">
-        {lesson.sections.map((section, i) => {
-          const quizIndex = section.quiz ? quizSeen++ : -1;
-          return (
-            <div key={i} className="mt-4">
-              <Prose text={section.content} />
-              {section.quiz && <QuizBlock quiz={section.quiz} index={quizIndex} total={quizTotal} />}
-            </div>
-          );
-        })}
-
-        <div className="mt-8 border-t border-hairline pt-6">
-          <MarkCompleteButton contentType="lesson" contentId={lesson.slug} />
+      <LessonCompletionProvider contentType="lesson" contentId={lesson.slug}>
+        <div className="flex flex-wrap items-center gap-2">
+          <TypeBadge type="lesson" tier={lesson.tier} />
+          <LessonCompletionBadge />
         </div>
+        <h1 className="mt-2 font-display text-4xl font-bold text-ink">{lesson.title}</h1>
+        <p className="mt-1 text-xs uppercase tracking-wide text-steel">{lesson.minutes} min read</p>
 
-        <RelatedLinks items={related} />
-      </EmailGate>
+        {lesson.image && <ContentPhoto src={lesson.image} alt={lesson.title} />}
+
+        <EmailGate source={`lesson:${lesson.slug}`} variant="immediate">
+          {lesson.sections.map((section, i) => {
+            const quizIndex = section.quiz ? quizSeen++ : -1;
+            return (
+              <div key={i} className="mt-4">
+                <Prose text={section.content} />
+                {section.quiz && <QuizBlock quiz={section.quiz} index={quizIndex} total={quizTotal} />}
+              </div>
+            );
+          })}
+
+          <div className="mt-8 border-t border-hairline pt-6">
+            <MarkCompleteButton />
+          </div>
+
+          <RelatedLinks items={related} />
+        </EmailGate>
+      </LessonCompletionProvider>
     </article>
   );
 }

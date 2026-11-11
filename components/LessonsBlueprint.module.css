@@ -305,6 +305,33 @@
   stroke: var(--amber);
   stroke-width: 3.5;
 }
+
+/* A completed stop (2026-11-10): the badge/icon fade back and lose
+   their color so a finished lesson visibly recedes on the road, while
+   the small gold checkmark added in the top-left corner (completeMark
+   + completeCheck below) is what actually reads as "done" -- it's
+   drawn after the icon and keeps full opacity/color so it still pops
+   against the faded badge underneath it. */
+.stop.completed .badge,
+.stop.completed .icon {
+  opacity: 0.4;
+  filter: grayscale(0.85);
+}
+.stop.completed .numBg,
+.stop.completed .num {
+  opacity: 0.55;
+}
+.stop .completeMark {
+  fill: var(--amber);
+  stroke: var(--blue-deep);
+  stroke-width: 1.5;
+}
+.stop .completeCheck {
+  stroke: var(--blue-deep);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 .stop {
   opacity: 0;
   transform: scale(0.6);
