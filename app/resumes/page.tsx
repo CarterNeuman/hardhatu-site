@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getAllContent, groupResumesByCategory, slugifyCategory } from "@/lib/content";
 import { CategorySection } from "@/components/CategorySection";
 import { ContentCard } from "@/components/ContentCard";
+import { ResumeBeforeAfterStrip } from "@/components/ResumeBeforeAfterStrip";
 import { CATEGORY_SLUG } from "@/lib/content-client";
 
 export const metadata: Metadata = {
@@ -22,18 +23,26 @@ export default function ResumesIndexPage() {
         resume noticed in that part of the industry and what tends to work against it.
       </p>
 
-      {groups.map((group) => (
-        <CategorySection
-          key={group.category}
-          id={CATEGORY_SLUG[group.category] ?? slugifyCategory(group.category)}
-          title={group.category}
-          count={group.items.length}
-        >
-          {group.items.map((resume) => (
-            <ContentCard key={resume.id} item={resume} description={resume.tagline} />
-          ))}
-        </CategorySection>
-      ))}
+      {groups.map((group) => {
+        // First guide in this category with a real example bullet, used
+        // for the before/after strip. Falls back to no strip if none have
+        // one yet.
+        const withExamples = group.items.find((resume) => resume.exampleBullets.length > 0);
+
+        return (
+          <CategorySection
+            key={group.category}
+            id={CATEGORY_SLUG[group.category] ?? slugifyCategory(group.category)}
+            title={group.category}
+            count={group.items.length}
+            intro={withExamples ? <ResumeBeforeAfterStrip guide={withExamples} /> : undefined}
+          >
+            {group.items.map((resume) => (
+              <ContentCard key={resume.id} item={resume} description={resume.tagline} />
+            ))}
+          </CategorySection>
+        );
+      })}
     </div>
   );
 }
