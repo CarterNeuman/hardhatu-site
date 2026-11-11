@@ -48,6 +48,7 @@ export function generateActionPlan(
   const lessons = car ? data.lessonsByCareerId[car] ?? [] : [];
   const softwareItems = car ? data.softwareByCareerId[car] ?? [] : [];
   const careerConcepts = car ? data.conceptsByCareerId[car] ?? [] : [];
+  const careerPrograms = car ? data.programsByCareerId[car] ?? [] : [];
   const intake: ActionPlanIntake = {
     category,
     careerId: car || undefined,
@@ -68,6 +69,8 @@ export function generateActionPlan(
     categoryFallbackSoftware: data.fallbackSoftware,
     conceptsForCareer: careerConcepts,
     categoryFallbackConcepts: data.fallbackConcepts,
+    programsForCareer: careerPrograms,
+    categoryFallbackPrograms: data.fallbackPrograms,
     careerInterviewPrepHref: car ? data.interviewPrepHrefByCareerId[car] : undefined,
     categoryInterviewPrepHref: data.categoryInterviewPrepHref,
     careerExamPrepHref: car ? data.examPrepHrefByCareerId[car] : undefined,

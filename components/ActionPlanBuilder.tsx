@@ -28,9 +28,20 @@ import {
   useActionPlanAccordionControls,
 } from "@/components/ActionPlanAccordion";
 import { generateActionPlan } from "@/lib/action-plan-generate";
+import { ActionPlanLoading } from "@/components/ActionPlanLoading";
 import type { CategoryData } from "@/lib/action-plan-data";
 
 export type { SlimCareer, SlimLesson, SlimConcept, SlimSoftware, CategoryData } from "@/lib/action-plan-data";
+
+// The "Build my plan" loading screen runs for a randomized duration in
+// this range (never the exact same length twice -- see handleSubmit),
+// so the site reads as actually doing work rather than faking a fixed
+// delay.
+const BUILD_DURATION_MS_RANGE: [number, number] = [4000, 5000];
+function randomBuildDurationMs(): number {
+  const [min, max] = BUILD_DURATION_MS_RANGE;
+  return min + Math.random() * (max - min);
+}
 
 // A saved plan's intake, as handed down from app/action-plan/page.tsx
 // when a resume link (?plan=&career=) matched a row in the database --
@@ -127,6 +138,23 @@ export function ActionPlanBuilder({
   const [timelineWeeks, setTimelineWeeks] = useState(initialPlan?.timelineWeeks ?? 2);
   const [certsHeld, setCertsHeld] = useState(initialPlan?.certsHeld ?? "");
   const [plan, setPlan] = useState<GeneratedPlan | "coming-soon" | null>(null);
+  // True from the moment "Build my plan" is submitted until the
+  // randomized build duration elapses -- see handleSubmit and
+  // ActionPlanLoading. Separate from `plan` itself so the loading
+  // screen can render while `plan` is still null.
+  const [isBuilding, setIsBuilding] = useState(false);
+  const [buildDurationMs, setBuildDurationMs] = useState(0);
+  const buildTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const buildDurationRef = useRef(0);
+  // Clear any pending build timeout if this component unmounts
+  // mid-build (navigating away while "Building your blueprint..." is
+  // showing) -- otherwise the timeout would still fire and call
+  // setState on an unmounted component.
+  useEffect(() => {
+    return () => {
+      if (buildTimeoutRef.current) clearTimeout(buildTimeoutRef.current);
+    };
+  }, []);
   const [checkedDays, setCheckedDays] = useState<Set<number>>(new Set());
   const accordionControls = useActionPlanAccordionControls();
   // Day-by-day checkboxes persist to the signed-in user's account via
@@ -326,21 +354,52 @@ export function ActionPlanBuilder({
       { status, location, hoursPerWeek, timelineWeeks, certsHeld },
       editingPinnedPlan ? new Date(pinned.startIso) : undefined
     );
-    setCheckedDays(new Set());
-    toggledSincePlanRef.current = false;
     planTokenRef.current += 1;
-    setPlan(generated);
+    const token = planTokenRef.current;
 
-    // Auto-save: a signed-in visitor's plan is remembered without a
-    // separate "Save" button, so coming back to the same category+
-    // career later resumes it instead of starting over. Upserts (see
-    // /api/action-plans), so tweaking the hours/timeline/location for
-    // the SAME category+career is an edit to the existing saved plan,
-    // not a new one -- only a different category or career creates a
-    // genuinely new saved plan.
-    if (generated !== "coming-soon" && isSignedIn) {
-      savePlan(false);
+    // Nothing is actually being "built" for a category with no skeleton
+    // yet -- show the coming-soon message right away rather than faking
+    // a build for content that doesn't exist.
+    if (generated === "coming-soon") {
+      setIsBuilding(false);
+      if (buildTimeoutRef.current) clearTimeout(buildTimeoutRef.current);
+      setCheckedDays(new Set());
+      toggledSincePlanRef.current = false;
+      setPlan(generated);
+      return;
     }
+
+    // Hold the real plan behind a randomized loading screen (see
+    // ActionPlanLoading) instead of swapping it in instantly -- a
+    // different length every time (BUILD_DURATION_MS_RANGE) so it reads
+    // as actually assembling the plan, not a fixed canned delay.
+    // planTokenRef guards against a stale timeout applying a plan from
+    // an earlier submit if the visitor resubmits (or the component
+    // unmounts) before this one finishes.
+    if (buildTimeoutRef.current) clearTimeout(buildTimeoutRef.current);
+    const duration = randomBuildDurationMs();
+    buildDurationRef.current = duration;
+    setPlan(null);
+    setBuildDurationMs(duration);
+    setIsBuilding(true);
+    buildTimeoutRef.current = setTimeout(() => {
+      if (planTokenRef.current !== token) return;
+      setCheckedDays(new Set());
+      toggledSincePlanRef.current = false;
+      setPlan(generated);
+      setIsBuilding(false);
+
+      // Auto-save: a signed-in visitor's plan is remembered without a
+      // separate "Save" button, so coming back to the same category+
+      // career later resumes it instead of starting over. Upserts (see
+      // /api/action-plans), so tweaking the hours/timeline/location for
+      // the SAME category+career is an edit to the existing saved plan,
+      // not a new one -- only a different category or career creates a
+      // genuinely new saved plan.
+      if (isSignedIn) {
+        savePlan(false);
+      }
+    }, duration);
   }
 
   // Saves the current form answers as this account's plan for this
@@ -413,6 +472,8 @@ export function ActionPlanBuilder({
 
   function reset() {
     planTokenRef.current += 1;
+    if (buildTimeoutRef.current) clearTimeout(buildTimeoutRef.current);
+    setIsBuilding(false);
     setPlan(null);
   }
 
@@ -420,6 +481,10 @@ export function ActionPlanBuilder({
     if (!plan || plan === "coming-soon") return;
     const name = plan.careerTitle ? `${plan.careerTitle} Blueprint` : `${plan.category} Blueprint`;
     downloadIcs(`breakgroundu-${plan.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-plan.ics`, buildIcs(plan.days, name));
+  }
+
+  if (isBuilding) {
+    return <ActionPlanLoading durationMs={buildDurationMs} />;
   }
 
   if (plan === "coming-soon") {
@@ -447,7 +512,7 @@ export function ActionPlanBuilder({
 
     const hasPay = Boolean(plan.entryPay);
     const hasQualificationsSection =
-      plan.qualifications.length > 0 || plan.courses.length > 0 || plan.goFurther.length > 0;
+      plan.qualifications.length > 0 || plan.courses.length > 0 || plan.goFurther.length > 0 || plan.programs.length > 0;
     const hasResumePrepSection =
       plan.resumeBullets.length > 0 || Boolean(plan.interviewPrepHref) || Boolean(plan.examPrepHref);
     const hasFindOpeningsSection =
@@ -462,7 +527,7 @@ export function ActionPlanBuilder({
       hasPay && { title: "Pay", blurb: "what to actually expect to earn, so you know if it's worth it to you." },
       hasQualificationsSection && {
         title: "Qualifications & Courses",
-        blurb: "what to have ready, and where to learn what you're missing.",
+        blurb: "what to have ready, where to learn what you're missing, and real programs to enroll in.",
       },
       hasResumePrepSection && {
         title: "Resume & Interview Prep",
@@ -496,6 +561,9 @@ export function ActionPlanBuilder({
     }
     if (plan.goFurther.length > 0) {
       qualificationsTeaserParts.push(`${plan.goFurther.length} go further`);
+    }
+    if (plan.programs.length > 0) {
+      qualificationsTeaserParts.push(`${plan.programs.length} program${plan.programs.length === 1 ? "" : "s"}`);
     }
     const qualificationsTeaser = qualificationsTeaserParts.join(" \u00b7 ") || undefined;
 
@@ -626,7 +694,7 @@ export function ActionPlanBuilder({
             </ActionPlanAccordionSection>
           )}
 
-          {(plan.qualifications.length > 0 || plan.courses.length > 0 || plan.goFurther.length > 0) && (
+          {(plan.qualifications.length > 0 || plan.courses.length > 0 || plan.goFurther.length > 0 || plan.programs.length > 0) && (
             <ActionPlanAccordionSection title="Qualifications & Courses" teaser={qualificationsTeaser}>
               {plan.qualifications.length > 0 && (
                 <>
@@ -684,6 +752,34 @@ export function ActionPlanBuilder({
                       </li>
                     ))}
                   </ul>
+                </>
+              )}
+
+              {plan.programs.length > 0 && (
+                <>
+                  <AccordionSubLabel>Where to train</AccordionSubLabel>
+                  <p className="mt-1 text-xs italic text-steel">
+                    Real apprenticeships, trade schools, and certificate programs you could actually enroll in.
+                  </p>
+                  <ul className="mt-2 flex flex-col gap-2">
+                    {plan.programs.map(({ program, href }) => (
+                      <li key={program.id} className="text-sm text-ink">
+                        <Link href={href} className="font-medium text-navy hover:underline">
+                          {program.title}
+                        </Link>
+                        <span className="text-steel"> &middot; {program.organization}</span>
+                        {(program.durationNote || program.costNote) && (
+                          <span className="text-steel">
+                            {" "}
+                            &mdash; {[program.durationNote, program.costNote].filter(Boolean).join(" \u00b7 ")}
+                          </span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href="/programs" className="mt-2 inline-block text-xs font-semibold text-navy hover:underline">
+                    See all programs &rarr;
+                  </Link>
                 </>
               )}
             </ActionPlanAccordionSection>

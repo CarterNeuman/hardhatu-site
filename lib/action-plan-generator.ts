@@ -36,6 +36,18 @@ export type CareerRef = {
 // "Go further" recommendations and (on the component side) for linking
 // jargon in the day-by-day text back to its concept page.
 export type ConceptRef = { id: string; slug: string; title: string; definition: string };
+// A slim Program projection -- just enough to link to it and show why
+// it's worth checking out (org, type, cost/duration), same spirit as
+// LessonRef/ConceptRef above.
+export type ProgramRef = {
+  id: string;
+  slug: string;
+  title: string;
+  organization: string;
+  programType: string;
+  costNote?: string;
+  durationNote?: string;
+};
 
 export type ApplicationStatus = "browsing" | "applying";
 
@@ -115,6 +127,11 @@ export type GeneratedPlan = {
   // term doesn't need to be one of the 4 featured "Go further" picks to
   // still get linked where it actually appears.
   glossaryConcepts: ConceptRef[];
+  // Real training programs (apprenticeships, trade schools, certificate
+  // courses) tied to this career, or a category-wide fallback -- same
+  // "specific career wins, else category-wide" precedence as courses/
+  // goFurther above.
+  programs: { program: ProgramRef; href: string }[];
   interviewPrepHref?: string;
   examPrepHref?: string;
   entryPay?: CareerRef["entryPay"];
@@ -452,6 +469,8 @@ export function buildActionPlan({
   categoryFallbackSoftware = [],
   conceptsForCareer = [],
   categoryFallbackConcepts = [],
+  programsForCareer = [],
+  categoryFallbackPrograms = [],
   careerInterviewPrepHref,
   categoryInterviewPrepHref,
   careerExamPrepHref,
@@ -483,6 +502,11 @@ export function buildActionPlan({
   // lessons above. Surfaced as "Go further" recommendations.
   conceptsForCareer?: ConceptRef[];
   categoryFallbackConcepts?: ConceptRef[];
+  // Programs tied to the chosen specific career, and a category-wide
+  // fallback -- same "specific wins, else category-wide" pattern as
+  // concepts above.
+  programsForCareer?: ProgramRef[];
+  categoryFallbackPrograms?: ProgramRef[];
   // Hrefs for this career's (or, failing that, this category's)
   // Interview Prep / Exam Prep guide, if one exists -- a specific
   // career's own guide wins over the category-wide one. Exam Prep
@@ -595,6 +619,9 @@ export function buildActionPlan({
   const tokens = { Trade: trade, Location: intake.location.trim() };
   const courses = lessonsForCareer.length > 0 ? lessonsForCareer : categoryFallbackLessons;
   const conceptPool = conceptsForCareer.length > 0 ? conceptsForCareer : categoryFallbackConcepts;
+  const programPool = (programsForCareer && programsForCareer.length > 0)
+    ? programsForCareer
+    : (categoryFallbackPrograms ?? []);
   const goFurther = conceptPool.slice(0, 4).map((concept) => ({ concept, href: `/concepts/${concept.slug}` }));
   const interviewPrepHref = careerInterviewPrepHref ?? categoryInterviewPrepHref;
   const examPrepHref = careerExamPrepHref ?? categoryExamPrepHref;
@@ -613,6 +640,7 @@ export function buildActionPlan({
     resumeGuideHref: resumeGuide ? `/resumes/${resumeGuide.slug}` : undefined,
     goFurther,
     glossaryConcepts: conceptPool,
+    programs: programPool.slice(0, 3).map((program) => ({ program, href: `/programs/${program.slug}` })),
     interviewPrepHref,
     examPrepHref,
     entryPay: career?.entryPay,

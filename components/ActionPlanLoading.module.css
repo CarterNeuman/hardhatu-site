@@ -1,0 +1,88 @@
+/*
+  Loading screen shown between "Build my plan" and the result screen
+  (ActionPlanBuilder.tsx) -- a carpenter's framing-square mark that
+  continuously "draws" itself, independent of the actual randomized
+  build duration (that's driven by JS timers in the component; this
+  animation just loops the whole time the screen is visible).
+*/
+
+.mark {
+  display: block;
+}
+
+.markLine {
+  fill: none;
+  stroke: #1f3f52; /* navy */
+  stroke-width: 4;
+  stroke-linecap: square;
+  /* Path length of "M12 108 L12 12 L108 12": 96 + 96 = 192 */
+  stroke-dasharray: 192;
+  stroke-dashoffset: 192;
+  animation: draw 2.4s ease-in-out infinite;
+}
+
+.tick {
+  stroke: #8c6217; /* amber */
+  stroke-width: 3;
+  opacity: 0;
+  animation: tickFade 2.4s ease-in-out infinite;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 192;
+  }
+  45% {
+    stroke-dashoffset: 0;
+  }
+  70% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -192;
+  }
+}
+
+@keyframes tickFade {
+  0%,
+  20% {
+    opacity: 0;
+  }
+  45%,
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.pulseDot {
+  animation: pulseDot 1s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .markLine,
+  .tick,
+  .pulseDot {
+    animation: none;
+  }
+  .markLine {
+    stroke-dashoffset: 0;
+  }
+  .tick {
+    opacity: 1;
+  }
+}

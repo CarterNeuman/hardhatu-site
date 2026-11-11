@@ -6,7 +6,7 @@
 // plan's full content -- day-by-day schedule, resume bullets, pay
 // figures -- without duplicating this lookup, since both pages need
 // the exact same category data to call buildActionPlan with.
-import { getAllContent } from "@/lib/content";
+import { getAllContent, getProgramsForCareer } from "@/lib/content";
 import { CAREER_CATEGORY_ORDER } from "@/lib/types";
 import type { ActionPlan, GetHired, ResumeGuide } from "@/lib/types";
 
@@ -23,6 +23,15 @@ export type SlimCareer = {
 export type SlimLesson = { id: string; slug: string; title: string; minutes: number };
 export type SlimConcept = { id: string; slug: string; title: string; definition: string };
 export type SlimSoftware = { id: string; slug: string; title: string; whatItIs: string };
+export type SlimProgram = {
+  id: string;
+  slug: string;
+  title: string;
+  organization: string;
+  programType: string;
+  costNote?: string;
+  durationNote?: string;
+};
 
 export type CategoryData = {
   category: string;
@@ -43,6 +52,15 @@ export type CategoryData = {
   fallbackSoftware: SlimSoftware[];
   conceptsByCareerId: Record<string, SlimConcept[]>;
   fallbackConcepts: SlimConcept[];
+  // Real programs (apprenticeships, trade schools, certificate courses)
+  // tied to this career via the Program's own careerIds field -- the
+  // reverse of getProgramsForCareer's forward lookup on the Programs
+  // finder and career pages, same data, just projected down to what the
+  // Action Plan result screen needs to link to it.
+  programsByCareerId: Record<string, SlimProgram[]>;
+  // Category-wide fallback, same "Not sure yet, keep it general" purpose
+  // as fallbackLessons/fallbackConcepts above.
+  fallbackPrograms: SlimProgram[];
   interviewPrepHrefByCareerId: Record<string, string>;
   categoryInterviewPrepHref?: string;
   examPrepHrefByCareerId: Record<string, string>;
@@ -157,6 +175,38 @@ export function buildActionPlanDataByCategory(): Record<string, CategoryData> {
       if (fallbackConcepts.length >= 8) break;
     }
 
+    // Programs tied to each specific career in this category -- reuses
+    // getProgramsForCareer (the same reverse lookup the career page's
+    // "Training & Programs" box and the Programs finder use), not a new
+    // per-career mapping authored just for this feature.
+    const programsByCareerId: Record<string, SlimProgram[]> = {};
+    for (const career of categoryCareers) {
+      programsByCareerId[career.id] = getProgramsForCareer(career.id).map((p): SlimProgram => ({
+        id: p.id,
+        slug: p.slug,
+        title: p.title,
+        organization: p.organization,
+        programType: p.programType,
+        costNote: p.costNote,
+        durationNote: p.durationNote,
+      }));
+    }
+
+    // Same category-wide fallback as fallbackLessons/fallbackConcepts, for
+    // programs -- any program tied to at least one career in this
+    // category, deduped.
+    const seenProgramIds = new Set<string>();
+    const fallbackPrograms: SlimProgram[] = [];
+    for (const career of categoryCareers) {
+      for (const p of programsByCareerId[career.id]) {
+        if (seenProgramIds.has(p.id)) continue;
+        seenProgramIds.add(p.id);
+        fallbackPrograms.push(p);
+        if (fallbackPrograms.length >= 6) break;
+      }
+      if (fallbackPrograms.length >= 6) break;
+    }
+
     const skeleton = actionPlans.find((a) => a.category === category);
     const getHiredGuide = getHiredGuides.find((g) => g.category === category);
     const resumeGuide = resumes.find((r) => r.category === category);
@@ -207,6 +257,8 @@ export function buildActionPlanDataByCategory(): Record<string, CategoryData> {
       fallbackSoftware,
       conceptsByCareerId,
       fallbackConcepts,
+      programsByCareerId,
+      fallbackPrograms,
       interviewPrepHrefByCareerId,
       categoryInterviewPrepHref: categoryInterviewPrepHref ? `/interviews/${categoryInterviewPrepHref.slug}` : undefined,
       examPrepHrefByCareerId,
