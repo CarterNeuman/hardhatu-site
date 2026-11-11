@@ -24,9 +24,16 @@
 // Two timing variants (orthogonal to allowGuest):
 //  - "timed" (default): content is visible for `delaySeconds`, then the
 //    gate appears over it. Used on the soft-gated (allowGuest) pages, so
-//    a visitor gets a few seconds to see what they'd be signing up for.
+//    a visitor gets a few seconds to see what they'd be signing up for --
+//    and, since 2026-11-11, on Lessons too (hard-gated, no dismiss link,
+//    just a delay instead of an immediate block). The clock itself is
+//    reload-resistant: the first time a given `source` is seen, this
+//    browser's start time is stashed in localStorage, so refreshing the
+//    same page picks up where it left off instead of granting another
+//    full `delaySeconds` every reload. A different `source` (a
+//    different lesson) still starts its own fresh clock.
 //  - "immediate": the gate appears right away, no delay. Used on the
-//    hard-gated pages, since there's no "free preview" being offered there.
+//    hard-gated pages that don't offer a timed preview at all.
 
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { SignInButton, useUser } from "@clerk/nextjs";
@@ -35,6 +42,10 @@ import { HardHatMark } from "@/components/Header";
 // Dismissing the gate ("No thanks, keep reading") hides it for this
 // browser -- only reachable when allowGuest is true.
 const STORAGE_KEY = "hhu_gate_dismissed";
+// Per-source clock start time for the "timed" variant (see the comment
+// above) -- keyed by `source` so each lesson/page gets its own fresh
+// delay the first time it's seen, but reloading that same page doesn't.
+const TIMER_KEY_PREFIX = "hhu_gate_started:";
 
 export function EmailGate({
   source,
@@ -92,9 +103,32 @@ export function EmailGate({
       setShowGate(true);
       return;
     }
-    const timer = setTimeout(() => setShowGate(true), delaySeconds * 1000);
+
+    const timerKey = `${TIMER_KEY_PREFIX}${source}`;
+    let startedAt: number;
+    try {
+      const stored = localStorage.getItem(timerKey);
+      const parsed = stored ? Number(stored) : NaN;
+      if (Number.isFinite(parsed)) {
+        startedAt = parsed;
+      } else {
+        startedAt = Date.now();
+        localStorage.setItem(timerKey, String(startedAt));
+      }
+    } catch {
+      // Storage blocked (private browsing, etc.): fall back to a plain
+      // full delay every mount, same as before this existed.
+      startedAt = Date.now();
+    }
+
+    const remainingMs = delaySeconds * 1000 - (Date.now() - startedAt);
+    if (remainingMs <= 0) {
+      setShowGate(true);
+      return;
+    }
+    const timer = setTimeout(() => setShowGate(true), remainingMs);
     return () => clearTimeout(timer);
-  }, [isLoaded, isSignedIn, variant, delaySeconds, allowGuest]);
+  }, [isLoaded, isSignedIn, variant, delaySeconds, allowGuest, source]);
 
   function dismiss() {
     if (!allowGuest) return;

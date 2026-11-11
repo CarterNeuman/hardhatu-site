@@ -59,7 +59,13 @@ export default async function LessonPage({
 
         {lesson.image && <ContentPhoto src={lesson.image} alt={lesson.title} />}
 
-        <EmailGate source={`lesson:${lesson.slug}`} variant="immediate">
+        {/* 30-second preview before the gate, not an immediate block --
+            each lesson (keyed by source) gets its own fresh 30 seconds,
+            but reloading the same lesson doesn't reset the clock (see
+            EmailGate's reload-resistant "timed" handling). No dismiss
+            link: this still ends in a hard sign-in requirement, just
+            with a delay instead of blocking on arrival. */}
+        <EmailGate source={`lesson:${lesson.slug}`} variant="timed" delaySeconds={30}>
           {lesson.sections.map((section, i) => {
             const quizIndex = section.quiz ? quizSeen++ : -1;
             return (
