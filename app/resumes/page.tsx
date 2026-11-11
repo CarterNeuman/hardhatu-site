@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { getAllContent, groupResumesByCategory, slugifyCategory } from "@/lib/content";
-import { CategorySection } from "@/components/CategorySection";
 import { ContentCard } from "@/components/ContentCard";
 import { ResumeBeforeAfterStrip } from "@/components/ResumeBeforeAfterStrip";
+import { ResumeCategoryList, type ResumeCategorySectionData } from "@/components/ResumeCategoryList";
 import { CATEGORY_SLUG } from "@/lib/content-client";
 
 export const metadata: Metadata = {
@@ -15,6 +15,22 @@ export default function ResumesIndexPage() {
   const { resumes } = getAllContent();
   const groups = groupResumesByCategory(resumes);
 
+  const sections: ResumeCategorySectionData[] = groups.map((group) => {
+    // First guide in this category with a real example bullet, used for
+    // the before/after strip. Falls back to no strip if none have one yet.
+    const withExamples = group.items.find((resume) => resume.exampleBullets.length > 0);
+
+    return {
+      id: CATEGORY_SLUG[group.category] ?? slugifyCategory(group.category),
+      title: group.category,
+      count: group.items.length,
+      intro: withExamples ? <ResumeBeforeAfterStrip guide={withExamples} /> : undefined,
+      children: group.items.map((resume) => (
+        <ContentCard key={resume.id} item={resume} description={resume.tagline} iconSize={28} />
+      )),
+    };
+  });
+
   return (
     <div className="mx-auto max-w-6xl px-6 py-10">
       <h1 className="font-display text-4xl font-bold text-ink">Resume Guide</h1>
@@ -23,26 +39,7 @@ export default function ResumesIndexPage() {
         resume noticed in that part of the industry and what tends to work against it.
       </p>
 
-      {groups.map((group) => {
-        // First guide in this category with a real example bullet, used
-        // for the before/after strip. Falls back to no strip if none have
-        // one yet.
-        const withExamples = group.items.find((resume) => resume.exampleBullets.length > 0);
-
-        return (
-          <CategorySection
-            key={group.category}
-            id={CATEGORY_SLUG[group.category] ?? slugifyCategory(group.category)}
-            title={group.category}
-            count={group.items.length}
-            intro={withExamples ? <ResumeBeforeAfterStrip guide={withExamples} /> : undefined}
-          >
-            {group.items.map((resume) => (
-              <ContentCard key={resume.id} item={resume} description={resume.tagline} />
-            ))}
-          </CategorySection>
-        );
-      })}
+      <ResumeCategoryList sections={sections} />
     </div>
   );
 }
