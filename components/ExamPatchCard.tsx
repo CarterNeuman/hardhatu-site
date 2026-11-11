@@ -3,55 +3,30 @@ import { urlFor } from "@/lib/content-client";
 import { Icon } from "./Icon";
 import type { ExamPrep } from "@/lib/types";
 
-// Mock-up v2: the "certification wall" treatment for Get Qualified.
-// Renders each exam as an embroidered-patch-style badge instead of a plain
-// card: a color-coded accent per category, a dashed "stitched" inner
-// border, a faint watermark icon, and one of three sharp-cornered patch
-// silhouettes (shield point, single notch, double notch) rotating by
-// position so a category's patches don't all read as identical shapes.
-const ACCENT_STYLES = {
-  navy: { bar: "bg-navy", ring: "border-navy", icon: "text-navy" },
-  clay: { bar: "bg-clay", ring: "border-clay", icon: "text-clay" },
-  amber: { bar: "bg-amber", ring: "border-amber", icon: "text-amber" },
-  steel: { bar: "bg-steel", ring: "border-steel", icon: "text-steel" },
-} as const;
-
-export type PatchAccent = keyof typeof ACCENT_STYLES;
-
-const SHAPES = [
-  // Shield: pointed bottom
-  "polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%)",
-  // Single notch: top-right corner cut
-  "polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%)",
-  // Double notch: both top corners cut
-  "polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%, 0 14px)",
-] as const;
+// Mock-up v3: simplified per feedback — every patch is the same shape and
+// the same navy accent (no per-category color/shape variation for now).
+// Keeps the stitched inner border and faint watermark icon from the
+// earlier pass.
+const SHIELD_CLIP = "polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%)";
 
 export function ExamPatchCard({
   exam,
-  accent,
-  shapeIndex = 0,
   entryLevel,
 }: {
   exam: Pick<ExamPrep, "type" | "slug" | "title" | "examName" | "organization" | "tagline">;
-  accent: PatchAccent;
-  shapeIndex?: number;
   entryLevel?: boolean;
 }) {
-  const styles = ACCENT_STYLES[accent];
-  const clipPath = SHAPES[shapeIndex % SHAPES.length];
-
   return (
     <Link
       href={urlFor(exam)}
       className="group relative flex flex-col border border-hairline bg-white/40 p-1.5 transition-colors hover:border-navy hover:bg-white/70"
-      style={{ clipPath }}
+      style={{ clipPath: SHIELD_CLIP }}
     >
-      <span className={`absolute inset-x-0 top-0 h-1.5 ${styles.bar}`} aria-hidden="true" />
+      <span className="absolute inset-x-0 top-0 h-1.5 bg-navy" aria-hidden="true" />
       <Icon
         kind="exam"
         size={44}
-        className={`pointer-events-none absolute -bottom-2 -right-2 opacity-[0.08] ${styles.icon}`}
+        className="pointer-events-none absolute -bottom-2 -right-2 text-navy opacity-[0.08]"
       />
       <div className="relative flex flex-col gap-2 border border-dashed border-ink/15 p-3 pt-4">
         {entryLevel && (
