@@ -12,6 +12,7 @@
 // checkmarks back up even though the plan text itself is rebuilt fresh.
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
 import { CAREER_CATEGORY_ORDER } from "@/lib/types";
 import { SectionLabel } from "@/components/SectionLabel";
@@ -133,7 +134,27 @@ export function ActionPlanBuilder({
   // the page itself is hard-gated (EmailGate, variant="immediate"), so
   // in practice this is always true by the time someone can click a
   // checkbox, but it's still checked defensively rather than assumed.
-  const { isSignedIn } = useUser();
+  const { isSignedIn, isLoaded } = useUser();
+  const router = useRouter();
+  // Someone who opens this page signed out (say, from a saved-plan link)
+  // and then signs in through the modal never reloads the page, so the
+  // server's view of them -- their saved plans, and the specific plan a
+  // ?plan=&career= link asked for -- was computed for a signed-out
+  // visitor and stays that way. Asking the server to re-render the
+  // moment they sign in hands this component the right `initialPlan`
+  // (picked up by the resume effect below) and makes the "View your
+  // saved plans" button appear, with no manual refresh. Only fires on a
+  // real signed-out -> signed-in change, never on a normal page load.
+  const wasSignedInRef = useRef<boolean | null>(null);
+  useEffect(() => {
+    if (!isLoaded) return;
+    const signedIn = Boolean(isSignedIn);
+    const before = wasSignedInRef.current;
+    wasSignedInRef.current = signedIn;
+    if (before === false && signedIn) {
+      router.refresh();
+    }
+  }, [isLoaded, isSignedIn, router]);
   // Set false whenever a fresh plan is generated, true the moment the
   // visitor clicks a checkbox -- lets the hydration fetch below avoid
   // clobbering a click that landed before it resolved.
@@ -182,7 +203,7 @@ export function ActionPlanBuilder({
     return generateActionPlan(dataByCategory, cat, car, fields, startDate);
   }
 
-  // Resume a saved plan on first render: skips the form and jumps
+  // Resume a saved plan as soon as one is handed down: skips the form and jumps
   // straight to the result screen, with the day-by-day calendar pinned
   // to the ORIGINAL date the plan was built (not today), so a plan
   // someone started a week ago still reads as "day 8 of 14" instead of
@@ -191,7 +212,29 @@ export function ActionPlanBuilder({
   useEffect(() => {
     if (!initialPlan || resumedRef.current) return;
     resumedRef.current = true;
+    // Never yank someone out of a plan they've already built in this
+    // sitting -- only the untouched form gets replaced.
+    if (plan !== null) return;
     const car = initialPlan.careerId === "general" ? "" : initialPlan.careerId;
+    // On a normal load these already match (the form state is seeded
+    // from initialPlan). They only differ when initialPlan arrived
+    // AFTER mount -- the sign-in refresh above -- in which case the form
+    // state still holds its blank defaults and has to catch up, since
+    // the checkbox ids, the save call, and "Edit your answers" all read
+    // from it.
+    setCategory(initialPlan.category);
+    setCareerId(car);
+    setStatus(initialPlan.status);
+    setLocation(initialPlan.location);
+    setHoursPerWeek(initialPlan.hoursPerWeek);
+    setTimelineWeeks(initialPlan.timelineWeeks);
+    setCertsHeld(initialPlan.certsHeld);
+    pinnedRef.current = {
+      category: initialPlan.category,
+      careerId: initialPlan.careerId,
+      startIso: initialPlan.createdAt,
+    };
+    planTokenRef.current += 1;
     const generated = generatePlanFor(
       initialPlan.category,
       car,
@@ -207,11 +250,10 @@ export function ActionPlanBuilder({
     setCheckedDays(new Set());
     toggledSincePlanRef.current = false;
     setPlan(generated);
-    // Deliberately runs once on mount only -- initialPlan is a one-shot
-    // server-provided prop, not something that changes while this
-    // component is alive. See resumedRef above.
+    // Runs on mount and again if initialPlan goes from absent to present
+    // (the sign-in refresh above); resumedRef keeps it to one resume.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [initialPlan !== undefined]);
 
   // Pull back which day-by-day steps this user already checked off for
   // this exact plan (same category + career), so re-opening a Blueprint

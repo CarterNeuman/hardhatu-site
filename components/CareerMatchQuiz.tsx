@@ -400,13 +400,28 @@ export function CareerMatchQuiz({
     if (step + 1 < questions.length) {
       setStep(step + 1);
     } else {
-      let winner = CAREER_CATEGORY_ORDER[0];
-      let best = -1;
-      for (const category of CAREER_CATEGORY_ORDER) {
-        const score = nextCategoryScores[category] ?? 0;
-        if (score > best) {
-          best = score;
+      // Highest category score wins. Ties used to go to whichever
+      // category came first in CAREER_CATEGORY_ORDER, which meant every
+      // tie landed on Field & Trades no matter what else the answers
+      // said. Ties are now settled by the answers themselves: the tied
+      // category whose specific careers collected the most points wins,
+      // then the one holding the single strongest career match. Only if
+      // the answers truly can't separate them does list order decide.
+      const best = Math.max(0, ...CAREER_CATEGORY_ORDER.map((c) => nextCategoryScores[c] ?? 0));
+      const tied = CAREER_CATEGORY_ORDER.filter((c) => (nextCategoryScores[c] ?? 0) === best);
+      const careerPoints = (category: string) =>
+        (careersByCategory[category] ?? []).map((career) => nextCareerScores[career.id] ?? 0);
+      let winner: string = tied[0] ?? CAREER_CATEGORY_ORDER[0];
+      let winnerTotal = -1;
+      let winnerPeak = -1;
+      for (const category of tied) {
+        const points = careerPoints(category);
+        const total = points.reduce((sum, n) => sum + n, 0);
+        const peak = points.length > 0 ? Math.max(...points) : 0;
+        if (total > winnerTotal || (total === winnerTotal && peak > winnerPeak)) {
           winner = category;
+          winnerTotal = total;
+          winnerPeak = peak;
         }
       }
       setResult(winner);
