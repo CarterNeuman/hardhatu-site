@@ -135,6 +135,8 @@ relatedIds:
   - exam-cpr-first-aid
   - exam-journeyman-electrician
   - lesson-electrical-rough-in
+  - program-ibew-neca-electrical-apprenticeship
+  - program-osha-30-online-outreach
 recommendedIds:
   - career-laborer
   - career-elevator-technician

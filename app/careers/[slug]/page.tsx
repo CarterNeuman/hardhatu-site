@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllContent, getBySlug, getRelated, getRecommended } from "@/lib/content";
+import Link from "next/link";
+import { getAllContent, getBySlug, getRelated, getRecommended, getProgramsForCareer } from "@/lib/content";
 import type { Career } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
 import { Tag } from "@/components/Tag";
@@ -43,6 +44,7 @@ export default async function CareerPage({
   const career = getBySlug("career", slug) as Career | undefined;
   if (!career) notFound();
   const related = getRelated(career);
+  const programsForCareer = getProgramsForCareer(career.id);
   const recommended = getRecommended(career);
 
   return (
@@ -160,6 +162,29 @@ export default async function CareerPage({
               </div>
             )}
           </dl>
+        </>
+      )}
+
+      {/* Pulled from the Program directory (lib/content.ts's
+          getProgramsForCareer), not curated by hand per career -- a
+          career with no matching program just doesn't render this, same
+          fallback-to-nothing convention as every other optional section
+          here. Sits right under Education since that's where a reader
+          already is when they'd want "okay, where do I actually start". */}
+      {programsForCareer.length > 0 && (
+        <>
+          <Callout
+            label="Training & Programs"
+            tone="amber"
+            text={
+              programsForCareer.length === 1
+                ? `[[${programsForCareer[0].id}|${programsForCareer[0].title}]] is a real program that leads into this career.`
+                : `[[${programsForCareer[0].id}|${programsForCareer[0].title}]] and ${programsForCareer.length - 1} other program${programsForCareer.length - 1 === 1 ? "" : "s"} lead into this career.`
+            }
+          />
+          <Link href="/programs" className="mt-2 inline-block text-sm font-semibold text-navy hover:underline">
+            Browse all programs &rarr;
+          </Link>
         </>
       )}
 

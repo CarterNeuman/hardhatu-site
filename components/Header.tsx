@@ -304,6 +304,12 @@ export function Header({
                     </Link>
                     <p className="mt-0.5 text-xs leading-snug text-steel">The tools you'll actually touch on the job.</p>
                   </li>
+                  <li className="py-2.5">
+                    <Link href="/programs" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
+                      Find a Program
+                    </Link>
+                    <p className="mt-0.5 text-xs leading-snug text-steel">Real apprenticeships and training programs to enroll in.</p>
+                  </li>
                   <li className="pt-2.5">
                     <Link href="/resumes" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
                       Resume Guide
@@ -538,6 +544,12 @@ export function Header({
                   Software
                 </Link>
                 <p className="mt-0.5 text-xs leading-snug text-steel">The tools you'll actually touch on the job.</p>
+              </li>
+              <li>
+                <Link href="/programs" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
+                  Find a Program
+                </Link>
+                <p className="mt-0.5 text-xs leading-snug text-steel">Real apprenticeships and training programs to enroll in.</p>
               </li>
               <li>
                 <Link href="/resumes" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>

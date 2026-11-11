@@ -33,4 +33,7 @@ relatedIds:
   - concept-prevailing-wage
   - concept-union-vs-open-shop
   - gethired-field-trades
+  - program-ibew-neca-electrical-apprenticeship
+  - program-ua-plumber-pipefitter-apprenticeship
+  - program-iuoe-heavy-equipment-operator-apprenticeship
 ---

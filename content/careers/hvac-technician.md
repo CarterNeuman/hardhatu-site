@@ -124,6 +124,7 @@ relatedIds:
   - exam-nate-ready-to-work
   - lesson-mechanical-and-plumbing-rough-in
   - lesson-hvac-and-building-systems-in-practice
+  - program-lincoln-tech-hvac-technician
 recommendedIds:
   - career-facilities-manager
   - career-sheet-metal-worker

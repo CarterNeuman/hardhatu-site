@@ -115,6 +115,8 @@ relatedIds:
   - exam-cpr-first-aid
   - exam-nccco-crane-operator
   - lesson-heavy-equipment-and-earthwork
+  - program-iuoe-heavy-equipment-operator-apprenticeship
+  - program-osha-30-online-outreach
 recommendedIds:
   - career-superintendent
   - career-millwright

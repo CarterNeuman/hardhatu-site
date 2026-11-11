@@ -107,6 +107,7 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - lesson-building-envelope-and-glazing
+  - program-osha-30-online-outreach
 recommendedIds:
   - career-superintendent
   - career-insurance-restoration-estimator

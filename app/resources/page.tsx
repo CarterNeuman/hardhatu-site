@@ -23,7 +23,7 @@ type ResourceItem = {
 };
 
 export default function ResourcesIndexPage() {
-  const { interviews, exams, software, resumes } = getAllContent();
+  const { interviews, exams, software, resumes, programs } = getAllContent();
 
   const items: ResourceItem[] = [
     {
@@ -52,6 +52,15 @@ export default function ResourcesIndexPage() {
       count: `${software.length} tool${software.length === 1 ? "" : "s"}`,
       pin: "clay",
       rotate: "-0.9deg",
+    },
+    {
+      href: "/programs",
+      kind: "program",
+      title: "Find a Program",
+      description: "Real apprenticeships, trade schools, and training programs to enroll in.",
+      count: `${programs.length} program${programs.length === 1 ? "" : "s"}`,
+      pin: "amber",
+      rotate: "-1.3deg",
     },
     {
       href: "/resumes",

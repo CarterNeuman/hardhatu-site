@@ -117,6 +117,7 @@ relatedIds:
   - exam-cpr-first-aid
   - exam-journeyman-plumber
   - lesson-mechanical-and-plumbing-rough-in
+  - program-ua-plumber-pipefitter-apprenticeship
 recommendedIds:
   - career-pipefitter
   - career-mep-engineer

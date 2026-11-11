@@ -197,6 +197,18 @@ export function getRecommended(node: AnyContent): AnyContent[] {
     .filter((n): n is AnyContent => Boolean(n));
 }
 
+// Reverse lookup: every Program whose careerIds includes this career --
+// the inverse of Program.careerIds, same pattern as getRelated/getRecommended
+// but keyed off a field rather than relatedIds. Used by the Career page's
+// "Training & Programs" box and by the Programs finder's career filter.
+// A career with no matching program (most of them, for now) just gets an
+// empty array, which the Career page treats as "don't render the box" --
+// same fallback-to-nothing convention as every other optional section.
+export function getProgramsForCareer(careerId: string): Program[] {
+  const { programs } = getAllContent();
+  return programs.filter((p) => p.careerIds.includes(careerId));
+}
+
 // urlFor, slugifyCategory, stripWikiLinks, and the three groupXByCategory
 // helpers are pure functions with no fs dependency — they live in
 // content-client.ts so client components (Header.tsx) can import them
