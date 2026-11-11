@@ -112,7 +112,7 @@ export default async function MyProgressPage() {
       (p) => p.contentType === "actionPlanStep" && p.contentId.startsWith(prefix)
     ).length;
     const doneCount = typeof totalDays === "number" ? Math.min(rawDoneCount, totalDays) : rawDoneCount;
-    return { row, careerTitle: career?.title, doneCount, totalDays };
+    return { row, careerTitle: career?.title, doneCount, totalDays, unavailable: generated === "coming-soon" };
   });
   const visiblePlans = planSummaries.slice(0, 2);
   const morePlansCount = planSummaries.length - visiblePlans.length;
@@ -234,7 +234,7 @@ export default async function MyProgressPage() {
           </p>
         ) : (
           <div className="mt-3 flex flex-col gap-3">
-            {visiblePlans.map(({ row, careerTitle, doneCount, totalDays }) => {
+            {visiblePlans.map(({ row, careerTitle, doneCount, totalDays, unavailable }) => {
               const title = careerTitle ?? `${row.category} (general)`;
               const resumeHref = `/action-plan?plan=${encodeURIComponent(row.category)}&career=${encodeURIComponent(row.careerId)}`;
               return (
@@ -245,18 +245,23 @@ export default async function MyProgressPage() {
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wide text-steel">{row.category}</p>
                     <p className="text-sm font-semibold text-ink">{title}</p>
+                    {unavailable && (
+                      <p className="mt-1 text-xs italic text-steel">Not published yet &mdash; your answers are saved.</p>
+                    )}
                   </div>
                   {typeof totalDays === "number" && (
                     <p className="text-xs font-semibold uppercase tracking-wide text-navy">
                       {doneCount} of {totalDays} days done
                     </p>
                   )}
-                  <Link
-                    href={resumeHref}
-                    className="border border-ink px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:bg-ink hover:text-paper"
-                  >
-                    Open &rarr;
-                  </Link>
+                  {!unavailable && (
+                    <Link
+                      href={resumeHref}
+                      className="border border-ink px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:bg-ink hover:text-paper"
+                    >
+                      Open &rarr;
+                    </Link>
+                  )}
                 </div>
               );
             })}
