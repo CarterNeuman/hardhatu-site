@@ -143,6 +143,21 @@ export function ActionPlanBuilder({
   // effects -- this guards against generating twice or fighting a
   // visitor's own first click on the fresh plan.
   const resumedRef = useRef(false);
+  // Which saved plan the calendar is currently pinned to, and the date
+  // it's pinned to start on. Seeded from a resumed plan, then kept in
+  // step with the server (see savePlan): the server never moves a saved
+  // plan's start date on an ordinary edit, so the screen shouldn't
+  // either. "Restart the calendar from today" is the one thing that
+  // moves it.
+  const pinnedRef = useRef<{ category: string; careerId: string; startIso: string } | null>(
+    initialPlan
+      ? { category: initialPlan.category, careerId: initialPlan.careerId, startIso: initialPlan.createdAt }
+      : null
+  );
+  // Bumped every time a plan is generated or the form is reopened, so a
+  // slow save response can tell it's stale and leave the screen alone.
+  const planTokenRef = useRef(0);
+  const [restarting, setRestarting] = useState(false);
 
   const categoryData = dataByCategory[category];
   const careerOptions = categoryData?.careers ?? [];
@@ -260,18 +275,18 @@ export function ActionPlanBuilder({
     // never moves createdAt on an edit). Without this, the calendar
     // jumped to "starting today" right after an edit and then snapped
     // back to the original dates the next time the plan was opened.
-    const editingResumedPlan =
-      initialPlan !== undefined &&
-      initialPlan.category === category &&
-      initialPlan.careerId === (careerId || "general");
+    const pinned = pinnedRef.current;
+    const editingPinnedPlan =
+      pinned !== null && pinned.category === category && pinned.careerId === (careerId || "general");
     const generated = generatePlanFor(
       category,
       careerId,
       { status, location, hoursPerWeek, timelineWeeks, certsHeld },
-      editingResumedPlan ? new Date(initialPlan.createdAt) : undefined
+      editingPinnedPlan ? new Date(pinned.startIso) : undefined
     );
     setCheckedDays(new Set());
     toggledSincePlanRef.current = false;
+    planTokenRef.current += 1;
     setPlan(generated);
 
     // Auto-save: a signed-in visitor's plan is remembered without a
@@ -282,27 +297,80 @@ export function ActionPlanBuilder({
     // not a new one -- only a different category or career creates a
     // genuinely new saved plan.
     if (generated !== "coming-soon" && isSignedIn) {
-      fetch("/api/action-plans", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          category,
-          careerId: careerId || "general",
-          status,
-          location: location.trim(),
-          hoursPerWeek: Math.max(1, hoursPerWeek || DEFAULT_HOURS),
-          timelineWeeks: Math.max(0, timelineWeeks || 0),
-          certsHeld,
-        }),
-      }).catch(() => {
+      savePlan(false);
+    }
+  }
+
+  // Saves the current form answers as this account's plan for this
+  // category+career, and lines the on-screen calendar up with the start
+  // date the server holds for it. That matters when someone rebuilds a
+  // plan they already saved earlier without going through the saved-
+  // plans list: the server keeps the ORIGINAL start date, so without
+  // this the screen showed "starting today" now and the old dates the
+  // next time the plan was opened. `restartClock` asks the server to
+  // move that start date to now instead.
+  function savePlan(restartClock: boolean): Promise<void> {
+    const token = planTokenRef.current;
+    const savedCategory = category;
+    const savedCareerId = careerId || "general";
+    return fetch("/api/action-plans", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        category: savedCategory,
+        careerId: savedCareerId,
+        status,
+        location: location.trim(),
+        hoursPerWeek: Math.max(1, hoursPerWeek || DEFAULT_HOURS),
+        timelineWeeks: Math.max(0, timelineWeeks || 0),
+        certsHeld,
+        restartClock,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data: { ok?: boolean; plan?: { createdAt?: string } }) => {
+        const startIso = data?.ok ? data.plan?.createdAt : undefined;
+        if (!startIso) return;
+        pinnedRef.current = { category: savedCategory, careerId: savedCareerId, startIso };
+        // The visitor has moved on (edited again, reopened the form):
+        // remember the date, but don't touch what's on screen.
+        if (planTokenRef.current !== token) return;
+        const serverStart = new Date(startIso);
+        if (Number.isNaN(serverStart.getTime())) return;
+        if (!restartClock && serverStart.toDateString() === new Date().toDateString()) return;
+        const regenerated = generatePlanFor(
+          savedCategory,
+          careerId,
+          { status, location, hoursPerWeek, timelineWeeks, certsHeld },
+          serverStart
+        );
+        setPlan(regenerated);
+      })
+      .catch(() => {
         // Best effort -- the plan is already showing in this tab; if
         // the save fails silently, it just won't be there to resume
         // later, not a broken UI right now.
       });
+  }
+
+  // "Restart the calendar from today": same answers, same checked-off
+  // steps, new start date. Shown once a plan's dates have started to
+  // slip into the past (see scheduleIsOver / scheduleHasStarted below).
+  function restartFromToday() {
+    if (restarting || !plan || plan === "coming-soon") return;
+    setRestarting(true);
+    const regenerated = generatePlanFor(category, careerId, { status, location, hoursPerWeek, timelineWeeks, certsHeld });
+    planTokenRef.current += 1;
+    setPlan(regenerated);
+    if (!isSignedIn) {
+      setRestarting(false);
+      return;
     }
+    savePlan(true).finally(() => setRestarting(false));
   }
 
   function reset() {
+    planTokenRef.current += 1;
     setPlan(null);
   }
 
@@ -412,6 +480,18 @@ export function ActionPlanBuilder({
     }
     const findOpeningsTeaser = findOpeningsTeaserParts.join(" \u00b7 ") || undefined;
 
+    // Has this plan's calendar slipped? "Over" = every date is behind
+    // today (the whole schedule is stale); "started" = it began before
+    // today (some dates may already be behind). Safe to read the clock
+    // here: a plan only ever renders client-side, after a submit or the
+    // resume effect, never during server rendering.
+    const todayStart = new Date();
+    todayStart.setHours(0, 0, 0, 0);
+    const firstDay = plan.days[0];
+    const lastDay = plan.days[plan.days.length - 1];
+    const scheduleIsOver = Boolean(lastDay) && lastDay.endDate.getTime() < todayStart.getTime();
+    const scheduleHasStarted = Boolean(firstDay) && firstDay.startDate.getTime() < todayStart.getTime();
+
     const outreachTeaser = `${plan.recruiterOutreach.tips.length} tip${plan.recruiterOutreach.tips.length === 1 ? "" : "s"} \u00b7 3 templates`;
 
     return (
@@ -439,6 +519,24 @@ export function ActionPlanBuilder({
             </button>
           </div>
         </div>
+
+        {scheduleIsOver && (
+          <div className="mt-5 border border-amber bg-amber-soft/40 px-4 py-3">
+            <p className="text-xs font-semibold uppercase tracking-wide text-clay">This plan's dates have passed</p>
+            <p className="mt-1 text-sm text-ink">
+              Life happens. Restart the calendar and every step gets a fresh date starting today. Anything
+              you already checked off stays checked.
+            </p>
+            <button
+              type="button"
+              onClick={restartFromToday}
+              disabled={restarting}
+              className="mt-3 bg-navy px-4 py-2 text-sm font-semibold text-paper transition-colors hover:bg-ink disabled:opacity-60"
+            >
+              {restarting ? "Restarting…" : "Restart the calendar from today"}
+            </button>
+          </div>
+        )}
 
         <SectionLabel>Overview</SectionLabel>
         <p className="mt-2 leading-relaxed text-ink">{plan.overview}</p>
@@ -607,6 +705,20 @@ export function ActionPlanBuilder({
                 </p>
               )}
             </div>
+            {scheduleHasStarted && !scheduleIsOver && (
+              <p className="mt-2 text-xs text-steel">
+                Fallen behind?{" "}
+                <button
+                  type="button"
+                  onClick={restartFromToday}
+                  disabled={restarting}
+                  className="font-semibold text-navy hover:underline disabled:opacity-60"
+                >
+                  {restarting ? "Restarting…" : "Restart the calendar from today"}
+                </button>
+                . Your checked-off steps stay checked.
+              </p>
+            )}
             <ol className="mt-3 flex flex-col gap-3">
               {plan.days.map((item, i) => (
                 <li key={i} className="flex gap-3 border-l-2 border-hairline pl-4">

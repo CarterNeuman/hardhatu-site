@@ -70,6 +70,9 @@ export async function POST(request: Request) {
     hoursPerWeek?: number;
     timelineWeeks?: number;
     certsHeld?: string;
+    // true = also move the plan's start date to now ("Restart the
+    // calendar from today"). Anything else leaves it pinned.
+    restartClock?: boolean;
   };
   try {
     body = await request.json();
@@ -88,15 +91,11 @@ export async function POST(request: Request) {
   const timelineWeeks = clampInt(body.timelineWeeks, 2, 0, 52);
   const certsHeld = typeof body.certsHeld === "string" ? body.certsHeld.slice(0, 500) : "";
 
-  const row = await upsertActionPlan(userId, {
-    category,
-    careerId,
-    status,
-    location,
-    hoursPerWeek,
-    timelineWeeks,
-    certsHeld,
-  });
+  const row = await upsertActionPlan(
+    userId,
+    { category, careerId, status, location, hoursPerWeek, timelineWeeks, certsHeld },
+    { restartClock: body.restartClock === true }
+  );
   return NextResponse.json({ ok: true, plan: row });
 }
 

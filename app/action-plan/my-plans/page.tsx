@@ -110,7 +110,7 @@ export default async function MyActionPlansPage() {
                     <p className="text-xs font-semibold uppercase tracking-wide text-steel">{row.category}</p>
                     <p className="font-display text-xl font-bold text-ink">{title}</p>
                     <p className="mt-1 text-xs text-steel">
-                      {row.status === "browsing" ? "Just looking" : "Actively applying"} &middot; Created{" "}
+                      {row.status === "browsing" ? "Just looking" : "Actively applying"} &middot; Started{" "}
                       {formatCreatedDate(row.createdAt)}
                     </p>
                   </div>

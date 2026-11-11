@@ -166,7 +166,16 @@ export async function getActionPlan(userId: string, category: string, careerId: 
 // createdAt is deliberately left out of the update `set` below, so a
 // returning visitor's day-by-day calendar stays pinned to when the
 // plan was first built rather than jumping to "today" on every edit.
-export async function upsertActionPlan(userId: string, input: ActionPlanInput) {
+//
+// The one exception is `restartClock`: the visitor explicitly asked to
+// restart the calendar from today (the "dates have passed" banner on
+// the plan screen), so createdAt IS moved to now. Their checked-off
+// steps are left alone -- only the schedule's start date changes.
+export async function upsertActionPlan(
+  userId: string,
+  input: ActionPlanInput,
+  options: { restartClock?: boolean } = {}
+) {
   const rows = await db
     .insert(actionPlans)
     .values({ userId, ...input })
@@ -179,6 +188,7 @@ export async function upsertActionPlan(userId: string, input: ActionPlanInput) {
         timelineWeeks: input.timelineWeeks,
         certsHeld: input.certsHeld,
         updatedAt: new Date(),
+        ...(options.restartClock ? { createdAt: new Date() } : {}),
       },
     })
     .returning();
