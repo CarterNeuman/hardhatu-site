@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { getAllContent, groupExamsByCategory, slugifyCategory } from "@/lib/content";
 import { CategorySection } from "@/components/CategorySection";
-import { ContentCard } from "@/components/ContentCard";
-import { EntryLevelBadge } from "@/components/EntryLevelBadge";
+import { ExamPatchCard, type PatchAccent } from "@/components/ExamPatchCard";
 import { CATEGORY_SLUG } from "@/lib/content-client";
 
 export const metadata: Metadata = {
@@ -10,6 +9,12 @@ export const metadata: Metadata = {
   description:
     "Independent study material for real construction certifications: OSHA-10/30, the PMP, CCM, LEED Green Associate, and more.",
 };
+
+// One accent color per category section, cycling through a fixed 4-color
+// set so neighboring categories never collide. Order follows the order
+// groupExamsByCategory already produces (known categories first, in
+// CAREER_CATEGORY_ORDER, then any leftover "General" bucket last).
+const ACCENT_ORDER: PatchAccent[] = ["navy", "clay", "amber", "steel"];
 
 export default function ExamsIndexPage() {
   const { exams } = getAllContent();
@@ -25,23 +30,27 @@ export default function ExamsIndexPage() {
         prior work-experience requirement to sit the exam.
       </p>
 
-      {groups.map((group) => (
-        <CategorySection
-          key={group.category}
-          id={CATEGORY_SLUG[group.category] ?? slugifyCategory(group.category)}
-          title={group.category}
-          count={group.items.length}
-        >
-          {group.items.map((exam) => (
-            <ContentCard
-              key={exam.id}
-              item={exam}
-              description={exam.tagline}
-              badge={exam.tier === "free" ? <EntryLevelBadge /> : undefined}
-            />
-          ))}
-        </CategorySection>
-      ))}
+      {groups.map((group, groupIndex) => {
+        const accent = ACCENT_ORDER[groupIndex % ACCENT_ORDER.length];
+
+        return (
+          <CategorySection
+            key={group.category}
+            id={CATEGORY_SLUG[group.category] ?? slugifyCategory(group.category)}
+            title={group.category}
+            count={group.items.length}
+          >
+            {group.items.map((exam) => (
+              <ExamPatchCard
+                key={exam.id}
+                exam={exam}
+                accent={accent}
+                entryLevel={exam.tier === "free"}
+              />
+            ))}
+          </CategorySection>
+        );
+      })}
     </div>
   );
 }
