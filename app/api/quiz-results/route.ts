@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
-import { saveQuizResult } from "@/lib/db";
+import { saveQuizResult, getLatestQuizResult } from "@/lib/db";
 import { CAREER_CATEGORY_ORDER } from "@/lib/types";
 
 // The result must be one of the site's real career categories and the
@@ -19,6 +19,29 @@ const CAREER_ID_RE = /^[a-z0-9-]{1,100}$/;
 // signed-out caller, it just reports nothing was saved -- there's no
 // account to attach a result to, and that's fine, the quiz UX never
 // depends on this call succeeding.
+// GET /api/quiz-results -> the signed-in user's most recent result, or
+// { result: null } if they have none (or aren't signed in). Lets the
+// quiz page show a returning visitor their last result instead of
+// starting blank. Only ever returns the caller's own row.
+export async function GET() {
+  const { userId } = await auth();
+  if (!userId) {
+    return NextResponse.json({ ok: true, result: null });
+  }
+  const row = await getLatestQuizResult(userId);
+  if (!row) {
+    return NextResponse.json({ ok: true, result: null });
+  }
+  return NextResponse.json({
+    ok: true,
+    result: {
+      resultCategory: row.resultCategory,
+      matchedCareerIds: row.matchedCareerIds,
+      createdAt: row.createdAt.toISOString(),
+    },
+  });
+}
+
 export async function POST(request: Request) {
   const { userId } = await auth();
   if (!userId) {

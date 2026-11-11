@@ -1,6 +1,6 @@
 import { neon } from "@neondatabase/serverless";
 import { drizzle } from "drizzle-orm/neon-http";
-import { eq, and, like, sql as dsql } from "drizzle-orm";
+import { eq, and, like, desc, sql as dsql } from "drizzle-orm";
 import { userProgress, quizResults, actionPlans } from "@/lib/db/schema";
 
 // Neon's HTTP driver (not a persistent TCP connection) -- the right choice
@@ -61,6 +61,19 @@ export async function deleteProgress(userId: string, contentType: string, conten
 // not something to overwrite.
 export async function saveQuizResult(userId: string, resultCategory: string, matchedCareerIds: string[]) {
   return db.insert(quizResults).values({ userId, resultCategory, matchedCareerIds }).returning();
+}
+
+// The most recent quiz attempt for one signed-in user, if any. Used by
+// GET /api/quiz-results so a returning visitor sees the result they
+// already earned instead of a blank quiz.
+export async function getLatestQuizResult(userId: string) {
+  const rows = await db
+    .select()
+    .from(quizResults)
+    .where(eq(quizResults.userId, userId))
+    .orderBy(desc(quizResults.createdAt))
+    .limit(1);
+  return rows[0];
 }
 
 // --- Aggregate/analytics queries, used by the internal /admin/analytics

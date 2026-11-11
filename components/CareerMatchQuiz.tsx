@@ -201,6 +201,71 @@ export function CareerMatchQuiz({
   const { isSignedIn, isLoaded, user } = useUser();
   const savedResultRef = useRef<string | null>(null);
   const lastUserIdRef = useRef<string | null>(null);
+  // When the result on screen was loaded from the visitor's account
+  // (see the "returning visitor" effect below) rather than just earned,
+  // this holds the date it was saved, for the small note on the result
+  // screen. Null for a result produced in this sitting.
+  const [savedAt, setSavedAt] = useState<string | null>(null);
+  // Mirrors of state for the async fetch below, which must check the
+  // CURRENT values when it resolves, not the ones from when it started.
+  const resultRef = useRef<string | null>(null);
+  const stepRef = useRef(0);
+  resultRef.current = result;
+  stepRef.current = step;
+  const fetchedForUserRef = useRef<string | null>(null);
+
+  // Returning visitor: a signed-in person who already took the quiz
+  // sees their last saved result instead of a blank quiz (it used to be
+  // lost on any reload, even though it was sitting in the database).
+  // Runs once per signed-in account, and never overrides anything in
+  // progress: it only applies if no result is showing and the visitor
+  // hasn't answered a question yet by the time the fetch comes back.
+  // "Take the quiz again" still works -- restart() doesn't re-trigger it.
+  useEffect(() => {
+    const userId = user?.id;
+    if (!isLoaded || !userId) return;
+    if (fetchedForUserRef.current === userId) return;
+    fetchedForUserRef.current = userId;
+    if (resultRef.current) return;
+    let cancelled = false;
+    fetch("/api/quiz-results")
+      .then((res) => res.json())
+      .then(
+        (data: {
+          ok?: boolean;
+          result?: { resultCategory: string; matchedCareerIds: string[]; createdAt: string } | null;
+        }) => {
+          if (cancelled || !data?.ok || !data.result) return;
+          if (resultRef.current || stepRef.current !== 0) return;
+          const saved = data.result;
+          if (!careersByCategory[saved.resultCategory]) return;
+          // Only the category and the matched careers were stored, not
+          // the raw answer tallies -- rebuild a score map that ranks the
+          // saved careers in their saved order, which is all the result
+          // screen's matching logic needs to show the same list again.
+          const ids = Array.isArray(saved.matchedCareerIds) ? saved.matchedCareerIds : [];
+          const rebuiltScores: Record<string, number> = {};
+          ids.forEach((id, i) => {
+            rebuiltScores[id] = ids.length - i;
+          });
+          // Mark as already saved BEFORE showing it, so the save effect
+          // doesn't write this same result back as a brand-new attempt.
+          savedResultRef.current = saved.resultCategory;
+          setCareerScores(rebuiltScores);
+          setCategoryScores({ [saved.resultCategory]: 1 });
+          setSavedAt(saved.createdAt);
+          setResult(saved.resultCategory);
+        }
+      )
+      .catch(() => {
+        // Best effort -- a failed lookup just means the quiz starts
+        // blank, exactly as it did before this existed.
+      });
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoaded, user?.id]);
 
   // A result belongs to whoever was signed in when it was produced. If
   // the account changes while this page stays mounted (sign out, or
@@ -246,8 +311,12 @@ export function CareerMatchQuiz({
 
   // Keep the stash fresh any time a result exists, so it's there to
   // restore from if a sign-in redirect reloads the page next.
+  // Signed-out visitors only: once someone is signed in, their result is
+  // saved to (or was loaded from) their account, so there's nothing a
+  // stash needs to carry -- and leaving one behind is exactly what let a
+  // result bleed into the next account used in the same tab.
   useEffect(() => {
-    if (!result) return;
+    if (!result || isSignedIn) return;
     try {
       window.sessionStorage.setItem(
         PENDING_RESULT_KEY,
@@ -257,7 +326,7 @@ export function CareerMatchQuiz({
       // sessionStorage can throw (private browsing, storage disabled) --
       // worst case the restart-after-reload bug returns, not fatal.
     }
-  }, [result, categoryScores, careerScores]);
+  }, [result, categoryScores, careerScores, isSignedIn]);
 
   // Computed here (not inside the `if (result)` block below) so this hook
   // always runs in the same order regardless of whether a result exists
@@ -349,6 +418,7 @@ export function CareerMatchQuiz({
     setCategoryScores({});
     setCareerScores({});
     setResult(null);
+    setSavedAt(null);
     // A retake is a new attempt even if it lands on the same category
     // as last time -- without this reset the save effect's "already
     // saved this result" guard silently skipped it.
@@ -411,6 +481,13 @@ export function CareerMatchQuiz({
               {result}.
             </h2>
             <p className="mt-4 max-w-[58ch] leading-relaxed text-ink">{CATEGORY_BLURB[result]}</p>
+            {savedAt && (
+              <p className="mt-4 text-sm text-steel">
+                Your saved result from{" "}
+                {new Date(savedAt).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}.
+                Want a fresh read? Take the quiz again below.
+              </p>
+            )}
           </div>
 
           {matches.length > 0 && (
