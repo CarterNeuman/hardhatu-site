@@ -24,7 +24,6 @@ export function SoftwareDeskIntro({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    window.sessionStorage.setItem(SESSION_KEY, "1");
     setPhase("intro");
 
     // Fallback in case onAnimationEnd doesn't fire for some reason (e.g. a
@@ -38,6 +37,13 @@ export function SoftwareDeskIntro({ children }: { children: React.ReactNode }) {
   function settle() {
     if (settledRef.current) return;
     settledRef.current = true;
+    // Marked "seen" only once the intro actually finishes (or is skipped),
+    // not the moment it starts. Marking it at the start meant React 18
+    // Strict Mode's dev-only double effect invocation (mount, cleanup,
+    // mount again) saw the flag already set on its second pass and skipped
+    // straight to "done" — a dev-only bug that would never show up in a
+    // production build, but made it look broken in `npm run dev`.
+    window.sessionStorage.setItem(SESSION_KEY, "1");
     setPhase("done");
   }
 
