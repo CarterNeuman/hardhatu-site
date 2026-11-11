@@ -1010,6 +1010,9 @@ export function ActionPlanBuilder({
             onChange={(e) => setTimelineWeeks(Number(e.target.value))}
             className="mt-1 block w-full border border-hairline bg-white/60 px-3 py-2 text-sm text-ink focus:border-navy focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-navy"
           />
+          <p className="mt-1 text-xs text-ink/60">
+            Leave at 0 to let the plan decide, based on your hours per week.
+          </p>
         </div>
       </div>
 
