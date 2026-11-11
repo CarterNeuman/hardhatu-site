@@ -15,9 +15,15 @@ const TYPE_META: Record<string, { label: string; className: string }> = {
   program: { label: "Program Finder", className: "text-navy" },
 };
 
+// `tier` is still accepted below (every caller still passes it straight
+// off the content item) so this stays a drop-in no-op change rather than
+// a prop removal that would ripple into every detail page. The yellow
+// "Premium" pill that used to render here has been removed site-wide per
+// request; the underlying free/premium data model is untouched (it still
+// governs EmailGate access elsewhere) — this component just no longer
+// reads it.
 export function TypeBadge({
   type,
-  tier,
   size = "sm",
 }: {
   type:
@@ -48,11 +54,6 @@ export function TypeBadge({
         <Icon kind={type} size={iconSize} />
         {meta.label}
       </div>
-      {tier === "premium" && (
-        <span className="inline-block border border-amber bg-amber-soft/50 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-ink">
-          Premium
-        </span>
-      )}
     </div>
   );
 }
