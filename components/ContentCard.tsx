@@ -9,10 +9,13 @@ import type { AnyContent } from "@/lib/types";
 // "whatItIs" differ by content type. `badge` is an optional extra marker
 // (e.g. the Get Qualified index's "Entry Level" tag) rendered next to the
 // icon; omitted everywhere else, so no other listing page is affected.
+// `iconSize` defaults to the original 16px so every existing caller is
+// unaffected; Resume Guide passes a larger value for its mock-up.
 export function ContentCard({
   item,
   description,
   badge,
+  iconSize = 16,
 }: {
   // Just the fields the card reads, so client-side callers (the
   // Career/Concept explorers) can pass slimmed items instead of full
@@ -20,6 +23,7 @@ export function ContentCard({
   item: Pick<AnyContent, "type" | "slug" | "title">;
   description?: string;
   badge?: React.ReactNode;
+  iconSize?: number;
 }) {
   return (
     <Link
@@ -27,7 +31,7 @@ export function ContentCard({
       className="group flex flex-col gap-2 border border-hairline bg-white/40 p-4 transition-colors hover:border-navy hover:bg-white/70"
     >
       <div className="flex items-center justify-between gap-2">
-        <Icon kind={item.type} size={16} className="text-clay" />
+        <Icon kind={item.type} size={iconSize} className="text-clay" />
         {badge}
       </div>
       <h3 className="break-words font-display text-base font-semibold leading-snug text-ink group-hover:text-navy">
