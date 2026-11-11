@@ -9,7 +9,9 @@ import { Prose } from "@/components/Prose";
 import { ContentPhoto } from "@/components/ContentPhoto";
 import { EmailGate } from "@/components/EmailGate";
 import { MarkCompleteButton } from "@/components/MarkCompleteButton";
+import { NextLessonButton } from "@/components/NextLessonButton";
 import { LessonCompletionProvider, LessonCompletionBadge } from "@/components/LessonCompletion";
+import { ORDERED_LESSON_SLUGS } from "@/lib/lesson-order";
 
 export function generateStaticParams() {
   const { lessons } = getAllContent();
@@ -40,6 +42,17 @@ export default async function LessonPage({
   const lesson = getBySlug("lesson", slug) as Lesson | undefined;
   if (!lesson) notFound();
   const related = getRelated(lesson);
+
+  // "Next lesson" follows the Learning Blueprint's own recommended
+  // order (lib/lesson-order.ts), not lesson creation order or related
+  // links -- same ordering My Progress's "up next" pointer uses, so
+  // the two stay consistent. null past the last lesson in the order.
+  const orderIndex = ORDERED_LESSON_SLUGS.indexOf(lesson.slug);
+  const nextSlug =
+    orderIndex >= 0 && orderIndex < ORDERED_LESSON_SLUGS.length - 1
+      ? ORDERED_LESSON_SLUGS[orderIndex + 1]
+      : null;
+  const nextLesson = nextSlug ? (getBySlug("lesson", nextSlug) as Lesson | undefined) : undefined;
 
   // Number check-in questions across the whole lesson (1 of 3, 2 of 3, …)
   // rather than per-section, so the reader can see how far through the
@@ -76,8 +89,9 @@ export default async function LessonPage({
             );
           })}
 
-          <div className="mt-8 border-t border-hairline pt-6">
+          <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-hairline pt-6">
             <MarkCompleteButton />
+            <NextLessonButton nextSlug={nextSlug} nextTitle={nextLesson?.title ?? null} />
           </div>
 
           <RelatedLinks items={related} />
