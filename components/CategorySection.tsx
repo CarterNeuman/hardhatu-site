@@ -11,6 +11,12 @@ import { useState } from "react";
 // Concepts page, where categories can run long). Every other page leaves it
 // unset and renders exactly as before, with no button, state, or animation.
 //
+// `open`/`onToggle` let a parent page control the open state from outside
+// (Resume Guide's page-level "Collapse all" button needs every section to
+// move together). When omitted, the section manages its own open state
+// exactly as before — existing collapsible callers (Concepts) are
+// unaffected.
+//
 // `headerRight` and `intro` are optional extension points so individual
 // index pages (Interview Prep's clipboard header, Resume Guide's
 // before/after strip) can add a page-specific visual to a category section
@@ -22,6 +28,8 @@ export function CategorySection({
   count,
   collapsible = false,
   defaultOpen = true,
+  open: openProp,
+  onToggle,
   headerRight,
   intro,
   children,
@@ -31,11 +39,16 @@ export function CategorySection({
   count?: number;
   collapsible?: boolean;
   defaultOpen?: boolean;
+  open?: boolean;
+  onToggle?: () => void;
   headerRight?: React.ReactNode;
   intro?: React.ReactNode;
   children: React.ReactNode;
 }) {
-  const [open, setOpen] = useState(defaultOpen);
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const controlled = openProp !== undefined;
+  const open = controlled ? openProp : internalOpen;
+  const toggle = controlled ? onToggle ?? (() => {}) : () => setInternalOpen((o) => !o);
 
   if (!collapsible) {
     return (
@@ -62,7 +75,7 @@ export function CategorySection({
       <div className="flex flex-wrap items-center justify-between gap-3 border-t border-hairline pt-5">
         <button
           type="button"
-          onClick={() => setOpen((o) => !o)}
+          onClick={toggle}
           aria-expanded={open}
           className="group flex items-center gap-3 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
         >
