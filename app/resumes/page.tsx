@@ -16,18 +16,28 @@ export default function ResumesIndexPage() {
   const groups = groupResumesByCategory(resumes);
 
   const sections: ResumeCategorySectionData[] = groups.map((group) => {
-    // First guide in this category with a real example bullet, used for
-    // the before/after strip. Falls back to no strip if none have one yet.
-    const withExamples = group.items.find((resume) => resume.exampleBullets.length > 0);
+    // First guide in this category with a real example bullet becomes the
+    // merged before/after card; it's pulled out of the plain grid below so
+    // it isn't shown twice.
+    const featured = group.items.find((resume) => resume.exampleBullets.length > 0);
+    const rest = group.items.filter((resume) => resume.id !== featured?.id);
 
     return {
       id: CATEGORY_SLUG[group.category] ?? slugifyCategory(group.category),
       title: group.category,
       count: group.items.length,
-      intro: withExamples ? <ResumeBeforeAfterStrip guide={withExamples} /> : undefined,
-      children: group.items.map((resume) => (
-        <ContentCard key={resume.id} item={resume} description={resume.tagline} iconSize={28} />
-      )),
+      children: (
+        <>
+          {featured && (
+            <div className="sm:col-span-2 lg:col-span-3">
+              <ResumeBeforeAfterStrip guide={featured} />
+            </div>
+          )}
+          {rest.map((resume) => (
+            <ContentCard key={resume.id} item={resume} description={resume.tagline} iconSize={28} />
+          ))}
+        </>
+      ),
     };
   });
 
