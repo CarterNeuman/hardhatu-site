@@ -33,17 +33,23 @@ export function ActionPlanAccordionSection({
       open={defaultOpen || undefined}
       className="group border border-hairline bg-white/40 open:bg-white/70 [&:not(:first-of-type)]:border-t-0"
     >
-      <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3.5 [&::-webkit-details-marker]:hidden">
+      {/* Phone layout: the teaser drops onto its own line under the
+          title, and the title is allowed to wrap. Both used to be forced
+          onto one row (title nowrap, teaser shrink-0), so a long title
+          like "Reach Out to Recruiters & Hiring Managers" ran straight
+          through its teaser text on a narrow screen. From `sm` up it's
+          the original single row with the teaser right-aligned. */}
+      <summary className="flex cursor-pointer list-none flex-col gap-1 px-4 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:gap-3 [&::-webkit-details-marker]:hidden">
         <span className="flex min-w-0 items-center gap-2.5">
           <span
             aria-hidden="true"
             className="h-2.5 w-2.5 shrink-0 rotate-[-45deg] border-b-2 border-r-2 border-navy transition-transform duration-150 group-open:rotate-45"
           />
-          <span className="whitespace-nowrap font-display text-[17px] font-semibold text-ink">{title}</span>
+          <span className="min-w-0 font-display text-[17px] font-semibold leading-snug text-ink">{title}</span>
         </span>
         {teaser && (
           <span
-            className="shrink-0 text-right text-xs text-steel"
+            className="pl-5 text-xs text-steel sm:shrink-0 sm:pl-0 sm:text-right"
             style={{ fontFamily: "'IBM Plex Mono', monospace" }}
           >
             {teaser}

@@ -458,7 +458,7 @@ export function ActionPlanBuilder({
           </>
         )}
 
-        <div className="mt-7 flex items-baseline justify-between gap-3">
+        <div className="mt-7 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-2">
           <SectionLabel>Your Personalized Blueprint</SectionLabel>
           <button
             type="button"

@@ -48,7 +48,10 @@ export default async function GetHiredPage({
   return (
     <article className="mx-auto max-w-3xl px-6 py-10">
       <TypeBadge type="gethired" tier={guide.tier} size="lg" />
-      <div className="mt-2 flex items-start justify-between gap-4">
+      {/* Stacked on phones: side by side, the fixed-width Resume Guide
+          button squeezed a long category name ("Preconstruction &
+          Estimating") into a column too narrow for its longest word. */}
+      <div className="mt-2 flex flex-col items-start gap-3 sm:flex-row sm:justify-between sm:gap-4">
         <h1 className="font-display text-4xl font-bold text-ink">{guide.category}</h1>
         {matchingResume && (
           <Link
