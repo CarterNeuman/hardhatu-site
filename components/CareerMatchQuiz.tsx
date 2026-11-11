@@ -195,12 +195,25 @@ export function CareerMatchQuiz({
 
   // Runs once after mount (post-hydration, client-only), restoring a
   // stashed result if a sign-in redirect reloaded the page mid-quiz.
+  // Cleared immediately after being read -- its only job is surviving
+  // that one reload, and leaving it in sessionStorage any longer let a
+  // second person who signs into a different account in the same
+  // browser tab see (and silently re-save under their own account) the
+  // first person's result. See the save effect below for the other
+  // half of this fix -- it also clears the stash once a result is
+  // actually saved, so a result that was never restored this way still
+  // can't outlive the session that produced it.
   useEffect(() => {
     const stored = readStoredResult();
     if (!stored) return;
     setCategoryScores(stored.categoryScores);
     setCareerScores(stored.careerScores);
     setResult(stored.result);
+    try {
+      window.sessionStorage.removeItem(PENDING_RESULT_KEY);
+    } catch {
+      // Non-fatal -- worst case the stash lingers until the next clear.
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -259,9 +272,21 @@ export function CareerMatchQuiz({
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ resultCategory: result, matchedCareerIds: matches.map((c) => c.id) }),
-    }).catch(() => {
-      // Swallowed deliberately, see lib/buttondown.ts for the same pattern.
-    });
+    })
+      .then(() => {
+        // Once a result is actually saved for this signed-in account,
+        // the reload-survival stash has done its job -- clear it so it
+        // can never bleed into a different account signing in later in
+        // the same browser tab (see the restore effect above).
+        try {
+          window.sessionStorage.removeItem(PENDING_RESULT_KEY);
+        } catch {
+          // Non-fatal.
+        }
+      })
+      .catch(() => {
+        // Swallowed deliberately, see lib/buttondown.ts for the same pattern.
+      });
   }, [result, isSignedIn, matches]);
 
   function pick(option: QuizOption) {
