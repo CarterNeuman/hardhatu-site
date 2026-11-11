@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getAllContent } from "@/lib/content";
-import { SoftwareDeskIntro } from "@/components/SoftwareDeskIntro";
+import { SoftwareDeskIntro, type SoftwarePreviewGroup } from "@/components/SoftwareDeskIntro";
 import { SoftwareScreenTile } from "@/components/SoftwareScreenTile";
 
 export const metadata: Metadata = {
@@ -20,6 +20,15 @@ export default function SoftwareIndexPage() {
     a.localeCompare(b)
   );
 
+  // Same grouping, reduced to just names, for the intro's tiny on-screen
+  // preview (SoftwareDeskIntro renders this small and grows it with the
+  // zoom — see that component for why it needs real names, not
+  // placeholders).
+  const preview: SoftwarePreviewGroup[] = categories.map((category) => ({
+    category,
+    tools: software.filter((tool) => tool.category === category).map((tool) => tool.title),
+  }));
+
   return (
     <div className="mx-auto max-w-6xl px-6 py-10">
       <h1 className="font-display text-4xl font-bold text-ink">Software</h1>
@@ -29,11 +38,11 @@ export default function SoftwareIndexPage() {
       </p>
 
       <div className="mt-8">
-        <SoftwareDeskIntro>
-          <div className="flex flex-col gap-6">
+        <SoftwareDeskIntro preview={preview}>
+          <div className="flex flex-col gap-8">
             {categories.map((category) => (
               <div key={category}>
-                <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-amber-soft/70">
+                <h2 className="mb-4 font-display text-xl font-bold text-amber-soft sm:text-2xl">
                   {category}
                 </h2>
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
