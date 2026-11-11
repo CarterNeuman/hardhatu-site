@@ -1,13 +1,20 @@
 /* Desk-scene zoom-into-the-screen intro for the Software index page.
-   Two layers share the same stage: the illustrated desk (monitor, keyboard,
-   desk) zooms past the viewport and fades, while the final "inside the
-   screen" content crossfades in underneath it near the end. Both run off
-   the same total duration so they stay in sync. */
+   The "seamless" trick: the monitor's screen shows a genuinely tiny
+   rendering of the real category/tool content from frame 1 (not a blank
+   rectangle), nested inside the same element that scales. As it scales up,
+   that real tiny content grows with it — no separate layer has to appear
+   out of nowhere. The crisp full-size version only crossfades in once the
+   screen has already grown to fill the frame, during the fastest part of
+   the zoom, which is exactly when a real camera move would be too blurry
+   to notice a cut. The bezel/keyboard/desk need no fade at all: once the
+   screen alone is bigger than the stage, they're cropped out by the
+   stage's own overflow:hidden automatically, the same way a real zoom
+   pushes the surroundings out of frame. */
 
 .stage {
   position: relative;
   width: 100%;
-  height: clamp(320px, 50vw, 480px);
+  height: clamp(340px, 46vw, 520px);
   overflow: hidden;
   background: #cbb88f;
 }
@@ -19,45 +26,71 @@
   align-items: center;
   justify-content: center;
   transform-origin: 50% 50%;
-  animation: deskZoom 2.2s cubic-bezier(0.45, 0, 0.8, 1) forwards;
-  will-change: transform, opacity;
+  animation: deskZoom 2.6s cubic-bezier(0.6, 0, 0.85, 1) forwards;
+  will-change: transform;
+}
+
+.computerBox {
+  position: relative;
+  width: min(560px, 86%);
+  aspect-ratio: 400 / 320;
+}
+
+.computerSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Positioned to match the SVG's screen rect exactly: x 117 y 101 w 166
+   h 118 inside a 400x320 viewBox (-> 29.25% / 31.5625% / 41.5% / 36.875%). */
+.screenPreview {
+  position: absolute;
+  left: 29.25%;
+  top: 31.5625%;
+  width: 41.5%;
+  height: 36.875%;
+  overflow: hidden;
+  background: #1c2b33;
 }
 
 .screenLayer {
   position: absolute;
   inset: 0;
   opacity: 0;
-  animation: screenReveal 2.2s ease-out forwards;
-  will-change: opacity, transform;
+  animation: screenReveal 2.6s linear forwards;
+  will-change: opacity;
 }
 
 @keyframes deskZoom {
   0% {
     transform: scale(1);
-    opacity: 1;
   }
-  48% {
+  38% {
     transform: scale(1);
-    opacity: 1;
+  }
+  74% {
+    transform: scale(5.2);
   }
   100% {
     transform: scale(11);
-    opacity: 0;
   }
 }
 
 @keyframes screenReveal {
   0% {
     opacity: 0;
-    transform: scale(1.05);
   }
-  62% {
+  70% {
     opacity: 0;
-    transform: scale(1.05);
+  }
+  88% {
+    opacity: 1;
   }
   100% {
     opacity: 1;
-    transform: scale(1);
   }
 }
 

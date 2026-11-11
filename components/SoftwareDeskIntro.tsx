@@ -11,7 +11,18 @@ import styles from "./SoftwareDeskIntro.module.css";
 // rest of the visit.
 const SESSION_KEY = "hhu-software-intro-seen";
 
-export function SoftwareDeskIntro({ children }: { children: React.ReactNode }) {
+export type SoftwarePreviewGroup = { category: string; tools: string[] };
+
+export function SoftwareDeskIntro({
+  preview,
+  children,
+}: {
+  // A lightweight, real (not placeholder) version of the same category/
+  // tool names shown in `children`, used to render the tiny on-screen
+  // preview that scales up with the zoom. See MiniScreenContent below.
+  preview: SoftwarePreviewGroup[];
+  children: React.ReactNode;
+}) {
   const [phase, setPhase] = useState<"checking" | "intro" | "done">("checking");
   const settledRef = useRef(false);
 
@@ -29,7 +40,7 @@ export function SoftwareDeskIntro({ children }: { children: React.ReactNode }) {
     // Fallback in case onAnimationEnd doesn't fire for some reason (e.g. a
     // browser that skips the animation under heavy load) — matches the
     // CSS animation-duration below.
-    const fallback = window.setTimeout(() => settle(), 2500);
+    const fallback = window.setTimeout(() => settle(), 2900);
     return () => window.clearTimeout(fallback);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -56,7 +67,12 @@ export function SoftwareDeskIntro({ children }: { children: React.ReactNode }) {
     return (
       <div className={styles.stage} role="img" aria-label="Zooming in on a desktop computer screen">
         <div className={styles.deskLayer}>
-          <DeskComputerIllustration />
+          <div className={styles.computerBox}>
+            <DeskComputerSvg />
+            <div className={styles.screenPreview}>
+              <MiniScreenContent preview={preview} />
+            </div>
+          </div>
         </div>
         <div className={styles.screenLayer} onAnimationEnd={settle}>
           <ScreenFrame>{children}</ScreenFrame>
@@ -82,6 +98,15 @@ export function SoftwareDeskIntro({ children }: { children: React.ReactNode }) {
 function ScreenFrame({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative overflow-hidden border-4 border-ink bg-ink px-4 py-6 sm:px-8 sm:py-8">
+      <ScreenTexture />
+      <div className="relative">{children}</div>
+    </div>
+  );
+}
+
+function ScreenTexture() {
+  return (
+    <>
       <div
         className="pointer-events-none absolute inset-0 opacity-60"
         style={{
@@ -95,36 +120,74 @@ function ScreenFrame({ children }: { children: React.ReactNode }) {
         style={{ boxShadow: "inset 0 0 70px 24px rgba(0,0,0,0.6)" }}
         aria-hidden="true"
       />
-      <div className="relative">{children}</div>
+    </>
+  );
+}
+
+// The genuinely tiny preview rendered inside the monitor's screen for the
+// whole intro — real category/tool names, not a placeholder graphic, so
+// growing it with the zoom reads as "the same screen getting closer"
+// instead of "a different thing appeared." Deliberately plain: no hover
+// states or links (it's never interactive — it's gone, covered by the
+// crisp real content, before the zoom finishes).
+function MiniScreenContent({ preview }: { preview: SoftwarePreviewGroup[] }) {
+  return (
+    <div
+      className="relative flex h-full w-full flex-col overflow-hidden"
+      style={{ padding: "4%", gap: "3%" }}
+    >
+      <ScreenTexture />
+      {preview.map((group) => (
+        <div key={group.category} className="relative">
+          <div
+            className="truncate font-semibold uppercase tracking-wide text-amber-soft/80"
+            style={{ fontSize: "4.2px", marginBottom: "1.2px" }}
+          >
+            {group.category}
+          </div>
+          <div className="flex flex-wrap" style={{ gap: "1px" }}>
+            {group.tools.map((tool) => (
+              <div
+                key={tool}
+                className="truncate border border-amber-soft/20 bg-white/5 text-amber-soft/70"
+                style={{ fontSize: "3.2px", padding: "1px 2px", maxWidth: "31%" }}
+              >
+                {tool}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
 
 // A flat, thin-stroke illustration of an old boxy CRT monitor + keyboard on
 // a desk, in the same visual language as Icon.tsx. The screen rectangle is
-// centered in the viewBox on purpose, so a CSS scale() on the whole SVG
-// (transform-origin: center, the default) zooms straight into it without
-// needing to hand-tune an off-center transform-origin.
-function DeskComputerIllustration() {
+// deliberately centered in the 400x320 viewBox, and .computerBox is given
+// the matching 400/320 aspect ratio, so the SVG maps 1:1 onto the box with
+// no letterboxing — which is what lets .screenPreview line up with the
+// drawn screen using plain percentages instead of guesswork.
+function DeskComputerSvg() {
   return (
-    <svg viewBox="0 0 400 300" width="78%" height="78%" aria-hidden="true" focusable="false">
+    <svg viewBox="0 0 400 320" className={styles.computerSvg} aria-hidden="true" focusable="false">
       {/* Desk surface */}
-      <rect x="0" y="230" width="400" height="70" fill="#8A4A31" opacity="0.5" />
-      {/* Monitor bezel */}
-      <rect x="95" y="40" width="210" height="170" fill="#D6D0C2" stroke="#1C2B33" strokeWidth="2" />
-      {/* Screen (centered in the viewBox) */}
-      <rect x="117" y="60" width="166" height="118" fill="#1C2B33" stroke="#1C2B33" strokeWidth="2" />
+      <rect x="0" y="300" width="400" height="20" fill="#8A4A31" opacity="0.5" />
+      {/* Monitor bezel, concentric with the screen */}
+      <rect x="95" y="79" width="210" height="162" fill="#D6D0C2" stroke="#1C2B33" strokeWidth="2" />
+      {/* Screen — centered in the viewBox on purpose */}
+      <rect x="117" y="101" width="166" height="118" fill="#1C2B33" stroke="#1C2B33" strokeWidth="2" />
       {/* Power light */}
-      <circle cx="285" cy="196" r="3" fill="#8C6217" />
+      <circle cx="285" cy="230" r="3" fill="#8C6217" />
       {/* Monitor stand + base */}
-      <rect x="178" y="210" width="44" height="18" fill="#D6D0C2" stroke="#1C2B33" strokeWidth="2" />
-      <rect x="150" y="226" width="100" height="10" fill="#D6D0C2" stroke="#1C2B33" strokeWidth="2" />
+      <rect x="178" y="241" width="44" height="18" fill="#D6D0C2" stroke="#1C2B33" strokeWidth="2" />
+      <rect x="150" y="259" width="100" height="10" fill="#D6D0C2" stroke="#1C2B33" strokeWidth="2" />
       {/* Keyboard */}
-      <rect x="120" y="250" width="160" height="30" fill="#EFEDE6" stroke="#1C2B33" strokeWidth="2" />
-      <line x1="135" y1="260" x2="265" y2="260" stroke="#1C2B33" strokeWidth="1.2" opacity="0.4" />
-      <line x1="135" y1="268" x2="265" y2="268" stroke="#1C2B33" strokeWidth="1.2" opacity="0.4" />
+      <rect x="120" y="281" width="160" height="30" fill="#EFEDE6" stroke="#1C2B33" strokeWidth="2" />
+      <line x1="135" y1="291" x2="265" y2="291" stroke="#1C2B33" strokeWidth="1.2" opacity="0.4" />
+      <line x1="135" y1="299" x2="265" y2="299" stroke="#1C2B33" strokeWidth="1.2" opacity="0.4" />
       {/* Mouse */}
-      <rect x="296" y="258" width="18" height="24" fill="#EFEDE6" stroke="#1C2B33" strokeWidth="2" />
+      <rect x="296" y="289" width="18" height="24" fill="#EFEDE6" stroke="#1C2B33" strokeWidth="2" />
     </svg>
   );
 }
