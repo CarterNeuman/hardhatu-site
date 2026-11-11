@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getAllContent, groupInterviewsByCategory, slugifyCategory } from "@/lib/content";
 import { CategorySection } from "@/components/CategorySection";
 import { ContentCard } from "@/components/ContentCard";
+import { InterviewClipboardHeader } from "@/components/InterviewClipboardHeader";
 import { CATEGORY_SLUG } from "@/lib/content-client";
 
 export const metadata: Metadata = {
@@ -22,18 +23,32 @@ export default function InterviewsIndexPage() {
         detailed guide for every career category covering the specific roles inside it.
       </p>
 
-      {groups.map((group) => (
-        <CategorySection
-          key={group.category}
-          id={CATEGORY_SLUG[group.category] ?? slugifyCategory(group.category)}
-          title={group.category}
-          count={group.items.length}
-        >
-          {group.items.map((interview) => (
-            <ContentCard key={interview.id} item={interview} description={interview.tagline} />
-          ))}
-        </CategorySection>
-      ))}
+      {groups.map((group) => {
+        // Up to 4 real opening questions pulled from this category's own
+        // guides, deduped, for the cycling clipboard readout next to the
+        // heading.
+        const questions = Array.from(
+          new Set(
+            group.items.flatMap((interview) =>
+              interview.questions.slice(0, 1).map((q) => q.question)
+            )
+          )
+        ).slice(0, 4);
+
+        return (
+          <CategorySection
+            key={group.category}
+            id={CATEGORY_SLUG[group.category] ?? slugifyCategory(group.category)}
+            title={group.category}
+            count={group.items.length}
+            headerRight={<InterviewClipboardHeader questions={questions} />}
+          >
+            {group.items.map((interview) => (
+              <ContentCard key={interview.id} item={interview} description={interview.tagline} />
+            ))}
+          </CategorySection>
+        );
+      })}
     </div>
   );
 }
