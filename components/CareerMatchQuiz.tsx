@@ -196,6 +196,10 @@ export function CareerMatchQuiz({
   const [categoryScores, setCategoryScores] = useState<Record<string, number>>({});
   const [careerScores, setCareerScores] = useState<Record<string, number>>({});
   const [result, setResult] = useState<string | null>(null);
+  // One entry per question actually answered so far (length === step),
+  // kept so goBack() can undo exactly the points the last pick added
+  // rather than wiping the whole attempt -- see goBack() below.
+  const [answerHistory, setAnswerHistory] = useState<QuizOption[]>([]);
 
   const allCareers = useMemo(() => Object.values(careersByCategory).flat(), [careersByCategory]);
   const { isSignedIn, isLoaded, user } = useUser();
@@ -396,6 +400,7 @@ export function CareerMatchQuiz({
     }
     setCategoryScores(nextCategoryScores);
     setCareerScores(nextCareerScores);
+    setAnswerHistory((prev) => [...prev, option]);
 
     if (step + 1 < questions.length) {
       setStep(step + 1);
@@ -428,12 +433,37 @@ export function CareerMatchQuiz({
     }
   }
 
+  // Undoes the most recently answered question -- subtracts exactly the
+  // points that pick added (so earlier answers are untouched) and steps
+  // back to it so it can be answered again. Only reachable mid-quiz
+  // (step > 0); once a result exists, "Take the quiz again" is the way
+  // back, not this.
+  function goBack() {
+    if (step === 0) return;
+    const lastOption = answerHistory[answerHistory.length - 1];
+    if (lastOption) {
+      const nextCategoryScores = { ...categoryScores };
+      for (const category of lastOption.pointsToCategories) {
+        nextCategoryScores[category] = (nextCategoryScores[category] ?? 0) - 1;
+      }
+      const nextCareerScores = { ...careerScores };
+      for (const careerId of lastOption.pointsToCareerIds) {
+        nextCareerScores[careerId] = (nextCareerScores[careerId] ?? 0) - 1;
+      }
+      setCategoryScores(nextCategoryScores);
+      setCareerScores(nextCareerScores);
+      setAnswerHistory((prev) => prev.slice(0, -1));
+    }
+    setStep(step - 1);
+  }
+
   function restart() {
     setStep(0);
     setCategoryScores({});
     setCareerScores({});
     setResult(null);
     setSavedAt(null);
+    setAnswerHistory([]);
     // A retake is a new attempt even if it lands on the same category
     // as last time -- without this reset the save effect's "already
     // saved this result" guard silently skipped it.
@@ -594,6 +624,15 @@ export function CareerMatchQuiz({
         <p className="text-xs font-semibold uppercase tracking-wide text-steel">
           Question {step + 1} of {questions.length}
         </p>
+        {step > 0 && (
+          <button
+            type="button"
+            onClick={goBack}
+            className="text-xs font-semibold text-steel hover:text-ink hover:underline"
+          >
+            &larr; Back
+          </button>
+        )}
       </div>
       <div className="mt-2 h-1 w-full bg-hairline">
         <div
