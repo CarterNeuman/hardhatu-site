@@ -21,7 +21,19 @@ export default function CareersIndexPage() {
         browse by category.
       </p>
 
-      <CareerExplorer groups={groups} />
+      <CareerExplorer
+        groups={groups.map((g) => ({
+          category: g.category,
+          items: g.items.map((c) => ({
+            id: c.id,
+            type: c.type,
+            slug: c.slug,
+            title: c.title,
+            tagline: c.tagline,
+            isEntryRole: c.isEntryRole,
+          })),
+        }))}
+      />
     </div>
   );
 }

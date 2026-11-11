@@ -34,7 +34,7 @@ export default async function AdminAnalyticsPage() {
   const totalQuizAttempts = quizCounts.reduce((sum, row) => sum + row.count, 0);
 
   return (
-    <main className="mx-auto max-w-4xl px-6 py-12">
+    <div className="mx-auto max-w-4xl px-6 py-12">
       <h1 className="font-display text-4xl font-bold text-ink">Analytics</h1>
       <p className="mt-2 text-steel">
         Internal only. Aggregate engagement data from signed-in accounts, not raw traffic (see GA4/Vercel
@@ -110,6 +110,6 @@ export default async function AdminAnalyticsPage() {
           </tbody>
         </table>
       </section>
-    </main>
+    </div>
   );
 }

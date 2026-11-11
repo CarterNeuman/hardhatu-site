@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getAllContent, stripWikiLinks, urlFor } from "@/lib/content";
 import { Icon } from "@/components/Icon";
-import { CATEGORY_SLUG } from "@/components/Header";
+import { CATEGORY_SLUG } from "@/lib/content-client";
 import { HeroSlideshow } from "@/components/HeroSlideshow";
 import { SiteSearch, type SearchItem } from "@/components/SiteSearch";
 

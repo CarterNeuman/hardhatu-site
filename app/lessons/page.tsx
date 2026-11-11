@@ -50,7 +50,9 @@ export default function LessonsIndexPage() {
           </div>
 
           <div className="mt-6">
-            <LessonsBlueprint lessons={lessons} />
+            <LessonsBlueprint
+              lessons={lessons.map((l) => ({ slug: l.slug, title: l.title, minutes: l.minutes }))}
+            />
           </div>
         </div>
       </section>

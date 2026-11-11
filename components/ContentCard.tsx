@@ -14,7 +14,10 @@ export function ContentCard({
   description,
   badge,
 }: {
-  item: AnyContent;
+  // Just the fields the card reads, so client-side callers (the
+  // Career/Concept explorers) can pass slimmed items instead of full
+  // content objects.
+  item: Pick<AnyContent, "type" | "slug" | "title">;
   description?: string;
   badge?: React.ReactNode;
 }) {

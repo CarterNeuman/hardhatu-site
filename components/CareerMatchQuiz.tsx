@@ -42,6 +42,14 @@ function readStoredResult(): StoredQuizResult | null {
   }
 }
 
+// Only the handful of fields the result screen actually renders. The
+// quiz page used to hand this client component every career and every
+// lesson in full (pay timelines, lesson sections, the lot) -- well over
+// a megabyte of data serialized into the page for a screen that shows a
+// title and one line of text per item. See app/quizzes/[slug]/page.tsx.
+export type QuizCareer = Pick<Career, "id" | "type" | "slug" | "title" | "tagline">;
+export type QuizLesson = Pick<Lesson, "id" | "type" | "slug" | "title" | "minutes">;
+
 type QuizOption = { label: string; pointsToCategories: string[]; pointsToCareerIds: string[] };
 type QuizQuestion = { question: string; options: QuizOption[] };
 
@@ -175,8 +183,8 @@ export function CareerMatchQuiz({
   lessonsById,
 }: {
   questions: QuizQuestion[];
-  careersByCategory: Record<string, Career[]>;
-  lessonsById: Record<string, Lesson>;
+  careersByCategory: Record<string, QuizCareer[]>;
+  lessonsById: Record<string, QuizLesson>;
 }) {
   // Deliberately plain defaults here, not a sessionStorage read -- the
   // server has no access to sessionStorage, so seeding these from it on
@@ -190,8 +198,27 @@ export function CareerMatchQuiz({
   const [result, setResult] = useState<string | null>(null);
 
   const allCareers = useMemo(() => Object.values(careersByCategory).flat(), [careersByCategory]);
-  const { isSignedIn, isLoaded } = useUser();
+  const { isSignedIn, isLoaded, user } = useUser();
   const savedResultRef = useRef<string | null>(null);
+  const lastUserIdRef = useRef<string | null>(null);
+
+  // A result belongs to whoever was signed in when it was produced. If
+  // the account changes while this page stays mounted (sign out, or
+  // sign out and a different person signs in through the modal, which
+  // doesn't reload the page), wipe the quiz back to the start so one
+  // account's result can never be shown to -- or saved under -- another.
+  // A signed-out visitor finishing the quiz and THEN signing in is the
+  // normal flow and is left alone (previous id is null in that case).
+  useEffect(() => {
+    if (!isLoaded) return;
+    const currentId = user?.id ?? null;
+    const previousId = lastUserIdRef.current;
+    lastUserIdRef.current = currentId;
+    if (previousId && previousId !== currentId) {
+      restart();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoaded, user?.id]);
 
   // Runs once after mount (post-hydration, client-only), restoring a
   // stashed result if a sign-in redirect reloaded the page mid-quiz.
@@ -237,12 +264,12 @@ export function CareerMatchQuiz({
   // yet -- React requires that. Same matching logic as before: specific
   // careers the answers pointed to, highest-scored first, falling back to
   // the winning category's other careers if that doesn't fill all slots.
-  const matches = useMemo<Career[]>(() => {
+  const matches = useMemo<QuizCareer[]>(() => {
     if (!result) return [];
     const scored = allCareers
       .filter((career) => (careerScores[career.id] ?? 0) > 0)
       .sort((a, b) => (careerScores[b.id] ?? 0) - (careerScores[a.id] ?? 0));
-    const out: Career[] = [];
+    const out: QuizCareer[] = [];
     const seen = new Set<string>();
     for (const career of scored) {
       if (out.length >= MAX_MATCHES) break;
@@ -322,6 +349,10 @@ export function CareerMatchQuiz({
     setCategoryScores({});
     setCareerScores({});
     setResult(null);
+    // A retake is a new attempt even if it lands on the same category
+    // as last time -- without this reset the save effect's "already
+    // saved this result" guard silently skipped it.
+    savedResultRef.current = null;
     try {
       window.sessionStorage.removeItem(PENDING_RESULT_KEY);
     } catch {
@@ -369,7 +400,7 @@ export function CareerMatchQuiz({
         const lesson = lessonsById[rec.id];
         return lesson ? { lesson, blurb: rec.blurb } : null;
       })
-      .filter((entry): entry is { lesson: Lesson; blurb: string } => entry !== null);
+      .filter((entry): entry is { lesson: QuizLesson; blurb: string } => entry !== null);
 
     return (
         <div className="mt-6">

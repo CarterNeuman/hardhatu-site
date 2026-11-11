@@ -255,7 +255,21 @@ export function ActionPlanBuilder({
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const generated = generatePlanFor(category, careerId, { status, location, hoursPerWeek, timelineWeeks, certsHeld });
+    // Editing the answers of a plan that was opened from the saved-plans
+    // list keeps its original start date, same as the server does (it
+    // never moves createdAt on an edit). Without this, the calendar
+    // jumped to "starting today" right after an edit and then snapped
+    // back to the original dates the next time the plan was opened.
+    const editingResumedPlan =
+      initialPlan !== undefined &&
+      initialPlan.category === category &&
+      initialPlan.careerId === (careerId || "general");
+    const generated = generatePlanFor(
+      category,
+      careerId,
+      { status, location, hoursPerWeek, timelineWeeks, certsHeld },
+      editingResumedPlan ? new Date(initialPlan.createdAt) : undefined
+    );
     setCheckedDays(new Set());
     toggledSincePlanRef.current = false;
     setPlan(generated);
@@ -346,7 +360,7 @@ export function ActionPlanBuilder({
       },
       {
         title: "Your Day-by-Day Plan",
-        blurb: "the actual schedule -- start here once you're ready to move.",
+        blurb: "the actual schedule, start here once you're ready to move.",
       },
       hasFindOpeningsSection && {
         title: "Where to Find Openings",
@@ -432,7 +446,7 @@ export function ActionPlanBuilder({
           <>
             <p className="mt-3 text-sm leading-relaxed text-ink">
               Everything below is sorted into sections so you can jump straight to what you're
-              wondering about -- nothing here assumes you've already read what's above it.
+              wondering about. Nothing here assumes you've already read what's above it.
             </p>
             <ul className="mt-2 flex flex-col gap-1 text-sm leading-relaxed text-ink">
               {legendItems.map((item) => (
@@ -465,7 +479,7 @@ export function ActionPlanBuilder({
                 lastReviewed={plan.entryPay.asOf}
                 message={
                   plan.isEntryRole === false
-                    ? `${plan.careerTitle ?? "This role"} is typically reached through promotion or years of experience in a related role, not a day-one starting point -- this is the lower end of the national wage distribution for people already working in it (${plan.entryPay.source}), not a promise for any one job and not what someone brand new to the field would start at. Real pay varies by state, metro area, union status, and employer, so scale this for your market. Base pay only: overtime and shift differentials are standard across most construction trades.`
+                    ? `${plan.careerTitle ?? "This role"} is typically reached through promotion or years of experience in a related role, not a day-one starting point. This is the lower end of the national wage distribution for people already working in it (${plan.entryPay.source}), not a promise for any one job and not what someone brand new to the field would start at. Real pay varies by state, metro area, union status, and employer, so scale this for your market. Base pay only: overtime and shift differentials are standard across most construction trades.`
                     : `Entry-level pay from the national wage distribution for this occupation (${plan.entryPay.source}), not a promise for any one job. Real pay varies by state, metro area, union status, and employer, so scale this for your market. Base pay only: overtime and shift differentials are standard across most construction trades.`
                 }
               />
@@ -518,7 +532,7 @@ export function ActionPlanBuilder({
                 <>
                   <AccordionSubLabel>Go further</AccordionSubLabel>
                   <p className="mt-1 text-xs italic text-steel">
-                    Beyond what's required to get in the door -- worth understanding deeply to stand out once you're there.
+                    Beyond what's required to get in the door, but worth understanding deeply to stand out once you're there.
                   </p>
                   <ul className="mt-2 flex flex-col gap-1.5">
                     {plan.goFurther.map(({ concept, href }) => (
@@ -601,7 +615,7 @@ export function ActionPlanBuilder({
                     onClick={() => toggleDay(i)}
                     className="print:hidden mt-1 h-4 w-4 shrink-0 border border-hairline"
                     aria-pressed={checkedDays.has(i)}
-                    aria-label={checkedDays.has(i) ? "Mark not done" : "Mark done"}
+                    aria-label={`${checkedDays.has(i) ? "Mark not done" : "Mark done"}: ${item.title}`}
                   >
                     {checkedDays.has(i) && <span className="block h-full w-full bg-navy" />}
                   </button>
@@ -821,7 +835,10 @@ export function ActionPlanBuilder({
             type="number"
             min={1}
             max={60}
-            value={hoursPerWeek}
+            required
+            // Shown blank (not "0") while the field is empty, so clearing
+            // it to type a new number doesn't leave a stuck leading zero.
+            value={hoursPerWeek === 0 ? "" : hoursPerWeek}
             onChange={(e) => setHoursPerWeek(Number(e.target.value))}
             className="mt-1 block w-full border border-hairline bg-white/60 px-3 py-2 text-sm text-ink focus:border-navy focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-navy"
           />

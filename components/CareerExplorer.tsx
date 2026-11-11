@@ -8,6 +8,11 @@ import { CATEGORY_SLUG } from "./Header";
 import { slugifyCategory } from "@/lib/content-client";
 import type { Career } from "@/lib/types";
 
+// The fields this explorer actually renders/searches. app/careers/page.tsx
+// slims each career down to this before handing it over, since this is a
+// client component and its props are serialized into the page.
+export type ExplorerCareer = Pick<Career, "id" | "type" | "slug" | "title" | "tagline" | "isEntryRole">;
+
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 // The careers index's search + A-Z filter, the same pattern ConceptExplorer
@@ -22,7 +27,7 @@ const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 export function CareerExplorer({
   groups,
 }: {
-  groups: { category: string; items: Career[] }[];
+  groups: { category: string; items: ExplorerCareer[] }[];
 }) {
   const [query, setQuery] = useState("");
   const [letter, setLetter] = useState<string | null>(null);

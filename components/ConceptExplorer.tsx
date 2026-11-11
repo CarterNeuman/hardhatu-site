@@ -6,6 +6,12 @@ import { CategorySection } from "./CategorySection";
 import { slugifyCategory } from "@/lib/content-client";
 import type { Concept } from "@/lib/types";
 
+// The fields this explorer actually renders/searches -- see the matching
+// note in CareerExplorer.tsx. With 500+ concepts this is the difference
+// between shipping ~1MB of glossary content and a short list of titles
+// and definitions.
+export type ExplorerConcept = Pick<Concept, "id" | "type" | "slug" | "title" | "definition">;
+
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 // The concept glossary's search + A-Z filter — a stand-in for a real search
@@ -16,7 +22,7 @@ const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 export function ConceptExplorer({
   groups,
 }: {
-  groups: { category: string; items: Concept[] }[];
+  groups: { category: string; items: ExplorerConcept[] }[];
 }) {
   const [query, setQuery] = useState("");
   const [letter, setLetter] = useState<string | null>(null);

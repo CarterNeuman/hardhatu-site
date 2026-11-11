@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { getAllContent, getBySlug } from "@/lib/content";
 import type { CareerMatchQuiz as CareerMatchQuizContent } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
-import { CareerMatchQuiz } from "@/components/CareerMatchQuiz";
+import { CareerMatchQuiz, type QuizCareer, type QuizLesson } from "@/components/CareerMatchQuiz";
 
 export function generateStaticParams() {
   const { quizzes } = getAllContent();
@@ -36,13 +36,29 @@ export default async function QuizPage({
   if (!quiz) notFound();
 
   const { careers, lessons } = getAllContent();
-  const careersByCategory: Record<string, typeof careers> = {};
+  // Slimmed to just what the result screen renders -- CareerMatchQuiz is
+  // a client component, so everything passed here is serialized into the
+  // page. Passing full career/lesson objects shipped all of that content
+  // to every visitor's phone for no reason.
+  const careersByCategory: Record<string, QuizCareer[]> = {};
   for (const career of careers) {
-    (careersByCategory[career.category] ??= []).push(career);
+    (careersByCategory[career.category] ??= []).push({
+      id: career.id,
+      type: career.type,
+      slug: career.slug,
+      title: career.title,
+      tagline: career.tagline,
+    });
   }
-  const lessonsById: Record<string, typeof lessons[number]> = {};
+  const lessonsById: Record<string, QuizLesson> = {};
   for (const lesson of lessons) {
-    lessonsById[lesson.id] = lesson;
+    lessonsById[lesson.id] = {
+      id: lesson.id,
+      type: lesson.type,
+      slug: lesson.slug,
+      title: lesson.title,
+      minutes: lesson.minutes,
+    };
   }
 
   return (

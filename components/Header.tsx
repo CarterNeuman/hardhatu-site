@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Show, SignInButton, UserButton } from "@clerk/nextjs";
 import { Icon } from "@/components/Icon";
-import { urlFor, slugifyCategory } from "@/lib/content-client";
+import { urlFor, slugifyCategory, CATEGORY_SLUG, NAV_ITEMS_PER_GROUP } from "@/lib/content-client";
 import type { Career, Concept, GetHired } from "@/lib/types";
 
 // The "Solid Mark, Tile Badge" logo — a rounded navy tile holding a
@@ -31,19 +31,17 @@ export function HardHatMark({ size = 22, className = "" }: { size?: number; clas
   );
 }
 
-type CareerGroup = { category: string; items: Career[] };
-type ConceptGroup = { category: string; items: Concept[] };
-
-const CATEGORY_SLUG: Record<string, string> = {
-  "Field & Trades": "field-trades",
-  "Project & Operations": "project-operations",
-  "Preconstruction & Estimating": "preconstruction-estimating",
-  Business: "business",
-  "Technology & Design": "technology-design",
-  "Specialized Construction": "specialized-construction",
-  "Insurance & Claims": "insurance-claims",
-  "Consultants & Advisory": "consultants-advisory",
-};
+// Header is a client component rendered by the root layout, so whatever
+// it's handed is serialized into EVERY page on the site. It only ever
+// draws a title + link for the first few items per category, so that's
+// all it accepts -- app/layout.tsx slims the groups down before passing
+// them in (it used to receive every career and all 500+ concepts in
+// full, well over a megabyte of content on every page load).
+export type NavCareer = Pick<Career, "id" | "type" | "slug" | "title">;
+export type NavConcept = Pick<Concept, "id" | "type" | "slug" | "title">;
+export type NavGuide = Pick<GetHired, "id" | "type" | "slug" | "category">;
+type CareerGroup = { category: string; items: NavCareer[] };
+type ConceptGroup = { category: string; items: NavConcept[] };
 
 type MenuKey = "careers" | "concepts" | "gethired" | "resources";
 
@@ -56,7 +54,7 @@ export function Header({
 }: {
   careerGroups: CareerGroup[];
   conceptGroups: ConceptGroup[];
-  getHiredGuides: GetHired[];
+  getHiredGuides: NavGuide[];
   careerCount: number;
   conceptCount: number;
 }) {
@@ -148,7 +146,7 @@ export function Header({
                       {group.category}
                     </Link>
                     <ul className="mt-2 flex flex-col divide-y divide-hairline/70">
-                      {group.items.slice(0, 3).map((item) => (
+                      {group.items.slice(0, NAV_ITEMS_PER_GROUP).map((item) => (
                         <li key={item.id} className="py-1.5 first:pt-0 last:pb-0">
                           <Link
                             href={urlFor(item)}
@@ -195,7 +193,7 @@ export function Header({
                       {group.category}
                     </Link>
                     <ul className="mt-2 flex flex-col divide-y divide-hairline/70">
-                      {group.items.slice(0, 3).map((item) => (
+                      {group.items.slice(0, NAV_ITEMS_PER_GROUP).map((item) => (
                         <li key={item.id} className="py-1.5 first:pt-0 last:pb-0">
                           <Link
                             href={urlFor(item)}
@@ -422,7 +420,7 @@ export function Header({
                   {group.category}
                 </Link>
                 <ul className="mt-1.5 flex flex-col gap-1.5">
-                  {group.items.slice(0, 3).map((item) => (
+                  {group.items.slice(0, NAV_ITEMS_PER_GROUP).map((item) => (
                     <li key={item.id}>
                       <Link href={urlFor(item)} className="break-words text-sm text-ink" onClick={() => setMobileOpen(false)}>
                         {item.title}
@@ -456,7 +454,7 @@ export function Header({
                   {group.category}
                 </Link>
                 <ul className="mt-1.5 flex flex-col gap-1.5">
-                  {group.items.slice(0, 3).map((item) => (
+                  {group.items.slice(0, NAV_ITEMS_PER_GROUP).map((item) => (
                     <li key={item.id}>
                       <Link href={urlFor(item)} className="break-words text-sm text-ink" onClick={() => setMobileOpen(false)}>
                         {item.title}
@@ -606,4 +604,7 @@ function MobileSection({
   );
 }
 
+// Re-exported for the other CLIENT components that already import it
+// from here. Server files must import it from "@/lib/content-client"
+// instead -- see the note on CATEGORY_SLUG there.
 export { CATEGORY_SLUG };

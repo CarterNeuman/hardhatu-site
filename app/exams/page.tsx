@@ -3,7 +3,7 @@ import { getAllContent, groupExamsByCategory, slugifyCategory } from "@/lib/cont
 import { CategorySection } from "@/components/CategorySection";
 import { ContentCard } from "@/components/ContentCard";
 import { EntryLevelBadge } from "@/components/EntryLevelBadge";
-import { CATEGORY_SLUG } from "@/components/Header";
+import { CATEGORY_SLUG } from "@/lib/content-client";
 
 export const metadata: Metadata = {
   title: "Get Qualified",

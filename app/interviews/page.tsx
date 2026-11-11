@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getAllContent, groupInterviewsByCategory, slugifyCategory } from "@/lib/content";
 import { CategorySection } from "@/components/CategorySection";
 import { ContentCard } from "@/components/ContentCard";
-import { CATEGORY_SLUG } from "@/components/Header";
+import { CATEGORY_SLUG } from "@/lib/content-client";
 
 export const metadata: Metadata = {
   title: "Interview Prep",

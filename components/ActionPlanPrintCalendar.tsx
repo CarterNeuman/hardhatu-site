@@ -73,7 +73,7 @@ export function ActionPlanPrintCalendar({ days, title }: { days: GeneratedDayIte
 
       <p className="mt-4 text-[10px] text-steel">
         {isTruncated
-          ? `breakgroundU \u00b7 this schedule is informational, not a guarantee of being hired. Your full ${planLength}-day plan continues online -- come back anytime to see what's next.`
+          ? `breakgroundU \u00b7 this schedule is informational, not a guarantee of being hired. Your full ${planLength}-day plan continues online, come back anytime to see what's next.`
           : "breakgroundU \u00b7 this schedule is informational, not a guarantee of being hired."}
       </p>
     </div>

@@ -21,7 +21,18 @@ export default function ConceptsIndexPage() {
         links back to the careers, lessons, and phases where it actually shows up.
       </p>
 
-      <ConceptExplorer groups={groups} />
+      <ConceptExplorer
+        groups={groups.map((g) => ({
+          category: g.category,
+          items: g.items.map((c) => ({
+            id: c.id,
+            type: c.type,
+            slug: c.slug,
+            title: c.title,
+            definition: c.definition,
+          })),
+        }))}
+      />
     </div>
   );
 }

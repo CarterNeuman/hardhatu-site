@@ -17,6 +17,33 @@ import {
   type ResumeGuide,
 } from "./types";
 
+// URL-anchor slug for each of the 8 career categories (/careers#<slug>
+// and the matching section ids on the index pages).
+//
+// Lives here, NOT in components/Header.tsx where it used to be: Header
+// is a "use client" module, and a plain value exported from a client
+// module is only a reference when a Server Component imports it --
+// indexing into it on the server quietly yields undefined. That's how
+// the homepage's "Choose your path" tiles ended up linking to
+// /careers#undefined and the footer's category links to a bare
+// /careers# (found in the 2026-11-11 bug sweep). Anything a server
+// file needs must be imported from a shared module like this one.
+export const CATEGORY_SLUG: Record<string, string> = {
+  "Field & Trades": "field-trades",
+  "Project & Operations": "project-operations",
+  "Preconstruction & Estimating": "preconstruction-estimating",
+  Business: "business",
+  "Technology & Design": "technology-design",
+  "Specialized Construction": "specialized-construction",
+  "Insurance & Claims": "insurance-claims",
+  "Consultants & Advisory": "consultants-advisory",
+};
+
+// How many items per category the header's dropdowns show. Shared (same
+// reason as above) because app/layout.tsx, a Server Component, uses it
+// to slim the nav data before handing it to the client Header.
+export const NAV_ITEMS_PER_GROUP = 3;
+
 export function urlFor(node: Pick<AnyContent, "type" | "slug">): string {
   return `/${CONTENT_TYPE_DIR[node.type]}/${node.slug}`;
 }

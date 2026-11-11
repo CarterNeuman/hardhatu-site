@@ -10,6 +10,7 @@ import {
 } from "@/lib/content";
 import { CAREER_CATEGORY_ORDER } from "@/lib/types";
 import { Header } from "@/components/Header";
+import { NAV_ITEMS_PER_GROUP } from "@/lib/content-client";
 import { Footer } from "@/components/Footer";
 
 // Loaded via a plain stylesheet link rather than next/font/google — the
@@ -56,10 +57,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               ActionPlanBuilder's "Print / save as PDF" button) should read
               as a clean document, not a printout of the site's nav chrome. */}
           <div className="print:hidden">
+            {/* Slimmed on purpose: Header is a client component, so its
+                props are serialized into every page. It only draws a
+                title + link for the first few items per category. */}
             <Header
-              careerGroups={careerGroups}
-              conceptGroups={conceptGroups}
-              getHiredGuides={getHiredOrdered}
+              careerGroups={careerGroups.map((g) => ({
+                category: g.category,
+                items: g.items
+                  .slice(0, NAV_ITEMS_PER_GROUP)
+                  .map((c) => ({ id: c.id, type: c.type, slug: c.slug, title: c.title })),
+              }))}
+              conceptGroups={conceptGroups.map((g) => ({
+                category: g.category,
+                items: g.items
+                  .slice(0, NAV_ITEMS_PER_GROUP)
+                  .map((c) => ({ id: c.id, type: c.type, slug: c.slug, title: c.title })),
+              }))}
+              getHiredGuides={getHiredOrdered.map((g) => ({
+                id: g.id,
+                type: g.type,
+                slug: g.slug,
+                category: g.category,
+              }))}
               careerCount={careers.length}
               conceptCount={concepts.length}
             />

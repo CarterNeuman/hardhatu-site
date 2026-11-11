@@ -308,7 +308,7 @@ function buildSkillItems(
     items.push({
       kind: "lesson",
       title: `Complete the lesson: ${lesson.title}`,
-      detail: `${lesson.minutes} min -- real working knowledge, not just what it takes to get hired.`,
+      detail: `${lesson.minutes} min of real working knowledge, not just what it takes to get hired.`,
       href: `/lessons/${lesson.slug}`,
     });
   }
@@ -414,9 +414,9 @@ const STATUS_VERB: Record<ApplicationStatus, string> = {
 };
 
 const HORIZON_CLOSE: Record<HorizonTier, (totalDays: number) => string> = {
-  sprint: (d) => `fast -- ${d} days, start to finish`,
+  sprint: (d) => `fast: ${d} days, start to finish`,
   build: (d) => `over the next ${d} days`,
-  marathon: (d) => `as a long-haul build -- ${d} days, paced to last`,
+  marathon: (d) => `as a long-haul build: ${d} days, paced to last`,
 };
 
 // Builds the one-line headline shown at the top of a generated plan.

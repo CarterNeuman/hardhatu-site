@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { HardHatMark, CATEGORY_SLUG } from "./Header";
+import { HardHatMark } from "./Header";
+import { CATEGORY_SLUG } from "@/lib/content-client";
 import type { Career } from "@/lib/types";
 
 type CareerGroup = { category: string; items: Career[] };

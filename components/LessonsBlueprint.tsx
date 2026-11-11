@@ -95,7 +95,11 @@ function StopIcon({ name, scale = 1.5625 }: { name: keyof typeof BLUEPRINT_ICONS
   );
 }
 
-export function LessonsBlueprint({ lessons }: { lessons: Lesson[] }) {
+// Only what the road draws -- the lessons page used to pass every
+// lesson's full text into this client component.
+export type BlueprintLesson = Pick<Lesson, "slug" | "title" | "minutes">;
+
+export function LessonsBlueprint({ lessons }: { lessons: BlueprintLesson[] }) {
   const bySlug = useMemo(() => new Map(lessons.map((l) => [l.slug, l])), [lessons]);
 
   // Which lesson slugs are already marked complete, so each stop's icon

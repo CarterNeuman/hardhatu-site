@@ -80,7 +80,7 @@ export default async function MyActionPlansPage() {
       </div>
       <h1 className="mt-3 font-display text-4xl font-bold text-ink">Your Saved Plans</h1>
       <p className="mt-2 text-sm leading-relaxed text-steel">
-        Pick up any plan right where you left off -- your answers and your checked-off days are both
+        Pick up any plan right where you left off. Your answers and your checked-off days are both
         saved.
       </p>
 
@@ -123,7 +123,7 @@ export default async function MyActionPlansPage() {
 
                 {unavailable && (
                   <p className="mt-3 text-sm italic text-steel">
-                    This category's plan isn't published yet -- your answers are still saved, and this'll
+                    This category's plan isn't published yet. Your answers are still saved, and this'll
                     work again once it is.
                   </p>
                 )}

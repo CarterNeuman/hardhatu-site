@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 import { getActionPlansForUser, upsertActionPlan, deleteActionPlan } from "@/lib/db";
+import { CAREER_CATEGORY_ORDER } from "@/lib/types";
 
 // Backs the "saved Action Plans" feature: a signed-in user's Blueprint
 // intake (not the generated plan itself -- see actionPlans in
@@ -18,6 +19,26 @@ import { getActionPlansForUser, upsertActionPlan, deleteActionPlan } from "@/lib
 
 function badRequest(message: string) {
   return NextResponse.json({ ok: false, error: message }, { status: 400 });
+}
+
+// A plan's identity is (category, careerId). Both are validated rather
+// than stored as-is: category must be one of the site's real career
+// categories, and careerId must look like a content id ("general" or
+// e.g. "career-electrician"). Besides keeping junk rows out, this is
+// what makes deleteActionPlan's LIKE-prefix cleanup safe -- neither
+// value can ever contain a SQL wildcard (% or _).
+const KNOWN_CATEGORIES = new Set<string>(CAREER_CATEGORY_ORDER);
+const CAREER_ID_RE = /^[a-z0-9-]{1,100}$/;
+
+function parsePlanIdentity(body: { category?: unknown; careerId?: unknown }):
+  | { category: string; careerId: string }
+  | { error: string } {
+  const category = typeof body.category === "string" ? body.category.trim() : "";
+  if (!category) return { error: "category is required." };
+  if (!KNOWN_CATEGORIES.has(category)) return { error: "Unknown category." };
+  const careerId = (typeof body.careerId === "string" ? body.careerId.trim() : "") || "general";
+  if (!CAREER_ID_RE.test(careerId)) return { error: "Invalid careerId." };
+  return { category, careerId };
 }
 
 function clampInt(value: unknown, fallback: number, min: number, max: number): number {
@@ -56,11 +77,11 @@ export async function POST(request: Request) {
     return badRequest("Invalid request.");
   }
 
-  const category = (body.category || "").trim();
-  if (!category) {
-    return badRequest("category is required.");
+  const identity = parsePlanIdentity(body ?? {});
+  if ("error" in identity) {
+    return badRequest(identity.error);
   }
-  const careerId = (body.careerId || "").trim() || "general";
+  const { category, careerId } = identity;
   const status = body.status === "browsing" ? "browsing" : "applying";
   const location = typeof body.location === "string" ? body.location.trim().slice(0, 100) : "";
   const hoursPerWeek = clampInt(body.hoursPerWeek, 10, 1, 60);
@@ -92,11 +113,11 @@ export async function DELETE(request: Request) {
     return badRequest("Invalid request.");
   }
 
-  const category = (body.category || "").trim();
-  if (!category) {
-    return badRequest("category is required.");
+  const identity = parsePlanIdentity(body ?? {});
+  if ("error" in identity) {
+    return badRequest(identity.error);
   }
-  const careerId = (body.careerId || "").trim() || "general";
+  const { category, careerId } = identity;
 
   await deleteActionPlan(userId, category, careerId);
   return NextResponse.json({ ok: true });

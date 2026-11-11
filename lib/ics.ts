@@ -53,7 +53,12 @@ export function buildIcs(days: GeneratedDayItem[], calendarName: string): string
   ];
 
   days.forEach((item, i) => {
-    const exclusiveEnd = new Date(item.endDate.getTime() + 24 * 60 * 60 * 1000);
+    // Calendar-day arithmetic (setDate), not "+24 hours": on the day
+    // clocks fall back, local midnight + 24h lands at 11pm the SAME
+    // day, which made a one-day item's exclusive end equal its start
+    // (a zero-length event some calendar apps drop or reject).
+    const exclusiveEnd = new Date(item.endDate.getTime());
+    exclusiveEnd.setDate(exclusiveEnd.getDate() + 1);
     lines.push(
       "BEGIN:VEVENT",
       `UID:breakgroundu-action-plan-${uidSeed}-${i}@breakgroundu.com`,

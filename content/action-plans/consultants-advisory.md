@@ -119,8 +119,8 @@ recruiterOutreach:
 
     My name is [Your Name], and I'm exploring [Trade] opportunities
     in the [Location] area. The project I'd point to first is
-    [Project and Result] -- for example, a dispute value, savings
-    delivered, or claims defended -- and I hold [Credential].
+    [Project and Result] (for example, a dispute value, savings
+    delivered, or claims defended), and I hold [Credential].
 
 
     I'd welcome the chance to discuss any current or upcoming openings
