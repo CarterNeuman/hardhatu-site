@@ -11,6 +11,13 @@ export const metadata: Metadata = {
     "General interview basics plus a detailed guide for every construction career category: what recruiters actually ask and how to answer.",
 };
 
+// A couple of guides lead their `questions` array with a framing sentence
+// rather than an actual quoted question (e.g. the general guide's intro).
+// Those run 200+ characters and would overflow the clipboard even at the
+// widened size, so they're filtered out of the rotating sample — the
+// clipboard is for a quick, real quoted question, not guide copy.
+const MAX_SAMPLE_LENGTH = 180;
+
 export default function InterviewsIndexPage() {
   const { interviews } = getAllContent();
   const groups = groupInterviewsByCategory(interviews);
@@ -24,15 +31,13 @@ export default function InterviewsIndexPage() {
       </p>
 
       {groups.map((group) => {
-        // Up to 4 real opening questions pulled from this category's own
-        // guides, deduped, for the cycling clipboard readout next to the
-        // heading.
-        const questions = Array.from(
-          new Set(
-            group.items.flatMap((interview) =>
-              interview.questions.slice(0, 1).map((q) => q.question)
-            )
-          )
+        const allFirstQuestions = group.items
+          .flatMap((interview) => interview.questions.slice(0, 1).map((q) => q.question))
+          .filter((q, i, arr) => arr.indexOf(q) === i);
+        const questions = (
+          allFirstQuestions.filter((q) => q.length <= MAX_SAMPLE_LENGTH).length > 0
+            ? allFirstQuestions.filter((q) => q.length <= MAX_SAMPLE_LENGTH)
+            : allFirstQuestions
         ).slice(0, 4);
 
         return (

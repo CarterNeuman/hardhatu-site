@@ -2,12 +2,11 @@
 
 import { useEffect, useState } from "react";
 
-// Mock-up v3: a smaller, tighter clipboard — cork backing peeking out
-// around the edges (so the clip reads as actually holding something
-// against a board), plain paper with no ruled lines (the lines read as
-// visual noise at this size), and line-clamp-2 so the box stays the same
-// size across rotations without needing a tall fixed height that leaves
-// blank space for short questions.
+// Mock-up v4: widened considerably so the rotating question fits without
+// being chopped mid-sentence — 3 lines at this width covers all but the
+// rare outlier (the page itself filters those out before handing
+// questions here). Still a fixed min-height + line-clamp so the box
+// doesn't resize as it rotates.
 export function InterviewClipboardHeader({ questions }: { questions: string[] }) {
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -20,7 +19,7 @@ export function InterviewClipboardHeader({ questions }: { questions: string[] })
         setIndex((i) => (i + 1) % questions.length);
         setVisible(true);
       }, 220);
-    }, 3400);
+    }, 3800);
     return () => clearInterval(fade);
   }, [questions.length]);
 
@@ -28,7 +27,7 @@ export function InterviewClipboardHeader({ questions }: { questions: string[] })
   const current = questions[index % questions.length];
 
   return (
-    <div className="relative w-52 pt-2">
+    <div className="relative w-full max-w-md pt-2">
       {/* Cork board backing — shows as a thin frame around the paper */}
       <div
         className="absolute inset-x-0 bottom-0 top-2"
@@ -47,13 +46,13 @@ export function InterviewClipboardHeader({ questions }: { questions: string[] })
       <div className="absolute left-1/2 top-0.5 z-20 h-1.5 w-1.5 translate-x-1.5 rounded-full bg-ink/40" />
 
       {/* Paper, inset from the board so the cork shows around the edges */}
-      <div className="relative z-10 m-1.5 mt-3 flex min-h-[4.25rem] flex-col gap-1 bg-[#FBF8EF] p-2.5 shadow-[0_2px_4px_rgba(28,43,51,0.18)]">
+      <div className="relative z-10 m-1.5 mt-3 flex min-h-[4.75rem] flex-col gap-1 bg-[#FBF8EF] p-2.5 shadow-[0_2px_4px_rgba(28,43,51,0.18)]">
         <p className="flex items-center gap-1 text-[9px] font-semibold uppercase tracking-wide text-clay">
           <ClipboardIcon />
           They might ask
         </p>
         <p
-          className="line-clamp-2 text-xs leading-snug text-ink transition-opacity duration-200"
+          className="line-clamp-3 text-xs leading-snug text-ink transition-opacity duration-200"
           style={{ opacity: visible ? 1 : 0 }}
         >
           &ldquo;{current}&rdquo;
