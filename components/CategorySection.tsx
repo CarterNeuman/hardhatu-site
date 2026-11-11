@@ -10,12 +10,20 @@ import { useState } from "react";
 // `collapsible` opts a page into an expand/collapse toggle (used by the
 // Concepts page, where categories can run long). Every other page leaves it
 // unset and renders exactly as before, with no button, state, or animation.
+//
+// `headerRight` and `intro` are optional extension points so individual
+// index pages (Interview Prep's clipboard header, Resume Guide's
+// before/after strip) can add a page-specific visual to a category section
+// without forking this shared wrapper. Both default to nothing, so every
+// other page that doesn't pass them renders exactly as before.
 export function CategorySection({
   id,
   title,
   count,
   collapsible = false,
   defaultOpen = true,
+  headerRight,
+  intro,
   children,
 }: {
   id: string;
@@ -23,6 +31,8 @@ export function CategorySection({
   count?: number;
   collapsible?: boolean;
   defaultOpen?: boolean;
+  headerRight?: React.ReactNode;
+  intro?: React.ReactNode;
   children: React.ReactNode;
 }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -30,14 +40,18 @@ export function CategorySection({
   if (!collapsible) {
     return (
       <section id={id} className="mt-12 scroll-mt-24 first:mt-0">
-        <div className="flex items-baseline gap-3 border-t border-hairline pt-5">
-          <h2 className="font-display text-2xl font-bold text-ink">{title}</h2>
-          {typeof count === "number" && (
-            <span className="text-xs uppercase tracking-wide text-steel">
-              {count} {count === 1 ? "entry" : "entries"}
-            </span>
-          )}
+        <div className="flex flex-wrap items-baseline justify-between gap-3 border-t border-hairline pt-5">
+          <div className="flex items-baseline gap-3">
+            <h2 className="font-display text-2xl font-bold text-ink">{title}</h2>
+            {typeof count === "number" && (
+              <span className="text-xs uppercase tracking-wide text-steel">
+                {count} {count === 1 ? "entry" : "entries"}
+              </span>
+            )}
+          </div>
+          {headerRight}
         </div>
+        {intro && <div className="mt-4">{intro}</div>}
         <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">{children}</div>
       </section>
     );
@@ -45,27 +59,31 @@ export function CategorySection({
 
   return (
     <section id={id} className="mt-12 scroll-mt-24 first:mt-0">
-      <button
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        aria-expanded={open}
-        className="group flex w-full items-center gap-3 border-t border-hairline pt-5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
-      >
-        <FoldRuleIcon open={open} />
-        <h2 className="font-display text-2xl font-bold text-ink transition-colors group-hover:text-navy">
-          {title}
-        </h2>
-        {typeof count === "number" && (
-          <span className="text-xs uppercase tracking-wide text-steel">
-            {count} {count === 1 ? "entry" : "entries"}
-          </span>
-        )}
-      </button>
+      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-hairline pt-5">
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          className="group flex items-center gap-3 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+        >
+          <FoldRuleIcon open={open} />
+          <h2 className="font-display text-2xl font-bold text-ink transition-colors group-hover:text-navy">
+            {title}
+          </h2>
+          {typeof count === "number" && (
+            <span className="text-xs uppercase tracking-wide text-steel">
+              {count} {count === 1 ? "entry" : "entries"}
+            </span>
+          )}
+        </button>
+        {headerRight}
+      </div>
       <div
         className="grid transition-[grid-template-rows] duration-300 ease-in-out"
         style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
       >
         <div className="overflow-hidden">
+          {intro && <div className="mt-4">{intro}</div>}
           <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">{children}</div>
         </div>
       </div>
