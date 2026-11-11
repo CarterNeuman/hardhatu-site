@@ -343,9 +343,9 @@ export function Header({
             <UserButton>
               <UserButton.MenuItems>
                 <UserButton.Link
-                  label="Your Plans"
+                  label="My Progress"
                   labelIcon={<Icon kind="actionplan" size={16} />}
-                  href="/action-plan/my-plans"
+                  href="/my-progress"
                 />
               </UserButton.MenuItems>
             </UserButton>
@@ -397,11 +397,11 @@ export function Header({
 
           <Show when="signed-in">
             <Link
-              href="/action-plan/my-plans"
+              href="/my-progress"
               className="mt-2 block border border-hairline px-4 py-3 text-[0.96rem] font-semibold text-ink"
               onClick={() => setMobileOpen(false)}
             >
-              Your Saved Plans
+              My Progress
             </Link>
           </Show>
 
