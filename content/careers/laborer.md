@@ -96,6 +96,7 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - lesson-a-day-as-a-laborer
+  - program-liuna-laborer-apprenticeship
 recommendedIds:
   - career-carpenter
   - career-electrician

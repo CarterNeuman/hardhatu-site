@@ -130,6 +130,9 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - lesson-framing-and-rough-carpentry
+  - program-ubc-carpenter-apprenticeship
+  - program-abc-craft-training-apprenticeship
+  - program-nccer-craft-training
 recommendedIds:
   - career-superintendent
   - career-drywall-installer

@@ -112,6 +112,7 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - lesson-solar-and-renewable-energy-on-a-jobsite
+  - program-nabcep-pv-associate-certification
 recommendedIds:
   - concept-net-zero-energy-building
   - career-electrician

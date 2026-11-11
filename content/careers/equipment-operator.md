@@ -117,6 +117,8 @@ relatedIds:
   - lesson-heavy-equipment-and-earthwork
   - program-iuoe-heavy-equipment-operator-apprenticeship
   - program-osha-30-online-outreach
+  - program-abc-craft-training-apprenticeship
+  - program-nccer-craft-training
 recommendedIds:
   - career-superintendent
   - career-millwright

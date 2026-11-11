@@ -137,6 +137,9 @@ relatedIds:
   - lesson-electrical-rough-in
   - program-ibew-neca-electrical-apprenticeship
   - program-osha-30-online-outreach
+  - program-abc-craft-training-apprenticeship
+  - program-job-corps-construction-trades
+  - program-nccer-craft-training
 recommendedIds:
   - career-laborer
   - career-elevator-technician

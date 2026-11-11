@@ -92,6 +92,7 @@ relatedIds:
   - concept-wheelchair-lifts
   - gethired-field-trades
   - resume-field-trades
+  - program-neiep-elevator-constructor-apprenticeship
 recommendedIds:
   - concept-elevator
   - concept-escalator

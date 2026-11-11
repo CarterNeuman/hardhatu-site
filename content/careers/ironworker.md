@@ -120,6 +120,7 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - lesson-structural-steel-erection
+  - program-ironworkers-apprenticeship
 recommendedIds:
   - career-superintendent
   - career-welder

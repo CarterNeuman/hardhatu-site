@@ -108,6 +108,7 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - lesson-building-envelope-and-glazing
+  - program-iupat-glazier-apprenticeship
 recommendedIds:
   - career-ironworker
   - career-superintendent

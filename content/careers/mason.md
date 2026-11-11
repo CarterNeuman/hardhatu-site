@@ -102,6 +102,7 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - exam-cpr-first-aid
+  - program-bac-bricklayer-apprenticeship
 recommendedIds:
   - career-superintendent
   - career-concrete-worker

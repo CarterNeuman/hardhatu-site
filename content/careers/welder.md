@@ -107,6 +107,7 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - exam-cwi
+  - program-tulsa-welding-school
 recommendedIds:
   - career-superintendent
   - career-ironworker

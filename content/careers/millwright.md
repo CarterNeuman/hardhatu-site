@@ -95,6 +95,7 @@ relatedIds:
   - concept-loading-dock-equipment
   - gethired-field-trades
   - resume-field-trades
+  - program-ubc-millwright-apprenticeship
 recommendedIds:
   - concept-rigging
   - career-equipment-operator

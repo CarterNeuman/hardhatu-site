@@ -112,6 +112,7 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - lesson-mechanical-and-plumbing-rough-in
+  - program-abc-craft-training-apprenticeship
 recommendedIds:
   - career-plumber
   - career-hvac-technician

@@ -104,6 +104,8 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - exam-cpr-first-aid
+  - program-iupat-painter-apprenticeship
+  - program-job-corps-construction-trades
 recommendedIds:
   - career-drywall-installer
   - career-environmental-remediation-specialist

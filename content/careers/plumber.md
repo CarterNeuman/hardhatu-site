@@ -118,6 +118,7 @@ relatedIds:
   - exam-journeyman-plumber
   - lesson-mechanical-and-plumbing-rough-in
   - program-ua-plumber-pipefitter-apprenticeship
+  - program-job-corps-construction-trades
 recommendedIds:
   - career-pipefitter
   - career-mep-engineer

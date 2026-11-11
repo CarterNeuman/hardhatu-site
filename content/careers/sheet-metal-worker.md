@@ -104,6 +104,7 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - lesson-mechanical-and-plumbing-rough-in
+  - program-smart-sheet-metal-apprenticeship
 recommendedIds:
   - career-hvac-technician
   - career-roofer

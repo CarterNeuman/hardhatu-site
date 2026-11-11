@@ -93,6 +93,7 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - exam-cpr-first-aid
+  - program-iupat-drywall-finisher-apprenticeship
 recommendedIds:
   - career-carpenter
   - career-painter

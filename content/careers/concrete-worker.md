@@ -113,6 +113,7 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - lesson-concrete-and-foundations-in-practice
+  - program-opcmia-cement-mason-apprenticeship
 recommendedIds:
   - career-superintendent
   - career-mason

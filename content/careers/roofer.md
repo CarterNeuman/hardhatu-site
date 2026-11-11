@@ -108,6 +108,7 @@ relatedIds:
   - exam-cpr-first-aid
   - lesson-building-envelope-and-glazing
   - program-osha-30-online-outreach
+  - program-roofers-union-apprenticeship
 recommendedIds:
   - career-superintendent
   - career-insurance-restoration-estimator
