@@ -1,7 +1,7 @@
 import { neon } from "@neondatabase/serverless";
 import { drizzle } from "drizzle-orm/neon-http";
-import { eq, and, sql as dsql } from "drizzle-orm";
-import { userProgress, quizResults } from "@/lib/db/schema";
+import { eq, and, like, sql as dsql } from "drizzle-orm";
+import { userProgress, quizResults, actionPlans } from "@/lib/db/schema";
 
 // Neon's HTTP driver (not a persistent TCP connection) -- the right choice
 // for Vercel's serverless functions, which are short-lived and would
@@ -110,3 +110,89 @@ export async function getQuizResultCounts() {
     .orderBy(dsql`count(*) desc`);
 }
 
+// --- Saved Action Plan intakes (see actionPlans in lib/db/schema.ts for
+// the identity/upsert rules). These mirror the shape ActionPlanBuilder's
+// form already collects -- nothing new is invented here.
+
+export type ActionPlanInput = {
+  category: string;
+  careerId: string; // "general" when no specific career was picked
+  status: string; // "applying" | "browsing"
+  location: string;
+  hoursPerWeek: number;
+  timelineWeeks: number;
+  certsHeld: string;
+};
+
+// Every saved plan for one signed-in user, most recently touched first.
+// Used by GET /api/action-plans (the "your saved plans" list) and by
+// app/action-plan/page.tsx to decide whether to show the "view your
+// saved plans" link at all.
+export async function getActionPlansForUser(userId: string) {
+  return db
+    .select()
+    .from(actionPlans)
+    .where(eq(actionPlans.userId, userId))
+    .orderBy(dsql`${actionPlans.updatedAt} desc`);
+}
+
+// One specific saved plan, if it exists -- used when a resume link
+// (app/action-plan/page.tsx's ?plan=&career= params) names a category
+// and career to jump straight back into.
+export async function getActionPlan(userId: string, category: string, careerId: string) {
+  const rows = await db
+    .select()
+    .from(actionPlans)
+    .where(and(eq(actionPlans.userId, userId), eq(actionPlans.category, category), eq(actionPlans.careerId, careerId)));
+  return rows[0];
+}
+
+// Save (or update) one plan. Upsert on (userId, category, careerId):
+// building again for the same category+career is an edit to the
+// existing plan, not a new one -- see the schema comment for why
+// createdAt is deliberately left out of the update `set` below, so a
+// returning visitor's day-by-day calendar stays pinned to when the
+// plan was first built rather than jumping to "today" on every edit.
+export async function upsertActionPlan(userId: string, input: ActionPlanInput) {
+  const rows = await db
+    .insert(actionPlans)
+    .values({ userId, ...input })
+    .onConflictDoUpdate({
+      target: [actionPlans.userId, actionPlans.category, actionPlans.careerId],
+      set: {
+        status: input.status,
+        location: input.location,
+        hoursPerWeek: input.hoursPerWeek,
+        timelineWeeks: input.timelineWeeks,
+        certsHeld: input.certsHeld,
+        updatedAt: new Date(),
+      },
+    })
+    .returning();
+  return rows[0];
+}
+
+// Remove one saved plan (the "delete" action on the saved-plans list),
+// and -- just as important -- every day-by-day checkbox recorded
+// against it in userProgress. Without this second delete, rebuilding
+// the exact same category+career later would silently come back
+// pre-checked from the plan that was supposedly just deleted, since
+// those "actionPlanStep" rows share the same "<category>:<careerId>:"
+// contentId prefix regardless of which actionPlans row created them
+// (see the schema comment on actionPlans for that shared identity).
+// A no-op, not an error, if there was nothing to remove either way.
+export async function deleteActionPlan(userId: string, category: string, careerId: string) {
+  const prefix = `${category}:${careerId}:`;
+  await db
+    .delete(userProgress)
+    .where(
+      and(
+        eq(userProgress.userId, userId),
+        eq(userProgress.contentType, "actionPlanStep"),
+        like(userProgress.contentId, `${prefix}%`)
+      )
+    );
+  return db
+    .delete(actionPlans)
+    .where(and(eq(actionPlans.userId, userId), eq(actionPlans.category, category), eq(actionPlans.careerId, careerId)));
+}

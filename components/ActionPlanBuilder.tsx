@@ -15,12 +15,7 @@ import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
 import { CAREER_CATEGORY_ORDER } from "@/lib/types";
 import { SectionLabel } from "@/components/SectionLabel";
-import {
-  buildActionPlan,
-  type ActionPlanIntake,
-  type ApplicationStatus,
-  type GeneratedPlan,
-} from "@/lib/action-plan-generator";
+import { type ApplicationStatus, type GeneratedPlan } from "@/lib/action-plan-generator";
 import { buildIcs, downloadIcs } from "@/lib/ics";
 import { ActionPlanPrintCalendar } from "@/components/ActionPlanPrintCalendar";
 import { LiveJobResults } from "@/components/LiveJobResults";
@@ -31,52 +26,24 @@ import {
   AccordionSubLabel,
   useActionPlanAccordionControls,
 } from "@/components/ActionPlanAccordion";
-import type { ActionPlan, GetHired, ResumeGuide } from "@/lib/types";
+import { generateActionPlan, type CategoryData } from "@/lib/action-plan-data";
 
-export type SlimCareer = {
-  id: string;
-  title: string;
-  slug: string;
-  entryPay?: { low: number; high: number; unit: "annual" | "hourly"; source: string; asOf: string };
-  // Carried straight through from the career's own `isEntryRole` field
-  // (see CareerSchema in lib/types.ts) -- whether entryPay above is
-  // actual day-one pay or just the lower end of a role normally reached
-  // through promotion. See the "What you can expect to earn" section
-  // below for where this changes the copy.
-  isEntryRole?: boolean;
-};
-export type SlimLesson = { id: string; slug: string; title: string; minutes: number };
-export type SlimConcept = { id: string; slug: string; title: string; definition: string };
-export type SlimSoftware = { id: string; slug: string; title: string; whatItIs: string };
+export type { SlimCareer, SlimLesson, SlimConcept, SlimSoftware, CategoryData } from "@/lib/action-plan-data";
 
-export type CategoryData = {
+// A saved plan's intake, as handed down from app/action-plan/page.tsx
+// when a resume link (?plan=&career=) matched a row in the database --
+// see that page and the resume effect below. createdAt travels as an
+// ISO string (Server Component props must be serializable) and is
+// turned back into a real Date only where buildActionPlan needs one.
+export type InitialPlan = {
   category: string;
-  careers: SlimCareer[];
-  skeleton?: ActionPlan;
-  getHiredGuide?: Pick<GetHired, "whereToLook" | "credentialsToHaveReady">;
-  resumeGuide?: { slug: string; exampleBullets: string[] };
-  lessonsByCareerId: Record<string, SlimLesson[]>;
-  // Shown when no specific career is picked (or that career has no
-  // lessons tied to it yet) -- a few lessons for the category as a
-  // whole, so "Not sure yet, keep it general" still gets real course
-  // suggestions instead of an empty section.
-  fallbackLessons: SlimLesson[];
-  // Same "specific career wins, else category-wide fallback" pattern as
-  // lessons above, for software -- woven into the day-by-day
-  // skill-building rotation, not just a side list.
-  softwareByCareerId: Record<string, SlimSoftware[]>;
-  fallbackSoftware: SlimSoftware[];
-  conceptsByCareerId: Record<string, SlimConcept[]>;
-  fallbackConcepts: SlimConcept[];
-  interviewPrepHrefByCareerId: Record<string, string>;
-  categoryInterviewPrepHref?: string;
-  examPrepHrefByCareerId: Record<string, string>;
-  categoryExamPrepHref?: string;
-  // Same career-wins-else-category precedence as the href-only fields
-  // above, but carrying each exam's own title too -- used to phrase the
-  // skill-building rotation's exam-prep task, not just link to it.
-  examPrepTaskByCareerId: Record<string, { title: string; href: string }>;
-  categoryExamPrepTask?: { title: string; href: string };
+  careerId: string; // "general" when no specific career was picked
+  status: ApplicationStatus;
+  location: string;
+  hoursPerWeek: number;
+  timelineWeeks: number;
+  certsHeld: string;
+  createdAt: string;
 };
 
 const DEFAULT_HOURS = 10;
@@ -136,15 +103,27 @@ function formatDateRange(start: Date, end: Date): string {
   return startLabel === endLabel ? startLabel : `${startLabel}–${endLabel}`;
 }
 
-export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<string, CategoryData> }) {
+export function ActionPlanBuilder({
+  dataByCategory,
+  initialPlan,
+}: {
+  dataByCategory: Record<string, CategoryData>;
+  // When set (a resume link matched a saved plan server-side -- see
+  // app/action-plan/page.tsx), the form is skipped entirely and this
+  // plan renders immediately on mount instead -- see the resume effect
+  // below.
+  initialPlan?: InitialPlan;
+}) {
   const categories = CAREER_CATEGORY_ORDER.filter((c) => dataByCategory[c]);
-  const [category, setCategory] = useState(categories[0] ?? "");
-  const [careerId, setCareerId] = useState("");
-  const [status, setStatus] = useState<ApplicationStatus>("applying");
-  const [location, setLocation] = useState("");
-  const [hoursPerWeek, setHoursPerWeek] = useState(DEFAULT_HOURS);
-  const [timelineWeeks, setTimelineWeeks] = useState(2);
-  const [certsHeld, setCertsHeld] = useState("");
+  const [category, setCategory] = useState(initialPlan?.category ?? categories[0] ?? "");
+  const [careerId, setCareerId] = useState(
+    initialPlan ? (initialPlan.careerId === "general" ? "" : initialPlan.careerId) : ""
+  );
+  const [status, setStatus] = useState<ApplicationStatus>(initialPlan?.status ?? "applying");
+  const [location, setLocation] = useState(initialPlan?.location ?? "");
+  const [hoursPerWeek, setHoursPerWeek] = useState(initialPlan?.hoursPerWeek ?? DEFAULT_HOURS);
+  const [timelineWeeks, setTimelineWeeks] = useState(initialPlan?.timelineWeeks ?? 2);
+  const [certsHeld, setCertsHeld] = useState(initialPlan?.certsHeld ?? "");
   const [plan, setPlan] = useState<GeneratedPlan | "coming-soon" | null>(null);
   const [checkedDays, setCheckedDays] = useState<Set<number>>(new Set());
   const accordionControls = useActionPlanAccordionControls();
@@ -158,6 +137,11 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
   // visitor clicks a checkbox -- lets the hydration fetch below avoid
   // clobbering a click that landed before it resolved.
   const toggledSincePlanRef = useRef(false);
+  // The resume effect below (which auto-generates initialPlan on
+  // mount) must only ever run once, even though React can re-run
+  // effects -- this guards against generating twice or fighting a
+  // visitor's own first click on the fresh plan.
+  const resumedRef = useRef(false);
 
   const categoryData = dataByCategory[category];
   const careerOptions = categoryData?.careers ?? [];
@@ -166,6 +150,52 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
     if (!plan || plan === "coming-soon") return [];
     return buildGlossaryIndex(plan.glossaryConcepts);
   }, [plan]);
+
+  // The actual generation step shared by a fresh "Build my plan" submit
+  // and resuming a saved plan on mount -- delegates to the same
+  // generateActionPlan the "your saved plans" list page also uses (see
+  // lib/action-plan-data.ts), so this category/career lookup lives in
+  // exactly one place. Returns "coming-soon" the same way handleSubmit
+  // always has, for a category with no skeleton written yet.
+  function generatePlanFor(
+    cat: string,
+    car: string,
+    fields: { status: ApplicationStatus; location: string; hoursPerWeek: number; timelineWeeks: number; certsHeld: string },
+    startDate?: Date
+  ): GeneratedPlan | "coming-soon" {
+    return generateActionPlan(dataByCategory, cat, car, fields, startDate);
+  }
+
+  // Resume a saved plan on first render: skips the form and jumps
+  // straight to the result screen, with the day-by-day calendar pinned
+  // to the ORIGINAL date the plan was built (not today), so a plan
+  // someone started a week ago still reads as "day 8 of 14" instead of
+  // restarting. The hydration effect below then picks up its saved
+  // checkmarks once `plan` is set, same as it does for a fresh submit.
+  useEffect(() => {
+    if (!initialPlan || resumedRef.current) return;
+    resumedRef.current = true;
+    const car = initialPlan.careerId === "general" ? "" : initialPlan.careerId;
+    const generated = generatePlanFor(
+      initialPlan.category,
+      car,
+      {
+        status: initialPlan.status,
+        location: initialPlan.location,
+        hoursPerWeek: initialPlan.hoursPerWeek,
+        timelineWeeks: initialPlan.timelineWeeks,
+        certsHeld: initialPlan.certsHeld,
+      },
+      new Date(initialPlan.createdAt)
+    );
+    setCheckedDays(new Set());
+    toggledSincePlanRef.current = false;
+    setPlan(generated);
+    // Deliberately runs once on mount only -- initialPlan is a one-shot
+    // server-provided prop, not something that changes while this
+    // component is alive. See resumedRef above.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Pull back which day-by-day steps this user already checked off for
   // this exact plan (same category + career), so re-opening a Blueprint
@@ -224,46 +254,37 @@ export function ActionPlanBuilder({ dataByCategory }: { dataByCategory: Record<s
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const data = dataByCategory[category];
-    if (!data?.skeleton || data.skeleton.comingSoon) {
-      setPlan("coming-soon");
-      return;
-    }
-    const career = data.careers.find((c) => c.id === careerId);
-    const lessons = careerId ? data.lessonsByCareerId[careerId] ?? [] : [];
-    const softwareItems = careerId ? data.softwareByCareerId[careerId] ?? [] : [];
-    const careerConcepts = careerId ? data.conceptsByCareerId[careerId] ?? [] : [];
-    const intake: ActionPlanIntake = {
-      category,
-      careerId: careerId || undefined,
-      status,
-      location: location.trim(),
-      hoursPerWeek: Math.max(1, hoursPerWeek || DEFAULT_HOURS),
-      timelineWeeks: Math.max(0, timelineWeeks || 0),
-      certsHeld,
-    };
-    const generated = buildActionPlan({
-      skeleton: data.skeleton,
-      getHiredGuide: data.getHiredGuide as GetHired | undefined,
-      resumeGuide: data.resumeGuide as ResumeGuide | undefined,
-      lessonsForCareer: lessons,
-      categoryFallbackLessons: data.fallbackLessons,
-      softwareForCareer: softwareItems,
-      categoryFallbackSoftware: data.fallbackSoftware,
-      conceptsForCareer: careerConcepts,
-      categoryFallbackConcepts: data.fallbackConcepts,
-      careerInterviewPrepHref: careerId ? data.interviewPrepHrefByCareerId[careerId] : undefined,
-      categoryInterviewPrepHref: data.categoryInterviewPrepHref,
-      careerExamPrepHref: careerId ? data.examPrepHrefByCareerId[careerId] : undefined,
-      categoryExamPrepHref: data.categoryExamPrepHref,
-      careerExamPrepTask: careerId ? data.examPrepTaskByCareerId[careerId] : undefined,
-      categoryExamPrepTask: data.categoryExamPrepTask,
-      career,
-      intake,
-    });
+    const generated = generatePlanFor(category, careerId, { status, location, hoursPerWeek, timelineWeeks, certsHeld });
     setCheckedDays(new Set());
     toggledSincePlanRef.current = false;
     setPlan(generated);
+
+    // Auto-save: a signed-in visitor's plan is remembered without a
+    // separate "Save" button, so coming back to the same category+
+    // career later resumes it instead of starting over. Upserts (see
+    // /api/action-plans), so tweaking the hours/timeline/location for
+    // the SAME category+career is an edit to the existing saved plan,
+    // not a new one -- only a different category or career creates a
+    // genuinely new saved plan.
+    if (generated !== "coming-soon" && isSignedIn) {
+      fetch("/api/action-plans", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          category,
+          careerId: careerId || "general",
+          status,
+          location: location.trim(),
+          hoursPerWeek: Math.max(1, hoursPerWeek || DEFAULT_HOURS),
+          timelineWeeks: Math.max(0, timelineWeeks || 0),
+          certsHeld,
+        }),
+      }).catch(() => {
+        // Best effort -- the plan is already showing in this tab; if
+        // the save fails silently, it just won't be there to resume
+        // later, not a broken UI right now.
+      });
+    }
   }
 
   function reset() {

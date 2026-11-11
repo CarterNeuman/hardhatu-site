@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Show, SignInButton, UserButton } from "@clerk/nextjs";
+import { Icon } from "@/components/Icon";
 import { urlFor, slugifyCategory } from "@/lib/content-client";
 import type { Career, Concept, GetHired } from "@/lib/types";
 
@@ -341,7 +342,15 @@ export function Header({
             </SignInButton>
           </Show>
           <Show when="signed-in">
-            <UserButton />
+            <UserButton>
+              <UserButton.MenuItems>
+                <UserButton.Link
+                  label="Your Plans"
+                  labelIcon={<Icon kind="actionplan" size={16} />}
+                  href="/action-plan/my-plans"
+                />
+              </UserButton.MenuItems>
+            </UserButton>
           </Show>
         </div>
 
@@ -387,6 +396,16 @@ export function Header({
               <UserButton />
             </Show>
           </div>
+
+          <Show when="signed-in">
+            <Link
+              href="/action-plan/my-plans"
+              className="mt-2 block border border-hairline px-4 py-3 text-[0.96rem] font-semibold text-ink"
+              onClick={() => setMobileOpen(false)}
+            >
+              Your Saved Plans
+            </Link>
+          </Show>
 
           <MobileSection
             label="Careers"

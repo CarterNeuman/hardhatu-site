@@ -1,4 +1,4 @@
-import { pgTable, serial, text, timestamp, unique } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, integer, timestamp, unique } from "drizzle-orm/pg-core";
 
 // The one table Phase 2 needs: a row per (user, piece of content) marking
 // it done. Deliberately generic rather than one table per content type --
@@ -55,3 +55,55 @@ export const quizResults = pgTable("quiz_results", {
 
 export type QuizResultRow = typeof quizResults.$inferSelect;
 
+// One row per saved Action Plan "intake" -- the form answers that
+// produce a Blueprint (buildActionPlan in lib/action-plan-generator.ts
+// is a pure function of these plus the site's content), not the
+// generated plan itself. The generated plan is never stored: it's
+// cheap to regenerate from these inputs, and regenerating also means a
+// resumed plan always reflects the site's current content (a career's
+// pay figures updating, say) rather than a stale snapshot.
+//
+// Unique on (userId, category, careerId) -- that triple is this site's
+// existing notion of "which plan," the same identity the day-by-day
+// checkboxes already use for their user_progress contentId
+// ("<category>:<careerId>:<dayIndex>", see ActionPlanBuilder). Building
+// again for the same category+career upserts in place (an edit, not a
+// new plan); a different category or career is a genuinely different
+// plan and gets its own row, which is what lets one user save more
+// than one Blueprint (e.g. Electrician and HVAC Technician side by
+// side) -- see getActionPlansForUser in lib/db/index.ts.
+//
+// careerId is "general" (never an empty string) when no specific
+// career was picked, matching the same convention the progress
+// contentId already uses -- see upsertActionPlan.
+//
+// createdAt is deliberately excluded from upsertActionPlan's update
+// set, so it stays pinned to when the plan was first built even after
+// later edits -- the day-by-day calendar is generated starting from
+// this date (see ActionPlanBuilder's resume effect), so a returning
+// visitor's schedule reads as "day 6 of 14," not restarted from today.
+export const actionPlans = pgTable(
+  "action_plans",
+  {
+    id: serial("id").primaryKey(),
+    userId: text("user_id").notNull(),
+    category: text("category").notNull(),
+    careerId: text("career_id").notNull().default("general"),
+    status: text("status").notNull().default("applying"), // "applying" | "browsing"
+    location: text("location").notNull().default(""),
+    hoursPerWeek: integer("hours_per_week").notNull().default(10),
+    timelineWeeks: integer("timeline_weeks").notNull().default(2),
+    certsHeld: text("certs_held").notNull().default(""),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => ({
+    userCategoryCareerUnique: unique("action_plans_user_category_career_unique").on(
+      table.userId,
+      table.category,
+      table.careerId
+    ),
+  })
+);
+
+export type ActionPlanRow = typeof actionPlans.$inferSelect;
