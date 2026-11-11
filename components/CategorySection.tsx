@@ -22,6 +22,11 @@ import { useState } from "react";
 // before/after strip) can add a page-specific visual to a category section
 // without forking this shared wrapper. Both default to nothing, so every
 // other page that doesn't pass them renders exactly as before.
+//
+// The header row deliberately does NOT use justify-between: on a wide
+// page that left headerRight pinned to the far right edge, with a big gap
+// of empty space between the title and it. Keeping it right after the
+// title/count (plain flex + gap) avoids that dead space.
 export function CategorySection({
   id,
   title,
@@ -53,15 +58,13 @@ export function CategorySection({
   if (!collapsible) {
     return (
       <section id={id} className="mt-12 scroll-mt-24 first:mt-0">
-        <div className="flex flex-wrap items-baseline justify-between gap-3 border-t border-hairline pt-5">
-          <div className="flex items-baseline gap-3">
-            <h2 className="font-display text-2xl font-bold text-ink">{title}</h2>
-            {typeof count === "number" && (
-              <span className="text-xs uppercase tracking-wide text-steel">
-                {count} {count === 1 ? "entry" : "entries"}
-              </span>
-            )}
-          </div>
+        <div className="flex flex-wrap items-baseline gap-3 border-t border-hairline pt-5">
+          <h2 className="font-display text-2xl font-bold text-ink">{title}</h2>
+          {typeof count === "number" && (
+            <span className="text-xs uppercase tracking-wide text-steel">
+              {count} {count === 1 ? "entry" : "entries"}
+            </span>
+          )}
           {headerRight}
         </div>
         {intro && <div className="mt-4">{intro}</div>}
@@ -72,7 +75,7 @@ export function CategorySection({
 
   return (
     <section id={id} className="mt-12 scroll-mt-24 first:mt-0">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-hairline pt-5">
+      <div className="flex flex-wrap items-center gap-3 border-t border-hairline pt-5">
         <button
           type="button"
           onClick={toggle}
