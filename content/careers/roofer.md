@@ -9,13 +9,13 @@ payTimeline:
   unit: annual
   entry:
     low: 37460
-    high: 46260
+    high: 57820
   fiveYear:
     low: 55440
-    high: 65390
+    high: 81740
   tenYear:
-    low: 65390
-    high: 81720
+    low: 81740
+    high: 102150
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Roofers (SOC 47-2181), national data"
   asOf: "May 2025"
 ownerPayHighlight: >

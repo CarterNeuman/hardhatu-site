@@ -9,13 +9,13 @@ payTimeline:
   unit: annual
   entry:
     low: 40410
-    high: 48510
+    high: 60640
   fiveYear:
     low: 60580
-    high: 76830
+    high: 96040
   tenYear:
-    low: 76830
-    high: 99910
+    low: 96040
+    high: 124890
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Carpenters (SOC 47-2031), national data"
   asOf: "May 2025"
 ownerPayHighlight: >

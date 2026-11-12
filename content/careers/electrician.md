@@ -9,13 +9,13 @@ payTimeline:
   unit: annual
   entry:
     low: 42640
-    high: 49430
+    high: 61790
   fiveYear:
     low: 63190
-    high: 83940
+    high: 104920
   tenYear:
-    low: 83940
-    high: 108510
+    low: 104920
+    high: 135640
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Electricians (SOC 47-2111), national data"
   asOf: "May 2025"
 ownerPayHighlight: >

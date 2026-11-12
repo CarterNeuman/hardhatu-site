@@ -9,13 +9,13 @@ payTimeline:
   unit: annual
   entry:
     low: 44150
-    high: 50190
+    high: 62740
   fiveYear:
     low: 63800
-    high: 85110
+    high: 106390
   tenYear:
-    low: 85110
-    high: 108420
+    low: 106390
+    high: 135520
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Plumbers, Pipefitters, and Steamfitters (SOC 47-2152), national data — BLS tracks this trade jointly with Pipefitters/Steamfitters, so the figures match that career's"
   asOf: "May 2025"
 ownerPayHighlight: >

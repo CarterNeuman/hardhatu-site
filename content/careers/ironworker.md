@@ -9,13 +9,13 @@ payTimeline:
   unit: annual
   entry:
     low: 44580
-    high: 49880
+    high: 62350
   fiveYear:
     low: 62780
-    high: 82660
+    high: 103320
   tenYear:
-    low: 82660
-    high: 108260
+    low: 103320
+    high: 135320
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Structural Iron and Steel Workers (SOC 47-2221), national data"
   asOf: "May 2025"
 ownerPayHighlight: >

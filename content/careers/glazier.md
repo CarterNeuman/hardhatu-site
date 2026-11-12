@@ -9,13 +9,13 @@ payTimeline:
   unit: annual
   entry:
     low: 37300
-    high: 46320
+    high: 57900
   fiveYear:
     low: 57080
-    high: 66610
+    high: 83260
   tenYear:
-    low: 66610
-    high: 89790
+    low: 83260
+    high: 112240
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Glaziers (SOC 47-2121), national data"
   asOf: "May 2025"
 ownerPayHighlight: >

@@ -9,13 +9,13 @@ payTimeline:
   unit: annual
   entry:
     low: 41600
-    high: 46700
+    high: 58380
   fiveYear:
     low: 53140
-    high: 62870
+    high: 78590
   tenYear:
-    low: 62870
-    high: 79970
+    low: 78590
+    high: 99960
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Solar Photovoltaic Installers (SOC 47-2231), national data"
   asOf: "May 2025"
 ownerPayHighlight: >

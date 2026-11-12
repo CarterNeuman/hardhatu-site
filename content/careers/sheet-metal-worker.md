@@ -9,13 +9,13 @@ payTimeline:
   unit: annual
   entry:
     low: 38630
-    high: 47830
+    high: 59790
   fiveYear:
     low: 61800
-    high: 81610
+    high: 102010
   tenYear:
-    low: 81610
-    high: 105650
+    low: 102010
+    high: 132060
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Sheet Metal Workers (SOC 47-2211), national data"
   asOf: "May 2025"
 ownerPayHighlight: >

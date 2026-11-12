@@ -9,13 +9,13 @@ payTimeline:
   unit: annual
   entry:
     low: 35090
-    high: 38620
+    high: 48280
   fiveYear:
     low: 47120
-    high: 59740
+    high: 74680
   tenYear:
-    low: 59740
-    high: 78090
+    low: 74680
+    high: 97610
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Construction Laborers (SOC 47-2061), national data"
   asOf: "May 2025"
 whatIs: >

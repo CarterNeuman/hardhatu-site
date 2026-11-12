@@ -9,13 +9,13 @@ payTimeline:
   unit: annual
   entry:
     low: 39240
-    high: 46790
+    high: 58490
   fiveYear:
     low: 53750
-    high: 63010
+    high: 78760
   tenYear:
-    low: 63010
-    high: 77530
+    low: 78760
+    high: 96910
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Welders, Cutters, Solderers, and Brazers (SOC 51-4121), national data"
   asOf: "May 2025"
 ownerPayHighlight: >

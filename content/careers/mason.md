@@ -9,13 +9,13 @@ payTimeline:
   unit: annual
   entry:
     low: 44820
-    high: 51110
+    high: 63890
   fiveYear:
     low: 62120
-    high: 79350
+    high: 99190
   tenYear:
-    low: 79350
-    high: 100010
+    low: 99190
+    high: 125010
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Brickmasons and Blockmasons (SOC 47-2021), national data"
   asOf: "May 2025"
 ownerPayHighlight: >

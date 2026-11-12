@@ -9,13 +9,13 @@ payTimeline:
   unit: annual
   entry:
     low: 46290
-    high: 56390
+    high: 70490
   fiveYear:
     low: 65700
-    high: 81500
+    high: 101880
   tenYear:
-    low: 81500
-    high: 93600
+    low: 101880
+    high: 117000
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Millwrights (SOC 49-9044), national data"
   asOf: "May 2025"
 whatIs: >
