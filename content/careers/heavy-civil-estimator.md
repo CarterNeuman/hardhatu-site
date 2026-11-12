@@ -95,6 +95,7 @@ relatedIds:
   - gethired-preconstruction-estimating
   - career-blaster-explosives-specialist
   - career-mep-estimator
+  - career-field-engineer
 recommendedIds:
   - career-equipment-operator
   - career-civil-engineer

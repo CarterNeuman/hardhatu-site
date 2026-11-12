@@ -58,4 +58,5 @@ relatedIds:
   - career-chief-estimator
   - career-mep-estimator
   - career-commercial-manager-construction
+  - career-senior-project-manager
 ---

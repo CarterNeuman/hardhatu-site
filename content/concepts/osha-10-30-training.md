@@ -37,4 +37,5 @@ relatedIds:
   - gethired-field-trades
   - exam-cpr-first-aid
   - concept-child-labor-law-compliance-construction
+  - career-safety-coordinator
 ---

@@ -131,6 +131,8 @@ relatedIds:
   - career-interior-designer
   - career-specification-writer
   - career-modular-offsite-construction-manager
+  - career-field-engineer
+  - career-senior-project-manager
 recommendedIds:
   - career-project-manager
   - career-superintendent

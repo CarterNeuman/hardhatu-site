@@ -90,6 +90,9 @@ relatedIds:
   - software-bluebeam-revu
   - resume-project-operations
   - gethired-project-operations
+  - career-field-engineer
+  - career-general-superintendent
+  - career-safety-coordinator
 recommendedIds:
   - career-superintendent
   - career-laborer

@@ -118,6 +118,7 @@ relatedIds:
   - career-property-condition-assessor
   - career-tenant-improvement-construction-manager
   - career-marketing-proposals-manager
+  - career-senior-project-manager
 recommendedIds:
   - career-project-manager
   - career-business-development-manager

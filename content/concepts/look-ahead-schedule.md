@@ -36,4 +36,5 @@ relatedIds:
   - phase-construction
   - concept-resource-loading
   - lesson-coordinating-subs-as-a-superintendent
+  - career-general-superintendent
 ---

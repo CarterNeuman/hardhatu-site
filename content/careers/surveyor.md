@@ -117,6 +117,7 @@ relatedIds:
   - concept-benchmark-survey-monument
   - career-geotechnical-engineer
   - career-landscape-architect
+  - career-field-engineer
 recommendedIds:
   - career-bim-vdc-specialist
   - career-drone-uav-specialist

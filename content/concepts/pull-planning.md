@@ -36,4 +36,5 @@ relatedIds:
   - concept-look-ahead-schedule
   - phase-construction
   - lesson-coordinating-subs-as-a-superintendent
+  - career-general-superintendent
 ---

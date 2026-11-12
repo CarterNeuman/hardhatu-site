@@ -36,4 +36,5 @@ relatedIds:
   - phase-construction
   - lesson-jobsite-safety-in-practice
   - concept-incident-investigation-procedure
+  - career-safety-coordinator
 ---

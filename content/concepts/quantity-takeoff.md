@@ -42,4 +42,5 @@ relatedIds:
   - lesson-a-day-in-the-life-of-an-estimator
   - career-chief-estimator
   - career-mep-estimator
+  - career-field-engineer
 ---

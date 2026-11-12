@@ -131,6 +131,7 @@ relatedIds:
   - concept-deficiency-list
   - concept-inspection-and-test-plan
   - career-building-envelope-consultant
+  - career-safety-coordinator
 recommendedIds:
   - career-safety-manager
   - career-superintendent

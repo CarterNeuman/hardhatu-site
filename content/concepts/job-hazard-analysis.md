@@ -47,5 +47,6 @@ relatedIds:
   - concept-ladder-safety-standard
   - concept-pre-task-plan
   - concept-site-specific-safety-plan
-
+  - career-general-superintendent
+  - career-safety-coordinator
 ---

@@ -158,6 +158,8 @@ relatedIds:
   - career-workers-comp-claims-adjuster
   - career-general-liability-underwriter
   - career-healthcare-construction-manager
+  - career-general-superintendent
+  - career-safety-coordinator
 recommendedIds:
   - career-superintendent
   - career-quality-control-manager

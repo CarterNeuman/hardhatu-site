@@ -42,4 +42,5 @@ relatedIds:
   - concept-guaranteed-maximum-price
   - lesson-choosing-how-to-build-it
   - concept-shared-savings-clause
+  - career-senior-project-manager
 ---

@@ -97,6 +97,8 @@ relatedIds:
   - career-controller-cfo-construction
   - career-equipment-fleet-manager
   - career-chief-estimator
+  - career-general-superintendent
+  - career-senior-project-manager
 recommendedIds:
   - career-project-manager
   - career-senior-estimator

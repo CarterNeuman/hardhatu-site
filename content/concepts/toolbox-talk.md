@@ -42,4 +42,5 @@ relatedIds:
   - concept-emergency-action-plan
   - lesson-a-day-as-a-laborer
   - concept-pre-task-plan
+  - career-safety-coordinator
 ---

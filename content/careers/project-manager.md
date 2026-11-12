@@ -186,6 +186,8 @@ relatedIds:
   - career-modular-offsite-construction-manager
   - career-healthcare-construction-manager
   - career-commercial-manager-construction
+  - career-general-superintendent
+  - career-senior-project-manager
 recommendedIds:
   - career-project-engineer
   - career-owners-representative

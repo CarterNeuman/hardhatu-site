@@ -171,6 +171,9 @@ relatedIds:
   - concept-utility-locate-811
   - career-tenant-improvement-construction-manager
   - career-modular-offsite-construction-manager
+  - career-field-engineer
+  - career-general-superintendent
+  - career-senior-project-manager
 recommendedIds:
   - career-project-manager
   - career-project-engineer

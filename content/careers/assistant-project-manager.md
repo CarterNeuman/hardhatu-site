@@ -82,6 +82,7 @@ relatedIds:
   - interview-project-operations
   - resume-project-operations
   - gethired-project-operations
+  - career-senior-project-manager
 recommendedIds:
   - concept-change-order
   - concept-rfi

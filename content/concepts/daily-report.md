@@ -38,4 +38,6 @@ relatedIds:
   - concept-oac-meeting-minutes
   - lesson-coordinating-subs-as-a-superintendent
   - concept-site-visit-report
+  - career-field-engineer
+  - career-general-superintendent
 ---

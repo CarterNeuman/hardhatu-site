@@ -38,4 +38,5 @@ relatedIds:
   - concept-prequalification
   - phase-construction
   - career-business-development-manager
+  - career-senior-project-manager
 ---

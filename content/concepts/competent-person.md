@@ -53,5 +53,5 @@ relatedIds:
   - concept-qualified-person
   - concept-aerial-lift-scissor-lift-safety
   - concept-fire-watch
-
+  - career-safety-coordinator
 ---

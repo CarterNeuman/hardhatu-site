@@ -41,4 +41,5 @@ relatedIds:
   - concept-cm-as-advisor
   - lesson-choosing-how-to-build-it
   - phase-construction
+  - career-senior-project-manager
 ---

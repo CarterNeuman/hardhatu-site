@@ -39,4 +39,5 @@ relatedIds:
   - career-document-control-specialist
   - lesson-reading-a-set-of-plans
   - concept-progress-photo-documentation
+  - career-field-engineer
 ---
