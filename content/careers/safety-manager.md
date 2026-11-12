@@ -143,6 +143,8 @@ relatedIds:
   - concept-hierarchy-of-controls
   - concept-osha-soil-classification
   - concept-struck-by-hazard
+  - concept-lead-based-paint-remediation
+  - concept-fire-extinguisher-cabinets
 recommendedIds:
   - career-superintendent
   - career-quality-control-manager

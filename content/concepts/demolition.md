@@ -42,5 +42,7 @@ relatedIds:
   - career-demolition-supervisor
   - concept-salvage-insurance
   - concept-asbestos-abatement-regulation
+  - concept-selective-demolition
+  - concept-building-deconstruction
 
 ---

@@ -124,6 +124,11 @@ relatedIds:
   - concept-concrete-mix-design
   - concept-shear-wall
   - concept-sub-consultant
+  - concept-selective-demolition
+  - concept-storage-shelving-specialties
+  - concept-window-washing-systems
+  - concept-fabric-tensile-structures
+  - concept-sound-vibration-control-rooms
 recommendedIds:
   - career-ironworker
   - career-concrete-worker

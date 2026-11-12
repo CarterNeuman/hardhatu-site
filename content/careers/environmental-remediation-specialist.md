@@ -103,6 +103,9 @@ relatedIds:
   - concept-wetlands-permit-404
   - resume-specialized-construction
   - gethired-specialized-construction
+  - concept-lead-based-paint-remediation
+  - concept-underground-storage-tank-removal
+  - concept-radon-mitigation-system
 recommendedIds:
   - career-facilities-manager
   - career-safety-manager

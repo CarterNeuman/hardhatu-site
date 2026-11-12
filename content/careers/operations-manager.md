@@ -90,6 +90,7 @@ relatedIds:
   - career-business-development-manager
   - resume-business
   - gethired-business
+  - concept-solid-waste-handling-equipment
 recommendedIds:
   - career-project-manager
   - career-senior-estimator

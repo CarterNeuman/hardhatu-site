@@ -102,6 +102,7 @@ relatedIds:
   - resume-consultants-advisory
   - gethired-consultants-advisory
   - concept-usgbc
+  - concept-building-deconstruction
 recommendedIds:
   - career-construction-consultant
   - career-commissioning-agent

@@ -99,6 +99,7 @@ relatedIds:
   - gethired-technology-design
   - concept-level-of-development-bim
   - lesson-3d-modeling-in-practice
+  - concept-access-flooring
 recommendedIds:
   - career-project-manager
   - career-surveyor

@@ -101,6 +101,7 @@ relatedIds:
   - concept-bim-execution-plan
   - resume-technology-design
   - gethired-technology-design
+  - concept-parking-control-equipment
 recommendedIds:
   - career-bim-vdc-specialist
   - career-drone-uav-specialist

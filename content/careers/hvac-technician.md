@@ -128,6 +128,8 @@ relatedIds:
   - concept-epa-608-certification
   - concept-heat-recovery-ventilation
   - lesson-jobsite-safety-in-practice
+  - concept-radon-mitigation-system
+  - concept-louvers-vents
 recommendedIds:
   - career-facilities-manager
   - career-sheet-metal-worker

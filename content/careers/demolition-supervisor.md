@@ -102,6 +102,8 @@ relatedIds:
   - concept-asbestos-abatement-regulation
   - resume-specialized-construction
   - gethired-specialized-construction
+  - concept-selective-demolition
+  - concept-building-deconstruction
 recommendedIds:
   - concept-demolition
   - concept-hazardous-material-abatement

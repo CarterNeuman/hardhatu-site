@@ -108,6 +108,7 @@ relatedIds:
   - lesson-a-day-as-an-owners-rep
   - lesson-financing-and-feasibility
   - concept-pro-forma
+  - concept-historic-structure-report
 recommendedIds:
   - career-project-manager
   - career-business-development-manager

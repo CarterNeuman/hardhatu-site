@@ -149,6 +149,8 @@ relatedIds:
   - concept-nm-cable
   - concept-service-loop
   - lesson-jobsite-safety-in-practice
+  - concept-access-flooring
+  - concept-parking-control-equipment
 recommendedIds:
   - career-laborer
   - career-elevator-technician

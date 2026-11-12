@@ -113,6 +113,7 @@ relatedIds:
   - concept-ground-control-points
   - concept-total-station
   - lesson-drones-scanning-and-mapping
+  - concept-utility-locating-potholing
 recommendedIds:
   - career-bim-vdc-specialist
   - career-drone-uav-specialist

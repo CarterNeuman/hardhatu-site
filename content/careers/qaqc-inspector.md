@@ -112,6 +112,12 @@ relatedIds:
   - exam-cwi
   - exam-icc-building-inspector
   - concept-concrete-cylinder-break-test
+  - concept-toilet-bath-accessories
+  - concept-laboratory-equipment
+  - concept-fixed-seating-bleachers
+  - concept-clean-rooms
+  - concept-healthcare-equipment
+  - concept-radiation-protection-rooms
 recommendedIds:
   - career-quality-control-manager
   - career-assistant-superintendent

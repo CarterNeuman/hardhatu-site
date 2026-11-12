@@ -93,6 +93,7 @@ relatedIds:
   - concept-wheelchair-lifts
   - resume-specialized-construction
   - gethired-specialized-construction
+  - concept-historic-structure-report
 recommendedIds:
   - concept-brick-veneer
   - concept-mortar

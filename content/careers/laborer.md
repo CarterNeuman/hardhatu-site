@@ -98,6 +98,7 @@ relatedIds:
   - lesson-a-day-as-a-laborer
   - program-liuna-laborer-apprenticeship
   - concept-struck-by-hazard
+  - concept-synthetic-turf
 recommendedIds:
   - career-carpenter
   - career-electrician

@@ -46,5 +46,6 @@ relatedIds:
   - concept-asbestos-abatement-regulation
   - concept-environmental-site-assessment
   - concept-lead-safe-work-practices
+  - concept-lead-based-paint-remediation
 
 ---

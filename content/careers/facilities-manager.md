@@ -119,6 +119,16 @@ relatedIds:
   - resume-specialized-construction
   - gethired-specialized-construction
   - lesson-3d-modeling-in-practice
+  - concept-lockers
+  - concept-postal-specialties
+  - concept-storage-shelving-specialties
+  - concept-solid-waste-handling-equipment
+  - concept-athletic-recreational-equipment
+  - concept-window-washing-systems
+  - concept-furniture-accessories
+  - concept-rugs-floor-mats
+  - concept-interior-plantscaping
+  - concept-exterior-site-furnishings
 recommendedIds:
   - career-project-manager
   - career-hvac-technician

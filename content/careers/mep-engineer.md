@@ -133,6 +133,13 @@ relatedIds:
   - gethired-technology-design
   - exam-nate-ready-to-work
   - exam-fe
+  - concept-laboratory-equipment
+  - concept-access-flooring
+  - concept-healthcare-equipment
+  - concept-clean-rooms
+  - concept-sound-vibration-control-rooms
+  - concept-ice-rinks
+  - concept-radiation-protection-rooms
 recommendedIds:
   - career-hvac-technician
   - career-electrician

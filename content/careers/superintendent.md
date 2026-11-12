@@ -149,6 +149,17 @@ relatedIds:
   - exam-nccco-crane-operator
   - lesson-coordinating-subs-as-a-superintendent
   - concept-substrate
+  - concept-utility-locating-potholing
+  - concept-flagpoles
+  - concept-lockers
+  - concept-fire-extinguisher-cabinets
+  - concept-athletic-recreational-equipment
+  - concept-vault-security-equipment
+  - concept-rugs-floor-mats
+  - concept-fixed-seating-bleachers
+  - concept-swimming-pools
+  - concept-synthetic-turf
+  - concept-exterior-site-furnishings
 recommendedIds:
   - career-project-manager
   - career-project-engineer

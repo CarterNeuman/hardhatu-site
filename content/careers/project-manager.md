@@ -168,6 +168,10 @@ relatedIds:
   - lesson-subcontractor-buyout-and-scope-gaps
   - concept-overhead-and-profit-markup
   - concept-time-and-materials-contract
+  - concept-underground-storage-tank-removal
+  - concept-postal-specialties
+  - concept-decorative-art-glass-metal
+  - concept-furniture-accessories
 recommendedIds:
   - career-project-engineer
   - career-owners-representative

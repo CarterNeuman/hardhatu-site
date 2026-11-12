@@ -128,6 +128,7 @@ relatedIds:
   - concept-spud-wrench
   - concept-structural-bay
   - lesson-jobsite-safety-in-practice
+  - concept-decorative-art-glass-metal
 recommendedIds:
   - career-superintendent
   - career-welder

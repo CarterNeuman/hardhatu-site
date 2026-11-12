@@ -120,6 +120,7 @@ relatedIds:
   - concept-honeycombing
   - concept-slump-test
   - lesson-jobsite-safety-in-practice
+  - concept-ice-rinks
 recommendedIds:
   - career-superintendent
   - career-mason

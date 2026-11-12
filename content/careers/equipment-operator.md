@@ -125,6 +125,7 @@ relatedIds:
   - concept-motor-grader
   - concept-osha-soil-classification
   - lesson-jobsite-safety-in-practice
+  - concept-utility-locating-potholing
 recommendedIds:
   - career-superintendent
   - career-millwright

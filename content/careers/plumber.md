@@ -121,6 +121,9 @@ relatedIds:
   - program-job-corps-construction-trades
   - lesson-building-sequence
   - lesson-jobsite-safety-in-practice
+  - concept-toilet-bath-accessories
+  - concept-interior-plantscaping
+  - concept-swimming-pools
 recommendedIds:
   - career-pipefitter
   - career-mep-engineer

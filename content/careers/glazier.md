@@ -114,6 +114,7 @@ relatedIds:
   - concept-thermal-break
   - concept-water-penetration-testing
   - lesson-jobsite-safety-in-practice
+  - concept-decorative-art-glass-metal
 recommendedIds:
   - career-ironworker
   - career-superintendent
