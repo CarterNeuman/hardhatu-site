@@ -2,8 +2,9 @@ import Link from "next/link";
 import { getAllContent, stripWikiLinks, urlFor } from "@/lib/content";
 import { Icon } from "@/components/Icon";
 import { CATEGORY_SLUG } from "@/lib/content-client";
-import { HeroSlideshow } from "@/components/HeroSlideshow";
 import { SiteSearch, type SearchItem } from "@/components/SiteSearch";
+import { HomeReveal } from "@/components/HomeReveal";
+import { BLUEPRINT_GRID } from "@/lib/blueprint-style";
 
 const LEARN_SECTIONS = [
   {
@@ -32,53 +33,83 @@ const LEARN_SECTIONS = [
   },
 ];
 
-// The homepage's guided alternative to a flat category list (see chat: the
-// hook should inspire someone to take the next step, not just explain the
-// site). Each option maps to a real CAREER_CATEGORY_ORDER bucket via
-// CATEGORY_SLUG so it jumps straight into content that already exists,
-// rather than needing its own taxonomy or content.
+// The hero's "what sounds most like you" tiles -- also the site's main
+// category picker, so each option maps to a real CAREER_CATEGORY_ORDER
+// bucket via CATEGORY_SLUG and jumps straight into content that already
+// exists, rather than needing its own taxonomy. Previously a separate
+// "Choose your path" section further down the page; moved into the hero
+// itself (mockup B direction, chat 2026-11-11) so answering it is the
+// page's first move, not its fourth.
 const PATH_OPTIONS = [
   {
-    label: "Building things with your hands",
+    label: "Working with my hands",
     blurb:
       "Framing, wiring, pouring concrete, running equipment, being the reason something exists that wasn't there yesterday.",
     goesTo: "Field & Trades",
     href: `/careers#${CATEGORY_SLUG["Field & Trades"]}`,
     icon: PathIconHands,
-    accent: "amber" as const,
   },
   {
-    label: "Running the job, keeping it organized",
+    label: "Running the job",
     blurb: "Schedules, budgets, crews, and making sure a hundred moving pieces land on the same day.",
     goesTo: "Project & Operations",
     href: `/careers#${CATEGORY_SLUG["Project & Operations"]}`,
     icon: PathIconOrg,
-    accent: "navy" as const,
   },
   {
-    label: "Numbers, contracts, and the business side",
+    label: "Numbers and planning",
     blurb: "Bids, budgets, payments, and the deals that decide who gets hired and who gets paid what.",
     goesTo: "Business & Estimating",
     href: `/careers#${CATEGORY_SLUG["Business"]}`,
     icon: PathIconLedger,
-    accent: "amber" as const,
   },
   {
-    label: "Tech, design, and data",
+    label: "Tech and design",
     blurb: "3D models, drones, and software that catches problems before they cost anyone real money.",
     goesTo: "Technology & Design",
     href: `/careers#${CATEGORY_SLUG["Technology & Design"]}`,
     icon: PathIconMonitor,
-    accent: "navy" as const,
+  },
+];
+
+// The three-step "how it works" band, each paired with a real photo and
+// alternating sides as you scroll (the "format changes" effect, chat
+// 2026-11-11) rather than a repeating card grid. Step 1's photo is a real
+// career photo already on the site (Field & Trades, the most common
+// starting point); steps 2-3 use photos from the project's own photo set
+// that weren't in use anywhere yet.
+const HOW_IT_WORKS = [
+  {
+    step: "01",
+    title: "See what's out there",
+    body: "Construction is a lot bigger than \"the trades.\" Estimating, project management, safety, tech, insurance, design: browse real careers and see what a normal week actually looks like in each one.",
+    href: "/careers",
+    cta: "Browse careers",
+    image: "/images/careers/electrician.jpg",
+    alt: "Electrician working on jobsite wiring",
+  },
+  {
+    step: "02",
+    title: "Learn the basics",
+    body: "Every career links to the terms, tools, and processes it actually touches, and those link right back. Twenty minutes here gets you more real jobsite vocabulary than most people pick up in a summer on site.",
+    href: "/concepts",
+    cta: "Learn the terms",
+    image: "/images/homepage/step-learn.jpg",
+    alt: "Construction professional reviewing blueprints",
+  },
+  {
+    step: "03",
+    title: "Get a plan",
+    body: "Answer a few questions about your schedule and where you're starting from, and get a real, week-by-week plan: what to learn, which credential to chase first, and how to put yourself in front of people who are hiring.",
+    href: "/action-plan",
+    cta: "Build my plan",
+    image: "/images/homepage/step-plan.jpg",
+    alt: "Two workers reviewing plans on a jobsite",
   },
 ];
 
 export default function HomePage() {
   const { careers, concepts, phases, software, lessons, exams, interviews } = getAllContent();
-  // Floor to the nearest hundred so the homepage stat never overclaims as
-  // the glossary grows past a round number mid-batch (see chat: the
-  // "number lead" hero rework, 2026-10-16).
-  const roundedConceptCount = Math.floor(concepts.length / 100) * 100;
 
   // One flattened list across every real content type, for the hero's
   // sitewide search (see chat: 2026-10-16). Each type's own index page
@@ -114,105 +145,37 @@ export default function HomePage() {
 
   return (
     <div>
-      {/* ---------- hero ---------- */}
+      {/* ---------- hero: lead with the question, not a stat (mockup B,
+          chat 2026-11-11) ---------- */}
       <section className="border-b border-hairline bg-paper">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 py-14 md:grid-cols-[1.1fr_0.9fr] md:py-16">
-          <div>
-            <h1 className="font-display text-4xl font-bold leading-[1.05] text-ink md:text-5xl">
-              <span className="block">
-                <span className="text-amber">{careers.length}</span> careers.{" "}
-                <span className="text-amber">{roundedConceptCount}+</span> concepts.
-              </span>
-              <span className="block">One connected map of how construction actually works.</span>
-            </h1>
-            <p className="mt-4 max-w-[46ch] text-lg leading-relaxed text-ink">
-              Every career links to the concepts, software, and certifications it actually
-              touches, and those link right back. Give it twenty minutes and you'll walk
-              away with more real jobsite vocabulary than most people pick up in a summer
-              on site.
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link
-                href="/quizzes/find-your-career"
-                className="border border-navy bg-navy px-5 py-3 text-sm font-semibold text-paper transition-colors hover:bg-ink hover:border-ink"
-              >
-                Find Where You'd Fit
-              </Link>
-              <Link
-                href="/concepts"
-                className="border border-ink px-5 py-3 text-sm font-semibold text-ink transition-colors hover:bg-ink hover:text-paper"
-              >
-                Learn the Terms
-              </Link>
-            </div>
-            <SiteSearch items={searchItems} />
-          </div>
-          <div className="flex justify-center">
-            <HeroSlideshow />
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- what you walk away with (moved directly under the
-          hero, see chat: the proof backing the headline's numbers should
-          be one scroll away, not four) ---------- */}
-      <section className="border-b border-hairline">
-        <div className="mx-auto max-w-6xl px-6 py-12">
-          <p className="mb-2 flex items-center gap-2.5 text-xs font-semibold uppercase tracking-wide text-navy">
+        <div className="mx-auto max-w-4xl px-6 py-14 text-center md:py-20">
+          <p className="mb-3 flex items-center justify-center gap-2.5 text-xs font-semibold uppercase tracking-wide text-navy">
             <span aria-hidden="true" className="h-px w-5 bg-navy" />
-            Why BreakGroundU
+            Construction careers, explained
+            <span aria-hidden="true" className="h-px w-5 bg-navy" />
           </p>
-          <h2 className="font-display text-2xl font-bold text-ink">What you walk away with</h2>
-          <p className="mt-2 max-w-[60ch] text-steel">
-            This isn't generic career advice. It's built the way the industry actually talks,
-            so the time you spend here is time that actually transfers.
+          <h1 className="font-display text-4xl font-bold leading-[1.08] text-ink md:text-5xl">
+            Looking for work that's actually hiring?{" "}
+            <span className="text-amber">Start with one question.</span>
+          </h1>
+          <p className="mx-auto mt-4 max-w-[52ch] text-lg leading-relaxed text-ink">
+            A lot of fields feel uncertain right now. Construction isn't one of them: the
+            industry is actively trying to hire, and there's a real path in whether you're
+            starting from zero or already have your hands dirty.
           </p>
-          <div className="mt-7 grid grid-cols-1 gap-5 md:grid-cols-3">
-            <Benefit icon={BenefitIconHelmet} title="The real language, not a textbook version">
-              Every term, tool, and certification here ties back to what OSHA, the PMI, NCCCO,
-              and the people on an actual jobsite call it, not a simplified stand-in. Walk into
-              an interview or a first day already speaking the language instead of catching up
-              for six months.
-            </Benefit>
-            <Benefit icon={BenefitIconNetwork} title="Everything connects, so it actually sticks">
-              A career links to the concepts and software it touches, and those link right back.
-              You're not memorizing a glossary, you're building the same mental map someone with
-              five years in the field already carries around, just faster.
-            </Benefit>
-            <Benefit icon={BenefitIconCompass} title="Find out before you commit to anything">
-              No tuition, no application, no quitting a job to "try it out" first. Explore a
-              dozen careers in an evening and find out which one actually fits before you spend
-              real time or money finding out the hard way.
-            </Benefit>
-          </div>
         </div>
-      </section>
-
-      {/* ---------- choose your path ---------- */}
-      <section id="path" className="scroll-mt-16 border-b border-hairline">
-        <div className="mx-auto max-w-6xl px-6 py-12">
-          <p className="mb-2 flex items-center gap-2.5 text-xs font-semibold uppercase tracking-wide text-amber">
-            <span aria-hidden="true" className="h-px w-5 bg-amber" />
-            Choose your path
+        <div className="mx-auto max-w-5xl px-6 pb-14 md:pb-20">
+          <p className="mb-4 text-center text-sm font-semibold uppercase tracking-wide text-steel">
+            What sounds most like you?
           </p>
-          <h2 className="font-display text-2xl font-bold text-ink">What sounds more like you?</h2>
-          <p className="mt-2 max-w-[60ch] text-steel">
-            Pick whichever one feels closest. There's no wrong answer, and you can always
-            look around at everything else after. Prefer a few quick questions instead?{" "}
-            <Link href="/quizzes/find-your-career" className="whitespace-nowrap font-semibold text-navy hover:underline">
-              Take the career quiz →
-            </Link>
-          </p>
-          <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {PATH_OPTIONS.map((option) => {
               const PathIcon = option.icon;
               return (
                 <Link
                   key={option.goesTo}
                   href={option.href}
-                  className={`group flex flex-col gap-2.5 border border-hairline border-t-2 bg-white/40 p-4 transition-colors hover:border-navy hover:bg-white/70 ${
-                    option.accent === "navy" ? "border-t-navy" : "border-t-amber"
-                  }`}
+                  className="group flex flex-col gap-2.5 border border-hairline border-t-2 border-t-amber bg-white/40 p-4 text-left transition-colors hover:border-navy hover:border-t-navy hover:bg-white/70"
                 >
                   <PathIcon className="text-clay" />
                   <h3 className="font-display text-base font-semibold text-ink group-hover:text-navy">
@@ -226,17 +189,95 @@ export default function HomePage() {
               );
             })}
           </div>
-          <p className="mt-6 text-sm text-steel">
-            Already know what you're after?{" "}
-            <Link href="/careers" className="font-semibold text-navy hover:underline">
-              Skip the guessing and browse all {careers.length} careers →
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
+            <Link href="/quizzes/find-your-career" className="font-semibold text-navy hover:underline">
+              Prefer a few quick questions? Take the career quiz →
             </Link>
+          </div>
+          <div className="mx-auto mt-5 max-w-md">
+            <SiteSearch items={searchItems} />
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- full-bleed photo + stat band: the hook, in one
+          number ---------- */}
+      <HomeReveal as="section" className="relative overflow-hidden">
+        <div className="relative h-[280px] w-full sm:h-[340px] md:h-[400px]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/homepage/stat-band.jpg"
+            alt="Construction crew standing on a reinforced concrete deck under construction"
+            className="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-ink/75" />
+          <div className="relative mx-auto flex h-full max-w-4xl flex-col items-center justify-center px-6 text-center">
+            <p className="font-display text-5xl font-bold text-amber-soft md:text-6xl">
+              349,000
+            </p>
+            <p className="mt-2 max-w-[42ch] text-lg leading-snug text-paper md:text-xl">
+              new construction workers the industry needs to hire in 2026 alone, and that
+              number only grows in 2027. That's not a problem for you, that's room.
+            </p>
+            <p className="mt-4 text-xs text-paper/60">
+              Source: Associated Builders and Contractors, 2026 workforce shortage analysis
+            </p>
+          </div>
+        </div>
+      </HomeReveal>
+
+      {/* ---------- how it works: three steps, alternating layout as you
+          scroll ---------- */}
+      <section className="border-b border-hairline bg-paper">
+        <div className="mx-auto max-w-5xl px-6 py-14 md:py-16">
+          <p className="mb-2 flex items-center gap-2.5 text-xs font-semibold uppercase tracking-wide text-amber">
+            <span aria-hidden="true" className="h-px w-5 bg-amber" />
+            How it works
           </p>
+          <h2 className="font-display text-2xl font-bold text-ink md:text-3xl">
+            From curious to hired, in three steps
+          </h2>
+          <div className="mt-10 flex flex-col gap-14">
+            {HOW_IT_WORKS.map((item, i) => (
+              <HomeReveal
+                key={item.step}
+                as="div"
+                delayMs={i * 80}
+                className={`grid grid-cols-1 items-center gap-6 md:grid-cols-2 md:gap-10 ${
+                  i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
+                }`}
+              >
+                <div className="aspect-[4/3] w-full overflow-hidden border border-hairline bg-steel/10">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <span className="font-display text-sm font-bold text-amber">{item.step}</span>
+                  <h3 className="mt-1 font-display text-xl font-semibold text-ink md:text-2xl">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2.5 max-w-[48ch] text-steel">{item.body}</p>
+                  <Link
+                    href={item.href}
+                    className="mt-4 inline-block text-sm font-semibold text-navy hover:underline"
+                  >
+                    {item.cta} →
+                  </Link>
+                </div>
+              </HomeReveal>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ---------- start learning ---------- */}
-      <section className="border-b border-hairline">
+      <HomeReveal as="section" className="border-b border-hairline">
         <div className="mx-auto max-w-6xl px-6 py-12">
           <h2 className="font-display text-2xl font-bold text-ink">Start Learning</h2>
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -267,104 +308,47 @@ export default function HomePage() {
             .
           </p>
         </div>
-      </section>
+      </HomeReveal>
 
+      {/* ---------- closing CTA band: same dark blueprint-grid treatment
+          as the Action Plan and Get Qualified heroes, for one consistent
+          "dark band" language sitewide ---------- */}
+      <HomeReveal as="section" className="bg-ink text-paper" style={BLUEPRINT_GRID}>
+        <div className="mx-auto max-w-3xl px-6 py-16 text-center md:py-20">
+          <h2 className="font-display text-2xl font-bold text-paper md:text-3xl">
+            Not sure where you'd fit? Most people aren't.
+          </h2>
+          <p className="mx-auto mt-3 max-w-[48ch] text-paper/75">
+            Two minutes of questions is enough to point you somewhere real, and the plan
+            that comes out of it pulls straight from everything on this site.
+          </p>
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href="/quizzes/find-your-career"
+              className="border border-amber-soft bg-amber-soft px-5 py-3 text-sm font-semibold text-ink transition-colors hover:bg-paper"
+            >
+              Take the quiz →
+            </Link>
+            <Link
+              href="/action-plan"
+              className="border border-paper px-5 py-3 text-sm font-semibold text-paper transition-colors hover:bg-paper hover:text-ink"
+            >
+              Build my plan →
+            </Link>
+          </div>
+        </div>
+      </HomeReveal>
+
+      <p className="border-t border-hairline bg-paper px-6 py-3 text-center font-mono text-[11px] text-steel">
+        {careers.length} careers · {concepts.length} concepts · {lessons.length} lessons, and
+        growing
+      </p>
     </div>
   );
 }
 
-function Benefit({
-  icon: BenefitIcon,
-  title,
-  children,
-}: {
-  icon: (props: { className?: string }) => React.ReactElement;
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="border border-hairline bg-white/40 p-5">
-      <BenefitIcon className="text-clay" />
-      <h3 className="mt-3 font-display text-lg font-semibold text-ink">{title}</h3>
-      <p className="mt-1.5 text-sm leading-relaxed text-steel">{children}</p>
-    </div>
-  );
-}
-
-// "What you walk away with" icons, same thin-line blueprint language as the
-// PathIcon* set above (22px, 1.6px stroke, currentColor). The helmet keeps
-// the small filled "rivet" dot already used as an accent elsewhere on the
-// site (see FoldRuleIcon in CategorySection.tsx), here standing in for the
-// hat's top button.
-function BenefitIconHelmet({ className }: { className?: string }) {
-  return (
-    <svg
-      width="22"
-      height="22"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.6}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      aria-hidden="true"
-      focusable="false"
-    >
-      <path d="M4 15.5C4 9 7.5 5.5 12 5.5s8 3.5 8 10" />
-      <path d="M2.5 15.5h19" />
-      <path d="M9.5 15.5v-5M14.5 15.5v-5" />
-      <circle cx="12" cy="5.2" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-function BenefitIconNetwork({ className }: { className?: string }) {
-  return (
-    <svg
-      width="22"
-      height="22"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.6}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      aria-hidden="true"
-      focusable="false"
-    >
-      <path d="M7.6 8.3L15.8 7M9.3 9.6l3 6M14.8 9.4l-2.9 6.2" />
-      <circle cx="6" cy="7" r="2.3" />
-      <circle cx="18" cy="7" r="2.3" />
-      <circle cx="12" cy="18" r="2.3" />
-    </svg>
-  );
-}
-
-function BenefitIconCompass({ className }: { className?: string }) {
-  return (
-    <svg
-      width="22"
-      height="22"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.6}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      aria-hidden="true"
-      focusable="false"
-    >
-      <circle cx="12" cy="12" r="8.5" />
-      <path d="M14.8 9.2l-2 4.6-4.6 2 2-4.6z" />
-    </svg>
-  );
-}
-
-// Thin-stroke ("blueprint line-art") icons for the "choose your path" tiles,
-// same visual language as Icon.tsx / HardHatMark: 1.6px strokes, currentColor,
+// Thin-stroke ("blueprint line-art") icons for the hero tiles, same visual
+// language as Icon.tsx / HardHatMark: 1.6px strokes, currentColor,
 // rounded caps/joins, minimal fill. Kept local to this page since they're
 // specific to these four options, not a reusable content-type icon.
 function PathIconHands({ className }: { className?: string }) {
