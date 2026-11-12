@@ -373,6 +373,22 @@ for (const [dir, config] of Object.entries(TYPE_CONFIG)) {
 
 // Second pass: cross-references can only be checked once every id is known.
 for (const { filePath, data, body } of entries) {
+  // Action-plan steps can link to site pages (dayByDay[].links): each
+  // entry must be a known token or a real content id, same guarantee
+  // relatedIds gets -- a typo here would otherwise silently drop the
+  // link from every generated plan.
+  if (data.id && String(data.id).startsWith("actionplan-") && Array.isArray(data.dayByDay)) {
+    const LINK_TOKENS = new Set(["career", "careers", "gethired", "resume", "interview", "exam", "programs", "outreach", "openings"]);
+    data.dayByDay.forEach((item, i) => {
+      const links = Array.isArray(item?.links) ? item.links : [];
+      for (const link of links) {
+        if (!LINK_TOKENS.has(link) && !allIds.has(link)) {
+          errors.push(`${filePath}: dayByDay[${i}].links has "${link}", which is neither a link token nor a real content id`);
+        }
+      }
+    });
+  }
+
   const relatedIds = Array.isArray(data.relatedIds) ? data.relatedIds : [];
   for (const relatedId of relatedIds) {
     if (!allIds.has(relatedId)) {

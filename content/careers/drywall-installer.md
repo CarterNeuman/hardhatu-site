@@ -96,6 +96,7 @@ relatedIds:
   - program-iupat-drywall-finisher-apprenticeship
   - lesson-framing-and-rough-carpentry
   - lesson-building-sequence
+  - lesson-jobsite-safety-in-practice
 recommendedIds:
   - career-carpenter
   - career-painter

@@ -25,41 +25,64 @@ dayByDay:
     title: "Translate your background into construction-specific language"
     detail: "Certified payroll instead of just 'payroll,' subcontract administration instead of just 'contracts,' lien waivers, prevailing wage, and named software like Procore or Sage 300 CRE. A resume that could be for any industry is exactly what gets passed over here."
     appliesWhen: both
+    links:
+      - resume
+      - concept-certified-payroll
+      - concept-lien-waiver
+      - software-sage-300-cre
   - dayStart: 1
     dayEnd: 2
     title: "Lead with any relevant credential you already hold"
     detail: "A CPA license, SHRM-CP or PHR, a payroll certification. Put it near the top of your resume where it gets seen first, using the Business Roles Resume Guide's bullet examples as a starting point."
     appliesWhen: both
+    links:
+      - resume
   - dayStart: 2
     dayEnd: 2
     title: "Read through two or three Business-category career pages"
     detail: "Compare accounting, HR, contracts administration, and procurement, the four functions this category covers, and which one actually fits what you've done before."
     appliesWhen: browsing
+    links:
+      - careers
   - dayStart: 3
     dayEnd: 4
     title: "Build your target list of GC, CM firm, and large subcontractor back-office openings"
     detail: "General contractors, construction management firms, and large subcontractors all run their own accounting, HR, contracts, and procurement functions. Applying directly to them beats a generic corporate job board search."
     appliesWhen: both
+    links:
+      - gethired
+      - openings
   - dayStart: 4
     dayEnd: 4
     title: "Research what's actually different about the specific company you're applying to"
     detail: "Union versus open shop payroll, public versus private contract work, these change what the role actually involves. Showing up with that context already understood is a real differentiator."
     appliesWhen: browsing
+    links:
+      - concept-union-vs-open-shop
+      - concept-prevailing-wage
   - dayStart: 5
     dayEnd: 5
     title: "Use an industry-specific association for your function"
     detail: "The Construction Financial Management Association (CFMA) for accounting and finance roles, SHRM's construction-focused communities for HR, are real networking channels most general job seekers never think to use."
     appliesWhen: both
+    links:
+      - gethired
   - dayStart: 6
     dayEnd: 6
     title: "Make your first direct contact"
     detail: "Reach out to one GC, CM firm, or large subcontractor directly about an accounting, HR, contracts, or procurement opening."
     appliesWhen: applying
+    links:
+      - outreach
+      - openings
   - dayStart: 7
     dayEnd: 8
     title: "Reach out to your next leads, and follow up on anyone who's gone quiet"
     detail: "Contact 2 to 3 more back-office openings in parallel. If it's been a reasonable window with no response, follow up using the template below, and lean on any CFMA or SHRM construction-council contacts you've made."
     appliesWhen: applying
+    links:
+      - outreach
+      - openings
     recurring: true
     recurringKind: outreach
   - dayStart: 9
@@ -67,6 +90,9 @@ dayByDay:
     title: "Decide if you're ready to move from browsing to applying"
     detail: "If a specific function (accounting, HR, contracts, procurement) still feels like the right fit, this is the point to pick one and start reaching out for real."
     appliesWhen: browsing
+    links:
+      - gethired
+      - outreach
   - dayStart: 8
     dayEnd: 9
     title: "Pursue a relevant credential for your function"
@@ -79,11 +105,17 @@ dayByDay:
     title: "Be ready to answer what you already know about how construction differs from other industries"
     detail: "This is a real, commonly asked interview question in this category. Having a genuine, specific answer ready matters more than a generic one."
     appliesWhen: applying
+    links:
+      - interview
+      - lesson-getting-paid
   - dayStart: 13
     dayEnd: 14
     title: "Review your responses and decide your next move"
     detail: "By now you should know which contacts are worth staying on and which have gone cold. Keep the warm ones going, and add fresh names to replace the ones that didn't pan out."
     appliesWhen: applying
+    links:
+      - openings
+      - interview
     anchorEnd: true
 targetEmployerTypes:
   - "General contractor, construction management firm, and large subcontractor career pages, checked directly for accounting, HR, contracts, and procurement openings"

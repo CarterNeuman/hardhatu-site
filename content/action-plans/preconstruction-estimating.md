@@ -26,41 +26,65 @@ dayByDay:
     title: "Name your CSI divisions, software, and pricing method"
     detail: "Bluebeam, On-Screen Takeoff, ProEst, HCSS HeavyBid, whichever you actually use, plus which divisions and which pricing method (unit price, lump sum, GMP). This is what a preconstruction manager actually screens for."
     appliesWhen: both
+    links:
+      - resume
+      - software-bluebeam-revu
+      - software-on-screen-takeoff
+      - software-proest
   - dayStart: 1
     dayEnd: 2
     title: "Confirm where you stand on the Certified Professional Estimator credential"
     detail: "It's not required everywhere, but it's the one credential hiring managers in this category actually recognize on sight. Use the Preconstruction & Estimating Resume Guide's bullet examples to turn your divisions and software into an actual resume line while you're at it."
     appliesWhen: both
+    links:
+      - exam-cpe
+      - resume
   - dayStart: 2
     dayEnd: 2
     title: "Read through two or three estimating and preconstruction career pages"
     detail: "Compare what an estimator, a cost engineer, and a preconstruction manager actually do day to day, and which project types (heavy civil, commercial, residential) each tends to specialize in."
     appliesWhen: browsing
+    links:
+      - careers
   - dayStart: 3
     dayEnd: 4
     title: "Build your target list of GC, subcontractor, and CM firm preconstruction departments"
     detail: "Reaching out to that department directly, by name if you can find one, beats a generic application most of the time. General contractors, subcontractors, and CM firms all run their own preconstruction teams."
     appliesWhen: both
+    links:
+      - gethired
+      - openings
   - dayStart: 4
     dayEnd: 4
     title: "Get a feel for real bid-day pressure before you start applying"
     detail: "Read through what a real takeoff under a bid deadline actually looks like. Speed and zero errors aren't expected from day one, they're built through reps next to someone senior."
     appliesWhen: browsing
+    links:
+      - lesson-bidding-and-winning-work
+      - lesson-a-day-in-the-life-of-an-estimator
   - dayStart: 5
     dayEnd: 5
     title: "Get involved with ASPE or AGC's estimating committees"
     detail: "The American Society of Professional Estimators and AGC's own estimating committees are real networking channels in a category small enough for reputation to matter."
     appliesWhen: both
+    links:
+      - gethired
   - dayStart: 6
     dayEnd: 6
     title: "Make your first direct contact with a preconstruction department"
     detail: "Reach out to one preconstruction lead directly, by name if you can find one, rather than applying through a general careers form."
     appliesWhen: applying
+    links:
+      - outreach
+      - openings
   - dayStart: 7
     dayEnd: 8
     title: "Reach out to your next leads, and follow up on anyone who's gone quiet"
     detail: "Contact 2 to 3 more preconstruction departments in parallel. If it's been a reasonable window with no response, follow up using the template below, and lean on any ASPE or AGC committee contacts you've made."
     appliesWhen: applying
+    links:
+      - outreach
+      - openings
     recurring: true
     recurringKind: outreach
   - dayStart: 9
@@ -68,11 +92,17 @@ dayByDay:
     title: "Decide if you're ready to move from browsing to applying"
     detail: "If estimating or preconstruction still feels like the right fit, this is the point to pick a project type to specialize in and start reaching out for real."
     appliesWhen: browsing
+    links:
+      - gethired
+      - outreach
   - dayStart: 8
     dayEnd: 9
     title: "Pursue the CPE credential or deepen your named software fluency"
     detail: "Bluebeam, On-Screen Takeoff, ProEst, and HCSS HeavyBid are each named directly in postings for this category. Picking up real fluency in one you don't already know well, or moving forward on the CPE, is a concrete reason to get a second look."
     appliesWhen: both
+    links:
+      - software-hcss-heavybid
+      - software-on-screen-takeoff
     recurring: true
     recurringKind: certification
   - dayStart: 12
@@ -80,11 +110,17 @@ dayByDay:
     title: "Prepare for a live takeoff or pricing exercise"
     detail: "A lot of estimating interviews include an actual hands-on takeoff or pricing exercise, not just a conversation. Practice one beforehand so it's not a surprise."
     appliesWhen: applying
+    links:
+      - interview
+      - lesson-the-estimate-becomes-the-budget
   - dayStart: 13
     dayEnd: 14
     title: "Review your responses and decide your next move"
     detail: "Follow up by referencing the actual project type they're bidding, it reads as real engagement, not a form letter. Keep your ASPE or AGC committee contacts warm either way."
     appliesWhen: applying
+    links:
+      - openings
+      - interview
     anchorEnd: true
 targetEmployerTypes:
   - "General contractor, subcontractor, and construction management firm preconstruction department pages, checked directly"

@@ -140,6 +140,7 @@ relatedIds:
   - concept-span-table
   - concept-top-and-bottom-plate
   - program-job-corps-construction-trades
+  - lesson-jobsite-safety-in-practice
 recommendedIds:
   - career-superintendent
   - career-drywall-installer

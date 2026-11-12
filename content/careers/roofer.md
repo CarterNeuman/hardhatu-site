@@ -111,6 +111,7 @@ relatedIds:
   - program-roofers-union-apprenticeship
   - concept-parapet
   - lesson-building-sequence
+  - lesson-jobsite-safety-in-practice
 recommendedIds:
   - career-superintendent
   - career-insurance-restoration-estimator

@@ -124,6 +124,7 @@ relatedIds:
   - concept-excavator
   - concept-motor-grader
   - concept-osha-soil-classification
+  - lesson-jobsite-safety-in-practice
 recommendedIds:
   - career-superintendent
   - career-millwright

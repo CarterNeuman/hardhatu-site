@@ -25,41 +25,63 @@ dayByDay:
     title: "Decide your track and confirm the credentials that go with it"
     detail: "Most PMs and superintendents start as an assistant PM or field engineer, no credential required yet. If you're pursuing the formal PM track, confirm where you stand on PMP or CAPM. If you're aiming at a field-facing superintendent role, confirm your OSHA 30 status."
     appliesWhen: both
+    links:
+      - exam-pmp
+      - exam-capm
+      - exam-osha-30
   - dayStart: 1
     dayEnd: 2
     title: "Quantify your project track record before you apply anywhere"
     detail: "Dollar value, square footage, delivery method, named software you've worked in: Procore, Primavera P6, Microsoft Project, Bluebeam. This is the single biggest thing that separates a resume that gets a callback from one that doesn't. Use the Project & Operations Resume Guide's bullet examples as a starting point."
     appliesWhen: both
+    links:
+      - resume
   - dayStart: 2
     dayEnd: 2
     title: "Read through two or three Project & Operations career pages"
     detail: "Compare what a project manager, superintendent, and scheduler actually do day to day, and what each path typically pays, before committing more time to one over another."
     appliesWhen: browsing
+    links:
+      - careers
   - dayStart: 3
     dayEnd: 4
     title: "Build your target list of GCs, CM firms, and owner in-house teams"
     detail: "These are the three employer types that actually hire this category, and a lot of their current openings never make it to a generic job board. Check their own careers pages directly rather than relying only on aggregated listings."
     appliesWhen: both
+    links:
+      - gethired
+      - openings
   - dayStart: 4
     dayEnd: 4
     title: "Get a feel for how a real schedule or budget holds up under pressure"
     detail: "Read through a project management career profile or a related lesson before you start applying, so your first conversation with a superintendent or PM doesn't start from zero."
     appliesWhen: browsing
+    links:
+      - lesson-schedule-delay-dispute
+      - lesson-cost-control-and-forecasting-in-practice
   - dayStart: 5
     dayEnd: 5
     title: "Get active in AGC or CMAA, even before you have the job"
     detail: "Associated General Contractors and the Construction Management Association of America both run local chapter events built for exactly this kind of networking, and a lot of hiring in this category still happens through a warm introduction."
     appliesWhen: both
+    links:
+      - gethired
   - dayStart: 6
     dayEnd: 6
     title: "Make your first direct contact"
     detail: "Reach out to one GC, CM firm, or owner team directly, and to one construction-specific recruiter. Lead with your quantified track record, not just your title."
     appliesWhen: applying
+    links:
+      - outreach
+      - openings
   - dayStart: 7
     dayEnd: 8
     title: "Reach out to your next leads, and follow up on anyone who's gone quiet"
     detail: "Contact 2 to 3 more GCs, CM firms, or recruiters in parallel, don't wait to hear back from one before reaching out to the next. If it's been a reasonable window with no response, follow up using the template below rather than assuming it's a no, and lean on any AGC or CMAA contacts you've made if direct outreach goes quiet."
     appliesWhen: applying
+    links:
+      - outreach
+      - openings
     recurring: true
     recurringKind: outreach
   - dayStart: 9
@@ -67,11 +89,18 @@ dayByDay:
     title: "Decide if you're ready to move from browsing to applying"
     detail: "If project management or field operations still feels like the right fit, this is the point to pick a track and start reaching out for real, using the outreach guidance below."
     appliesWhen: browsing
+    links:
+      - gethired
+      - outreach
   - dayStart: 8
     dayEnd: 9
     title: "Pursue PMP, CAPM, OSHA 30, or deepen your named software fluency"
     detail: "Procore, Primavera P6, Microsoft Project, and Bluebeam are each named directly in postings for this category. Picking up real fluency in one you don't already know well, or moving forward on PMP, CAPM, or OSHA 30, is a concrete reason to get a second look."
     appliesWhen: both
+    links:
+      - software-procore
+      - software-primavera-p6
+      - software-microsoft-project
     recurring: true
     recurringKind: certification
   - dayStart: 12
@@ -79,11 +108,17 @@ dayByDay:
     title: "Prepare for a scenario-based interview, not a generic one"
     detail: "Expect real questions about schedule changes, budget overruns, and subcontractor conflicts, not just a resume walkthrough. Have one specific story ready for each."
     appliesWhen: applying
+    links:
+      - interview
+      - lesson-change-order-basics
   - dayStart: 13
     dayEnd: 14
     title: "Review your responses and decide your next move"
     detail: "Follow up with something specific from the conversation, a project they mentioned, a challenge they described, not a generic thank-you note. Keep your AGC or CMAA contacts warm either way."
     appliesWhen: applying
+    links:
+      - openings
+      - interview
     anchorEnd: true
 targetEmployerTypes:
   - "General contractors, construction management firms, and owners with in-house construction teams, the three employer types that actually hire this category"

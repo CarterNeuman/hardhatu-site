@@ -93,6 +93,7 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - program-neiep-elevator-constructor-apprenticeship
+  - lesson-jobsite-safety-in-practice
 recommendedIds:
   - concept-elevator
   - concept-escalator

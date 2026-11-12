@@ -120,6 +120,7 @@ relatedIds:
   - program-ua-plumber-pipefitter-apprenticeship
   - program-job-corps-construction-trades
   - lesson-building-sequence
+  - lesson-jobsite-safety-in-practice
 recommendedIds:
   - career-pipefitter
   - career-mep-engineer

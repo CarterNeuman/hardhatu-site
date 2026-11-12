@@ -103,6 +103,7 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - program-bac-bricklayer-apprenticeship
+  - lesson-jobsite-safety-in-practice
 recommendedIds:
   - career-superintendent
   - career-concrete-worker

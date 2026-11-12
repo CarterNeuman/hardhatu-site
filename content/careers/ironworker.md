@@ -127,6 +127,7 @@ relatedIds:
   - concept-plumb-alignment
   - concept-spud-wrench
   - concept-structural-bay
+  - lesson-jobsite-safety-in-practice
 recommendedIds:
   - career-superintendent
   - career-welder

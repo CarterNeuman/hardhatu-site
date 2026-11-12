@@ -24,41 +24,61 @@ dayByDay:
     title: "Confirm your OSHA 10 status"
     detail: "If you already have your OSHA 10 card, you're done with this step, move on. If you don't, register for the next available online course today, most run under a day and clear this blocker before anything else on this list matters."
     appliesWhen: both
+    links:
+      - exam-osha-10
   - dayStart: 1
     dayEnd: 2
     title: "Pull your baseline paperwork together"
     detail: "A government-issued ID, proof you're eligible to work, and a valid driver's license if you have one. Having this ready before anyone asks for it is what lets you say yes on the spot instead of losing a day scrambling."
     appliesWhen: both
+    links:
+      - gethired
   - dayStart: 2
     dayEnd: 2
     title: "Read through two or three specific trade career pages"
     detail: "Compare entry pay, typical training length, and what a typical day actually looks like for the trades you're considering, before committing more time to one over another."
     appliesWhen: browsing
+    links:
+      - careers
   - dayStart: 3
     dayEnd: 4
     title: "Build your target list"
     detail: "If you're going union, find your trade's local through your state or metro Building and Construction Trades Council and check its current apprenticeship application window. If you're going open shop, use the employer types below to put together 5 to 10 real names, not just \"contractors near me.\""
     appliesWhen: both
+    links:
+      - gethired
+      - programs
+      - openings
   - dayStart: 4
     dayEnd: 4
     title: "Watch a jobsite-safety lesson before you start applying"
     detail: "A few minutes on what a real jobsite expects from a new hire, so your first conversation with a foreman doesn't start from zero."
     appliesWhen: browsing
+    links:
+      - lesson-jobsite-safety-in-practice
   - dayStart: 5
     dayEnd: 5
     title: "Tailor your resume or application packet"
     detail: "Use the Field & Trades Resume Guide's bullet examples as a starting point. A credentials-first, one-page packet beats a generic resume for almost every trade application."
     appliesWhen: both
+    links:
+      - resume
   - dayStart: 6
     dayEnd: 6
     title: "Make your first contact"
     detail: "Call, walk in, or send the outreach message below to the first name on your list. Ask for the foreman or hiring manager by name if you can find it. Lead with your OSHA 10 card and that you're available to start right away."
     appliesWhen: applying
+    links:
+      - outreach
+      - openings
   - dayStart: 7
     dayEnd: 8
     title: "Reach out to your next leads, and follow up on anyone who's gone quiet"
     detail: "Contact 2 to 3 more names from your list in parallel, don't wait to hear back from one before reaching out to the next, trade hiring moves fast and your odds go up with every real conversation you start. If it's been three business days since your last message with no answer, that's the point to follow up, not to assume it's a no, use the follow-up template below. Still short on responses after a couple of rounds of this? Add a construction-focused staffing agency to your list if you haven't already, they can place you on a jobsite fast while you keep working the rest."
     appliesWhen: applying
+    links:
+      - outreach
+      - openings
     recurring: true
     recurringKind: outreach
   - dayStart: 9
@@ -66,6 +86,9 @@ dayByDay:
     title: "Decide if you're ready to move from browsing to applying"
     detail: "If the trades you've been reading about still feel right, this is the point to pick one and start reaching out for real, using the outreach guidance below."
     appliesWhen: browsing
+    links:
+      - gethired
+      - outreach
   - dayStart: 8
     dayEnd: 9
     title: "Pursue one more certification or credential for your trade"
@@ -78,11 +101,16 @@ dayByDay:
     title: "Prep for any interview or on-site conversation that's been scheduled"
     detail: "Most trade hiring conversations are short and practical, not a formal interview. The Field & Trades Interview Prep guide covers what's actually being assessed in that short conversation."
     appliesWhen: applying
+    links:
+      - interview
   - dayStart: 13
     dayEnd: 14
     title: "Review your responses and decide your next move"
     detail: "By now you should know which contacts are worth staying on and which have gone cold. Keep the warm ones going, add fresh names to replace the ones that didn't pan out, and if you're not getting traction, this is also a good point to pick up another certification or widen your search."
     appliesWhen: applying
+    links:
+      - openings
+      - interview
     anchorEnd: true
 targetEmployerTypes:
   - "Union signatory contractors for your specific trade, ask your local directly which contractors are signatory in your area"

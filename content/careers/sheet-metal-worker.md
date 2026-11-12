@@ -105,6 +105,7 @@ relatedIds:
   - resume-field-trades
   - lesson-mechanical-and-plumbing-rough-in
   - program-smart-sheet-metal-apprenticeship
+  - lesson-jobsite-safety-in-practice
 recommendedIds:
   - career-hvac-technician
   - career-roofer

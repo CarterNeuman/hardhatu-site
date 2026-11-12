@@ -26,41 +26,61 @@ dayByDay:
     title: "Identify the exact credential your target specialty requires"
     detail: "OSHA's 40-hour HAZWOPER for environmental remediation, an NCCCO operator certification for pile driving, an IICRC certification for restoration work. Confirm which one first, it changes where and how you apply."
     appliesWhen: both
+    links:
+      - gethired
   - dayStart: 1
     dayEnd: 2
     title: "Check whether you already qualify to sit for it this month"
     detail: "And plan to stack credentials rather than collecting just one, these roles often require more than one certification at once, HAZWOPER plus OSHA 10, for example. Use the Specialized Construction Resume Guide to see exactly where the credential should sit on the page."
     appliesWhen: both
+    links:
+      - resume
   - dayStart: 2
     dayEnd: 2
     title: "Read through two or three Specialized Construction career pages"
     detail: "Compare renewable energy project management, disaster restoration, demolition, pile driving, and historic preservation, these are genuinely different specialties with different credentials and different hiring paths."
     appliesWhen: browsing
+    links:
+      - careers
   - dayStart: 3
     dayEnd: 4
     title: "Build your target list through your specialty's own trade association"
     detail: "The Pile Driving Contractors Association, the National Demolition Association, the IICRC and major restoration franchises, State Historic Preservation Offices, or solar and wind EPC contractors directly, depending on your specialty. These post and refer roles that rarely show up on general listings."
     appliesWhen: both
+    links:
+      - gethired
+      - openings
   - dayStart: 4
     dayEnd: 4
     title: "Look hard at renewable energy and restoration specifically if you're coming from general construction"
     detail: "Solar alone is projected to add roughly 26,000 jobs through 2035 as the fastest-growing occupation tracked federally, and restoration is growing steadily on rising disaster frequency. Both are actively recruiting from general construction backgrounds."
     appliesWhen: browsing
+    links:
+      - lesson-solar-and-renewable-energy-on-a-jobsite
+      - lesson-claim-to-restoration
   - dayStart: 5
     dayEnd: 5
     title: "Get hands-on time with the specific hazard, system, or equipment before you interview"
     detail: "Even a short apprenticeship, internship, or entry-level stint gives you a real, specific story to tell, which matters more here than a general construction resume."
     appliesWhen: both
+    links:
+      - careers
   - dayStart: 6
     dayEnd: 6
     title: "Make your first direct contact"
     detail: "Reach out to one employer or trade association contact in your specialty directly, leading with the credential you hold."
     appliesWhen: applying
+    links:
+      - outreach
+      - openings
   - dayStart: 7
     dayEnd: 8
     title: "Reach out to your next leads, and follow up on anyone who's gone quiet"
     detail: "Contact 2 to 3 more employers or association contacts in parallel, restoration franchises, EPC contractors, or your specialty's trade group. Follow up using the template below if it's been a reasonable window with no response."
     appliesWhen: applying
+    links:
+      - outreach
+      - openings
     recurring: true
     recurringKind: outreach
   - dayStart: 9
@@ -68,6 +88,9 @@ dayByDay:
     title: "Decide if you're ready to move from browsing to applying"
     detail: "If a specific specialty still feels like the right fit, this is the point to commit to its credential and start reaching out for real."
     appliesWhen: browsing
+    links:
+      - gethired
+      - outreach
   - dayStart: 8
     dayEnd: 9
     title: "Stack another credential for your specialty"
@@ -80,11 +103,16 @@ dayByDay:
     title: "Be ready to describe a specific hazard, compliance, or equipment scenario"
     detail: "These specialties involve real hazard exposure, and interviewers routinely probe for whether you actually understand the risk, not just whether you hold the certificate."
     appliesWhen: applying
+    links:
+      - interview
   - dayStart: 13
     dayEnd: 14
     title: "Review your responses and decide your next move"
     detail: "By now you should know which contacts are worth staying on and which have gone cold. The credential gets you considered, whether you get kept on the crew comes down to how you handle the work and how easy you are for a supervisor to trust."
     appliesWhen: applying
+    links:
+      - openings
+      - interview
     anchorEnd: true
 targetEmployerTypes:
   - "The Pile Driving Contractors Association (PDCA) for pile driving roles"

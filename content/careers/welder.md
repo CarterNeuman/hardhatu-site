@@ -109,6 +109,7 @@ relatedIds:
   - exam-cwi
   - program-tulsa-welding-school
   - lesson-structural-steel-erection
+  - lesson-jobsite-safety-in-practice
 recommendedIds:
   - career-superintendent
   - career-ironworker

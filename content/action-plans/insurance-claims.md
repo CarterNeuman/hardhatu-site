@@ -27,41 +27,60 @@ dayByDay:
     title: "Start your state adjuster license application today"
     detail: "It's the fastest single thing you can do to become hireable in this category. Most state licenses can be completed in 2 to 10 weeks depending on study pace, and an unlicensed application is filtered out immediately no matter how strong the rest of your background is."
     appliesWhen: both
+    links:
+      - exam-adjuster-license
   - dayStart: 1
     dayEnd: 2
     title: "Decide early: staff adjuster or independent/CAT adjuster"
     detail: "Staff roles are steadier but have tightened hardest at entry level. Independent and CAT adjusting has a rougher income curve but tracks real, growing disaster demand. Use the Insurance & Claims Resume Guide to see where your licensing and claims history need to sit either way."
     appliesWhen: both
+    links:
+      - resume
+      - careers
   - dayStart: 2
     dayEnd: 2
     title: "Read through two or three Insurance & Claims career pages"
     detail: "Compare staff adjuster, public adjuster, insurance restoration estimator, and loss control engineer, these draw on overlapping but genuinely different skill sets."
     appliesWhen: browsing
+    links:
+      - careers
   - dayStart: 3
     dayEnd: 4
     title: "Get Xactimate certified before you apply"
     detail: "It's named directly in nearly every adjusting job posting, and having it already in hand removes a filter most other applicants haven't cleared yet."
     appliesWhen: both
+    links:
+      - software-xactimate
   - dayStart: 4
     dayEnd: 4
     title: "Consider an all-lines license with broad reciprocity"
     detail: "A license like Texas's All-Lines license covers residential, commercial, auto, and more, and is recognized in most other states, which matters if you want to pursue CAT deployment work across state lines."
     appliesWhen: browsing
+    links:
+      - exam-adjuster-license
   - dayStart: 5
     dayEnd: 5
     title: "Build a relationship with independent adjusting firms before disaster season"
     detail: "IA firms staff up fast when a catastrophe hits, and the adjusters who get called first are the ones already in their system, not the ones applying the week of the storm."
     appliesWhen: both
+    links:
+      - gethired
   - dayStart: 6
     dayEnd: 6
     title: "Make your first direct contact"
     detail: "Reach out to one IA firm, CAT staffing company, or regional carrier directly, leading with your license status."
     appliesWhen: applying
+    links:
+      - outreach
+      - openings
   - dayStart: 7
     dayEnd: 8
     title: "Reach out to your next leads, and follow up on anyone who's gone quiet"
     detail: "Contact 2 to 3 more IA firms, CAT staffing companies, or carriers in parallel. Follow up using the template below if it's been a reasonable window with no response."
     appliesWhen: applying
+    links:
+      - outreach
+      - openings
     recurring: true
     recurringKind: outreach
   - dayStart: 9
@@ -69,6 +88,9 @@ dayByDay:
     title: "Decide if you're ready to move from browsing to applying"
     detail: "If staff or independent adjusting still feels like the right fit, this is the point to commit to a track and start reaching out for real."
     appliesWhen: browsing
+    links:
+      - gethired
+      - outreach
   - dayStart: 8
     dayEnd: 9
     title: "Pursue another license, reciprocity state, or an IICRC water damage certification"
@@ -81,11 +103,17 @@ dayByDay:
     title: "Prepare to discuss claims volume, type, and outcomes specifically"
     detail: "Leaning on generic 'customer service' framing reads as less credible here than naming real numbers. Have specifics ready, not a summary."
     appliesWhen: applying
+    links:
+      - interview
+      - lesson-claim-to-restoration
   - dayStart: 13
     dayEnd: 14
     title: "Review your responses and decide your next move"
     detail: "By now you should know which contacts are worth staying on and which have gone cold. Keep the warm ones going, IA firms remember who was already in their system before the next storm."
     appliesWhen: applying
+    links:
+      - openings
+      - interview
     anchorEnd: true
 targetEmployerTypes:
   - "Your state Department of Insurance licensing portal, as the first stop before any job search"

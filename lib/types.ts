@@ -356,6 +356,30 @@ export const GetHiredSchema = z
 // no accounts, no database, and no payments (see build-sequencing notes):
 // the generator is a pure function over this content plus a visitor's
 // form inputs, computed entirely in the browser.
+// Tokens allowed in an action-plan step's `links` (see ActionPlanSchema's
+// dayByDay) alongside literal content ids. Resolved per visitor in
+// lib/action-plan-generator.ts; checked in scripts/validate-content.mjs.
+//   career    the visitor's chosen career page (else the category's careers)
+//   careers   the category's section of the career index
+//   gethired  the category's Get Hired guide
+//   resume    the category's Resume Guide
+//   interview the career's (else category's) Interview Prep guide
+//   exam      the career's (else category's) primary Exam Prep guide
+//   programs  the first couple of real programs for the career/category
+//   outreach  the outreach-templates section of the plan itself
+//   openings  the "where to find openings" section of the plan itself
+export const ACTION_PLAN_LINK_TOKENS = [
+  "career",
+  "careers",
+  "gethired",
+  "resume",
+  "interview",
+  "exam",
+  "programs",
+  "outreach",
+  "openings",
+] as const;
+
 export const ActionPlanSchema = z
   .object({
     ...base,
@@ -406,6 +430,16 @@ export const ActionPlanSchema = z
           // whether the plan is 2 weeks or 10. Mutually exclusive with
           // recurring.
           anchorEnd: z.boolean().default(false),
+          // Site pages this step should link straight to, so a step
+          // that says "use the Resume Guide" is one click from the
+          // Resume Guide. Each entry is either a real content id
+          // (lesson-jobsite-safety-in-practice, exam-osha-10) or one of
+          // the tokens in ACTION_PLAN_LINK_TOKENS below, which the
+          // generator resolves for the visitor's own category/career
+          // (their Resume Guide, their Interview Prep guide, the
+          // programs for their trade...). A token with nothing to point
+          // at for a given visitor is silently dropped.
+          links: z.array(z.string()).default([]),
         })
       )
       .default([]),

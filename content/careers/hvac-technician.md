@@ -127,6 +127,7 @@ relatedIds:
   - program-lincoln-tech-hvac-technician
   - concept-epa-608-certification
   - concept-heat-recovery-ventilation
+  - lesson-jobsite-safety-in-practice
 recommendedIds:
   - career-facilities-manager
   - career-sheet-metal-worker

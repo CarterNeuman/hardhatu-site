@@ -106,6 +106,7 @@ relatedIds:
   - exam-cpr-first-aid
   - program-iupat-painter-apprenticeship
   - program-job-corps-construction-trades
+  - lesson-jobsite-safety-in-practice
 recommendedIds:
   - career-drywall-installer
   - career-environmental-remediation-specialist

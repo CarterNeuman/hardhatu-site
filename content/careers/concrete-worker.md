@@ -119,6 +119,7 @@ relatedIds:
   - concept-concrete-mix-design
   - concept-honeycombing
   - concept-slump-test
+  - lesson-jobsite-safety-in-practice
 recommendedIds:
   - career-superintendent
   - career-mason

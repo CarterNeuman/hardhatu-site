@@ -114,6 +114,7 @@ relatedIds:
   - lesson-mechanical-and-plumbing-rough-in
   - program-abc-craft-training-apprenticeship
   - concept-hydronic-systems
+  - lesson-jobsite-safety-in-practice
 recommendedIds:
   - career-plumber
   - career-hvac-technician

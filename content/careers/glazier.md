@@ -113,6 +113,7 @@ relatedIds:
   - concept-tempered-laminated-glass
   - concept-thermal-break
   - concept-water-penetration-testing
+  - lesson-jobsite-safety-in-practice
 recommendedIds:
   - career-ironworker
   - career-superintendent

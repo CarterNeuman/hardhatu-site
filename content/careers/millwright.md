@@ -96,6 +96,7 @@ relatedIds:
   - gethired-field-trades
   - resume-field-trades
   - program-ubc-millwright-apprenticeship
+  - lesson-jobsite-safety-in-practice
 recommendedIds:
   - concept-rigging
   - career-equipment-operator

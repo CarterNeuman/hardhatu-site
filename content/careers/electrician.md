@@ -148,6 +148,7 @@ relatedIds:
   - concept-national-electrical-code
   - concept-nm-cable
   - concept-service-loop
+  - lesson-jobsite-safety-in-practice
 recommendedIds:
   - career-laborer
   - career-elevator-technician

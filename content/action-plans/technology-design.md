@@ -24,41 +24,64 @@ dayByDay:
     title: "Build or update a simple portfolio link with one real project on it"
     detail: "Put that link at the top of your resume today, not buried in a footer. Design-adjacent and BIM/VDC roles are judged visually more than almost any other category here, and a resume with no sample link invites the reviewer to assume there isn't one."
     appliesWhen: both
+    links:
+      - resume
   - dayStart: 1
     dayEnd: 2
     title: "Name your actual software stack and proficiency level"
     detail: "Revit, Navisworks, AutoCAD Civil 3D, Procore, named directly, with a distinction between tools you've used once and ones you run daily. Use the Technology & Design Resume Guide's bullet examples to format it."
     appliesWhen: both
+    links:
+      - resume
+      - software-autodesk-revit
+      - software-navisworks
   - dayStart: 2
     dayEnd: 2
     title: "Read through two or three Technology & Design career pages"
     detail: "Compare what a BIM/VDC specialist, a CAD technician, a construction data analyst, and a drone or GIS specialist actually do day to day, these are genuinely different skill sets."
     appliesWhen: browsing
+    links:
+      - careers
   - dayStart: 3
     dayEnd: 4
     title: "Build your target list, GC and design-build VDC departments, not just architecture firms"
     detail: "General contractors and construction management firms are building out in-house BIM/VDC and digital construction teams faster than most candidates realize, and they're often less competitive to break into than a design firm."
     appliesWhen: both
+    links:
+      - gethired
+      - openings
   - dayStart: 4
     dayEnd: 4
     title: "Practice a two-minute walkthrough of one real project"
     detail: "Tools, obstacle, outcome. Interviews in this category frequently ask you to walk through a model or workflow live, and having one project ready to narrate clearly matters more than a long list of software names."
     appliesWhen: browsing
+    links:
+      - lesson-bim-and-clash-detection
+      - lesson-3d-modeling-in-practice
   - dayStart: 5
     dayEnd: 5
     title: "Get certified in at least one platform you already use"
     detail: "An Autodesk Certified Professional credential or a Procore Certification turns a skill you're already using into something a recruiter can verify in seconds."
     appliesWhen: both
+    links:
+      - exam-autodesk-certified-professional
+      - exam-procore-certification
   - dayStart: 6
     dayEnd: 6
     title: "Make your first direct contact"
     detail: "Reach out to one GC, CM firm, or design-build VDC department directly, with your portfolio link in the message."
     appliesWhen: applying
+    links:
+      - outreach
+      - openings
   - dayStart: 7
     dayEnd: 8
     title: "Reach out to your next leads, and follow up on anyone who's gone quiet"
     detail: "Contact 2 to 3 more VDC or digital construction teams in parallel. Check Autodesk, Procore, and Bluebeam user community forums and AEC-specific job boards too, where real hiring managers post directly. Follow up using the template below if it's been a reasonable window with no response."
     appliesWhen: applying
+    links:
+      - outreach
+      - openings
     recurring: true
     recurringKind: outreach
   - dayStart: 9
@@ -66,11 +89,16 @@ dayByDay:
     title: "Decide if you're ready to move from browsing to applying"
     detail: "If a specific lane (BIM/VDC, CAD, data, drone/GIS) still feels like the right fit, this is the point to pick one and start reaching out for real."
     appliesWhen: browsing
+    links:
+      - gethired
+      - outreach
   - dayStart: 8
     dayEnd: 9
     title: "Pursue another platform certification"
     detail: "Autodesk Certified Professional, Procore Certification, LEED Green Associate if you're leaning sustainable design, or an FAA Part 107 remote pilot certificate if you're pursuing drone or UAV work. Each one turns a claimed skill into a verified one."
     appliesWhen: both
+    links:
+      - exam-leed-green-associate
     recurring: true
     recurringKind: certification
   - dayStart: 12
@@ -78,11 +106,16 @@ dayByDay:
     title: "Translate your technical work into outcomes a non-technical reviewer understands"
     detail: "How many models you federated, how many clashes you resolved, how many field hours that saved. Have these numbers ready before the interview, not just the tool names."
     appliesWhen: applying
+    links:
+      - interview
   - dayStart: 13
     dayEnd: 14
     title: "Review your responses and decide your next move"
     detail: "By now you should know which contacts are worth staying on and which have gone cold. Keep the warm ones going, and add fresh names to replace the ones that didn't pan out."
     appliesWhen: applying
+    links:
+      - openings
+      - interview
     anchorEnd: true
 targetEmployerTypes:
   - "GC, construction management, and design-build firm career pages, filtered specifically for BIM/VDC, digital construction, or construction technology openings"
