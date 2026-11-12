@@ -13,7 +13,9 @@ whyItMatters: >
   Because full release often waits on every subcontractor finishing and
   submitting paperwork, one slow subcontractor's punch list or paperwork can
   hold up cash that's rightfully owed to every other subcontractor on the
-  project.
+  project. Where state law allows it, a [[concept-retainage-bond|retainage
+  bond]] offers a contractor a way to free up that cash sooner instead of
+  waiting on this release timeline.
 example: >
   A general contractor releases half of a subcontractor's retainage at
   substantial completion once its work is largely done, holding the remaining
@@ -32,4 +34,5 @@ relatedIds:
   - concept-retainage
   - concept-substantial-completion
   - concept-lien-waiver
+  - concept-retainage-bond
 ---

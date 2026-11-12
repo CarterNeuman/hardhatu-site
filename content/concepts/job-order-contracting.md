@@ -10,10 +10,13 @@ definition: >
   pre-priced catalog for a stream of smaller repair and renovation projects
   over a multi-year term, without rebidding each one.
 whyItMatters: >
-  The coefficient bid a contractor submits to win the JOC contract locks in
-  its pricing for every job order issued over the entire contract term, so an
+  The coefficient bid a contractor submits to win the JOC contract locks in its
+  pricing for every job order issued over the entire contract term, so an
   aggressively low bid to win the contract can turn every individual job order
-  that follows into a loss.
+  that follows into a loss. A
+  [[concept-multiple-award-task-order-contract|Multiple Award Task Order
+  Contract]] solves a similar problem by qualifying a pool of contractors
+  instead of locking in one contractor's pricing.
 example: >
   A school district awards a three-year JOC contract to a contractor after a
   competitive coefficient bid, then issues individual job orders for
@@ -33,4 +36,5 @@ relatedIds:
   - career-procurement-manager
   - career-estimator
   - concept-unit-price-contract
+  - concept-multiple-award-task-order-contract
 ---

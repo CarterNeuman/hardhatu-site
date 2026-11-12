@@ -9,11 +9,14 @@ definition: >
   bonded work it can take on: a per-project single limit and an overall aggregate limit
   across every bonded project the company has active at once.
 whyItMatters: >
-  Bonding capacity effectively caps how much work a contractor can pursue at all,
-  regardless of how much work is available in the market: a contractor that runs out
-  of aggregate bonding capacity can't bid on new bonded projects even if they have the
-  crews and equipment to perform the work, until existing bonded projects complete and
-  free up capacity.
+  Bonding capacity effectively caps how much work a contractor can pursue at
+  all, regardless of how much work is available in the market: a contractor
+  that runs out of aggregate bonding capacity can't bid on new bonded projects
+  even if they have the crews and equipment to perform the work, until
+  existing bonded projects complete and free up capacity. If a bonded project
+  actually defaults, the resulting [[concept-surety-bond-claim-process|surety
+  bond claim process]] is a separate matter from the underwriting that set the
+  capacity in the first place.
 example: >
   A contractor with a $50 million aggregate bonding limit already has $40 million in
   active bonded projects. When a new $15 million project comes up for bid, the surety
@@ -46,4 +49,5 @@ relatedIds:
   - concept-indemnity-agreement-surety
   - lesson-whos-on-the-hook
   - concept-subcontractor-default-insurance
+  - concept-surety-bond-claim-process
 ---

@@ -10,12 +10,14 @@ definition: >
   [[concept-general-liability-insurance|general liability insurance]], which covers
   third-party injury and damage claims rather than damage to the structure itself.
 whyItMatters: >
-  Because a half-built structure isn't insurable under a standard property policy the
-  way a finished building is, builder's risk coverage fills that specific gap, and
-  the contract has to clearly assign who's responsible for procuring it (usually the
-  owner or the general contractor), since a project without it left uninsured during a
-  fire or storm can be a total financial loss for whoever was supposed to carry the
-  coverage.
+  Because a half-built structure isn't insurable under a standard property
+  policy the way a finished building is, builder's risk coverage fills that
+  specific gap, and the contract has to clearly assign who's responsible for
+  procuring it (usually the owner or the general contractor), since a project
+  without it left uninsured during a fire or storm can be a total financial
+  loss for whoever was supposed to carry the coverage. Even where coverage is
+  in place, specific [[concept-builders-risk-exclusions|builder's risk
+  exclusions]] still determine exactly where that protection stops.
 example: >
   A fire breaks out on a partially completed office building due to an electrical
   malfunction, destroying several months of completed framing and rough-in work. The
@@ -51,4 +53,5 @@ relatedIds:
   - concept-commercial-property-insurance-form
   - lesson-whos-on-the-hook
   - concept-loss-run-report
+  - concept-builders-risk-exclusions
 ---

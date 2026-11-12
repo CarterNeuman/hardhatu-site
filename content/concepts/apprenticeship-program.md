@@ -9,10 +9,12 @@ definition: >
   Department of Labor or a state apprenticeship agency, leading to
   journey-level certification in a specific trade over several years.
 whyItMatters: >
-  Many public contracts require a minimum percentage of apprentice labor
-  hours on the job, which turns apprenticeship from just a workforce
-  pipeline into a compliance obligation a contractor has to actively track,
-  not something it can leave informal.
+  Many public contracts require a minimum percentage of apprentice labor hours
+  on the job, which turns apprenticeship from just a workforce pipeline into a
+  compliance obligation a contractor has to actively track, not something it
+  can leave informal. That tracking includes staying inside the program's
+  [[concept-apprenticeship-ratio-requirement|apprenticeship ratio
+  requirement]], since exceeding it can trigger a prevailing-wage violation.
 example: >
   A registered apprentice works under a journeyworker electrician for four
   years, combining paid field hours with required classroom coursework, before
@@ -37,4 +39,5 @@ relatedIds:
   - program-ua-plumber-pipefitter-apprenticeship
   - program-iuoe-heavy-equipment-operator-apprenticeship
   - gethired-general
+  - concept-apprenticeship-ratio-requirement
 ---
