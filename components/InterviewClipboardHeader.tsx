@@ -7,12 +7,24 @@ import { useEffect, useState } from "react";
 // rare outlier (the page itself filters those out before handing
 // questions here). Still a fixed min-height + line-clamp so the box
 // doesn't resize as it rotates.
+//
+// Accessibility fix (2026-11-11): this used to auto-rotate forever with
+// no way to stop it and no check for reduced-motion — WCAG 2.2.2
+// ("Pause, Stop, Hide") requires one or the other for anything that
+// auto-updates and keeps moving past 5 seconds. Simplest correct fix:
+// anyone with prefers-reduced-motion on gets the first real question
+// shown plainly, with no rotation and no fade, same as if JS never ran.
 export function InterviewClipboardHeader({ questions }: { questions: string[] }) {
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
-    if (questions.length < 2) return;
+    setReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }, []);
+
+  useEffect(() => {
+    if (reducedMotion || questions.length < 2) return;
     const fade = setInterval(() => {
       setVisible(false);
       window.setTimeout(() => {
@@ -21,7 +33,7 @@ export function InterviewClipboardHeader({ questions }: { questions: string[] })
       }, 220);
     }, 3800);
     return () => clearInterval(fade);
-  }, [questions.length]);
+  }, [questions.length, reducedMotion]);
 
   if (questions.length === 0) return null;
   const current = questions[index % questions.length];
