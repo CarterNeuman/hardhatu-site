@@ -42,4 +42,5 @@ relatedIds:
   - concept-contingency
   - lesson-the-estimate-becomes-the-budget
   - concept-cost-performance-index
+  - career-surety-claims-manager
 ---

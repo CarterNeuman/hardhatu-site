@@ -33,4 +33,6 @@ relatedIds:
   - concept-general-liability-insurance
   - concept-workers-compensation-insurance
   - concept-excess-surplus-lines-insurance
+  - career-general-liability-underwriter
+  - career-insurance-broker
 ---

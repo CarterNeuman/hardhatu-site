@@ -44,4 +44,7 @@ relatedIds:
   - concept-subrogation
   - lesson-whos-on-the-hook
   - career-risk-manager-construction
+  - career-workers-comp-claims-adjuster
+  - career-general-liability-underwriter
+  - career-claims-examiner
 ---

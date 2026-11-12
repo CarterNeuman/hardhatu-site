@@ -36,5 +36,7 @@ relatedIds:
   - concept-certificate-of-insurance
   - concept-general-liability-insurance
   - concept-indemnification
+  - career-general-liability-underwriter
+  - career-insurance-broker
   - concept-named-insured-vs-additional-insured
 ---

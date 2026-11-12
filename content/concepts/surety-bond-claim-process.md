@@ -21,9 +21,14 @@ example: >
   invoices and proof the work was performed, triggering the surety's
   investigation.
 careerAngle: >
-  The [[career-surety-bond-underwriter|Surety Bond Underwriter]] investigates
-  incoming claims to decide whether the bond principal actually defaulted, and
-  the [[career-construction-claims-consultant|Construction Claims Consultant]]
+  A [[career-surety-claims-manager|Surety Claims Manager]], not the
+  underwriter who originally priced the bond, investigates incoming claims to
+  decide whether the bond principal actually defaulted and runs the
+  cost-to-complete analysis that follows; the
+  [[career-surety-bond-underwriter|Surety Bond Underwriter]] is consulted on
+  the account's history but has moved on to pricing other risks by the time a
+  claim comes in. The
+  [[career-construction-claims-consultant|Construction Claims Consultant]]
   helps claimants assemble the documentation a surety needs to process a
   claim.
 whatGoesWrong: >
@@ -34,4 +39,5 @@ relatedIds:
   - career-surety-bond-underwriter
   - career-construction-claims-consultant
   - concept-surety-bonding-capacity
+  - career-surety-claims-manager
 ---

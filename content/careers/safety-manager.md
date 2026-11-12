@@ -155,6 +155,8 @@ relatedIds:
   - concept-jobsite-geofencing-tool-security
   - concept-wearable-exoskeletons
   - career-fire-protection-engineer
+  - career-workers-comp-claims-adjuster
+  - career-general-liability-underwriter
 recommendedIds:
   - career-superintendent
   - career-quality-control-manager

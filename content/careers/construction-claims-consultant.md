@@ -104,6 +104,7 @@ relatedIds:
   - concept-surety-bond-claim-process
   - concept-chain-of-custody-material-testing
   - concept-window-analysis-schedule-delay
+  - career-surety-claims-manager
 recommendedIds:
   - career-insurance-adjuster
   - career-public-adjuster

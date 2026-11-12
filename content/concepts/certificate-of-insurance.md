@@ -39,5 +39,6 @@ relatedIds:
   - concept-workers-compensation-insurance
   - phase-construction
   - lesson-whos-on-the-hook
+  - career-insurance-broker
   - concept-additional-insured-endorsement
 ---

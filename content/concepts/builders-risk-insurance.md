@@ -54,5 +54,6 @@ relatedIds:
   - lesson-whos-on-the-hook
   - concept-loss-run-report
   - concept-builders-risk-exclusions
+  - career-insurance-broker
   - concept-vacancy-clause
 ---

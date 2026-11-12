@@ -36,4 +36,6 @@ relatedIds:
   - concept-workers-compensation-insurance
   - concept-prequalification
   - concept-loss-run-report
+  - career-workers-comp-claims-adjuster
+  - career-general-liability-underwriter
 ---

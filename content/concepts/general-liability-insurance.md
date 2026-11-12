@@ -21,13 +21,19 @@ example: >
   car and any related legal claim, rather than the contractor having to pay the claim
   out of pocket.
 careerAngle: >
-  A [[career-safety-manager|Safety Manager]] tracks incidents that could turn into
-  general liability claims and coordinates the documentation an insurer needs to
-  process one. A [[career-contracts-administrator|Contracts Administrator]] verifies
-  that every subcontractor's certificate of insurance shows adequate general liability
-  limits before allowing that subcontractor onto the jobsite, since a gap in a
-  subcontractor's coverage can expose the general contractor's own policy to claims
-  that should have been the subcontractor's responsibility.
+  A [[career-general-liability-underwriter|General Liability Underwriter]]
+  decides whether to insure a contractor and at what price, based on its loss
+  history and operations, before any of this coverage is even bound; an
+  [[career-insurance-broker|Insurance Broker]] shops that same risk across
+  carriers and negotiates the terms on the contractor's behalf. Once coverage
+  is in place, a [[career-safety-manager|Safety Manager]] tracks incidents
+  that could turn into general liability claims and coordinates the
+  documentation an insurer needs to process one. A
+  [[career-contracts-administrator|Contracts Administrator]] verifies that
+  every subcontractor's certificate of insurance shows adequate general
+  liability limits before allowing that subcontractor onto the jobsite, since
+  a gap in a subcontractor's coverage can expose the general contractor's own
+  policy to claims that should have been the subcontractor's responsibility.
 whatGoesWrong: >
   A general contractor allows a subcontractor to start work before confirming their
   certificate of insurance actually names the GC as an additional insured on the
@@ -51,5 +57,7 @@ relatedIds:
   - concept-umbrella-excess-liability-insurance
   - lesson-whos-on-the-hook
   - concept-pre-construction-survey
+  - career-general-liability-underwriter
+  - career-insurance-broker
   - concept-waiver-of-subrogation
 ---

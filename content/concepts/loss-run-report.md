@@ -34,4 +34,7 @@ relatedIds:
   - concept-experience-modification-rate
   - concept-builders-risk-insurance
   - concept-surety-bonding-capacity
+  - career-general-liability-underwriter
+  - career-claims-examiner
+  - career-insurance-broker
 ---

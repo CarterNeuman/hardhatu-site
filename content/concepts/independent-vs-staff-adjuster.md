@@ -33,4 +33,6 @@ relatedIds:
   - concept-desk-vs-field-adjuster
   - concept-claims-adjustment-process
   - concept-cat-team-storm-chaser
+  - career-workers-comp-claims-adjuster
+  - career-claims-examiner
 ---

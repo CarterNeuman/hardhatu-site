@@ -115,6 +115,7 @@ relatedIds:
   - concept-reservation-of-rights-letter
   - resume-insurance-claims
   - gethired-insurance-claims
+  - career-claims-examiner
 recommendedIds:
   - career-insurance-adjuster
   - career-construction-claims-consultant

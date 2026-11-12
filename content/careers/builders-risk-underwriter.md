@@ -89,6 +89,8 @@ relatedIds:
   - resume-insurance-claims
   - gethired-insurance-claims
   - concept-builders-risk-exclusions
+  - career-general-liability-underwriter
+  - career-insurance-broker
 recommendedIds:
   - concept-builders-risk-insurance
   - concept-peril

@@ -38,4 +38,6 @@ relatedIds:
   - concept-actual-cash-value
   - career-builders-risk-underwriter
   - concept-earthquake-insurance
+  - career-claims-examiner
+  - career-insurance-broker
 ---

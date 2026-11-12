@@ -40,4 +40,6 @@ relatedIds:
   - exam-adjuster-license
   - concept-non-renewal-vs-cancellation
   - concept-agreed-value-coverage
+  - career-claims-examiner
+  - career-insurance-broker
 ---

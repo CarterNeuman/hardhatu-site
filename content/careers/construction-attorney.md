@@ -137,6 +137,8 @@ relatedIds:
   - concept-bid-protest
   - concept-bid-shopping-bid-peddling
   - concept-responsiveness-vs-responsibility
+  - career-surety-claims-manager
+  - career-claims-examiner
 recommendedIds:
   - career-contracts-administrator
   - career-construction-claims-consultant

@@ -33,4 +33,6 @@ relatedIds:
   - concept-surety-bonding-capacity
   - lesson-whos-on-the-hook
   - concept-prequalification
+  - career-surety-claims-manager
+  - career-general-liability-underwriter
 ---

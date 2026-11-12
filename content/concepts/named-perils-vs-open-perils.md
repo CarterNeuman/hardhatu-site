@@ -39,4 +39,6 @@ relatedIds:
   - exam-adjuster-license
   - concept-flood-insurance-nfip
   - concept-earthquake-insurance
+  - career-claims-examiner
+  - career-insurance-broker
 ---

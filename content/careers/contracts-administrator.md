@@ -145,6 +145,8 @@ relatedIds:
   - concept-site-visit-report
   - concept-value-engineering-change-proposal
   - concept-warranty-log
+  - career-general-liability-underwriter
+  - career-insurance-broker
 recommendedIds:
   - career-project-manager
   - career-hr-manager-construction

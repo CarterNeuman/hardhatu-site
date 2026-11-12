@@ -29,4 +29,5 @@ whatGoesWrong: >
   selection, when those rights generally stay with the named insured.
 relatedIds:
   - concept-additional-insured-endorsement
+  - career-insurance-broker
 ---

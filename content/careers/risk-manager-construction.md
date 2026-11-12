@@ -102,6 +102,7 @@ relatedIds:
   - concept-consequential-damages-waiver
   - concept-key-person-insurance
   - concept-limitation-of-liability-clause
+  - career-insurance-broker
 recommendedIds:
   - career-safety-manager
   - career-certified-payroll-specialist

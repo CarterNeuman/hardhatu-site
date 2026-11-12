@@ -90,6 +90,9 @@ relatedIds:
   - gethired-insurance-claims
   - concept-retainage-bond
   - concept-surety-bond-claim-process
+  - career-surety-claims-manager
+  - career-general-liability-underwriter
+  - career-insurance-broker
 recommendedIds:
   - concept-surety-bonding-capacity
   - concept-bid-bond

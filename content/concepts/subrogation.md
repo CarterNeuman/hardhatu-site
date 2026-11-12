@@ -36,4 +36,7 @@ relatedIds:
   - career-restoration-project-manager
   - concept-waiver-of-subrogation
   - concept-first-notice-of-loss
+  - career-workers-comp-claims-adjuster
+  - career-general-liability-underwriter
+  - career-claims-examiner
 ---

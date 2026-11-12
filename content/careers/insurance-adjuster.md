@@ -142,6 +142,9 @@ relatedIds:
   - concept-test-square
   - concept-builders-risk-exclusions
   - concept-claims-made-vs-occurrence-policy
+  - career-claims-examiner
+  - career-workers-comp-claims-adjuster
+  - career-insurance-broker
 recommendedIds:
   - career-construction-claims-consultant
   - career-public-adjuster
