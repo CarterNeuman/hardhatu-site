@@ -122,4 +122,3 @@ recommendedIds:
   - exam-autodesk-certified-professional
 image: "/images/careers/bim-vdc-specialist.jpg"
 ---
-  - lesson-3d-modeling-in-practice

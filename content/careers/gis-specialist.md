@@ -107,4 +107,3 @@ recommendedIds:
   - gethired-technology-design
 image: "/images/careers/gis-specialist.jpg"
 ---
-  - lesson-drones-scanning-and-mapping

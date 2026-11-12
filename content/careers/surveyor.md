@@ -133,4 +133,3 @@ recommendedIds:
   - career-gis-specialist
 image: "/images/careers/surveyor.jpg"
 ---
-  - lesson-drones-scanning-and-mapping

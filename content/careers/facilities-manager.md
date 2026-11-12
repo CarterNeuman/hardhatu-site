@@ -157,4 +157,3 @@ recommendedIds:
   - concept-sump-pump
 image: "/images/careers/facilities-manager.jpg"
 ---
-  - lesson-3d-modeling-in-practice
