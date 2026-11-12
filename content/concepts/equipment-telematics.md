@@ -22,7 +22,7 @@ example: >
   than renting an additional unit.
 careerAngle: >
   An [[career-equipment-fleet-manager|Equipment / Fleet Manager]] uses telematics
-  data day to day to schedule preventive maintenance by actual engine hours
+  data day to day to schedule [[concept-preventive-maintenance|preventive maintenance]] by actual engine hours
   rather than guessing, and to decide whether an underused machine should move
   to a different site instead of sitting idle. An
   [[career-operations-manager|Operations Manager]] relies on the same data at
@@ -38,4 +38,5 @@ relatedIds:
   - career-operations-manager
   - career-equipment-operator
   - career-equipment-fleet-manager
+  - concept-preventive-maintenance
 ---

@@ -34,7 +34,7 @@ whatTheyDo:
   - Install and level conveyors, production machinery, and process equipment
   - Read mechanical drawings to plan equipment placement and anchoring
   - Troubleshoot and repair mechanical equipment failures
-  - Perform preventive maintenance on installed machinery
+  - Perform [[concept-preventive-maintenance|preventive maintenance]] on installed machinery
 typicalDay:
   - time: "6:00 AM"
     activity: Review the day's equipment installation plan and rigging requirements
@@ -98,6 +98,7 @@ relatedIds:
   - program-ubc-millwright-apprenticeship
   - lesson-jobsite-safety-in-practice
   - career-equipment-fleet-manager
+  - concept-preventive-maintenance
 recommendedIds:
   - concept-rigging
   - career-equipment-operator

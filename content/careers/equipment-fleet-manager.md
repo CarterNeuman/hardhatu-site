@@ -21,7 +21,7 @@ payTimeline:
 whatIs: >
   An Equipment or Fleet Manager owns the full lifecycle of a construction
   company's heavy equipment and vehicle fleet: acquisition (buy, lease, or
-  rent), preventive maintenance scheduling, repair coordination, utilization
+  rent), [[concept-preventive-maintenance|preventive maintenance]] scheduling, repair coordination, utilization
   tracking across multiple jobsites, and eventual disposal or trade-in. This
   role becomes a dedicated, full-time position once a company's owned
   equipment fleet grows large enough that tracking it informally stops
@@ -34,7 +34,7 @@ whatIs: >
   machine.
 whatTheyDo:
   - Coordinate equipment deployment, transfers, and logistics between job sites
-  - Schedule and oversee preventive maintenance using telematics and engine-hour data
+  - Schedule and oversee [[concept-preventive-maintenance|preventive maintenance]] using telematics and engine-hour data
   - Make buy-versus-rent-versus-lease decisions for equipment needs across projects
   - Manage the company's maintenance shop staff and outside repair vendors
   - Negotiate service contracts, warranties, and equipment purchase agreements
@@ -89,6 +89,7 @@ relatedIds:
   - interview-business
   - resume-business
   - gethired-business
+  - concept-preventive-maintenance
 recommendedIds:
   - career-operations-manager
   - career-equipment-operator

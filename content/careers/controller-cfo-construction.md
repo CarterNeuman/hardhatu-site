@@ -34,7 +34,7 @@ whatIs: >
   grows, which is why job postings for this role routinely advertise "a clear
   path to CFO".
 whatTheyDo:
-  - Consolidate project-level job costing and WIP reports into company-wide financial statements
+  - Consolidate project-level job costing and [[concept-wip-report|WIP reports]] into company-wide financial statements
   - Manage cash flow forecasting and banking relationships
   - Prepare the financial statements a surety reviews annually to set the company's bonding capacity
   - Oversee internal controls, GAAP compliance, and the annual audit or review process
@@ -54,7 +54,7 @@ typicalDay:
 whereTheyWork:
   - Office
 skills:
-  - Construction-specific accounting (job costing, percentage-of-completion, WIP reporting)
+  - Construction-specific accounting (job costing, [[concept-percentage-of-completion-accounting|percentage-of-completion]], [[concept-wip-report|WIP reporting]])
   - Cash flow forecasting and banking relationship management
   - Understanding of surety bonding capacity and how financial statements affect it
   - GAAP compliance and internal controls
@@ -93,6 +93,8 @@ relatedIds:
   - resume-business
   - gethired-business
   - career-chief-estimator
+  - concept-wip-report
+  - concept-percentage-of-completion-accounting
 recommendedIds:
   - career-construction-accountant
   - career-risk-manager-construction

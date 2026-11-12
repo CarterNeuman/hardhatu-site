@@ -161,6 +161,7 @@ relatedIds:
   - career-general-superintendent
   - career-safety-coordinator
   - career-sprinkler-fitter
+  - concept-icra
 recommendedIds:
   - career-superintendent
   - career-quality-control-manager

@@ -32,9 +32,9 @@ whatIs: >
   services rather than internal company accounting.
 whatTheyDo:
   - Track job costs against budget for every active project
-  - Prepare work-in-progress (WIP) reports showing over/under-billing on each job
+  - Prepare [[concept-wip-report|work-in-progress (WIP) reports]] showing over/under-billing on each job
   - Manage retention tracking and billing for pay applications
-  - Apply percentage-of-completion revenue recognition across active projects
+  - Apply [[concept-percentage-of-completion-accounting|percentage-of-completion revenue recognition]] across active projects
   - Support cash flow forecasting tied to project billing and payment cycles
   - Prepare financial statements and reports for company leadership, bonding companies, and lenders
 typicalDay:
@@ -52,7 +52,7 @@ whereTheyWork:
   - Office
 skills:
   - Job costing and construction-specific accounting methods
-  - Percentage-of-completion revenue recognition
+  - "[[concept-percentage-of-completion-accounting|Percentage-of-completion revenue recognition]]"
   - Financial reporting and analysis
   - Attention to detail
   - Accounting software proficiency
@@ -110,6 +110,8 @@ relatedIds:
   - concept-successor-liability
   - career-controller-cfo-construction
   - career-credit-manager-construction
+  - concept-wip-report
+  - concept-percentage-of-completion-accounting
 recommendedIds:
   - career-contracts-administrator
   - career-procurement-manager

@@ -36,7 +36,7 @@ whatTheyDo:
   - Manage interior build-out schedules tied to a tenant's lease commencement date
   - Coordinate construction access, noise, and dust control with a building's landlord and property management
   - Manage subcontractors across interior trades (drywall, electrical, HVAC, flooring, millwork)
-  - Track the tenant improvement allowance budget against actual costs
+  - Track the [[concept-tenant-improvement-allowance|tenant improvement allowance]] budget against actual costs
   - Coordinate permit and inspection timing with the local building department for occupied-building work
   - Walk the completed space with the tenant and landlord for final punch list and sign-off
 typicalDay:
@@ -57,7 +57,7 @@ skills:
   - Compressed-schedule project management tied to lease dates
   - Coordination with landlords and property management teams
   - Subcontractor management across interior trades
-  - Budget tracking against a tenant improvement allowance
+  - Budget tracking against a [[concept-tenant-improvement-allowance|tenant improvement allowance]]
   - Permitting and inspection coordination in occupied buildings
 software:
   - Project management software (e.g. Procore, Buildertrend); scheduling software (e.g. MS Project)
@@ -92,6 +92,7 @@ relatedIds:
   - interview-specialized-construction
   - resume-specialized-construction
   - gethired-specialized-construction
+  - concept-tenant-improvement-allowance
 recommendedIds:
   - career-project-manager
   - career-superintendent

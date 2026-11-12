@@ -53,4 +53,6 @@ relatedIds:
   - concept-surety-bond-claim-process
   - career-controller-cfo-construction
   - career-chief-estimator
+  - concept-wip-report
+  - concept-percentage-of-completion-accounting
 ---

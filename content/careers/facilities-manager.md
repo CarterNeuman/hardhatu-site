@@ -28,7 +28,7 @@ whatIs: >
   capital improvement projects that eventually bring construction crews
   back in.
 whatTheyDo:
-  - Oversee preventive maintenance schedules for HVAC, electrical, plumbing, and life-safety systems
+  - Oversee [[concept-preventive-maintenance|preventive maintenance]] schedules for HVAC, electrical, plumbing, and life-safety systems
   - Manage vendor and contractor relationships for repairs and small renovation projects
   - Respond to and prioritize facility issues (leaks, equipment failures, life-safety concerns)
   - Plan and budget capital improvement projects (roof replacement, HVAC upgrades, renovations)
@@ -142,6 +142,7 @@ relatedIds:
   - career-tenant-improvement-construction-manager
   - career-healthcare-construction-manager
   - career-flooring-installer
+  - concept-preventive-maintenance
 recommendedIds:
   - career-project-manager
   - career-hvac-technician

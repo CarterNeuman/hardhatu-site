@@ -22,8 +22,8 @@ whatIs: >
   A Healthcare Construction Manager runs construction and renovation projects
   on hospital and medical campuses, frequently while the facility stays fully
   operational around the work. This is one of the most procedurally demanding
-  specialties in commercial construction: an Infection Control Risk Assessment
-  (ICRA) governs how dust, airborne particulates, and air pressure are
+  specialties in commercial construction: an [[concept-icra|Infection Control Risk Assessment
+  (ICRA)]] governs how dust, airborne particulates, and air pressure are
   controlled near clinical areas, and a project adjacent to an operating room
   or immunocompromised patient unit can require sealed barriers, negative-air
   machines, and strict access control that a standard office or retail
@@ -33,10 +33,10 @@ whatIs: >
   require it or a comparable certification of their construction management
   partners.
 whatTheyDo:
-  - Develop and enforce Infection Control Risk Assessment (ICRA) procedures for work near clinical areas
+  - Develop and enforce [[concept-icra|Infection Control Risk Assessment (ICRA)]] procedures for work near clinical areas
   - Coordinate construction barriers, negative-air machines, and dust control adjacent to occupied patient care areas
   - Schedule noisy, vibration-heavy, or utility-interrupting work around hospital operations and patient care
-  - Manage interim life safety measures (ILSM) required by code when construction affects egress or fire protection
+  - Manage [[concept-ilsm|interim life safety measures (ILSM)]] required by code when construction affects egress or fire protection
   - Coordinate closely with hospital facilities, infection control, and life safety staff throughout the project
   - Manage subcontractors on medical-specific systems (medical gas, nurse call, imaging suite shielding)
 typicalDay:
@@ -54,8 +54,8 @@ whereTheyWork:
   - Hospital and medical campus jobsites
   - Office (scheduling and compliance documentation)
 skills:
-  - Infection Control Risk Assessment (ICRA) procedures
-  - Interim life safety measures (ILSM) and code compliance during active-facility construction
+  - "[[concept-icra|Infection Control Risk Assessment (ICRA)]] procedures"
+  - "[[concept-ilsm|Interim life safety measures (ILSM)]] and code compliance during active-facility construction"
   - Coordination with hospital facilities, infection control, and clinical staff
   - Scheduling disruptive work around continuous hospital operations
   - Managing medical-specific building systems (medical gas, nurse call, imaging shielding)
@@ -88,6 +88,8 @@ relatedIds:
   - interview-specialized-construction
   - resume-specialized-construction
   - gethired-specialized-construction
+  - concept-icra
+  - concept-ilsm
 recommendedIds:
   - career-project-manager
   - career-safety-manager

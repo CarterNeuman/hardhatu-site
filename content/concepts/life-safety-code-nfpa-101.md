@@ -40,4 +40,6 @@ relatedIds:
   - career-fire-protection-engineer
   - concept-sprinkler-system-requirements-nfpa-13
   - career-code-consultant
+  - concept-icra
+  - concept-ilsm
 ---

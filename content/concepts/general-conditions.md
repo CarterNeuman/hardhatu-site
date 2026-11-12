@@ -41,4 +41,5 @@ relatedIds:
   - phase-construction
   - concept-overhead-and-profit-markup
   - career-commercial-manager-construction
+  - concept-tenant-improvement-allowance
 ---

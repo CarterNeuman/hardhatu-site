@@ -23,7 +23,7 @@ careerAngle: >
   An [[career-hvac-technician|HVAC Technician]] commissions and maintains the chiller
   plant, work that requires specialized refrigerant handling training beyond typical
   rooftop unit service. A [[career-facilities-manager|Facilities Manager]] relies on
-  the chiller as critical equipment worth a preventive maintenance contract, since an
+  the chiller as critical equipment worth a [[concept-preventive-maintenance|preventive maintenance]] contract, since an
   unplanned chiller failure can mean losing cooling for an entire building at once.
 whatGoesWrong: >
   A project team delays finalizing the chiller's exact capacity until late in design,
@@ -40,4 +40,5 @@ relatedIds:
   - phase-operations-maintenance
   - concept-cooling-tower
   - lesson-hvac-and-building-systems-in-practice
+  - concept-preventive-maintenance
 ---
