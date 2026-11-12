@@ -96,6 +96,7 @@ relatedIds:
   - resume-project-operations
   - gethired-project-operations
   - exam-cdt
+  - concept-rfi-log
 recommendedIds:
   - career-project-engineer
   - career-contracts-administrator

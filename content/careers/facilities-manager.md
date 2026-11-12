@@ -136,6 +136,9 @@ relatedIds:
   - concept-vending-equipment
   - concept-display-cases
   - concept-cubicle-curtains-curtain-track
+  - concept-attic-stock-spare-parts
+  - concept-owner-training-session
+  - concept-warranty-log
 recommendedIds:
   - career-project-manager
   - career-hvac-technician

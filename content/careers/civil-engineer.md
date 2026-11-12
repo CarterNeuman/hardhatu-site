@@ -119,6 +119,7 @@ relatedIds:
   - concept-fema-flood-zone
   - concept-permeable-paving
   - concept-qualifications-based-selection
+  - concept-benchmark-survey-monument
 recommendedIds:
   - career-surveyor
   - career-superintendent

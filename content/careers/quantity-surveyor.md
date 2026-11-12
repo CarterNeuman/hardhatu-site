@@ -83,6 +83,7 @@ relatedIds:
   - phase-procurement-preconstruction
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
+  - concept-percent-complete-units-method
 recommendedIds:
   - career-estimator
   - career-cost-engineer

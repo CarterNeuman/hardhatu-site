@@ -92,6 +92,11 @@ relatedIds:
   - concept-most-favored-nations-clause
   - concept-multiple-award-task-order-contract
   - concept-qualifications-based-selection
+  - concept-apparent-low-bidder
+  - concept-bid-protest
+  - concept-bid-tabulation
+  - concept-responsiveness-vs-responsibility
+  - concept-unbalanced-bid
 recommendedIds:
   - career-estimator
   - concept-change-order

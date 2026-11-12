@@ -96,6 +96,7 @@ relatedIds:
   - gethired-consultants-advisory
   - lesson-hvac-and-building-systems-in-practice
   - lesson-solar-and-renewable-energy-on-a-jobsite
+  - concept-owner-training-session
 recommendedIds:
   - career-mep-engineer
   - career-quality-control-manager

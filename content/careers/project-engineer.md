@@ -124,6 +124,9 @@ relatedIds:
   - exam-cdt
   - concept-coordination-drawing
   - concept-fabricating-at-risk
+  - concept-field-order-asi
+  - concept-request-for-substitution
+  - concept-rfi-log
 recommendedIds:
   - career-project-manager
   - career-superintendent

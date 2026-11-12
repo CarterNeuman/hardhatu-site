@@ -111,6 +111,9 @@ relatedIds:
   - concept-historic-structure-report
   - concept-building-condition-assessment
   - concept-progressive-design-build
+  - concept-percent-complete-units-method
+  - concept-phasing-plan
+  - concept-site-visit-report
 recommendedIds:
   - career-project-manager
   - career-business-development-manager

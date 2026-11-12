@@ -88,6 +88,7 @@ relatedIds:
   - gethired-preconstruction-estimating
   - concept-first-cost-vs-lifecycle-cost
   - concept-design-assist
+  - concept-value-engineering-change-proposal
 recommendedIds:
   - concept-value-engineering
   - concept-constructability-review

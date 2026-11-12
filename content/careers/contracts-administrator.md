@@ -137,6 +137,14 @@ relatedIds:
   - concept-parol-evidence-rule
   - concept-setoff-rights
   - concept-suspension-of-work-clause
+  - concept-attic-stock-spare-parts
+  - concept-change-order-log
+  - concept-field-order-asi
+  - concept-final-completion
+  - concept-scope-gap-scope-overlap
+  - concept-site-visit-report
+  - concept-value-engineering-change-proposal
+  - concept-warranty-log
 recommendedIds:
   - career-project-manager
   - career-hr-manager-construction

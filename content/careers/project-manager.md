@@ -176,6 +176,12 @@ relatedIds:
   - concept-directories-bulletin-boards
   - concept-monument-site-signage
   - concept-suspension-of-work-clause
+  - concept-change-order-log
+  - concept-final-completion
+  - concept-near-critical-path
+  - concept-s-curve-cost-schedule
+  - concept-schedule-narrative
+  - concept-scope-gap-scope-overlap
 recommendedIds:
   - career-project-engineer
   - career-owners-representative

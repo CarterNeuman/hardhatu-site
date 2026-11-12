@@ -119,6 +119,10 @@ relatedIds:
   - concept-healthcare-equipment
   - concept-radiation-protection-rooms
   - concept-access-doors-panels
+  - concept-chain-of-custody-material-testing
+  - concept-deficiency-list
+  - concept-hold-point-witness-point
+  - concept-inspection-and-test-plan
 recommendedIds:
   - career-quality-control-manager
   - career-assistant-superintendent

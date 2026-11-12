@@ -96,6 +96,9 @@ relatedIds:
   - lesson-cost-control-and-forecasting-in-practice
   - concept-cost-escalation
   - concept-cost-performance-index
+  - concept-s-curve-cost-schedule
+  - concept-schedule-performance-index
+  - concept-variance-at-completion
 recommendedIds:
   - career-estimator
   - career-senior-estimator

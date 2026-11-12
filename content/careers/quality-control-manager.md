@@ -128,6 +128,8 @@ relatedIds:
   - career-commissioning-agent
   - resume-project-operations
   - gethired-project-operations
+  - concept-deficiency-list
+  - concept-inspection-and-test-plan
 recommendedIds:
   - career-safety-manager
   - career-superintendent

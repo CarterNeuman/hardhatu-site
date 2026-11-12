@@ -129,6 +129,8 @@ relatedIds:
   - concept-overhead-and-profit-markup
   - concept-best-value-procurement
   - concept-sunset-clause-bid-validity
+  - concept-bid-shopping-bid-peddling
+  - concept-unbalanced-bid
 recommendedIds:
   - career-project-manager
   - career-senior-estimator

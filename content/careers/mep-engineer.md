@@ -148,6 +148,8 @@ relatedIds:
   - concept-fire-life-safety-system-integration
   - concept-demand-response-load-shedding-automation
   - concept-pneumatic-tube-systems
+  - concept-bim-coordination-meeting
+  - concept-request-for-substitution
 recommendedIds:
   - career-hvac-technician
   - career-electrician

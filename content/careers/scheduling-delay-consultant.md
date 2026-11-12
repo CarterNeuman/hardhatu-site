@@ -84,6 +84,8 @@ relatedIds:
   - resume-consultants-advisory
   - gethired-consultants-advisory
   - concept-dispute-review-board
+  - concept-fragnet
+  - concept-window-analysis-schedule-delay
 recommendedIds:
   - career-scheduler
   - career-construction-claims-consultant

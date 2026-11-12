@@ -91,6 +91,8 @@ relatedIds:
   - resume-business
   - gethired-business
   - concept-solid-waste-handling-equipment
+  - concept-resource-leveling
+  - concept-variance-at-completion
 recommendedIds:
   - career-project-manager
   - career-senior-estimator

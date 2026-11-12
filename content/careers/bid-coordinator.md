@@ -89,6 +89,8 @@ relatedIds:
   - gethired-preconstruction-estimating
   - concept-responsible-bidder-ordinance
   - concept-sunset-clause-bid-validity
+  - concept-apparent-low-bidder
+  - concept-bid-tabulation
 recommendedIds:
   - career-estimator
   - career-senior-estimator

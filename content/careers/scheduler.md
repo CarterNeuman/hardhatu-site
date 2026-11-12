@@ -96,6 +96,12 @@ relatedIds:
   - career-scheduling-delay-consultant
   - resume-project-operations
   - gethired-project-operations
+  - concept-fragnet
+  - concept-near-critical-path
+  - concept-resource-leveling
+  - concept-schedule-narrative
+  - concept-schedule-performance-index
+  - concept-total-float-vs-free-float
 recommendedIds:
   - career-project-manager
   - career-project-engineer

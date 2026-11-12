@@ -100,6 +100,7 @@ relatedIds:
   - concept-level-of-development-bim
   - lesson-3d-modeling-in-practice
   - concept-access-flooring
+  - concept-bim-coordination-meeting
 recommendedIds:
   - career-project-manager
   - career-surveyor

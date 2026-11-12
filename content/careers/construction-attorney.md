@@ -134,6 +134,9 @@ relatedIds:
   - concept-successor-liability
   - concept-teaming-agreement
   - concept-third-party-beneficiary
+  - concept-bid-protest
+  - concept-bid-shopping-bid-peddling
+  - concept-responsiveness-vs-responsibility
 recommendedIds:
   - career-contracts-administrator
   - career-construction-claims-consultant

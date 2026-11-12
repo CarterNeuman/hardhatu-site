@@ -114,6 +114,7 @@ relatedIds:
   - concept-total-station
   - lesson-drones-scanning-and-mapping
   - concept-utility-locating-potholing
+  - concept-benchmark-survey-monument
 recommendedIds:
   - career-bim-vdc-specialist
   - career-drone-uav-specialist
