@@ -155,6 +155,8 @@ relatedIds:
   - software-on-screen-takeoff
   - career-estimator
   - career-senior-estimator
+  - career-chief-estimator
+  - career-mep-estimator
   - interview-preconstruction-estimating
   - exam-cpe
   - lesson-bidding-and-winning-work

@@ -101,6 +101,8 @@ relatedIds:
   - concept-blasting-rock-removal
   - concept-excavation
   - concept-geotechnical-report
+  - phase-site-preparation-mobilization
+  - lesson-from-dirt-to-deck
   - interview-specialized-construction
   - resume-specialized-construction
   - gethired-specialized-construction

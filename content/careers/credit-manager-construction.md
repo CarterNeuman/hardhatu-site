@@ -88,6 +88,7 @@ relatedIds:
   - concept-mechanics-lien
   - concept-lien-priority
   - concept-pay-application
+  - lesson-getting-paid
   - interview-business
   - resume-business
   - gethired-business

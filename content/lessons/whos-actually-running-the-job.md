@@ -150,5 +150,8 @@ relatedIds:
   - career-owners-representative
   - career-contracts-administrator
   - career-document-control-specialist
+  - career-senior-project-manager
+  - career-general-superintendent
+  - career-field-engineer
   - lesson-a-day-as-an-owners-rep
 ---

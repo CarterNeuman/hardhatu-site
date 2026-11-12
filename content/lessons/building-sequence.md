@@ -218,4 +218,10 @@ relatedIds:
   - career-drywall-installer
   - career-roofer
   - career-plumber
+  - career-insulation-installer
+  - career-flooring-installer
+  - career-tile-setter
+  - career-waterproofing-installer
+  - career-plasterer-stucco-mason
+  - career-sprinkler-fitter
 ---

@@ -90,6 +90,7 @@ relatedIds:
   - resume-business
   - gethired-business
   - concept-preventive-maintenance
+  - lesson-heavy-equipment-and-earthwork
 recommendedIds:
   - career-operations-manager
   - career-equipment-operator

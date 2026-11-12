@@ -93,6 +93,7 @@ relatedIds:
   - resume-specialized-construction
   - gethired-specialized-construction
   - concept-tenant-improvement-allowance
+  - phase-construction
 recommendedIds:
   - career-project-manager
   - career-superintendent

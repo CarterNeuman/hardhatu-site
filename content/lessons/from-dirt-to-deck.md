@@ -212,6 +212,7 @@ relatedIds:
   - career-civil-engineer
   - career-equipment-operator
   - career-concrete-worker
+  - career-blaster-explosives-specialist
   - lesson-heavy-equipment-and-earthwork
   - lesson-concrete-and-foundations-in-practice
 ---

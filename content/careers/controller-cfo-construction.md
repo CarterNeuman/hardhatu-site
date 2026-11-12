@@ -95,6 +95,7 @@ relatedIds:
   - career-chief-estimator
   - concept-wip-report
   - concept-percentage-of-completion-accounting
+  - lesson-cost-control-and-forecasting-in-practice
 recommendedIds:
   - career-construction-accountant
   - career-risk-manager-construction

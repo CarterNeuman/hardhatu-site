@@ -87,6 +87,7 @@ relatedIds:
   - concept-request-for-qualifications
   - concept-request-for-proposal
   - concept-prequalification
+  - lesson-bidding-and-winning-work
   - interview-business
   - resume-business
   - gethired-business

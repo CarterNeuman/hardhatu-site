@@ -103,4 +103,5 @@ relatedIds:
   - career-civil-engineer
   - career-demolition-supervisor
   - career-pile-driving-specialist
+  - career-blaster-explosives-specialist
 ---

@@ -181,4 +181,7 @@ relatedIds:
   - interview-business
   - interview-project-manager
   - career-construction-attorney
+  - career-commercial-manager-construction
+  - career-controller-cfo-construction
+  - career-credit-manager-construction
 ---

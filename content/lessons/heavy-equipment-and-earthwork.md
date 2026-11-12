@@ -183,5 +183,7 @@ relatedIds:
   - concept-motor-grader
   - concept-compaction-equipment
   - concept-osha-soil-classification
+  - career-equipment-fleet-manager
+  - concept-preventive-maintenance
 minutes: 13
 ---

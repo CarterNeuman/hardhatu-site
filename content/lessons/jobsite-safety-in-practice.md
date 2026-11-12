@@ -216,6 +216,8 @@ relatedIds:
   - exam-nccer-core
   - interview-project-operations
   - career-assistant-superintendent
+  - career-general-superintendent
+  - career-safety-coordinator
   - exam-cpr-first-aid
   - lesson-a-day-as-a-laborer
   - concept-hierarchy-of-controls

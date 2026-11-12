@@ -171,6 +171,9 @@ relatedIds:
   - interview-preconstruction-estimating
   - exam-cpe
   - career-bid-coordinator
+  - career-chief-estimator
+  - career-mep-estimator
+  - career-marketing-proposals-manager
   - lesson-a-day-in-the-life-of-an-estimator
   - lesson-subcontractor-buyout-and-scope-gaps
 ---

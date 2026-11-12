@@ -142,5 +142,8 @@ relatedIds:
   - interview-preconstruction-estimating
   - lesson-the-estimate-becomes-the-budget
   - concept-cost-performance-index
+  - concept-wip-report
+  - concept-percentage-of-completion-accounting
+  - career-controller-cfo-construction
 minutes: 13
 ---

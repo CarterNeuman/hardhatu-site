@@ -166,5 +166,7 @@ relatedIds:
   - concept-tempered-laminated-glass
   - concept-water-penetration-testing
   - concept-parapet
+  - career-waterproofing-installer
+  - career-insulation-installer
 minutes: 13
 ---

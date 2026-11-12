@@ -90,6 +90,7 @@ relatedIds:
   - gethired-specialized-construction
   - concept-icra
   - concept-ilsm
+  - phase-construction
 recommendedIds:
   - career-project-manager
   - career-safety-manager

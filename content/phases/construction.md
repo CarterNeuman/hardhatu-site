@@ -112,4 +112,17 @@ relatedIds:
   - career-assistant-superintendent
   - career-qaqc-inspector
   - career-renewable-energy-project-manager
+  - career-senior-project-manager
+  - career-general-superintendent
+  - career-safety-coordinator
+  - career-field-engineer
+  - career-insulation-installer
+  - career-flooring-installer
+  - career-tile-setter
+  - career-waterproofing-installer
+  - career-plasterer-stucco-mason
+  - career-sprinkler-fitter
+  - career-modular-offsite-construction-manager
+  - career-tenant-improvement-construction-manager
+  - career-healthcare-construction-manager
 ---

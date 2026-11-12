@@ -88,6 +88,7 @@ relatedIds:
   - concept-modular-construction
   - concept-offsite-manufacturing
   - concept-precast-concrete
+  - phase-construction
   - interview-specialized-construction
   - resume-specialized-construction
   - gethired-specialized-construction
