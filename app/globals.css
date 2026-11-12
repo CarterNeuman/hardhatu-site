@@ -22,4 +22,12 @@ body {
   @page {
     margin: 0.6in;
   }
+  /* The Blueprint's printed calendar (ActionPlanPrintCalendar) asks for
+     this named page, so only that sheet prints landscape with tighter
+     margins -- seven day columns need the width. Every other page on
+     the site keeps the default portrait page above. */
+  @page blueprint {
+    size: letter landscape;
+    margin: 0.4in;
+  }
 }

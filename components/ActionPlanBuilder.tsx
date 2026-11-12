@@ -474,7 +474,12 @@ export function ActionPlanBuilder({
   if (plan) {
     return (
       <div>
-        <ActionPlanPrintCalendar days={plan.days} title={plan.careerTitle ?? plan.category} />
+        <ActionPlanPrintCalendar
+          days={plan.days}
+          title={plan.careerTitle ?? plan.category}
+          totalDays={plan.totalDays}
+          status={plan.status}
+        />
         <ActionPlanResult
           plan={plan}
           location={location}
