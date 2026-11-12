@@ -1,22 +1,34 @@
 /* Desk-scene zoom-into-the-screen intro for the Software index page.
+   Accessibility/SEO note: the real content (passed as `children`) is
+   ALWAYS rendered in normal flow, server-rendered, fully present without
+   JS. This stage is a purely decorative overlay stacked on top of it,
+   aria-hidden the whole time — it fades/crops away to reveal the real
+   content that was there all along, rather than being the only copy of
+   that content. See SoftwareDeskIntro.tsx for the longer version of this.
+
    The "seamless" trick: the monitor's screen shows a genuinely tiny
    rendering of the real category/tool content from frame 1 (not a blank
    rectangle), nested inside the same element that scales. As it scales up,
-   that real tiny content grows with it — no separate layer has to appear
-   out of nowhere. The crisp full-size version only crossfades in once the
-   screen has already grown to fill the frame, during the fastest part of
-   the zoom, which is exactly when a real camera move would be too blurry
-   to notice a cut. The bezel/keyboard/desk need no fade at all: once the
-   screen alone is bigger than the stage, they're cropped out by the
-   stage's own overflow:hidden automatically, the same way a real zoom
-   pushes the surroundings out of frame. */
+   that real tiny content grows with it. The overlay then fades out once
+   it's grown to fill the frame — during the fastest part of the zoom,
+   which is when a real camera move would be too blurry to notice a cut —
+   revealing the actual full-size content underneath. The bezel/keyboard/
+   desk need no separate fade: once the screen alone is bigger than the
+   stage, they're cropped out by the stage's own overflow:hidden, the same
+   way a real camera push loses the surroundings off-frame. */
+
+.wrapper {
+  position: relative;
+}
 
 .stage {
-  position: relative;
-  width: 100%;
+  position: absolute;
+  inset: 0 0 auto 0;
   height: clamp(340px, 46vw, 520px);
   overflow: hidden;
   background: #cbb88f;
+  z-index: 10;
+  animation: overlayFade 2.8s linear forwards;
 }
 
 .deskLayer {
@@ -56,14 +68,6 @@
   background: #1c2b33;
 }
 
-.screenLayer {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  animation: screenReveal 2.6s linear forwards;
-  will-change: opacity;
-}
-
 @keyframes deskZoom {
   0% {
     transform: scale(1);
@@ -79,18 +83,15 @@
   }
 }
 
-@keyframes screenReveal {
+@keyframes overlayFade {
   0% {
-    opacity: 0;
+    opacity: 1;
   }
-  70% {
-    opacity: 0;
-  }
-  88% {
+  80% {
     opacity: 1;
   }
   100% {
-    opacity: 1;
+    opacity: 0;
   }
 }
 
@@ -98,7 +99,7 @@
   position: absolute;
   bottom: 14px;
   right: 14px;
-  z-index: 10;
+  z-index: 11;
   opacity: 0;
   animation: fadeInSkip 0.4s ease-out 0.5s forwards;
 }
@@ -110,8 +111,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .stage,
   .deskLayer,
-  .screenLayer,
   .skipButton {
     animation: none !important;
   }
