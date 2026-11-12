@@ -59,6 +59,12 @@ export type InitialPlan = {
   createdAt: string;
 };
 
+// A head start from a "Build a Blueprint" link elsewhere on the site
+// (see app/action-plan/page.tsx): pre-selects the category and, when
+// the link came from a career page, the career. careerId is "" for
+// "no specific career".
+export type PlanPrefill = { category: string; careerId: string };
+
 const DEFAULT_HOURS = 10;
 
 // Small badge text for a skill-building day-by-day item (see
@@ -119,8 +125,10 @@ function formatDateRange(start: Date, end: Date): string {
 export function ActionPlanBuilder({
   dataByCategory,
   initialPlan,
+  prefill,
 }: {
   dataByCategory: Record<string, CategoryData>;
+  prefill?: PlanPrefill;
   // When set (a resume link matched a saved plan server-side -- see
   // app/action-plan/page.tsx), the form is skipped entirely and this
   // plan renders immediately on mount instead -- see the resume effect
@@ -128,9 +136,9 @@ export function ActionPlanBuilder({
   initialPlan?: InitialPlan;
 }) {
   const categories = CAREER_CATEGORY_ORDER.filter((c) => dataByCategory[c]);
-  const [category, setCategory] = useState(initialPlan?.category ?? categories[0] ?? "");
+  const [category, setCategory] = useState(initialPlan?.category ?? prefill?.category ?? categories[0] ?? "");
   const [careerId, setCareerId] = useState(
-    initialPlan ? (initialPlan.careerId === "general" ? "" : initialPlan.careerId) : ""
+    initialPlan ? (initialPlan.careerId === "general" ? "" : initialPlan.careerId) : prefill?.careerId ?? ""
   );
   const [status, setStatus] = useState<ApplicationStatus>(initialPlan?.status ?? "applying");
   const [location, setLocation] = useState(initialPlan?.location ?? "");

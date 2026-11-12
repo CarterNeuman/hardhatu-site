@@ -11,6 +11,8 @@ import { Disclaimer } from "@/components/Disclaimer";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { Prose } from "@/components/Prose";
 import { EmailGate } from "@/components/EmailGate";
+import { JobHuntRail } from "@/components/JobHuntRail";
+import { ProgramsBox } from "@/components/ProgramsBox";
 
 export function generateStaticParams() {
   const { getHiredGuides } = getAllContent();
@@ -144,6 +146,18 @@ export default async function GetHiredPage({
           )}
         </>
       )}
+
+      {/* Programs that name this guide, then the other three job-hunt
+          stops for this category (Resume Guide, Interview Prep, the
+          Blueprint) -- see JobHuntRail. The header's Resume Guide button
+          above stays as the quick jump; this is the full handoff once
+          someone has actually read the guide. */}
+      {!guide.comingSoon && <ProgramsBox id={guide.id} heading="Programs that get you in the door" />}
+      <JobHuntRail
+        category={guide.id === "gethired-general" ? undefined : guide.category}
+        current="gethired"
+        heading="Next: turn this into applications"
+      />
 
       <RelatedLinks items={related} />
       </EmailGate>

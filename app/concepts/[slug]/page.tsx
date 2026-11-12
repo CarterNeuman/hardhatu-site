@@ -9,6 +9,7 @@ import { Disclaimer } from "@/components/Disclaimer";
 import { Callout } from "@/components/Callout";
 import { ContentPhoto } from "@/components/ContentPhoto";
 import { EmailGate } from "@/components/EmailGate";
+import { ProgramsBox } from "@/components/ProgramsBox";
 
 export function generateStaticParams() {
   const { concepts } = getAllContent();
@@ -85,6 +86,8 @@ export default async function ConceptPage({
       )}
 
       {hasStaleRisk && <Disclaimer lastReviewed={concept.lastReviewed} />}
+
+      <ProgramsBox id={concept.id} />
 
       <RelatedLinks items={related} />
     </article>

@@ -196,3 +196,39 @@ export function groupConceptsByCategory(
     items: groups.get(category)!.slice().sort((a, b) => a.title.localeCompare(b.title)),
   }));
 }
+
+// Matches a career's free-text `software` entries ("Bluebeam", "Scheduling
+// software (e.g. Primavera P6, Microsoft Project)") against the site's
+// real Software profiles. Career pages store software as display names,
+// not ids, so this is the one place that turns a name into a link --
+// used by the career page's Software tags and by the Action Plan data
+// layer (which previously looked these up as ids and so never matched
+// anything). Whole-word, case-insensitive; a profile matches when its
+// title, or its title minus a vendor prefix/suffix ("Autodesk Revit" ->
+// "Revit", "Bluebeam Revu" -> "Bluebeam"), appears in the entry.
+function softwareAliases(title: string): string[] {
+  const aliases = new Set<string>();
+  const base = title.toLowerCase().replace(/\([^)]*\)/g, " ").replace(/\s+/g, " ").trim();
+  if (base) aliases.add(base);
+  const paren = title.match(/\(formerly ([^)]+)\)/i);
+  if (paren) aliases.add(paren[1].toLowerCase().trim());
+  if (base.startsWith("autodesk ")) {
+    const rest = base.slice("autodesk ".length);
+    // "Autodesk Build" minus the vendor is just "build" -- far too generic
+    // to match on its own.
+    if (rest !== "build") aliases.add(rest);
+  }
+  if (base.endsWith(" revu")) aliases.add(base.slice(0, -" revu".length));
+  return [...aliases].filter((a) => a.length >= 5);
+}
+
+function escapeRegExp(text: string): string {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+export function matchSoftwareByName<T extends { title: string }>(name: string, software: T[]): T[] {
+  const haystack = name.toLowerCase();
+  return software.filter((sw) =>
+    softwareAliases(sw.title).some((alias) => new RegExp(`(^|[^a-z0-9])${escapeRegExp(alias)}($|[^a-z0-9])`).test(haystack))
+  );
+}

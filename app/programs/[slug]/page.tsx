@@ -10,6 +10,7 @@ import { RelatedLinks } from "@/components/RelatedLinks";
 import { Disclaimer } from "@/components/Disclaimer";
 import { Prose } from "@/components/Prose";
 import { EmailGate } from "@/components/EmailGate";
+import { JobHuntRail } from "@/components/JobHuntRail";
 
 export function generateStaticParams() {
   const { programs } = getAllContent();
@@ -47,6 +48,12 @@ export default async function ProgramPage({
   // next" chip row below.
   const careers = related.filter((item) => item.type === "career");
   const rest = related.filter((item) => item.type !== "career");
+  // The job-hunt strip below is category-specific. A program that leads
+  // to exactly one career hands that career to the Blueprint form too;
+  // one that feeds several trades just passes the shared category.
+  const leadCareer = careers.find((c) => c.type === "career");
+  const railCategory = leadCareer && leadCareer.type === "career" ? leadCareer.category : undefined;
+  const railCareerId = careers.length === 1 ? leadCareer?.id : undefined;
 
   return (
     <article className="mx-auto max-w-6xl px-6 py-10">
@@ -96,6 +103,12 @@ export default async function ProgramPage({
             )}
 
             <Disclaimer lastReviewed={program.lastReviewed} />
+
+            <JobHuntRail
+              category={railCategory}
+              careerId={railCareerId}
+              heading="Applying? Line these up first"
+            />
 
             <RelatedLinks items={rest} />
           </EmailGate>

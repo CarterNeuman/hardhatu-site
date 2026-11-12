@@ -11,6 +11,8 @@ import { ExamDisclaimer } from "@/components/ExamDisclaimer";
 import { QuizBlock } from "@/components/LessonQuiz";
 import { Prose } from "@/components/Prose";
 import { EmailGate } from "@/components/EmailGate";
+import { JobHuntRail } from "@/components/JobHuntRail";
+import { ProgramsBox } from "@/components/ProgramsBox";
 
 export function generateStaticParams() {
   const { exams } = getAllContent();
@@ -79,6 +81,9 @@ export default async function ExamPage({
       )}
 
       {(exam.lastReviewed || exam.category) && <Disclaimer lastReviewed={exam.lastReviewed} />}
+
+      <ProgramsBox id={exam.id} heading="Programs that include or build on this" />
+      <JobHuntRail category={exam.category} careerId={exam.careerId} heading="Credential in hand? Put it to work" />
 
       <RelatedLinks items={related} />
       </EmailGate>

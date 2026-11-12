@@ -602,9 +602,20 @@ export function CareerMatchQuiz({
           </div>
 
           <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-hairline pt-6">
-            <Link href={`/careers#${slug}`} className="text-base font-semibold text-navy hover:underline">
-              See all careers in {result} &rarr;
-            </Link>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              {/* The quiz result's natural next step: a dated plan for
+                  the category it just matched, with that category
+                  already picked on the Blueprint form. */}
+              <Link
+                href={`/action-plan?category=${slug}`}
+                className="bg-navy px-4 py-2 text-base font-semibold text-paper transition-colors hover:bg-ink"
+              >
+                Build a Blueprint for {result} &rarr;
+              </Link>
+              <Link href={`/careers#${slug}`} className="text-base font-semibold text-navy hover:underline">
+                See all careers in {result} &rarr;
+              </Link>
+            </div>
             <button
               onClick={restart}
               className="border border-ink px-4 py-2 text-base font-semibold text-ink transition-colors hover:bg-ink hover:text-paper"

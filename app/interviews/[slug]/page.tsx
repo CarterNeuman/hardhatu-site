@@ -7,6 +7,7 @@ import { SectionLabel } from "@/components/SectionLabel";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { Prose } from "@/components/Prose";
 import { EmailGate } from "@/components/EmailGate";
+import { JobHuntRail } from "@/components/JobHuntRail";
 
 export function generateStaticParams() {
   const { interviews } = getAllContent();
@@ -72,6 +73,13 @@ export default async function InterviewPage({
           </div>
         ))}
       </div>
+
+      <JobHuntRail
+        category={interview.category}
+        careerId={interview.careerId}
+        current="interview"
+        heading="The rest of your job-hunt toolkit"
+      />
 
       <RelatedLinks items={related} />
       </EmailGate>

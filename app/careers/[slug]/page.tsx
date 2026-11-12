@@ -1,12 +1,13 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllContent, getBySlug, getRelated, getRecommended, getProgramsForCareer } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, getRecommended, getProgramsForCareer, matchSoftwareByName, urlFor } from "@/lib/content";
 import type { Career } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
 import { Tag } from "@/components/Tag";
 import { SectionLabel } from "@/components/SectionLabel";
 import { RelatedLinks } from "@/components/RelatedLinks";
+import { JobHuntRail } from "@/components/JobHuntRail";
 import { ContentPhoto } from "@/components/ContentPhoto";
 import { PayTimeline } from "@/components/PayTimeline";
 import { Disclaimer } from "@/components/Disclaimer";
@@ -46,6 +47,7 @@ export default async function CareerPage({
   const related = getRelated(career);
   const programsForCareer = getProgramsForCareer(career.id);
   const recommended = getRecommended(career);
+  const softwareProfiles = getAllContent().software;
 
   return (
     <EmailGate source={`career:${career.slug}`} allowGuest>
@@ -103,9 +105,23 @@ export default async function CareerPage({
         <>
           <SectionLabel>Software</SectionLabel>
           <div className="mt-2 flex flex-wrap gap-1.5">
-            {career.software.map((sw) => (
-              <Tag key={sw}>{sw}</Tag>
-            ))}
+            {/* A software name that matches one of the site's own
+                Software profiles links to it (see matchSoftwareByName);
+                anything else stays a plain tag, as before. */}
+            {career.software.map((sw) => {
+              const profile = matchSoftwareByName(sw, softwareProfiles)[0];
+              return profile ? (
+                <Link
+                  key={sw}
+                  href={urlFor(profile)}
+                  className="inline-block border border-navy/40 bg-white/60 px-2 py-0.5 text-xs font-medium text-navy transition-colors hover:border-navy hover:bg-white"
+                >
+                  {sw} &rarr;
+                </Link>
+              ) : (
+                <Tag key={sw}>{sw}</Tag>
+              );
+            })}
           </div>
         </>
       )}
@@ -212,6 +228,12 @@ export default async function CareerPage({
           </div>
         </>
       )}
+
+      <JobHuntRail
+        category={career.category}
+        careerId={career.id}
+        heading={`Going after ${career.title} work?`}
+      />
 
       <RelatedLinks items={related} recommended={recommended} />
     </article>

@@ -8,6 +8,7 @@ import { QuizBlock } from "@/components/LessonQuiz";
 import { Prose } from "@/components/Prose";
 import { ContentPhoto } from "@/components/ContentPhoto";
 import { EmailGate } from "@/components/EmailGate";
+import { ProgramsBox } from "@/components/ProgramsBox";
 import { MarkCompleteButton } from "@/components/MarkCompleteButton";
 import { NextLessonButton } from "@/components/NextLessonButton";
 import { LessonCompletionProvider, LessonCompletionBadge } from "@/components/LessonCompletion";
@@ -93,6 +94,8 @@ export default async function LessonPage({
             <MarkCompleteButton />
             <NextLessonButton nextSlug={nextSlug} nextTitle={nextLesson?.title ?? null} />
           </div>
+
+          <ProgramsBox id={lesson.id} heading="Where to train for this work" />
 
           <RelatedLinks items={related} />
         </EmailGate>

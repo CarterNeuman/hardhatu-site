@@ -5,7 +5,8 @@ import { getActionPlansForUser } from "@/lib/db";
 import { buildActionPlanDataByCategory } from "@/lib/action-plan-data";
 import { BlueprintMark } from "@/components/BlueprintMark";
 import { EmailGate } from "@/components/EmailGate";
-import { ActionPlanBuilder, type InitialPlan } from "@/components/ActionPlanBuilder";
+import { ActionPlanBuilder, type InitialPlan, type PlanPrefill } from "@/components/ActionPlanBuilder";
+import { CATEGORY_SLUG } from "@/lib/content-client";
 
 // Linked from the site header's "Take Your First Step" entry (see the
 // build-sequencing notes in the premium-action-plan-feasibility project
@@ -30,10 +31,23 @@ export const metadata: Metadata = {
 export default async function ActionPlanPage({
   searchParams,
 }: {
-  searchParams: Promise<{ plan?: string; career?: string }>;
+  searchParams: Promise<{ plan?: string; career?: string; category?: string; role?: string }>;
 }) {
-  const { plan: resumeCategory, career: resumeCareerId } = await searchParams;
+  const { plan: resumeCategory, career: resumeCareerId, category: prefillSlug, role: prefillRole } = await searchParams;
   const dataByCategory = buildActionPlanDataByCategory();
+
+  // ?category=<slug>&role=<career slug>: the head start every "Build a
+  // Blueprint" link elsewhere on the site sends (career pages, the
+  // job-hunt strip on guides, the quiz result). Only ever pre-selects
+  // the two dropdowns on the blank form -- both values are matched
+  // against real categories/careers here, so anything unrecognized is
+  // simply ignored, and a saved-plan link (?plan=) still wins.
+  let prefill: PlanPrefill | undefined;
+  const prefillCategory = Object.keys(CATEGORY_SLUG).find((name) => CATEGORY_SLUG[name] === prefillSlug);
+  if (prefillCategory && dataByCategory[prefillCategory]) {
+    const role = dataByCategory[prefillCategory].careers.find((c) => c.slug === prefillRole);
+    prefill = { category: prefillCategory, careerId: role?.id ?? "" };
+  }
 
   const { userId } = await auth();
   let initialPlan: InitialPlan | undefined;
@@ -92,7 +106,7 @@ export default async function ActionPlanPage({
         )}
       </div>
 
-      <ActionPlanBuilder dataByCategory={dataByCategory} initialPlan={initialPlan} />
+      <ActionPlanBuilder dataByCategory={dataByCategory} initialPlan={initialPlan} prefill={prefill} />
     </article>
     </EmailGate>
   );

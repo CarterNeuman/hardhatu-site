@@ -209,6 +209,36 @@ export function getProgramsForCareer(careerId: string): Program[] {
   return programs.filter((p) => p.careerIds.includes(careerId));
 }
 
+// Reverse lookup for every page that ISN'T a career: any Program that
+// names this item in its own relatedIds (a concept like
+// concept-apprenticeship-program, an exam like exam-osha-10, a lesson, a
+// Get Hired guide) or, for a career, in its careerIds. Lets those pages
+// show a "Where to train" box without each one hand-listing programs in
+// its own relatedIds -- with 20+ programs pointing at the same two or
+// three concepts, hand-listing would bury the "Explore next" row.
+export function getProgramsLinkedTo(id: string): Program[] {
+  const { programs } = getAllContent();
+  return programs.filter((p) => p.careerIds.includes(id) || p.relatedIds.includes(id));
+}
+
+// The three job-hunt guides for a career category, plus the general
+// Get Hired guide as a fallback -- what components/JobHuntRail.tsx links
+// together so Get Hired, Resume Guide, Interview Prep and the Blueprint
+// each point at the other three. A career-specific interview guide (the
+// Project Manager one) wins over the category-wide one.
+export function getJobHuntGuides(category?: string, careerId?: string) {
+  const { getHiredGuides, resumes, interviews } = getAllContent();
+  const getHired =
+    (category && getHiredGuides.find((g) => g.category === category && !g.comingSoon)) ||
+    getHiredGuides.find((g) => g.id === "gethired-general");
+  const resume = category ? resumes.find((r) => r.category === category) : undefined;
+  const interview =
+    (careerId && interviews.find((i) => i.careerId === careerId)) ||
+    (category && interviews.find((i) => !i.careerId && i.category === category)) ||
+    interviews.find((i) => i.id === "interview-construction-general");
+  return { getHired, resume, interview };
+}
+
 // urlFor, slugifyCategory, stripWikiLinks, and the three groupXByCategory
 // helpers are pure functions with no fs dependency — they live in
 // content-client.ts so client components (Header.tsx) can import them
@@ -224,4 +254,5 @@ export {
   groupResumesByCategory,
   groupExamsByCategory,
   groupConceptsByCategory,
+  matchSoftwareByName,
 } from "./content-client";
