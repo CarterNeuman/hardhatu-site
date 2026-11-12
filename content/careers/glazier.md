@@ -109,6 +109,10 @@ relatedIds:
   - resume-field-trades
   - lesson-building-envelope-and-glazing
   - program-iupat-glazier-apprenticeship
+  - concept-pressure-equalized-glazing
+  - concept-tempered-laminated-glass
+  - concept-thermal-break
+  - concept-water-penetration-testing
 recommendedIds:
   - career-ironworker
   - career-superintendent

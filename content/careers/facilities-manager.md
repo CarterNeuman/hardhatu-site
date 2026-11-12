@@ -118,6 +118,7 @@ relatedIds:
   - concept-cobie
   - resume-specialized-construction
   - gethired-specialized-construction
+  - lesson-3d-modeling-in-practice
 recommendedIds:
   - career-project-manager
   - career-hvac-technician

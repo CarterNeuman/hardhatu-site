@@ -67,4 +67,5 @@ relatedIds:
   - career-senior-estimator
   - career-welder
   - phase-construction
+  - gethired-general
 ---

@@ -101,6 +101,7 @@ relatedIds:
   - concept-carbon-accounting-scopes
   - resume-consultants-advisory
   - gethired-consultants-advisory
+  - concept-usgbc
 recommendedIds:
   - career-construction-consultant
   - career-commissioning-agent

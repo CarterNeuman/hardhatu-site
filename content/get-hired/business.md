@@ -70,5 +70,6 @@ relatedIds:
   - career-business-development-manager
   - career-risk-manager-construction
   - career-certified-payroll-specialist
+  - gethired-general
 ---
 Whether you're coming from a general accounting, HR, or contracts background and aiming for a role like [[career-hr-manager-construction|HR manager]] or [[career-contracts-administrator|contracts administrator]], this category hires on construction-specific context more than raw functional skill, and on being someone the field and the office both want to keep working with. Here's how to build both.

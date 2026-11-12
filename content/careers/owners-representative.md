@@ -107,6 +107,7 @@ relatedIds:
   - gethired-specialized-construction
   - lesson-a-day-as-an-owners-rep
   - lesson-financing-and-feasibility
+  - concept-pro-forma
 recommendedIds:
   - career-project-manager
   - career-business-development-manager

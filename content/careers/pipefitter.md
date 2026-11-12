@@ -113,6 +113,7 @@ relatedIds:
   - resume-field-trades
   - lesson-mechanical-and-plumbing-rough-in
   - program-abc-craft-training-apprenticeship
+  - concept-hydronic-systems
 recommendedIds:
   - career-plumber
   - career-hvac-technician

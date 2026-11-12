@@ -122,6 +122,8 @@ relatedIds:
   - resume-project-operations
   - gethired-project-operations
   - exam-cdt
+  - concept-coordination-drawing
+  - concept-fabricating-at-risk
 recommendedIds:
   - career-project-manager
   - career-superintendent

@@ -109,6 +109,8 @@ relatedIds:
   - lesson-building-envelope-and-glazing
   - program-osha-30-online-outreach
   - program-roofers-union-apprenticeship
+  - concept-parapet
+  - lesson-building-sequence
 recommendedIds:
   - career-superintendent
   - career-insurance-restoration-estimator

@@ -31,4 +31,10 @@ relatedIds:
   - concept-union-vs-open-shop
   - concept-prevailing-wage
   - exam-osha-10
+  - gethired-field-trades
+  - resume-field-trades
+  - interview-field-trades
+  - lesson-building-envelope-and-glazing
+  - lesson-building-sequence
+  - lesson-jobsite-safety-in-practice
 ---

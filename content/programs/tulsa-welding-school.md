@@ -31,4 +31,9 @@ relatedIds:
   - career-welder
   - exam-osha-10
   - exam-cwi
+  - gethired-field-trades
+  - resume-field-trades
+  - interview-field-trades
+  - lesson-structural-steel-erection
+  - lesson-jobsite-safety-in-practice
 ---

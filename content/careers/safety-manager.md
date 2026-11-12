@@ -140,6 +140,9 @@ relatedIds:
   - resume-project-operations
   - gethired-project-operations
   - exam-chst
+  - concept-hierarchy-of-controls
+  - concept-osha-soil-classification
+  - concept-struck-by-hazard
 recommendedIds:
   - career-superintendent
   - career-quality-control-manager

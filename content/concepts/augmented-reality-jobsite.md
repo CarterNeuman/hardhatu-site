@@ -38,5 +38,6 @@ relatedIds:
   - career-electrician
   - concept-bim
   - concept-clash-detection
+  - lesson-3d-modeling-in-practice
 ---
   - lesson-3d-modeling-in-practice

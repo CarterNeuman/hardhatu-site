@@ -36,4 +36,5 @@ relatedIds:
   - program-ibew-neca-electrical-apprenticeship
   - program-ua-plumber-pipefitter-apprenticeship
   - program-iuoe-heavy-equipment-operator-apprenticeship
+  - gethired-general
 ---

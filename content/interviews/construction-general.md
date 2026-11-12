@@ -94,5 +94,6 @@ relatedIds:
   - career-superintendent
   - career-welder
   - interview-project-manager
+  - gethired-general
 ---
 Most construction interviews aren't trying to trip you up; they're trying to answer one question: will this person show up, work safely, and get along with a crew they didn't choose? The questions below cover what comes up across nearly every role, from an apprentice interview to an office position. If you're interviewing for one specific role, also check whether there's a role-specific guide for it.

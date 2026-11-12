@@ -35,4 +35,5 @@ relatedIds:
   - concept-prime-contract
   - lesson-whos-actually-running-the-job
   - phase-construction
+  - gethired-general
 ---

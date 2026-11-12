@@ -90,6 +90,8 @@ relatedIds:
   - concept-microgrid
   - gethired-specialized-construction
   - lesson-solar-and-renewable-energy-on-a-jobsite
+  - concept-grid-resynchronization
+  - concept-solar-inverter
 recommendedIds:
   - concept-net-zero-energy-building
   - concept-leed

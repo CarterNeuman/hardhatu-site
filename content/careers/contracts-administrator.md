@@ -128,6 +128,8 @@ relatedIds:
   - gethired-business
   - exam-cdt
   - lesson-subcontractor-buyout-and-scope-gaps
+  - concept-contract-execution
+  - concept-time-and-materials-contract
 recommendedIds:
   - career-project-manager
   - career-hr-manager-construction

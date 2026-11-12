@@ -46,4 +46,5 @@ relatedIds:
   - career-certified-payroll-specialist
   - concept-apprenticeship-program
   - concept-davis-bacon-act
+  - gethired-general
 ---

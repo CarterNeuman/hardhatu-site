@@ -140,6 +140,14 @@ relatedIds:
   - program-abc-craft-training-apprenticeship
   - program-job-corps-construction-trades
   - program-nccer-craft-training
+  - concept-afci
+  - concept-electrical-box-fill
+  - concept-electrical-conductor
+  - concept-electrical-trim-out
+  - concept-gfci
+  - concept-national-electrical-code
+  - concept-nm-cable
+  - concept-service-loop
 recommendedIds:
   - career-laborer
   - career-elevator-technician

@@ -36,4 +36,14 @@ relatedIds:
   - concept-union-vs-open-shop
   - exam-nccer-core
   - exam-osha-10
+  - career-carpenter
+  - career-electrician
+  - career-equipment-operator
+  - career-pipefitter
+  - gethired-field-trades
+  - resume-field-trades
+  - interview-field-trades
+  - lesson-building-sequence
+  - lesson-jobsite-safety-in-practice
+  - lesson-a-day-as-a-laborer
 ---

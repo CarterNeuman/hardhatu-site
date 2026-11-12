@@ -29,4 +29,10 @@ relatedIds:
   - concept-apprenticeship-program
   - concept-union-vs-open-shop
   - exam-osha-10
+  - gethired-field-trades
+  - resume-field-trades
+  - interview-field-trades
+  - lesson-from-dirt-to-deck
+  - lesson-heavy-equipment-and-earthwork
+  - lesson-jobsite-safety-in-practice
 ---

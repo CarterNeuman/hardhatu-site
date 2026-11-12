@@ -215,4 +215,7 @@ relatedIds:
   - lesson-electrical-rough-in
   - lesson-mechanical-and-plumbing-rough-in
   - lesson-building-envelope-and-glazing
+  - career-drywall-installer
+  - career-roofer
+  - career-plumber
 ---

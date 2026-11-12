@@ -34,4 +34,14 @@ lastReviewed: "2026-11"
 relatedIds:
   - concept-apprenticeship-program
   - exam-osha-10
+  - career-electrician
+  - career-painter
+  - career-plumber
+  - career-carpenter
+  - gethired-field-trades
+  - resume-field-trades
+  - interview-field-trades
+  - lesson-building-sequence
+  - lesson-jobsite-safety-in-practice
+  - lesson-a-day-as-a-laborer
 ---

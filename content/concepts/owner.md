@@ -39,4 +39,5 @@ relatedIds:
   - phase-construction
   - lesson-whos-actually-running-the-job
   - phase-idea-feasibility
+  - gethired-general
 ---

@@ -138,6 +138,8 @@ relatedIds:
   - concept-third-party-administrator
   - resume-insurance-claims
   - gethired-insurance-claims
+  - concept-bad-faith-insurance
+  - concept-test-square
 recommendedIds:
   - career-construction-claims-consultant
   - career-public-adjuster

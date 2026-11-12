@@ -113,6 +113,12 @@ relatedIds:
   - resume-field-trades
   - lesson-solar-and-renewable-energy-on-a-jobsite
   - program-nabcep-pv-associate-certification
+  - concept-afci
+  - concept-electrical-conductor
+  - concept-kilowatt-hour
+  - concept-nabcep-certification
+  - concept-national-electrical-code
+  - concept-solar-inverter
 recommendedIds:
   - concept-net-zero-energy-building
   - career-electrician

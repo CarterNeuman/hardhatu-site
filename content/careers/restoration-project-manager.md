@@ -103,6 +103,8 @@ relatedIds:
   - concept-salvage-insurance
   - resume-specialized-construction
   - gethired-specialized-construction
+  - concept-roof-decking
+  - concept-test-square
 recommendedIds:
   - career-insurance-restoration-estimator
   - career-insurance-adjuster

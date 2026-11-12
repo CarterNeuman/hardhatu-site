@@ -183,4 +183,5 @@ relatedIds:
   - concept-structural-bay
   - concept-spud-wrench
   - concept-impact-wrench
+  - career-welder
 ---

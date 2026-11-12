@@ -119,6 +119,7 @@ relatedIds:
   - lesson-mechanical-and-plumbing-rough-in
   - program-ua-plumber-pipefitter-apprenticeship
   - program-job-corps-construction-trades
+  - lesson-building-sequence
 recommendedIds:
   - career-pipefitter
   - career-mep-engineer

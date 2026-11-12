@@ -97,6 +97,7 @@ relatedIds:
   - exam-cpr-first-aid
   - lesson-a-day-as-a-laborer
   - program-liuna-laborer-apprenticeship
+  - concept-struck-by-hazard
 recommendedIds:
   - career-carpenter
   - career-electrician

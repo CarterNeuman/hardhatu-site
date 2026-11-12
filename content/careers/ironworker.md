@@ -121,6 +121,12 @@ relatedIds:
   - exam-cpr-first-aid
   - lesson-structural-steel-erection
   - program-ironworkers-apprenticeship
+  - concept-anchor-bolts
+  - concept-come-along
+  - concept-impact-wrench
+  - concept-plumb-alignment
+  - concept-spud-wrench
+  - concept-structural-bay
 recommendedIds:
   - career-superintendent
   - career-welder

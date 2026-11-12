@@ -170,4 +170,5 @@ relatedIds:
   - concept-shear-wall
   - concept-hurricane-tie
   - concept-fire-blocking
+  - career-drywall-installer
 ---

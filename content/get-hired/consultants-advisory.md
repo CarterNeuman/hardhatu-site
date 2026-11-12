@@ -85,5 +85,6 @@ relatedIds:
   - career-permit-expediter
   - career-scheduling-delay-consultant
   - career-sustainability-leed-consultant
+  - gethired-general
 ---
 Whether you're building toward [[career-construction-claims-consultant|claims consulting]] or [[career-expert-witness-construction-litigation|expert witness work]], this category hires almost entirely on track record and referral. Here's how to start building both. A narrow junior-analyst door exists at a few firms too, so it's worth checking for that while you build the rest.

@@ -111,6 +111,7 @@ relatedIds:
   - gethired-project-operations
   - exam-cwi
   - exam-icc-building-inspector
+  - concept-concrete-cylinder-break-test
 recommendedIds:
   - career-quality-control-manager
   - career-assistant-superintendent

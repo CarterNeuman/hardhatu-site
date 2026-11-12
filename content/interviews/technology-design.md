@@ -89,6 +89,8 @@ relatedIds:
   - resume-technology-design
   - gethired-technology-design
   - exam-fe
+  - lesson-3d-modeling-in-practice
+  - lesson-drones-scanning-and-mapping
 ---
   - lesson-3d-modeling-in-practice
   - lesson-drones-scanning-and-mapping

@@ -33,4 +33,10 @@ relatedIds:
   - concept-prevailing-wage
   - exam-osha-10
   - exam-nccer-core
+  - gethired-field-trades
+  - resume-field-trades
+  - interview-field-trades
+  - lesson-building-sequence
+  - lesson-electrical-rough-in
+  - lesson-jobsite-safety-in-practice
 ---

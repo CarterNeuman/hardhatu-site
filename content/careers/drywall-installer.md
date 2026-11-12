@@ -94,6 +94,8 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - program-iupat-drywall-finisher-apprenticeship
+  - lesson-framing-and-rough-carpentry
+  - lesson-building-sequence
 recommendedIds:
   - career-carpenter
   - career-painter

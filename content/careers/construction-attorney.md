@@ -111,6 +111,9 @@ relatedIds:
   - resume-business
   - resume-consultants-advisory
   - gethired-business
+  - concept-bad-faith-insurance
+  - concept-design-defect-vs-construction-defect
+  - concept-negligence-claim
 recommendedIds:
   - career-contracts-administrator
   - career-construction-claims-consultant

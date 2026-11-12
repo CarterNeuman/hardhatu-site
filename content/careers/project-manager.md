@@ -166,6 +166,8 @@ relatedIds:
   - gethired-project-operations
   - lesson-cost-control-and-forecasting-in-practice
   - lesson-subcontractor-buyout-and-scope-gaps
+  - concept-overhead-and-profit-markup
+  - concept-time-and-materials-contract
 recommendedIds:
   - career-project-engineer
   - career-owners-representative

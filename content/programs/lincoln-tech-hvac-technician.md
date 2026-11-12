@@ -26,4 +26,10 @@ lastReviewed: "2026-11"
 relatedIds:
   - career-hvac-technician
   - exam-osha-10
+  - gethired-field-trades
+  - resume-field-trades
+  - interview-field-trades
+  - lesson-green-building-certification
+  - lesson-hvac-and-building-systems-in-practice
+  - lesson-mechanical-and-plumbing-rough-in
 ---

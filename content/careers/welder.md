@@ -108,6 +108,7 @@ relatedIds:
   - exam-cpr-first-aid
   - exam-cwi
   - program-tulsa-welding-school
+  - lesson-structural-steel-erection
 recommendedIds:
   - career-superintendent
   - career-ironworker

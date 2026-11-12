@@ -110,6 +110,9 @@ relatedIds:
   - gethired-technology-design
   - exam-fe
   - lesson-heavy-equipment-and-earthwork
+  - concept-ground-control-points
+  - concept-total-station
+  - lesson-drones-scanning-and-mapping
 recommendedIds:
   - career-bim-vdc-specialist
   - career-drone-uav-specialist

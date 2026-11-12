@@ -35,4 +35,13 @@ relatedIds:
   - exam-nccer-core
   - exam-osha-10
   - concept-apprenticeship-program
+  - career-carpenter
+  - career-electrician
+  - career-equipment-operator
+  - gethired-field-trades
+  - resume-field-trades
+  - interview-field-trades
+  - lesson-building-sequence
+  - lesson-jobsite-safety-in-practice
+  - lesson-a-day-as-a-laborer
 ---

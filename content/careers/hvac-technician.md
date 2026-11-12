@@ -125,6 +125,8 @@ relatedIds:
   - lesson-mechanical-and-plumbing-rough-in
   - lesson-hvac-and-building-systems-in-practice
   - program-lincoln-tech-hvac-technician
+  - concept-epa-608-certification
+  - concept-heat-recovery-ventilation
 recommendedIds:
   - career-facilities-manager
   - career-sheet-metal-worker

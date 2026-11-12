@@ -123,6 +123,10 @@ relatedIds:
   - exam-cdt
   - lesson-a-day-in-the-life-of-an-estimator
   - lesson-procurement-and-long-lead-logistics
+  - concept-conceptual-estimate
+  - concept-cost-escalation
+  - concept-design-development-phases
+  - concept-overhead-and-profit-markup
 recommendedIds:
   - career-project-manager
   - career-senior-estimator

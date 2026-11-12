@@ -30,4 +30,8 @@ relatedIds:
   - career-electrician
   - career-equipment-operator
   - career-roofer
+  - gethired-field-trades
+  - resume-field-trades
+  - interview-field-trades
+  - lesson-jobsite-safety-in-practice
 ---

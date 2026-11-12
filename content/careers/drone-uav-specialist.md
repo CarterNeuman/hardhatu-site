@@ -87,6 +87,10 @@ relatedIds:
   - resume-technology-design
   - gethired-technology-design
   - lesson-drones-scanning-and-mapping
+  - concept-faa-part-107
+  - concept-ground-control-points
+  - concept-laanc
+  - concept-orthomosaic-mapping
 recommendedIds:
   - career-surveyor
   - career-bim-vdc-specialist

@@ -81,5 +81,6 @@ relatedIds:
   - exam-cwi
   - exam-chst
   - exam-icc-building-inspector
+  - gethired-general
 ---
 Whether you're aiming for [[career-project-manager|project manager]], [[career-superintendent|superintendent]], or a [[career-scheduler|scheduler]] role, this category rewards specifics over titles. Here's the actual path in, plus why 2026 is a better moment for it than it might feel.

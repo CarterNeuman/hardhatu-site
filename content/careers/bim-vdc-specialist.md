@@ -97,6 +97,8 @@ relatedIds:
   - concept-cobie
   - resume-technology-design
   - gethired-technology-design
+  - concept-level-of-development-bim
+  - lesson-3d-modeling-in-practice
 recommendedIds:
   - career-project-manager
   - career-surveyor

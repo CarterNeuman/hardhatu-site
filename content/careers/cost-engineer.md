@@ -94,6 +94,8 @@ relatedIds:
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
   - lesson-cost-control-and-forecasting-in-practice
+  - concept-cost-escalation
+  - concept-cost-performance-index
 recommendedIds:
   - career-estimator
   - career-senior-estimator

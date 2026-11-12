@@ -121,6 +121,9 @@ relatedIds:
   - gethired-technology-design
   - exam-fe
   - lesson-concrete-and-foundations-in-practice
+  - concept-concrete-mix-design
+  - concept-shear-wall
+  - concept-sub-consultant
 recommendedIds:
   - career-ironworker
   - career-concrete-worker

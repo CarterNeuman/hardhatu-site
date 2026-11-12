@@ -30,4 +30,10 @@ relatedIds:
   - career-solar-installer
   - exam-osha-10
   - concept-apprenticeship-program
+  - gethired-field-trades
+  - resume-field-trades
+  - interview-field-trades
+  - lesson-green-building-certification
+  - lesson-solar-and-renewable-energy-on-a-jobsite
+  - lesson-jobsite-safety-in-practice
 ---

@@ -100,6 +100,7 @@ relatedIds:
   - resume-business
   - gethired-business
   - lesson-financing-and-feasibility
+  - concept-construction-loan-draws
 recommendedIds:
   - career-contracts-administrator
   - career-procurement-manager

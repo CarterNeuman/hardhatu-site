@@ -114,6 +114,11 @@ relatedIds:
   - exam-cpr-first-aid
   - lesson-concrete-and-foundations-in-practice
   - program-opcmia-cement-mason-apprenticeship
+  - concept-concrete-control-joint
+  - concept-concrete-finishing-techniques
+  - concept-concrete-mix-design
+  - concept-honeycombing
+  - concept-slump-test
 recommendedIds:
   - career-superintendent
   - career-mason

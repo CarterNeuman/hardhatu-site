@@ -148,6 +148,7 @@ relatedIds:
   - exam-cpr-first-aid
   - exam-nccco-crane-operator
   - lesson-coordinating-subs-as-a-superintendent
+  - concept-substrate
 recommendedIds:
   - career-project-manager
   - career-project-engineer

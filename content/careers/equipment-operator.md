@@ -119,6 +119,11 @@ relatedIds:
   - program-osha-30-online-outreach
   - program-abc-craft-training-apprenticeship
   - program-nccer-craft-training
+  - concept-bulldozer
+  - concept-compaction-equipment
+  - concept-excavator
+  - concept-motor-grader
+  - concept-osha-soil-classification
 recommendedIds:
   - career-superintendent
   - career-millwright

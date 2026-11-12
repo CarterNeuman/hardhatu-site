@@ -133,6 +133,13 @@ relatedIds:
   - program-ubc-carpenter-apprenticeship
   - program-abc-craft-training-apprenticeship
   - program-nccer-craft-training
+  - concept-fire-blocking
+  - concept-header-framing
+  - concept-hurricane-tie
+  - concept-shear-wall
+  - concept-span-table
+  - concept-top-and-bottom-plate
+  - program-job-corps-construction-trades
 recommendedIds:
   - career-superintendent
   - career-drywall-installer

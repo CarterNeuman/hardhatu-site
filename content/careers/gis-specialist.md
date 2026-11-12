@@ -88,6 +88,9 @@ relatedIds:
   - career-construction-technology-manager
   - resume-technology-design
   - gethired-technology-design
+  - concept-gis
+  - concept-orthomosaic-mapping
+  - lesson-drones-scanning-and-mapping
 recommendedIds:
   - concept-drone-mapping
   - concept-reality-capture
