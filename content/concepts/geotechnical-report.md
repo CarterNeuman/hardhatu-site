@@ -45,4 +45,5 @@ relatedIds:
   - lesson-from-dirt-to-deck
   - career-geotechnical-engineer
   - concept-blasting-rock-removal
+  - career-blaster-explosives-specialist
 ---

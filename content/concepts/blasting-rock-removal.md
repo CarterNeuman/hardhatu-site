@@ -23,8 +23,8 @@ example: >
   levels at each blast with seismographs to confirm they stay within the
   permitted limit.
 careerAngle: >
-  A licensed blaster plans and executes the blast. A
-  [[career-civil-engineer|Civil Engineer]] or
+  A [[career-blaster-explosives-specialist|Blaster / Explosives Specialist]]
+  plans and executes the blast. A [[career-civil-engineer|Civil Engineer]] or
   [[career-heavy-civil-estimator|Heavy Civil Estimator]] accounts for
   blasting's real cost and schedule impact when rock is identified during
   the geotechnical investigation.
@@ -40,4 +40,5 @@ relatedIds:
   - career-heavy-civil-estimator
   - concept-excavation
   - concept-geotechnical-report
+  - career-blaster-explosives-specialist
 ---

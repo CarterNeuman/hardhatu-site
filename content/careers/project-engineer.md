@@ -130,6 +130,7 @@ relatedIds:
   - career-architect
   - career-interior-designer
   - career-specification-writer
+  - career-modular-offsite-construction-manager
 recommendedIds:
   - career-project-manager
   - career-superintendent

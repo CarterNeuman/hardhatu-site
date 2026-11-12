@@ -127,6 +127,7 @@ relatedIds:
   - lesson-jobsite-safety-in-practice
   - concept-utility-locating-potholing
   - concept-equipment-telematics
+  - career-blaster-explosives-specialist
 recommendedIds:
   - career-superintendent
   - career-millwright

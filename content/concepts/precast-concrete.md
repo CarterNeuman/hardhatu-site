@@ -39,4 +39,5 @@ relatedIds:
   - concept-modular-construction
   - phase-construction
   - career-structural-engineer
+  - career-modular-offsite-construction-manager
 ---

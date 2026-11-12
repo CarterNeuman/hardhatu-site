@@ -169,6 +169,8 @@ relatedIds:
   - concept-phasing-plan
   - concept-total-float-vs-free-float
   - concept-utility-locate-811
+  - career-tenant-improvement-construction-manager
+  - career-modular-offsite-construction-manager
 recommendedIds:
   - career-project-manager
   - career-project-engineer

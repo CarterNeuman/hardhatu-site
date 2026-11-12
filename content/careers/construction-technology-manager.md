@@ -105,6 +105,7 @@ relatedIds:
   - concept-audiovisual-systems
   - concept-clock-program-systems
   - concept-visitor-management-systems
+  - career-modular-offsite-construction-manager
 recommendedIds:
   - career-bim-vdc-specialist
   - career-drone-uav-specialist

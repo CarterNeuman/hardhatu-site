@@ -124,6 +124,7 @@ relatedIds:
   - career-architect
   - career-landscape-architect
   - career-geotechnical-engineer
+  - career-blaster-explosives-specialist
 recommendedIds:
   - career-surveyor
   - career-superintendent

@@ -182,6 +182,9 @@ relatedIds:
   - concept-s-curve-cost-schedule
   - concept-schedule-narrative
   - concept-scope-gap-scope-overlap
+  - career-tenant-improvement-construction-manager
+  - career-modular-offsite-construction-manager
+  - career-healthcare-construction-manager
 recommendedIds:
   - career-project-engineer
   - career-owners-representative

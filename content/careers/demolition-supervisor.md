@@ -104,6 +104,7 @@ relatedIds:
   - gethired-specialized-construction
   - concept-selective-demolition
   - concept-building-deconstruction
+  - career-blaster-explosives-specialist
 recommendedIds:
   - concept-demolition
   - concept-hazardous-material-abatement

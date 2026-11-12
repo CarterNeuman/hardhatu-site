@@ -45,5 +45,5 @@ relatedIds:
   - concept-long-lead-item
   - concept-modular-construction
   - concept-3d-printing-construction
-
+  - career-modular-offsite-construction-manager
 ---

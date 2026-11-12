@@ -116,6 +116,7 @@ relatedIds:
   - concept-site-visit-report
   - career-architect
   - career-property-condition-assessor
+  - career-tenant-improvement-construction-manager
 recommendedIds:
   - career-project-manager
   - career-business-development-manager

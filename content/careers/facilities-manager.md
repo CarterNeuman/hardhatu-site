@@ -139,6 +139,8 @@ relatedIds:
   - concept-attic-stock-spare-parts
   - concept-owner-training-session
   - concept-warranty-log
+  - career-tenant-improvement-construction-manager
+  - career-healthcare-construction-manager
 recommendedIds:
   - career-project-manager
   - career-hvac-technician

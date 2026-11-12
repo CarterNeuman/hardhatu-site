@@ -43,4 +43,5 @@ relatedIds:
   - concept-bim
   - phase-construction
   - concept-offsite-manufacturing
+  - career-modular-offsite-construction-manager
 ---

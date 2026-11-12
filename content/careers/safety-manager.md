@@ -157,6 +157,7 @@ relatedIds:
   - career-fire-protection-engineer
   - career-workers-comp-claims-adjuster
   - career-general-liability-underwriter
+  - career-healthcare-construction-manager
 recommendedIds:
   - career-superintendent
   - career-quality-control-manager

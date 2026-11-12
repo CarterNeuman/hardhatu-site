@@ -93,6 +93,7 @@ relatedIds:
   - concept-blasting-rock-removal
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
+  - career-blaster-explosives-specialist
 recommendedIds:
   - career-equipment-operator
   - career-civil-engineer
