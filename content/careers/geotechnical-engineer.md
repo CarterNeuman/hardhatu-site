@@ -45,7 +45,7 @@ whatIs: >
   geotechnical reports, though a post-PE geotechnical certification signals
   deeper specialization.
 whatTheyDo:
-  - Plan and oversee subsurface investigations: soil borings, test pits, and in-situ testing
+  - Plan and oversee subsurface investigations, including soil borings, test pits, and in-situ testing
   - Analyze soil and rock samples to determine bearing capacity, settlement, and slope stability
   - Recommend foundation types (shallow versus deep) and design parameters for structural engineers
   - Design retaining walls, slope stabilization, and ground improvement measures
@@ -67,7 +67,7 @@ whereTheyWork:
   - Frequent site visits for investigations and construction observation
 skills:
   - Subsurface investigation planning and soil/rock sampling
-  - Soil mechanics analysis: bearing capacity, settlement, and slope stability
+  - Soil mechanics analysis, covering bearing capacity, settlement, and slope stability
   - Foundation and retaining wall design recommendations
   - Writing geotechnical reports used by structural and civil engineers
   - Field observation of foundation and earthwork construction
