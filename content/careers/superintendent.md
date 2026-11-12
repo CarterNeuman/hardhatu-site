@@ -164,6 +164,7 @@ relatedIds:
   - concept-tack-marker-boards
   - concept-entrance-floor-grilles
   - concept-outdoor-shade-structures
+  - concept-cubicle-curtains-curtain-track
 recommendedIds:
   - career-project-manager
   - career-project-engineer

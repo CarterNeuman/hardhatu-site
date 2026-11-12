@@ -14,6 +14,9 @@ whyItMatters: >
   since a panel added after the fact means cutting into a finished wall or
   ceiling, and a panel placed without input from whoever actually maintains the
   equipment behind it can end up too small or in the wrong spot to be useful.
+  A panel set into a [[concept-fire-rated-assembly|fire-rated assembly]] has to
+  carry a matching fire rating of its own, since an unrated panel creates a
+  weak point in an otherwise-rated wall or ceiling.
 example: >
   A general contractor coordinates access panel locations with the mechanical
   and electrical rough-in drawings before drywall installation, placing a
@@ -33,4 +36,6 @@ relatedIds:
   - career-drywall-installer
   - career-facilities-manager
   - concept-drywall
+  - concept-fire-rated-assembly
+  - career-qaqc-inspector
 ---

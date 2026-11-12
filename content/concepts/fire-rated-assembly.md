@@ -35,4 +35,5 @@ relatedIds:
   - concept-life-safety-code-nfpa-101
   - concept-egress-requirements
   - concept-overhead-coiling-doors
+  - concept-access-doors-panels
 ---

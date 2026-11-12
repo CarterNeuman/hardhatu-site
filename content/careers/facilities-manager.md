@@ -135,6 +135,7 @@ relatedIds:
   - concept-demand-response-load-shedding-automation
   - concept-vending-equipment
   - concept-display-cases
+  - concept-cubicle-curtains-curtain-track
 recommendedIds:
   - career-project-manager
   - career-hvac-technician

@@ -37,4 +37,7 @@ relatedIds:
   - career-commissioning-agent
   - concept-building-automation-system
   - concept-direct-digital-control
+  - concept-hvac-controls-integration
+  - concept-energy-management-system-integration
+  - concept-fire-life-safety-system-integration
 ---
