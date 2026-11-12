@@ -46,4 +46,5 @@ relatedIds:
   - concept-sump-pump
   - concept-water-heater
   - lesson-mechanical-and-plumbing-rough-in
+  - career-mep-estimator
 ---

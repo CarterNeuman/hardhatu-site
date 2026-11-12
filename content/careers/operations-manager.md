@@ -96,6 +96,7 @@ relatedIds:
   - concept-equipment-telematics
   - career-controller-cfo-construction
   - career-equipment-fleet-manager
+  - career-chief-estimator
 recommendedIds:
   - career-project-manager
   - career-senior-estimator

@@ -36,4 +36,5 @@ relatedIds:
   - concept-nm-cable
   - concept-conduit
   - lesson-solar-and-renewable-energy-on-a-jobsite
+  - career-mep-estimator
 ---

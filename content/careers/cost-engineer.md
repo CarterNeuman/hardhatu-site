@@ -99,6 +99,7 @@ relatedIds:
   - concept-s-curve-cost-schedule
   - concept-schedule-performance-index
   - concept-variance-at-completion
+  - career-commercial-manager-construction
 recommendedIds:
   - career-estimator
   - career-senior-estimator

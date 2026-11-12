@@ -92,6 +92,7 @@ relatedIds:
   - interview-business
   - resume-business
   - gethired-business
+  - career-chief-estimator
 recommendedIds:
   - career-construction-accountant
   - career-risk-manager-construction

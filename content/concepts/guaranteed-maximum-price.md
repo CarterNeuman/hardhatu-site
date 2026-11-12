@@ -35,4 +35,5 @@ relatedIds:
   - lesson-choosing-how-to-build-it
   - concept-shared-savings-clause
   - lesson-value-engineering
+  - career-commercial-manager-construction
 ---

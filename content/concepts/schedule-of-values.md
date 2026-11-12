@@ -42,4 +42,5 @@ relatedIds:
   - lesson-the-estimate-becomes-the-budget
   - concept-cost-code
   - concept-pay-application
+  - career-commercial-manager-construction
 ---

@@ -38,4 +38,6 @@ relatedIds:
   - lesson-bidding-and-winning-work
   - career-bid-coordinator
   - concept-bid-alternates
+  - career-chief-estimator
+  - career-mep-estimator
 ---

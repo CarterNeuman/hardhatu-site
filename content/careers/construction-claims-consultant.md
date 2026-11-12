@@ -106,6 +106,7 @@ relatedIds:
   - concept-window-analysis-schedule-delay
   - career-surety-claims-manager
   - career-construction-mediator-arbitrator
+  - career-commercial-manager-construction
 recommendedIds:
   - career-insurance-adjuster
   - career-public-adjuster

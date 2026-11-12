@@ -148,6 +148,7 @@ relatedIds:
   - career-general-liability-underwriter
   - career-insurance-broker
   - career-credit-manager-construction
+  - career-commercial-manager-construction
 recommendedIds:
   - career-project-manager
   - career-hr-manager-construction

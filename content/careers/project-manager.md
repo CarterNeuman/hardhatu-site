@@ -185,6 +185,7 @@ relatedIds:
   - career-tenant-improvement-construction-manager
   - career-modular-offsite-construction-manager
   - career-healthcare-construction-manager
+  - career-commercial-manager-construction
 recommendedIds:
   - career-project-engineer
   - career-owners-representative

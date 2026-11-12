@@ -41,4 +41,6 @@ relatedIds:
   - phase-construction
   - lesson-bidding-and-winning-work
   - career-bid-coordinator
+  - career-chief-estimator
+  - career-mep-estimator
 ---

@@ -106,6 +106,7 @@ relatedIds:
   - concept-design-assist
   - concept-progressive-design-build
   - career-marketing-proposals-manager
+  - career-chief-estimator
 recommendedIds:
   - career-senior-estimator
   - career-estimator

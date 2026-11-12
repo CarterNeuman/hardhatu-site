@@ -40,4 +40,5 @@ relatedIds:
   - lesson-whos-actually-running-the-job
   - phase-construction
   - concept-overhead-and-profit-markup
+  - career-commercial-manager-construction
 ---

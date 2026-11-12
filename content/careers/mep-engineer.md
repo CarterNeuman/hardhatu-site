@@ -156,6 +156,7 @@ relatedIds:
   - career-fire-protection-engineer
   - career-specification-writer
   - career-property-condition-assessor
+  - career-mep-estimator
 recommendedIds:
   - career-hvac-technician
   - career-electrician

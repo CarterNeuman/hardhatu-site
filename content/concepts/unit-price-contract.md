@@ -41,4 +41,5 @@ relatedIds:
   - lesson-the-estimate-becomes-the-budget
   - concept-job-order-contracting
   - concept-time-and-materials-contract
+  - career-commercial-manager-construction
 ---

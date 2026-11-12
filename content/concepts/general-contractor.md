@@ -68,4 +68,5 @@ relatedIds:
   - career-welder
   - phase-construction
   - gethired-general
+  - career-chief-estimator
 ---

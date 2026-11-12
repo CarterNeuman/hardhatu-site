@@ -90,6 +90,8 @@ relatedIds:
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
   - lesson-a-day-in-the-life-of-an-estimator
+  - career-chief-estimator
+  - career-mep-estimator
 recommendedIds:
   - career-estimator
   - career-cost-engineer

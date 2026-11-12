@@ -55,4 +55,7 @@ relatedIds:
   - lesson-cost-control-and-forecasting-in-practice
   - concept-change-order-log
   - career-tenant-improvement-construction-manager
+  - career-chief-estimator
+  - career-mep-estimator
+  - career-commercial-manager-construction
 ---

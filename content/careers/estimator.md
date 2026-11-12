@@ -131,6 +131,8 @@ relatedIds:
   - concept-sunset-clause-bid-validity
   - concept-bid-shopping-bid-peddling
   - concept-unbalanced-bid
+  - career-chief-estimator
+  - career-mep-estimator
 recommendedIds:
   - career-project-manager
   - career-senior-estimator

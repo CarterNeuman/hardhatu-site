@@ -33,4 +33,5 @@ relatedIds:
   - career-contracts-administrator
   - career-project-manager
   - concept-change-order
+  - career-commercial-manager-construction
 ---

@@ -84,6 +84,7 @@ relatedIds:
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
   - concept-percent-complete-units-method
+  - career-commercial-manager-construction
 recommendedIds:
   - career-estimator
   - career-cost-engineer

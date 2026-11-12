@@ -39,4 +39,5 @@ relatedIds:
   - concept-loss-draft-mortgagee-clause
   - concept-mortgage-company-endorsement-process
   - career-credit-manager-construction
+  - career-commercial-manager-construction
 ---
