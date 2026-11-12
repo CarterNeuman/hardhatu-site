@@ -38,4 +38,5 @@ relatedIds:
   - concept-building-envelope
   - phase-construction
   - concept-slab-on-grade
+  - career-insulation-installer
 ---

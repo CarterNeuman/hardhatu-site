@@ -23,7 +23,7 @@ example: >
   anywhere along its run.
 careerAngle: >
   A [[career-sheet-metal-worker|Sheet Metal Worker]] fabricates and installs
-  ductwork, often coordinating with a separate insulation crew who wraps it
+  ductwork, often coordinating with a separate [[career-insulation-installer|Insulation Installer]] crew who wraps it
   once it's hung.
 whatGoesWrong: >
   An insulation crew wraps a cold-air duct but leaves several sections of the
@@ -35,4 +35,5 @@ relatedIds:
   - career-sheet-metal-worker
   - concept-ductwork
   - concept-insulation
+  - career-insulation-installer
 ---

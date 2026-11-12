@@ -19,7 +19,7 @@ example: >
   every electrical box and pipe penetration, avoiding the gaps and compression that
   would otherwise reduce its effective performance in exactly those spots.
 careerAngle: >
-  A [[career-carpenter|Carpenter]] or specialty insulation installer fits insulation
+  A [[career-carpenter|Carpenter]] or an [[career-insulation-installer|Insulation Installer]] fits insulation
   into wall and ceiling cavities, a task that looks simple but is easy to do sloppily
   in ways that aren't obvious once drywall covers it. A
   [[career-sustainability-leed-consultant|Sustainability/LEED Consultant]] may require
@@ -45,4 +45,5 @@ relatedIds:
   - concept-continuous-insulation
   - concept-eifs
   - concept-ductwork-insulation
+  - career-insulation-installer
 ---

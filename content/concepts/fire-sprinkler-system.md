@@ -21,7 +21,7 @@ example: >
   light-hazard sprinkler design used in an office building wouldn't provide adequate
   protection for the denser combustible storage.
 careerAngle: >
-  A [[career-safety-manager|Safety Manager]] coordinates fire watch procedures if the
+  A [[career-sprinkler-fitter|Sprinkler Fitter]] installs and tests the system. A [[career-safety-manager|Safety Manager]] coordinates fire watch procedures if the
   sprinkler system has to be temporarily out of service during construction or
   renovation. A [[career-quality-control-manager|Quality Control Manager]] witnesses
   the required flow and pressure testing of the completed system before it's
@@ -44,4 +44,5 @@ relatedIds:
   - concept-fire-pump
   - career-fire-protection-engineer
   - concept-wet-dry-sprinkler-systems
+  - career-sprinkler-fitter
 ---

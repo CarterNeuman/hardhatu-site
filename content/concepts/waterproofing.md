@@ -22,7 +22,7 @@ example: >
   hydrostatic pressure, rather than a lighter damp-proofing coating that wouldn't hold
   up under those groundwater conditions.
 careerAngle: >
-  A specialty waterproofing crew, often working alongside a
+  A [[career-waterproofing-installer|Waterproofing Installer]], often working alongside a
   [[career-concrete-worker|Concrete Worker]], applies the membrane before the
   foundation is backfilled, since it's essentially impossible to fix once soil covers
   it. A [[career-quality-control-manager|Quality Control Manager]] inspects the
@@ -53,4 +53,6 @@ relatedIds:
   - concept-brick-veneer
   - concept-slab-on-grade
   - career-building-envelope-consultant
+  - career-tile-setter
+  - career-waterproofing-installer
 ---

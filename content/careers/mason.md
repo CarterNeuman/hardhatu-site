@@ -104,6 +104,8 @@ relatedIds:
   - exam-cpr-first-aid
   - program-bac-bricklayer-apprenticeship
   - lesson-jobsite-safety-in-practice
+  - career-tile-setter
+  - career-plasterer-stucco-mason
 recommendedIds:
   - career-superintendent
   - career-concrete-worker

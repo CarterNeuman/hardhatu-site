@@ -132,6 +132,7 @@ relatedIds:
   - concept-louvers-vents
   - concept-envelope-air-tightness-testing
   - concept-thermal-imaging-building-diagnostics
+  - career-insulation-installer
 recommendedIds:
   - career-facilities-manager
   - career-sheet-metal-worker

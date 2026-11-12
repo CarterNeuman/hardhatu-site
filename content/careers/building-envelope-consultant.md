@@ -93,6 +93,7 @@ relatedIds:
   - interview-consultants-advisory
   - resume-consultants-advisory
   - gethired-consultants-advisory
+  - career-waterproofing-installer
 recommendedIds:
   - career-architect
   - career-quality-control-manager

@@ -69,4 +69,10 @@ relatedIds:
   - phase-construction
   - gethired-general
   - career-chief-estimator
+  - career-insulation-installer
+  - career-waterproofing-installer
+  - career-tile-setter
+  - career-flooring-installer
+  - career-sprinkler-fitter
+  - career-plasterer-stucco-mason
 ---

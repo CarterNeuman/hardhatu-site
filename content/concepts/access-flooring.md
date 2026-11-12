@@ -31,4 +31,5 @@ relatedIds:
   - career-mep-engineer
   - career-electrician
   - career-bim-vdc-specialist
+  - career-flooring-installer
 ---

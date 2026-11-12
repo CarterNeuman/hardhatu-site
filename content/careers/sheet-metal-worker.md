@@ -107,6 +107,7 @@ relatedIds:
   - program-smart-sheet-metal-apprenticeship
   - lesson-jobsite-safety-in-practice
   - concept-louvers-vents
+  - career-insulation-installer
 recommendedIds:
   - career-hvac-technician
   - career-roofer

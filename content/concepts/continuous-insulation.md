@@ -22,7 +22,7 @@ example: >
   sheathing, meeting the energy code's combined requirement rather than relying
   on cavity insulation alone.
 careerAngle: >
-  A [[career-carpenter|Carpenter]] or specialty insulation crew installs
+  A [[career-carpenter|Carpenter]] or an [[career-insulation-installer|Insulation Installer]] crew installs
   continuous insulation over the sheathing, and coordinates its thickness with
   whoever installs the cladding attachment system, since thicker continuous
   insulation means longer fasteners and different attachment details.
@@ -38,4 +38,5 @@ relatedIds:
   - concept-energy-code-compliance
   - concept-passive-house
   - concept-eifs
+  - career-insulation-installer
 ---

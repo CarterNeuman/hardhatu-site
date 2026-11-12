@@ -19,7 +19,7 @@ example: >
   the substrate first, so the tile and grout serve as the finished surface while the
   actual water barrier is the membrane underneath, not the tile joints themselves.
 careerAngle: >
-  A specialty tile-setting crew installs tile to precise layout and leveling
+  A [[career-tile-setter|Tile Setter]] installs tile to precise layout and leveling
   tolerances, since an uneven tile installation is highly visible in a finished
   space. A [[career-quality-control-manager|Quality Control Manager]] confirms
   waterproofing is properly installed and tested in wet areas before tile covers it,
@@ -35,4 +35,5 @@ relatedIds:
   - career-quality-control-manager
   - concept-waterproofing
   - phase-construction
+  - career-tile-setter
 ---

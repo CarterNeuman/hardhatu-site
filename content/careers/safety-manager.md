@@ -160,6 +160,7 @@ relatedIds:
   - career-healthcare-construction-manager
   - career-general-superintendent
   - career-safety-coordinator
+  - career-sprinkler-fitter
 recommendedIds:
   - career-superintendent
   - career-quality-control-manager

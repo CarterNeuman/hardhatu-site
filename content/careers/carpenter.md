@@ -141,6 +141,9 @@ relatedIds:
   - concept-top-and-bottom-plate
   - program-job-corps-construction-trades
   - lesson-jobsite-safety-in-practice
+  - career-insulation-installer
+  - career-tile-setter
+  - career-plasterer-stucco-mason
 recommendedIds:
   - career-superintendent
   - career-drywall-installer

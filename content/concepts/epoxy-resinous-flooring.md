@@ -23,7 +23,7 @@ example: >
   than applying the coating directly over the slab's original finished
   surface.
 careerAngle: >
-  A specialty flooring subcontractor, often working alongside a
+  A [[career-flooring-installer|Flooring Installer]], often working alongside a
   [[career-concrete-worker|Concrete Worker]] who finished the slab beneath
   it, prepares the surface and applies the resinous coating system,
   following the manufacturer's specified surface preparation and cure time
@@ -40,4 +40,5 @@ relatedIds:
   - career-concrete-worker
   - concept-concrete-curing
   - concept-flooring
+  - career-flooring-installer
 ---

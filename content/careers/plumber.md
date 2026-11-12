@@ -128,6 +128,7 @@ relatedIds:
   - concept-unit-kitchens
   - concept-saunas-steam-rooms
   - concept-water-conservation-strategies
+  - career-sprinkler-fitter
 recommendedIds:
   - career-pipefitter
   - career-mep-engineer

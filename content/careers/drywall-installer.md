@@ -97,6 +97,7 @@ relatedIds:
   - lesson-framing-and-rough-carpentry
   - lesson-building-sequence
   - lesson-jobsite-safety-in-practice
+  - concept-ceiling-tile
 recommendedIds:
   - career-carpenter
   - career-painter

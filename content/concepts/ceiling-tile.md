@@ -20,7 +20,7 @@ example: >
   inspection, since access to that space becomes far more difficult once the finished
   ceiling grid and tiles are in place.
 careerAngle: >
-  A [[career-carpenter|Carpenter]] or specialty ceiling installer sets the suspended
+  A [[career-carpenter|Carpenter]] or [[career-drywall-installer|Drywall Installer]] sets the suspended
   grid and tiles, coordinating around light fixtures, diffusers, and sprinkler heads
   that penetrate the ceiling plane. A [[career-quality-control-manager|Quality Control Manager]] verifies overhead rough-in work is complete and inspected before
   authorizing the ceiling grid to close over it.
@@ -32,6 +32,7 @@ whatGoesWrong: >
   simply waiting for the inspection to clear first would have.
 relatedIds:
   - career-carpenter
+  - career-drywall-installer
   - career-quality-control-manager
   - concept-submittal
   - phase-construction

@@ -121,6 +121,8 @@ relatedIds:
   - concept-slump-test
   - lesson-jobsite-safety-in-practice
   - concept-ice-rinks
+  - career-flooring-installer
+  - career-waterproofing-installer
 recommendedIds:
   - career-superintendent
   - career-mason

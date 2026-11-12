@@ -20,7 +20,7 @@ example: >
   flooring contractor tests the slab's moisture emission rate and confirms it's below
   the flooring manufacturer's maximum threshold before proceeding with installation.
 careerAngle: >
-  A specialty flooring crew installs the finished floor, but a
+  A [[career-flooring-installer|Flooring Installer]] installs the finished floor, but a
   [[career-quality-control-manager|Quality Control Manager]] often requires moisture
   testing on a new slab before flooring installation is allowed to proceed, since a
   flooring failure traced back to slab moisture is expensive to remediate after the
@@ -42,4 +42,5 @@ relatedIds:
   - concept-epoxy-resinous-flooring
   - concept-resilient-flooring
   - concept-carpet-systems
+  - career-flooring-installer
 ---

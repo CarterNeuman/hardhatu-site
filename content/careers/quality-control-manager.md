@@ -132,6 +132,10 @@ relatedIds:
   - concept-inspection-and-test-plan
   - career-building-envelope-consultant
   - career-safety-coordinator
+  - career-tile-setter
+  - career-flooring-installer
+  - career-waterproofing-installer
+  - career-sprinkler-fitter
 recommendedIds:
   - career-safety-manager
   - career-superintendent

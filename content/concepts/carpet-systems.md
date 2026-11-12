@@ -22,7 +22,7 @@ example: >
   heavy wear in one spot, blend in without a visible mismatch or the pattern
   lining up wrong.
 careerAngle: >
-  A specialty flooring installer lays out and installs the carpet system,
+  A [[career-flooring-installer|Flooring Installer]] lays out and installs the carpet system,
   coordinating pattern direction and seam placement. A
   [[career-facilities-manager|Facilities Manager]] keeps a small stock of
   spare tiles on hand from the original installation for future spot
@@ -35,4 +35,5 @@ whatGoesWrong: >
 relatedIds:
   - career-facilities-manager
   - concept-flooring
+  - career-flooring-installer
 ---

@@ -21,7 +21,7 @@ example: >
   manufacturer's specified limit rather than assuming the slab is dry enough
   simply because it looks and feels dry to the touch.
 careerAngle: >
-  A specialty flooring installer places resilient flooring, testing subfloor
+  A [[career-flooring-installer|Flooring Installer]] places resilient flooring, testing subfloor
   moisture before starting. A [[career-qaqc-inspector|QA/QC Inspector]] may
   require documented moisture test results before flooring installation is
   approved to proceed.
@@ -35,4 +35,5 @@ relatedIds:
   - career-qaqc-inspector
   - concept-flooring
   - concept-concrete-curing
+  - career-flooring-installer
 ---

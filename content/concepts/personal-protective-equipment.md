@@ -46,4 +46,5 @@ relatedIds:
   - concept-noise-exposure-hearing-conservation
   - concept-bloodborne-pathogens-standard
   - career-safety-coordinator
+  - career-insulation-installer
 ---

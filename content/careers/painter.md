@@ -107,6 +107,7 @@ relatedIds:
   - program-iupat-painter-apprenticeship
   - program-job-corps-construction-trades
   - lesson-jobsite-safety-in-practice
+  - career-plasterer-stucco-mason
 recommendedIds:
   - career-drywall-installer
   - career-environmental-remediation-specialist

@@ -40,5 +40,6 @@ relatedIds:
   - lesson-structural-steel-erection
   - concept-ladder-safety-standard
   - concept-aerial-lift-scissor-lift-safety
-
+  - career-waterproofing-installer
+  - career-plasterer-stucco-mason
 ---

@@ -141,6 +141,7 @@ relatedIds:
   - concept-warranty-log
   - career-tenant-improvement-construction-manager
   - career-healthcare-construction-manager
+  - career-flooring-installer
 recommendedIds:
   - career-project-manager
   - career-hvac-technician

@@ -115,6 +115,7 @@ relatedIds:
   - program-abc-craft-training-apprenticeship
   - concept-hydronic-systems
   - lesson-jobsite-safety-in-practice
+  - career-sprinkler-fitter
 recommendedIds:
   - career-plumber
   - career-hvac-technician

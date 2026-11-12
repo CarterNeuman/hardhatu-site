@@ -113,6 +113,7 @@ relatedIds:
   - lesson-building-sequence
   - lesson-jobsite-safety-in-practice
   - career-building-envelope-consultant
+  - career-waterproofing-installer
 recommendedIds:
   - career-superintendent
   - career-insurance-restoration-estimator
