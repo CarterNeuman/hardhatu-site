@@ -18,11 +18,15 @@ import { useRef, useState } from "react";
 // for how "Expand all" reaches into that native state imperatively
 // instead).
 export function ActionPlanAccordionSection({
+  id,
   title,
   teaser,
   defaultOpen,
   children,
 }: {
+  // Optional anchor, so a step on the schedule can jump straight to
+  // (and open) this section -- see ResourceChip in ActionPlanResult.tsx.
+  id?: string;
   title: string;
   teaser?: string;
   defaultOpen?: boolean;
@@ -30,8 +34,9 @@ export function ActionPlanAccordionSection({
 }) {
   return (
     <details
+      id={id}
       open={defaultOpen || undefined}
-      className="group border border-hairline bg-white/40 open:bg-white/70 [&:not(:first-of-type)]:border-t-0"
+      className="group scroll-mt-6 border border-hairline bg-white/40 open:bg-white/70 [&:not(:first-of-type)]:border-t-0"
     >
       {/* Phone layout: the teaser drops onto its own line under the
           title, and the title is allowed to wrap. Both used to be forced

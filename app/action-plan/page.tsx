@@ -7,6 +7,7 @@ import { BlueprintMark } from "@/components/BlueprintMark";
 import { EmailGate } from "@/components/EmailGate";
 import { ActionPlanBuilder, type InitialPlan, type PlanPrefill } from "@/components/ActionPlanBuilder";
 import { CATEGORY_SLUG } from "@/lib/content-client";
+import { BLUEPRINT_GRID } from "@/lib/blueprint-style";
 
 // Linked from the site header's "Take Your First Step" entry (see the
 // build-sequencing notes in the premium-action-plan-feasibility project
@@ -75,39 +76,61 @@ export default async function ActionPlanPage({
     }
   }
 
-  return (
-    <EmailGate source="action-plan" variant="immediate">
-    <article className="mx-auto max-w-3xl px-6 py-10">
-      {/* The print calendar (ActionPlanPrintCalendar) has its own
-          print-only header with the logo and plan title -- this intro
-          block is marketing copy that doesn't belong on a printed
-          physical schedule someone might hand to another person. */}
-      <div className="print:hidden">
+  // The pitch for building a plan. Handed to ActionPlanBuilder as
+  // `intro` rather than rendered here, so it shows above the form but
+  // steps aside once a plan is on screen (the plan has its own header).
+  const intro = (
+    <div className="bg-ink text-paper print:hidden" style={BLUEPRINT_GRID}>
+      <div className="px-6 py-10 sm:px-10 sm:py-14">
         <div className="flex items-center gap-3">
-          <BlueprintMark size={40} />
-          <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-navy">Blueprint</p>
+          <BlueprintMark size={44} />
+          <p
+            className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-soft"
+            style={{ fontFamily: "'IBM Plex Mono', monospace" }}
+          >
+            Blueprint
+          </p>
         </div>
-        <h1 className="mt-3 font-display text-4xl font-bold text-ink">Stop planning to start. Start.</h1>
-        <p className="mt-3 text-lg leading-relaxed text-ink">
-          Tell us where you're at and get a real day-by-day plan back, not just advice: credentials to line
-          up, exactly who to apply to, what to say when you reach out, and real lessons worked right into
-          the calendar.
+        <h1 className="mt-5 max-w-3xl font-display text-5xl font-bold leading-[1.02] text-paper sm:text-6xl">
+          Stop planning to start. <span className="text-amber-soft">Start.</span>
+        </h1>
+        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-paper/85">
+          Answer six questions and get a dated, day-by-day plan for getting hired in construction: what to line
+          up first, who to contact, what to say, and which lessons, guides, and training programs on this site
+          to work through along the way.
         </p>
-        <p className="mt-2 text-sm text-steel">
-          Free with a quick sign-in. Download it as a calendar file, or print it and keep it in the truck.
-        </p>
+        <ul className="mt-8 hidden max-w-3xl grid-cols-3 gap-px bg-paper/15 sm:grid">
+          {[
+            { n: "01", title: "Dated steps", body: "Every task lands on a real day, paced to the hours you actually have." },
+            { n: "02", title: "Built from this site", body: "Each step links to the lesson, guide, or program it refers to." },
+            { n: "03", title: "Yours to keep", body: "Saved to your account. Add it to your calendar or print it." },
+          ].map((item) => (
+            <li key={item.n} className="bg-ink px-4 py-4">
+              <p className="text-xs text-amber-soft" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+                {item.n}
+              </p>
+              <p className="mt-1 font-display text-xl font-bold text-paper">{item.title}</p>
+              <p className="mt-1 text-sm leading-snug text-paper/75">{item.body}</p>
+            </li>
+          ))}
+        </ul>
         {savedPlanCount > 0 && !initialPlan && (
           <Link
             href="/action-plan/my-plans"
-            className="mt-3 inline-block border border-navy px-3 py-1.5 text-xs font-semibold text-navy transition-colors hover:bg-navy hover:text-paper"
+            className="mt-6 inline-block border border-paper/40 px-3.5 py-2 text-xs font-semibold uppercase tracking-wide text-paper transition-colors hover:border-amber-soft hover:text-amber-soft"
           >
-            View your saved plan{savedPlanCount === 1 ? "" : "s"} ({savedPlanCount})
+            Open your saved plan{savedPlanCount === 1 ? "" : "s"} ({savedPlanCount}) &rarr;
           </Link>
         )}
       </div>
+    </div>
+  );
 
-      <ActionPlanBuilder dataByCategory={dataByCategory} initialPlan={initialPlan} prefill={prefill} />
-    </article>
+  return (
+    <EmailGate source="action-plan" variant="immediate">
+      <article className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
+        <ActionPlanBuilder dataByCategory={dataByCategory} initialPlan={initialPlan} prefill={prefill} intro={intro} />
+      </article>
     </EmailGate>
   );
 }

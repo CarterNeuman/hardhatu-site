@@ -36,7 +36,12 @@ function foldLine(line: string): string {
   return result;
 }
 
-export function buildIcs(days: GeneratedDayItem[], calendarName: string): string {
+// `origin` (e.g. "https://www.breakgroundu.com") turns each step's site
+// links into full URLs inside the calendar event, so the lesson or guide
+// a step refers to is one tap away from the phone's calendar app, not
+// just named. Links to sections of the plan page itself ("#outreach")
+// are left out -- they mean nothing outside that page.
+export function buildIcs(days: GeneratedDayItem[], calendarName: string, origin = ""): string {
   const now = toIcsDate(new Date());
   // Separate from `now` (date-only, used for DTSTAMP below) on purpose:
   // a UID only needs to be unique, and two downloads made later the same
@@ -66,13 +71,20 @@ export function buildIcs(days: GeneratedDayItem[], calendarName: string): string
       `DTSTART;VALUE=DATE:${toIcsDate(item.startDate)}`,
       `DTEND;VALUE=DATE:${toIcsDate(exclusiveEnd)}`,
       `SUMMARY:${escapeIcsText(item.title)}`,
-      `DESCRIPTION:${escapeIcsText(item.detail)}`,
+      `DESCRIPTION:${escapeIcsText(describe(item, origin))}`,
+      ...(origin && item.href && !item.href.startsWith("#") ? [`URL:${origin}${item.href}`] : []),
       "END:VEVENT"
     );
   });
 
   lines.push("END:VCALENDAR");
   return lines.map(foldLine).join("\r\n");
+}
+
+function describe(item: GeneratedDayItem, origin: string): string {
+  const links = origin ? item.resources.filter((r) => !r.href.startsWith("#")) : [];
+  if (links.length === 0) return item.detail;
+  return `${item.detail}\n\nOn BreakGroundU:\n${links.map((r) => `${r.label}: ${origin}${r.href}`).join("\n")}`;
 }
 
 export function downloadIcs(filename: string, icsText: string) {

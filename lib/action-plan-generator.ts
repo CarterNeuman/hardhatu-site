@@ -49,6 +49,29 @@ export type ProgramRef = {
   durationNote?: string;
 };
 
+// One site page (or one section of the plan itself) a step points at.
+// Every step on the calendar can carry a few of these, so "use the
+// Resume Guide" is a link to the Resume Guide rather than a suggestion
+// to go find it. `kind` only drives the small label/icon the result
+// screen shows next to the link.
+export type ResourceKind =
+  | "career"
+  | "lesson"
+  | "software"
+  | "examPrep"
+  | "program"
+  | "concept"
+  | "guide"
+  | "section";
+export type PlanResource = { label: string; href: string; kind: ResourceKind };
+// A real Exam Prep guide on the site, by title -- used both for the
+// practice-question task and to give each "pursue another certification"
+// round a specific credential to point at.
+// `entryLevel` mirrors the "Entry Level" badge on the exam index: a
+// credential someone can earn before (or right as) they start, as
+// opposed to one that takes years in the trade to sit for.
+export type ExamRef = { title: string; href: string; entryLevel?: boolean };
+
 export type ApplicationStatus = "browsing" | "applying";
 
 // Both free-text fields below are untrusted visitor input: never echoed
@@ -81,6 +104,14 @@ export type ActionPlanIntake = {
 };
 
 export type GeneratedDayItem = {
+  // Stable identity for this step within its plan, built from what the
+  // step IS (its authored title, or the lesson/software/exam it points
+  // at, plus a round number for a repeating step) rather than from its
+  // position in the list. Checked-off progress is saved under this key
+  // (see ActionPlanBuilder's toggleDay), so changing hours per week or
+  // the timeline -- which reshuffles positions and adds or removes
+  // rounds -- no longer moves a checkmark onto a different step.
+  key: string;
   dayStart: number;
   dayEnd: number;
   title: string;
@@ -94,8 +125,16 @@ export type GeneratedDayItem = {
   // straight to the source page and show a small "Lesson"/"Software"/
   // "Exam Prep" tag, instead of every day-by-day item reading as plain
   // text.
-  kind?: "lesson" | "software" | "examPrep";
+  kind?: "lesson" | "software" | "examPrep" | "program" | "concept" | "career" | "guide";
   href?: string;
+  // Set on a lesson step only: the lesson's slug, which is also the id
+  // its own "Mark complete" button saves under -- lets the result screen
+  // show a lesson step as done once the lesson itself has been completed
+  // anywhere on the site.
+  lessonSlug?: string;
+  // Site pages (and sections of this plan) this step links to. Always
+  // present, possibly empty.
+  resources: PlanResource[];
 };
 
 export type GeneratedQualification = {
@@ -114,6 +153,16 @@ export type GeneratedPlan = {
   // written for every combination.
   headline: string;
   overview: string;
+  // How many calendar days the plan spans, start to finish.
+  totalDays: number;
+  // The chosen career's own page and this category's Get Hired guide --
+  // linked from the result screen's header and toolkit.
+  careerHref?: string;
+  getHiredHref?: string;
+  // Every Exam Prep guide tied to this career/category, primary first.
+  exams: ExamRef[];
+  // Software profiles matched to this career/category.
+  software: { software: SoftwareRef; href: string }[];
   qualifications: GeneratedQualification[];
   courses: { lesson: LessonRef; href: string }[];
   resumeBullets: string[];
@@ -223,12 +272,19 @@ function computeDensityFactor(hoursPerWeek: number): number {
 }
 
 type RawDay = {
+  // Becomes GeneratedDayItem.key once de-duplicated (see finalizeKeys).
+  keyBase: string;
   dayStart: number;
   dayEnd: number;
   title: string;
   detail: string;
-  kind?: "lesson" | "software" | "examPrep";
+  kind?: GeneratedDayItem["kind"];
   href?: string;
+  lessonSlug?: string;
+  resources?: PlanResource[];
+  // Sorts ahead of everything else on the same day -- the "start here"
+  // orientation step.
+  first?: boolean;
   // Internal-only tie-break for the final sort below -- never reaches the
   // public GeneratedDayItem shape (stripped out right after sorting).
   // Guarantees the anchorEnd capstone renders last among same-day items
@@ -279,27 +335,38 @@ function expandRecurringItem(
     cursor += cadenceDays;
   }
 
+  // Round 1 carries the full authored guidance. Later rounds are the
+  // same job again, so they carry its first sentence and a pointer back
+  // rather than the whole paragraph repeated up to eight times down the
+  // page.
+  const firstSentence = item.detail.split(/(?<=[.!?])\s+/)[0] ?? item.detail;
+  const repeatDetail =
+    firstSentence.length < item.detail.length ? `${firstSentence} Same playbook as round 1.` : item.detail;
   return spans.map((span, i) => ({
+    keyBase: `${slugifyKey(item.title)}:r${i + 1}`,
     dayStart: span.dayStart,
     dayEnd: span.dayEnd,
     title: spans.length > 1 ? `${item.title} (round ${i + 1} of ${spans.length})` : item.title,
-    detail: item.detail,
+    detail: i === 0 ? item.detail : repeatDetail,
   }));
 }
 
 export type SkillItem = {
-  kind: "lesson" | "software" | "examPrep";
+  kind: "lesson" | "software" | "examPrep" | "concept";
+  keyBase: string;
   title: string;
   detail: string;
-  href: string;
+  href?: string;
+  lessonSlug?: string;
+  resources?: PlanResource[];
 };
 
 // How often a skill-building item (a lesson, a software profile, a round
-// of exam-prep practice) lands on the calendar. Unlike outreach/
-// certification, a skill-building round never repeats the same content
-// twice -- once every matched item has had its turn the rotation simply
-// stops, since "redo the lesson you already did" isn't a sensible task
-// the way "send another round of outreach" is.
+// of exam-prep practice, a batch of vocabulary) lands on the calendar.
+// Unlike outreach/certification, a skill-building round never repeats
+// the same content twice -- once every matched item has had its turn the
+// rotation simply stops, since "redo the lesson you already did" isn't a
+// sensible task the way "send another round of outreach" is.
 const SKILL_BUILDING_REFERENCE_DAYS = 4;
 const SKILL_BUILDING_MIN_DAYS = 2;
 // Where the first skill-building item lands, at the reference pace --
@@ -307,45 +374,110 @@ const SKILL_BUILDING_MIN_DAYS = 2;
 // learning starts alongside the job search rather than only once outreach
 // is already underway.
 const SKILL_BUILDING_FIRST_DAY = 3;
+// How many concepts one "get the vocabulary down" step covers, and how
+// many such steps a plan gets at most.
+// Where the "look into a real program" step lands at the reference
+// pace: alongside "build your target list", since for most trades the
+// apprenticeship application is the job application.
+const PROGRAM_STEP_DAY = 4;
+const CONCEPTS_PER_BATCH = 3;
 
-// Builds the ordered pool of skill-building items for one generated plan:
-// up to 4 matched lessons, then up to 3 matched software profiles, then
-// one exam-prep practice round if a relevant guide exists. Order matters
-// here (it's also the rotation order on the calendar) -- lessons first
-// since they're the broadest on-ramp, software next since it's concrete
-// and fast to skim, exam prep last since it's the most exam-specific and
-// only relevant to someone actually pursuing that credential.
+// How much site content a plan schedules, by how long it runs. A
+// two-week sprint has room for a handful of learning steps; a plan
+// that runs two or three months used to burn through the same handful
+// in its first couple of weeks and then offer nothing but outreach
+// reminders for the rest. Longer plans now draw more lessons, more
+// vocabulary, and more software, spread across the calendar.
+function skillBudget(totalDays: number): { lessons: number; software: number; conceptBatches: number } {
+  if (totalDays <= 21) return { lessons: 4, software: 2, conceptBatches: 2 };
+  if (totalDays <= 49) return { lessons: 6, software: 3, conceptBatches: 3 };
+  return { lessons: 8, software: 4, conceptBatches: 4 };
+}
+
+// The order skill-building steps rotate in: L(esson), C(oncepts),
+// S(oftware), E(xam practice). A slot whose queue is empty is skipped,
+// and anything left once the pattern runs out is appended, so no
+// matched item is ever dropped.
+const SKILL_ROTATION = "LCLSELSLCLSLCLCLS";
+// Skill-building steps finish by roughly this fraction of the plan:
+// early enough that the learning lands before most interviews do, late
+// enough that a long plan isn't front-loaded and then empty.
+const SKILL_SPREAD_FRACTION = 0.65;
+
+function joinTitles(titles: string[]): string {
+  if (titles.length <= 1) return titles[0] ?? "";
+  return `${titles.slice(0, -1).join(", ")} and ${titles[titles.length - 1]}`;
+}
+
+// Builds the ordered pool of skill-building items for one generated plan
+// from the visitor's matched site content: lessons, software profiles,
+// one exam-prep practice round, and batches of three concepts ("get the
+// vocabulary down"), each capped by skillBudget for the plan's length.
+// The result is in calendar order, interleaved on purpose (see
+// SKILL_ROTATION) -- a lesson, then the terms that lesson leans on,
+// then another lesson, then something concrete to click through -- so
+// a short plan, which only reaches the first few slots, still gets a
+// mix instead of four lessons in a row and nothing else.
 function buildSkillItems(
   lessons: LessonRef[],
   software: SoftwareRef[],
-  examTask: { title: string; href: string } | undefined
+  examTask: ExamRef | undefined,
+  concepts: ConceptRef[],
+  budget: { lessons: number; software: number; conceptBatches: number }
 ): SkillItem[] {
-  const items: SkillItem[] = [];
-  for (const lesson of lessons.slice(0, 4)) {
-    items.push({
-      kind: "lesson",
-      title: `Complete the lesson: ${lesson.title}`,
-      detail: `${lesson.minutes} min of real working knowledge, not just what it takes to get hired.`,
-      href: `/lessons/${lesson.slug}`,
+  const lessonItems: SkillItem[] = lessons.slice(0, budget.lessons).map((lesson) => ({
+    kind: "lesson",
+    keyBase: `lesson:${lesson.slug}`,
+    title: `Complete the lesson: ${lesson.title}`,
+    detail: `${lesson.minutes} min of real working knowledge, not just what it takes to get hired. Mark it complete on the lesson page and it checks off here too.`,
+    href: `/lessons/${lesson.slug}`,
+    lessonSlug: lesson.slug,
+    resources: [{ label: lesson.title, href: `/lessons/${lesson.slug}`, kind: "lesson" }],
+  }));
+  const softwareItems: SkillItem[] = software.slice(0, budget.software).map((sw) => ({
+    kind: "software",
+    keyBase: `software:${sw.slug}`,
+    title: `Get familiar with ${sw.title}`,
+    detail: sw.whatItIs,
+    href: `/software/${sw.slug}`,
+    resources: [{ label: sw.title, href: `/software/${sw.slug}`, kind: "software" }],
+  }));
+  const examItems: SkillItem[] = examTask
+    ? [
+        {
+          kind: "examPrep",
+          keyBase: `exam:${examTask.href.split("/").pop() ?? "prep"}`,
+          title: `Work through ${examTask.title} practice questions`,
+          detail: "A few questions at a time keeps the material fresh without turning into a study marathon.",
+          href: examTask.href,
+          resources: [{ label: examTask.title, href: examTask.href, kind: "examPrep" }],
+        },
+      ]
+    : [];
+  const conceptItems: SkillItem[] = [];
+  for (let b = 0; b < budget.conceptBatches; b++) {
+    const batch = concepts.slice(b * CONCEPTS_PER_BATCH, (b + 1) * CONCEPTS_PER_BATCH);
+    // A lone leftover term isn't worth its own day on the calendar.
+    if (batch.length < 2) break;
+    conceptItems.push({
+      kind: "concept",
+      keyBase: `concepts:${batch.map((c) => c.slug).join("+")}`,
+      title: `Get the vocabulary down: ${joinTitles(batch.map((c) => c.title))}`,
+      detail:
+        b === 0
+          ? "A couple of minutes each. Knowing these cold is the difference between following the conversation and nodding along."
+          : "Three more terms that come up constantly once you're in the door. Read them now and they'll already sound familiar.",
+      resources: batch.map((c) => ({ label: c.title, href: `/concepts/${c.slug}`, kind: "concept" as const })),
     });
   }
-  for (const sw of software.slice(0, 3)) {
-    items.push({
-      kind: "software",
-      title: `Get familiar with ${sw.title}`,
-      detail: sw.whatItIs,
-      href: `/software/${sw.slug}`,
-    });
+
+  const queues: Record<string, SkillItem[]> = { L: lessonItems, C: conceptItems, S: softwareItems, E: examItems };
+  const ordered: SkillItem[] = [];
+  for (const slot of SKILL_ROTATION) {
+    const next = queues[slot].shift();
+    if (next) ordered.push(next);
   }
-  if (examTask) {
-    items.push({
-      kind: "examPrep",
-      title: `Work through ${examTask.title} practice questions`,
-      detail: "A few questions at a time keeps the material fresh without turning into a study marathon.",
-      href: examTask.href,
-    });
-  }
-  return items;
+  return [...ordered, ...queues.L, ...queues.C, ...queues.S, ...queues.E];
 }
 
 // Spreads the skill-building pool across the calendar at a cadence that
@@ -362,21 +494,76 @@ function expandSkillBuildingItems(
   totalDays: number
 ): RawDay[] {
   if (items.length === 0) return [];
-  const cadenceDays = Math.max(SKILL_BUILDING_MIN_DAYS, Math.round(SKILL_BUILDING_REFERENCE_DAYS / densityFactor));
   const firstDay = Math.min(totalDays, Math.max(1, Math.round(SKILL_BUILDING_FIRST_DAY * paceScale)));
+  // The pace-based cadence, stretched when it would otherwise finish
+  // every item long before the plan ends -- see SKILL_SPREAD_FRACTION.
+  // Never tightened: a short plan still just schedules as many items as
+  // fit and stops.
+  const paceCadence = Math.max(SKILL_BUILDING_MIN_DAYS, Math.round(SKILL_BUILDING_REFERENCE_DAYS / densityFactor));
+  const spreadCadence =
+    items.length > 1 ? Math.floor((totalDays * SKILL_SPREAD_FRACTION - firstDay) / (items.length - 1)) : paceCadence;
+  const cadenceDays = Math.max(paceCadence, spreadCadence);
 
   const result: RawDay[] = [];
   let cursor = firstDay;
   for (const item of items) {
     if (cursor > totalDays) break;
-    result.push({ dayStart: cursor, dayEnd: cursor, title: item.title, detail: item.detail, kind: item.kind, href: item.href });
+    result.push(skillToRawDay(item, cursor));
     cursor += cadenceDays;
   }
   if (result.length === 0) {
-    const first = items[0];
-    result.push({ dayStart: totalDays, dayEnd: totalDays, title: first.title, detail: first.detail, kind: first.kind, href: first.href });
+    result.push(skillToRawDay(items[0], totalDays));
   }
   return result;
+}
+
+function skillToRawDay(item: SkillItem, day: number): RawDay {
+  return {
+    keyBase: item.keyBase,
+    dayStart: day,
+    dayEnd: day,
+    title: item.title,
+    detail: item.detail,
+    kind: item.kind,
+    href: item.href,
+    lessonSlug: item.lessonSlug,
+    resources: item.resources,
+  };
+}
+
+// Lowercase letters/digits and single dashes only, capped -- the
+// position-independent part of a step's saved-progress key.
+function slugifyKey(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80);
+}
+
+// `specific` first, then anything from `fallback` not already in it, up
+// to `max` -- a career with only one or two lessons of its own still
+// gets a full set, instead of the old either/or (a career's own one
+// lesson, or the category's, never both).
+function fillFrom<T extends { id: string }>(specific: T[], fallback: T[], max: number): T[] {
+  const seen = new Set<string>();
+  const result: T[] = [];
+  for (const item of [...specific, ...fallback]) {
+    if (seen.has(item.id)) continue;
+    seen.add(item.id);
+    result.push(item);
+    if (result.length >= max) break;
+  }
+  return result;
+}
+
+function dedupeResources(resources: PlanResource[]): PlanResource[] {
+  const seen = new Set<string>();
+  return resources.filter((r) => {
+    if (seen.has(r.href)) return false;
+    seen.add(r.href);
+    return true;
+  });
 }
 
 // Fills [Token] placeholders with a replacer *function*, not a plain
@@ -462,7 +649,9 @@ function buildHeadline(
 export function buildActionPlan({
   skeleton,
   getHiredGuide,
+  getHiredHref,
   resumeGuide,
+  categorySlug,
   lessonsForCareer,
   categoryFallbackLessons = [],
   softwareForCareer = [],
@@ -473,55 +662,61 @@ export function buildActionPlan({
   categoryFallbackPrograms = [],
   careerInterviewPrepHref,
   categoryInterviewPrepHref,
-  careerExamPrepHref,
-  categoryExamPrepHref,
-  careerExamPrepTask,
-  categoryExamPrepTask,
+  examsForCareer = [],
+  categoryExams = [],
+  linkRefs = {},
   career,
   intake,
   startDate = new Date(),
 }: {
   skeleton: ActionPlan;
   getHiredGuide?: GetHired;
+  // This category's Get Hired guide page, for the "gethired" link token
+  // and the orientation step.
+  getHiredHref?: string;
   resumeGuide?: ResumeGuide;
+  // The category's anchor on the career index (/careers#<slug>), for the
+  // "careers" link token.
+  categorySlug?: string;
   lessonsForCareer: LessonRef[];
-  // Shown when no specific career was picked (or that career happens to
-  // have no lessons tied to it yet) -- a few lessons for the category as
-  // a whole, so "Not sure yet, keep it general" doesn't come back with an
-  // empty Courses section. See app/action-plan/page.tsx for how this gets
-  // built.
+  // Lessons for the category as a whole, in Learning Blueprint order.
+  // Used on their own when no specific career was picked ("Not sure yet,
+  // keep it general"), and to top up a career that has fewer than four
+  // lessons of its own -- see fillFrom.
   categoryFallbackLessons?: LessonRef[];
   // Software tied to the chosen specific career, and a category-wide
-  // fallback -- same "specific wins, else category-wide" pattern as
-  // lessons above. Woven into the day-by-day skill-building rotation
-  // (see buildSkillItems), not just a side list.
+  // fallback, same top-up rule as lessons. Woven into the day-by-day
+  // skill-building rotation (see buildSkillItems), not just a side list.
   softwareForCareer?: SoftwareRef[];
   categoryFallbackSoftware?: SoftwareRef[];
-  // Concepts tied to the chosen specific career, and a category-wide
-  // fallback -- same "specific wins, else category-wide" pattern as
-  // lessons above. Surfaced as "Go further" recommendations.
+  // Concepts tied to the chosen specific career (its own curated picks
+  // first), and a category-wide fallback. The first few become dated
+  // "get the vocabulary down" steps; the rest feed "Go further" and the
+  // glossary auto-linking.
   conceptsForCareer?: ConceptRef[];
   categoryFallbackConcepts?: ConceptRef[];
-  // Programs tied to the chosen specific career, and a category-wide
-  // fallback -- same "specific wins, else category-wide" pattern as
-  // concepts above.
+  // Programs tied to the chosen specific career, or the category-wide
+  // list when no career was picked. Deliberately either/or, NOT topped
+  // up: a bricklayer apprenticeship is not a useful suggestion on an
+  // electrician's plan.
   programsForCareer?: ProgramRef[];
   categoryFallbackPrograms?: ProgramRef[];
   // Hrefs for this career's (or, failing that, this category's)
-  // Interview Prep / Exam Prep guide, if one exists -- a specific
-  // career's own guide wins over the category-wide one. Exam Prep
-  // coverage is uneven across careers, so this is often undefined, which
-  // is fine, the section just doesn't render (see ActionPlanBuilder).
+  // Interview Prep guide, if one exists -- a specific career's own guide
+  // wins over the category-wide one.
   careerInterviewPrepHref?: string;
   categoryInterviewPrepHref?: string;
-  careerExamPrepHref?: string;
-  categoryExamPrepHref?: string;
-  // Same career-wins-else-category precedence as the href-only fields
-  // above, but carrying the exam's own title too -- needed to phrase a
-  // real calendar task ("Work through OSHA 10 practice questions"), not
-  // just link to it.
-  careerExamPrepTask?: { title: string; href: string };
-  categoryExamPrepTask?: { title: string; href: string };
+  // Every Exam Prep guide tied to the chosen career (its own exam
+  // first, then the others its career page links to), and the
+  // category's exams as a fallback. The first one the visitor doesn't
+  // already hold becomes the practice-question task; each "pursue
+  // another certification" round then names the next one down the list.
+  examsForCareer?: ExamRef[];
+  categoryExams?: ExamRef[];
+  // Title/href for every literal content id an authored step's `links`
+  // names (see ActionPlanSchema), resolved once on the server so the
+  // browser never needs the full content set.
+  linkRefs?: Record<string, PlanResource>;
   career?: CareerRef;
   intake: ActionPlanIntake;
   startDate?: Date;
@@ -555,11 +750,150 @@ export function buildActionPlan({
   const paceScale = computePaceScale(safeIntake.hoursPerWeek);
   const densityFactor = computeDensityFactor(safeIntake.hoursPerWeek);
 
+  // ---- The visitor's matched site content -------------------------
+  const trade = career?.title ?? skeleton.category;
+  const budget = skillBudget(totalDays);
+  // Category-wide lessons only ever top a plan up to four; past that, a
+  // long plan draws on the career's own lessons alone. (An electrician
+  // with a twelve-week plan gets more electrical lessons if they exist,
+  // not a concrete-finishing lesson to fill the slot.)
+  const lessonPool = fillFrom(
+    lessonsForCareer.slice(0, budget.lessons),
+    categoryFallbackLessons,
+    career ? Math.max(4, Math.min(lessonsForCareer.length, budget.lessons)) : budget.lessons
+  );
+  // Software is either/or, like programs: a chosen career shows only
+  // the software its own page names (a mason's plan shouldn't suggest
+  // Bluebeam just because other trades use it); the category-wide list
+  // is for "not sure yet, keep it general".
+  const softwarePool = (career ? softwareForCareer : categoryFallbackSoftware).slice(0, budget.software);
+  const conceptPool = fillFrom(conceptsForCareer, categoryFallbackConcepts, 40);
+  const programPool = programsForCareer.length > 0 ? programsForCareer : categoryFallbackPrograms;
+  const interviewPrepHref = careerInterviewPrepHref ?? categoryInterviewPrepHref;
+  const careerHref = career ? `/careers/${career.slug}` : undefined;
+  const careersIndexHref = categorySlug ? `/careers#${categorySlug}` : "/careers";
+
+  // Exams: the career's own first, then the category's, minus anything
+  // the visitor says they already hold -- no point scheduling OSHA 10
+  // practice for someone who typed "OSHA 10" into the form.
+  const seenExamHrefs = new Set<string>();
+  const examPool: ExamRef[] = [];
+  for (const exam of [...examsForCareer, ...categoryExams]) {
+    if (seenExamHrefs.has(exam.href)) continue;
+    seenExamHrefs.add(exam.href);
+    examPool.push(exam);
+  }
+  const examsStillNeeded = examPool.filter(
+    (exam) => certsHeldTokens.size === 0 || !labelLooksHeld(exam.title, certsHeldTokens)
+  );
+  const examTask = examsStillNeeded[0];
+  // What the "pursue another certification" rounds name, one per round:
+  // everything after the practice-task exam. For an entry-level role
+  // that list is entry-level credentials only -- a journeyman license
+  // takes years of apprenticeship to sit for, so naming it as "this
+  // round" on a newcomer's four-week plan would be wrong. It still shows
+  // in the plan's exam list as something to know is ahead.
+  const roundExams = examsStillNeeded
+    .slice(examsStillNeeded.length > 1 ? 1 : 0)
+    .filter((exam) => career?.isEntryRole !== true || exam.entryLevel !== false);
+
+  const hasOpeningsSection =
+    skeleton.targetEmployerTypes.length > 0 || (getHiredGuide?.whereToLook.length ?? 0) > 0 || skeleton.jobBoardsUseful;
+
+  // Turns one authored `links` entry into zero or more real links for
+  // THIS visitor -- see ACTION_PLAN_LINK_TOKENS in lib/types.ts. A token
+  // with nothing behind it (no Exam Prep guide for this category, say)
+  // resolves to nothing rather than a dead link.
+  function resolveLink(link: string): PlanResource[] {
+    switch (link) {
+      case "career":
+        return careerHref
+          ? [{ label: `${trade} career page`, href: careerHref, kind: "career" }]
+          : [{ label: `${skeleton.category} careers`, href: careersIndexHref, kind: "career" }];
+      case "careers":
+        return [
+          ...(careerHref ? [{ label: `${trade} career page`, href: careerHref, kind: "career" as const }] : []),
+          { label: `All ${skeleton.category} careers`, href: careersIndexHref, kind: "career" },
+        ];
+      case "gethired":
+        return getHiredHref ? [{ label: `${skeleton.category} Get Hired guide`, href: getHiredHref, kind: "guide" }] : [];
+      case "resume":
+        return resumeGuide ? [{ label: "Resume Guide", href: `/resumes/${resumeGuide.slug}`, kind: "guide" }] : [];
+      case "interview":
+        return interviewPrepHref ? [{ label: "Interview Prep guide", href: interviewPrepHref, kind: "guide" }] : [];
+      case "exam":
+        return examTask ? [{ label: examTask.title, href: examTask.href, kind: "examPrep" }] : [];
+      case "programs":
+        return programPool
+          .slice(0, 2)
+          .map((p): PlanResource => ({ label: p.title, href: `/programs/${p.slug}`, kind: "program" }));
+      case "outreach":
+        return [{ label: "Your outreach templates", href: "#outreach", kind: "section" }];
+      case "openings":
+        return hasOpeningsSection ? [{ label: "Where to find openings", href: "#openings", kind: "section" }] : [];
+      default: {
+        const ref = linkRefs[link];
+        return ref ? [ref] : [];
+      }
+    }
+  }
+  const resolveLinks = (links: string[] | undefined): PlanResource[] =>
+    dedupeResources((links ?? []).flatMap(resolveLink));
+
   const rawDays: RawDay[] = [];
+
+  // Day one always opens on the site's own description of the job (or,
+  // with no specific career picked, the category's Get Hired guide):
+  // everything after it reads better with that context, and it's the
+  // one step every visitor can finish in ten minutes.
+  if (career && careerHref) {
+    rawDays.push({
+      keyBase: "start-here",
+      dayStart: 1,
+      dayEnd: 1,
+      first: true,
+      kind: "career",
+      href: careerHref,
+      title: `Start here: read the ${career.title} career page`,
+      detail:
+        "Pay, a typical day, the credentials that actually matter, and how people move up. Ten minutes here makes every step after it sharper.",
+      resources: dedupeResources([
+        { label: `${career.title} career page`, href: careerHref, kind: "career" },
+        ...resolveLink("gethired"),
+      ]),
+    });
+  } else if (getHiredHref) {
+    rawDays.push({
+      keyBase: "start-here",
+      dayStart: 1,
+      dayEnd: 1,
+      first: true,
+      kind: "guide",
+      href: getHiredHref,
+      title: `Start here: read the ${skeleton.category} Get Hired guide`,
+      detail:
+        "How hiring actually works in this part of the industry, who does the hiring, and what to have ready, before you spend time on anything else.",
+      resources: dedupeResources([...resolveLink("gethired"), ...resolveLink("careers")]),
+    });
+  }
+
   for (const item of skeleton.dayByDay) {
     if (item.appliesWhen !== "both" && item.appliesWhen !== intake.status) continue;
+    const authoredResources = resolveLinks(item.links);
     if (item.recurring) {
-      rawDays.push(...expandRecurringItem(item, paceScale, densityFactor, totalDays));
+      const rounds = expandRecurringItem(item, paceScale, densityFactor, totalDays);
+      rounds.forEach((round, i) => {
+        // Each "pursue another certification" round names the next
+        // credential down the visitor's own list, so four rounds read
+        // as four different next steps instead of one sentence repeated.
+        const exam = item.recurringKind === "certification" ? roundExams[i] : undefined;
+        round.resources = dedupeResources([
+          ...(exam ? [{ label: exam.title, href: exam.href, kind: "examPrep" as const }] : []),
+          ...authoredResources,
+        ]);
+        if (exam) round.detail = `This round: ${exam.title}. ${round.detail}`;
+      });
+      rawDays.push(...rounds);
       continue;
     }
     if (item.anchorEnd) {
@@ -570,27 +904,84 @@ export function buildActionPlan({
       const span = Math.max(1, Math.round((item.dayEnd - item.dayStart + 1) * paceScale));
       const scaledEnd = totalDays;
       const scaledStart = Math.max(1, scaledEnd - span + 1);
-      rawDays.push({ dayStart: scaledStart, dayEnd: scaledEnd, title: item.title, detail: item.detail, anchorEnd: true });
+      rawDays.push({
+        keyBase: slugifyKey(item.title),
+        dayStart: scaledStart,
+        dayEnd: scaledEnd,
+        title: item.title,
+        detail: item.detail,
+        resources: authoredResources,
+        anchorEnd: true,
+      });
       continue;
     }
     const scaledStart = Math.min(totalDays, Math.max(1, Math.round(item.dayStart * paceScale)));
     const scaledEnd = Math.min(totalDays, Math.max(scaledStart, Math.round(item.dayEnd * paceScale)));
-    rawDays.push({ dayStart: scaledStart, dayEnd: scaledEnd, title: item.title, detail: item.detail });
+    // An authored step whose main (first) link is a lesson IS that
+    // lesson's step: it carries the lesson's slug so completing the
+    // lesson checks it off, and the lesson is left out of the
+    // skill-building rotation below.
+    const leadLesson = authoredResources[0]?.kind === "lesson" ? authoredResources[0] : undefined;
+    rawDays.push({
+      keyBase: slugifyKey(item.title),
+      dayStart: scaledStart,
+      dayEnd: scaledEnd,
+      title: item.title,
+      detail: item.detail,
+      resources: authoredResources,
+      ...(leadLesson ? { kind: "lesson" as const, href: leadLesson.href, lessonSlug: leadLesson.href.split("/").pop() } : {}),
+    });
+  }
+
+  // A real program to look into, as a dated step rather than a link in
+  // a side list -- for most trades the apprenticeship application IS the
+  // job application, so it belongs on the calendar next to "build your
+  // target list".
+  if (programPool.length > 0) {
+    const lead = programPool[0];
+    const facts = [lead.organization, lead.durationNote, lead.costNote].filter(Boolean).join(" · ");
+    const programDay = Math.min(totalDays, Math.max(1, Math.round(PROGRAM_STEP_DAY * paceScale)));
+    rawDays.push({
+      keyBase: career ? `program:${lead.slug}` : "program:browse",
+      dayStart: programDay,
+      dayEnd: programDay,
+      kind: "program",
+      href: career ? `/programs/${lead.slug}` : "/programs",
+      title: career ? `Look into the ${lead.title}` : `Look at real training programs for ${skeleton.category}`,
+      detail: career
+        ? `${facts}. Read what it involves, then check the entry requirements and the next application window on the program's own site.${
+            programPool.length > 1 ? ` ${programPool.length - 1} more option${programPool.length - 1 === 1 ? "" : "s"} for this career linked below.` : ""
+          }`
+        : "Apprenticeships, trade schools, and certificate programs you could actually enroll in. Compare what each one costs, how long it runs, and who it's for.",
+      resources: dedupeResources([
+        ...programPool.slice(0, 3).map((p): PlanResource => ({ label: p.title, href: `/programs/${p.slug}`, kind: "program" })),
+        { label: "All programs", href: "/programs", kind: "program" },
+      ]),
+    });
   }
 
   // Weave in real site content as actual dated tasks, not just a side
   // "Courses to take" list -- a rotation through the visitor's matched
-  // lessons, then relevant software, then exam-prep practice, same pace
-  // dial (densityFactor) the outreach/certification rounds use.
-  const softwarePool = softwareForCareer.length > 0 ? softwareForCareer : categoryFallbackSoftware;
-  const examTask = careerExamPrepTask ?? categoryExamPrepTask;
+  // lessons, vocabulary, software, and exam-prep practice, on the same
+  // pace dial (densityFactor) the outreach/certification rounds use.
+  // A lesson an authored step already sends the visitor to as its main
+  // link ("Watch a jobsite-safety lesson before you start applying")
+  // isn't scheduled a second time as its own step.
+  const lessonsAlreadyAssigned = new Set(
+    rawDays.map((day) => day.lessonSlug).filter((slug): slug is string => Boolean(slug))
+  );
   const skillItems = buildSkillItems(
-    lessonsForCareer.length > 0 ? lessonsForCareer : categoryFallbackLessons,
+    lessonPool.filter((lesson) => !lessonsAlreadyAssigned.has(lesson.slug)),
     softwarePool,
-    examTask
+    examTask,
+    conceptPool,
+    budget
   );
   rawDays.push(...expandSkillBuildingItems(skillItems, paceScale, densityFactor, totalDays));
 
+  // Final key = keyBase, with a counter only if two steps would
+  // otherwise collide (two authored steps sharing a title).
+  const usedKeys = new Map<string, number>();
   const days: GeneratedDayItem[] = rawDays
     .sort((a, b) => {
       // The anchorEnd capstone is guaranteed to render last, full stop,
@@ -600,13 +991,20 @@ export function buildActionPlan({
       // rounds across a long timeline, and the capstone should still
       // read as the plan's final step either way.
       if (a.anchorEnd !== b.anchorEnd) return a.anchorEnd ? 1 : -1;
+      if (a.first !== b.first) return a.first ? -1 : 1;
       return a.dayStart - b.dayStart || a.dayEnd - b.dayEnd;
     })
-    .map(({ anchorEnd, ...item }) => ({
-      ...item,
-      startDate: addDays(startDate, item.dayStart - 1),
-      endDate: addDays(startDate, item.dayEnd - 1),
-    }));
+    .map(({ anchorEnd, first, keyBase, resources, ...item }) => {
+      const seen = usedKeys.get(keyBase) ?? 0;
+      usedKeys.set(keyBase, seen + 1);
+      return {
+        ...item,
+        key: seen === 0 ? keyBase : `${keyBase}~${seen + 1}`,
+        resources: resources ?? [],
+        startDate: addDays(startDate, item.dayStart - 1),
+        endDate: addDays(startDate, item.dayEnd - 1),
+      };
+    });
 
   const qualifications: GeneratedQualification[] = (getHiredGuide?.credentialsToHaveReady ?? []).map(
     (label) => ({
@@ -615,16 +1013,13 @@ export function buildActionPlan({
     })
   );
 
-  const trade = career?.title ?? skeleton.category;
   const tokens = { Trade: trade, Location: intake.location.trim() };
-  const courses = lessonsForCareer.length > 0 ? lessonsForCareer : categoryFallbackLessons;
-  const conceptPool = conceptsForCareer.length > 0 ? conceptsForCareer : categoryFallbackConcepts;
-  const programPool = (programsForCareer && programsForCareer.length > 0)
-    ? programsForCareer
-    : (categoryFallbackPrograms ?? []);
-  const goFurther = conceptPool.slice(0, 4).map((concept) => ({ concept, href: `/concepts/${concept.slug}` }));
-  const interviewPrepHref = careerInterviewPrepHref ?? categoryInterviewPrepHref;
-  const examPrepHref = careerExamPrepHref ?? categoryExamPrepHref;
+  // "Go further" skips the concepts already scheduled as vocabulary
+  // steps above, so the two lists don't repeat each other.
+  const scheduledConceptCount = skillItems.filter((item) => item.kind === "concept").length * CONCEPTS_PER_BATCH;
+  const goFurther = conceptPool
+    .slice(scheduledConceptCount, scheduledConceptCount + 4)
+    .map((concept) => ({ concept, href: `/concepts/${concept.slug}` }));
 
   const headline = buildHeadline(trade, intake.location, intake.status, safeIntake.hoursPerWeek, totalDays);
 
@@ -634,15 +1029,20 @@ export function buildActionPlan({
     status: intake.status,
     headline,
     overview: skeleton.overview,
+    totalDays,
+    careerHref,
+    getHiredHref,
+    exams: examPool,
+    software: softwarePool.map((sw) => ({ software: sw, href: `/software/${sw.slug}` })),
     qualifications,
-    courses: courses.slice(0, 4).map((lesson) => ({ lesson, href: `/lessons/${lesson.slug}` })),
+    courses: lessonPool.map((lesson) => ({ lesson, href: `/lessons/${lesson.slug}` })),
     resumeBullets: resumeGuide?.exampleBullets.slice(0, 5) ?? [],
     resumeGuideHref: resumeGuide ? `/resumes/${resumeGuide.slug}` : undefined,
     goFurther,
     glossaryConcepts: conceptPool,
     programs: programPool.slice(0, 3).map((program) => ({ program, href: `/programs/${program.slug}` })),
     interviewPrepHref,
-    examPrepHref,
+    examPrepHref: examPool[0]?.href,
     entryPay: career?.entryPay,
     isEntryRole: career?.isEntryRole,
     days,
@@ -788,7 +1188,12 @@ function extractIdentityPhrases(label: string): string[][] {
 // checkmark), never a crash and never anything the visitor typed being
 // shown back to them.
 function labelLooksHeld(label: string, certsHeldTokens: Set<string>): boolean {
-  for (const phrase of extractIdentityPhrases(label)) {
+  // When a credential's name carries a number ("OSHA 10", "OSHA 30"),
+  // only a phrase that includes the number counts -- the bare acronym
+  // alone would mark OSHA 30 as held for someone who typed "OSHA 10".
+  const phrases = extractIdentityPhrases(label);
+  const numbered = phrases.filter((phrase) => phrase.some((t) => /\d/.test(t)));
+  for (const phrase of numbered.length > 0 ? numbered : phrases) {
     if (phrase.every((t) => certsHeldTokens.has(t))) return true;
   }
   const words = significantWords(extractCoreLabel(label));

@@ -62,6 +62,8 @@ export function generateActionPlan(
   return buildActionPlan({
     skeleton: data.skeleton,
     getHiredGuide: data.getHiredGuide as GetHired | undefined,
+    getHiredHref: data.getHiredHref,
+    categorySlug: data.categorySlug,
     resumeGuide: data.resumeGuide as ResumeGuide | undefined,
     lessonsForCareer: lessons,
     categoryFallbackLessons: data.fallbackLessons,
@@ -73,12 +75,37 @@ export function generateActionPlan(
     categoryFallbackPrograms: data.fallbackPrograms,
     careerInterviewPrepHref: car ? data.interviewPrepHrefByCareerId[car] : undefined,
     categoryInterviewPrepHref: data.categoryInterviewPrepHref,
-    careerExamPrepHref: car ? data.examPrepHrefByCareerId[car] : undefined,
-    categoryExamPrepHref: data.categoryExamPrepHref,
-    careerExamPrepTask: car ? data.examPrepTaskByCareerId[car] : undefined,
-    categoryExamPrepTask: data.categoryExamPrepTask,
+    examsForCareer: car ? data.examsByCareerId[car] ?? [] : [],
+    categoryExams: data.categoryExams,
+    linkRefs: data.linkRefs,
     career,
     intake,
     ...(startDate ? { startDate } : {}),
   });
+}
+
+// How many of a plan's steps count as done for one account: every step
+// whose saved-progress key (see GeneratedDayItem.key) has a row, plus
+// any lesson step whose lesson was marked complete on its own page.
+// Shared by the result screen's own counter and the two pages that list
+// saved plans, so all three always agree. Rows saved under the old
+// position-based ids (a bare number) match no key and are ignored.
+export function countDoneSteps(
+  plan: GeneratedPlan,
+  category: string,
+  careerId: string,
+  progressRows: { contentType: string; contentId: string }[]
+): number {
+  const prefix = `${category}:${careerId || "general"}:`;
+  const doneKeys = new Set<string>();
+  const doneLessons = new Set<string>();
+  for (const row of progressRows) {
+    if (row.contentType === "lesson") doneLessons.add(row.contentId);
+    else if (row.contentType === "actionPlanStep" && row.contentId.startsWith(prefix)) {
+      doneKeys.add(row.contentId.slice(prefix.length));
+    }
+  }
+  return plan.days.filter(
+    (day) => doneKeys.has(day.key) || (day.lessonSlug !== undefined && doneLessons.has(day.lessonSlug))
+  ).length;
 }

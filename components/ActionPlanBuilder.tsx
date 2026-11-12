@@ -8,25 +8,17 @@
 // The two exceptions: LiveJobResults below makes its own client-side call
 // to /api/jobs for live listings, and the day-by-day checkboxes below
 // persist to /api/progress for the signed-in user (see the hydration
-// effect and toggleDay), so re-generating the same plan later picks the
+// effect and toggleStep), so re-generating the same plan later picks the
 // checkmarks back up even though the plan text itself is rebuilt fresh.
-import { useEffect, useMemo, useRef, useState } from "react";
-import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
 import { CAREER_CATEGORY_ORDER } from "@/lib/types";
-import { SectionLabel } from "@/components/SectionLabel";
 import { type ApplicationStatus, type GeneratedPlan } from "@/lib/action-plan-generator";
 import { buildIcs, downloadIcs } from "@/lib/ics";
 import { ActionPlanPrintCalendar } from "@/components/ActionPlanPrintCalendar";
-import { LiveJobResults } from "@/components/LiveJobResults";
-import { Disclaimer } from "@/components/Disclaimer";
-import { GlossaryText, buildGlossaryIndex } from "@/components/GlossaryText";
-import {
-  ActionPlanAccordionSection,
-  AccordionSubLabel,
-  useActionPlanAccordionControls,
-} from "@/components/ActionPlanAccordion";
+import { ActionPlanForm } from "@/components/ActionPlanForm";
+import { ActionPlanResult } from "@/components/ActionPlanResult";
 import { generateActionPlan } from "@/lib/action-plan-generate";
 import { ActionPlanLoading } from "@/components/ActionPlanLoading";
 import type { CategoryData } from "@/lib/action-plan-data";
@@ -67,66 +59,16 @@ export type PlanPrefill = { category: string; careerId: string };
 
 const DEFAULT_HOURS = 10;
 
-// Small badge text for a skill-building day-by-day item (see
-// GeneratedDayItem's `kind` in lib/action-plan-generator.ts) -- lets the
-// calendar visually distinguish "go learn this" tasks from the authored
-// paperwork/outreach/certification items around them.
-const SKILL_KIND_LABEL: Record<"lesson" | "software" | "examPrep", string> = {
-  lesson: "Lesson",
-  software: "Software",
-  examPrep: "Exam Prep",
-};
-
-function TemplateBlock({ label, text }: { label: string; text: string }) {
-  const [copied, setCopied] = useState(false);
-  async function copy() {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // Clipboard API blocked (permissions, insecure context) -- the text
-      // is already visible and selectable, so this just means the person
-      // copies it by hand instead of a broken experience.
-    }
-  }
-  return (
-    <div className="mt-3 border border-hairline bg-white/50 p-3">
-      <div className="flex items-center justify-between">
-        <p className="text-xs font-semibold uppercase tracking-wide text-steel">{label}</p>
-        <button
-          onClick={copy}
-          type="button"
-          aria-label={copied ? `Copied ${label}` : `Copy ${label}`}
-          className="print:hidden text-xs font-semibold text-navy hover:underline"
-        >
-          {copied ? "Copied" : "Copy"}
-        </button>
-      </div>
-      <pre className="mt-2 whitespace-pre-wrap font-sans text-sm leading-relaxed text-ink">{text}</pre>
-    </div>
-  );
-}
-
-// Mirrors PayTimeline.tsx's own formatter so the same figure reads the
-// same way wherever it shows up on the site.
-function formatPay(n: number, unit: "annual" | "hourly"): string {
-  if (unit === "hourly") return `$${n.toFixed(2)}/hr`;
-  return `$${Math.round(n / 1000)}k/yr`;
-}
-
-function formatDateRange(start: Date, end: Date): string {
-  const opts: Intl.DateTimeFormatOptions = { month: "short", day: "numeric" };
-  const startLabel = start.toLocaleDateString("en-US", opts);
-  const endLabel = end.toLocaleDateString("en-US", opts);
-  return startLabel === endLabel ? startLabel : `${startLabel}–${endLabel}`;
-}
-
 export function ActionPlanBuilder({
   dataByCategory,
   initialPlan,
   prefill,
+  intro,
 }: {
+  // The page's own headline block (app/action-plan/page.tsx), shown
+  // above the form only -- once a plan is on screen its header band
+  // takes over, so the pitch for building one steps aside.
+  intro?: React.ReactNode;
   dataByCategory: Record<string, CategoryData>;
   prefill?: PlanPrefill;
   // When set (a resume link matched a saved plan server-side -- see
@@ -163,10 +105,14 @@ export function ActionPlanBuilder({
       if (buildTimeoutRef.current) clearTimeout(buildTimeoutRef.current);
     };
   }, []);
-  const [checkedDays, setCheckedDays] = useState<Set<number>>(new Set());
-  const accordionControls = useActionPlanAccordionControls();
+  // Which steps are checked off, by GeneratedDayItem.key (stable across
+  // edits to hours/timeline, unlike the list position this used to be
+  // keyed on), and which lessons this account has completed anywhere on
+  // the site -- a lesson step shows as done once its lesson is.
+  const [checkedKeys, setCheckedKeys] = useState<Set<string>>(new Set());
+  const [doneLessons, setDoneLessons] = useState<Set<string>>(new Set());
   // Day-by-day checkboxes persist to the signed-in user's account via
-  // /api/progress (see the hydration effect and toggleDay below) --
+  // /api/progress (see the hydration effect and toggleStep below) --
   // the page itself is hard-gated (EmailGate, variant="immediate"), so
   // in practice this is always true by the time someone can click a
   // checkbox, but it's still checked defensively rather than assumed.
@@ -215,14 +161,6 @@ export function ActionPlanBuilder({
   // slow save response can tell it's stale and leave the screen alone.
   const planTokenRef = useRef(0);
   const [restarting, setRestarting] = useState(false);
-
-  const categoryData = dataByCategory[category];
-  const careerOptions = categoryData?.careers ?? [];
-
-  const glossaryIndex = useMemo(() => {
-    if (!plan || plan === "coming-soon") return [];
-    return buildGlossaryIndex(plan.glossaryConcepts);
-  }, [plan]);
 
   // The actual generation step shared by a fresh "Build my plan" submit
   // and resuming a saved plan on mount -- delegates to the same
@@ -283,7 +221,7 @@ export function ActionPlanBuilder({
       },
       new Date(initialPlan.createdAt)
     );
-    setCheckedDays(new Set());
+    setCheckedKeys(new Set());
     toggledSincePlanRef.current = false;
     setPlan(generated);
     // Runs on mount and again if initialPlan goes from absent to present
@@ -291,11 +229,13 @@ export function ActionPlanBuilder({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialPlan !== undefined]);
 
-  // Pull back which day-by-day steps this user already checked off for
-  // this exact plan (same category + career), so re-opening a Blueprint
-  // picks up where they left off instead of starting blank. Keyed by
-  // array index, not a persisted plan id, since the plan itself is
-  // regenerated fresh each time rather than stored -- see toggleDay.
+  // Pull back what this account has already done: the steps checked off
+  // for this exact plan (same category + career), and every lesson
+  // completed anywhere on the site. Steps are matched by their stable
+  // key (GeneratedDayItem.key), so re-opening a Blueprint -- or editing
+  // its hours and timeline -- picks up where they left off. Rows saved
+  // under the old position-based ids (a bare number) match no key and
+  // are simply ignored.
   useEffect(() => {
     if (!plan || plan === "coming-soon" || !isSignedIn) return;
     let cancelled = false;
@@ -304,37 +244,40 @@ export function ActionPlanBuilder({
       .then((res) => res.json())
       .then((data: { ok?: boolean; progress?: Array<{ contentType: string; contentId: string }> }) => {
         if (cancelled || !data?.ok) return;
-        if (toggledSincePlanRef.current) return;
-        const done = new Set<number>();
+        const keys = new Set<string>();
+        const lessons = new Set<string>();
         for (const row of data.progress ?? []) {
-          if (row.contentType !== "actionPlanStep" || !row.contentId.startsWith(prefix)) continue;
-          const index = Number(row.contentId.slice(prefix.length));
-          if (Number.isInteger(index)) done.add(index);
+          if (row.contentType === "lesson") lessons.add(row.contentId);
+          else if (row.contentType === "actionPlanStep" && row.contentId.startsWith(prefix)) {
+            keys.add(row.contentId.slice(prefix.length));
+          }
         }
-        setCheckedDays(done);
+        setDoneLessons(lessons);
+        // A click that landed before this resolved wins over the fetch.
+        if (!toggledSincePlanRef.current) setCheckedKeys(keys);
       })
       .catch(() => {
-        // Leave checkedDays as the freshly-reset empty set from
-        // handleSubmit -- a failed load just means a blank-looking
-        // plan the user can still re-check by hand.
+        // Leave the freshly-reset empty set from handleSubmit -- a
+        // failed load just means a blank-looking plan the user can
+        // still re-check by hand.
       });
     return () => {
       cancelled = true;
     };
   }, [plan, isSignedIn, category, careerId]);
 
-  function toggleDay(index: number) {
+  function toggleStep(key: string) {
     toggledSincePlanRef.current = true;
-    const nowChecked = !checkedDays.has(index);
-    setCheckedDays((prev) => {
+    const nowChecked = !checkedKeys.has(key);
+    setCheckedKeys((prev) => {
       const next = new Set(prev);
-      if (nowChecked) next.add(index);
-      else next.delete(index);
+      if (nowChecked) next.add(key);
+      else next.delete(key);
       return next;
     });
 
     if (!isSignedIn || !plan || plan === "coming-soon") return;
-    const contentId = `${category}:${careerId || "general"}:${index}`;
+    const contentId = `${category}:${careerId || "general"}:${key}`;
     fetch("/api/progress", {
       method: nowChecked ? "POST" : "DELETE",
       headers: { "Content-Type": "application/json" },
@@ -371,7 +314,7 @@ export function ActionPlanBuilder({
     if (generated === "coming-soon") {
       setIsBuilding(false);
       if (buildTimeoutRef.current) clearTimeout(buildTimeoutRef.current);
-      setCheckedDays(new Set());
+      setCheckedKeys(new Set());
       toggledSincePlanRef.current = false;
       setPlan(generated);
       return;
@@ -392,7 +335,7 @@ export function ActionPlanBuilder({
     setIsBuilding(true);
     buildTimeoutRef.current = setTimeout(() => {
       if (planTokenRef.current !== token) return;
-      setCheckedDays(new Set());
+      setCheckedKeys(new Set());
       toggledSincePlanRef.current = false;
       setPlan(generated);
       setIsBuilding(false);
@@ -488,7 +431,10 @@ export function ActionPlanBuilder({
   function handleDownloadIcs() {
     if (!plan || plan === "coming-soon") return;
     const name = plan.careerTitle ? `${plan.careerTitle} Blueprint` : `${plan.category} Blueprint`;
-    downloadIcs(`breakgroundu-${plan.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-plan.ics`, buildIcs(plan.days, name));
+    downloadIcs(
+      `breakgroundu-${plan.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-plan.ics`,
+      buildIcs(plan.days, name, window.location.origin)
+    );
   }
 
   if (isBuilding) {
@@ -496,651 +442,79 @@ export function ActionPlanBuilder({
   }
 
   if (plan === "coming-soon") {
+    const getHiredHref = dataByCategory[category]?.getHiredHref;
     return (
       <div className="mt-8 border border-hairline bg-amber-soft/40 p-6">
-        <p className="font-display text-xl font-bold text-ink">This category's plan isn't ready yet</p>
-        <p className="mt-2 text-sm leading-relaxed text-steel">
-          {category} doesn't have a Blueprint written yet. In the meantime, the Get Hired guide for{" "}
+        <p className="font-display text-2xl font-bold text-ink">This category&rsquo;s plan isn&rsquo;t ready yet</p>
+        <p className="mt-2 max-w-xl text-sm leading-relaxed text-steel">
+          {category} doesn&rsquo;t have a Blueprint written yet. In the meantime, the Get Hired guide for{" "}
           {category} covers the same ground in checklist form.
         </p>
-        <button
-          onClick={reset}
-          type="button"
-          className="mt-4 border border-ink px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-ink hover:text-paper"
-        >
-          Try a different category
-        </button>
+        <div className="mt-4 flex flex-wrap gap-3">
+          {getHiredHref && (
+            <a
+              href={getHiredHref}
+              className="bg-navy px-4 py-2 text-sm font-semibold text-paper transition-colors hover:bg-ink"
+            >
+              Open the Get Hired guide &rarr;
+            </a>
+          )}
+          <button
+            onClick={reset}
+            type="button"
+            className="border border-ink px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-ink hover:text-paper"
+          >
+            Try a different category
+          </button>
+        </div>
       </div>
     );
   }
 
   if (plan) {
-    const { containerRef: accordionContainerRef, label: accordionToggleLabel, toggleAll: toggleAllAccordions } =
-      accordionControls;
-
-    const hasPay = Boolean(plan.entryPay);
-    const hasQualificationsSection =
-      plan.qualifications.length > 0 || plan.courses.length > 0 || plan.goFurther.length > 0 || plan.programs.length > 0;
-    const hasResumePrepSection =
-      plan.resumeBullets.length > 0 || Boolean(plan.interviewPrepHref) || Boolean(plan.examPrepHref);
-    const hasFindOpeningsSection =
-      plan.targetEmployerTypes.length > 0 || plan.whereToLook.length > 0 || plan.jobBoardLinks.length > 0;
-
-    // Shown under Overview so a first-time visitor knows what each
-    // dropdown below actually answers before opening any of them --
-    // built from which sections this specific plan actually has rather
-    // than a fixed list, since a category like Consultants & Advisory
-    // never gets a "Where to Find Openings" section at all.
-    const legendItems = [
-      hasPay && { title: "Pay", blurb: "what to actually expect to earn, so you know if it's worth it to you." },
-      hasQualificationsSection && {
-        title: "Qualifications & Courses",
-        blurb: "what to have ready, where to learn what you're missing, and real programs to enroll in.",
-      },
-      hasResumePrepSection && {
-        title: "Resume & Interview Prep",
-        blurb: "get your application and talking points in order.",
-      },
-      {
-        title: "Your Day-by-Day Plan",
-        blurb: "the actual schedule, start here once you're ready to move.",
-      },
-      hasFindOpeningsSection && {
-        title: "Where to Find Openings",
-        blurb: "your target employers, plus live postings near you.",
-      },
-      {
-        title: "Reach Out to Recruiters & Hiring Managers",
-        blurb: "exactly what to say, and to whom.",
-      },
-    ].filter((item): item is { title: string; blurb: string } => Boolean(item));
-
-    const payTeaser = plan.entryPay
-      ? `${formatPay(plan.entryPay.low, plan.entryPay.unit).replace(/\/(yr|hr)$/, "")}–${formatPay(plan.entryPay.high, plan.entryPay.unit)}`
-      : undefined;
-
-    const qualificationsTeaserParts: string[] = [];
-    if (plan.qualifications.length > 0) {
-      const needCount = plan.qualifications.filter((q) => !q.have).length;
-      qualificationsTeaserParts.push(needCount === 0 ? "all set" : `${needCount} to line up`);
-    }
-    if (plan.courses.length > 0) {
-      qualificationsTeaserParts.push(`${plan.courses.length} course${plan.courses.length === 1 ? "" : "s"}`);
-    }
-    if (plan.goFurther.length > 0) {
-      qualificationsTeaserParts.push(`${plan.goFurther.length} go further`);
-    }
-    if (plan.programs.length > 0) {
-      qualificationsTeaserParts.push(`${plan.programs.length} program${plan.programs.length === 1 ? "" : "s"}`);
-    }
-    const qualificationsTeaser = qualificationsTeaserParts.join(" \u00b7 ") || undefined;
-
-    const resumePrepTeaserParts: string[] = [];
-    if (plan.resumeBullets.length > 0) {
-      resumePrepTeaserParts.push(`${plan.resumeBullets.length} bullet${plan.resumeBullets.length === 1 ? "" : "s"}`);
-    }
-    const guideCount = [plan.resumeGuideHref, plan.interviewPrepHref, plan.examPrepHref].filter(Boolean).length;
-    if (guideCount > 0) {
-      resumePrepTeaserParts.push(`${guideCount} guide${guideCount === 1 ? "" : "s"}`);
-    }
-    const resumePrepTeaser = resumePrepTeaserParts.join(" \u00b7 ") || undefined;
-
-    const dayByDayTeaser = `${plan.days.length} step${plan.days.length === 1 ? "" : "s"} \u00b7 ${checkedDays.size} of ${plan.days.length} done`;
-
-    const findOpeningsTeaserParts: string[] = [];
-    if (plan.targetEmployerTypes.length > 0) {
-      findOpeningsTeaserParts.push(
-        `${plan.targetEmployerTypes.length} employer type${plan.targetEmployerTypes.length === 1 ? "" : "s"}`
-      );
-    }
-    if (plan.jobBoardLinks.length > 0 && location.trim()) {
-      findOpeningsTeaserParts.push("live openings near you");
-    }
-    const findOpeningsTeaser = findOpeningsTeaserParts.join(" \u00b7 ") || undefined;
-
-    // Has this plan's calendar slipped? "Over" = every date is behind
-    // today (the whole schedule is stale); "started" = it began before
-    // today (some dates may already be behind). Safe to read the clock
-    // here: a plan only ever renders client-side, after a submit or the
-    // resume effect, never during server rendering.
-    const todayStart = new Date();
-    todayStart.setHours(0, 0, 0, 0);
-    const firstDay = plan.days[0];
-    const lastDay = plan.days[plan.days.length - 1];
-    const scheduleIsOver = Boolean(lastDay) && lastDay.endDate.getTime() < todayStart.getTime();
-    const scheduleHasStarted = Boolean(firstDay) && firstDay.startDate.getTime() < todayStart.getTime();
-
-    const outreachTeaser = `${plan.recruiterOutreach.tips.length} tip${plan.recruiterOutreach.tips.length === 1 ? "" : "s"} \u00b7 3 templates`;
-
     return (
-      <div className="mt-8">
+      <div>
         <ActionPlanPrintCalendar days={plan.days} title={plan.careerTitle ?? plan.category} />
-
-        <div className="print:hidden">
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-steel">
-              {plan.status === "applying" ? "Actively applying" : "Just looking"}
-            </p>
-            <h2 className="font-display text-3xl font-bold text-ink">
-              {plan.careerTitle ?? plan.category} Blueprint
-            </h2>
-            <p className="mt-1 max-w-md text-sm leading-relaxed text-steel">{plan.headline}</p>
-          </div>
-          <div className="print:hidden flex gap-2">
-            <button
-              onClick={reset}
-              type="button"
-              className="border border-ink px-3 py-2 text-xs font-semibold text-ink transition-colors hover:bg-ink hover:text-paper"
-            >
-              Edit your answers
-            </button>
-          </div>
-        </div>
-
-        {scheduleIsOver && (
-          <div className="mt-5 border border-amber bg-amber-soft/40 px-4 py-3">
-            <p className="text-xs font-semibold uppercase tracking-wide text-clay">This plan's dates have passed</p>
-            <p className="mt-1 text-sm text-ink">
-              Life happens. Restart the calendar and every step gets a fresh date starting today. Anything
-              you already checked off stays checked.
-            </p>
-            <button
-              type="button"
-              onClick={restartFromToday}
-              disabled={restarting}
-              className="mt-3 bg-navy px-4 py-2 text-sm font-semibold text-paper transition-colors hover:bg-ink disabled:opacity-60"
-            >
-              {restarting ? "Restarting…" : "Restart the calendar from today"}
-            </button>
-          </div>
-        )}
-
-        <SectionLabel>Overview</SectionLabel>
-        <p className="mt-2 leading-relaxed text-ink">{plan.overview}</p>
-        {legendItems.length > 0 && (
-          <>
-            <p className="mt-3 text-sm leading-relaxed text-ink">
-              Everything below is sorted into sections so you can jump straight to what you're
-              wondering about. Nothing here assumes you've already read what's above it.
-            </p>
-            <ul className="mt-2 flex flex-col gap-1 text-sm leading-relaxed text-ink">
-              {legendItems.map((item) => (
-                <li key={item.title}>
-                  <span className="font-semibold text-navy">{item.title}</span> &ndash; {item.blurb}
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
-
-        <div className="mt-7 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-2">
-          <SectionLabel>Your Personalized Blueprint</SectionLabel>
-          <button
-            type="button"
-            onClick={toggleAllAccordions}
-            className="shrink-0 border border-hairline px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-navy transition-colors hover:border-navy print:hidden"
-          >
-            {accordionToggleLabel}
-          </button>
-        </div>
-
-        <div ref={accordionContainerRef} className="mt-2 flex flex-col print:hidden">
-          {plan.entryPay && (
-            <ActionPlanAccordionSection title="Pay" teaser={payTeaser} defaultOpen>
-              <p className="text-2xl font-bold text-navy">
-                {formatPay(plan.entryPay.low, plan.entryPay.unit)}&ndash;{formatPay(plan.entryPay.high, plan.entryPay.unit)}
-              </p>
-              <Disclaimer
-                lastReviewed={plan.entryPay.asOf}
-                message={
-                  plan.isEntryRole === false
-                    ? `${plan.careerTitle ?? "This role"} is typically reached through promotion or years of experience in a related role, not a day-one starting point. This is the lower end of the national wage distribution for people already working in it (${plan.entryPay.source}), not a promise for any one job and not what someone brand new to the field would start at. Real pay varies by state, metro area, union status, and employer, so scale this for your market. Base pay only: overtime and shift differentials are standard across most construction trades.`
-                    : `Entry-level pay from the national wage distribution for this occupation (${plan.entryPay.source}), not a promise for any one job. Real pay varies by state, metro area, union status, and employer, so scale this for your market. Base pay only: overtime and shift differentials are standard across most construction trades.`
-                }
-              />
-            </ActionPlanAccordionSection>
-          )}
-
-          {(plan.qualifications.length > 0 || plan.courses.length > 0 || plan.goFurther.length > 0 || plan.programs.length > 0) && (
-            <ActionPlanAccordionSection title="Qualifications & Courses" teaser={qualificationsTeaser}>
-              {plan.qualifications.length > 0 && (
-                <>
-                  <AccordionSubLabel>Have these ready</AccordionSubLabel>
-                  <ul className="mt-2 flex flex-col gap-1.5">
-                    {plan.qualifications.map((q, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-ink">
-                        <span
-                          className={
-                            q.have
-                              ? "mt-0.5 inline-block h-3 w-3 shrink-0 border border-navy bg-navy"
-                              : "mt-0.5 inline-block h-3 w-3 shrink-0 border border-hairline"
-                          }
-                          aria-hidden="true"
-                        />
-                        <span>
-                          {q.label}
-                          {q.have ? <span className="ml-2 text-xs font-semibold uppercase text-navy">Have it</span> : null}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-
-              {plan.courses.length > 0 && (
-                <>
-                  <AccordionSubLabel>Courses to take</AccordionSubLabel>
-                  <ul className="mt-2 flex flex-col gap-1.5">
-                    {plan.courses.map(({ lesson, href }) => (
-                      <li key={lesson.id} className="text-sm text-ink">
-                        <Link href={href} className="font-medium text-navy hover:underline">
-                          {lesson.title}
-                        </Link>
-                        <span className="text-steel"> &middot; {lesson.minutes} min</span>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-
-              {plan.goFurther.length > 0 && (
-                <>
-                  <AccordionSubLabel>Go further</AccordionSubLabel>
-                  <p className="mt-1 text-xs italic text-steel">
-                    Beyond what's required to get in the door, but worth understanding deeply to stand out once you're there.
-                  </p>
-                  <ul className="mt-2 flex flex-col gap-1.5">
-                    {plan.goFurther.map(({ concept, href }) => (
-                      <li key={concept.id} className="text-sm text-ink">
-                        <Link href={href} className="font-medium text-navy hover:underline">
-                          {concept.title}
-                        </Link>
-                        <span className="text-steel"> &mdash; {concept.definition}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-
-              {plan.programs.length > 0 && (
-                <>
-                  <AccordionSubLabel>Where to train</AccordionSubLabel>
-                  <p className="mt-1 text-xs italic text-steel">
-                    Real apprenticeships, trade schools, and certificate programs you could actually enroll in.
-                  </p>
-                  <ul className="mt-2 flex flex-col gap-2">
-                    {plan.programs.map(({ program, href }) => (
-                      <li key={program.id} className="text-sm text-ink">
-                        <Link href={href} className="font-medium text-navy hover:underline">
-                          {program.title}
-                        </Link>
-                        <span className="text-steel"> &middot; {program.organization}</span>
-                        {(program.durationNote || program.costNote) && (
-                          <span className="text-steel">
-                            {" "}
-                            &mdash; {[program.durationNote, program.costNote].filter(Boolean).join(" \u00b7 ")}
-                          </span>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link href="/programs" className="mt-2 inline-block text-xs font-semibold text-navy hover:underline">
-                    See all programs &rarr;
-                  </Link>
-                </>
-              )}
-            </ActionPlanAccordionSection>
-          )}
-
-          {(plan.resumeBullets.length > 0 || plan.interviewPrepHref || plan.examPrepHref) && (
-            <ActionPlanAccordionSection title="Resume & Interview Prep" teaser={resumePrepTeaser}>
-              {plan.resumeBullets.length > 0 && (
-                <>
-                  <AccordionSubLabel>Resume bullets to use for inspiration</AccordionSubLabel>
-                  <ul className="mt-2 flex flex-col gap-1.5">
-                    {plan.resumeBullets.map((bullet, i) => (
-                      <li key={i} className="text-sm text-ink">
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-                  {plan.resumeGuideHref && (
-                    <Link href={plan.resumeGuideHref} className="mt-2 inline-block text-sm font-semibold text-navy hover:underline">
-                      See the full resume guide &rarr;
-                    </Link>
-                  )}
-                </>
-              )}
-
-              {(plan.interviewPrepHref || plan.examPrepHref) && (
-                <>
-                  <AccordionSubLabel>Keep going</AccordionSubLabel>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {plan.interviewPrepHref && (
-                      <Link
-                        href={plan.interviewPrepHref}
-                        className="border border-hairline px-3 py-1.5 text-xs font-semibold text-navy transition-colors hover:border-navy"
-                      >
-                        Interview Prep guide &rarr;
-                      </Link>
-                    )}
-                    {plan.examPrepHref && (
-                      <Link
-                        href={plan.examPrepHref}
-                        className="border border-hairline px-3 py-1.5 text-xs font-semibold text-navy transition-colors hover:border-navy"
-                      >
-                        Exam Prep guide &rarr;
-                      </Link>
-                    )}
-                  </div>
-                </>
-              )}
-            </ActionPlanAccordionSection>
-          )}
-
-          <ActionPlanAccordionSection title="Your Day-by-Day Plan" teaser={dayByDayTeaser}>
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <p className="text-xs italic text-steel">
-                Checking an item off saves to your account, so it'll still be checked next time you come
-                back to this plan.
-              </p>
-              {checkedDays.size > 0 && (
-                <p className="shrink-0 text-xs font-semibold uppercase tracking-wide text-navy">
-                  {checkedDays.size} of {plan.days.length} done
-                </p>
-              )}
-            </div>
-            {scheduleHasStarted && !scheduleIsOver && (
-              <p className="mt-2 text-xs text-steel">
-                Fallen behind?{" "}
-                <button
-                  type="button"
-                  onClick={restartFromToday}
-                  disabled={restarting}
-                  className="font-semibold text-navy hover:underline disabled:opacity-60"
-                >
-                  {restarting ? "Restarting…" : "Restart the calendar from today"}
-                </button>
-                . Your checked-off steps stay checked.
-              </p>
-            )}
-            <ol className="mt-3 flex flex-col gap-3">
-              {plan.days.map((item, i) => (
-                <li key={i} className="flex gap-3 border-l-2 border-hairline pl-4">
-                  <button
-                    type="button"
-                    onClick={() => toggleDay(i)}
-                    className="print:hidden mt-1 h-4 w-4 shrink-0 border border-hairline"
-                    aria-pressed={checkedDays.has(i)}
-                    aria-label={`${checkedDays.has(i) ? "Mark not done" : "Mark done"}: ${item.title}`}
-                  >
-                    {checkedDays.has(i) && <span className="block h-full w-full bg-navy" />}
-                  </button>
-                  <div className={checkedDays.has(i) ? "opacity-50" : undefined}>
-                    <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-clay">
-                      {formatDateRange(item.startDate, item.endDate)}
-                      {item.kind && (
-                        <span className="border border-navy px-1.5 py-0.5 text-navy">
-                          {SKILL_KIND_LABEL[item.kind]}
-                        </span>
-                      )}
-                    </p>
-                    <p className={`font-medium text-ink ${checkedDays.has(i) ? "line-through" : ""}`}>
-                      {item.href ? (
-                        <Link href={item.href} className="hover:underline">
-                          {item.title}
-                        </Link>
-                      ) : (
-                        <GlossaryText text={item.title} index={glossaryIndex} />
-                      )}
-                    </p>
-                    <p className="mt-0.5 text-sm text-steel">
-                      <GlossaryText text={item.detail} index={glossaryIndex} />
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </ActionPlanAccordionSection>
-
-          {(plan.targetEmployerTypes.length > 0 || plan.whereToLook.length > 0 || plan.jobBoardLinks.length > 0) && (
-            <ActionPlanAccordionSection title="Where to Find Openings" teaser={findOpeningsTeaser}>
-              {plan.targetEmployerTypes.length > 0 && (
-                <>
-                  <AccordionSubLabel>Companies worth targeting</AccordionSubLabel>
-                  <ul className="mt-2 flex flex-col gap-1.5">
-                    {plan.targetEmployerTypes.map((type, i) => (
-                      <li key={i} className="text-sm text-ink">
-                        {type}
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-              {plan.whereToLook.length > 0 && (
-                <>
-                  <AccordionSubLabel>Where to actually look</AccordionSubLabel>
-                  <ul className="mt-2 flex flex-col gap-1.5">
-                    {plan.whereToLook.map((place, i) => (
-                      <li key={i} className="text-sm text-ink">
-                        {place}
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-              {plan.jobBoardLinks.length > 0 && location.trim() && (
-                <LiveJobResults trade={plan.careerTitle ?? plan.category} location={location} entryPay={plan.entryPay} />
-              )}
-              {plan.jobBoardLinks.length > 0 && (
-                <>
-                  <AccordionSubLabel>Or search these yourself</AccordionSubLabel>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {plan.jobBoardLinks.map((link) => (
-                      <a
-                        key={link.href}
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="border border-hairline px-3 py-1.5 text-xs font-semibold text-navy transition-colors hover:border-navy"
-                      >
-                        {link.label} &rarr;
-                      </a>
-                    ))}
-                  </div>
-                </>
-              )}
-            </ActionPlanAccordionSection>
-          )}
-
-          <ActionPlanAccordionSection title="Reach Out to Recruiters & Hiring Managers" teaser={outreachTeaser}>
-            <ul className="flex flex-col gap-1.5">
-              {plan.recruiterOutreach.tips.map((tip, i) => (
-                <li key={i} className="text-sm text-ink">
-                  {tip}
-                </li>
-              ))}
-            </ul>
-            <TemplateBlock label="Email template" text={plan.recruiterOutreach.emailTemplate} />
-            <TemplateBlock label="LinkedIn message template" text={plan.recruiterOutreach.linkedinTemplate} />
-            <TemplateBlock label="Follow-up template" text={plan.recruiterOutreach.followUpTemplate} />
-          </ActionPlanAccordionSection>
-        </div>
-
-        <div className="mt-8 border border-amber bg-amber-soft/40 px-4 py-3 print:hidden">
-          <p className="text-xs font-semibold uppercase tracking-wide text-clay">A plan, not a promise</p>
-          <p className="mt-1 text-sm text-ink">
-            This plan is informational, not a guarantee of being hired. Confirm any licensing or
-            certification requirement yourself before relying on it.
-          </p>
-        </div>
-
-        <div className="mt-6 flex flex-wrap gap-3 print:hidden">
-          <button
-            onClick={handleDownloadIcs}
-            type="button"
-            className="bg-navy px-4 py-2 text-sm font-semibold text-paper transition-colors hover:bg-ink"
-          >
-            Download as calendar (.ics)
-          </button>
-          <button
-            onClick={() => window.print()}
-            type="button"
-            className="border border-ink px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-ink hover:text-paper"
-          >
-            Print your schedule
-          </button>
-        </div>
-        </div>
+        <ActionPlanResult
+          plan={plan}
+          location={location}
+          doneKeys={checkedKeys}
+          doneLessons={doneLessons}
+          onToggle={toggleStep}
+          onEdit={reset}
+          onRestart={restartFromToday}
+          restarting={restarting}
+          onDownloadIcs={handleDownloadIcs}
+        />
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-5">
-      <div>
-        <label htmlFor="ap-category" className="text-sm font-semibold text-ink">
-          Career category
-        </label>
-        <select
-          id="ap-category"
-          value={category}
-          onChange={(e) => {
-            setCategory(e.target.value);
-            setCareerId("");
-          }}
-          className="mt-1 block w-full border border-hairline bg-white/60 px-3 py-2 text-sm text-ink focus:border-navy focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-navy"
-        >
-          {categories.map((c) => (
-            <option key={c} value={c}>
-              {c}
-              {dataByCategory[c]?.skeleton?.comingSoon !== false ? " (coming soon)" : ""}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      {careerOptions.length > 0 && (
-        <div>
-          <label htmlFor="ap-career" className="text-sm font-semibold text-ink">
-            Specific career (optional)
-          </label>
-          <select
-            id="ap-career"
-            value={careerId}
-            onChange={(e) => setCareerId(e.target.value)}
-            className="mt-1 block w-full border border-hairline bg-white/60 px-3 py-2 text-sm text-ink focus:border-navy focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-navy"
-          >
-            <option value="">Not sure yet, keep it general</option>
-            {careerOptions.map((c) => (
-              <option key={c.id} value={c.id}>
-                {c.title}
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
-
-      <fieldset>
-        <legend className="text-sm font-semibold text-ink">Where are you in the process?</legend>
-        <div className="mt-1 flex gap-4">
-          <label className="flex items-center gap-2 text-sm text-ink">
-            <input
-              type="radio"
-              name="status"
-              value="browsing"
-              checked={status === "browsing"}
-              onChange={() => setStatus("browsing")}
-            />
-            Just looking
-          </label>
-          <label className="flex items-center gap-2 text-sm text-ink">
-            <input
-              type="radio"
-              name="status"
-              value="applying"
-              checked={status === "applying"}
-              onChange={() => setStatus("applying")}
-            />
-            Actively applying
-          </label>
-        </div>
-      </fieldset>
-
-      <div>
-        <label htmlFor="ap-location" className="text-sm font-semibold text-ink">
-          Location
-        </label>
-        <input
-          id="ap-location"
-          type="text"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-          placeholder="City, State"
-          maxLength={100}
-          className="mt-1 block w-full border border-hairline bg-white/60 px-3 py-2 text-sm text-ink focus:border-navy focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-navy"
-        />
-      </div>
-
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label htmlFor="ap-hours" className="text-sm font-semibold text-ink">
-            Hours per week available
-          </label>
-          <input
-            id="ap-hours"
-            type="number"
-            min={1}
-            max={60}
-            required
-            // Shown blank (not "0") while the field is empty, so clearing
-            // it to type a new number doesn't leave a stuck leading zero.
-            value={hoursPerWeek === 0 ? "" : hoursPerWeek}
-            onChange={(e) => setHoursPerWeek(Number(e.target.value))}
-            className="mt-1 block w-full border border-hairline bg-white/60 px-3 py-2 text-sm text-ink focus:border-navy focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-navy"
-          />
-        </div>
-        <div>
-          <label htmlFor="ap-timeline" className="text-sm font-semibold text-ink">
-            Target timeline (weeks)
-          </label>
-          <input
-            id="ap-timeline"
-            type="number"
-            min={0}
-            max={52}
-            value={timelineWeeks}
-            onChange={(e) => setTimelineWeeks(Number(e.target.value))}
-            className="mt-1 block w-full border border-hairline bg-white/60 px-3 py-2 text-sm text-ink focus:border-navy focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-navy"
-          />
-          <p className="mt-1 text-xs text-ink/60">
-            Leave at 0 to let the plan decide, based on your hours per week.
-          </p>
-        </div>
-      </div>
-
-      <div>
-        <label htmlFor="ap-certs" className="text-sm font-semibold text-ink">
-          Certifications or experience you already have
-        </label>
-        <textarea
-          id="ap-certs"
-          value={certsHeld}
-          onChange={(e) => setCertsHeld(e.target.value)}
-          placeholder="e.g. OSHA 10, valid driver's license"
-          rows={2}
-          maxLength={500}
-          className="mt-1 block w-full border border-hairline bg-white/60 px-3 py-2 text-sm text-ink focus:border-navy focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-navy"
-        />
-      </div>
-
-      <button
-        type="submit"
-        className="mt-2 bg-navy px-5 py-3 text-sm font-semibold text-paper transition-colors hover:bg-ink"
-      >
-        Build my plan
-      </button>
-    </form>
+    <>
+      {intro}
+      <ActionPlanForm
+        dataByCategory={dataByCategory}
+        categories={categories}
+        category={category}
+        onCategoryChange={(next) => {
+          setCategory(next);
+          setCareerId("");
+        }}
+        careerId={careerId}
+        onCareerChange={setCareerId}
+        status={status}
+        onStatusChange={setStatus}
+        location={location}
+        onLocationChange={setLocation}
+        hoursPerWeek={hoursPerWeek}
+        onHoursChange={setHoursPerWeek}
+        timelineWeeks={timelineWeeks}
+        onTimelineChange={setTimelineWeeks}
+        certsHeld={certsHeld}
+        onCertsChange={setCertsHeld}
+        onSubmit={handleSubmit}
+      />
+    </>
   );
 }

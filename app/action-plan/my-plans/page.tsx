@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
 import { getActionPlansForUser, getProgressForUser } from "@/lib/db";
 import { buildActionPlanDataByCategory } from "@/lib/action-plan-data";
-import { generateActionPlan } from "@/lib/action-plan-generate";
+import { generateActionPlan, countDoneSteps } from "@/lib/action-plan-generate";
 import { BlueprintMark } from "@/components/BlueprintMark";
 import { DeletePlanButton } from "@/components/DeletePlanButton";
 
@@ -51,17 +51,14 @@ export default async function MyActionPlansPage() {
       },
       row.createdAt
     );
-    const prefix = `${row.category}:${row.careerId}:`;
     const totalDays = generated !== "coming-soon" ? generated.days.length : undefined;
-    // Capped at totalDays: if someone shortened the timeline after
-    // checking off days from a longer version of this same plan, a few
-    // now-out-of-range checked indices could otherwise push this past
-    // the total (e.g. "15 of 12 days done"), which would just look
-    // broken rather than informative.
-    const rawDoneCount = progressRows.filter(
-      (p) => p.contentType === "actionPlanStep" && p.contentId.startsWith(prefix)
-    ).length;
-    const doneCount = typeof totalDays === "number" ? Math.min(rawDoneCount, totalDays) : rawDoneCount;
+    // Counted against the plan's real steps (see countDoneSteps): a
+    // checkmark only counts if the step it belongs to is still in the
+    // plan, and a lesson step counts once its lesson is complete -- the
+    // same rule the Blueprint's own progress ring uses, so the two can
+    // never disagree (or read "15 of 12 done" after a timeline edit).
+    const doneCount =
+      generated !== "coming-soon" ? countDoneSteps(generated, row.category, row.careerId, progressRows) : 0;
 
     return {
       row,

@@ -6,9 +6,12 @@
 // plan's full content -- day-by-day schedule, resume bullets, pay
 // figures -- without duplicating this lookup, since both pages need
 // the exact same category data to call buildActionPlan with.
-import { getAllContent, getProgramsForCareer } from "@/lib/content";
-import { CAREER_CATEGORY_ORDER } from "@/lib/types";
-import type { ActionPlan, GetHired, ResumeGuide } from "@/lib/types";
+import { getAllContent, getProgramsForCareer, urlFor } from "@/lib/content";
+import { CATEGORY_SLUG, matchSoftwareByName } from "@/lib/content-client";
+import { ORDERED_LESSON_SLUGS } from "@/lib/lesson-order";
+import { ACTION_PLAN_LINK_TOKENS, CAREER_CATEGORY_ORDER } from "@/lib/types";
+import type { ActionPlan, AnyContent, GetHired, ResumeGuide } from "@/lib/types";
+import type { ExamRef, PlanResource, ResourceKind } from "@/lib/action-plan-generator";
 
 export type SlimCareer = {
   id: string;
@@ -35,6 +38,10 @@ export type SlimProgram = {
 
 export type CategoryData = {
   category: string;
+  // This category's anchor on the career index (/careers#<slug>).
+  categorySlug?: string;
+  // This category's Get Hired guide page, if it's live.
+  getHiredHref?: string;
   careers: SlimCareer[];
   skeleton?: ActionPlan;
   getHiredGuide?: Pick<GetHired, "whereToLook" | "credentialsToHaveReady">;
@@ -63,18 +70,51 @@ export type CategoryData = {
   fallbackPrograms: SlimProgram[];
   interviewPrepHrefByCareerId: Record<string, string>;
   categoryInterviewPrepHref?: string;
-  examPrepHrefByCareerId: Record<string, string>;
-  categoryExamPrepHref?: string;
-  // Same career-wins-else-category precedence as the href-only fields
-  // above, but carrying each exam's own title too -- used to phrase the
-  // skill-building rotation's exam-prep task, not just link to it.
-  examPrepTaskByCareerId: Record<string, { title: string; href: string }>;
-  categoryExamPrepTask?: { title: string; href: string };
+  // Every Exam Prep guide tied to each career: the exam written for
+  // that career first (a journeyman license, the CPE), then any other
+  // exam its career page links to (OSHA 10, NCCER Core...). Feeds the
+  // practice-question task and gives each "pursue another certification"
+  // round a specific credential to name.
+  examsByCareerId: Record<string, ExamRef[]>;
+  // The category's own exams -- used when no career is picked, and
+  // appended after a career's own list.
+  categoryExams: ExamRef[];
+  // Title/href for every literal content id this category's skeleton
+  // names in a step's `links` (see ActionPlanSchema), resolved here so
+  // the browser never needs the full content set to render a link.
+  linkRefs: Record<string, PlanResource>;
 };
 
+function resourceKindFor(node: AnyContent): ResourceKind {
+  switch (node.type) {
+    case "lesson":
+      return "lesson";
+    case "software":
+      return "software";
+    case "exam":
+      return "examPrep";
+    case "program":
+      return "program";
+    case "concept":
+      return "concept";
+    case "career":
+      return "career";
+    default:
+      return "guide";
+  }
+}
+
 export function buildActionPlanDataByCategory(): Record<string, CategoryData> {
-  const { careers, getHiredGuides, resumes, lessons, concepts, software, interviews, exams, actionPlans } =
+  const { careers, getHiredGuides, resumes, lessons, concepts, software, interviews, exams, actionPlans, byId } =
     getAllContent();
+
+  // Lessons in the Learning Blueprint's own recommended order (see
+  // lib/lesson-order.ts), so a plan's lessons run foundation-first
+  // instead of in whatever order the files happen to sort.
+  const lessonRank = new Map(ORDERED_LESSON_SLUGS.map((slug, i) => [slug, i]));
+  const orderedLessons = [...lessons].sort(
+    (a, b) => (lessonRank.get(a.slug) ?? 999) - (lessonRank.get(b.slug) ?? 999)
+  );
 
   const dataByCategory: Record<string, CategoryData> = {};
   for (const category of CAREER_CATEGORY_ORDER) {
@@ -103,8 +143,12 @@ export function buildActionPlanDataByCategory(): Record<string, CategoryData> {
 
     const lessonsByCareerId: Record<string, SlimLesson[]> = {};
     for (const career of categoryCareers) {
-      lessonsByCareerId[career.id] = lessons
-        .filter((l) => l.relatedIds.includes(career.id))
+      // A link in either direction counts: the lesson naming the
+      // career, or the career page naming the lesson. (Every trade's
+      // career page links to the jobsite-safety lesson, but that lesson
+      // doesn't list all nineteen trades back.)
+      lessonsByCareerId[career.id] = orderedLessons
+        .filter((l) => l.relatedIds.includes(career.id) || career.relatedIds.includes(l.id))
         .map((l): SlimLesson => ({ id: l.id, slug: l.slug, title: l.title, minutes: l.minutes }));
     }
 
@@ -116,8 +160,15 @@ export function buildActionPlanDataByCategory(): Record<string, CategoryData> {
     // rather than authoring any new per-career mapping.
     const conceptsByCareerId: Record<string, SlimConcept[]> = {};
     for (const career of categoryCareers) {
+      // The career page's own curated picks (recommendedIds) lead, in
+      // the order they were curated; everything else follows. The first
+      // few of these become dated "get the vocabulary down" steps, so
+      // the order decides which terms a visitor is told to learn first --
+      // it used to be plain alphabetical.
+      const curatedRank = new Map(career.recommendedIds.map((id, i) => [id, i]));
       conceptsByCareerId[career.id] = concepts
         .filter((c) => c.relatedIds.includes(career.id))
+        .sort((a, b) => (curatedRank.get(a.id) ?? 999) - (curatedRank.get(b.id) ?? 999))
         .map((c): SlimConcept => ({ id: c.id, slug: c.slug, title: c.title, definition: c.definition }));
     }
 
@@ -126,15 +177,17 @@ export function buildActionPlanDataByCategory(): Record<string, CategoryData> {
     // category, deduped, so that path still gets real course
     // suggestions instead of an empty section.
     const categoryCareerIds = new Set(categoryCareers.map((c) => c.id));
-    const seenLessonIds = new Set<string>();
-    const fallbackLessons: SlimLesson[] = [];
-    for (const l of lessons) {
-      if (seenLessonIds.has(l.id)) continue;
-      if (!l.relatedIds.some((id) => categoryCareerIds.has(id))) continue;
-      seenLessonIds.add(l.id);
-      fallbackLessons.push({ id: l.id, slug: l.slug, title: l.title, minutes: l.minutes });
-      if (fallbackLessons.length >= 8) break;
-    }
+    // Most widely shared first (a lesson five of this category's careers
+    // link to beats one that a single career links to), Learning
+    // Blueprint order as the tie-break.
+    const lessonShare = (l: { id: string; relatedIds: string[] }) =>
+      categoryCareers.filter((c) => l.relatedIds.includes(c.id) || c.relatedIds.includes(l.id)).length;
+    const fallbackLessons: SlimLesson[] = orderedLessons
+      .filter((l) => lessonShare(l) > 0)
+      .map((l, i) => ({ l, i }))
+      .sort((a, b) => lessonShare(b.l) - lessonShare(a.l) || a.i - b.i)
+      .slice(0, 8)
+      .map(({ l }): SlimLesson => ({ id: l.id, slug: l.slug, title: l.title, minutes: l.minutes }));
 
     // Software tied to each specific career in this category -- reuses
     // the career's own already-authored `software` id list (the same one
@@ -142,9 +195,14 @@ export function buildActionPlanDataByCategory(): Record<string, CategoryData> {
     // per-career mapping authored just for this feature.
     const softwareByCareerId: Record<string, SlimSoftware[]> = {};
     for (const career of categoryCareers) {
+      // career.software holds display names ("Bluebeam", "Scheduling
+      // software (e.g. Primavera P6)"), not ids -- matched by name. The
+      // old lookup-by-id here never matched a single career, which is
+      // why no plan ever had a software step.
+      const seen = new Set<string>();
       softwareByCareerId[career.id] = career.software
-        .map((id) => software.find((s) => s.id === id))
-        .filter((s): s is NonNullable<typeof s> => Boolean(s))
+        .flatMap((name) => matchSoftwareByName(name, software))
+        .filter((s) => (seen.has(s.id) ? false : (seen.add(s.id), true)))
         .map((s): SlimSoftware => ({ id: s.id, slug: s.slug, title: s.title, whatItIs: s.whatItIs }));
     }
 
@@ -154,26 +212,24 @@ export function buildActionPlanDataByCategory(): Record<string, CategoryData> {
     const seenSoftwareIds = new Set<string>();
     const fallbackSoftware: SlimSoftware[] = [];
     outer: for (const career of categoryCareers) {
-      for (const id of career.software) {
-        if (seenSoftwareIds.has(id)) continue;
-        const s = software.find((sw) => sw.id === id);
-        if (!s) continue;
-        seenSoftwareIds.add(id);
-        fallbackSoftware.push({ id: s.id, slug: s.slug, title: s.title, whatItIs: s.whatItIs });
+      for (const s of softwareByCareerId[career.id]) {
+        if (seenSoftwareIds.has(s.id)) continue;
+        seenSoftwareIds.add(s.id);
+        fallbackSoftware.push(s);
         if (fallbackSoftware.length >= 6) break outer;
       }
     }
 
-    // Same category-wide fallback, for concepts.
-    const seenConceptIds = new Set<string>();
-    const fallbackConcepts: SlimConcept[] = [];
-    for (const c of concepts) {
-      if (seenConceptIds.has(c.id)) continue;
-      if (!c.relatedIds.some((id) => categoryCareerIds.has(id))) continue;
-      seenConceptIds.add(c.id);
-      fallbackConcepts.push({ id: c.id, slug: c.slug, title: c.title, definition: c.definition });
-      if (fallbackConcepts.length >= 8) break;
-    }
+    // Same category-wide fallback, for concepts -- the ones the most
+    // careers in this category share come first (a term eight trades
+    // all link to is a better "learn this first" than whichever happens
+    // to sort first alphabetically, which is what this used to return).
+    const conceptShare = (c: { relatedIds: string[] }) => c.relatedIds.filter((id) => categoryCareerIds.has(id)).length;
+    const fallbackConcepts: SlimConcept[] = concepts
+      .filter((c) => conceptShare(c) > 0)
+      .sort((a, b) => conceptShare(b) - conceptShare(a))
+      .slice(0, 12)
+      .map((c): SlimConcept => ({ id: c.id, slug: c.slug, title: c.title, definition: c.definition }));
 
     // Programs tied to each specific career in this category -- reuses
     // getProgramsForCareer (the same reverse lookup the career page's
@@ -181,7 +237,12 @@ export function buildActionPlanDataByCategory(): Record<string, CategoryData> {
     // per-career mapping authored just for this feature.
     const programsByCareerId: Record<string, SlimProgram[]> = {};
     for (const career of categoryCareers) {
-      programsByCareerId[career.id] = getProgramsForCareer(career.id).map((p): SlimProgram => ({
+      // Most specific first: a program written for this one trade (the
+      // IBEW-NECA apprenticeship for an electrician) ahead of a
+      // multi-trade program that merely includes it.
+      programsByCareerId[career.id] = [...getProgramsForCareer(career.id)]
+        .sort((a, b) => a.careerIds.length - b.careerIds.length)
+        .map((p): SlimProgram => ({
         id: p.id,
         slug: p.slug,
         title: p.title,
@@ -225,26 +286,52 @@ export function buildActionPlanDataByCategory(): Record<string, CategoryData> {
     }
     const categoryInterviewPrepHref = interviews.find((i) => !i.careerId && i.category === category);
 
-    const examPrepHrefByCareerId: Record<string, string> = {};
-    for (const e of exams) {
-      if (e.careerId) examPrepHrefByCareerId[e.careerId] = `/exams/${e.slug}`;
+    const toExamRef = (e: { title: string; slug: string; tier: string }): ExamRef => ({
+      title: e.title,
+      href: `/exams/${e.slug}`,
+      entryLevel: e.tier === "free",
+    });
+    const liveExams = exams.filter((e) => !e.comingSoon);
+    const examsByCareerId: Record<string, ExamRef[]> = {};
+    for (const career of categoryCareers) {
+      const own = liveExams.filter((e) => e.careerId === career.id);
+      const linked = career.relatedIds
+        .map((id) => liveExams.find((e) => e.id === id))
+        .filter((e): e is NonNullable<typeof e> => Boolean(e) && !own.includes(e!));
+      const all = [...own, ...linked];
+      // An entry-level role leads with the credentials a newcomer can
+      // actually earn now (OSHA 10 before a journeyman license); a role
+      // people are promoted into leads with its own exam (the PMP).
+      const ordered = career.isEntryRole
+        ? [...all.filter((e) => e.tier === "free"), ...all.filter((e) => e.tier !== "free")]
+        : all;
+      examsByCareerId[career.id] = ordered.map(toExamRef);
     }
-    const categoryExamPrepHref = exams.find((e) => !e.careerId && e.category === category);
+    // Category-wide exams (no single career attached), most widely
+    // relevant first -- ranked by how many of this category's careers
+    // link to each one, so OSHA 10 leads Field & Trades. An exam written
+    // for one specific career only shows up for that career.
+    const careerLinkCount = (examId: string) => categoryCareers.filter((c) => c.relatedIds.includes(examId)).length;
+    const categoryExams = liveExams
+      .filter((e) => !e.careerId && e.category === category)
+      .sort((a, b) => careerLinkCount(b.id) - careerLinkCount(a.id))
+      .map(toExamRef);
 
-    // Same career-wins-else-category precedence as the href-only maps
-    // above, but carrying each exam's own title too -- needed to phrase
-    // a real calendar task ("Work through OSHA 10 practice questions"),
-    // not just link to it. Reuses the same exam lookups, no new data.
-    const examPrepTaskByCareerId: Record<string, { title: string; href: string }> = {};
-    for (const e of exams) {
-      if (e.careerId) examPrepTaskByCareerId[e.careerId] = { title: e.title, href: `/exams/${e.slug}` };
+    // Literal ids named in the skeleton's step links -> label/href/kind.
+    const linkRefs: Record<string, PlanResource> = {};
+    const tokenSet = new Set<string>(ACTION_PLAN_LINK_TOKENS);
+    for (const step of skeleton?.dayByDay ?? []) {
+      for (const link of step.links) {
+        if (tokenSet.has(link) || linkRefs[link]) continue;
+        const node = byId.get(link);
+        if (node) linkRefs[link] = { label: node.title, href: urlFor(node), kind: resourceKindFor(node) };
+      }
     }
-    const categoryExamPrepTask = categoryExamPrepHref
-      ? { title: categoryExamPrepHref.title, href: `/exams/${categoryExamPrepHref.slug}` }
-      : undefined;
 
     dataByCategory[category] = {
       category,
+      categorySlug: CATEGORY_SLUG[category],
+      getHiredHref: getHiredGuide && !getHiredGuide.comingSoon ? urlFor(getHiredGuide) : undefined,
       careers: careerRefs,
       skeleton,
       getHiredGuide: getHiredGuide
@@ -261,10 +348,9 @@ export function buildActionPlanDataByCategory(): Record<string, CategoryData> {
       fallbackPrograms,
       interviewPrepHrefByCareerId,
       categoryInterviewPrepHref: categoryInterviewPrepHref ? `/interviews/${categoryInterviewPrepHref.slug}` : undefined,
-      examPrepHrefByCareerId,
-      categoryExamPrepHref: categoryExamPrepHref ? `/exams/${categoryExamPrepHref.slug}` : undefined,
-      examPrepTaskByCareerId,
-      categoryExamPrepTask,
+      examsByCareerId,
+      categoryExams,
+      linkRefs,
     };
   }
 

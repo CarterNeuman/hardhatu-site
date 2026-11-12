@@ -3,7 +3,7 @@ import Link from "next/link";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { getActionPlansForUser, getLatestQuizResult, getProgressForUser } from "@/lib/db";
 import { buildActionPlanDataByCategory } from "@/lib/action-plan-data";
-import { generateActionPlan } from "@/lib/action-plan-generate";
+import { generateActionPlan, countDoneSteps } from "@/lib/action-plan-generate";
 import { getAllContent } from "@/lib/content";
 import { ORDERED_LESSON_SLUGS } from "@/lib/lesson-order";
 import { BlueprintMark } from "@/components/BlueprintMark";
@@ -106,12 +106,14 @@ export default async function MyProgressPage() {
       },
       row.createdAt
     );
-    const prefix = `${row.category}:${row.careerId}:`;
     const totalDays = generated !== "coming-soon" ? generated.days.length : undefined;
-    const rawDoneCount = progressRows.filter(
-      (p) => p.contentType === "actionPlanStep" && p.contentId.startsWith(prefix)
-    ).length;
-    const doneCount = typeof totalDays === "number" ? Math.min(rawDoneCount, totalDays) : rawDoneCount;
+    // Counted against the plan's real steps (see countDoneSteps): a
+    // checkmark only counts if the step it belongs to is still in the
+    // plan, and a lesson step counts once its lesson is complete -- the
+    // same rule the Blueprint's own progress ring uses, so the two can
+    // never disagree (or read "15 of 12 done" after a timeline edit).
+    const doneCount =
+      generated !== "coming-soon" ? countDoneSteps(generated, row.category, row.careerId, progressRows) : 0;
     return { row, careerTitle: career?.title, doneCount, totalDays, unavailable: generated === "coming-soon" };
   });
   const visiblePlans = planSummaries.slice(0, 2);
