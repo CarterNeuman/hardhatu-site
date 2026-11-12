@@ -24,7 +24,10 @@ careerAngle: >
   The [[career-scheduling-delay-consultant|Scheduling Delay Consultant]] often
   presents technical delay analysis to a dispute review board, and the
   [[career-construction-attorney|Construction Attorney]] represents a party's
-  position before the board when a dispute is submitted for review.
+  position before the board when a dispute is submitted for review. A
+  [[career-construction-mediator-arbitrator|Construction Mediator / Arbitrator]]
+  may serve as one of the board's own neutral members, a distinct role from
+  either party's advocate.
 whatGoesWrong: >
   A project owner sets up a dispute review board but then routes every minor
   disagreement to it immediately, overwhelming the board with issues the
@@ -34,4 +37,5 @@ whatGoesWrong: >
 relatedIds:
   - career-scheduling-delay-consultant
   - career-construction-attorney
+  - career-construction-mediator-arbitrator
 ---

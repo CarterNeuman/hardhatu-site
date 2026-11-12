@@ -105,6 +105,7 @@ relatedIds:
   - gethired-consultants-advisory
   - concept-utility-locate-811
   - career-architect
+  - career-code-consultant
 recommendedIds:
   - concept-building-permit
   - concept-plan-review

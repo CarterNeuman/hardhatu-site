@@ -25,7 +25,9 @@ careerAngle: >
   whether to agree to a combined neutral for med-arb or require separate
   mediators and arbitrators, and the [[career-construction-claims-consultant|
   Construction Claims Consultant]] prepares the technical position for
-  whichever phase the dispute ultimately reaches.
+  whichever phase the dispute ultimately reaches. The
+  [[career-construction-mediator-arbitrator|Construction Mediator / Arbitrator]]
+  is the neutral who actually serves in either or both roles.
 whatGoesWrong: >
   Parties agree to med-arb without considering that candid settlement positions
   shared during the mediation phase could color the same neutral's judgment if
@@ -34,4 +36,5 @@ whatGoesWrong: >
 relatedIds:
   - career-construction-attorney
   - career-construction-claims-consultant
+  - career-construction-mediator-arbitrator
 ---

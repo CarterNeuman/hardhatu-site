@@ -26,7 +26,10 @@ careerAngle: >
   presents the condensed case at a mini-trial, and the
   [[career-construction-claims-consultant|Construction Claims Consultant]]
   helps assemble the technical evidence and damages analysis presented during
-  the session.
+  the session. A neutral advisor, often a
+  [[career-construction-mediator-arbitrator|Construction Mediator / Arbitrator]],
+  hears both condensed presentations and offers a non-binding opinion on how
+  the case would likely resolve.
 whatGoesWrong: >
   A company sends only its litigation attorneys to a mini-trial without anyone
   who actually has settlement authority in the room, defeating the format's
@@ -35,4 +38,5 @@ whatGoesWrong: >
 relatedIds:
   - career-construction-attorney
   - career-construction-claims-consultant
+  - career-construction-mediator-arbitrator
 ---

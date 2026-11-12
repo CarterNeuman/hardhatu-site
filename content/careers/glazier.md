@@ -115,6 +115,7 @@ relatedIds:
   - concept-water-penetration-testing
   - lesson-jobsite-safety-in-practice
   - concept-decorative-art-glass-metal
+  - career-building-envelope-consultant
 recommendedIds:
   - career-ironworker
   - career-superintendent

@@ -21,7 +21,10 @@ example: >
   jurisdiction, since the adopted local code, not just the model code on its own,
   governs what's actually required.
 careerAngle: >
-  A [[career-quality-control-manager|Quality Control Manager]] inspects completed work
+  A [[career-code-consultant|Code Consultant]] interprets which code edition and
+  amendments apply and develops an alternative-compliance strategy when a design
+  can't meet the prescriptive code path directly. A
+  [[career-quality-control-manager|Quality Control Manager]] inspects completed work
   against code requirements as part of routine quality control, catching gaps before
   work gets covered up. A [[career-project-engineer|Project Engineer]] researches
   specific code requirements the project manager or field team needs answered, since
@@ -55,5 +58,5 @@ relatedIds:
   - career-architect
   - career-fire-protection-engineer
   - career-interior-designer
-
+  - career-code-consultant
 ---

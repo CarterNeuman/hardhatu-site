@@ -47,4 +47,5 @@ relatedIds:
   - career-architect
   - career-landscape-architect
   - lesson-financing-and-feasibility
+  - career-code-consultant
 ---

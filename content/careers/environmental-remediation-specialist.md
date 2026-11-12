@@ -107,6 +107,7 @@ relatedIds:
   - concept-underground-storage-tank-removal
   - concept-radon-mitigation-system
   - concept-site-remediation-soil-removal
+  - career-property-condition-assessor
 recommendedIds:
   - career-facilities-manager
   - career-safety-manager

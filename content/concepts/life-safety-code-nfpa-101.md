@@ -39,4 +39,5 @@ relatedIds:
   - concept-standby-generator
   - career-fire-protection-engineer
   - concept-sprinkler-system-requirements-nfpa-13
+  - career-code-consultant
 ---

@@ -105,6 +105,8 @@ relatedIds:
   - resume-consultants-advisory
   - gethired-consultants-advisory
   - concept-design-defect-vs-construction-defect
+  - career-construction-mediator-arbitrator
+  - career-building-envelope-consultant
 recommendedIds:
   - career-construction-claims-consultant
   - career-construction-consultant

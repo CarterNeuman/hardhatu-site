@@ -115,6 +115,7 @@ relatedIds:
   - concept-phasing-plan
   - concept-site-visit-report
   - career-architect
+  - career-property-condition-assessor
 recommendedIds:
   - career-project-manager
   - career-business-development-manager

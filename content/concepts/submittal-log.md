@@ -38,4 +38,5 @@ relatedIds:
   - lesson-submittals-and-shop-drawings
   - concept-om-manuals
   - exam-cdt
+  - career-specification-writer
 ---

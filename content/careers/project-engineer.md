@@ -129,6 +129,7 @@ relatedIds:
   - concept-rfi-log
   - career-architect
   - career-interior-designer
+  - career-specification-writer
 recommendedIds:
   - career-project-manager
   - career-superintendent

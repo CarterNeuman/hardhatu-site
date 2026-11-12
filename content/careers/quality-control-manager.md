@@ -130,6 +130,7 @@ relatedIds:
   - gethired-project-operations
   - concept-deficiency-list
   - concept-inspection-and-test-plan
+  - career-building-envelope-consultant
 recommendedIds:
   - career-safety-manager
   - career-superintendent

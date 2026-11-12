@@ -30,6 +30,9 @@ careerAngle: >
   [[career-contracts-administrator|Contracts Administrator]] negotiates which dispute
   resolution path a contract specifies before signing, since switching paths after a
   dispute has already started is far harder than negotiating the right clause up front.
+  Whichever path is chosen, it is a
+  [[career-construction-mediator-arbitrator|Construction Mediator / Arbitrator]], not
+  either party's own advocate, who actually mediates or decides the dispute.
 whatGoesWrong: >
   A contractor assumes that because a dispute feels serious, they can simply file a
   lawsuit. Their contract contains a mandatory arbitration clause with no litigation
@@ -45,4 +48,5 @@ relatedIds:
   - lesson-schedule-delay-dispute
   - career-construction-attorney
   - concept-request-for-equitable-adjustment
+  - career-construction-mediator-arbitrator
 ---

@@ -112,6 +112,7 @@ relatedIds:
   - concept-parapet
   - lesson-building-sequence
   - lesson-jobsite-safety-in-practice
+  - career-building-envelope-consultant
 recommendedIds:
   - career-superintendent
   - career-insurance-restoration-estimator

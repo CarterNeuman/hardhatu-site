@@ -20,8 +20,10 @@ example: >
   system nearing the end of their useful life, informing the capital budget
   built into the purchase decision.
 careerAngle: >
-  The [[career-owners-representative|Owner's Representative]] commissions and
-  reviews the assessment to inform renovation or acquisition budgeting.
+  A [[career-property-condition-assessor|Property Condition Assessor]] performs
+  the physical inspection and writes the assessment report, while the
+  [[career-owners-representative|Owner's Representative]] commissions and
+  reviews it to inform renovation or acquisition budgeting.
 whatGoesWrong: >
   A renovation budget is set without a building condition assessment, and
   mid-project discovery of failing mechanical systems well past their useful
@@ -30,4 +32,5 @@ whatGoesWrong: >
 relatedIds:
   - career-owners-representative
   - concept-historic-structure-report
+  - career-property-condition-assessor
 ---

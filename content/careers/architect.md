@@ -121,6 +121,10 @@ relatedIds:
   - software-autodesk-revit
   - software-autocad
   - software-sketchup
+  - career-specification-writer
+  - career-code-consultant
+  - career-building-envelope-consultant
+  - concept-accessible-means-of-egress
 recommendedIds:
   - concept-architect
   - concept-rfi

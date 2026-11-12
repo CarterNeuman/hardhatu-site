@@ -103,6 +103,7 @@ relatedIds:
   - concept-key-person-insurance
   - concept-limitation-of-liability-clause
   - career-insurance-broker
+  - career-property-condition-assessor
 recommendedIds:
   - career-safety-manager
   - career-certified-payroll-specialist

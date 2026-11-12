@@ -58,4 +58,5 @@ relatedIds:
   - career-fire-protection-engineer
   - career-interior-designer
   - concept-fabricating-at-risk
+  - career-specification-writer
 ---

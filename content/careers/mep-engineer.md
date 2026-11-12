@@ -154,6 +154,8 @@ relatedIds:
   - concept-daylighting-design
   - career-interior-designer
   - career-fire-protection-engineer
+  - career-specification-writer
+  - career-property-condition-assessor
 recommendedIds:
   - career-hvac-technician
   - career-electrician

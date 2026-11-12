@@ -21,9 +21,11 @@ example: >
   movement, so the glass and framing don't crack as the structure flexes under normal
   conditions.
 careerAngle: >
-  A [[career-project-engineer|Project Engineer]] coordinates curtain wall shop
-  drawings and mockup approval well in advance of installation, since a curtain wall
-  system is highly engineered and manufactured to order. A
+  A [[career-building-envelope-consultant|Building Envelope Consultant]] reviews
+  curtain wall design details and oversees the mockup testing standard a system
+  must meet. A [[career-project-engineer|Project Engineer]] coordinates curtain
+  wall shop drawings and mockup approval well in advance of installation, since a
+  curtain wall system is highly engineered and manufactured to order. A
   [[career-quality-control-manager|Quality Control Manager]] often requires a
   full-scale mockup panel tested for water and air infiltration before the full
   curtain wall order is released for fabrication.
@@ -53,4 +55,5 @@ relatedIds:
   - concept-pressure-equalized-glazing
   - concept-tempered-laminated-glass
   - concept-water-penetration-testing
+  - career-building-envelope-consultant
 ---

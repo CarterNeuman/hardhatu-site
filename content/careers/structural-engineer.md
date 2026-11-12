@@ -135,6 +135,7 @@ relatedIds:
   - concept-mass-timber-clt
   - career-architect
   - career-geotechnical-engineer
+  - career-property-condition-assessor
 recommendedIds:
   - career-ironworker
   - career-concrete-worker

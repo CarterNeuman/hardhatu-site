@@ -116,6 +116,7 @@ relatedIds:
   - interview-technology-design
   - exam-fe
   - software-autocad
+  - career-code-consultant
 recommendedIds:
   - career-mep-engineer
   - career-architect

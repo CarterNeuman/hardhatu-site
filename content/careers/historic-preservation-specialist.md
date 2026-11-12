@@ -95,6 +95,7 @@ relatedIds:
   - gethired-specialized-construction
   - concept-historic-structure-report
   - career-architect
+  - career-code-consultant
 recommendedIds:
   - concept-brick-veneer
   - concept-mortar

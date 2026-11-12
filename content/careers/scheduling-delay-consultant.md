@@ -86,6 +86,7 @@ relatedIds:
   - concept-dispute-review-board
   - concept-fragnet
   - concept-window-analysis-schedule-delay
+  - career-construction-mediator-arbitrator
 recommendedIds:
   - career-scheduler
   - career-construction-claims-consultant

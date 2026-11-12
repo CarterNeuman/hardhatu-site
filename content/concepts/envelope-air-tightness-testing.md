@@ -36,5 +36,5 @@ relatedIds:
   - concept-certificate-of-occupancy
   - career-hvac-technician
   - concept-thermal-imaging-building-diagnostics
-
+  - career-building-envelope-consultant
 ---

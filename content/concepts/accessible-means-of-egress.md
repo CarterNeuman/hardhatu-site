@@ -19,10 +19,11 @@ example: >
   communication system to alert responders, since the stairwell itself isn't
   usable without that assistance.
 careerAngle: >
-  Architects and code consultants need to verify accessible egress separately
-  from general egress requirements, since a building can satisfy standard
-  exit-width and travel-distance rules while still failing to provide any way
-  for a mobility-impaired occupant to actually evacuate.
+  The [[career-architect|Architect]] and the
+  [[career-code-consultant|Code Consultant]] need to verify accessible egress
+  separately from general egress requirements, since a building can satisfy
+  standard exit-width and travel-distance rules while still failing to provide
+  any way for a mobility-impaired occupant to actually evacuate.
 whatGoesWrong: >
   People sometimes assume that meeting standard egress requirements for exit
   width and number of exits automatically covers accessibility too, when a
@@ -32,4 +33,6 @@ whatGoesWrong: >
 relatedIds:
   - concept-egress-requirements
   - concept-ada-title-ii-vs-title-iii
+  - career-code-consultant
+  - career-architect
 ---

@@ -33,5 +33,5 @@ relatedIds:
   - concept-recoverable-vs-nonrecoverable-depreciation
   - concept-actual-cash-value
   - concept-depreciation
-
+  - career-property-condition-assessor
 ---

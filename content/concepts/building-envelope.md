@@ -20,9 +20,12 @@ example: >
   detail where the wall meets the roof was never actually made airtight, a connection
   point, not a single material, causing the shortfall.
 careerAngle: >
-  A [[career-carpenter|Carpenter]] installs the physical continuity of a building's
-  envelope, such as framing, sheathing, air and vapor barriers, where a single missed detail
-  can undermine performance the individual materials were specified to achieve. A
+  A [[career-building-envelope-consultant|Building Envelope Consultant]] designs
+  the envelope assembly for water, air, and thermal performance and investigates
+  failures after the fact. A [[career-carpenter|Carpenter]] installs the physical
+  continuity of a building's envelope, such as framing, sheathing, air and vapor
+  barriers, where a single missed detail can undermine performance the individual
+  materials were specified to achieve. A
   [[career-quality-control-manager|Quality Control Manager]] verifies envelope
   continuity is actually maintained at transitions and penetrations before the work is
   covered by finishes.
@@ -48,5 +51,5 @@ relatedIds:
   - lesson-building-envelope-and-glazing
   - concept-envelope-air-tightness-testing
   - concept-thermal-imaging-building-diagnostics
-
+  - career-building-envelope-consultant
 ---

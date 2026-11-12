@@ -38,5 +38,5 @@ relatedIds:
   - concept-fema-flood-zone
   - concept-hazmat-transportation-dot
   - concept-spcc-plan
-
+  - career-property-condition-assessor
 ---
