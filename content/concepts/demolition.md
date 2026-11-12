@@ -44,5 +44,7 @@ relatedIds:
   - concept-asbestos-abatement-regulation
   - concept-selective-demolition
   - concept-building-deconstruction
+  - concept-lead-based-paint-remediation
+  - concept-underground-storage-tank-removal
 
 ---

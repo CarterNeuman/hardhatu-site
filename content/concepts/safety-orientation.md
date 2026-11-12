@@ -42,4 +42,7 @@ relatedIds:
   - concept-osha-10-30-training
   - lesson-a-day-as-a-laborer
   - concept-dot-drug-alcohol-testing-program
+  - concept-site-specific-safety-plan
+  - concept-workplace-violence-prevention-plan
+
 ---

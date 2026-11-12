@@ -106,6 +106,7 @@ relatedIds:
   - lesson-mechanical-and-plumbing-rough-in
   - program-smart-sheet-metal-apprenticeship
   - lesson-jobsite-safety-in-practice
+  - concept-louvers-vents
 recommendedIds:
   - career-hvac-technician
   - career-roofer

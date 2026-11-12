@@ -35,4 +35,6 @@ relatedIds:
   - concept-net-zero-energy-building
   - concept-carbon-accounting-scopes
   - career-sustainability-leed-consultant
+  - concept-carbon-offset-credits
+
 ---

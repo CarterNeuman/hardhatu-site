@@ -35,4 +35,6 @@ relatedIds:
   - concept-energy-modeling
   - concept-certificate-of-occupancy
   - career-hvac-technician
+  - concept-thermal-imaging-building-diagnostics
+
 ---

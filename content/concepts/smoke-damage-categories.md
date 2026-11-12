@@ -30,4 +30,6 @@ whatGoesWrong: >
 relatedIds:
   - concept-soot-webbing
   - concept-deodorization
+  - concept-wildfire-smoke-damage-claims
+
 ---

@@ -36,4 +36,6 @@ relatedIds:
   - concept-carbon-accounting-scopes
   - concept-embodied-carbon
   - career-sustainability-leed-consultant
+  - concept-carbon-offset-credits
+
 ---

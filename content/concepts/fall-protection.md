@@ -39,4 +39,6 @@ relatedIds:
   - lesson-building-sequence
   - lesson-structural-steel-erection
   - concept-ladder-safety-standard
+  - concept-aerial-lift-scissor-lift-safety
+
 ---

@@ -36,4 +36,6 @@ relatedIds:
   - concept-embodied-carbon
   - concept-carbon-accounting-scopes
   - career-sustainability-leed-consultant
+  - concept-building-electrification
+
 ---

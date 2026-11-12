@@ -39,5 +39,6 @@ relatedIds:
   - phase-construction
   - concept-osha-300-log-posting
   - concept-esg-reporting-construction
+  - concept-incident-investigation-procedure
 
 ---

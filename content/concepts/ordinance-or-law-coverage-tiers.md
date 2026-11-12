@@ -33,4 +33,6 @@ whatGoesWrong: >
   law coverage.
 relatedIds:
   - concept-depreciation
+  - concept-ordinance-or-law-coverage
+
 ---

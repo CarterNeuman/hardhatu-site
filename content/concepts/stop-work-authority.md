@@ -39,4 +39,6 @@ relatedIds:
   - lesson-permits-inspections-and-the-paper-trail
   - lesson-jobsite-safety-in-practice
   - concept-osha-whistleblower-protection
+  - concept-workplace-violence-prevention-plan
+
 ---

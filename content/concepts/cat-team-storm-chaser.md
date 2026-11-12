@@ -30,4 +30,6 @@ whatGoesWrong: >
 relatedIds:
   - concept-catastrophe-claim
   - concept-demand-surge
+  - concept-independent-vs-staff-adjuster
+
 ---

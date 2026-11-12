@@ -46,4 +46,6 @@ relatedIds:
   - concept-hierarchy-of-controls
   - concept-ladder-safety-standard
   - concept-pre-task-plan
+  - concept-site-specific-safety-plan
+
 ---

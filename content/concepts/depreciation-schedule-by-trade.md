@@ -32,4 +32,6 @@ whatGoesWrong: >
 relatedIds:
   - concept-recoverable-vs-nonrecoverable-depreciation
   - concept-actual-cash-value
+  - concept-depreciation
+
 ---

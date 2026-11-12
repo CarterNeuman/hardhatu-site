@@ -30,4 +30,6 @@ whatGoesWrong: >
 relatedIds:
   - concept-appraisal-clause
   - concept-appraisal-umpire
+  - concept-appraisal-demand-letter
+
 ---

@@ -28,4 +28,6 @@ whatGoesWrong: >
 relatedIds:
   - concept-pay-application
   - concept-retainage
+  - concept-mortgage-company-endorsement-process
+
 ---

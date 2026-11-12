@@ -41,4 +41,6 @@ relatedIds:
   - phase-construction
   - concept-economic-loss-doctrine
   - concept-spearin-doctrine
+  - concept-quantum-meruit
+
 ---

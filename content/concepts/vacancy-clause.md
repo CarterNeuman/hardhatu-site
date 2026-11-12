@@ -27,4 +27,6 @@ whatGoesWrong: >
 relatedIds:
   - concept-builders-risk-insurance
   - concept-builders-risk-exclusions
+  - concept-freeze-claim
+
 ---

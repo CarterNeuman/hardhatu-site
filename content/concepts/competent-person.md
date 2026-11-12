@@ -51,4 +51,7 @@ relatedIds:
   - concept-osha-soil-classification
   - concept-powered-industrial-truck-certification
   - concept-qualified-person
+  - concept-aerial-lift-scissor-lift-safety
+  - concept-fire-watch
+
 ---
