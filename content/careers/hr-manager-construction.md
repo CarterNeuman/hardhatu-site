@@ -94,6 +94,11 @@ relatedIds:
   - concept-right-to-work-law
   - resume-business
   - gethired-business
+  - concept-apprenticeship-ratio-requirement
+  - concept-e-verify-compliance
+  - concept-flsa-overtime-construction
+  - concept-hud-section-3-workforce-requirement
+  - concept-project-labor-agreement
 recommendedIds:
   - career-contracts-administrator
   - career-procurement-manager

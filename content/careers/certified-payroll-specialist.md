@@ -85,6 +85,9 @@ relatedIds:
   - concept-davis-bacon-act
   - resume-business
   - gethired-business
+  - concept-apprenticeship-ratio-requirement
+  - concept-flsa-overtime-construction
+  - concept-hud-section-3-workforce-requirement
 recommendedIds:
   - concept-certified-payroll
   - concept-prevailing-wage

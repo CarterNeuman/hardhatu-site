@@ -85,6 +85,13 @@ relatedIds:
   - resume-business
   - gethired-business
   - lesson-procurement-and-long-lead-logistics
+  - concept-battle-of-the-forms
+  - concept-best-value-procurement
+  - concept-build-america-buy-america-act
+  - concept-joint-check-agreement
+  - concept-most-favored-nations-clause
+  - concept-multiple-award-task-order-contract
+  - concept-qualifications-based-selection
 recommendedIds:
   - career-estimator
   - concept-change-order

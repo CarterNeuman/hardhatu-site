@@ -97,6 +97,11 @@ relatedIds:
   - concept-request-for-equitable-adjustment
   - resume-consultants-advisory
   - gethired-consultants-advisory
+  - concept-lien-priority
+  - concept-med-arb
+  - concept-mini-trial
+  - concept-quantum-meruit
+  - concept-surety-bond-claim-process
 recommendedIds:
   - career-insurance-adjuster
   - career-public-adjuster

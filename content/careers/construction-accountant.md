@@ -101,6 +101,13 @@ relatedIds:
   - gethired-business
   - lesson-financing-and-feasibility
   - concept-construction-loan-draws
+  - concept-buy-sell-agreement
+  - concept-construction-trust-fund-statute
+  - concept-joint-check-agreement
+  - concept-most-favored-nations-clause
+  - concept-piercing-the-corporate-veil
+  - concept-retainage-bond
+  - concept-successor-liability
 recommendedIds:
   - career-contracts-administrator
   - career-procurement-manager

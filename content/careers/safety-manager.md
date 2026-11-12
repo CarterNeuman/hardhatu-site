@@ -151,6 +151,7 @@ relatedIds:
   - concept-perimeter-security-systems
   - concept-duress-panic-alarm-systems
   - concept-fire-life-safety-system-integration
+  - concept-responsible-bidder-ordinance
 recommendedIds:
   - career-superintendent
   - career-quality-control-manager

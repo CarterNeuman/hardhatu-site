@@ -114,6 +114,26 @@ relatedIds:
   - concept-bad-faith-insurance
   - concept-design-defect-vs-construction-defect
   - concept-negligence-claim
+  - concept-battle-of-the-forms
+  - concept-build-america-buy-america-act
+  - concept-buy-sell-agreement
+  - concept-choice-of-law-forum-selection
+  - concept-consequential-damages-waiver
+  - concept-construction-trust-fund-statute
+  - concept-dispute-review-board
+  - concept-final-payment-release-of-claims
+  - concept-lien-priority
+  - concept-limitation-of-liability-clause
+  - concept-med-arb
+  - concept-mini-trial
+  - concept-novation
+  - concept-parol-evidence-rule
+  - concept-piercing-the-corporate-veil
+  - concept-quantum-meruit
+  - concept-setoff-rights
+  - concept-successor-liability
+  - concept-teaming-agreement
+  - concept-third-party-beneficiary
 recommendedIds:
   - career-contracts-administrator
   - career-construction-claims-consultant

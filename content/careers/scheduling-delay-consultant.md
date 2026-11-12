@@ -83,6 +83,7 @@ relatedIds:
   - concept-time-impact-analysis
   - resume-consultants-advisory
   - gethired-consultants-advisory
+  - concept-dispute-review-board
 recommendedIds:
   - career-scheduler
   - career-construction-claims-consultant

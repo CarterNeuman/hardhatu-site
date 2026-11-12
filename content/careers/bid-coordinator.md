@@ -87,6 +87,8 @@ relatedIds:
   - career-value-engineering-consultant
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
+  - concept-responsible-bidder-ordinance
+  - concept-sunset-clause-bid-validity
 recommendedIds:
   - career-estimator
   - career-senior-estimator

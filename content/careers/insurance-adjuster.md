@@ -140,6 +140,8 @@ relatedIds:
   - gethired-insurance-claims
   - concept-bad-faith-insurance
   - concept-test-square
+  - concept-builders-risk-exclusions
+  - concept-claims-made-vs-occurrence-policy
 recommendedIds:
   - career-construction-claims-consultant
   - career-public-adjuster

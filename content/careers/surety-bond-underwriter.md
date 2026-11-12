@@ -88,6 +88,8 @@ relatedIds:
   - concept-miller-act
   - resume-insurance-claims
   - gethired-insurance-claims
+  - concept-retainage-bond
+  - concept-surety-bond-claim-process
 recommendedIds:
   - concept-surety-bonding-capacity
   - concept-bid-bond

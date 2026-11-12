@@ -127,6 +127,8 @@ relatedIds:
   - concept-cost-escalation
   - concept-design-development-phases
   - concept-overhead-and-profit-markup
+  - concept-best-value-procurement
+  - concept-sunset-clause-bid-validity
 recommendedIds:
   - career-project-manager
   - career-senior-estimator

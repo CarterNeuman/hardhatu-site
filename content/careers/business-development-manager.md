@@ -84,6 +84,10 @@ relatedIds:
   - interview-business
   - resume-business
   - gethired-business
+  - concept-key-person-insurance
+  - concept-multiple-award-task-order-contract
+  - concept-project-labor-agreement
+  - concept-teaming-agreement
 recommendedIds:
   - concept-joint-venture
   - concept-request-for-qualifications

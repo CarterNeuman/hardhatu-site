@@ -88,6 +88,7 @@ relatedIds:
   - concept-loss-run-report
   - resume-insurance-claims
   - gethired-insurance-claims
+  - concept-builders-risk-exclusions
 recommendedIds:
   - concept-builders-risk-insurance
   - concept-peril

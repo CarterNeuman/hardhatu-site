@@ -103,6 +103,8 @@ relatedIds:
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
   - lesson-financing-and-feasibility
+  - concept-design-assist
+  - concept-progressive-design-build
 recommendedIds:
   - career-senior-estimator
   - career-estimator

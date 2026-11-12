@@ -175,6 +175,7 @@ relatedIds:
   - concept-weapons-detection-systems
   - concept-directories-bulletin-boards
   - concept-monument-site-signage
+  - concept-suspension-of-work-clause
 recommendedIds:
   - career-project-engineer
   - career-owners-representative

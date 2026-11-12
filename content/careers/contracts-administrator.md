@@ -130,6 +130,13 @@ relatedIds:
   - lesson-subcontractor-buyout-and-scope-gaps
   - concept-contract-execution
   - concept-time-and-materials-contract
+  - concept-choice-of-law-forum-selection
+  - concept-e-verify-compliance
+  - concept-final-payment-release-of-claims
+  - concept-novation
+  - concept-parol-evidence-rule
+  - concept-setoff-rights
+  - concept-suspension-of-work-clause
 recommendedIds:
   - career-project-manager
   - career-hr-manager-construction

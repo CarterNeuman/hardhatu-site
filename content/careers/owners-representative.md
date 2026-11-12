@@ -110,6 +110,7 @@ relatedIds:
   - concept-pro-forma
   - concept-historic-structure-report
   - concept-building-condition-assessment
+  - concept-progressive-design-build
 recommendedIds:
   - career-project-manager
   - career-business-development-manager

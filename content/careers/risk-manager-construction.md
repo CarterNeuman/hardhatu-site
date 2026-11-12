@@ -98,6 +98,10 @@ relatedIds:
   - concept-public-private-partnership
   - resume-business
   - gethired-business
+  - concept-claims-made-vs-occurrence-policy
+  - concept-consequential-damages-waiver
+  - concept-key-person-insurance
+  - concept-limitation-of-liability-clause
 recommendedIds:
   - career-safety-manager
   - career-certified-payroll-specialist
