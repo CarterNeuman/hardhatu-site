@@ -781,6 +781,11 @@ export function buildActionPlan({
   for (const exam of [...examsForCareer, ...categoryExams]) {
     if (seenExamHrefs.has(exam.href)) continue;
     seenExamHrefs.add(exam.href);
+    // An entry-level role's plan only ever mentions credentials a
+    // newcomer can earn now. A journeyman license takes years of
+    // apprenticeship to sit for, so it's left off entirely -- not
+    // scheduled, not practiced, not listed.
+    if (career?.isEntryRole === true && exam.entryLevel === false) continue;
     examPool.push(exam);
   }
   const examsStillNeeded = examPool.filter(
@@ -788,14 +793,8 @@ export function buildActionPlan({
   );
   const examTask = examsStillNeeded[0];
   // What the "pursue another certification" rounds name, one per round:
-  // everything after the practice-task exam. For an entry-level role
-  // that list is entry-level credentials only -- a journeyman license
-  // takes years of apprenticeship to sit for, so naming it as "this
-  // round" on a newcomer's four-week plan would be wrong. It still shows
-  // in the plan's exam list as something to know is ahead.
-  const roundExams = examsStillNeeded
-    .slice(examsStillNeeded.length > 1 ? 1 : 0)
-    .filter((exam) => career?.isEntryRole !== true || exam.entryLevel !== false);
+  // everything after the practice-task exam.
+  const roundExams = examsStillNeeded.slice(examsStillNeeded.length > 1 ? 1 : 0);
 
   const hasOpeningsSection =
     skeleton.targetEmployerTypes.length > 0 || (getHiredGuide?.whereToLook.length ?? 0) > 0 || skeleton.jobBoardsUseful;

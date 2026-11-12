@@ -17,7 +17,7 @@
 //   5. Reference     -- the longer material (pay detail, credentials,
 //                       resume bullets, openings, outreach templates) as
 //                       dropdowns, so the schedule stays the main event.
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import type { GeneratedDayItem, GeneratedPlan, PlanResource, ResourceKind } from "@/lib/action-plan-generator";
 import { Icon, type IconKind } from "@/components/Icon";
@@ -323,6 +323,21 @@ export function ActionPlanResult({
     return groups;
   }, [plan.days]);
 
+  // Which weeks are expanded. Week headers always show; the steps under
+  // them collapse. The plan's first week starts open, and so does the
+  // week holding the next unchecked step once saved progress has loaded
+  // (the same week, on a fresh plan) -- someone coming back in week
+  // three shouldn't have to hunt for where they left off. Weeks are only
+  // ever opened automatically, never closed: anything the visitor opens
+  // or closes by hand stays that way.
+  const firstWeekIndex = weeks[0]?.index ?? 0;
+  const nextUpWeekIndex = nextUp ? Math.floor((nextUp.dayStart - 1) / 7) : firstWeekIndex;
+  const [openWeeks, setOpenWeeks] = useState<Set<number>>(() => new Set([firstWeekIndex]));
+  useEffect(() => {
+    setOpenWeeks((prev) => (prev.has(nextUpWeekIndex) ? prev : new Set(prev).add(nextUpWeekIndex)));
+  }, [nextUpWeekIndex]);
+  const allWeeksOpen = weeks.every((week) => openWeeks.has(week.index));
+
   // Everything on this site the plan points at, counted once each --
   // the header's "from this site" figure.
   const siteLinkCount = useMemo(() => {
@@ -481,7 +496,18 @@ export function ActionPlanResult({
         <section aria-label="Your schedule" className="min-w-0">
           <div className="flex flex-wrap items-end justify-between gap-3 border-b-2 border-ink pb-2">
             <h3 className="font-display text-2xl font-bold text-ink">Your schedule</h3>
-            <p className="text-xs text-steel">Checked steps save to your account.</p>
+            <div className="flex items-center gap-3">
+              <p className="text-xs text-steel">Checked steps save to your account.</p>
+              {weeks.length > 1 && (
+                <button
+                  type="button"
+                  onClick={() => setOpenWeeks(allWeeksOpen ? new Set() : new Set(weeks.map((week) => week.index)))}
+                  className="shrink-0 border border-hairline px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-navy transition-colors hover:border-navy"
+                >
+                  {allWeeksOpen ? "Collapse all" : "Expand all"}
+                </button>
+              )}
+            </div>
           </div>
           {scheduleHasStarted && !scheduleIsOver && (
             <p className="mt-3 text-xs text-steel">
@@ -502,20 +528,53 @@ export function ActionPlanResult({
             const weekStart = addDays(planStart, week.index * 7);
             const weekEnd = addDays(planStart, Math.min(plan.totalDays, week.index * 7 + 7) - 1);
             const weekDone = week.days.filter(isDone).length;
+            const weekComplete = weekDone === week.days.length;
             return (
-              <div key={week.index} className="mt-6">
-                <div className="flex items-baseline justify-between gap-3">
-                  <p className="font-display text-lg font-bold uppercase tracking-wide text-navy">
-                    Week {week.index + 1}
-                    <span className="ml-2 text-xs font-normal normal-case tracking-normal text-steel" style={MONO}>
+              // A native <details> per week: the header (summary) always
+              // shows, the steps collapse, and keyboard/screen-reader
+              // behavior is the browser's own. Its open state is mirrored
+              // into openWeeks so "Expand all" and the automatic opening
+              // above can drive it.
+              <details
+                key={week.index}
+                open={openWeeks.has(week.index)}
+                onToggle={(e) => {
+                  const isOpen = e.currentTarget.open;
+                  setOpenWeeks((prev) => {
+                    if (prev.has(week.index) === isOpen) return prev;
+                    const next = new Set(prev);
+                    if (isOpen) next.add(week.index);
+                    else next.delete(week.index);
+                    return next;
+                  });
+                }}
+                className="group mt-4"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-3 border border-hairline bg-white/60 px-4 py-3 transition-colors hover:border-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy group-open:border-ink/30 group-open:bg-white/80 sm:px-5 [&::-webkit-details-marker]:hidden">
+                  <span className="flex min-w-0 flex-wrap items-baseline gap-x-2.5 gap-y-0.5">
+                    <span className="font-display text-lg font-bold uppercase tracking-wide text-navy">
+                      Week {week.index + 1}
+                    </span>
+                    <span className="text-xs text-steel" style={MONO}>
                       {formatDateRange(weekStart, weekEnd)}
                     </span>
-                  </p>
-                  <p className="text-xs text-steel" style={MONO}>
-                    {weekDone}/{week.days.length}
-                  </p>
-                </div>
-                <ol className="mt-2 border border-hairline bg-white/50">
+                    {week.index === nextUpWeekIndex && nextUp && (
+                      <span className="bg-ink px-1.5 py-px text-[11px] font-semibold uppercase tracking-wide text-paper">
+                        Up next
+                      </span>
+                    )}
+                  </span>
+                  <span className="flex shrink-0 items-center gap-3">
+                    <span className={`text-xs ${weekComplete ? "font-semibold text-navy" : "text-steel"}`} style={MONO}>
+                      {weekComplete ? "Done" : `${weekDone}/${week.days.length} done`}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="h-2.5 w-2.5 rotate-[-45deg] border-b-2 border-r-2 border-navy transition-transform duration-150 group-open:rotate-45 motion-reduce:transition-none"
+                    />
+                  </span>
+                </summary>
+                <ol className="border border-t-0 border-hairline bg-white/50">
                   {week.days.map((day) => {
                     const done = isDone(day);
                     const isToday = day.startDate.getTime() <= today.getTime() && today.getTime() <= day.endDate.getTime();
@@ -579,7 +638,7 @@ export function ActionPlanResult({
                     );
                   })}
                 </ol>
-              </div>
+              </details>
             );
           })}
         </section>
@@ -633,13 +692,7 @@ export function ActionPlanResult({
             {plan.exams.length > 0 && (
               <ToolkitGroup title="Exam prep">
                 {plan.exams.map((exam) => (
-                  <ToolkitLink
-                    key={exam.href}
-                    href={exam.href}
-                    kind="examPrep"
-                    title={exam.title}
-                    note={exam.entryLevel === false ? "Further down the road" : undefined}
-                  />
+                  <ToolkitLink key={exam.href} href={exam.href} kind="examPrep" title={exam.title} />
                 ))}
               </ToolkitGroup>
             )}
