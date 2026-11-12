@@ -147,6 +147,7 @@ relatedIds:
   - concept-warranty-log
   - career-general-liability-underwriter
   - career-insurance-broker
+  - career-credit-manager-construction
 recommendedIds:
   - career-project-manager
   - career-hr-manager-construction

@@ -33,4 +33,5 @@ whatGoesWrong: >
 relatedIds:
   - career-construction-attorney
   - career-construction-claims-consultant
+  - career-credit-manager-construction
 ---

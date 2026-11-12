@@ -93,6 +93,7 @@ relatedIds:
   - career-surety-claims-manager
   - career-general-liability-underwriter
   - career-insurance-broker
+  - career-controller-cfo-construction
 recommendedIds:
   - concept-surety-bonding-capacity
   - concept-bid-bond

@@ -105,6 +105,7 @@ relatedIds:
   - lesson-financing-and-feasibility
   - concept-design-assist
   - concept-progressive-design-build
+  - career-marketing-proposals-manager
 recommendedIds:
   - career-senior-estimator
   - career-estimator

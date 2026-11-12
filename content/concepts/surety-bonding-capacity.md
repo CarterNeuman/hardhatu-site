@@ -25,8 +25,9 @@ example: >
 careerAngle: >
   A [[career-construction-accountant|Construction Accountant]] prepares the financial
   statements a surety reviews annually to set or adjust a contractor's bonding capacity,
-  making the accountant's work directly responsible for how much work the company can
-  even pursue. A [[career-estimator|Estimator]] has to check available bonding capacity
+  but it's usually the [[career-controller-cfo-construction|Controller or CFO]] who
+  manages the actual surety relationship and strategy around how much capacity to use.
+  An [[career-estimator|Estimator]] has to check available bonding capacity
   before committing significant time to preparing a large bid, since capacity, not
   interest in the work, can be the real constraint.
 whatGoesWrong: >
@@ -50,4 +51,5 @@ relatedIds:
   - lesson-whos-on-the-hook
   - concept-subcontractor-default-insurance
   - concept-surety-bond-claim-process
+  - career-controller-cfo-construction
 ---

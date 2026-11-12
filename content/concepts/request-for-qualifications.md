@@ -20,8 +20,10 @@ example: >
 careerAngle: >
   An [[career-owners-representative|Owner's Representative]] designs the qualification
   criteria and reviews the responses to build the shortlist. A
-  [[career-preconstruction-manager|Preconstruction Manager]] assembles the firm's
-  qualifications package, which often becomes the foundation for a more detailed
+  [[career-marketing-proposals-manager|Marketing & Proposals Manager]] writes and
+  designs the firm's actual qualifications package, usually with technical content
+  supplied by a [[career-preconstruction-manager|Preconstruction Manager]], and that
+  package often becomes the foundation for a more detailed
   [[concept-request-for-proposal|RFP]] response later if the firm makes the shortlist.
 whatGoesWrong: >
   A firm submits a generic, boilerplate qualifications package to an RFQ without
@@ -37,4 +39,5 @@ relatedIds:
   - phase-construction
   - lesson-bidding-and-winning-work
   - career-business-development-manager
+  - career-marketing-proposals-manager
 ---

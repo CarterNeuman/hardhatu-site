@@ -108,6 +108,8 @@ relatedIds:
   - concept-piercing-the-corporate-veil
   - concept-retainage-bond
   - concept-successor-liability
+  - career-controller-cfo-construction
+  - career-credit-manager-construction
 recommendedIds:
   - career-contracts-administrator
   - career-procurement-manager

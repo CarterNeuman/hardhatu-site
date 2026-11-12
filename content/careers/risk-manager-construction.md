@@ -104,6 +104,7 @@ relatedIds:
   - concept-limitation-of-liability-clause
   - career-insurance-broker
   - career-property-condition-assessor
+  - career-controller-cfo-construction
 recommendedIds:
   - career-safety-manager
   - career-certified-payroll-specialist

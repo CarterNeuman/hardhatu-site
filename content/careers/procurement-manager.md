@@ -97,6 +97,7 @@ relatedIds:
   - concept-bid-tabulation
   - concept-responsiveness-vs-responsibility
   - concept-unbalanced-bid
+  - career-credit-manager-construction
 recommendedIds:
   - career-estimator
   - concept-change-order

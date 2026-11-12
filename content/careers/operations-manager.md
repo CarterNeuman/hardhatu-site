@@ -94,6 +94,8 @@ relatedIds:
   - concept-resource-leveling
   - concept-variance-at-completion
   - concept-equipment-telematics
+  - career-controller-cfo-construction
+  - career-equipment-fleet-manager
 recommendedIds:
   - career-project-manager
   - career-senior-estimator

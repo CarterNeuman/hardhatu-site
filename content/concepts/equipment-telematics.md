@@ -21,10 +21,13 @@ example: >
   fully utilized, and reassigns the     machine to a different project rather
   than renting an additional unit.
 careerAngle: >
-  An [[career-operations-manager|Operations Manager]] uses telematics data to
-  schedule     preventive maintenance by actual engine hours rather than
-  guessing, and to decide whether an     underused machine should move to a
-  different site instead of sitting idle.
+  An [[career-equipment-fleet-manager|Equipment / Fleet Manager]] uses telematics
+  data day to day to schedule preventive maintenance by actual engine hours
+  rather than guessing, and to decide whether an underused machine should move
+  to a different site instead of sitting idle. An
+  [[career-operations-manager|Operations Manager]] relies on the same data at
+  the portfolio level to judge whether the company's overall fleet is sized
+  right for its project pipeline.
 whatGoesWrong: >
   A fleet manager assumes telematics data alone proves a machine is being used
   efficiently     just because it's moving, when extended idle time with the
@@ -34,4 +37,5 @@ relatedIds:
   - concept-jobsite-iot-sensors
   - career-operations-manager
   - career-equipment-operator
+  - career-equipment-fleet-manager
 ---

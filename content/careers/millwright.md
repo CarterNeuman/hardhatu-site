@@ -97,6 +97,7 @@ relatedIds:
   - resume-field-trades
   - program-ubc-millwright-apprenticeship
   - lesson-jobsite-safety-in-practice
+  - career-equipment-fleet-manager
 recommendedIds:
   - concept-rigging
   - career-equipment-operator

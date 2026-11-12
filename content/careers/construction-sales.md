@@ -80,6 +80,7 @@ relatedIds:
   - career-business-development-manager
   - resume-business
   - gethired-business
+  - career-marketing-proposals-manager
 recommendedIds:
   - career-estimator
   - career-preconstruction-manager

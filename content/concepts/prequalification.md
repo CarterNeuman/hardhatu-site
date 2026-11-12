@@ -46,4 +46,5 @@ relatedIds:
   - career-business-development-manager
   - concept-experience-modification-rate
   - concept-subcontractor-default-insurance
+  - career-marketing-proposals-manager
 ---

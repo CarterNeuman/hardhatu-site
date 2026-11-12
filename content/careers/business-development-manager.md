@@ -88,6 +88,7 @@ relatedIds:
   - concept-multiple-award-task-order-contract
   - concept-project-labor-agreement
   - concept-teaming-agreement
+  - career-marketing-proposals-manager
 recommendedIds:
   - concept-joint-venture
   - concept-request-for-qualifications

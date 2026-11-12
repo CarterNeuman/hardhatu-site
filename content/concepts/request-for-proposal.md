@@ -40,4 +40,5 @@ relatedIds:
   - lesson-bidding-and-winning-work
   - phase-procurement-preconstruction
   - career-bid-coordinator
+  - career-marketing-proposals-manager
 ---

@@ -38,4 +38,5 @@ relatedIds:
   - lesson-financing-and-feasibility
   - concept-loss-draft-mortgagee-clause
   - concept-mortgage-company-endorsement-process
+  - career-credit-manager-construction
 ---

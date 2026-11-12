@@ -128,6 +128,7 @@ relatedIds:
   - concept-utility-locating-potholing
   - concept-equipment-telematics
   - career-blaster-explosives-specialist
+  - career-equipment-fleet-manager
 recommendedIds:
   - career-superintendent
   - career-millwright
