@@ -42,5 +42,7 @@ relatedIds:
   - concept-clash-detection
   - concept-level-of-development-bim
   - lesson-3d-modeling-in-practice
+  - concept-ifc-bim-interoperability
+
 ---
   - lesson-3d-modeling-in-practice

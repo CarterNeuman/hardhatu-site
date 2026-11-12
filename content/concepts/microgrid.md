@@ -43,4 +43,6 @@ relatedIds:
   - concept-solar-pv-interconnection
   - lesson-solar-and-renewable-energy-on-a-jobsite
   - concept-grid-resynchronization
+  - concept-vehicle-to-grid
+
 ---

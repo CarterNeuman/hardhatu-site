@@ -40,5 +40,7 @@ relatedIds:
   - career-gis-specialist
   - career-construction-technology-manager
   - lesson-drones-scanning-and-mapping
+  - concept-thermal-imaging-building-diagnostics
+
 ---
   - lesson-drones-scanning-and-mapping

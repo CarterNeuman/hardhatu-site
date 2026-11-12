@@ -152,6 +152,8 @@ relatedIds:
   - concept-duress-panic-alarm-systems
   - concept-fire-life-safety-system-integration
   - concept-responsible-bidder-ordinance
+  - concept-jobsite-geofencing-tool-security
+  - concept-wearable-exoskeletons
 recommendedIds:
   - career-superintendent
   - career-quality-control-manager

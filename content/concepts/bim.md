@@ -50,4 +50,8 @@ relatedIds:
   - concept-bim-execution-plan
   - concept-generative-design
   - concept-level-of-development-bim
+  - concept-ifc-bim-interoperability
+  - concept-virtual-design-construction
+  - concept-vr-design-review
+
 ---

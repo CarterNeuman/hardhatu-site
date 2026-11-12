@@ -45,4 +45,6 @@ relatedIds:
   - lesson-from-dirt-to-deck
   - lesson-concrete-and-foundations-in-practice
   - concept-concrete-cylinder-break-test
+  - concept-3d-printing-construction
+
 ---

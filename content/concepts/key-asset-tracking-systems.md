@@ -29,4 +29,6 @@ whatGoesWrong: >
   provide.
 relatedIds:
   - career-facilities-manager
+  - concept-jobsite-geofencing-tool-security
+
 ---

@@ -126,6 +126,7 @@ relatedIds:
   - concept-osha-soil-classification
   - lesson-jobsite-safety-in-practice
   - concept-utility-locating-potholing
+  - concept-equipment-telematics
 recommendedIds:
   - career-superintendent
   - career-millwright

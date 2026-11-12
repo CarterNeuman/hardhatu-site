@@ -39,4 +39,6 @@ relatedIds:
   - concept-egress-requirements
   - lesson-permits-inspections-and-the-paper-trail
   - concept-final-inspection
+  - concept-envelope-air-tightness-testing
+
 ---

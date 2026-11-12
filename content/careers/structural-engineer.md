@@ -131,6 +131,8 @@ relatedIds:
   - concept-sound-vibration-control-rooms
   - concept-conveyor-systems
   - concept-aquariums
+  - concept-3d-printing-construction
+  - concept-mass-timber-clt
 recommendedIds:
   - career-ironworker
   - career-concrete-worker

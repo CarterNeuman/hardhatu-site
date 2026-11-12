@@ -43,4 +43,6 @@ relatedIds:
   - concept-augmented-reality-jobsite
   - concept-bim-execution-plan
   - concept-coordination-drawing
+  - concept-virtual-design-construction
+
 ---

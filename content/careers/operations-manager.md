@@ -93,6 +93,7 @@ relatedIds:
   - concept-solid-waste-handling-equipment
   - concept-resource-leveling
   - concept-variance-at-completion
+  - concept-equipment-telematics
 recommendedIds:
   - career-project-manager
   - career-senior-estimator

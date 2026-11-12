@@ -34,4 +34,6 @@ relatedIds:
   - concept-solar-pv-interconnection
   - concept-afci
   - lesson-solar-and-renewable-energy-on-a-jobsite
+  - concept-net-metering
+
 ---

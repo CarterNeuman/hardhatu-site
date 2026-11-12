@@ -41,4 +41,9 @@ relatedIds:
   - phase-operations-maintenance
   - concept-energy-code-compliance
   - concept-life-cycle-assessment
+  - concept-building-electrification
+  - concept-building-energy-benchmarking
+  - concept-daylighting-design
+  - concept-envelope-air-tightness-testing
+
 ---

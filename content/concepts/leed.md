@@ -43,4 +43,9 @@ relatedIds:
   - career-commissioning-agent
   - concept-well-building-standard
   - concept-usgbc
+  - concept-biophilic-design
+  - concept-daylighting-design
+  - concept-living-building-challenge
+  - concept-water-conservation-strategies
+
 ---

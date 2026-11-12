@@ -31,4 +31,6 @@ whatGoesWrong: >
   addressed well before the injury ever happened.
 relatedIds:
   - concept-heat-illness-prevention
+  - concept-wearable-exoskeletons
+
 ---

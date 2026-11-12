@@ -33,4 +33,7 @@ relatedIds:
   - career-sustainability-leed-consultant
   - concept-green-building-certification
   - concept-leed
+  - concept-biophilic-design
+  - concept-living-building-challenge
+
 ---

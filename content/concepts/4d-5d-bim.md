@@ -37,4 +37,6 @@ relatedIds:
   - phase-construction
   - lesson-bim-and-clash-detection
   - software-navisworks
+  - concept-virtual-design-construction
+
 ---

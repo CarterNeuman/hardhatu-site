@@ -120,6 +120,7 @@ relatedIds:
   - concept-national-electrical-code
   - concept-solar-inverter
   - lesson-jobsite-safety-in-practice
+  - concept-net-metering
 recommendedIds:
   - concept-net-zero-energy-building
   - career-electrician

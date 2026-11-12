@@ -103,6 +103,15 @@ relatedIds:
   - gethired-consultants-advisory
   - concept-usgbc
   - concept-building-deconstruction
+  - concept-biophilic-design
+  - concept-building-energy-benchmarking
+  - concept-building-performance-standards
+  - concept-carbon-offset-credits
+  - concept-circular-economy-material-passports
+  - concept-esg-reporting-construction
+  - concept-living-building-challenge
+  - concept-net-zero-carbon-building
+  - concept-renewable-energy-credits
 recommendedIds:
   - career-construction-consultant
   - career-commissioning-agent

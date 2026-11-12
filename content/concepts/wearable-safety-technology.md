@@ -36,4 +36,6 @@ whatGoesWrong: >
 relatedIds:
   - career-safety-manager
   - concept-total-recordable-incident-rate
+  - concept-wearable-exoskeletons
+
 ---

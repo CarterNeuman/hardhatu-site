@@ -127,6 +127,7 @@ relatedIds:
   - concept-water-leak-detection-automation
   - concept-unit-kitchens
   - concept-saunas-steam-rooms
+  - concept-water-conservation-strategies
 recommendedIds:
   - career-pipefitter
   - career-mep-engineer

@@ -27,4 +27,6 @@ whatGoesWrong: >
   certificate being completed and submitted to the insurer.
 relatedIds:
   - concept-flood-insurance-nfip
+  - concept-climate-resilience-design
+
 ---

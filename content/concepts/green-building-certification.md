@@ -44,4 +44,6 @@ relatedIds:
   - career-renewable-energy-project-manager
   - career-commissioning-agent
   - concept-well-building-standard
+  - concept-living-building-challenge
+
 ---

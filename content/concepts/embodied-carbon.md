@@ -39,4 +39,9 @@ relatedIds:
   - concept-environmental-product-declaration
   - concept-life-cycle-assessment
   - concept-carbon-accounting-scopes
+  - concept-building-performance-standards
+  - concept-circular-economy-material-passports
+  - concept-mass-timber-clt
+  - concept-net-zero-carbon-building
+
 ---

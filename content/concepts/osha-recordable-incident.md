@@ -38,4 +38,6 @@ relatedIds:
   - concept-near-miss
   - phase-construction
   - concept-osha-300-log-posting
+  - concept-esg-reporting-construction
+
 ---

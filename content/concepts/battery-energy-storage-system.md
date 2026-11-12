@@ -38,4 +38,7 @@ relatedIds:
   - career-mep-engineer
   - concept-uninterruptible-power-supply
   - concept-solar-pv-interconnection
+  - concept-net-metering
+  - concept-vehicle-to-grid
+
 ---

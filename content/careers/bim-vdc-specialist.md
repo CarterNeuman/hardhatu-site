@@ -101,6 +101,9 @@ relatedIds:
   - lesson-3d-modeling-in-practice
   - concept-access-flooring
   - concept-bim-coordination-meeting
+  - concept-ifc-bim-interoperability
+  - concept-virtual-design-construction
+  - concept-vr-design-review
 recommendedIds:
   - career-project-manager
   - career-surveyor

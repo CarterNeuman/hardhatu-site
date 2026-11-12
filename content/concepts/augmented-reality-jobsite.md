@@ -39,5 +39,7 @@ relatedIds:
   - concept-bim
   - concept-clash-detection
   - lesson-3d-modeling-in-practice
+  - concept-vr-design-review
+
 ---
   - lesson-3d-modeling-in-practice

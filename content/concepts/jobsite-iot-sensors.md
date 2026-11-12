@@ -36,4 +36,7 @@ relatedIds:
   - career-construction-technology-manager
   - career-qaqc-inspector
   - concept-concrete-curing
+  - concept-equipment-telematics
+  - concept-jobsite-geofencing-tool-security
+
 ---

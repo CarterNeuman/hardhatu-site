@@ -46,4 +46,7 @@ relatedIds:
   - lesson-green-building-certification
   - career-glazier
   - lesson-building-envelope-and-glazing
+  - concept-envelope-air-tightness-testing
+  - concept-thermal-imaging-building-diagnostics
+
 ---

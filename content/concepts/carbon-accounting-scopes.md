@@ -41,4 +41,11 @@ whatGoesWrong: >
 relatedIds:
   - career-sustainability-leed-consultant
   - concept-embodied-carbon
+  - concept-building-energy-benchmarking
+  - concept-building-performance-standards
+  - concept-carbon-offset-credits
+  - concept-esg-reporting-construction
+  - concept-net-zero-carbon-building
+  - concept-renewable-energy-credits
+
 ---

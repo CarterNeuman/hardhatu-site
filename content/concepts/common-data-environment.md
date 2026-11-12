@@ -36,5 +36,7 @@ relatedIds:
   - career-bim-vdc-specialist
   - concept-cloud-document-control
   - lesson-3d-modeling-in-practice
+  - concept-ifc-bim-interoperability
+
 ---
   - lesson-3d-modeling-in-practice

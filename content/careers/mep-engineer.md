@@ -150,6 +150,8 @@ relatedIds:
   - concept-pneumatic-tube-systems
   - concept-bim-coordination-meeting
   - concept-request-for-substitution
+  - concept-building-electrification
+  - concept-daylighting-design
 recommendedIds:
   - career-hvac-technician
   - career-electrician

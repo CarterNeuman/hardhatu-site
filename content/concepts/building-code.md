@@ -50,4 +50,7 @@ relatedIds:
   - concept-fire-retardant-treated-wood
   - lesson-reading-a-set-of-plans
   - concept-wall-coverings
+  - concept-climate-resilience-design
+  - concept-mass-timber-clt
+
 ---

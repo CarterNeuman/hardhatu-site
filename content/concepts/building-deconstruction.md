@@ -32,4 +32,6 @@ relatedIds:
   - career-sustainability-leed-consultant
   - concept-demolition
   - concept-selective-demolition
+  - concept-circular-economy-material-passports
+
 ---

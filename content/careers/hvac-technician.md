@@ -130,6 +130,8 @@ relatedIds:
   - lesson-jobsite-safety-in-practice
   - concept-radon-mitigation-system
   - concept-louvers-vents
+  - concept-envelope-air-tightness-testing
+  - concept-thermal-imaging-building-diagnostics
 recommendedIds:
   - career-facilities-manager
   - career-sheet-metal-worker

@@ -45,4 +45,7 @@ relatedIds:
   - phase-operations-maintenance
   - career-solar-installer
   - career-renewable-energy-project-manager
+  - concept-net-zero-carbon-building
+  - concept-renewable-energy-credits
+
 ---

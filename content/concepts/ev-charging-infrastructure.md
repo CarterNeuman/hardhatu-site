@@ -38,4 +38,6 @@ relatedIds:
   - career-electrician
   - career-mep-engineer
   - concept-standby-generator
+  - concept-vehicle-to-grid
+
 ---

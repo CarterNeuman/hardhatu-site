@@ -120,6 +120,7 @@ relatedIds:
   - concept-permeable-paving
   - concept-qualifications-based-selection
   - concept-benchmark-survey-monument
+  - concept-climate-resilience-design
 recommendedIds:
   - career-surveyor
   - career-superintendent

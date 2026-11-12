@@ -160,6 +160,7 @@ relatedIds:
   - concept-automated-shading-systems
   - concept-conveyor-systems
   - concept-unit-kitchens
+  - concept-vehicle-to-grid
 recommendedIds:
   - career-laborer
   - career-elevator-technician
