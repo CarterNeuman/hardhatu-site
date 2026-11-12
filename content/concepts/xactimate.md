@@ -38,4 +38,5 @@ relatedIds:
   - concept-claims-adjustment-process
   - lesson-claim-to-restoration
   - software-xactimate
+  - concept-price-list-price-database
 ---

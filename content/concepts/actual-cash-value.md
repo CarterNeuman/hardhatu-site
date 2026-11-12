@@ -38,4 +38,7 @@ relatedIds:
   - concept-coinsurance-clause
   - concept-recoverable-vs-nonrecoverable-depreciation
   - concept-contents-claim
+  - concept-cash-out-settlement
+  - concept-depreciation-schedule-by-trade
+  - concept-functional-replacement-cost
 ---

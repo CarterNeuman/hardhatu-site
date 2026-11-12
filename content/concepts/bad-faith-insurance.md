@@ -35,4 +35,6 @@ relatedIds:
   - career-insurance-adjuster
   - concept-claims-adjustment-process
   - lesson-claim-to-restoration
+  - concept-suit-limitation-clause
+  - concept-unfair-claims-settlement-practices-act
 ---

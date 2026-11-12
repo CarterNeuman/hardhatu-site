@@ -24,6 +24,8 @@ careerAngle: >
   repair cost. A [[career-restoration-project-manager|Restoration Project Manager]]
   coordinates with the local building department to determine exactly which
   upgrades are actually code-required versus optional.
+
+  See [[concept-ordinance-or-law-coverage-tiers|Ordinance or Law Coverage Tiers]] for how this coverage splits into its separate A/B/C components.
 whatGoesWrong: >
   A property owner's building sustains fire damage requiring code-mandated
   electrical upgrades during reconstruction, but their policy has no ordinance or
@@ -35,4 +37,5 @@ relatedIds:
   - career-restoration-project-manager
   - concept-scope-of-loss
   - concept-betterment-claims
+  - concept-ordinance-or-law-coverage-tiers
 ---

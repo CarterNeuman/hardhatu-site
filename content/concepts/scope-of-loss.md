@@ -53,4 +53,5 @@ relatedIds:
   - career-construction-claims-consultant
   - career-insurance-restoration-estimator
   - career-restoration-project-manager
+  - concept-price-list-price-database
 ---

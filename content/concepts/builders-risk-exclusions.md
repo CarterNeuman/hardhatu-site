@@ -34,4 +34,5 @@ relatedIds:
   - career-builders-risk-underwriter
   - career-insurance-adjuster
   - concept-builders-risk-insurance
+  - concept-vacancy-clause
 ---

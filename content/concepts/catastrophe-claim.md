@@ -24,6 +24,8 @@ careerAngle: >
   an independent or catastrophe adjuster, higher-paying, travel-heavy work that
   concentrates around major disaster events. A [[career-restoration-project-manager|Restoration Project Manager]] scales crews up rapidly to meet the surge in
   restoration demand a CAT event creates in a region.
+
+  See [[concept-cat-team-storm-chaser|CAT Team / Storm Chaser]] for the contracting side of this surge response, [[concept-demand-surge|Demand Surge]] for how pricing shifts during one, and [[concept-fema-ia-vs-insurance-claim|FEMA Individual Assistance vs. Insurance Claim]] for how federal aid fits alongside an insurance claim after a declared disaster.
 whatGoesWrong: >
   A homeowner's claim after a major hurricane sits unassigned for weeks because
   thousands of claims were filed in the same region simultaneously, and the
@@ -38,4 +40,8 @@ relatedIds:
   - phase-renovation-restoration-endoflife
   - concept-wind-vs-water-causation
   - concept-desk-vs-field-adjuster
+  - concept-cat-team-storm-chaser
+  - concept-demand-surge
+  - concept-fema-ia-vs-insurance-claim
+  - concept-wildfire-smoke-damage-claims
 ---

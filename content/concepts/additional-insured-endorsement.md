@@ -36,4 +36,5 @@ relatedIds:
   - concept-certificate-of-insurance
   - concept-general-liability-insurance
   - concept-indemnification
+  - concept-named-insured-vs-additional-insured
 ---

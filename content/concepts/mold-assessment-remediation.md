@@ -25,6 +25,8 @@ careerAngle: >
   [[career-environmental-remediation-specialist|Environmental/Remediation Specialist]]
   handles the assessment and clearance testing side of mold work, keeping it
   independent from whichever company actually performs the removal.
+
+  The remediation side of this protocol relies on [[concept-antimicrobial-application|Antimicrobial Application]] to kill remaining spores and [[concept-negative-air-pressure-containment|Negative Air Pressure / Containment]] to keep them from spreading during the work.
 whatGoesWrong: >
   A single company both assesses and remediates mold on the same property in
   a state that prohibits it. That arrangement can void the state license,
@@ -39,4 +41,6 @@ relatedIds:
   - concept-hazardous-material-abatement
   - lesson-claim-to-restoration
   - concept-psychrometrics
+  - concept-antimicrobial-application
+  - concept-negative-air-pressure-containment
 ---

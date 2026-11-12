@@ -32,4 +32,5 @@ relatedIds:
   - concept-examination-under-oath
   - concept-concealment-fraud-clause
   - concept-claims-adjustment-process
+  - concept-assignment-of-benefits
 ---

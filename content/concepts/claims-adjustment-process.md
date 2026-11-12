@@ -49,4 +49,6 @@ relatedIds:
   - concept-reservation-of-rights-letter
   - concept-third-party-administrator
   - concept-bad-faith-insurance
+  - concept-independent-vs-staff-adjuster
+  - concept-unfair-claims-settlement-practices-act
 ---

@@ -24,6 +24,8 @@ careerAngle: >
   [[career-restoration-project-manager|Restoration Project Manager]] often gets
   dispatched based on FNOL details alone, well before a full inspection or scope of
   loss exists.
+
+  Some restoration contractors have the homeowner sign an [[concept-assignment-of-benefits|Assignment of Benefits]] right around FNOL, letting the contractor bill the insurer directly for the mitigation work that follows.
 whatGoesWrong: >
   A policyholder delays calling their insurer for several days after a leak starts,
   not realizing that FNOL timing itself can matter to the claim, since many policies
@@ -40,4 +42,5 @@ relatedIds:
   - concept-catastrophe-claim
   - lesson-claim-to-restoration
   - phase-renovation-restoration-endoflife
+  - concept-assignment-of-benefits
 ---

@@ -20,6 +20,8 @@ careerAngle: >
   A [[career-restoration-project-manager|Restoration Project Manager]] coordinates
   salvage removal on a total-loss job, making sure recoverable materials are set
   aside for the insurer rather than disposed of along with genuine debris.
+
+  Salvage is about value the insurer can recover, the opposite concern from [[concept-debris-removal-coverage|Debris Removal Coverage]], which pays for disposing of material that has no recoverable value at all.
 whatGoesWrong: >
   A restoration crew disposes of total-loss materials, like undamaged structural
   steel from a partial building collapse, before the insurer's salvage assessment
@@ -31,4 +33,5 @@ relatedIds:
   - concept-total-loss-vs-partial-loss
   - concept-demolition
   - lesson-claim-to-restoration
+  - concept-debris-removal-coverage
 ---

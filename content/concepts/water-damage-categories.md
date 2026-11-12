@@ -39,4 +39,6 @@ relatedIds:
   - exam-adjuster-license
   - concept-mold-assessment-remediation
   - concept-certified-restorer-designation
+  - concept-sewer-backup-endorsement
+  - concept-freeze-claim
 ---

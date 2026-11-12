@@ -38,4 +38,5 @@ relatedIds:
   - concept-depreciation
   - lesson-claim-to-restoration
   - concept-recoverable-vs-nonrecoverable-depreciation
+  - concept-functional-replacement-cost
 ---

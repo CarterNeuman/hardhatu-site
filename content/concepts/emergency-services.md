@@ -35,4 +35,5 @@ relatedIds:
   - concept-mitigation
   - concept-first-notice-of-loss
   - lesson-claim-to-restoration
+  - concept-trauma-biohazard-cleanup
 ---

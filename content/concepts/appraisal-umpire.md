@@ -32,4 +32,5 @@ relatedIds:
   - concept-appraisal-clause
   - concept-claims-adjustment-process
   - exam-adjuster-license
+  - concept-appraisal-award
 ---

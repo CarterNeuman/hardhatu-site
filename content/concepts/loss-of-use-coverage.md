@@ -34,4 +34,5 @@ relatedIds:
   - concept-contents-claim
   - exam-adjuster-license
   - concept-business-interruption-insurance
+  - concept-loss-of-rents-coverage
 ---

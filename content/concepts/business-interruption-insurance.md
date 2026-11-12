@@ -33,4 +33,5 @@ relatedIds:
   - concept-loss-of-use-coverage
   - concept-claims-adjustment-process
   - exam-adjuster-license
+  - concept-loss-of-rents-coverage
 ---

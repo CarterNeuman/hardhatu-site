@@ -38,4 +38,5 @@ relatedIds:
   - phase-closeout-handover
   - concept-pay-application
   - concept-retainage-release
+  - concept-loss-draft-mortgagee-clause
 ---

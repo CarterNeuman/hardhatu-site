@@ -23,6 +23,8 @@ careerAngle: >
   An [[career-insurance-adjuster|Insurance Adjuster]] uses test squares as the
   standard method for documenting and justifying a hail damage assessment on a
   roof claim.
+
+  See [[concept-hail-damage-inspection|Hail Damage Inspection]] for the broader inspection process the test square method is part of.
 whatGoesWrong: >
   An inspection counts hail hits across the whole roof without using a defined
   test square, giving an impression of damage severity that isn't tied to any
@@ -34,4 +36,5 @@ relatedIds:
   - concept-roofing-membrane
   - lesson-claim-to-restoration
   - concept-roof-decking
+  - concept-hail-damage-inspection
 ---

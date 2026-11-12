@@ -36,4 +36,6 @@ relatedIds:
   - concept-actual-cost
   - concept-conditional-unconditional-lien-waiver
   - lesson-financing-and-feasibility
+  - concept-loss-draft-mortgagee-clause
+  - concept-mortgage-company-endorsement-process
 ---

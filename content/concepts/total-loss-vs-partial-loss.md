@@ -39,4 +39,5 @@ relatedIds:
   - concept-demolition
   - phase-renovation-restoration-endoflife
   - concept-salvage-insurance
+  - concept-debris-removal-coverage
 ---

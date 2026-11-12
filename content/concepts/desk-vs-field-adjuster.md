@@ -23,6 +23,8 @@ careerAngle: >
   An [[career-insurance-adjuster|Insurance Adjuster]] may work either role, or
   shift between them, field adjusters are especially in demand during catastrophe
   events when claim volume spikes far beyond a normal week.
+
+  This desk-versus-field split is about how a claim is inspected, not who employs the adjuster; see [[concept-independent-vs-staff-adjuster|Independent Adjuster vs. Staff Adjuster]] for that separate distinction.
 whatGoesWrong: >
   A claim involving hidden damage, water intrusion under a slab, or a compromised
   attic, gets assigned to a desk adjuster based on the photos alone, and the
@@ -34,4 +36,5 @@ relatedIds:
   - concept-catastrophe-claim
   - concept-scope-of-loss
   - concept-third-party-administrator
+  - concept-independent-vs-staff-adjuster
 ---

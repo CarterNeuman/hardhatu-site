@@ -23,6 +23,8 @@ careerAngle: >
   single blanket rate. A [[career-public-adjuster|Public Adjuster]] checks whether
   labor was improperly depreciated alongside materials, since several states
   restrict depreciating labor at all.
+
+  See [[concept-depreciation-schedule-by-trade|Depreciation Schedule by Trade]] for the trade-specific life-expectancy tables behind this calculation.
 whatGoesWrong: >
   An adjuster applies depreciation to both materials and labor on a claim in a state
   that prohibits depreciating labor costs, reducing the payout below what the
@@ -36,4 +38,6 @@ relatedIds:
   - lesson-claim-to-restoration
   - concept-recoverable-vs-nonrecoverable-depreciation
   - concept-betterment-claims
+  - concept-depreciation-schedule-by-trade
+  - concept-ordinance-or-law-coverage-tiers
 ---

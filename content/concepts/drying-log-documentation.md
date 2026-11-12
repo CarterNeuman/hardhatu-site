@@ -20,6 +20,8 @@ careerAngle: >
   An [[career-insurance-restoration-estimator|Insurance Restoration Estimator]]
   submits the drying log alongside the invoice to justify billed equipment days to
   the insurer.
+
+  The log's daily readings are what prove the [[concept-structural-drying-equipment|Structural Drying Equipment]] billed on the invoice was actually in place and doing its job for as many days as claimed.
 whatGoesWrong: >
   A restoration company submits a final invoice for a multi-day drying job without a
   supporting drying log showing daily moisture readings. The insurer's adjuster
@@ -33,4 +35,5 @@ relatedIds:
   - concept-water-damage-classes
   - concept-supplement-claims
   - lesson-claim-to-restoration
+  - concept-structural-drying-equipment
 ---

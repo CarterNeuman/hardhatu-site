@@ -35,4 +35,6 @@ relatedIds:
   - concept-matching-uniformity-appearance
   - concept-scope-of-loss
   - exam-adjuster-license
+  - concept-hail-damage-inspection
+  - concept-wind-mitigation-inspection-credit
 ---

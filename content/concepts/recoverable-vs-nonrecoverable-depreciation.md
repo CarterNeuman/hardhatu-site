@@ -23,6 +23,8 @@ careerAngle: >
   A [[career-public-adjuster|Public Adjuster]] tracks down recoverable depreciation
   that a homeowner sometimes forgets to claim after finishing repairs, since the
   insurer generally won't chase the policyholder down to pay it.
+
+  The underlying rate that gets withheld, before the recoverable/non-recoverable split even applies, comes from a [[concept-depreciation-schedule-by-trade|Depreciation Schedule by Trade]] specific to the damaged item's trade category.
 whatGoesWrong: >
   A homeowner assumes all $8,000 in depreciation withheld from their roof
   claim will eventually come back once repairs are complete, the way it did
@@ -38,4 +40,5 @@ relatedIds:
   - concept-replacement-cost-value
   - lesson-claim-to-restoration
   - exam-adjuster-license
+  - concept-depreciation-schedule-by-trade
 ---
