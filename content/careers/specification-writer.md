@@ -94,5 +94,5 @@ recommendedIds:
   - career-project-engineer
   - concept-submittal
   - concept-submittal-log
-image: "/images/careers/specification-writer.jpg"
+image: "/images/careers/specification-writer-line-art.svg"
 ---

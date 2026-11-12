@@ -105,5 +105,5 @@ recommendedIds:
   - exam-osha-30
   - interview-construction-general
   - lesson-jobsite-safety-in-practice
-image: "/images/careers/safety-coordinator.jpg"
+image: "/images/careers/safety-manager.jpg"
 ---

@@ -129,5 +129,5 @@ recommendedIds:
   - concept-building-code
   - phase-design
   - exam-fe
-image: "/images/careers/fire-protection-engineer.jpg"
+image: "/images/careers/mep-engineer.jpg"
 ---

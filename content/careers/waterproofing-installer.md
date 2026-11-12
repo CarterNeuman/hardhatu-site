@@ -110,5 +110,5 @@ recommendedIds:
   - exam-osha-10
   - interview-field-trades
   - gethired-field-trades
-image: "/images/careers/waterproofing-installer.jpg"
+image: "/images/careers/roofer.jpg"
 ---

@@ -96,5 +96,5 @@ recommendedIds:
   - career-construction-sales
   - career-preconstruction-manager
   - concept-request-for-qualifications
-image: "/images/careers/marketing-proposals-manager.jpg"
+image: "/images/careers/business-development-manager.jpg"
 ---

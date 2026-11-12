@@ -141,5 +141,5 @@ recommendedIds:
   - phase-design
   - phase-permitting-approvals
   - lesson-whos-actually-running-the-job
-image: "/images/careers/architect.jpg"
+image: "/images/careers/architect-line-art.svg"
 ---

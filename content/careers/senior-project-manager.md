@@ -113,5 +113,5 @@ recommendedIds:
   - exam-ccm
   - interview-project-manager
   - lesson-cost-control-and-forecasting-in-practice
-image: "/images/careers/senior-project-manager.jpg"
+image: "/images/careers/project-manager.jpg"
 ---

@@ -100,5 +100,5 @@ recommendedIds:
   - concept-performance-bond
   - concept-payment-bond
   - lesson-whos-on-the-hook
-image: "/images/careers/surety-claims-manager.jpg"
+image: "/images/careers/surety-bond-underwriter.jpg"
 ---

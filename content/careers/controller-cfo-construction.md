@@ -101,5 +101,5 @@ recommendedIds:
   - career-risk-manager-construction
   - career-operations-manager
   - concept-surety-bonding-capacity
-image: "/images/careers/controller-cfo-construction.jpg"
+image: "/images/careers/construction-accountant.jpg"
 ---

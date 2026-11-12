@@ -95,5 +95,5 @@ recommendedIds:
   - career-operations-manager
   - career-equipment-operator
   - concept-equipment-telematics
-image: "/images/careers/equipment-fleet-manager.jpg"
+image: "/images/careers/equipment-operator.jpg"
 ---

@@ -99,5 +99,5 @@ recommendedIds:
   - exam-osha-10
   - interview-field-trades
   - gethired-field-trades
-image: "/images/careers/tile-setter.jpg"
+image: "/images/careers/mason.jpg"
 ---

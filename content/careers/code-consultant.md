@@ -101,5 +101,5 @@ recommendedIds:
   - concept-plan-review
   - concept-life-safety-code-nfpa-101
   - concept-accessible-means-of-egress
-image: "/images/careers/code-consultant.jpg"
+image: "/images/careers/permit-expediter.jpg"
 ---

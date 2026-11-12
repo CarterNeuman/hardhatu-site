@@ -128,5 +128,5 @@ recommendedIds:
   - concept-med-arb
   - concept-mini-trial
   - concept-dispute-review-board
-image: "/images/careers/construction-mediator-arbitrator.jpg"
+image: "/images/careers/construction-attorney.jpg"
 ---

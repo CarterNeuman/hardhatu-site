@@ -95,5 +95,5 @@ recommendedIds:
   - career-project-manager
   - career-safety-manager
   - career-facilities-manager
-image: "/images/careers/healthcare-construction-manager.jpg"
+image: "/images/careers/project-manager.jpg"
 ---

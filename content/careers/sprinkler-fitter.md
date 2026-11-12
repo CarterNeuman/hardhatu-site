@@ -101,5 +101,5 @@ recommendedIds:
   - exam-osha-10
   - interview-field-trades
   - gethired-field-trades
-image: "/images/careers/sprinkler-fitter.jpg"
+image: "/images/careers/pipefitter.jpg"
 ---

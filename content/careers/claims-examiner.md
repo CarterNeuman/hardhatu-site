@@ -99,5 +99,5 @@ recommendedIds:
   - concept-independent-vs-staff-adjuster
   - concept-loss-run-report
   - concept-subrogation
-image: "/images/careers/claims-examiner.jpg"
+image: "/images/careers/insurance-adjuster.jpg"
 ---

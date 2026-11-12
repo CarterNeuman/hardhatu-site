@@ -98,5 +98,5 @@ recommendedIds:
   - career-construction-technology-manager
   - concept-modular-construction
   - concept-offsite-manufacturing
-image: "/images/careers/modular-offsite-construction-manager.jpg"
+image: "/images/careers/modular-offsite-construction-manager-line-art.svg"
 ---

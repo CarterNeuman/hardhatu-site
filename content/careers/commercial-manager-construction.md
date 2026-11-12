@@ -110,5 +110,5 @@ recommendedIds:
   - concept-delay-claim
   - concept-guaranteed-maximum-price
   - lesson-getting-paid
-image: "/images/careers/commercial-manager-construction.jpg"
+image: "/images/careers/contracts-administrator.jpg"
 ---

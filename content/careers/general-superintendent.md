@@ -107,5 +107,5 @@ recommendedIds:
   - exam-osha-30
   - interview-project-operations
   - lesson-jobsite-safety-in-practice
-image: "/images/careers/general-superintendent.jpg"
+image: "/images/careers/superintendent.jpg"
 ---

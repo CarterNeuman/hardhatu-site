@@ -107,5 +107,5 @@ recommendedIds:
   - concept-experience-modification-rate
   - concept-additional-insured-endorsement
   - lesson-whos-on-the-hook
-image: "/images/careers/general-liability-underwriter.jpg"
+image: "/images/careers/builders-risk-underwriter.jpg"
 ---

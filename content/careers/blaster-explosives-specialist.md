@@ -112,5 +112,5 @@ recommendedIds:
   - career-heavy-civil-estimator
   - concept-blasting-rock-removal
   - concept-excavation
-image: "/images/careers/blaster-explosives-specialist.jpg"
+image: "/images/careers/demolition-supervisor.jpg"
 ---

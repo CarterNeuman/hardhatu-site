@@ -112,5 +112,5 @@ recommendedIds:
   - concept-workers-compensation-insurance
   - concept-experience-modification-rate
   - concept-independent-vs-staff-adjuster
-image: "/images/careers/workers-comp-claims-adjuster.jpg"
+image: "/images/careers/insurance-adjuster.jpg"
 ---

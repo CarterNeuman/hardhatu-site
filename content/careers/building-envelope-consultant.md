@@ -102,5 +102,5 @@ recommendedIds:
   - concept-curtain-wall
   - concept-waterproofing
   - concept-envelope-air-tightness-testing
-image: "/images/careers/building-envelope-consultant.jpg"
+image: "/images/careers/glazier.jpg"
 ---

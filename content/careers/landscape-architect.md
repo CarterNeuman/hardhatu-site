@@ -122,5 +122,5 @@ recommendedIds:
   - concept-climate-resilience-design
   - phase-design
   - phase-permitting-approvals
-image: "/images/careers/landscape-architect.jpg"
+image: "/images/careers/landscape-architect-line-art.svg"
 ---

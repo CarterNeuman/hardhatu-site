@@ -1,0 +1,15 @@
+<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" stroke="#656C71" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- stud wall bay -->
+    <line x1="60" y1="40" x2="60" y2="170"/>
+    <line x1="150" y1="40" x2="150" y2="170"/>
+    <!-- batt insulation zigzag filling the bay -->
+    <path d="M 65 45 L 90 60 L 65 80 L 90 100 L 65 120 L 90 140 L 65 160 L 90 170" stroke="#8C6217"/>
+    <!-- rolled batt: cylinder end (ellipse) with spiral cross-section -->
+    <ellipse cx="225" cy="110" rx="26" ry="34" stroke="#8C6217"/>
+    <path d="M 225 76 A 20 26 0 0 1 240 100 A 12 16 0 0 1 225 116 A 6 8 0 0 1 220 108" stroke="#8C6217"/>
+    <!-- unrolled tail trailing from the roll -->
+    <path d="M 199 128 L 170 150 L 150 168" stroke="#8C6217"/>
+
+  </g>
+</svg>

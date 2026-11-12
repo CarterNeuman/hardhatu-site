@@ -127,5 +127,5 @@ recommendedIds:
   - concept-foundation
   - phase-design
   - exam-fe
-image: "/images/careers/geotechnical-engineer.jpg"
+image: "/images/careers/civil-engineer.jpg"
 ---

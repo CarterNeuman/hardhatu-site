@@ -100,5 +100,5 @@ recommendedIds:
   - career-owners-representative
   - career-facilities-manager
   - concept-change-order
-image: "/images/careers/tenant-improvement-construction-manager.jpg"
+image: "/images/careers/project-manager.jpg"
 ---

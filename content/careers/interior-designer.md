@@ -121,5 +121,5 @@ recommendedIds:
   - concept-biophilic-design
   - concept-daylighting-design
   - phase-design
-image: "/images/careers/interior-designer.jpg"
+image: "/images/careers/interior-designer-line-art.svg"
 ---

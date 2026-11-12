@@ -127,5 +127,5 @@ recommendedIds:
   - concept-additional-insured-endorsement
   - concept-umbrella-excess-liability-insurance
   - lesson-whos-on-the-hook
-image: "/images/careers/insurance-broker.jpg"
+image: "/images/careers/insurance-adjuster.jpg"
 ---

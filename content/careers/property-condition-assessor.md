@@ -96,5 +96,5 @@ recommendedIds:
   - career-risk-manager-construction
   - concept-building-condition-assessment
   - concept-environmental-site-assessment
-image: "/images/careers/property-condition-assessor.jpg"
+image: "/images/careers/qaqc-inspector.jpg"
 ---
