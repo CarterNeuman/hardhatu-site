@@ -19,11 +19,11 @@ payTimeline:
   source: "Payscale's Property Claims Adjuster and Senior Claims Adjuster percentile data and a disclosed Liberty Mutual senior field claims adjuster posting; entry and median pay were already close to accurate, the ceiling needed raising to reflect specialized large-loss/CAT adjusters"
   asOf: "October 2026"
 ownerPayHighlight: >
-  Going independent or CAT doesn't mean steady raises — it means trading a
+  Going independent or CAT doesn't mean steady raises: it means trading a
   salary for per-claim contract work that can pay enormous sums during an
   active storm season and very little in a quiet one.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — the Bureau of Labor
+  These figures are wage-and-salary pay only. The Bureau of Labor
   Statistics excludes independent and catastrophe adjusters from this
   survey when they work as self-employed contractors rather than company
   employees, which is how most CAT adjusters are actually paid, a fee per

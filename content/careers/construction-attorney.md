@@ -19,12 +19,12 @@ payTimeline:
   source: "Payscale's Construction Attorney data combined with BLS's own industry-specific pay for lawyers employed in the building-construction industries; the generic all-industry Lawyers code is skewed upward by BigLaw partner pay that has little to do with a construction company's in-house counsel"
   asOf: "October 2026"
 ownerPayHighlight: >
-  Making partner isn't a raise — it's buying a stake in the firm's own
+  Making partner isn't a raise: it's buying a stake in the firm's own
   profits, and at a firm with strong construction litigation or
   transactional work, that stake can dwarf anything an associate's salary
   could reach.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — the Bureau of Labor
+  These figures are wage-and-salary pay only. The Bureau of Labor
   Statistics excludes partners' profit-sharing and equity distributions
   from this survey, since partner income isn't a wage at all, it's a share
   of the firm's earnings. Partner compensation varies enormously by firm

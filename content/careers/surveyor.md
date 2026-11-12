@@ -21,10 +21,10 @@ payTimeline:
 ownerPayHighlight: >
   Owning your own surveying firm means real upside from every job your
   license lets you sign off on and keep the margin from, not just more
-  billable hours — with the liability exposure and client-acquisition grind
+  billable hours, with the liability exposure and client-acquisition grind
   of running a business layered on top.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — the Bureau of Labor
+  These figures are wage-and-salary pay only. The Bureau of Labor
   Statistics excludes the self-employed and firm owners from this survey
   entirely. No reliable published figure exists for surveying-firm owner
   income specifically; it depends heavily on local market demand, how much

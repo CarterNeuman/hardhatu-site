@@ -20,11 +20,11 @@ payTimeline:
   asOf: "September 2026"
 ownerPayHighlight: >
   Making Partner or Principal at a consulting firm means your income comes
-  from the firm's engagements, not a salary — real upside if you've built a
+  from the firm's engagements, not a salary: real upside if you've built a
   reputation clients call for by name, real risk if the pipeline of problem
   projects dries up.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — the Bureau of Labor
+  These figures are wage-and-salary pay only. The Bureau of Labor
   Statistics excludes partners' and principals' equity distributions from
   this survey, since that income is a share of the firm's own engagements,
   not a wage. Consulting firm ownership income varies enormously by firm

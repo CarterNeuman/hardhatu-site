@@ -21,10 +21,10 @@ payTimeline:
 ownerPayHighlight: >
   Running your own demolition contracting business means bidding jobs where
   salvage and scrap value can push the margin well past what labor alone
-  would pay — real upside on the right job, with the insurance and bonding
+  would pay: real upside on the right job, with the insurance and bonding
   costs a hazard-exposed trade like this carries as the tradeoff.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — the Bureau of Labor
+  These figures are wage-and-salary pay only. The Bureau of Labor
   Statistics excludes the self-employed and business owners from this
   survey entirely. No reliable published figure exists for a demolition
   contractor's income specifically; it depends heavily on job mix, salvage

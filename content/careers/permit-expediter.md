@@ -21,10 +21,10 @@ payTimeline:
 ownerPayHighlight: >
   Owning an expediting firm means your income scales with how many clients'
   projects you can push through plan review at once, not one employer's
-  payroll — the upside of juggling several permits comes with the risk of
+  payroll: the upside of juggling several permits comes with the risk of
   none of them closing on schedule.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — the Bureau of Labor
+  These figures are wage-and-salary pay only. The Bureau of Labor
   Statistics excludes the self-employed and business owners from this
   survey entirely. No reliable published figure exists for expediting-firm
   owner income specifically; it depends heavily on local jurisdiction

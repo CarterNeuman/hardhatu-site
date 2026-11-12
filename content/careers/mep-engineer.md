@@ -20,11 +20,11 @@ payTimeline:
   asOf: "2026, partial independent verification"
 ownerPayHighlight: >
   Making Principal at an MEP firm ties your income to the firm's own project
-  fees across mechanical, electrical, and plumbing design — real upside, but
+  fees across mechanical, electrical, and plumbing design: real upside, but
   tied to the same construction-cycle swings as the trades whose systems
   your firm designs.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — the Bureau of Labor
+  These figures are wage-and-salary pay only. The Bureau of Labor
   Statistics excludes principals' and partners' equity distributions from
   this survey entirely, since that income is a share of the firm's fee
   revenue, not a wage. MEP firm ownership stakes vary by firm size, which

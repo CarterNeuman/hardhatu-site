@@ -20,11 +20,11 @@ payTimeline:
   asOf: "2026 postings"
 ownerPayHighlight: >
   Starting your own deep-foundation contracting business means the pile-
-  driving rig and crane fleet are the real cost of entry — once that
+  driving rig and crane fleet are the real cost of entry; once that
   equipment is paid off, every job's margin is yours instead of a rental
   company's.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — the Bureau of Labor
+  These figures are wage-and-salary pay only. The Bureau of Labor
   Statistics excludes the self-employed and business owners from this
   survey entirely. No reliable published figure exists for deep-foundation
   contractor income specifically; it depends heavily on how much

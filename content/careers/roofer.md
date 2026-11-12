@@ -19,10 +19,10 @@ payTimeline:
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Roofers (SOC 47-2181), national data"
   asOf: "May 2025"
 ownerPayHighlight: >
-  Roofing income swings hard with the season and with storm work — real upside
+  Roofing income swings hard with the season and with storm work: real upside
   after a bad hailstorm, real risk carrying a crew through a slow winter.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — BLS excludes the self-employed
+  These figures are wage-and-salary pay only. BLS excludes the self-employed
   and business owners entirely, and no government source publishes a reliable
   owner-income figure for roofing contractors. Roofing work is unusually
   seasonal and storm-driven, so a business's income can look very different

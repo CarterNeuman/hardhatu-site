@@ -20,11 +20,11 @@ payTimeline:
   asOf: "October 2026"
 ownerPayHighlight: >
   Owning a public adjusting firm means your income comes from a cut of the
-  claims you win for your clients, not a salary — a trade that rewards
+  claims you win for your clients, not a salary: a trade that rewards
   negotiating a bigger settlement far more directly than any employee role
   on this site's insurance side.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — the Bureau of Labor
+  These figures are wage-and-salary pay only. The Bureau of Labor
   Statistics excludes the self-employed and firm owners from this survey
   entirely. Public adjusting firm income is typically a contingency fee, a
   percentage of whatever additional settlement the adjuster wins for the

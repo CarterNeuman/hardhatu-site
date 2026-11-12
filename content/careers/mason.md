@@ -19,10 +19,10 @@ payTimeline:
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Brickmasons and Blockmasons (SOC 47-2021), national data"
   asOf: "May 2025"
 ownerPayHighlight: >
-  A masonry company's pay isn't capped at an employee's wage — it's capped by
+  A masonry company's pay isn't capped at an employee's wage: it's capped by
   how many jobs you can bid, staff, and finish well in a season.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — BLS excludes the self-employed
+  These figures are wage-and-salary pay only. BLS excludes the self-employed
   and business owners entirely, and no government source publishes a reliable
   owner-income figure for masonry contractors. Most masonry work is bid by the
   job, so income tracks project pipeline and crew efficiency more than a

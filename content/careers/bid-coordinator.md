@@ -16,7 +16,7 @@ payTimeline:
   tenYear:
     low: 78740
     high: 101850
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Cost Estimators (SOC 13-1051), national data — entry/5-year/10-year mapped to the lower part of this occupation's wage distribution (10th-75th percentile), since Bid Coordinator is the entry point into estimating on this site's own progression path; see the Estimator page for the standard mapping and Senior Estimator for the upper part of the same distribution"
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Cost Estimators (SOC 13-1051), national data; entry/5-year/10-year mapped to the lower part of this occupation's wage distribution (10th-75th percentile), since Bid Coordinator is the entry point into estimating on this site's own progression path; see the Estimator page for the standard mapping and Senior Estimator for the upper part of the same distribution"
   asOf: "May 2025"
 whatIs: >
   A Bid Coordinator manages the administrative and logistical side of the

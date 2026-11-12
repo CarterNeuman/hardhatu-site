@@ -20,10 +20,10 @@ payTimeline:
   asOf: "May 2025"
 ownerPayHighlight: >
   Painting has one of the lowest barriers to business ownership in
-  construction — which is exactly why it's also one of the most competitive to
+  construction, which is exactly why it's also one of the most competitive to
   price.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — BLS excludes the self-employed
+  These figures are wage-and-salary pay only. BLS excludes the self-employed
   and business owners entirely. No reliable owner-income figure exists for
   painting contractors specifically; low startup costs mean a crowded field of
   small crews, which can make pricing a job as much a skill as the painting

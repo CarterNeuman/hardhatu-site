@@ -20,10 +20,10 @@ payTimeline:
   asOf: "May 2025"
 ownerPayHighlight: >
   Running a glass and glazing company leans on bigger commercial contracts
-  than most trades — real upside on a good bid, real risk carrying the cost of
+  than most trades: real upside on a good bid, real risk carrying the cost of
   glass and crew between jobs.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — BLS excludes the self-employed
+  These figures are wage-and-salary pay only. BLS excludes the self-employed
   and business owners entirely, and no government source publishes a reliable
   owner-income figure for glazing contractors. Commercial glazing work is
   often won through competitive bidding on larger jobs, so income tends to

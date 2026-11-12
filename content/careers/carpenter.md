@@ -20,16 +20,16 @@ payTimeline:
   asOf: "May 2025"
 ownerPayHighlight: >
   A framing or finish carpentry crew is one of the most common paths from
-  trade to business owner — the pay ceiling moves with the work you can win,
+  trade to business owner: the pay ceiling moves with the work you can win,
   not a wage scale.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — the Bureau of Labor Statistics
+  These figures are wage-and-salary pay only. The Bureau of Labor Statistics
   excludes the self-employed and business owners from its survey entirely. No
   government or trade-association source publishes a reliable owner-income
   figure for carpentry contractors specifically; what circulates online is
   either regular employee pay mislabeled "contractor," or too broad to mean
   much for one trade. Margins depend heavily on whether work is bid by the job
-  or billed by the hour — worth researching your own market before trusting
+  or billed by the hour; it's worth researching your own market before trusting
   any number you find.
 whatIs: >
   A Carpenter builds and installs wood, metal-stud, and composite

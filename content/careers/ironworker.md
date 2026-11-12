@@ -19,11 +19,11 @@ payTimeline:
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Structural Iron and Steel Workers (SOC 47-2221), national data"
   asOf: "May 2025"
 ownerPayHighlight: >
-  Structural steel erection takes real capital — crane access, bonding,
-  insurance — to go independent; ornamental and custom metalwork is the more
+  Structural steel erection takes real capital (crane access, bonding,
+  insurance) to go independent; ornamental and custom metalwork is the more
   common small-business path for ironworkers.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — BLS excludes the self-employed
+  These figures are wage-and-salary pay only. BLS excludes the self-employed
   and business owners entirely. No reliable owner-income figure exists for
   ironworking businesses, and the two paths look very different: structural
   steel erection is capital- and bonding-intensive, usually run by established

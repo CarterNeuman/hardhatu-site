@@ -16,7 +16,7 @@ payTimeline:
   tenYear:
     low: 66150
     high: 80870
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Architectural and Civil Drafters (SOC 17-3011), national data — entry/5-year/10-year mapped to the lower part of this occupation's wage distribution (10th-75th percentile), since CAD Technician is the entry point into drafting/design-technology work on this site's own progression path; see BIM/VDC Specialist for the upper part of the same distribution"
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Architectural and Civil Drafters (SOC 17-3011), national data; entry/5-year/10-year mapped to the lower part of this occupation's wage distribution (10th-75th percentile), since CAD Technician is the entry point into drafting/design-technology work on this site's own progression path; see BIM/VDC Specialist for the upper part of the same distribution"
   asOf: "May 2025"
 whatIs: >
   A CAD (Computer-Aided Design) Technician produces and revises technical

@@ -19,10 +19,10 @@ payTimeline:
   source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Electricians (SOC 47-2111), national data"
   asOf: "May 2025"
 ownerPayHighlight: >
-  Building your own electrical company isn't capped at an employee's wage
-  — it trades a guaranteed paycheck for real upside, and real risk.
+  Building your own electrical company isn't capped at an employee's wage: it trades a guaranteed paycheck
+  for real upside, and real risk.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — the Bureau of Labor
+  These figures are wage-and-salary pay only. The Bureau of Labor
   Statistics excludes the self-employed and business owners from this
   survey entirely. No government or trade-association source publishes a
   reliable owner-income figure at the single-trade level either: what's

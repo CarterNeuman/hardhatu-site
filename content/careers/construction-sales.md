@@ -16,7 +16,7 @@ payTimeline:
   tenYear:
     low: 99640
     high: 137550
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Sales Representatives, Wholesale and Manufacturing, Except Technical and Scientific Products (SOC 41-4012), national data — the closest BLS classification for direct, non-manufacturing B2B sales; see Business Development Manager for the more senior, strategic counterpart once a career moves into sales management"
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Sales Representatives, Wholesale and Manufacturing, Except Technical and Scientific Products (SOC 41-4012), national data (the closest BLS classification for direct, non-manufacturing B2B sales); see Business Development Manager for the more senior, strategic counterpart once a career moves into sales management"
   asOf: "May 2025"
 whatIs: >
   A Construction Sales or Business Development professional identifies and

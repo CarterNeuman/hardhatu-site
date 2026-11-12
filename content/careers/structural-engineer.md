@@ -19,11 +19,11 @@ payTimeline:
   source: "Derived from the Civil Engineer data (Payscale, ASCE 2026 Salary Survey) with a modest differentiation at the mid and senior bands (confidence: low-medium, pending a dedicated NCSEA/ACEC survey search), reflecting the SE-licensed structural-engineer pay premium reported in industry compensation surveys; BLS has no separate code for this occupation, so the site previously just copied Civil Engineer's figures verbatim"
   asOf: "2026, partial independent verification"
 ownerPayHighlight: >
-  Making Principal at a structural firm means your stamp — and your firm's
-  liability exposure — backs every calculation the firm signs off on; the
+  Making Principal at a structural firm means your stamp (and your firm's
+  liability exposure) backs every calculation the firm signs off on; the
   ownership upside comes bundled with that exposure.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — the Bureau of Labor
+  These figures are wage-and-salary pay only. The Bureau of Labor
   Statistics excludes principals' and partners' equity distributions from
   this survey entirely, since that income is a share of the firm's fee
   revenue, not a wage. Structural firm ownership stakes vary by firm size,

@@ -20,10 +20,10 @@ payTimeline:
   asOf: "May 2025"
 ownerPayHighlight: >
   Solar installation is one of the newer trades to build a contracting
-  business around — real upside as demand grows, real risk tied to incentives
+  business around: real upside as demand grows, real risk tied to incentives
   and permitting that can shift by state.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — BLS excludes the self-employed
+  These figures are wage-and-salary pay only. BLS excludes the self-employed
   and business owners entirely, and it's a new enough occupation that even
   less owner-income data exists than for established trades. Solar contracting
   income is also unusually exposed to policy: state incentives, utility

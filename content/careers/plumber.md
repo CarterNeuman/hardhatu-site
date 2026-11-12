@@ -16,14 +16,14 @@ payTimeline:
   tenYear:
     low: 106390
     high: 135520
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Plumbers, Pipefitters, and Steamfitters (SOC 47-2152), national data — BLS tracks this trade jointly with Pipefitters/Steamfitters, so the figures match that career's"
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Plumbers, Pipefitters, and Steamfitters (SOC 47-2152), national data; BLS tracks this trade jointly with Pipefitters/Steamfitters, so the figures match that career's"
   asOf: "May 2025"
 ownerPayHighlight: >
-  Plumbing is one of the most common trades to turn into a business — a
+  Plumbing is one of the most common trades to turn into a business: a
   licensed master plumber can bid their own jobs, not just work someone
   else's.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — the Bureau of Labor Statistics
+  These figures are wage-and-salary pay only. The Bureau of Labor Statistics
   excludes the self-employed and business owners from this survey entirely. No
   government or trade-association source publishes a reliable owner-income
   figure for plumbing contractors specifically; what's out there online is

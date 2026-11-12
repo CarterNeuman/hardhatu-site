@@ -16,7 +16,7 @@ payTimeline:
   tenYear:
     low: 66700
     high: 81630
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Surveying and Mapping Technicians (SOC 17-3031), national data — no BLS code exists specifically for drone/UAV operation; this is the closest classification given how much of the role's field data-collection work overlaps with ground survey crews"
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Surveying and Mapping Technicians (SOC 17-3031), national data; no BLS code exists specifically for drone/UAV operation; this is the closest classification given how much of the role's field data-collection work overlaps with ground survey crews"
   asOf: "May 2025"
 whatIs: >
   A Drone/UAV Specialist operates unmanned aircraft to capture aerial

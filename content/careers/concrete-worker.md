@@ -20,15 +20,15 @@ payTimeline:
   asOf: "May 2025"
 ownerPayHighlight: >
   Owning a concrete finishing company trades an hourly ceiling for
-  bid-by-the-job margins — real upside on a good season, real exposure when
+  bid-by-the-job margins: real upside on a good season, real exposure when
   the weather or the market turns.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — BLS excludes the self-employed
+  These figures are wage-and-salary pay only. BLS excludes the self-employed
   and business owners entirely. No government survey publishes a reliable
   income figure for concrete contracting business owners, and most of what's
   online repeats unsourced marketing content rather than real data. Flatwork
   pricing swings a lot with weather, local competition, and whether a crew
-  owns its own equipment or rents it — worth researching your own market
+  owns its own equipment or rents it; it's worth researching your own market
   before trusting any number you find.
 whatIs: >
   A Concrete Worker (also called a Cement Mason or Concrete Finisher)

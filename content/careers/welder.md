@@ -20,10 +20,10 @@ payTimeline:
   asOf: "May 2025"
 ownerPayHighlight: >
   Mobile welding and custom fabrication is a common path out of structural
-  steel work — real upside pricing your own jobs, real risk owning the
+  steel work: real upside pricing your own jobs, real risk owning the
   equipment and truck that make it mobile.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — BLS excludes the self-employed
+  These figures are wage-and-salary pay only. BLS excludes the self-employed
   and business owners entirely. No reliable owner-income figure exists for
   welding and fabrication businesses specifically; a mobile welding rig or a
   small fabrication shop both take real equipment investment before the first

@@ -20,11 +20,11 @@ payTimeline:
   asOf: "2024-2026"
 ownerPayHighlight: >
   Running your own testifying-expert practice means billing for your own
-  name and credibility — the opinion you're willing to put under oath is the
+  name and credibility: the opinion you're willing to put under oath is the
   entire product, worth more the harder it is to find someone else qualified
   to give it.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — the Bureau of Labor
+  These figures are wage-and-salary pay only. The Bureau of Labor
   Statistics excludes the self-employed and independent practitioners from
   this survey entirely, and most full-time expert witnesses bill as
   independent consultants rather than employees. No reliable published

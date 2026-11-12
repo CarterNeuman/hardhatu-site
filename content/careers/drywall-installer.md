@@ -20,9 +20,9 @@ payTimeline:
   asOf: "May 2025"
 ownerPayHighlight: >
   A drywall or finishing crew has one of the lowest startup costs of any trade
-  business — which also makes it one of the most competitive to bid.
+  business, which also makes it one of the most competitive to bid.
 ownerPayNote: >
-  These figures are wage-and-salary pay only — BLS excludes the self-employed
+  These figures are wage-and-salary pay only. BLS excludes the self-employed
   and business owners entirely. No reliable owner-income figure exists for
   drywall contracting specifically; low barriers to entry mean a lot of small
   crews competing on price, which can squeeze margins as easily as it opens

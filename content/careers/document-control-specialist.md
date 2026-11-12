@@ -16,7 +16,7 @@ payTimeline:
   tenYear:
     low: 102320
     high: 133100
-  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Project Management Specialists (SOC 13-1082), national data — entry/5-year/10-year mapped to the lower half of this occupation's wage distribution (10th-75th percentile), since this is an earlier step on the project-controls ladder than Project Engineer; see that page for the upper-half mapping of the same distribution"
+  source: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), Project Management Specialists (SOC 13-1082), national data; entry/5-year/10-year mapped to the lower half of this occupation's wage distribution (10th-75th percentile), since this is an earlier step on the project-controls ladder than Project Engineer; see that page for the upper-half mapping of the same distribution"
   asOf: "May 2025"
 whatIs: >
   A Document Control Specialist manages the flow of project
