@@ -39,4 +39,5 @@ relatedIds:
   - concept-submittal-log
   - concept-commissioning
   - concept-cobie
+  - concept-owner-training-session
 ---

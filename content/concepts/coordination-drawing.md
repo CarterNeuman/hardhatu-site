@@ -34,4 +34,5 @@ relatedIds:
   - concept-clash-detection
   - concept-rough-in-hvac
   - lesson-mechanical-and-plumbing-rough-in
+  - concept-bim-coordination-meeting
 ---

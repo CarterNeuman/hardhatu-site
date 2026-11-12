@@ -32,4 +32,5 @@ relatedIds:
   - career-scheduler
   - concept-critical-path
   - concept-look-ahead-schedule
+  - concept-resource-leveling
 ---

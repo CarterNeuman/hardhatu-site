@@ -39,4 +39,5 @@ relatedIds:
   - concept-wall-corner-guards
   - lesson-value-engineering
   - concept-first-cost-vs-lifecycle-cost
+  - concept-value-engineering-change-proposal
 ---

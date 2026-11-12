@@ -36,4 +36,6 @@ relatedIds:
   - concept-cost-to-complete
   - concept-committed-cost
   - lesson-cost-control-and-forecasting-in-practice
+  - concept-schedule-performance-index
+  - concept-variance-at-completion
 ---

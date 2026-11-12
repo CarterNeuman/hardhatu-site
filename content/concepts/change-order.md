@@ -53,4 +53,5 @@ relatedIds:
   - career-senior-estimator
   - interview-project-manager
   - lesson-cost-control-and-forecasting-in-practice
+  - concept-change-order-log
 ---

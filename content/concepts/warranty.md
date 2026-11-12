@@ -43,4 +43,5 @@ relatedIds:
   - concept-warranty-walk
   - concept-om-manuals
   - lesson-when-its-not-the-storms-fault
+  - concept-warranty-log
 ---
