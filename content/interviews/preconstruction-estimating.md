@@ -84,6 +84,9 @@ relatedIds:
   - career-bid-coordinator
   - career-value-engineering-consultant
   - career-heavy-civil-estimator
+  - career-chief-estimator
+  - career-mep-estimator
+  - career-commercial-manager-construction
   - lesson-value-engineering
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating

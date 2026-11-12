@@ -171,4 +171,6 @@ relatedIds:
   - career-hr-manager-construction
   - career-procurement-manager
   - career-certified-payroll-specialist
+  - career-controller-cfo-construction
+  - career-equipment-fleet-manager
 ---

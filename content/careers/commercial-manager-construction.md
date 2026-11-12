@@ -95,10 +95,10 @@ relatedIds:
   - concept-unit-price-contract
   - concept-general-conditions
   - concept-no-damage-for-delay
-  - interview-business
+  - interview-preconstruction-estimating
   - lesson-getting-paid
-  - resume-business
-  - gethired-business
+  - resume-preconstruction-estimating
+  - gethired-preconstruction-estimating
   - phase-procurement-preconstruction
 recommendedIds:
   - career-contracts-administrator

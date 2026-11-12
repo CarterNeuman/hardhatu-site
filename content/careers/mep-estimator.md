@@ -94,6 +94,7 @@ relatedIds:
   - concept-electrical-conductor
   - concept-plumbing-fixtures
   - concept-national-electrical-code
+  - exam-cpe
   - interview-preconstruction-estimating
   - lesson-bidding-and-winning-work
   - lesson-a-day-in-the-life-of-an-estimator

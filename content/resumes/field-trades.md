@@ -64,4 +64,10 @@ relatedIds:
   - career-pipefitter
   - career-millwright
   - career-solar-installer
+  - career-insulation-installer
+  - career-flooring-installer
+  - career-tile-setter
+  - career-waterproofing-installer
+  - career-plasterer-stucco-mason
+  - career-sprinkler-fitter
 ---

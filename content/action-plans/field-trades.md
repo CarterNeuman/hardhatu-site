@@ -172,4 +172,10 @@ relatedIds:
   - career-welder
   - career-hvac-technician
   - career-equipment-operator
+  - career-insulation-installer
+  - career-flooring-installer
+  - career-tile-setter
+  - career-waterproofing-installer
+  - career-plasterer-stucco-mason
+  - career-sprinkler-fitter
 ---

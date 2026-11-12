@@ -47,4 +47,7 @@ relatedIds:
   - career-bid-coordinator
   - career-value-engineering-consultant
   - career-heavy-civil-estimator
+  - career-chief-estimator
+  - career-mep-estimator
+  - career-commercial-manager-construction
 ---

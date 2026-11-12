@@ -68,6 +68,9 @@ relatedIds:
   - career-bid-coordinator
   - career-value-engineering-consultant
   - career-heavy-civil-estimator
+  - career-chief-estimator
+  - career-mep-estimator
+  - career-commercial-manager-construction
   - gethired-general
 ---
 Whether you're aiming to become an [[career-estimator|estimator]], a [[career-cost-engineer|cost engineer]], or move into [[career-preconstruction-manager|preconstruction management]], this category rewards specificity early and relationships over time. Here's what actually gets you in the door, and what keeps you there.

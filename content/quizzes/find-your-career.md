@@ -13,7 +13,7 @@ questions:
     options:
       - label: "A trade or vocational program, like welding, electrical, HVAC, or automotive"
         pointsToCategories: ["Field & Trades"]
-        pointsToCareerIds: ["career-electrician", "career-plumber", "career-hvac-technician", "career-welder"]
+        pointsToCareerIds: ["career-electrician", "career-plumber", "career-hvac-technician", "career-welder", "career-sprinkler-fitter"]
       - label: "Business, finance, or accounting"
         pointsToCategories: ["Business"]
         pointsToCareerIds: ["career-construction-accountant", "career-contracts-administrator", "career-procurement-manager"]
@@ -22,21 +22,21 @@ questions:
         pointsToCareerIds: ["career-bim-vdc-specialist", "career-cad-technician", "career-surveyor", "career-construction-data-analyst"]
       - label: "Nothing specific to any of these, or I'm in school for something unrelated"
         pointsToCategories: ["Project & Operations"]
-        pointsToCareerIds: ["career-project-engineer", "career-assistant-project-manager", "career-laborer"]
+        pointsToCareerIds: ["career-project-engineer", "career-assistant-project-manager", "career-laborer", "career-field-engineer"]
       - label: "Nothing formal — whatever I know, I've picked up through work, family, or figuring things out myself"
         pointsToCategories: ["Field & Trades"]
-        pointsToCareerIds: ["career-laborer", "career-equipment-operator", "career-concrete-worker"]
+        pointsToCareerIds: ["career-laborer", "career-equipment-operator", "career-concrete-worker", "career-insulation-installer", "career-flooring-installer"]
   - question: "Forget what you studied for a second. Which of these actually sounds like you?"
     options:
       - label: "I want to build or fix something real with my hands"
         pointsToCategories: ["Field & Trades"]
-        pointsToCareerIds: ["career-carpenter", "career-mason", "career-laborer", "career-concrete-worker"]
+        pointsToCareerIds: ["career-carpenter", "career-mason", "career-laborer", "career-concrete-worker", "career-plasterer-stucco-mason", "career-tile-setter"]
       - label: "I want to be the person everyone comes to when something needs organizing"
         pointsToCategories: ["Project & Operations"]
-        pointsToCareerIds: ["career-superintendent", "career-project-manager", "career-assistant-project-manager"]
+        pointsToCareerIds: ["career-superintendent", "career-project-manager", "career-assistant-project-manager", "career-general-superintendent"]
       - label: "I want to work with numbers and figure out what things should cost"
         pointsToCategories: ["Preconstruction & Estimating"]
-        pointsToCareerIds: ["career-estimator", "career-cost-engineer"]
+        pointsToCareerIds: ["career-estimator", "career-cost-engineer", "career-mep-estimator"]
       - label: "I want to use technology and data to solve real problems"
         pointsToCategories: ["Technology & Design"]
         pointsToCareerIds: ["career-construction-data-analyst", "career-bim-vdc-specialist"]
@@ -50,18 +50,18 @@ questions:
         pointsToCareerIds: ["career-insurance-adjuster", "career-public-adjuster"]
       - label: "Get the schedule back on track before it slips further"
         pointsToCategories: ["Project & Operations"]
-        pointsToCareerIds: ["career-scheduler", "career-superintendent"]
+        pointsToCareerIds: ["career-scheduler", "career-superintendent", "career-senior-project-manager"]
       - label: "Rework the budget to absorb the change"
         pointsToCategories: ["Preconstruction & Estimating"]
-        pointsToCareerIds: ["career-cost-engineer", "career-estimator"]
+        pointsToCareerIds: ["career-cost-engineer", "career-estimator", "career-commercial-manager-construction"]
   - question: "Which work environment actually sounds good to you?"
     options:
       - label: "Outdoors, on a job site, something different every day"
         pointsToCategories: ["Field & Trades"]
-        pointsToCareerIds: ["career-equipment-operator", "career-roofer", "career-ironworker", "career-painter"]
+        pointsToCareerIds: ["career-equipment-operator", "career-roofer", "career-ironworker", "career-painter", "career-waterproofing-installer"]
       - label: "An office most days, but out visiting sites regularly"
         pointsToCategories: ["Project & Operations"]
-        pointsToCareerIds: ["career-project-manager", "career-quality-control-manager", "career-safety-manager"]
+        pointsToCareerIds: ["career-project-manager", "career-quality-control-manager", "career-safety-manager", "career-safety-coordinator"]
       - label: "Mostly an office or remote, working through data and reports"
         pointsToCategories: ["Technology & Design"]
         pointsToCareerIds: ["career-construction-data-analyst", "career-bim-vdc-specialist"]
@@ -81,7 +81,7 @@ questions:
         pointsToCareerIds: ["career-drone-uav-specialist", "career-bim-vdc-specialist"]
       - label: "Digging into the numbers to figure out exactly what a job should cost"
         pointsToCategories: ["Preconstruction & Estimating"]
-        pointsToCareerIds: ["career-cost-engineer", "career-quantity-surveyor"]
+        pointsToCareerIds: ["career-cost-engineer", "career-quantity-surveyor", "career-chief-estimator"]
   - question: "A major storm just hit a neighborhood. What job would you want in the aftermath?"
     options:
       - label: "Going door to door assessing what got damaged and what it's actually worth"

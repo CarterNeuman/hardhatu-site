@@ -91,6 +91,7 @@ relatedIds:
   - concept-pre-construction-survey
   - concept-daily-report
   - concept-quantity-takeoff
+  - exam-osha-10
   - interview-project-operations
   - lesson-jobsite-safety-in-practice
   - resume-project-operations

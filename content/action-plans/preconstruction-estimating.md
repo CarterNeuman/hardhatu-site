@@ -177,4 +177,7 @@ relatedIds:
   - career-preconstruction-manager
   - career-quantity-surveyor
   - career-bid-coordinator
+  - career-chief-estimator
+  - career-mep-estimator
+  - career-commercial-manager-construction
 ---

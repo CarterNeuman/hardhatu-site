@@ -121,6 +121,10 @@ relatedIds:
   - lesson-reading-a-set-of-plans
   - lesson-submittals-and-shop-drawings
   - career-qaqc-inspector
+  - career-senior-project-manager
+  - career-general-superintendent
+  - career-safety-coordinator
+  - career-field-engineer
   - lesson-change-order-basics
   - resume-project-operations
   - gethired-project-operations

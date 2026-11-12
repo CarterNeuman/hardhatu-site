@@ -169,4 +169,7 @@ relatedIds:
   - career-environmental-remediation-specialist
   - career-pile-driving-specialist
   - career-demolition-supervisor
+  - career-healthcare-construction-manager
+  - career-tenant-improvement-construction-manager
+  - career-facilities-manager
 ---

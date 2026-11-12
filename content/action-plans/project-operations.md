@@ -176,4 +176,8 @@ relatedIds:
   - career-scheduler
   - career-assistant-project-manager
   - career-project-engineer
+  - career-senior-project-manager
+  - career-general-superintendent
+  - career-safety-coordinator
+  - career-field-engineer
 ---

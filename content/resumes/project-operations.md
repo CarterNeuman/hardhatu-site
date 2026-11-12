@@ -51,4 +51,8 @@ relatedIds:
   - career-document-control-specialist
   - career-assistant-superintendent
   - career-qaqc-inspector
+  - career-senior-project-manager
+  - career-general-superintendent
+  - career-safety-coordinator
+  - career-field-engineer
 ---
