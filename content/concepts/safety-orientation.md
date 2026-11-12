@@ -41,4 +41,5 @@ relatedIds:
   - concept-emergency-action-plan
   - concept-osha-10-30-training
   - lesson-a-day-as-a-laborer
+  - concept-dot-drug-alcohol-testing-program
 ---

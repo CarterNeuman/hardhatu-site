@@ -36,4 +36,5 @@ relatedIds:
   - phase-construction
   - software-hammertech
   - concept-emergency-action-plan
+  - concept-fire-watch
 ---

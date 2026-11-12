@@ -21,7 +21,9 @@ careerAngle: >
   A [[career-qaqc-inspector|QA/QC Inspector]] checks that the built condition
   actually matches the approved egress plan, since furniture, storage, or a locked
   door can silently violate egress requirements even when the drawings were
-  correct.
+  correct. Meeting standard egress requirements also doesn't by itself satisfy
+  [[concept-accessible-means-of-egress|accessible means of egress]] rules, which
+  cover how a mobility-impaired occupant evacuates independently.
 whatGoesWrong: >
   A tenant improvement's furniture layout narrows a required exit corridor below
   its code-minimum clear width, and the discrepancy isn't caught until a life-safety
@@ -34,4 +36,5 @@ relatedIds:
   - concept-certificate-of-occupancy
   - concept-ada-title-iii-compliance
   - concept-interior-signage-wayfinding
+  - concept-accessible-means-of-egress
 ---

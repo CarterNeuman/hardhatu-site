@@ -23,7 +23,10 @@ careerAngle: >
   lift plan's specified configuration exactly, since deviating from it, a different
   angle, a different radius, can put the lift outside the crane's verified capacity. A
   [[career-safety-manager|Safety Manager]] reviews and approves lift plans for
-  higher-risk or critical lifts before they happen.
+  higher-risk or critical lifts before they happen, and separately confirms the
+  operator holds the
+  [[concept-crane-operator-signal-person-certification|required certification]]
+  for the machine being used.
 whatGoesWrong: >
   A crew proceeds with a lift at a slightly wider radius than the approved lift plan
   specified, assuming the difference is negligible. The wider radius reduces the crane's
@@ -36,4 +39,5 @@ relatedIds:
   - concept-osha
   - phase-construction
   - lesson-structural-steel-erection
+  - concept-crane-operator-signal-person-certification
 ---

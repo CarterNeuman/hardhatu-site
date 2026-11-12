@@ -36,4 +36,5 @@ relatedIds:
   - concept-first-notice-of-loss
   - lesson-claim-to-restoration
   - concept-trauma-biohazard-cleanup
+  - concept-bloodborne-pathogens-standard
 ---

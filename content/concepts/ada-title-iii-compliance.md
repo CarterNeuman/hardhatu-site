@@ -27,7 +27,10 @@ whatGoesWrong: >
   A renovation crosses the line from minor repair into a full alteration without
   anyone updating the accessible path of travel to match, and a plan reviewer
   rejects the permit application over the gap, forcing a redesign after the
-  contractor had already priced and scheduled the original scope.
+  contractor had already priced and scheduled the original scope. Which
+  obligations actually apply can also shift depending on whether the facility is
+  privately owned or government-operated; see
+  [[concept-ada-title-ii-vs-title-iii|ADA Title II vs. Title III]].
 relatedIds:
   - career-permit-expediter
   - concept-building-code
@@ -37,4 +40,5 @@ relatedIds:
   - concept-toilet-partitions
   - concept-interior-signage-wayfinding
   - concept-wheelchair-lifts
+  - concept-ada-title-ii-vs-title-iii
 ---

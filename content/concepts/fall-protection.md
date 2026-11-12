@@ -38,5 +38,5 @@ relatedIds:
   - phase-construction
   - lesson-building-sequence
   - lesson-structural-steel-erection
-
+  - concept-ladder-safety-standard
 ---

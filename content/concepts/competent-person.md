@@ -29,7 +29,10 @@ whatGoesWrong: >
   because of seniority, without confirming they actually have the training to evaluate
   soil conditions. An inspection that should have caught an inadequate protective system
   gets signed off anyway, because the person signing it wasn't equipped to catch the
-  problem in the first place.
+  problem in the first place. Some tasks go a step further and require sign-off
+  from a [[concept-qualified-person|Qualified Person]] instead, a distinct
+  designation resting on a formal credential or extensive documented experience
+  rather than field authority alone.
 relatedIds:
   - career-equipment-operator
   - career-safety-manager
@@ -46,4 +49,6 @@ relatedIds:
   - lesson-heavy-equipment-and-earthwork
   - lesson-a-day-as-a-laborer
   - concept-osha-soil-classification
+  - concept-powered-industrial-truck-certification
+  - concept-qualified-person
 ---

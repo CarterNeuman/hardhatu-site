@@ -21,6 +21,9 @@ careerAngle: >
   steel to a crane's hook, choosing the configuration for each specific piece being
   lifted. An [[career-equipment-operator|Equipment Operator]] running the crane depends
   entirely on the rigger having set up the load correctly before committing to the lift.
+  That same operator also has to hold the
+  [[concept-crane-operator-signal-person-certification|certification]] OSHA requires
+  for cranes over 2,000 pounds rated capacity.
 whatGoesWrong: >
   A rigger reuses a sling rated for a lighter, more common load on a heavier and
   differently shaped piece without re-checking the sling's rated capacity for the actual
@@ -34,5 +37,6 @@ relatedIds:
   - phase-construction
   - career-millwright
   - lesson-structural-steel-erection
-
+  - concept-powered-industrial-truck-certification
+  - concept-crane-operator-signal-person-certification
 ---

@@ -36,4 +36,5 @@ relatedIds:
   - concept-egress-requirements
   - concept-overhead-coiling-doors
   - concept-access-doors-panels
+  - concept-sprinkler-system-requirements-nfpa-13
 ---

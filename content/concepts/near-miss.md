@@ -35,4 +35,5 @@ relatedIds:
   - concept-stop-work-authority
   - phase-construction
   - lesson-jobsite-safety-in-practice
+  - concept-incident-investigation-procedure
 ---

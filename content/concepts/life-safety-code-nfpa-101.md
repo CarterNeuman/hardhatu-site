@@ -37,4 +37,5 @@ relatedIds:
   - concept-firestopping
   - concept-overhead-coiling-doors
   - concept-standby-generator
+  - concept-sprinkler-system-requirements-nfpa-13
 ---

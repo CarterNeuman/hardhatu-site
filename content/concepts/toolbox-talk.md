@@ -26,7 +26,9 @@ whatGoesWrong: >
   A superintendent skips the morning toolbox talk on a busy day, assuming the crew
   already knows the hazards from having done similar work before. A new hire on that
   crew, who missed the site-specific context a talk would have covered, gets hurt on a
-  hazard the rest of the crew would have flagged immediately.
+  hazard the rest of the crew would have flagged immediately. A toolbox talk covers a
+  general topic; a [[concept-pre-task-plan|pre-task plan]] is the narrower, same-day
+  check on that specific task's current conditions.
 relatedIds:
   - career-superintendent
   - career-safety-manager
@@ -39,4 +41,5 @@ relatedIds:
   - career-assistant-superintendent
   - concept-emergency-action-plan
   - lesson-a-day-as-a-laborer
+  - concept-pre-task-plan
 ---

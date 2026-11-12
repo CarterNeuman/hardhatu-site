@@ -36,4 +36,5 @@ relatedIds:
   - concept-job-hazard-analysis
   - gethired-field-trades
   - exam-cpr-first-aid
+  - concept-child-labor-law-compliance-construction
 ---

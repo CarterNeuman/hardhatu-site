@@ -35,4 +35,5 @@ relatedIds:
   - concept-panel-board
   - lesson-electrical-rough-in
   - lesson-solar-and-renewable-energy-on-a-jobsite
+  - concept-trade-permits-electrical-mechanical-plumbing
 ---

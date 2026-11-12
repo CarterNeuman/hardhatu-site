@@ -37,4 +37,5 @@ relatedIds:
   - lesson-jobsite-safety-in-practice
   - career-loss-control-engineer
   - concept-wearable-safety-technology
+  - concept-osha-300-log-posting
 ---

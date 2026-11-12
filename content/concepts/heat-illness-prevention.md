@@ -35,4 +35,5 @@ relatedIds:
   - concept-osha
   - phase-construction
   - lesson-a-day-as-a-laborer
+  - concept-ergonomics-musculoskeletal-injury-prevention
 ---

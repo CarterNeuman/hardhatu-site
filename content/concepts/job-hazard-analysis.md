@@ -25,7 +25,9 @@ whatGoesWrong: >
   A crew fills out a JHA as a formality, copying a previous one without actually
   discussing the current task's real hazards. A step the generic form didn't anticipate,
   an underground utility line in the wrong place, causes an incident a genuine,
-  task-specific analysis would likely have flagged in advance.
+  task-specific analysis would likely have flagged in advance. A quick
+  [[concept-pre-task-plan|pre-task plan]] huddle right before work starts catches
+  what's changed since the JHA was written, like overnight weather.
 relatedIds:
   - career-safety-manager
   - career-superintendent
@@ -42,4 +44,6 @@ relatedIds:
   - concept-osha-10-30-training
   - concept-struck-by-hazard
   - concept-hierarchy-of-controls
+  - concept-ladder-safety-standard
+  - concept-pre-task-plan
 ---

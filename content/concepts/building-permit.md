@@ -26,7 +26,9 @@ careerAngle: >
   inspected, until the right permit is in hand. An
   [[career-owners-representative|Owner's Representative]] often manages the permitting
   process directly on the owner's behalf, especially on projects where permitting
-  timelines are a major schedule risk.
+  timelines are a major schedule risk. A general building permit doesn't cover
+  everything either: electrical, mechanical, and plumbing scopes typically need
+  their own separate [[concept-trade-permits-electrical-mechanical-plumbing|trade permits]].
 whatGoesWrong: >
   A project manager assumes a scope change is minor enough not to need a permit revision
   and proceeds with the work anyway. A routine inspection catches the unpermitted change,
@@ -49,4 +51,5 @@ relatedIds:
   - lesson-reading-a-set-of-plans
   - lesson-permits-inspections-and-the-paper-trail
   - concept-section-106-historic-review
+  - concept-trade-permits-electrical-mechanical-plumbing
 ---
