@@ -123,6 +123,7 @@ relatedIds:
   - concept-deficiency-list
   - concept-hold-point-witness-point
   - concept-inspection-and-test-plan
+  - career-geotechnical-engineer
 recommendedIds:
   - career-quality-control-manager
   - career-assistant-superintendent

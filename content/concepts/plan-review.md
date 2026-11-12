@@ -39,5 +39,7 @@ relatedIds:
   - career-permit-expediter
   - concept-ada-title-iii-compliance
   - lesson-reading-a-set-of-plans
+  - career-architect
+  - career-landscape-architect
   - concept-seismic-design-category
 ---

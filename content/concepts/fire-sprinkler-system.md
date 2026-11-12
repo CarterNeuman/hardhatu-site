@@ -42,5 +42,6 @@ relatedIds:
   - phase-construction
   - career-pipefitter
   - concept-fire-pump
+  - career-fire-protection-engineer
   - concept-wet-dry-sprinkler-systems
 ---

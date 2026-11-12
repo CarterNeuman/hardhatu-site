@@ -22,10 +22,12 @@ example: >
   percent of the laboratory's maximum dry density before the contractor is
   allowed to place the next lift.
 careerAngle: >
-  A [[career-civil-engineer|Civil Engineer]] specifies the required
-  compaction percentage based on the geotechnical report. A
-  [[career-qaqc-inspector|QA/QC Inspector]] or geotechnical testing firm
-  verifies each lift meets that requirement before construction proceeds.
+  A [[career-geotechnical-engineer|Geotechnical Engineer]] sets the
+  required compaction percentage in the geotechnical report, and a
+  [[career-civil-engineer|Civil Engineer]] carries that requirement into
+  the grading design. A [[career-qaqc-inspector|QA/QC Inspector]] or
+  geotechnical testing firm verifies each lift meets that requirement
+  before construction proceeds.
 whatGoesWrong: >
   A contractor places several lifts of fill without waiting for compaction
   test results between each one, assuming the soil is compacting adequately
@@ -37,5 +39,6 @@ relatedIds:
   - career-qaqc-inspector
   - lesson-from-dirt-to-deck
   - concept-geotechnical-report
+  - career-geotechnical-engineer
   - concept-compaction-equipment
 ---

@@ -23,10 +23,12 @@ example: >
   project's geotechnical report, rather than a generic assumption based on
   the region's typical soil conditions.
 careerAngle: >
-  A [[career-civil-engineer|Civil Engineer]] or geotechnical engineer
-  prepares the report based on soil borings and lab testing. A
-  [[career-structural-engineer|Structural Engineer]] designs the foundation
-  directly from the report's specific recommendations.
+  A [[career-geotechnical-engineer|Geotechnical Engineer]] prepares the
+  report based on soil borings and lab testing. A
+  [[career-civil-engineer|Civil Engineer]] uses it to finalize grading and
+  drainage design, and a [[career-structural-engineer|Structural Engineer]]
+  designs the foundation directly from the report's specific
+  recommendations.
 whatGoesWrong: >
   A developer starts foundation design on a fast-tracked project before the
   geotechnical report is complete, using a generic bearing capacity
@@ -41,5 +43,6 @@ relatedIds:
   - concept-soil-compaction-testing
   - concept-deep-foundations
   - lesson-from-dirt-to-deck
+  - career-geotechnical-engineer
   - concept-blasting-rock-removal
 ---

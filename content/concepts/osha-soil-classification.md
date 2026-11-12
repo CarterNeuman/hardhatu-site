@@ -35,5 +35,6 @@ relatedIds:
   - concept-trench-box-protective-system
   - concept-excavation-trenching-safety
   - concept-competent-person
+  - career-geotechnical-engineer
   - lesson-heavy-equipment-and-earthwork
 ---

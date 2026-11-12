@@ -154,6 +154,7 @@ relatedIds:
   - concept-responsible-bidder-ordinance
   - concept-jobsite-geofencing-tool-security
   - concept-wearable-exoskeletons
+  - career-fire-protection-engineer
 recommendedIds:
   - career-superintendent
   - career-quality-control-manager

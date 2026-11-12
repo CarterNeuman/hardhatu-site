@@ -127,6 +127,8 @@ relatedIds:
   - concept-field-order-asi
   - concept-request-for-substitution
   - concept-rfi-log
+  - career-architect
+  - career-interior-designer
 recommendedIds:
   - career-project-manager
   - career-superintendent

@@ -18,11 +18,13 @@ example: >
   types meet. The architect's answer becomes the official interpretation of the
   drawings for that condition, not just a suggestion, but a binding clarification.
 careerAngle: >
-  A [[career-project-engineer|Project Engineer]] routes RFIs and submittals to the
-  architect constantly, since keeping that back-and-forth moving is a core part of the
-  job. A [[career-owners-representative|Owner's Representative]] sometimes takes over
-  parts of the architect's traditional contract-administration role on a project,
-  depending on how the owner structures their team.
+  This role is its own career page: see [[career-architect|Architect]] for what
+  the job actually looks like day to day. A [[career-project-engineer|Project
+  Engineer]] routes RFIs and submittals to the architect constantly, since
+  keeping that back-and-forth moving is a core part of the job. A
+  [[career-owners-representative|Owner's Representative]] sometimes takes over
+  parts of the architect's traditional contract-administration role on a
+  project, depending on how the owner structures their team.
 whatGoesWrong: >
   A contractor proceeds with a field decision without waiting for the architect's
   official answer to an open RFI, assuming their own interpretation is obviously
@@ -47,5 +49,6 @@ relatedIds:
   - career-permit-expediter
   - concept-acoustic-treatment
   - concept-masonry-control-joint
+  - career-architect
   - concept-sub-consultant
 ---

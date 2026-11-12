@@ -40,5 +40,6 @@ relatedIds:
   - career-structural-engineer
   - concept-geotechnical-report
   - lesson-from-dirt-to-deck
+  - career-geotechnical-engineer
   - concept-foundation
 ---

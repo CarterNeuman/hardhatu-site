@@ -36,5 +36,6 @@ relatedIds:
   - concept-certificate-of-occupancy
   - concept-ada-title-iii-compliance
   - concept-interior-signage-wayfinding
+  - career-fire-protection-engineer
   - concept-accessible-means-of-egress
 ---

@@ -115,6 +115,8 @@ relatedIds:
   - lesson-drones-scanning-and-mapping
   - concept-utility-locating-potholing
   - concept-benchmark-survey-monument
+  - career-geotechnical-engineer
+  - career-landscape-architect
 recommendedIds:
   - career-bim-vdc-specialist
   - career-drone-uav-specialist

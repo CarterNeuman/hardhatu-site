@@ -31,5 +31,6 @@ whatGoesWrong: >
   what the building actually contains.
 relatedIds:
   - concept-life-safety-code-nfpa-101
+  - career-fire-protection-engineer
   - concept-fire-rated-assembly
 ---

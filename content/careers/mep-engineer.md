@@ -152,6 +152,8 @@ relatedIds:
   - concept-request-for-substitution
   - concept-building-electrification
   - concept-daylighting-design
+  - career-interior-designer
+  - career-fire-protection-engineer
 recommendedIds:
   - career-hvac-technician
   - career-electrician

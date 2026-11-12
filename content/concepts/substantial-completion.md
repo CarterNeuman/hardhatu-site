@@ -46,5 +46,7 @@ relatedIds:
   - concept-statute-of-limitations-repose
   - concept-beneficial-occupancy
   - concept-warranty-walk
+  - career-architect
+  - career-interior-designer
   - concept-final-completion
 ---

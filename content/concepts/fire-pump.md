@@ -39,5 +39,6 @@ relatedIds:
   - career-safety-manager
   - concept-fire-sprinkler-system
   - concept-standpipe-system
+  - career-fire-protection-engineer
   - concept-wet-dry-sprinkler-systems
 ---

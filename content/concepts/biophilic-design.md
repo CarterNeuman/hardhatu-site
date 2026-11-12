@@ -34,5 +34,7 @@ whatGoesWrong: >
 relatedIds:
   - concept-well-building-standard
   - concept-leed
+  - career-interior-designer
+  - career-landscape-architect
   - career-sustainability-leed-consultant
 ---

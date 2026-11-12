@@ -39,5 +39,7 @@ relatedIds:
   - concept-architect
   - concept-drywall
   - concept-insulation
+  - career-architect
+  - career-interior-designer
   - phase-construction
 ---

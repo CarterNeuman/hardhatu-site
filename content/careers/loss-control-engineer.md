@@ -86,6 +86,7 @@ relatedIds:
   - concept-swppp
   - resume-insurance-claims
   - gethired-insurance-claims
+  - career-fire-protection-engineer
 recommendedIds:
   - concept-job-hazard-analysis
   - concept-osha

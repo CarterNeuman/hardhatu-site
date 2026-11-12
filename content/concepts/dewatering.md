@@ -38,5 +38,6 @@ relatedIds:
   - career-equipment-operator
   - concept-excavation
   - lesson-from-dirt-to-deck
+  - career-geotechnical-engineer
   - concept-geotechnical-report
 ---

@@ -43,5 +43,7 @@ relatedIds:
   - concept-npdes-construction-permit
   - concept-wetlands-permit-404
   - lesson-from-dirt-to-deck
+  - career-geotechnical-engineer
+  - career-landscape-architect
   - concept-swppp
 ---

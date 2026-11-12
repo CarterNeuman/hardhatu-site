@@ -40,5 +40,6 @@ relatedIds:
   - career-structural-engineer
   - career-pile-driving-specialist
   - lesson-from-dirt-to-deck
+  - career-geotechnical-engineer
   - concept-deep-foundations
 ---

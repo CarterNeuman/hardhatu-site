@@ -121,6 +121,9 @@ relatedIds:
   - concept-qualifications-based-selection
   - concept-benchmark-survey-monument
   - concept-climate-resilience-design
+  - career-architect
+  - career-landscape-architect
+  - career-geotechnical-engineer
 recommendedIds:
   - career-surveyor
   - career-superintendent

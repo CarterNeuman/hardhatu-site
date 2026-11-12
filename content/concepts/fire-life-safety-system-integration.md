@@ -32,5 +32,6 @@ whatGoesWrong: >
 relatedIds:
   - career-mep-engineer
   - career-safety-manager
+  - career-fire-protection-engineer
   - concept-bms-integration
 ---

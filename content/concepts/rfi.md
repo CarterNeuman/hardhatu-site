@@ -46,5 +46,7 @@ relatedIds:
   - concept-transmittal
   - career-assistant-project-manager
   - interview-project-manager
+  - career-architect
+  - career-fire-protection-engineer
   - concept-rfi-log
 ---

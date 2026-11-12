@@ -39,5 +39,6 @@ relatedIds:
   - career-qaqc-inspector
   - concept-fireproofing
   - concept-life-safety-code-nfpa-101
+  - career-fire-protection-engineer
   - concept-fire-blocking
 ---

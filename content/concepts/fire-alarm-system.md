@@ -40,5 +40,6 @@ relatedIds:
   - concept-standpipe-system
   - concept-special-inspection
   - concept-access-control-system
+  - career-fire-protection-engineer
   - phase-construction
 ---

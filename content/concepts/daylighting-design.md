@@ -34,5 +34,6 @@ whatGoesWrong: >
 relatedIds:
   - concept-energy-modeling
   - concept-leed
+  - career-interior-designer
   - career-mep-engineer
 ---

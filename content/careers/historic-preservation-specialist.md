@@ -94,6 +94,7 @@ relatedIds:
   - resume-specialized-construction
   - gethired-specialized-construction
   - concept-historic-structure-report
+  - career-architect
 recommendedIds:
   - concept-brick-veneer
   - concept-mortar

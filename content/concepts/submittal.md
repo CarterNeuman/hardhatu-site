@@ -54,5 +54,8 @@ relatedIds:
   - concept-rebar
   - concept-windows
   - exam-cdt
+  - career-architect
+  - career-fire-protection-engineer
+  - career-interior-designer
   - concept-fabricating-at-risk
 ---

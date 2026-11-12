@@ -133,6 +133,8 @@ relatedIds:
   - concept-aquariums
   - concept-3d-printing-construction
   - concept-mass-timber-clt
+  - career-architect
+  - career-geotechnical-engineer
 recommendedIds:
   - career-ironworker
   - career-concrete-worker

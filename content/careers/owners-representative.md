@@ -114,6 +114,7 @@ relatedIds:
   - concept-percent-complete-units-method
   - concept-phasing-plan
   - concept-site-visit-report
+  - career-architect
 recommendedIds:
   - career-project-manager
   - career-business-development-manager

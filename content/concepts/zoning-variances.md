@@ -44,5 +44,7 @@ relatedIds:
   - phase-idea-feasibility
   - phase-permitting-approvals
   - career-permit-expediter
+  - career-architect
+  - career-landscape-architect
   - lesson-financing-and-feasibility
 ---

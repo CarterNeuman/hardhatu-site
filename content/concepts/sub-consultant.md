@@ -34,5 +34,6 @@ relatedIds:
   - career-structural-engineer
   - concept-architect
   - concept-design-defect-vs-construction-defect
+  - career-architect
   - lesson-when-its-not-the-storms-fault
 ---

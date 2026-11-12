@@ -52,5 +52,8 @@ relatedIds:
   - concept-wall-coverings
   - concept-climate-resilience-design
   - concept-mass-timber-clt
+  - career-architect
+  - career-fire-protection-engineer
+  - career-interior-designer
 
 ---
