@@ -124,6 +124,9 @@ relatedIds:
   - concept-toilet-bath-accessories
   - concept-interior-plantscaping
   - concept-swimming-pools
+  - concept-water-leak-detection-automation
+  - concept-unit-kitchens
+  - concept-saunas-steam-rooms
 recommendedIds:
   - career-pipefitter
   - career-mep-engineer

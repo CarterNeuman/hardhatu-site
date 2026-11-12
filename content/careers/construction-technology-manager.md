@@ -102,6 +102,9 @@ relatedIds:
   - resume-technology-design
   - gethired-technology-design
   - concept-parking-control-equipment
+  - concept-audiovisual-systems
+  - concept-clock-program-systems
+  - concept-visitor-management-systems
 recommendedIds:
   - career-bim-vdc-specialist
   - career-drone-uav-specialist

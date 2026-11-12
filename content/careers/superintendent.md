@@ -160,6 +160,10 @@ relatedIds:
   - concept-swimming-pools
   - concept-synthetic-turf
   - concept-exterior-site-furnishings
+  - concept-detention-equipment
+  - concept-tack-marker-boards
+  - concept-entrance-floor-grilles
+  - concept-outdoor-shade-structures
 recommendedIds:
   - career-project-manager
   - career-project-engineer

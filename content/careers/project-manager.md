@@ -172,6 +172,9 @@ relatedIds:
   - concept-postal-specialties
   - concept-decorative-art-glass-metal
   - concept-furniture-accessories
+  - concept-weapons-detection-systems
+  - concept-directories-bulletin-boards
+  - concept-monument-site-signage
 recommendedIds:
   - career-project-engineer
   - career-owners-representative

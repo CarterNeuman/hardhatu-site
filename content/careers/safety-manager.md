@@ -145,6 +145,12 @@ relatedIds:
   - concept-struck-by-hazard
   - concept-lead-based-paint-remediation
   - concept-fire-extinguisher-cabinets
+  - concept-paging-intercom-systems
+  - concept-distributed-antenna-systems
+  - concept-mass-notification-systems
+  - concept-perimeter-security-systems
+  - concept-duress-panic-alarm-systems
+  - concept-fire-life-safety-system-integration
 recommendedIds:
   - career-superintendent
   - career-quality-control-manager

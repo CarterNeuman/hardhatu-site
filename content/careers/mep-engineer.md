@@ -140,6 +140,14 @@ relatedIds:
   - concept-sound-vibration-control-rooms
   - concept-ice-rinks
   - concept-radiation-protection-rooms
+  - concept-nurse-call-systems
+  - concept-telecommunications-room-infrastructure
+  - concept-hvac-controls-integration
+  - concept-automated-shading-systems
+  - concept-energy-management-system-integration
+  - concept-fire-life-safety-system-integration
+  - concept-demand-response-load-shedding-automation
+  - concept-pneumatic-tube-systems
 recommendedIds:
   - career-hvac-technician
   - career-electrician

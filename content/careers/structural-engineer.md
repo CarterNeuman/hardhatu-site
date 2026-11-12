@@ -129,6 +129,8 @@ relatedIds:
   - concept-window-washing-systems
   - concept-fabric-tensile-structures
   - concept-sound-vibration-control-rooms
+  - concept-conveyor-systems
+  - concept-aquariums
 recommendedIds:
   - career-ironworker
   - career-concrete-worker

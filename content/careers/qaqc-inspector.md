@@ -118,6 +118,7 @@ relatedIds:
   - concept-clean-rooms
   - concept-healthcare-equipment
   - concept-radiation-protection-rooms
+  - concept-fire-rated-access-doors-panels
 recommendedIds:
   - career-quality-control-manager
   - career-assistant-superintendent

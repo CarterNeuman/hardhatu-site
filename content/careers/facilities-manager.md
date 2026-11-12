@@ -129,6 +129,12 @@ relatedIds:
   - concept-rugs-floor-mats
   - concept-interior-plantscaping
   - concept-exterior-site-furnishings
+  - concept-key-asset-tracking-systems
+  - concept-water-leak-detection-automation
+  - concept-energy-management-system-integration
+  - concept-demand-response-load-shedding-automation
+  - concept-vending-equipment
+  - concept-display-cases
 recommendedIds:
   - career-project-manager
   - career-hvac-technician

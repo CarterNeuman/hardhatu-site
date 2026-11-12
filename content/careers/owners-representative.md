@@ -109,6 +109,7 @@ relatedIds:
   - lesson-financing-and-feasibility
   - concept-pro-forma
   - concept-historic-structure-report
+  - concept-building-condition-assessment
 recommendedIds:
   - career-project-manager
   - career-business-development-manager

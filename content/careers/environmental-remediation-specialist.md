@@ -106,6 +106,7 @@ relatedIds:
   - concept-lead-based-paint-remediation
   - concept-underground-storage-tank-removal
   - concept-radon-mitigation-system
+  - concept-site-remediation-soil-removal
 recommendedIds:
   - career-facilities-manager
   - career-safety-manager

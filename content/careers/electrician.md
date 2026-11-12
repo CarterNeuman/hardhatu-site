@@ -151,6 +151,15 @@ relatedIds:
   - lesson-jobsite-safety-in-practice
   - concept-access-flooring
   - concept-parking-control-equipment
+  - concept-audiovisual-systems
+  - concept-paging-intercom-systems
+  - concept-nurse-call-systems
+  - concept-clock-program-systems
+  - concept-telecommunications-room-infrastructure
+  - concept-wireless-access-point-infrastructure
+  - concept-automated-shading-systems
+  - concept-conveyor-systems
+  - concept-unit-kitchens
 recommendedIds:
   - career-laborer
   - career-elevator-technician

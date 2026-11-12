@@ -32,4 +32,5 @@ whatGoesWrong: >
 relatedIds:
   - career-historic-preservation-specialist
   - career-owners-representative
+  - concept-building-condition-assessment
 ---
