@@ -696,6 +696,23 @@ export function CareerMatchQuiz({
                 Retake
               </button>
             </div>
+            {!category && CATEGORY_QUIZ_SLUG[result] && (
+              <div
+                className="mx-auto mt-6 flex max-w-[46ch] flex-col items-center gap-2 rounded-2xl border-2 px-5 py-4"
+                style={{ borderColor: accent }}
+              >
+                <p className="text-sm text-steel">
+                  Now that you know which category fits, let&apos;s dive deeper and find the exact role for you.
+                </p>
+                <Link
+                  href={`/quizzes/${CATEGORY_QUIZ_SLUG[result]}`}
+                  className="text-sm font-bold hover:underline"
+                  style={{ color: accent }}
+                >
+                  Narrow it down to a specific career &rarr;
+                </Link>
+              </div>
+            )}
           </div>
 
           {otherMatches.length > 0 && (
@@ -785,14 +802,6 @@ export function CareerMatchQuiz({
             <Link href={`/careers#${slug}`} className="text-sm font-semibold hover:underline" style={{ color: accent }}>
               See all careers in {result} &rarr;
             </Link>
-            {!category && CATEGORY_QUIZ_SLUG[result] && (
-              <Link
-                href={`/quizzes/${CATEGORY_QUIZ_SLUG[result]}`}
-                className="text-sm font-semibold text-steel hover:text-ink hover:underline"
-              >
-                Narrow it down to a specific career &rarr;
-              </Link>
-            )}
           </div>
         </div>
       </div>
