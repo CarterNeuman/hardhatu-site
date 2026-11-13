@@ -14,6 +14,7 @@ import { Disclaimer } from "@/components/Disclaimer";
 import { Callout } from "@/components/Callout";
 import { CareerEntryBadge } from "@/components/CareerEntryBadge";
 import { EmailGate } from "@/components/EmailGate";
+import { StateGuideLinks } from "@/components/StateGuideLinks";
 
 export function generateStaticParams() {
   const { careers } = getAllContent();
@@ -203,6 +204,10 @@ export default async function CareerPage({
           </Link>
         </>
       )}
+
+      {/* State field guides that cover this trade (renders nothing for
+          careers no guide covers). */}
+      <StateGuideLinks careerSlug={slug} />
 
       {career.progression.length > 0 && (
         <>

@@ -100,7 +100,7 @@ export function Header({
   // Single-page sections that don't need their own dropdown. Order after
   // Lessons: Phases, Career Quiz, then the Get Hired dropdown, then the
   // Resources dropdown (Student Loan ROI, Find a Program, Get Qualified,
-  // Interview Prep, Software, Resume Guide, merged
+  // Interview Prep, Software, Resume Guide, Careers by State, merged
   // so the bar doesn't carry three more plain/standalone entries), then
   // the Take Your First Step / Action Plan button set apart on its own.
   const midLinks = [
@@ -317,11 +317,17 @@ export function Header({
                     </Link>
                     <p className="mt-0.5 text-xs leading-snug text-steel">The tools you'll actually touch on the job.</p>
                   </li>
-                  <li className="pt-2.5">
+                  <li className="py-2.5">
                     <Link href="/resumes" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
                       Resume Guide
                     </Link>
                     <p className="mt-0.5 text-xs leading-snug text-steel">What recruiters look for, by category.</p>
+                  </li>
+                  <li className="pt-2.5">
+                    <Link href="/states" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
+                      Careers by State
+                    </Link>
+                    <p className="mt-0.5 text-xs leading-snug text-steel">Local pay, licensing and ways in. Georgia first.</p>
                   </li>
                 </ul>
                 <div className="mt-3 border-t border-hairline pt-3 text-sm">
@@ -569,6 +575,12 @@ export function Header({
                   Resume Guide
                 </Link>
                 <p className="mt-0.5 text-xs leading-snug text-steel">What recruiters look for, by category.</p>
+              </li>
+              <li>
+                <Link href="/states" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
+                  Careers by State
+                </Link>
+                <p className="mt-0.5 text-xs leading-snug text-steel">Local pay, licensing and ways in. Georgia first.</p>
               </li>
             </ul>
             <Link

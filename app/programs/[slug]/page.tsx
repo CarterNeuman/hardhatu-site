@@ -11,6 +11,7 @@ import { Disclaimer } from "@/components/Disclaimer";
 import { Prose } from "@/components/Prose";
 import { EmailGate } from "@/components/EmailGate";
 import { JobHuntRail } from "@/components/JobHuntRail";
+import { StateGuideLinks } from "@/components/StateGuideLinks";
 
 export function generateStaticParams() {
   const { programs } = getAllContent();
@@ -101,6 +102,8 @@ export default async function ProgramPage({
                 </div>
               </div>
             )}
+
+            <StateGuideLinks programSlug={program.slug} />
 
             <Disclaimer lastReviewed={program.lastReviewed} />
 

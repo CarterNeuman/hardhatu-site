@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PayByState } from "@/components/PayByState";
+import { STATE_GUIDES } from "@/lib/state-guides";
 
 export const metadata: Metadata = {
   title: "Trade Pay by State and Student Loan ROI: College vs. the Trades",
@@ -30,7 +31,7 @@ export default function StudentLoanRoiPage() {
         up, and what the work pays where you live. This page shows all three.
       </p>
 
-      <PayByState />
+      <PayByState guides={STATE_GUIDES.map((g) => ({ code: g.code, slug: g.slug, name: g.name, trades: g.trades.length }))} />
 
       <section className="mt-12 grid gap-10 md:grid-cols-2">
         <div>

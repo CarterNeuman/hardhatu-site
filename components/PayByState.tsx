@@ -51,7 +51,11 @@ const TRADES_SHOWN = 8;
 
 const round100 = (n: number) => Math.round(n / 100) * 100;
 
-export function PayByState() {
+// Light index of the state field guides, passed from the server page so the
+// full guide data stays out of this client bundle.
+export type GuideRef = { code: string; slug: string; name: string; trades: number };
+
+export function PayByState({ guides = [] }: { guides?: GuideRef[] }) {
   const [code, setCode] = useState<string>(NATIONAL);
   const [startAge, setStartAge] = useState(18);
   const [futureDollars, setFutureDollars] = useState(false);
@@ -159,6 +163,18 @@ export function PayByState() {
           calculator below shows how long it takes to make that back.
         </p>
       )}
+
+      {guides
+        .filter((g) => g.code === code)
+        .map((g) => (
+          <p key={g.slug} className="border-x border-b border-[#1B5E3B]/40 bg-[#1B5E3B]/5 px-5 py-3 text-sm leading-relaxed text-ink sm:px-6">
+            <span className="font-semibold">Looking at {g.name}?</span> The {g.name} field guide covers licensing rules, local
+            apprenticeships and free training for {g.trades} trades.{" "}
+            <Link href={`/states/${g.slug}`} className="font-semibold text-[#1B5E3B] hover:underline">
+              Open the {g.name} guide →
+            </Link>
+          </p>
+        ))}
 
       {/* ---------------- Pay table ---------------- */}
       <section className="mt-12">
