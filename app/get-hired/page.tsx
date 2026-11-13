@@ -5,6 +5,7 @@ import { urlFor } from "@/lib/content-client";
 import { CAREER_CATEGORY_ORDER } from "@/lib/types";
 import type { GetHired } from "@/lib/types";
 import { ContentCard } from "@/components/ContentCard";
+import { HomeReveal } from "@/components/HomeReveal";
 
 export const metadata: Metadata = {
   title: "How to Actually Get Hired",
@@ -276,34 +277,38 @@ const CATEGORY_BLURBS: Record<string, string> = {
 
 function HubCard({ guide }: { guide: GetHired }) {
   return (
-    <Link
-      href={urlFor(guide)}
-      className="group absolute flex items-center justify-center border-2 border-amber bg-navy text-center transition-colors hover:border-amber-soft"
+    <HomeReveal
       style={{
+        position: "absolute",
         left: DIAGRAM.cx - HUB_SIZE / 2,
         top: DIAGRAM.cy - HUB_SIZE / 2,
         width: HUB_SIZE,
         height: HUB_SIZE,
-        clipPath: OCTAGON_CLIP,
       }}
     >
-      <div className="flex w-[150px] flex-col items-center gap-1.5">
-        <span className="text-[9px] font-bold uppercase tracking-wider text-amber-soft">Start here</span>
-        <span className="font-display text-base font-bold leading-tight text-paper">{guide.category}</span>
-        <span className="line-clamp-2 text-[11px] leading-snug text-amber-soft/85">{GENERAL_BLURB}</span>
-        <span className="mt-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-soft group-hover:underline">
-          View the guide &rarr;
-        </span>
-      </div>
-      {OCTAGON_VERTEX_PCT.map(([px, py], i) => (
-        <span
-          key={i}
-          aria-hidden="true"
-          className="absolute h-[7px] w-[7px] rounded-full bg-amber-soft"
-          style={{ left: `calc(${px}% - 3.5px)`, top: `calc(${py}% - 3.5px)` }}
-        />
-      ))}
-    </Link>
+      <Link
+        href={urlFor(guide)}
+        className="group flex h-full w-full items-center justify-center border-2 border-amber bg-navy text-center transition-colors hover:border-amber-soft"
+        style={{ clipPath: OCTAGON_CLIP }}
+      >
+        <div className="flex w-[150px] flex-col items-center gap-1.5">
+          <span className="text-[9px] font-bold uppercase tracking-wider text-amber-soft">Start here</span>
+          <span className="font-display text-base font-bold leading-tight text-paper">{guide.category}</span>
+          <span className="line-clamp-2 text-[11px] leading-snug text-amber-soft/85">{GENERAL_BLURB}</span>
+          <span className="mt-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-soft group-hover:underline">
+            View the guide &rarr;
+          </span>
+        </div>
+        {OCTAGON_VERTEX_PCT.map(([px, py], i) => (
+          <span
+            key={i}
+            aria-hidden="true"
+            className="absolute h-[7px] w-[7px] rounded-full bg-amber-soft"
+            style={{ left: `calc(${px}% - 3.5px)`, top: `calc(${py}% - 3.5px)` }}
+          />
+        ))}
+      </Link>
+    </HomeReveal>
   );
 }
 
@@ -322,22 +327,27 @@ function CategoryNode({
   const dotClass = index % 2 === 0 ? "bg-amber" : "bg-navy";
 
   return (
-    <Link
-      href={urlFor(guide)}
-      className={`group absolute flex flex-col gap-1.5 border border-hairline bg-white/40 p-3 pt-[14px] transition-colors hover:border-navy hover:bg-white/70 ${accentClass}`}
-      style={{ left: geometry.left, top: geometry.top, width: NODE_W, height: NODE_H, borderTopWidth: 3 }}
+    <HomeReveal
+      delayMs={120 + index * 70}
+      style={{ position: "absolute", left: geometry.left, top: geometry.top, width: NODE_W, height: NODE_H }}
     >
-      <span aria-hidden="true" className={`absolute left-2 top-2 h-[5px] w-[5px] rounded-full ${dotClass}`} />
-      <div className="flex items-start justify-between">
-        <Icon className="text-clay" />
-        <span className="text-[9px] text-steel">0{index + 1}</span>
-      </div>
-      <h3 className="font-display text-sm font-bold leading-snug text-ink group-hover:text-navy">
-        {guide.category}
-      </h3>
-      <p className="line-clamp-2 flex-1 text-[11px] leading-snug text-steel">{blurb}</p>
-      <span className="text-[10px] font-bold uppercase tracking-wide text-navy">View guide &rarr;</span>
-    </Link>
+      <Link
+        href={urlFor(guide)}
+        className={`group flex h-full w-full flex-col gap-1.5 border border-hairline bg-white/40 p-3 pt-[14px] transition-colors hover:border-navy hover:bg-white/70 ${accentClass}`}
+        style={{ borderTopWidth: 3 }}
+      >
+        <span aria-hidden="true" className={`absolute left-2 top-2 h-[5px] w-[5px] rounded-full ${dotClass}`} />
+        <div className="flex items-start justify-between">
+          <Icon className="text-clay" />
+          <span className="text-[9px] text-steel">0{index + 1}</span>
+        </div>
+        <h3 className="font-display text-sm font-bold leading-snug text-ink group-hover:text-navy">
+          {guide.category}
+        </h3>
+        <p className="line-clamp-2 flex-1 text-[11px] leading-snug text-steel">{blurb}</p>
+        <span className="text-[10px] font-bold uppercase tracking-wide text-navy">View guide &rarr;</span>
+      </Link>
+    </HomeReveal>
   );
 }
 

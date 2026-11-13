@@ -13,6 +13,8 @@ import { Prose } from "@/components/Prose";
 import { EmailGate } from "@/components/EmailGate";
 import { JobHuntRail } from "@/components/JobHuntRail";
 import { ProgramsBox } from "@/components/ProgramsBox";
+import { HomeReveal } from "@/components/HomeReveal";
+import { ChecklistLadder } from "@/components/ChecklistLadder";
 
 export function generateStaticParams() {
   const { getHiredGuides } = getAllContent();
@@ -83,60 +85,73 @@ export default async function GetHiredPage({
             </div>
           )}
 
-          <SectionLabel>How hiring actually works</SectionLabel>
-          <div className="mt-2">
-            <Prose text={guide.howHiringWorks} />
-          </div>
+          <HomeReveal as="section">
+            <SectionLabel>How hiring actually works</SectionLabel>
+            <div className="mt-2">
+              <Prose text={guide.howHiringWorks} />
+            </div>
+          </HomeReveal>
 
-          <SectionLabel>The checklist</SectionLabel>
-          <ol className="mt-2 flex flex-col gap-4">
-            {guide.checklist.map((item, i) => (
-              <li key={i} className="border-l-2 border-hairline pl-4">
-                <p className="font-medium text-ink">
-                  <span className="text-clay">{i + 1}.</span> {item.step}
-                </p>
-                <p className="mt-1 text-sm text-steel">{item.detail}</p>
-              </li>
-            ))}
-          </ol>
+          {/* The checklist is the actual point of this page, so it gets the
+              section's own visual identity: a steel-beam ladder, each rung
+              a step, echoing the I-beam connectors on the main /get-hired
+              hub diagram instead of a plain numbered list. */}
+          <HomeReveal as="section">
+            <SectionLabel>The checklist</SectionLabel>
+            <ChecklistLadder items={guide.checklist} />
+          </HomeReveal>
 
-          <SectionLabel>Where to actually look</SectionLabel>
-          <ul className="mt-2 flex flex-col gap-1.5">
-            {guide.whereToLook.map((place, i) => (
-              <li key={i} className="text-sm text-ink">
-                {place}
-              </li>
-            ))}
-          </ul>
+          <HomeReveal as="section">
+            <SectionLabel>Where to actually look</SectionLabel>
+            <ul className="mt-2 flex flex-col gap-1.5">
+              {guide.whereToLook.map((place, i) => (
+                <li key={i} className="text-sm text-ink">
+                  {place}
+                </li>
+              ))}
+            </ul>
+          </HomeReveal>
 
           {guide.credentialsToHaveReady.length > 0 && (
-            <>
+            <HomeReveal as="section">
               <SectionLabel>Credentials worth having ready</SectionLabel>
-              <ul className="mt-2 flex flex-col gap-1.5">
+              {/* Rendered as badge chips, like a tag clipped to a hard hat,
+                  rather than a plain bullet list -- these are discrete,
+                  nameable things to go get, not a paragraph to read. */}
+              <ul className="mt-3 flex flex-wrap gap-2">
                 {guide.credentialsToHaveReady.map((item, i) => (
-                  <li key={i} className="text-sm text-ink">
+                  <li
+                    key={i}
+                    className="border border-amber/50 bg-amber-soft/30 px-3 py-1.5 text-xs font-medium leading-snug text-ink"
+                  >
                     {item}
                   </li>
                 ))}
               </ul>
-            </>
+            </HomeReveal>
           )}
 
-          <SectionLabel>Common mistakes</SectionLabel>
-          <ul className="mt-2 flex flex-col gap-1.5">
-            {guide.commonMistakes.map((mistake, i) => (
-              <li key={i} className="text-sm text-ink">
-                {mistake}
-              </li>
-            ))}
-          </ul>
+          <HomeReveal as="section">
+            <SectionLabel>Common mistakes</SectionLabel>
+            {/* A clay left-edge tick per item -- this site's existing
+                warning/caution color (see Callout.tsx) -- instead of a
+                plain bullet, so a page full of "don't do this" reads as
+                flagged rather than identical to every other list here. */}
+            <ul className="mt-2 flex flex-col gap-2">
+              {guide.commonMistakes.map((mistake, i) => (
+                <li key={i} className="border-l-2 border-clay/50 pl-3 text-sm text-ink">
+                  {mistake}
+                </li>
+              ))}
+            </ul>
+          </HomeReveal>
 
-          <div className="mt-8 border border-amber bg-amber-soft/40 px-4 py-3">
+          <HomeReveal as="section" className="mt-8 border border-amber bg-amber-soft/40 px-4 py-3">
             <p className="text-xs font-semibold uppercase tracking-wide text-clay">
               Your first step today
             </p>
             <p className="mt-1 text-ink">{guide.firstStepToday}</p>
-          </div>
+          </HomeReveal>
 
           {guide.lastReviewed && (
             <Disclaimer
