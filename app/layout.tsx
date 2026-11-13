@@ -18,13 +18,34 @@ import { Footer } from "@/components/Footer";
 // fonts on this Next.js release. A plain <link> is the same approach the
 // original design prototype used, and has no build-time moving parts.
 
+// Same SITE_URL env var app/sitemap.ts and app/robots.ts already read,
+// falling back to the same https://example.com placeholder so a local
+// dev run without it set still produces a valid (if wrong) absolute
+// URL instead of crashing `new URL()` below.
+const SITE_URL = process.env.SITE_URL || "https://example.com";
+
 export const metadata: Metadata = {
+  // Lets every page's relative `openGraph`/`twitter` image paths (and
+  // the site-wide app/opengraph-image.tsx / app/twitter-image.tsx
+  // fallback below) resolve to a real absolute URL. Missing this was
+  // the actual cause of the "no sitewide OG image" gap found in the
+  // 2026-11-13 meta/OG audit -- every page already had a title and
+  // description, this was the one piece actually absent.
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "BreakGroundU: Explore Careers & Learn the Industry",
     template: "%s | BreakGroundU",
   },
   description:
     "A free, interconnected guide to construction careers, terms, and the building process, for anyone new to the industry.",
+  openGraph: {
+    siteName: "BreakGroundU",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
