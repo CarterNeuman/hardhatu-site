@@ -310,11 +310,17 @@ export function Header({
                     </Link>
                     <p className="mt-0.5 text-xs leading-snug text-steel">Real apprenticeships and training programs to enroll in.</p>
                   </li>
-                  <li className="pt-2.5">
+                  <li className="py-2.5">
                     <Link href="/resumes" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
                       Resume Guide
                     </Link>
                     <p className="mt-0.5 text-xs leading-snug text-steel">What recruiters look for, by category.</p>
+                  </li>
+                  <li className="pt-2.5">
+                    <Link href="/student-loan-roi" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
+                      Student Loan ROI
+                    </Link>
+                    <p className="mt-0.5 text-xs leading-snug text-steel">College vs. the trades, debt included.</p>
                   </li>
                 </ul>
                 <div className="mt-3 border-t border-hairline pt-3 text-sm">
@@ -556,6 +562,12 @@ export function Header({
                   Resume Guide
                 </Link>
                 <p className="mt-0.5 text-xs leading-snug text-steel">What recruiters look for, by category.</p>
+              </li>
+              <li>
+                <Link href="/student-loan-roi" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
+                  Student Loan ROI
+                </Link>
+                <p className="mt-0.5 text-xs leading-snug text-steel">College vs. the trades, debt included.</p>
               </li>
             </ul>
             <Link

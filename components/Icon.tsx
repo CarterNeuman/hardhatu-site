@@ -13,7 +13,8 @@ export type IconKind =
   | "cheatsheet"
   | "quiz"
   | "program"
-  | "actionplan";
+  | "actionplan"
+  | "roi";
 
 export function Icon({
   kind,
@@ -140,6 +141,16 @@ export function Icon({
         <line x1="8" y1="3.5" x2="8" y2="6.5" {...common} />
         <line x1="16" y1="3.5" x2="16" y2="6.5" {...common} />
         <path d="M8 14l1.6 1.6L13.5 12" {...common} />
+      </svg>
+    );
+  }
+  if (kind === "roi") {
+    return (
+      <svg viewBox="0 0 24 24" style={style} className={className} aria-hidden="true" focusable="false">
+        <polyline points="4,20 4,4" {...common} />
+        <polyline points="4,20 20,20" {...common} />
+        <polyline points="6.5,16 10.5,12 13.5,14.5 19,8" {...common} />
+        <polyline points="15.5,8 19,8 19,11.5" {...common} />
       </svg>
     );
   }

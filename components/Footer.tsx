@@ -65,6 +65,7 @@ export function Footer({
             <li><Link href="/interviews" className="text-sm text-paper/90 hover:underline">Interview Prep</Link></li>
             <li><Link href="/exams" className="text-sm text-paper/90 hover:underline">Get Qualified</Link></li>
             <li><Link href="/resumes" className="text-sm text-paper/90 hover:underline">Resume Guide</Link></li>
+            <li><Link href="/student-loan-roi" className="text-sm text-paper/90 hover:underline">Student Loan ROI</Link></li>
             <li><Link href="/resources" className="text-sm font-semibold text-paper hover:underline">All resources →</Link></li>
           </ul>
         </div>
