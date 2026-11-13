@@ -47,8 +47,9 @@ export default function StudentLoanRoiPage() {
             <div>
               <dt className="font-semibold text-ink">Apprenticeship</dt>
               <dd className="text-steel">
-                You&rsquo;re paid from day one. Pay starts at 50% of a journeyworker&rsquo;s wage (the median) and
-                rises to 90% in the final year, then follows the ladder. Real programs start between 40% and 60%.
+                You&rsquo;re paid from day one. Pay starts at 45% of a journeyworker&rsquo;s wage (the median) and
+                rises to 85% in the final year, then follows the ladder. Most registered programs start apprentices at
+                40% to 50% of full pay.
               </dd>
             </div>
             <div>
@@ -201,7 +202,15 @@ export default function StudentLoanRoiPage() {
             <a href="https://www.apprenticeship.gov/sites/default/files/aai-infographic-apprentices-11-11-22.pdf" className="text-navy hover:underline">
               American Apprenticeship Initiative results
             </a>{" "}
-            (construction apprenticeships averaged 4.2 years).
+            (construction apprenticeships averaged 4.2 years). Apprentice pay steps: Illinois Department of
+            Commerce,{" "}
+            <a
+              href="https://edit.illinoisworknet.com/ApprenticeshipIL/Documents/Setting%20Wages%20in%20Your%20Registered%20Apprenticeship%20Program.pdf"
+              className="text-navy hover:underline"
+            >
+              Setting Wages in Your Registered Apprenticeship Program
+            </a>{" "}
+            (entry wage typically 40% to 50% of the journeyworker wage).
           </li>
           <li>
             Trade school cost: average tuition and fees for certificate-granting schools from federal IPEDS data, as

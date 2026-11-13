@@ -209,14 +209,17 @@ function specFor(id: PathId, inp: Inputs): PathSpec {
       return { trainingYears: 0, costPerYear: [], pay, payOnceTrained: inp.laborer.p10, canBorrow: false };
     }
     case "apprentice": {
-      // Paid from day one: 50% of the journeyworker (median) wage in year 1,
-      // rising evenly to 90% in the final year. After that, journey pay (the
+      // Paid from day one: 45% of the journeyworker (median) wage in year 1,
+      // rising evenly to 85% in the final year. Registered programs
+      // typically start at 40-50% and exit at full journeyworker pay
+      // (Illinois apprenticeship wage-setting guide; California sets a 40%
+      // floor and an 80% minimum final step). After that, journey pay (the
       // median) or the experience curve, whichever is higher, counted from
       // day one of the apprenticeship.
       const L = inp.apprenticeYears;
       const m = inp.trade.median;
       const pay = (t: number) => {
-        if (t < L) return m * (L === 1 ? 0.7 : 0.5 + (0.4 * t) / (L - 1));
+        if (t < L) return m * (L === 1 ? 0.65 : 0.45 + (0.4 * t) / (L - 1));
         return Math.max(m, curve(inp.trade, t));
       };
       return {

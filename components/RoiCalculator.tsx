@@ -470,7 +470,7 @@ function NetChart({
     const ro = new ResizeObserver(([entry]) => setW(Math.max(300, Math.round(entry.contentRect.width))));
     ro.observe(el);
     return () => ro.disconnect();
-  }, []);
+  }, [paths.length === 0]);
   const H = W < 520 ? 300 : 360;
   const narrow = W < 520;
   const ages = Array.from({ length: endAge - startAge + 1 }, (_, i) => startAge + i);
@@ -518,6 +518,14 @@ function NetChart({
           .map((s) => ({ meta: s.meta, net: s.pts.find((pt) => pt.age === hover)?.net ?? 0 }))
           .sort((a, b) => b.net - a.net);
   const tipLeftPct = hover == null ? 0 : (x(hover) / W) * 100;
+
+  if (series.length === 0) {
+    return (
+      <div ref={wrapRef} className="flex items-center justify-center border border-dashed border-hairline text-sm text-steel" style={{ height: H }}>
+        All paths are hidden. Turn one back on above.
+      </div>
+    );
+  }
 
   return (
     <div ref={wrapRef} className="relative">

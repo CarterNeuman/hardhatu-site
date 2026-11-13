@@ -201,7 +201,7 @@ export function PayByState() {
                 ))}
                 <th scope="col" className="hidden px-3 py-3 text-right font-semibold text-ink sm:table-cell">
                   Top 10%
-                  <span className="block text-xs font-normal text-steel">earn more than</span>
+                  <span className="block text-xs font-normal text-steel">{futureDollars ? "in today’s $" : "earn more than"}</span>
                 </th>
                 <th scope="col" className="hidden px-4 py-3 text-right font-semibold text-ink sm:table-cell">
                   Jobs
@@ -344,7 +344,7 @@ export function PayByState() {
         <h2 className="font-display text-3xl font-bold text-ink">Is the student loan worth it?</h2>
         <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-steel">
           Five ways to start, side by side, using {state ? `${state.name}` : "U.S."} pay
-          {state ? ` and ${state.name}’s average in-state tuition` : ""}. The line shows where you&rsquo;d stand at
+          {state?.tuition ? ` and ${state.name}’s average in-state tuition` : ""}. The line shows where you&rsquo;d stand at
           every age: everything earned, minus school costs and what you still owe.
         </p>
         <RoiCalculator
