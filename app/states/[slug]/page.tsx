@@ -7,6 +7,8 @@ import { lookup, occupation, NATIONAL } from "@/lib/state-pay-lookup";
 import { payAtExperience } from "@/lib/roi-model";
 import { TradeExplorer, type TradeView } from "@/components/TradeExplorer";
 import { PrintButton } from "@/components/PrintButton";
+import { getAllContent, getBySlug, getRelated, getProgramsForCareer, getJobHuntGuides, urlFor } from "@/lib/content";
+import type { AnyContent, Career } from "@/lib/types";
 
 // /states/[slug]: a hand-researched state field guide, written for school
 // counselors, CTAE teachers, parents and students. Facts live in
@@ -24,6 +26,45 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `Construction Careers in ${g.name}: Pay, Licensing and Ways In`,
     description: `A ${g.name} field guide to ${g.trades.length} construction trades: local pay at every stage, state licensing rules, apprenticeships, free technical college options and high school pathways. Sourced and dated.`,
+  };
+}
+
+type Ref = { label: string; href: string };
+
+const isLive = (n: AnyContent | undefined): n is AnyContent => Boolean(n) && !("comingSoon" in n! && n!.comingSoon);
+
+function uniqueRefs(nodes: (AnyContent | undefined)[]): Ref[] {
+  const seen = new Set<string>();
+  const out: Ref[] = [];
+  for (const n of nodes) {
+    if (!isLive(n) || seen.has(n.id)) continue;
+    seen.add(n.id);
+    out.push({ label: n.title, href: urlFor(n) });
+  }
+  return out;
+}
+
+// Where each trade connects to the rest of BreakGroundU: lessons that cover
+// it, practice exams for its credentials, national program pages, and the
+// Field & Trades hiring guides. All pulled from the content graph, so a new
+// lesson or exam that names the career shows up here on its own.
+function resourcesFor(slug: string, programSlugs: string[], excludeExams: string[]) {
+  const career = getBySlug("career", slug) as Career | undefined;
+  if (!career) return { lessons: [], exams: [], programs: [], hunt: [] };
+  const related = getRelated(career);
+  const { lessons } = getAllContent();
+  const hunt = getJobHuntGuides(career.category, career.id);
+  return {
+    lessons: uniqueRefs([
+      ...related.filter((n) => n.type === "lesson"),
+      ...lessons.filter((l) => l.relatedIds.includes(career.id)),
+    ]),
+    exams: uniqueRefs(related.filter((n) => n.type === "exam" && !excludeExams.includes(n.id))),
+    programs: uniqueRefs([
+      ...programSlugs.map((ps) => getBySlug("program", ps)),
+      ...getProgramsForCareer(career.id),
+    ]),
+    hunt: uniqueRefs([hunt.getHired, hunt.resume, hunt.interview]),
   };
 }
 
@@ -68,6 +109,11 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
       nationalMedian: round100(nat.curve.median),
       employment: here.employment,
       usesNational: here.national,
+      resources: resourcesFor(
+        t.slug,
+        t.training.flatMap((o) => (o.programSlug ? [o.programSlug] : [])),
+        g.excludeExams ?? []
+      ),
     };
   });
 

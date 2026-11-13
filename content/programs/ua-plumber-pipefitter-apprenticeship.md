@@ -6,6 +6,7 @@ tier: free
 programType: Registered Apprenticeship
 careerIds:
   - career-plumber
+  - career-pipefitter
 organization: United Association (UA) of Plumbers, Fitters, Welders and Service Techs
 location: "Nationwide — local UA union halls"
 website: "https://ua.org/apprenticeship/"

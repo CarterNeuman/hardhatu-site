@@ -61,6 +61,10 @@ export type BusinessSection = {
 };
 
 export type StateGuide = {
+  // Practice exams on BreakGroundU that don't fit this state's rules (e.g.
+  // a journeyman electrician exam in a state with no journeyman license),
+  // left out of the trade panels' "keep going" links.
+  excludeExams?: string[];
   slug: string;
   code: string;
   name: string;
@@ -121,6 +125,7 @@ const CONSTRUCTION_READY: TrainingOption = {
 };
 
 export const GEORGIA: StateGuide = {
+  excludeExams: ["exam-journeyman-electrician"],
   slug: "georgia",
   code: "GA",
   name: "Georgia",
@@ -282,7 +287,7 @@ export const GEORGIA: StateGuide = {
       outlook: { base: 15960, projected: 17050, growthPct: 7, openingsPerYear: 1440 },
       stateLicense: "none",
       licenseSummary:
-        "Georgia has no state license for equipment operators. Crane operators need a federal OSHA certification, and hauling equipment on public roads often takes a commercial driver's license.",
+        "Georgia has no state license for equipment operators. Federal OSHA rules require crane operators to be certified (NCCCO is the best-known certifier), and hauling equipment on public roads often takes a commercial driver's license.",
       licenseSteps: [
         { title: "Laborer or oiler", detail: "Many operators start on the ground crew and learn the machines on site." },
         { title: "Apprentice operator", detail: "Seat time on smaller machines, then larger ones." },
@@ -290,7 +295,7 @@ export const GEORGIA: StateGuide = {
         { title: "Crane specialty (optional)", detail: "Crane work requires OSHA-accepted operator certification." },
       ],
       credentials: [
-        "OSHA crane operator certification (required only for crane work)",
+        "Crane operator certification such as NCCCO (OSHA requires it for crane work)",
         "Commercial driver's license, CDL (often needed to haul equipment)",
         "NCCER Heavy Equipment Operations (optional)",
       ],
@@ -639,7 +644,7 @@ export const GEORGIA: StateGuide = {
       hardParts: [
         "Shafts, pits and machine rooms: tight, dark and high up.",
         "Electrical, mechanical and hydraulic hazards in one job.",
-        "Union recruitments open only every couple of years, so getting in takes patience.",
+        "Union recruitments open only now and then, so getting in can take patience.",
       ],
       fit: { styles: ["fix", "machines"], setting: "indoor", heights: true },
       training: [
@@ -647,7 +652,7 @@ export const GEORGIA: StateGuide = {
           name: "Elevator Constructors Local 32 (NEIEP)",
           kind: "union",
           where: "Atlanta, with a separate Savannah list",
-          detail: "Union apprenticeship run through the National Elevator Industry Educational Program. Recruitments open when workers are needed, often every two years.",
+          detail: "Union apprenticeship run through the National Elevator Industry Educational Program. Recruitments open when contractors need more workers.",
           url: "https://www.neiep.org/elevator-apprenticeship-recruitment-opportunities",
           programSlug: "neiep-elevator-constructor-apprenticeship",
         },
@@ -661,7 +666,7 @@ export const GEORGIA: StateGuide = {
       outlook: { base: 480, projected: 550, growthPct: 14, openingsPerYear: 40 },
       stateLicense: "none",
       licenseSummary:
-        "Georgia has no flooring license. Flooring is a recognized specialty, so flooring contractors don't need the state residential or general contractor license for flooring work.",
+        "Georgia has no flooring license. Wood flooring and carpet, VCT and base are recognized specialties, so flooring contractors don't need the state residential or general contractor license for that work.",
       licenseSteps: [
         { title: "Helper", detail: "Tear out old floors and prep subfloors." },
         { title: "Installer", detail: "Lays one or more floor types on your own." },
@@ -1094,7 +1099,7 @@ export const GEORGIA: StateGuide = {
       oneLine: "Install and test the fire sprinkler systems that every new commercial building needs.",
       stateLicense: "contractor",
       licenseSummary:
-        "Georgia's Safety Fire Commissioner licenses fire sprinkler contractors, and each company needs a Certificate of Competency holder, which takes NICET Level III or IV certification in sprinkler layout. Fitters work for a licensed contractor under that person's supervision.",
+        "Georgia's Safety Fire Commissioner licenses fire sprinkler contractors, and each company needs a Certificate of Competency holder, which takes NICET Level III or IV certification in sprinkler layout. Individual fitters start by working for a licensed sprinkler contractor.",
       licenseSteps: [
         { title: "Apprentice fitter", detail: "Work for a licensed sprinkler contractor. Union apprenticeships run five years." },
         { title: "Journey fitter", detail: "Installs and tests systems on your own." },

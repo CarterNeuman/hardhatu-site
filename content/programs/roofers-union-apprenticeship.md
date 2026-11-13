@@ -6,6 +6,7 @@ tier: free
 programType: Registered Apprenticeship
 careerIds:
   - career-roofer
+  - career-waterproofing-installer
 organization: United Union of Roofers, Waterproofers and Allied Workers
 location: "Nationwide — local Roofers Joint Apprenticeship Committees"
 website: "https://unionroofers.com/join-us/apprenticeship/"

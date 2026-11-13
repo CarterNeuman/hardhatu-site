@@ -6,6 +6,7 @@ tier: free
 programType: Registered Apprenticeship
 careerIds:
   - career-carpenter
+  - career-flooring-installer
 organization: United Brotherhood of Carpenters and Joiners of America (UBC)
 location: "Nationwide — local UBC Joint Apprenticeship and Training Committees"
 website: "https://www.carpenters.org/training-center/"

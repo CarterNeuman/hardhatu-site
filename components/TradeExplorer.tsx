@@ -17,7 +17,10 @@ export type TradeView = StateTrade & {
   nationalMedian: number;
   employment: number;
   usesNational: boolean;
+  resources: { lessons: Ref[]; exams: Ref[]; programs: Ref[]; hunt: Ref[] };
 };
+
+type Ref = { label: string; href: string };
 
 const KIND_LABEL: Record<TrainingOption["kind"], string> = {
   union: "Union apprenticeship",
@@ -367,6 +370,8 @@ export function TradeExplorer({ trades, stateName }: { trades: TradeView[]; stat
                 </p>
               )}
             </div>
+
+            <KeepGoing t={t} />
           </section>
         );
       })}
@@ -376,6 +381,46 @@ export function TradeExplorer({ trades, stateName }: { trades: TradeView[]; stat
 
 // ---------------------------------------------------------------------------
 // "Which trade fits you?": three quick taps, no sign-up, nothing saved.
+
+// "Keep going on BreakGroundU": the trade's lessons, practice exams,
+// national program pages and hiring guides, so a student who picks a trade
+// here has a next click for every stage.
+function KeepGoing({ t }: { t: TradeView }) {
+  const cols: { title: string; items: Ref[]; extra?: Ref }[] = [
+    { title: "Learn the basics", items: [{ label: `${t.name}: full career profile`, href: `/careers/${t.slug}` }, ...t.resources.lessons] },
+    { title: "Practice exams", items: t.resources.exams, extra: { label: "All practice exams", href: "/exams" } },
+    { title: "How the programs work", items: t.resources.programs, extra: { label: "All national programs", href: "/programs" } },
+    { title: "Get hired", items: t.resources.hunt, extra: { label: "Build your action plan", href: "/action-plan" } },
+  ];
+  return (
+    <div className="border-t border-hairline bg-paper/50 px-5 py-6 sm:px-6 print:hidden">
+      <h4 className="text-xs font-semibold uppercase tracking-wide text-steel">Keep going on BreakGroundU</h4>
+      <div className="mt-3 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {cols.map((c) => (
+          <div key={c.title}>
+            <p className="text-sm font-semibold text-ink">{c.title}</p>
+            <ul className="mt-1.5 space-y-1 text-sm">
+              {c.items.map((r) => (
+                <li key={r.href}>
+                  <Link href={r.href} className="text-navy hover:underline">
+                    {r.label}
+                  </Link>
+                </li>
+              ))}
+              {c.extra && (
+                <li>
+                  <Link href={c.extra.href} className="text-xs font-semibold text-steel hover:text-navy hover:underline">
+                    {c.extra.label} →
+                  </Link>
+                </li>
+              )}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function GoodFit() {
   return (
