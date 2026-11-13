@@ -14,7 +14,7 @@ website: "https://www.agc.org/learn/education-training/supervisory-training-prog
 tagline: A six-unit, contractor-built curriculum on field leadership, cost control, and productivity, the standard first rung for anyone stepping into a construction supervisory role.
 whatToExpect: >
   STP has trained more than 150,000 construction supervisors since it
-  launched. The program is six stand-alone units, about 120 hours of
+  launched. The program is six stand-alone units of 16 hours each, 96 hours of
   instruction total, covering topics from basic supervision and leading
   people through productivity, project cost control, and managing jobsite
   risk. Units don't have to be taken in order, and each can be taken alone
@@ -23,7 +23,7 @@ whatToExpect: >
   STP; completing all six units earns an official AGC Certificate of
   Completion and a digital badge.
 costNote: "Priced per unit by the local AGC chapter or employer offering it, no single national price"
-durationNote: "6 units, about 120 hours total, each can be taken as a stand-alone course"
+durationNote: "6 units, 16 hours each, about 96 hours total"
 lastReviewed: "2026-11"
 relatedIds:
   - career-assistant-superintendent

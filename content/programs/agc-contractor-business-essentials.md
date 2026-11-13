@@ -8,6 +8,9 @@ careerIds:
   - career-controller-cfo-construction
   - career-credit-manager-construction
   - career-equipment-fleet-manager
+  - career-operations-manager
+  - career-business-development-manager
+  - career-construction-sales
 organization: Associated General Contractors of America (AGC)
 location: "Nationwide — online, self-paced"
 website: "https://www.agc.org"
@@ -25,6 +28,9 @@ relatedIds:
   - career-controller-cfo-construction
   - career-credit-manager-construction
   - career-equipment-fleet-manager
+  - career-operations-manager
+  - career-business-development-manager
+  - career-construction-sales
   - concept-surety-bonding-capacity
   - concept-general-liability-insurance
   - gethired-business

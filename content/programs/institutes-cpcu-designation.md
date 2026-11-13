@@ -13,18 +13,19 @@ careerIds:
 organization: The Institutes
 location: "Nationwide — self-paced online coursework"
 website: "https://web.theinstitutes.org"
-tagline: Insurance's most widely respected designation, an eight-course program in risk management, underwriting, and insurance law, with a construction-specific elective that lets candidates specialize in builders risk and contractor liability.
+tagline: Insurance's most widely respected designation, an eight-course program in risk management, underwriting, and insurance law, built for brokers and underwriters working with surety, builders risk, and contractor liability coverage.
 whatToExpect: >
   The Chartered Property Casualty Underwriter (CPCU) designation requires
-  completing eight courses plus a free ethics course and a one-time
-  matriculation fee. There's no work-experience prerequisite to start
-  coursework, though most candidates already work in insurance or surety.
-  Coursework is self-paced and typically takes two to three years to
-  finish. One elective, "Understanding Risks in the Construction
-  Industry," lets candidates tailor the designation toward construction,
-  surety, and contractor liability work specifically.
-costNote: "Roughly $6,000 to $7,600 total for materials, exams, and matriculation"
-durationNote: "8 courses, typically 2 to 3 years to complete"
+  five core courses, two courses in a personal or commercial concentration,
+  one elective, and a free ethics course, plus a one-time matriculation
+  fee. There's no work-experience prerequisite to start coursework, though
+  most candidates already work in insurance or surety. Coursework is
+  self-paced; candidates choosing the commercial concentration and an
+  elective like cyber risk or claims end up with coursework most relevant
+  to contractor and builders-risk coverage, even without a construction-
+  specific course on the books.
+costNote: "Several thousand dollars total for materials, exams, and matriculation; see theinstitutes.org for current pricing"
+durationNote: "8 courses; self-paced, commonly 18 months to 3 years to complete"
 lastReviewed: "2026-11"
 relatedIds:
   - career-insurance-broker
