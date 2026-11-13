@@ -70,6 +70,7 @@ skills:
   - Coordination with architects and other engineering disciplines
 software:
   - Structural analysis and design software (e.g. structural modeling and BIM tools)
+  - RISA
 education:
   required: >
     A bachelor's degree in civil or structural engineering from an
@@ -136,6 +137,7 @@ relatedIds:
   - career-architect
   - career-geotechnical-engineer
   - career-property-condition-assessor
+  - software-risa
 recommendedIds:
   - career-ironworker
   - career-concrete-worker

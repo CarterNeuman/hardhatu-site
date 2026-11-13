@@ -55,6 +55,8 @@ skills:
   - Recordkeeping and reporting
 software:
   - Procore
+  - Avetta
+  - SafetyCulture
 education:
   required: >
     High school diploma or equivalent. No OSHA certification is legally
@@ -162,6 +164,8 @@ relatedIds:
   - career-safety-coordinator
   - career-sprinkler-fitter
   - concept-icra
+  - software-avetta
+  - software-safetyculture
 recommendedIds:
   - career-superintendent
   - career-quality-control-manager

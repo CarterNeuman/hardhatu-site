@@ -50,4 +50,5 @@ relatedIds:
   - concept-structural-steel-erection
   - concept-precast-concrete
   - concept-structural-welding
+  - software-risa
 ---

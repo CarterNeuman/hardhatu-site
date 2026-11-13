@@ -221,4 +221,5 @@ relatedIds:
   - exam-cpr-first-aid
   - lesson-a-day-as-a-laborer
   - concept-hierarchy-of-controls
+  - software-safetyculture
 ---

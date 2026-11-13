@@ -63,6 +63,7 @@ software:
   - Bluebeam
   - On-Screen Takeoff
   - MEP-specific takeoff and estimating software
+  - FastPIPE & FastDUCT
 education:
   required: High school diploma or equivalent
   preferred: Bachelor's degree in mechanical or electrical engineering, construction management, or significant hands-on experience in an MEP trade
@@ -102,6 +103,7 @@ relatedIds:
   - gethired-preconstruction-estimating
   - phase-procurement-preconstruction
   - software-stack
+  - software-fastpipe-fastduct
 recommendedIds:
   - career-estimator
   - career-mep-engineer

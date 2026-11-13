@@ -55,5 +55,6 @@ relatedIds:
   - concept-motor-grader
   - concept-compaction-equipment
   - career-landscape-architect
-
+  - software-civil-3d
+  - software-trimble-earthworks
 ---

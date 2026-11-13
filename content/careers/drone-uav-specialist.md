@@ -57,7 +57,8 @@ skills:
   - Basic surveying and earthwork measurement concepts
   - Attention to safety around active construction operations
 software:
-  - Drone flight planning and photogrammetry software
+  - Drone flight planning and photogrammetry software (e.g. DroneDeploy)
+  - DroneDeploy
   - Building information modeling software (for handoff to BIM/VDC)
 education:
   required: >
@@ -91,6 +92,7 @@ relatedIds:
   - concept-ground-control-points
   - concept-laanc
   - concept-orthomosaic-mapping
+  - software-dronedeploy
 recommendedIds:
   - career-surveyor
   - career-bim-vdc-specialist

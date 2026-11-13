@@ -49,4 +49,5 @@ relatedIds:
   - concept-submittal
   - software-fieldwire
   - career-construction-technology-manager
+  - software-buildingconnected
 ---

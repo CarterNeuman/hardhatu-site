@@ -40,4 +40,5 @@ relatedIds:
   - concept-bid-alternates
   - career-chief-estimator
   - career-mep-estimator
+  - software-buildingconnected
 ---

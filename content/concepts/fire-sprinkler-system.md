@@ -45,4 +45,5 @@ relatedIds:
   - career-fire-protection-engineer
   - concept-wet-dry-sprinkler-systems
   - career-sprinkler-fitter
+  - software-autosprink
 ---

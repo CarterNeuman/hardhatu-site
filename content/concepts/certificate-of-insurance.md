@@ -41,4 +41,5 @@ relatedIds:
   - lesson-whos-on-the-hook
   - career-insurance-broker
   - concept-additional-insured-endorsement
+  - software-avetta
 ---

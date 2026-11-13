@@ -61,6 +61,8 @@ skills:
   - Strategic financial planning and communication with company ownership
 software:
   - Construction accounting/ERP software (e.g. Sage 300 CRE, Viewpoint Vista, QuickBooks)
+  - Levelset
+  - LCPtracker
 education:
   required: >
     A bachelor's degree in accounting or finance; a CPA license is not legally
@@ -96,6 +98,8 @@ relatedIds:
   - concept-wip-report
   - concept-percentage-of-completion-accounting
   - lesson-cost-control-and-forecasting-in-practice
+  - software-levelset
+  - software-lcptracker
 recommendedIds:
   - career-construction-accountant
   - career-risk-manager-construction

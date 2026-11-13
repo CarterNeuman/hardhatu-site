@@ -38,5 +38,5 @@ relatedIds:
   - career-gis-specialist
   - concept-orthomosaic-mapping
   - lesson-drones-scanning-and-mapping
+  - software-dronedeploy
 ---
-  - lesson-drones-scanning-and-mapping

@@ -219,7 +219,7 @@ function softwareAliases(title: string): string[] {
     if (rest !== "build") aliases.add(rest);
   }
   if (base.endsWith(" revu")) aliases.add(base.slice(0, -" revu".length));
-  return [...aliases].filter((a) => a.length >= 5);
+  return [...aliases].filter((a) => a.length >= 4);
 }
 
 function escapeRegExp(text: string): string {

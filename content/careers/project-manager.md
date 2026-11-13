@@ -54,6 +54,7 @@ software:
   - Procore
   - Microsoft Project
   - Bluebeam
+  - GCPay
 education:
   required: High school diploma or equivalent
   preferred: Bachelor's degree in construction management, engineering, or related field
@@ -188,6 +189,7 @@ relatedIds:
   - career-commercial-manager-construction
   - career-general-superintendent
   - career-senior-project-manager
+  - software-gcpay
 recommendedIds:
   - career-project-engineer
   - career-owners-representative

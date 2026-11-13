@@ -57,6 +57,7 @@ skills:
 software:
   - Procore
   - Bluebeam
+  - Raken
 education:
   required: High school diploma or equivalent, plus field experience (commonly several years as a tradesperson, laborer, or foreman); no license is legally required for this role
   preferred: Associate's or bachelor's degree in construction management (helpful for advancement, not required to enter the role)
@@ -93,6 +94,7 @@ relatedIds:
   - career-field-engineer
   - career-general-superintendent
   - career-safety-coordinator
+  - software-raken
 recommendedIds:
   - career-superintendent
   - career-laborer

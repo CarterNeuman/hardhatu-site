@@ -61,6 +61,8 @@ skills:
   - Reporting credit risk trends to company leadership
 software:
   - ERP/accounting software (e.g. Sage, QuickBooks); credit risk and collections tracking software
+  - Levelset
+  - GCPay
 education:
   required: >
     A bachelor's degree in finance, accounting, or business; the National
@@ -92,6 +94,8 @@ relatedIds:
   - interview-business
   - resume-business
   - gethired-business
+  - software-levelset
+  - software-gcpay
 recommendedIds:
   - career-construction-accountant
   - career-contracts-administrator

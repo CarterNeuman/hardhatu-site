@@ -55,6 +55,7 @@ skills:
   - Clear communication with project managers and auditors
 software:
   - Construction-specific accounting/payroll software
+  - LCPtracker
 education:
   required: High school diploma or equivalent, plus payroll experience; no license is legally required for this role, though the reporting itself is legally regulated
   preferred: >
@@ -88,6 +89,7 @@ relatedIds:
   - concept-apprenticeship-ratio-requirement
   - concept-flsa-overtime-construction
   - concept-hud-section-3-workforce-requirement
+  - software-lcptracker
 recommendedIds:
   - concept-certified-payroll
   - concept-prevailing-wage

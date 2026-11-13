@@ -41,6 +41,5 @@ relatedIds:
   - career-construction-technology-manager
   - lesson-drones-scanning-and-mapping
   - concept-thermal-imaging-building-diagnostics
-
+  - software-dronedeploy
 ---
-  - lesson-drones-scanning-and-mapping

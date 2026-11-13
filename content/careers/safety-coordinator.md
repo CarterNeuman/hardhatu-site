@@ -59,6 +59,8 @@ skills:
 software:
   - HammerTech
   - Procore
+  - Avetta
+  - SafetyCulture
 education:
   required: High school diploma or equivalent; no license is legally required for this role
   preferred: OSHA 30-Hour Construction certification; some employers prefer an associate's or bachelor's degree in occupational safety or a related field
@@ -94,6 +96,8 @@ relatedIds:
   - gethired-project-operations
   - software-hammertech
   - phase-construction
+  - software-avetta
+  - software-safetyculture
 recommendedIds:
   - career-safety-manager
   - career-assistant-superintendent

@@ -72,6 +72,7 @@ skills:
   - Coordination with architects, MEP engineers, and fire marshals
 software:
   - Fire modeling and CAD software (e.g. AutoCAD, specialized fire/smoke modeling tools)
+  - AutoSPRINK
 education:
   required: >
     A bachelor's degree in fire protection engineering (or a related
@@ -117,6 +118,7 @@ relatedIds:
   - exam-fe
   - software-autocad
   - career-code-consultant
+  - software-autosprink
 recommendedIds:
   - career-mep-engineer
   - career-architect

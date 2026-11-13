@@ -55,6 +55,7 @@ skills:
 software:
   - Bluebeam
   - On-Screen Takeoff
+  - BuildingConnected
 education:
   required: High school diploma or equivalent
   preferred: Bachelor's degree in construction management, civil engineering, or a related field
@@ -133,6 +134,7 @@ relatedIds:
   - concept-unbalanced-bid
   - career-chief-estimator
   - career-mep-estimator
+  - software-buildingconnected
 recommendedIds:
   - career-project-manager
   - career-senior-estimator

@@ -39,4 +39,6 @@ relatedIds:
   - career-equipment-operator
   - career-equipment-fleet-manager
   - concept-preventive-maintenance
+  - software-trimble-earthworks
+  - software-samsara
 ---

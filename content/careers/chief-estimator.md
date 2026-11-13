@@ -61,6 +61,7 @@ skills:
 software:
   - Bluebeam
   - Enterprise estimating and takeoff software
+  - BuildingConnected
 education:
   required: High school diploma or equivalent
   preferred: Bachelor's degree in construction management, civil engineering, or a related field, plus many years of progressively senior estimating experience
@@ -99,6 +100,7 @@ relatedIds:
   - software-stack
   - software-proest
   - software-hcss-heavybid
+  - software-buildingconnected
 recommendedIds:
   - career-estimator
   - career-senior-estimator

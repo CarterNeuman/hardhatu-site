@@ -56,6 +56,7 @@ skills:
 software:
   - Bluebeam
   - Procore
+  - BuildingConnected
 education:
   required: High school diploma or equivalent; no license is legally required for this role
   preferred: Associate's or bachelor's degree in construction management or business
@@ -91,6 +92,7 @@ relatedIds:
   - concept-sunset-clause-bid-validity
   - concept-apparent-low-bidder
   - concept-bid-tabulation
+  - software-buildingconnected
 recommendedIds:
   - career-estimator
   - career-senior-estimator

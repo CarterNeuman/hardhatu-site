@@ -57,6 +57,8 @@ skills:
 software:
   - Cost estimating and takeoff software
   - GPS and earthwork modeling software
+  - Civil 3D
+  - Trimble Earthworks
 education:
   required: High school diploma or equivalent, plus significant heavy civil field or estimating experience; a bachelor's degree in civil engineering or construction management is common but not universally required
   preferred: >
@@ -96,6 +98,8 @@ relatedIds:
   - career-blaster-explosives-specialist
   - career-mep-estimator
   - career-field-engineer
+  - software-civil-3d
+  - software-trimble-earthworks
 recommendedIds:
   - career-equipment-operator
   - career-civil-engineer

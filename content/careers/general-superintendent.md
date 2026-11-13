@@ -62,6 +62,8 @@ skills:
 software:
   - Procore
   - Bluebeam
+  - DroneDeploy
+  - Assignar
 education:
   required: High school diploma or equivalent
   preferred: Significant experience as a Superintendent; a bachelor's degree in construction management or engineering is common but not universally required
@@ -96,6 +98,8 @@ relatedIds:
   - gethired-project-operations
   - software-procore
   - phase-construction
+  - software-dronedeploy
+  - software-assignar
 recommendedIds:
   - career-superintendent
   - career-assistant-superintendent

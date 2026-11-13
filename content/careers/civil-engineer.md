@@ -126,6 +126,7 @@ relatedIds:
   - career-geotechnical-engineer
   - career-blaster-explosives-specialist
   - career-field-engineer
+  - software-civil-3d
 recommendedIds:
   - career-surveyor
   - career-superintendent

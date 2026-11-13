@@ -71,6 +71,7 @@ skills:
   - Increasingly, drone and 3D scanning technology
 software:
   - Surveying and mapping software (e.g. AutoCAD Civil 3D)
+  - Trimble Earthworks
 education:
   required: >
     Varies by state, but licensure as a Professional Land Surveyor (PLS)
@@ -118,6 +119,8 @@ relatedIds:
   - career-geotechnical-engineer
   - career-landscape-architect
   - career-field-engineer
+  - software-civil-3d
+  - software-trimble-earthworks
 recommendedIds:
   - career-bim-vdc-specialist
   - career-drone-uav-specialist

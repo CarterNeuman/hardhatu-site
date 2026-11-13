@@ -61,6 +61,8 @@ skills:
   - Managing a shop/maintenance team
 software:
   - Fleet management and telematics software (e.g. Tenna, Samsara); maintenance tracking software
+  - ToolWatch
+  - Assignar
 education:
   required: >
     A background in equipment mechanics, fleet management, or construction
@@ -91,6 +93,9 @@ relatedIds:
   - gethired-business
   - concept-preventive-maintenance
   - lesson-heavy-equipment-and-earthwork
+  - software-samsara
+  - software-toolwatch
+  - software-assignar
 recommendedIds:
   - career-operations-manager
   - career-equipment-operator

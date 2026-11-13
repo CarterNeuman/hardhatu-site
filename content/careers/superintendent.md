@@ -55,6 +55,7 @@ skills:
 software:
   - Procore
   - Bluebeam
+  - Raken
 education:
   required: >
     High school diploma or equivalent. No OSHA certification is legally
@@ -174,6 +175,7 @@ relatedIds:
   - career-field-engineer
   - career-general-superintendent
   - career-senior-project-manager
+  - software-raken
 recommendedIds:
   - career-project-manager
   - career-project-engineer

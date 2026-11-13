@@ -60,6 +60,7 @@ skills:
   - Attention to detail, since a missed connection or untested section is a life-safety failure
 software:
   - Generally none for installation work; design and layout roles use fire protection CAD/hydraulic calculation software
+  - AutoSPRINK
 education:
   required: High school diploma or equivalent; no personal license is legally required in most states to work as an employee sprinkler fitter
   preferred: A formal sprinkler fitter union apprenticeship (5-year program combining paid on-the-job training and classroom instruction)
@@ -90,6 +91,7 @@ relatedIds:
   - resume-field-trades
   - exam-cpr-first-aid
   - lesson-jobsite-safety-in-practice
+  - software-autosprink
 recommendedIds:
   - concept-fire-sprinkler-system
   - career-pipefitter

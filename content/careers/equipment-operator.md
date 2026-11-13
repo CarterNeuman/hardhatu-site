@@ -60,7 +60,8 @@ skills:
   - Spatial awareness and coordination with ground crews
   - Basic equipment maintenance and inspection
 software:
-  - GPS-guided grading systems on some modern equipment
+  - GPS-guided grading systems on some modern equipment (e.g. Trimble Earthworks)
+  - Trimble Earthworks
 education:
   required: >
     High school diploma or equivalent, then on-the-job training or a
@@ -129,6 +130,7 @@ relatedIds:
   - concept-equipment-telematics
   - career-blaster-explosives-specialist
   - career-equipment-fleet-manager
+  - software-trimble-earthworks
 recommendedIds:
   - career-superintendent
   - career-millwright

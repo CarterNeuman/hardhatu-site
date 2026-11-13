@@ -44,4 +44,5 @@ relatedIds:
   - phase-procurement-preconstruction
   - career-bid-coordinator
   - concept-bid-alternates
+  - software-buildingconnected
 ---
