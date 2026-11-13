@@ -4,9 +4,11 @@ title: ToolWatch
 tier: premium
 category: Equipment & fleet management
 whatItIs: >
-  Tool and equipment inventory tracking software, built so a
-  contractor knows which tool is checked out to which worker or
-  jobsite, instead of tools simply disappearing from the yard.
+  Tool and equipment inventory tracking software (ToolWatch was its
+  standalone name before a 2024 rebrand folded it into the AlignOps
+  construction operations platform), built so a contractor knows
+  which tool is checked out to which worker or jobsite, instead of
+  tools simply disappearing from the yard.
 whatItDoes: >
   ToolWatch centers on the checkout: a worker scans or logs a tool as
   it leaves the yard for a specific jobsite, and that tool stays
@@ -32,8 +34,8 @@ commonUses:
 tutorialVideos: []
 pricingModel: >
   Subscription-based, typically priced per user or by company size;
-  contact ToolWatch for current pricing.
-website: "https://www.toolwatch.com"
+  contact AlignOps for current pricing.
+website: "https://alignops.com"
 lastReviewed: "2026-11"
 relatedIds:
   - career-equipment-fleet-manager
