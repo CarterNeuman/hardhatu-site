@@ -188,7 +188,7 @@ function TrailStop({
     <Link
       href={href}
       style={{ "--accent": accent } as React.CSSProperties}
-      className="group flex w-full flex-col items-center gap-2 text-center sm:w-40"
+      className="group mx-auto flex w-full max-w-[10rem] flex-col items-center gap-2 text-center"
     >
       <span
         className={`flex h-14 w-14 shrink-0 items-center justify-center border-2 bg-white transition-colors group-hover:[border-color:var(--accent)] ${
@@ -202,19 +202,6 @@ function TrailStop({
       {meta && <span className="text-xs font-semibold uppercase tracking-wide text-steel">{meta}</span>}
       <span className="line-clamp-2 text-sm leading-snug text-steel">{blurb}</span>
     </Link>
-  );
-}
-
-// The dashed connector between two trail stops: a vertical dash on narrow
-// screens (the stops stack), a horizontal one once they sit in a row.
-function TrailConnector({ connectorKey, accent = "#8A4A31" }: { connectorKey: string; accent?: string }) {
-  return (
-    <span
-      key={connectorKey}
-      aria-hidden="true"
-      style={{ borderColor: accent }}
-      className="h-6 w-0.5 self-center border-l-2 border-dashed sm:h-0.5 sm:w-auto sm:flex-1 sm:border-l-0 sm:border-t-2"
-    />
   );
 }
 
@@ -723,26 +710,22 @@ export function CareerMatchQuiz({
           </div>
 
           {otherMatches.length > 0 && (
-            <div className="relative mt-10">
+            <div className="relative mt-10 text-center">
               <p className="text-sm font-semibold uppercase tracking-wide text-steel">
                 {category ? `Other strong fits in ${result}` : "Careers that fit your answers"}
               </p>
-              <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
-                {otherMatches.flatMap((career, i) => {
-                  const stop = (
-                    <TrailStop
-                      key={career.id}
-                      href={urlFor(career)}
-                      iconKind="career"
-                      shape="circle"
-                      title={career.title}
-                      blurb={career.tagline ?? ""}
-                      accent={accent}
-                    />
-                  );
-                  if (i === otherMatches.length - 1) return [stop];
-                  return [stop, <TrailConnector key={`${career.id}-connector`} connectorKey={`${career.id}-connector`} accent={accent} />];
-                })}
+              <div className="mx-auto mt-6 grid grid-cols-2 justify-items-center gap-x-4 gap-y-8 sm:grid-cols-3">
+                {otherMatches.map((career) => (
+                  <TrailStop
+                    key={career.id}
+                    href={urlFor(career)}
+                    iconKind="career"
+                    shape="circle"
+                    title={career.title}
+                    blurb={career.tagline ?? ""}
+                    accent={accent}
+                  />
+                ))}
               </div>
             </div>
           )}
@@ -756,28 +739,21 @@ export function CareerMatchQuiz({
                 Then, start learning
               </p>
 
-              <div className="relative mt-6">
+              <div className="relative mt-6 text-center">
                 <p className="text-sm font-semibold uppercase tracking-wide text-steel">Where to start, in order</p>
-                <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
-                  {recommendedLessons.flatMap(({ lesson, blurb }, i) => {
-                    const stop = (
-                      <TrailStop
-                        key={lesson.id}
-                        href={urlFor(lesson)}
-                        iconKind="lesson"
-                        shape="square"
-                        title={lesson.title}
-                        meta={`${lesson.minutes} min`}
-                        blurb={blurb}
-                        accent={accent}
-                      />
-                    );
-                    if (i === recommendedLessons.length - 1) return [stop];
-                    return [
-                      stop,
-                      <TrailConnector key={`${lesson.id}-connector`} connectorKey={`${lesson.id}-connector`} accent={accent} />,
-                    ];
-                  })}
+                <div className="mx-auto mt-6 grid grid-cols-1 justify-items-center gap-y-8 sm:grid-cols-3 sm:gap-x-4">
+                  {recommendedLessons.map(({ lesson, blurb }) => (
+                    <TrailStop
+                      key={lesson.id}
+                      href={urlFor(lesson)}
+                      iconKind="lesson"
+                      shape="square"
+                      title={lesson.title}
+                      meta={`${lesson.minutes} min`}
+                      blurb={blurb}
+                      accent={accent}
+                    />
+                  ))}
                 </div>
               </div>
             </>
@@ -790,7 +766,10 @@ export function CareerMatchQuiz({
             </p>
           </div>
 
-          <div className="relative mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 border-t pt-6" style={{ borderColor: "#E4DED2" }}>
+          <div
+            className="relative mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 border-t pt-6 text-center"
+            style={{ borderColor: "#E4DED2" }}
+          >
             {/* The quiz result's natural next step: a dated plan,
                 with the category -- and for a category quiz, the
                 specific matched career too -- already picked on the
