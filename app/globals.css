@@ -52,3 +52,10 @@ body {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* State guides: "Print this trade" hides every other part of the page. */
+@media print {
+  html.print-single [data-guide-section] {
+    display: none !important;
+  }
+}

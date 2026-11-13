@@ -89,7 +89,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
       </nav>
 
       {/* Highway-sign hero */}
-      <header className="relative overflow-hidden rounded-xl bg-[#1B5E3B] p-2 text-white shadow-[0_10px_30px_rgba(27,94,59,0.25)] print:shadow-none">
+      <header data-guide-section className="relative overflow-hidden rounded-xl bg-[#1B5E3B] p-2 text-white shadow-[0_10px_30px_rgba(27,94,59,0.25)] print:shadow-none">
         <div className="rounded-lg border-[3px] border-white px-6 py-8 sm:px-10 sm:py-10">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div className="flex items-center gap-3">
@@ -118,7 +118,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
       </header>
 
       {/* Mile markers: the headline numbers */}
-      <dl className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+      <dl data-guide-section className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
         <Marker label="Jobs in these 8 trades" value={`${Math.round(totalJobs / 1000)}k`} note="BLS, May 2025" />
         <Marker label="Openings a year" value={totalOpenings.toLocaleString("en-US")} note={`Projected, ${g.outlookPeriod}`} />
         <Marker label="Need a state trade license" value={`${licensed} of ${g.trades.length}`} note="Earned through paid work" />
@@ -132,6 +132,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
           ["#trades", "The 8 trades"],
           ["#pay", "Pay side by side"],
           ["#licensing", "Licensing"],
+          ["#safety", "Safety"],
           ["#own-business", "Your own business"],
           ["#high-school", "High school"],
           ["#adults", "Adults & career changers"],
@@ -148,7 +149,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
       </nav>
 
       {/* The short version */}
-      <section id="short-version" className="mt-10 scroll-mt-24 border-l-4 border-[#F2C200] bg-amber-soft/40 px-5 py-5 sm:px-6">
+      <section id="short-version" data-guide-section className="mt-10 scroll-mt-24 border-l-4 border-[#F2C200] bg-amber-soft/40 px-5 py-5 sm:px-6">
         <h2 className="font-display text-2xl font-bold text-ink">The short version</h2>
         <p className="mt-1 text-sm text-steel">What&rsquo;s worth telling a student about the trades in {g.name}.</p>
         <ol className="mt-4 list-decimal space-y-2 pl-5 text-[15px] leading-relaxed text-ink marker:font-bold marker:text-[#1B5E3B]">
@@ -160,18 +161,21 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
 
       {/* Trades */}
       <section id="trades" className="mt-12 scroll-mt-24">
-        <h2 className="font-display text-3xl font-bold text-ink">The 8 trades</h2>
-        <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-steel">
-          The eight largest construction trades in {g.name} by number of jobs. Pick one to see its pay ladder, the route to a license and real
-          local ways in.
-        </p>
+        <div data-guide-section>
+          <h2 className="font-display text-3xl font-bold text-ink">The 8 trades</h2>
+          <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-steel">
+            The eight largest construction trades in {g.name} by number of jobs. Pick one to see its pay ladder, the honest hard parts, the
+            route to a license and real local ways in. Every trade has its own link and print button, so you can send a student just the one
+            they asked about.
+          </p>
+        </div>
         <div className="mt-6">
           <TradeExplorer trades={trades} stateName={g.name} />
         </div>
       </section>
 
       {/* Pay table */}
-      <section id="pay" className="mt-14 scroll-mt-24 print:break-before-page">
+      <section id="pay" data-guide-section className="mt-14 scroll-mt-24 print:break-before-page">
         <h2 className="font-display text-3xl font-bold text-ink">Pay side by side</h2>
         <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-steel">
           Yearly pay for full-time work in {g.name}, before taxes and overtime. Prices in {g.name} run{" "}
@@ -242,7 +246,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
       </section>
 
       {/* Licensing */}
-      <section id="licensing" className="mt-14 scroll-mt-24">
+      <section id="licensing" data-guide-section className="mt-14 scroll-mt-24">
         <h2 className="font-display text-3xl font-bold text-ink">How licensing works in {g.name}</h2>
         <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-steel">{g.licensingOverview}</p>
         <div className="mt-5 overflow-x-auto border border-hairline bg-white">
@@ -297,8 +301,30 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
         </p>
       </section>
 
+      {/* Safety */}
+      <section id="safety" data-guide-section className="mt-14 scroll-mt-24">
+        <div className="flex gap-4 border-2 border-[#F2C200] bg-white p-5 sm:p-6">
+          <span
+            aria-hidden="true"
+            className="mt-2 flex h-[34px] w-[34px] shrink-0 rotate-[45deg] items-center self-start justify-center rounded-sm border-2 border-ink bg-[#F2C200]"
+          >
+            <span className="-rotate-[45deg] font-display text-lg font-bold text-ink">!</span>
+          </span>
+          <div>
+            <h2 className="font-display text-2xl font-bold text-ink">Safety, honestly</h2>
+            <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-ink">{g.safety.note}</p>
+            <p className="mt-2 text-xs text-steel">
+              Source:{" "}
+              <a href={g.safety.source.url} className="text-navy hover:underline" target="_blank" rel="noopener noreferrer">
+                {g.safety.source.label}
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Own business */}
-      <section id="own-business" className="mt-14 scroll-mt-24">
+      <section id="own-business" data-guide-section className="mt-14 scroll-mt-24">
         <h2 className="font-display text-3xl font-bold text-ink">Starting your own business</h2>
         <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-steel">{g.business.lead}</p>
         <div className="mt-5 grid gap-4 md:grid-cols-2">
@@ -337,7 +363,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
       </section>
 
       {/* High school */}
-      <section id="high-school" className="mt-14 scroll-mt-24">
+      <section id="high-school" data-guide-section className="mt-14 scroll-mt-24">
         <h2 className="font-display text-3xl font-bold text-ink">For high school students</h2>
         <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-steel">
           What {g.name} already offers students before graduation. Most of it is free, and much of it counts toward a diploma.
@@ -346,7 +372,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
       </section>
 
       {/* Adults */}
-      <section id="adults" className="mt-14 scroll-mt-24">
+      <section id="adults" data-guide-section className="mt-14 scroll-mt-24">
         <h2 className="font-display text-3xl font-bold text-ink">For adults and career changers</h2>
         <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-steel">
           It&rsquo;s never too late to start. These options are open to adults in {g.name}, and several cost nothing.
@@ -366,7 +392,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
       </section>
 
       {/* Sources */}
-      <section id="sources" className="mt-14 scroll-mt-24 border-t border-hairline pt-6">
+      <section id="sources" data-guide-section className="mt-14 scroll-mt-24 border-t border-hairline pt-6">
         <h2 className="text-xs font-semibold uppercase tracking-wide text-steel">Sources (updated {updated})</h2>
         <ul className="mt-3 space-y-1.5 text-sm leading-relaxed text-steel">
           {g.sources.map((s) => (

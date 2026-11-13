@@ -40,6 +40,15 @@ export type StateTrade = {
   payNote?: string;
   overtime: string; // how overtime shows up in this trade
   ownBusiness: string; // what running your own shop takes in this state
+  hardParts: string[]; // honest downsides, shown beside the pay
+  fit: TradeFit; // drives the "which trade fits you?" strip
+};
+
+export type WorkStyle = "build" | "fix" | "machines";
+export type TradeFit = {
+  styles: WorkStyle[];
+  setting: "outdoor" | "indoor" | "mixed";
+  heights: boolean; // regularly works up high (ladders, lifts, roofs, steel)
 };
 
 export type BusinessSection = {
@@ -62,6 +71,7 @@ export type StateGuide = {
   licensingOverview: string;
   overtimeNote: string;
   overtimeSource: SourceRef;
+  safety: { note: string; source: SourceRef };
   business: BusinessSection;
   trades: StateTrade[];
   highSchool: { title: string; detail: string; source: SourceRef }[];
@@ -129,6 +139,11 @@ export const GEORGIA: StateGuide = {
   overtimeNote:
     "Most of these jobs pay by the hour, and federal law requires time-and-a-half for hourly workers past 40 hours in a week. Overtime is common in all eight trades, and the pay figures on this page leave it out, so many workers earn more than shown. How much depends on the employer, the season and the project.",
   overtimeSource: { label: "U.S. Department of Labor, overtime pay under the Fair Labor Standards Act", url: "https://www.dol.gov/agencies/whd/overtime" },
+  safety: {
+    note:
+      "Every one of these trades has real physical risk, and the industry takes it seriously: many employers and training programs start new workers with OSHA 10 safety training, and OSHA requires fall protection at 6 feet on construction sites. Falls are the leading cause of death in construction, 389 of 1,034 construction deaths in 2024.",
+    source: { label: "OSHA Fall Prevention Campaign (BLS 2024 data)", url: "https://www.osha.gov/stop-falls" },
+  },
   business: {
     lead:
       "Owning your own shop is a real path in every one of these trades, and it's how some tradespeople earn far more than any wage on this page. It's also where the most risk lives.",
@@ -185,6 +200,12 @@ export const GEORGIA: StateGuide = {
       credentials: ["OSHA 10 (common first card)", "NCCER Electrical levels (optional, widely recognized)"],
       overtime: "Most electricians are paid by the hour, so hours past 40 a week earn time-and-a-half. Data center builds and plant shutdowns often run long weeks.",
       ownBusiness: "To contract electrical work yourself, Georgia requires a Class I or Class II electrical contractor license, which takes 4 years of experience. Small residential and service shops are a common first business.",
+      hardParts: [
+        "Live electrical work carries shock and arc-flash risk, so safety rules are strict and non-negotiable.",
+        "Ladders, lifts and tight spaces like attics and crawlspaces.",
+        "Commercial and industrial jobs can mean long drives to wherever the project is.",
+      ],
+      fit: { styles: ["build", "fix"], setting: "mixed", heights: true },
       training: [
         {
           name: "Atlanta Electrical JATC (IBEW Local 613 + contractors)",
@@ -227,6 +248,12 @@ export const GEORGIA: StateGuide = {
       ],
       overtime: "Operators are usually paid hourly. Long days are common in the dry months when site and road work is busiest, while rain and winter can mean shorter weeks.",
       ownBusiness: "Some operators buy a machine and start a small grading or hauling business. Equipment is expensive, and utility work (water, sewer, gas lines) needs a Georgia utility contractor license.",
+      hardParts: [
+        "Long hours in the seat, with vibration that wears on your back over time.",
+        "Rain stops the work, so paychecks can dip in wet months.",
+        "You go where the project is, sometimes far from home.",
+      ],
+      fit: { styles: ["machines"], setting: "outdoor", heights: false },
       training: [
         {
           name: "IUOE Local 926 Joint Apprenticeship",
@@ -265,6 +292,12 @@ export const GEORGIA: StateGuide = {
         "This pay includes welders in manufacturing, not just construction, because BLS reports one welder category across all industries.",
       overtime: "Welders are usually paid hourly, with overtime common during plant shutdowns and on pipeline and industrial jobs.",
       ownBusiness: "A mobile welding rig is one of the most common one-person trade businesses. Georgia requires no welding license, but you supply the truck, the welder and the insurance.",
+      hardParts: [
+        "Heat, sparks, fumes and bright light, so protective gear is required every day.",
+        "Awkward positions: overhead, in tight spaces or up high.",
+        "Some of the best-paying pipeline and shutdown work means travel.",
+      ],
+      fit: { styles: ["build"], setting: "mixed", heights: false },
       training: [
         {
           name: "Technical College System of Georgia (TCSG)",
@@ -305,6 +338,12 @@ export const GEORGIA: StateGuide = {
       credentials: ["EPA Section 608 (federal, required to handle refrigerant)", "NATE certification (optional)"],
       overtime: "HVAC techs are usually paid hourly. Georgia summers bring heavy overtime for service techs, and many companies pay extra for on-call and emergency calls.",
       ownBusiness: "Contracting HVAC work requires a Georgia conditioned air contractor license (4 years of experience for Class I). Service-and-replacement shops are among the most common trade businesses.",
+      hardParts: [
+        "Georgia attics can be brutally hot in summer, right when service calls peak.",
+        "On-call nights and weekends are common for service techs.",
+        "Crawlspaces, rooftops and heavy equipment to move.",
+      ],
+      fit: { styles: ["fix"], setting: "mixed", heights: true },
       training: [
         {
           name: "Technical College System of Georgia (TCSG)",
@@ -348,6 +387,12 @@ export const GEORGIA: StateGuide = {
       credentials: ["OSHA 10", "NCCER Carpentry levels (optional)"],
       overtime: "Carpenters are usually paid hourly, with overtime when a project runs behind schedule. Bad weather can also cut weeks short.",
       ownBusiness: "Many carpenters go on to become remodelers or home builders. Contracting jobs over $2,500 requires a Georgia residential or general contractor license.",
+      hardParts: [
+        "Heavy lifting and lots of kneeling, which add up on knees and back over a career.",
+        "Working at heights on framing and formwork.",
+        "Weather and the end of a project can leave gaps between jobs.",
+      ],
+      fit: { styles: ["build"], setting: "outdoor", heights: true },
       training: [
         {
           name: "Carpenters union (UBC) training centers",
@@ -388,6 +433,12 @@ export const GEORGIA: StateGuide = {
       credentials: ["Medical gas or backflow certifications (optional specialties)"],
       overtime: "Plumbers are usually paid hourly, and service plumbers often earn overtime or after-hours pay for emergency calls.",
       ownBusiness: "In Georgia, only a licensed Master Plumber can run a plumbing business; a journeyman cannot. That takes 5 years of experience, 2 of them as a licensed journeyman.",
+      hardParts: [
+        "Crawlspaces, trenches and dirty work: sewage is part of the job.",
+        "Emergency calls at night and on weekends in service work.",
+        "Lots of kneeling and working in tight spots.",
+      ],
+      fit: { styles: ["build", "fix"], setting: "indoor", heights: false },
       training: [
         {
           name: "Mechanical Trades Institute (UA Local 72)",
@@ -424,6 +475,12 @@ export const GEORGIA: StateGuide = {
       credentials: ["OSHA 10", "ICB testing and balancing certifications (optional, union)"],
       overtime: "Sheet metal workers are usually paid hourly, with overtime common as big commercial projects push to finish.",
       ownBusiness: "Some sheet metal workers open fabrication or duct shops. Contracting HVAC duct work falls under Georgia's conditioned air contractor license.",
+      hardParts: [
+        "Sharp edges and heavy duct sections, so cuts are a common injury.",
+        "Much of the install work is overhead, on lifts and ladders.",
+        "Fabrication shops can be loud.",
+      ],
+      fit: { styles: ["build"], setting: "indoor", heights: true },
       training: [
         {
           name: "Georgia Sheet Metal JATC (SMART Local 85)",
@@ -455,6 +512,12 @@ export const GEORGIA: StateGuide = {
       credentials: ["ACI Concrete Flatwork Finisher (optional)", "OSHA 10"],
       overtime: "Finishers are usually paid hourly, with early-morning pours and long days in good weather. Rain can cancel days entirely.",
       ownBusiness: "Small concrete crews that pour driveways, patios and slabs are a common first business. Contracting jobs over $2,500 requires a Georgia contractor license.",
+      hardParts: [
+        "One of the most physically demanding trades: heavy, fast and often on your knees.",
+        "Wet concrete can burn skin, so boots, gloves and long sleeves matter.",
+        "Outdoor work in Georgia heat, with early starts and rain days.",
+      ],
+      fit: { styles: ["build"], setting: "outdoor", heights: false },
       training: [
         CONSTRUCTION_READY,
         {
