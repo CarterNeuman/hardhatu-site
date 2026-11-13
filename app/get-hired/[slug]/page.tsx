@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getAllContent, getBySlug, getRelated } from "@/lib/content";
-import { urlFor } from "@/lib/content-client";
+import { urlFor, CATEGORY_QUIZ_SLUG } from "@/lib/content-client";
 import type { GetHired } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
 import { Icon } from "@/components/Icon";
@@ -70,6 +70,19 @@ export default async function GetHiredPage({
         )}
       </div>
       <p className="mt-3 text-lg leading-relaxed text-ink">{guide.tagline}</p>
+
+      {/* Quiz v2 retention hook: a reader who landed on this hub already
+          knows their category (that's how they got here) but may not
+          know which specific role inside it fits -- send them straight
+          to that category's own scoped quiz instead of the general one. */}
+      {CATEGORY_QUIZ_SLUG[guide.category] && (
+        <Link
+          href={`/quizzes/${CATEGORY_QUIZ_SLUG[guide.category]}`}
+          className="mt-4 inline-flex items-center gap-2 border border-amber bg-amber-soft/40 px-4 py-2 text-sm font-semibold text-clay transition-colors hover:bg-amber-soft/70"
+        >
+          Not sure which {guide.category} role fits? Take the 5-question quiz &rarr;
+        </Link>
+      )}
 
       <EmailGate source={`gethired:${guide.slug}`} variant="immediate">
       {guide.comingSoon ? (
