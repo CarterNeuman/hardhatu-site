@@ -98,6 +98,10 @@ export function TradeExplorer({ trades, stateName }: { trades: TradeView[]; stat
                 {t.usesNational ? " BLS doesn't publish this job for the state, so national figures are shown." : ""}
               </p>
               {t.payNote && <p className="mt-2 text-xs text-steel">{t.payNote}</p>}
+              <p className="mt-3 border-l-4 border-[#F2C200] bg-[#F2C200]/10 px-3 py-2 text-sm leading-snug text-ink">
+                <span className="font-semibold">Overtime: </span>
+                {t.overtime}
+              </p>
 
               <h4 className="mt-6 text-xs font-semibold uppercase tracking-wide text-steel">Jobs outlook</h4>
               <dl className="mt-2 grid grid-cols-3 gap-3 text-center">
@@ -130,6 +134,13 @@ export function TradeExplorer({ trades, stateName }: { trades: TradeView[]; stat
                   </li>
                 ))}
               </ol>
+              <div className="mt-5 border border-dashed border-[#1B5E3B]/50 bg-[#1B5E3B]/5 px-4 py-3">
+                <p className="text-sm font-semibold text-ink">Your own business someday</p>
+                <p className="mt-1 text-sm leading-snug text-ink">{t.ownBusiness}</p>
+                <a href="#own-business" className="mt-1 inline-block text-xs font-semibold text-[#1B5E3B] hover:underline print:hidden">
+                  The upside and the risk ↓
+                </a>
+              </div>
               {t.licenseAgency && (
                 <p className="mt-4 text-xs text-steel">
                   Licensing agency:{" "}

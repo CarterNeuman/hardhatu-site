@@ -30,8 +30,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 const usd = (n: number) => `$${Math.round(n).toLocaleString("en-US")}`;
 const round100 = (n: number) => Math.round(n / 100) * 100;
 
-function formatDate(iso: string) {
-  return new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+// Shown as "November 2026": month and year read as current without
+// inviting nitpicks about a specific day.
+function formatMonth(iso: string) {
+  return new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
 }
 
 const LICENSE_LABEL = {
@@ -71,7 +73,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
   const totalJobs = trades.reduce((a, t) => a + t.employment, 0);
   const totalOpenings = g.trades.reduce((a, t) => a + t.outlook.openingsPerYear, 0);
   const licensed = g.trades.filter((t) => t.stateLicense !== "none").length;
-  const checked = formatDate(g.lastVerified);
+  const updated = formatMonth(g.lastVerified);
 
   return (
     <div className="mx-auto max-w-5xl px-6 py-10 print:max-w-none print:px-0 print:py-0">
@@ -99,7 +101,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
               </span>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/85">Field guide · Construction trades</p>
             </div>
-            <span className="rounded-sm bg-[#F2C200] px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-ink">Checked {checked}</span>
+            <span className="rounded-sm bg-[#F2C200] px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-ink">Updated {updated}</span>
           </div>
           <h1 className="mt-6 font-display text-4xl font-bold leading-tight sm:text-5xl">Construction careers in {g.name}</h1>
           <p className="mt-3 max-w-3xl text-lg leading-relaxed text-white/90">{g.intro}</p>
@@ -130,6 +132,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
           ["#trades", "The 8 trades"],
           ["#pay", "Pay side by side"],
           ["#licensing", "Licensing"],
+          ["#own-business", "Your own business"],
           ["#high-school", "High school"],
           ["#adults", "Adults & career changers"],
           ["#sources", "Sources"],
@@ -147,7 +150,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
       {/* The short version */}
       <section id="short-version" className="mt-10 scroll-mt-24 border-l-4 border-[#F2C200] bg-amber-soft/40 px-5 py-5 sm:px-6">
         <h2 className="font-display text-2xl font-bold text-ink">The short version</h2>
-        <p className="mt-1 text-sm text-steel">Five things worth telling a student about the trades in {g.name}.</p>
+        <p className="mt-1 text-sm text-steel">What&rsquo;s worth telling a student about the trades in {g.name}.</p>
         <ol className="mt-4 list-decimal space-y-2 pl-5 text-[15px] leading-relaxed text-ink marker:font-bold marker:text-[#1B5E3B]">
           {g.quickTakeaways.map((t) => (
             <li key={t}>{t}</li>
@@ -217,6 +220,17 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
             </tbody>
           </table>
         </div>
+        <div className="mt-4 flex gap-3 border border-[#F2C200] bg-[#F2C200]/10 px-4 py-3">
+          <span aria-hidden="true" className="mt-0.5 shrink-0 rounded-sm bg-[#F2C200] px-1.5 text-xs font-bold text-ink">
+            OT
+          </span>
+          <p className="text-sm leading-relaxed text-ink">
+            <span className="font-semibold">Overtime comes on top.</span> {g.overtimeNote}{" "}
+            <a href={g.overtimeSource.url} className="text-navy hover:underline" target="_blank" rel="noopener noreferrer">
+              Federal overtime rules
+            </a>
+          </p>
+        </div>
         <p className="mt-3 text-xs leading-relaxed text-steel">
           <span className="font-semibold text-ink">How to read this:</span> BLS reports how pay is spread across everyone in a job, not pay by
           years worked. We read that spread as a ladder: starting out is the 10th percentile, 5 years in is the median, 10 years in is the 75th
@@ -278,8 +292,47 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
           </table>
         </div>
         <p className="mt-3 text-xs text-steel">
-          Summarized from the state&rsquo;s own rules as of {checked}. Rules change, so confirm with the agency before applying. This is a guide,
+          Summarized from the state&rsquo;s own rules as of {updated}. Rules change, so confirm with the agency before applying. This is a guide,
           not legal advice.
+        </p>
+      </section>
+
+      {/* Own business */}
+      <section id="own-business" className="mt-14 scroll-mt-24">
+        <h2 className="font-display text-3xl font-bold text-ink">Starting your own business</h2>
+        <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-steel">{g.business.lead}</p>
+        <div className="mt-5 grid gap-4 md:grid-cols-2">
+          <div className="border border-hairline border-t-4 border-t-[#1B5E3B] bg-white p-5">
+            <h3 className="font-semibold text-ink">The upside</h3>
+            <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-ink marker:text-[#1B5E3B]">
+              {g.business.upside.map((u) => (
+                <li key={u}>{u}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="border border-hairline border-t-4 border-t-clay bg-white p-5">
+            <h3 className="font-semibold text-ink">The risk</h3>
+            <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-ink marker:text-clay">
+              {g.business.risks.map((r) => (
+                <li key={r}>{r}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-ink">
+          <span className="font-semibold">{g.business.path.split(":")[0]}:</span>
+          {g.business.path.slice(g.business.path.indexOf(":") + 1)}
+        </p>
+        <p className="mt-3 text-xs text-steel">
+          Sources:{" "}
+          {g.business.sources.map((s, i) => (
+            <span key={s.url}>
+              {i > 0 ? " · " : ""}
+              <a href={s.url} className="text-navy hover:underline" target="_blank" rel="noopener noreferrer">
+                {s.label}
+              </a>
+            </span>
+          ))}
         </p>
       </section>
 
@@ -314,7 +367,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
 
       {/* Sources */}
       <section id="sources" className="mt-14 scroll-mt-24 border-t border-hairline pt-6">
-        <h2 className="text-xs font-semibold uppercase tracking-wide text-steel">Sources (checked {checked})</h2>
+        <h2 className="text-xs font-semibold uppercase tracking-wide text-steel">Sources (updated {updated})</h2>
         <ul className="mt-3 space-y-1.5 text-sm leading-relaxed text-steel">
           {g.sources.map((s) => (
             <li key={s.url + s.label}>

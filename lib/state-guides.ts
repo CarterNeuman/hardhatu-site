@@ -38,6 +38,16 @@ export type StateTrade = {
   credentials: string[];
   training: TrainingOption[];
   payNote?: string;
+  overtime: string; // how overtime shows up in this trade
+  ownBusiness: string; // what running your own shop takes in this state
+};
+
+export type BusinessSection = {
+  lead: string;
+  upside: string[];
+  risks: string[];
+  path: string;
+  sources: SourceRef[];
 };
 
 export type StateGuide = {
@@ -50,6 +60,9 @@ export type StateGuide = {
   intro: string;
   quickTakeaways: string[];
   licensingOverview: string;
+  overtimeNote: string;
+  overtimeSource: SourceRef;
+  business: BusinessSection;
   trades: StateTrade[];
   highSchool: { title: string; detail: string; source: SourceRef }[];
   adults: { title: string; detail: string; source: SourceRef }[];
@@ -109,9 +122,40 @@ export const GEORGIA: StateGuide = {
     "High school juniors and seniors can take technical college courses for free through Dual Enrollment, up to 30 semester hours.",
     "For eligible Georgia residents, the HOPE Grant plus the HOPE Career Grant covers all tuition in construction and welding programs at Georgia's technical colleges.",
     "Paid, registered apprenticeships run in Georgia for every trade on this page except concrete finishing, where most people learn on the job. Apprentices earn a paycheck from day one.",
+    "Most of these jobs pay hourly with overtime on top, and many tradespeople later start their own business. That can pay well, but most new businesses don't last 10 years.",
   ],
   licensingOverview:
     "Georgia licenses specialty contractors through the Construction Industry Licensing Board (electrical, plumbing and conditioned air are separate divisions) and licenses general and residential contractors through a separate board. Most of these licenses are for people who contract the work themselves. Workers usually start under a licensed company and earn their own license later.",
+  overtimeNote:
+    "Most of these jobs pay by the hour, and federal law requires time-and-a-half for hourly workers past 40 hours in a week. Overtime is common in all eight trades, and the pay figures on this page leave it out, so many workers earn more than shown. How much depends on the employer, the season and the project.",
+  overtimeSource: { label: "U.S. Department of Labor, overtime pay under the Fair Labor Standards Act", url: "https://www.dol.gov/agencies/whd/overtime" },
+  business: {
+    lead:
+      "Owning your own shop is a real path in every one of these trades, and it's how some tradespeople earn far more than any wage on this page. It's also where the most risk lives.",
+    upside: [
+      "Owners set their own prices and schedules. The pay figures on this page leave out the self-employed entirely, so they say nothing about what owners earn.",
+      "In Georgia, the licenses in this guide double as business licenses: master plumber, electrical contractor, conditioned air contractor, and residential or general contractor.",
+      "You can start small. Many owners begin with one truck and side jobs before going full-time.",
+    ],
+    risks: [
+      "About 1 in 5 new U.S. businesses close in their first year, and only about a third are still open after 10 years. Construction ranks among the industries with the lowest survival rates.",
+      "Owners pay for what an employer used to cover: insurance, tools, trucks, health coverage and time off.",
+      "Income swings with the season and the economy, and customers don't always pay on time.",
+    ],
+    path:
+      "The usual route: work for someone else for years, earn your state license, learn the business side (bidding, estimating, insurance), save money, then start small.",
+    sources: [
+      {
+        label: "BLS: 34.7% of business establishments born in 2013 were still operating in 2023",
+        url: "https://www.bls.gov/opub/ted/2024/34-7-percent-of-business-establishments-born-in-2013-were-still-operating-in-2023.htm",
+      },
+      { label: "BLS: Entrepreneurship and the U.S. economy (survival by industry)", url: "https://www.bls.gov/bdm/entrepreneurship/entrepreneurship.htm" },
+      {
+        label: "Georgia Division of Master and Journeyman Plumbers FAQ (only master plumbers may own a business)",
+        url: "https://sos.ga.gov/page/division-master-and-journeyman-plumbers-faq",
+      },
+    ],
+  },
   trades: [
     {
       soc: "47-2111",
@@ -139,6 +183,8 @@ export const GEORGIA: StateGuide = {
       ],
       licenseAgency: GA_SOS_ELECTRICAL,
       credentials: ["OSHA 10 (common first card)", "NCCER Electrical levels (optional, widely recognized)"],
+      overtime: "Most electricians are paid by the hour, so hours past 40 a week earn time-and-a-half. Data center builds and plant shutdowns often run long weeks.",
+      ownBusiness: "To contract electrical work yourself, Georgia requires a Class I or Class II electrical contractor license, which takes 4 years of experience. Small residential and service shops are a common first business.",
       training: [
         {
           name: "Atlanta Electrical JATC (IBEW Local 613 + contractors)",
@@ -179,6 +225,8 @@ export const GEORGIA: StateGuide = {
         "Commercial driver's license, CDL (often needed to haul equipment)",
         "NCCER Heavy Equipment Operations (optional)",
       ],
+      overtime: "Operators are usually paid hourly. Long days are common in the dry months when site and road work is busiest, while rain and winter can mean shorter weeks.",
+      ownBusiness: "Some operators buy a machine and start a small grading or hauling business. Equipment is expensive, and utility work (water, sewer, gas lines) needs a Georgia utility contractor license.",
       training: [
         {
           name: "IUOE Local 926 Joint Apprenticeship",
@@ -215,6 +263,8 @@ export const GEORGIA: StateGuide = {
       credentials: ["AWS welder certifications (tested by employers or accredited test facilities)"],
       payNote:
         "This pay includes welders in manufacturing, not just construction, because BLS reports one welder category across all industries.",
+      overtime: "Welders are usually paid hourly, with overtime common during plant shutdowns and on pipeline and industrial jobs.",
+      ownBusiness: "A mobile welding rig is one of the most common one-person trade businesses. Georgia requires no welding license, but you supply the truck, the welder and the insurance.",
       training: [
         {
           name: "Technical College System of Georgia (TCSG)",
@@ -253,6 +303,8 @@ export const GEORGIA: StateGuide = {
       ],
       licenseAgency: GA_SOS_AIR,
       credentials: ["EPA Section 608 (federal, required to handle refrigerant)", "NATE certification (optional)"],
+      overtime: "HVAC techs are usually paid hourly. Georgia summers bring heavy overtime for service techs, and many companies pay extra for on-call and emergency calls.",
+      ownBusiness: "Contracting HVAC work requires a Georgia conditioned air contractor license (4 years of experience for Class I). Service-and-replacement shops are among the most common trade businesses.",
       training: [
         {
           name: "Technical College System of Georgia (TCSG)",
@@ -294,6 +346,8 @@ export const GEORGIA: StateGuide = {
       ],
       licenseAgency: GA_SOS_GC,
       credentials: ["OSHA 10", "NCCER Carpentry levels (optional)"],
+      overtime: "Carpenters are usually paid hourly, with overtime when a project runs behind schedule. Bad weather can also cut weeks short.",
+      ownBusiness: "Many carpenters go on to become remodelers or home builders. Contracting jobs over $2,500 requires a Georgia residential or general contractor license.",
       training: [
         {
           name: "Carpenters union (UBC) training centers",
@@ -332,6 +386,8 @@ export const GEORGIA: StateGuide = {
       ],
       licenseAgency: GA_SOS_PLUMBERS,
       credentials: ["Medical gas or backflow certifications (optional specialties)"],
+      overtime: "Plumbers are usually paid hourly, and service plumbers often earn overtime or after-hours pay for emergency calls.",
+      ownBusiness: "In Georgia, only a licensed Master Plumber can run a plumbing business; a journeyman cannot. That takes 5 years of experience, 2 of them as a licensed journeyman.",
       training: [
         {
           name: "Mechanical Trades Institute (UA Local 72)",
@@ -366,6 +422,8 @@ export const GEORGIA: StateGuide = {
         { title: "Specialist (optional)", detail: "Testing and balancing, architectural metals or service." },
       ],
       credentials: ["OSHA 10", "ICB testing and balancing certifications (optional, union)"],
+      overtime: "Sheet metal workers are usually paid hourly, with overtime common as big commercial projects push to finish.",
+      ownBusiness: "Some sheet metal workers open fabrication or duct shops. Contracting HVAC duct work falls under Georgia's conditioned air contractor license.",
       training: [
         {
           name: "Georgia Sheet Metal JATC (SMART Local 85)",
@@ -395,6 +453,8 @@ export const GEORGIA: StateGuide = {
       ],
       licenseAgency: GA_SOS_GC,
       credentials: ["ACI Concrete Flatwork Finisher (optional)", "OSHA 10"],
+      overtime: "Finishers are usually paid hourly, with early-morning pours and long days in good weather. Rain can cancel days entirely.",
+      ownBusiness: "Small concrete crews that pour driveways, patios and slabs are a common first business. Contracting jobs over $2,500 requires a Georgia contractor license.",
       training: [
         CONSTRUCTION_READY,
         {
