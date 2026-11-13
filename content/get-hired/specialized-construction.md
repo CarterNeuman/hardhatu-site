@@ -75,5 +75,9 @@ relatedIds:
   - career-renewable-energy-project-manager
   - career-restoration-project-manager
   - gethired-general
+  - career-blaster-explosives-specialist
+  - career-modular-offsite-construction-manager
+  - career-tenant-improvement-construction-manager
+  - career-healthcare-construction-manager
 ---
 Whether you're targeting [[career-renewable-energy-project-manager|renewable energy project management]] or [[career-restoration-project-manager|disaster restoration]], this category is credential-gated going in and trust-gated once you're on the crew. Here's how to handle both.

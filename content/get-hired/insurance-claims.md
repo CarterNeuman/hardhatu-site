@@ -72,5 +72,10 @@ relatedIds:
   - career-public-adjuster
   - career-surety-bond-underwriter
   - gethired-general
+  - career-insurance-broker
+  - career-general-liability-underwriter
+  - career-claims-examiner
+  - career-workers-comp-claims-adjuster
+  - career-surety-claims-manager
 ---
 Whether you're aiming for a steady staff role or building an independent [[career-insurance-adjuster|adjuster]] career around catastrophe deployments, licensing is what actually opens the door in 2026. Here's how to get through it fast.

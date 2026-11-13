@@ -78,5 +78,10 @@ relatedIds:
   - career-surveyor
   - exam-fe
   - gethired-general
+  - career-architect
+  - career-landscape-architect
+  - career-interior-designer
+  - career-fire-protection-engineer
+  - career-geotechnical-engineer
 ---
 Whether you're aiming for [[career-bim-vdc-specialist|BIM/VDC specialist]] or [[career-construction-technology-manager|construction technology manager]], this category is judged on proof more than pedigree. Here's how to actually show it.
