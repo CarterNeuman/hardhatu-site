@@ -150,6 +150,15 @@ const CATEGORY_ACCENT: Record<string, string> = {
 };
 const DEFAULT_ACCENT = CATEGORY_ACCENT["Project & Operations"];
 
+// The quiz's full-bleed diagonal gradient backdrop, matching the
+// approved quiz v2 mockup exactly: real site navy at one end, a fixed
+// near-black anchor in the middle (keeps every category's gradient
+// reading as "the same quiz" rather than 8 unrelated color schemes),
+// and the category's own accent at the other end.
+function quizGradient(accent: string) {
+  return `linear-gradient(135deg, #1F3F52 0%, #14233A 48%, ${accent} 160%)`;
+}
+
 
 // One stop on the result screen's career/lesson "trail": a circle (career)
 // or square (lesson) icon tile, a title, and a short line underneath, wired
@@ -162,6 +171,7 @@ function TrailStop({
   title,
   meta,
   blurb,
+  accent = "#8A4A31",
 }: {
   href: string;
   iconKind: "career" | "lesson";
@@ -169,17 +179,25 @@ function TrailStop({
   title: string;
   meta?: string;
   blurb: string;
+  // Defaults to the original clay-ish tone so any other caller of this
+  // component (there are none today) keeps its original look.
+  accent?: string;
 }) {
   return (
-    <Link href={href} className="group flex w-full flex-col items-center gap-2 text-center sm:w-40">
+    <Link
+      href={href}
+      style={{ "--accent": accent } as React.CSSProperties}
+      className="group flex w-full flex-col items-center gap-2 text-center sm:w-40"
+    >
       <span
-        className={`flex h-14 w-14 shrink-0 items-center justify-center border-2 border-hairline bg-paper transition-colors group-hover:border-navy ${
-          shape === "circle" ? "rounded-full" : ""
+        className={`flex h-14 w-14 shrink-0 items-center justify-center border-2 bg-white transition-colors group-hover:[border-color:var(--accent)] ${
+          shape === "circle" ? "rounded-full" : "rounded-xl"
         }`}
+        style={{ borderColor: "#E4DED2" }}
       >
-        <Icon kind={iconKind} size={22} className="text-clay" />
+        <Icon kind={iconKind} size={22} className="[color:var(--accent)]" />
       </span>
-      <span className="font-display text-base font-bold text-ink group-hover:text-navy">{title}</span>
+      <span className="font-display text-base font-bold text-ink group-hover:[color:var(--accent)]">{title}</span>
       {meta && <span className="text-xs font-semibold uppercase tracking-wide text-steel">{meta}</span>}
       <span className="line-clamp-2 text-sm leading-snug text-steel">{blurb}</span>
     </Link>
@@ -188,12 +206,13 @@ function TrailStop({
 
 // The dashed connector between two trail stops: a vertical dash on narrow
 // screens (the stops stack), a horizontal one once they sit in a row.
-function TrailConnector({ connectorKey }: { connectorKey: string }) {
+function TrailConnector({ connectorKey, accent = "#8A4A31" }: { connectorKey: string; accent?: string }) {
   return (
     <span
       key={connectorKey}
       aria-hidden="true"
-      className="h-6 w-0.5 self-center border-l-2 border-dashed border-clay sm:h-0.5 sm:w-auto sm:flex-1 sm:border-l-0 sm:border-t-2"
+      style={{ borderColor: accent }}
+      className="h-6 w-0.5 self-center border-l-2 border-dashed sm:h-0.5 sm:w-auto sm:flex-1 sm:border-l-0 sm:border-t-2"
     />
   );
 }
@@ -227,6 +246,13 @@ export function CareerMatchQuiz({
   // kept so goBack() can undo exactly the points the last pick added
   // rather than wiping the whole attempt -- see goBack() below.
   const [answerHistory, setAnswerHistory] = useState<QuizOption[]>([]);
+  // The two-stage select animation from the approved quiz v2 mockup:
+  // clicking an option highlights it in place for a beat, then the
+  // whole panel fades/slides out, and only once it's fully gone does
+  // the real scoring and step/result change happen -- see pick() and
+  // applyAnswer() below.
+  const [selectedOption, setSelectedOption] = useState<QuizOption | null>(null);
+  const [leaving, setLeaving] = useState(false);
 
   const allCareers = useMemo(() => Object.values(careersByCategory).flat(), [careersByCategory]);
   const { isSignedIn, isLoaded, user } = useUser();
@@ -416,7 +442,10 @@ export function CareerMatchQuiz({
       });
   }, [result, isSignedIn, matches]);
 
-  function pick(option: QuizOption) {
+  // The actual scoring + step/result advance, unchanged from before --
+  // just pulled out of pick() so pick() can run it after the exit
+  // animation finishes instead of immediately on click.
+  function applyAnswer(option: QuizOption) {
     const nextCategoryScores = { ...categoryScores };
     for (const category of option.pointsToCategories) {
       nextCategoryScores[category] = (nextCategoryScores[category] ?? 0) + 1;
@@ -466,13 +495,31 @@ export function CareerMatchQuiz({
     }
   }
 
+  // Highlights the clicked option, waits a beat, fades the panel out,
+  // then actually applies the answer and swaps in the next question or
+  // result -- the same two-stage feel as the approved mockup. Clicks
+  // are ignored while a panel is already mid-exit so a fast double
+  // click can't double-score a question.
+  function pick(option: QuizOption) {
+    if (leaving) return;
+    setSelectedOption(option);
+    window.setTimeout(() => {
+      setLeaving(true);
+      window.setTimeout(() => {
+        applyAnswer(option);
+        setSelectedOption(null);
+        setLeaving(false);
+      }, 340);
+    }, 400);
+  }
+
   // Undoes the most recently answered question -- subtracts exactly the
   // points that pick added (so earlier answers are untouched) and steps
   // back to it so it can be answered again. Only reachable mid-quiz
   // (step > 0); once a result exists, "Take the quiz again" is the way
   // back, not this.
   function goBack() {
-    if (step === 0) return;
+    if (step === 0 || leaving) return;
     const lastOption = answerHistory[answerHistory.length - 1];
     if (lastOption) {
       const nextCategoryScores = { ...categoryScores };
@@ -497,6 +544,8 @@ export function CareerMatchQuiz({
     setResult(null);
     setSavedAt(null);
     setAnswerHistory([]);
+    setSelectedOption(null);
+    setLeaving(false);
     // A retake is a new attempt even if it lands on the same category
     // as last time -- without this reset the save effect's "already
     // saved this result" guard silently skipped it.
@@ -543,22 +592,28 @@ export function CareerMatchQuiz({
 
     if (!isSignedIn) {
       return (
-        <div className="mt-6 border border-hairline bg-amber-soft px-6 py-10 text-center sm:px-10">
-          <h2 className="font-display text-3xl font-bold leading-tight text-ink sm:text-4xl">
-            Your results are ready.
-          </h2>
-          <p className="mx-auto mt-3 max-w-[48ch] leading-relaxed text-ink">
-            Sign in free to see which careers match your answers, plus where to start learning.
-          </p>
-          <div className="mt-6 flex justify-center">
-            <SignInButton mode="modal">
-              <button
-                type="button"
-                className="bg-navy px-6 py-3 text-base font-semibold text-paper transition-colors hover:bg-ink"
-              >
-                Sign In to See My Results
-              </button>
-            </SignInButton>
+        <div
+          className={`mt-6 rounded-[28px] p-5 shadow-[0_24px_60px_rgba(0,0,0,0.28)] sm:p-8 ${screenTransitionClass}`}
+          style={{ background: quizGradient(accent) }}
+        >
+          <div className="rounded-[20px] bg-paper px-6 py-10 text-center sm:px-10">
+            <h2 className="font-display text-3xl font-bold leading-tight text-ink sm:text-4xl">
+              Your results are ready.
+            </h2>
+            <p className="mx-auto mt-3 max-w-[48ch] leading-relaxed text-ink">
+              Sign in free to see which careers match your answers, plus where to start learning.
+            </p>
+            <div className="mt-6 flex justify-center">
+              <SignInButton mode="modal">
+                <button
+                  type="button"
+                  className="rounded-full px-6 py-3 text-base font-semibold text-paper transition-opacity hover:opacity-90"
+                  style={{ backgroundColor: accent }}
+                >
+                  Sign In to See My Results
+                </button>
+              </SignInButton>
+            </div>
           </div>
         </div>
       );
@@ -580,52 +635,71 @@ export function CareerMatchQuiz({
       .filter((entry): entry is { lesson: QuizLesson; blurb: string } => entry !== null);
 
     return (
-        <div className={`mt-6 ${screenTransitionClass}`}>
-          <div
-            className="border-2 px-6 py-8 sm:px-10 sm:py-10"
-            style={{ borderColor: accent, backgroundColor: `${accent}14` }}
-          >
-            <p className="text-xs font-bold uppercase tracking-[0.18em]" style={{ color: accent }}>
-              {category ? `${result} match` : "Your match"}
+      <div
+        className={`mt-6 rounded-[28px] p-5 shadow-[0_24px_60px_rgba(0,0,0,0.28)] sm:p-8 ${screenTransitionClass}`}
+        style={{ background: quizGradient(accent) }}
+      >
+        <div className="flex items-center justify-between px-1 pb-4">
+          <span className="text-xs font-semibold uppercase tracking-[0.08em] text-paper">
+            {category ? `${result} Quiz` : "Career Quiz"}
+          </span>
+          <span className="text-xs text-paper/85">Your match</span>
+        </div>
+
+        <div className="relative overflow-hidden rounded-[20px] bg-paper px-6 py-10 sm:px-10">
+          {/* Two slow-floating blurred circles behind the hero copy --
+              the one bit of pure decoration the approved mockup asked
+              for, reused here exactly (same two keyframes, see
+              app/globals.css). */}
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-7 -top-9 h-28 w-28 rounded-full opacity-25 [animation:quizFloatA_6s_ease-in-out_infinite]"
+            style={{ backgroundColor: accent }}
+          />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -bottom-10 -right-8 h-40 w-40 rounded-full opacity-[0.18] [animation:quizFloatB_7s_ease-in-out_infinite]"
+            style={{ backgroundColor: "#1F3F52" }}
+          />
+
+          <div className="relative text-center">
+            <p className="text-xs font-bold uppercase tracking-[0.12em]" style={{ color: accent }}>
+              Your best fit
             </p>
-            <h2 className="mt-2 font-display text-4xl font-bold leading-[0.95] text-ink sm:text-5xl">
-              {topMatch ? (
-                <>
-                  You&rsquo;re built to be a
-                  <br />
-                  {topMatch.title}.
-                </>
-              ) : (
-                <>
-                  You&rsquo;re built for
-                  <br />
-                  {result}.
-                </>
-              )}
+            <h2 className="mx-auto mt-2 max-w-[30ch] font-display text-4xl font-bold leading-[0.95] text-ink sm:text-5xl">
+              {topMatch ? topMatch.title : result}
             </h2>
-            <p className="mt-4 max-w-[58ch] leading-relaxed text-ink">
+            <p className="mx-auto mt-4 max-w-[48ch] leading-relaxed text-steel">
               {topMatch?.tagline || CATEGORY_BLURB[result]}
             </p>
-            {topMatch && (
-              <Link
-                href={urlFor(topMatch)}
-                className="mt-4 inline-block text-sm font-bold uppercase tracking-wide hover:underline"
-                style={{ color: accent }}
-              >
-                See the full {topMatch.title} page &rarr;
-              </Link>
-            )}
             {savedAt && (
-              <p className="mt-4 text-sm text-steel">
+              <p className="mx-auto mt-4 max-w-[48ch] text-sm text-steel">
                 Your saved result from{" "}
                 {new Date(savedAt).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}.
                 Want a fresh read? Take the quiz again below.
               </p>
             )}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <Link
+                href={topMatch ? urlFor(topMatch) : `/careers#${slug}`}
+                className="rounded-full px-6 py-3 text-sm font-bold text-paper transition-opacity hover:opacity-90"
+                style={{ backgroundColor: accent }}
+              >
+                {topMatch ? `View ${topMatch.title}` : `See all careers in ${result}`} &rarr;
+              </Link>
+              <button
+                type="button"
+                onClick={restart}
+                className="rounded-full border-2 px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-ink/5"
+                style={{ borderColor: "#E4DED2" }}
+              >
+                Retake
+              </button>
+            </div>
           </div>
 
           {otherMatches.length > 0 && (
-            <div className="mt-10">
+            <div className="relative mt-10">
               <p className="text-sm font-semibold uppercase tracking-wide text-steel">
                 {category ? `Other strong fits in ${result}` : "Careers that fit your answers"}
               </p>
@@ -639,10 +713,11 @@ export function CareerMatchQuiz({
                       shape="circle"
                       title={career.title}
                       blurb={career.tagline ?? ""}
+                      accent={accent}
                     />
                   );
                   if (i === otherMatches.length - 1) return [stop];
-                  return [stop, <TrailConnector key={`${career.id}-connector`} connectorKey={`${career.id}-connector`} />];
+                  return [stop, <TrailConnector key={`${career.id}-connector`} connectorKey={`${career.id}-connector`} accent={accent} />];
                 })}
               </div>
             </div>
@@ -650,14 +725,14 @@ export function CareerMatchQuiz({
 
           {recommendedLessons.length > 0 && (
             <>
-              <div className="my-8 flex justify-center">
+              <div className="relative my-8 flex justify-center">
                 <span aria-hidden="true" className="h-6 w-0.5 border-l-2 border-dashed" style={{ borderColor: accent }} />
               </div>
-              <p className="-mt-6 text-center text-sm font-semibold uppercase tracking-wide text-steel">
+              <p className="relative -mt-6 text-center text-sm font-semibold uppercase tracking-wide text-steel">
                 Then, start learning
               </p>
 
-              <div className="mt-6">
+              <div className="relative mt-6">
                 <p className="text-sm font-semibold uppercase tracking-wide text-steel">Where to start, in order</p>
                 <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
                   {recommendedLessons.flatMap(({ lesson, blurb }, i) => {
@@ -670,12 +745,13 @@ export function CareerMatchQuiz({
                         title={lesson.title}
                         meta={`${lesson.minutes} min`}
                         blurb={blurb}
+                        accent={accent}
                       />
                     );
                     if (i === recommendedLessons.length - 1) return [stop];
                     return [
                       stop,
-                      <TrailConnector key={`${lesson.id}-connector`} connectorKey={`${lesson.id}-connector`} />,
+                      <TrailConnector key={`${lesson.id}-connector`} connectorKey={`${lesson.id}-connector`} accent={accent} />,
                     ];
                   })}
                 </div>
@@ -683,99 +759,126 @@ export function CareerMatchQuiz({
             </>
           )}
 
-          <div className="mt-10 border-t border-hairline pt-6 text-center">
+          <div className="relative mt-10 border-t pt-6 text-center" style={{ borderColor: "#E4DED2" }}>
             <p className="mx-auto max-w-[62ch] text-base italic leading-relaxed text-steel">
               And if none of this is the path for you, every other field in construction stays just as
               open, all it really takes to switch tracks is commitment and a willingness to learn.
             </p>
           </div>
 
-          <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-hairline pt-6">
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-              {/* The quiz result's natural next step: a dated plan,
-                  with the category -- and for a category quiz, the
-                  specific matched career too -- already picked on the
-                  Blueprint form. */}
-              <Link
-                href={
-                  topMatch
-                    ? `/action-plan?category=${slug}&role=${topMatch.slug}`
-                    : `/action-plan?category=${slug}`
-                }
-                className="px-4 py-2 text-base font-semibold text-paper transition-opacity hover:opacity-90"
-                style={{ backgroundColor: accent }}
-              >
-                Build a Blueprint for {topMatch ? topMatch.title : result} &rarr;
-              </Link>
-              <Link href={`/careers#${slug}`} className="text-base font-semibold hover:underline" style={{ color: accent }}>
-                See all careers in {result} &rarr;
-              </Link>
-              {!category && CATEGORY_QUIZ_SLUG[result] && (
-                <Link
-                  href={`/quizzes/${CATEGORY_QUIZ_SLUG[result]}`}
-                  className="text-base font-semibold text-steel hover:text-ink hover:underline"
-                >
-                  Narrow it down to a specific career &rarr;
-                </Link>
-              )}
-            </div>
-            <button
-              onClick={restart}
-              className="border border-ink px-4 py-2 text-base font-semibold text-ink transition-colors hover:bg-ink hover:text-paper"
+          <div className="relative mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 border-t pt-6" style={{ borderColor: "#E4DED2" }}>
+            {/* The quiz result's natural next step: a dated plan,
+                with the category -- and for a category quiz, the
+                specific matched career too -- already picked on the
+                Blueprint form. */}
+            <Link
+              href={
+                topMatch
+                  ? `/action-plan?category=${slug}&role=${topMatch.slug}`
+                  : `/action-plan?category=${slug}`
+              }
+              className="rounded-full px-5 py-2.5 text-sm font-bold text-paper transition-opacity hover:opacity-90"
+              style={{ backgroundColor: accent }}
             >
-              Take the quiz again
-            </button>
+              Build a Blueprint for {topMatch ? topMatch.title : result} &rarr;
+            </Link>
+            <Link href={`/careers#${slug}`} className="text-sm font-semibold hover:underline" style={{ color: accent }}>
+              See all careers in {result} &rarr;
+            </Link>
+            {!category && CATEGORY_QUIZ_SLUG[result] && (
+              <Link
+                href={`/quizzes/${CATEGORY_QUIZ_SLUG[result]}`}
+                className="text-sm font-semibold text-steel hover:text-ink hover:underline"
+              >
+                Narrow it down to a specific career &rarr;
+              </Link>
+            )}
           </div>
         </div>
+      </div>
     );
   }
 
   const question = questions[step];
+  // The panel's own exit animation (set by pick(), see above) --
+  // separate from screenTransitionClass, which handles the fade IN of
+  // whatever panel is current. Together they reproduce the mockup's
+  // two-stage feel: pick an option, it highlights, the panel fades/
+  // slides out, then the next one fades in.
+  const panelExitStyle: React.CSSProperties = leaving
+    ? { opacity: 0, transform: "translateY(16px) scale(0.98)" }
+    : { opacity: 1, transform: "translateY(0) scale(1)" };
 
   return (
-    <div className="mt-6">
-      <div className="flex items-center justify-between">
-        <p className="text-xs font-semibold uppercase tracking-wide text-steel">
+    <div
+      className={`mt-6 rounded-[28px] p-5 shadow-[0_24px_60px_rgba(0,0,0,0.28)] sm:p-8 ${screenTransitionClass}`}
+      style={{ background: quizGradient(accent) }}
+    >
+      <div className="flex items-center justify-between px-1">
+        <span className="text-xs font-semibold uppercase tracking-[0.08em] text-paper">
+          {category ? `${category} Quiz` : "Career Quiz"}
+        </span>
+        <span className="text-xs text-paper/85">
           Question {step + 1} of {questions.length}
-        </p>
-        {step > 0 && (
-          <button
-            type="button"
-            onClick={goBack}
-            className="text-xs font-semibold text-steel hover:text-ink hover:underline"
-          >
-            &larr; Back
-          </button>
-        )}
+        </span>
       </div>
       {/* A dash per question, filled in as you go, rather than one
           continuous bar -- reads at a glance how many are left, and
-          gives the per-category accent color somewhere to show up on
-          every single screen of the quiz, not just the result. */}
-      <div className="mt-2 flex gap-1">
+          matches the mockup's rounded progress pill. */}
+      <div className="mt-3 flex gap-1.5 px-1">
         {questions.map((_, i) => (
-          <div
-            key={i}
-            className="h-1.5 flex-1 bg-hairline transition-colors duration-300"
-            style={i <= step ? { backgroundColor: accent } : undefined}
-          />
+          <div key={i} className="h-2 flex-1 overflow-hidden rounded-full bg-white/20">
+            <div
+              className="h-full rounded-full transition-colors duration-300"
+              style={{ backgroundColor: i <= step ? accent : "transparent" }}
+            />
+          </div>
         ))}
       </div>
 
-      <div key={step} className={screenTransitionClass}>
-        <div className="mt-5 h-1 w-10" style={{ backgroundColor: accent }} />
-        <p className="mt-3 font-display text-2xl font-bold text-ink">{question.question}</p>
-        <div className="mt-4 flex flex-col gap-2.5">
-          {question.options.map((option) => (
+      <div
+        key={step}
+        className="relative mt-4 rounded-[20px] bg-paper px-6 py-9 transition-all duration-300 ease-out sm:px-10"
+        style={panelExitStyle}
+      >
+        <div className="flex items-center justify-between">
+          <span className="sr-only">Quiz question</span>
+          {step > 0 && (
             <button
-              key={option.label}
-              onClick={() => pick(option)}
-              style={{ "--accent": accent } as React.CSSProperties}
-              className="border border-l-4 border-hairline border-l-transparent bg-white/40 px-4 py-3 text-left text-sm text-ink transition-colors hover:bg-white/70 hover:border-l-[var(--accent)] focus-visible:border-l-[var(--accent)]"
+              type="button"
+              onClick={goBack}
+              className="text-xs font-semibold text-steel hover:text-ink hover:underline"
             >
-              {option.label}
+              &larr; Back
             </button>
-          ))}
+          )}
+        </div>
+        <p className="mt-2 font-display text-2xl font-bold leading-tight text-ink sm:text-[28px]">
+          {question.question}
+        </p>
+        <div className="mt-6 flex flex-col gap-3">
+          {question.options.map((option) => {
+            const isSelected = selectedOption?.label === option.label;
+            return (
+              <button
+                key={option.label}
+                type="button"
+                onClick={() => pick(option)}
+                disabled={leaving}
+                style={{
+                  backgroundColor: isSelected ? accent : "#FFFFFF",
+                  borderColor: isSelected ? accent : "#E4DED2",
+                  transform: isSelected ? "scale(0.98)" : "scale(1)",
+                  "--accent": accent,
+                } as React.CSSProperties}
+                className={`rounded-2xl border-2 px-5 py-4 text-left text-[15px] leading-snug transition-all duration-200 ${
+                  isSelected ? "text-paper" : "text-ink hover:[border-color:var(--accent)]"
+                }`}
+              >
+                {option.label}
+              </button>
+            );
+          })}
         </div>
       </div>
     </div>

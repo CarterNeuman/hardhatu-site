@@ -31,3 +31,24 @@ body {
     margin: 0.4in;
   }
 }
+
+/* The two slow-floating decorative circles behind the quiz result
+   screen (components/CareerMatchQuiz.tsx), matching the approved quiz
+   v2 mockup exactly. Kept here rather than inline since Tailwind's
+   arbitrary [animation:] syntax needs the keyframes to exist somewhere
+   global -- purely decorative, aria-hidden, no reduced-motion override
+   needed (a slow 6-7s drift, not a flash). */
+@keyframes quizFloatA {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(14px); }
+}
+@keyframes quizFloatB {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
