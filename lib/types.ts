@@ -649,10 +649,19 @@ const matchQuizQuestionSchema = z.object({
 // not knowing what they're looking for. Modeled as a real content type
 // (not a one-off page) in case a more specific quiz makes sense later,
 // e.g. one scoped to a single category.
+//
+// `category`, added for quiz v2: when set, this quiz is scoped to one of
+// the 8 career categories (must match a value in CAREER_CATEGORY_ORDER)
+// and every question's options should point at specific careers within
+// it rather than at pointsToCategories -- CareerMatchQuiz skips the
+// category-level tie-break entirely for a scoped quiz and resolves
+// straight to a specific career. Left undefined, a quiz behaves exactly
+// like the original general quiz (find-your-career.md).
 export const CareerMatchQuizSchema = z.object({
   ...base,
   type: z.literal("quiz"),
   tagline: z.string(),
+  category: z.string().optional(),
   questions: z.array(matchQuizQuestionSchema).min(3),
 });
 
