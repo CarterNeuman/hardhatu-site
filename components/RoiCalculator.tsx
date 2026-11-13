@@ -4,19 +4,22 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import {
   COLLEGE_COSTS,
   DEFAULT_LOAN_RATE,
-  START_AGE,
   breakEvenAge,
   catchUpAge,
+  collegeYearCost,
   runPath,
   type CollegeType,
   type Inputs,
   type PathId,
   type PathResult,
-  type TradePay,
 } from "@/lib/roi-model";
+import { OCCUPATIONS } from "@/lib/state-pay-data";
+import { lookup, occupation } from "@/lib/state-pay-lookup";
 
-// The interactive half of /student-loan-roi: controls, the net-position line
-// chart, auto-written takeaways, and the table view of the same numbers.
+// The interactive calculator on /student-loan-roi: controls, the
+// net-position line chart, auto-written takeaways, and the table view of the
+// same numbers. State, starting age and dollar basis come from the settings
+// bar above it (components/PayByState.tsx).
 //
 // Chart rules followed (dataviz house rules): one y-axis, one line per path,
 // colors fixed to the PATH (never to rank, so hiding a path never repaints
@@ -30,13 +33,48 @@ import {
 
 type PathMeta = { id: PathId; name: string; short: string; phrase: string; color: string };
 
-const PATHS: PathMeta[] = [
-  { id: "apprentice", name: "Apprenticeship", short: "Apprenticeship", phrase: "the apprenticeship", color: "#2a78d6" },
-  { id: "college", name: "4-year college (any major)", short: "4-year college", phrase: "a 4-year degree (any major)", color: "#eb6834" },
-  { id: "cm", name: "Construction management degree", short: "Construction mgmt degree", phrase: "a construction management degree", color: "#1baf7a" },
-  { id: "tradeschool", name: "Trade school, then work", short: "Trade school", phrase: "trade school", color: "#eda100" },
-  { id: "work", name: "Straight to work (no training)", short: "Straight to work", phrase: "going straight to work", color: "#e87ba4" },
-];
+const COLORS: Record<PathId, string> = {
+  apprentice: "#2a78d6",
+  college: "#eb6834",
+  cm: "#1baf7a",
+  tradeschool: "#eda100",
+  work: "#e87ba4",
+};
+
+// Singular names for sentences ("the electrician apprenticeship").
+const ONE: Record<string, string> = {
+  "47-2111": "electrician",
+  "47-2152": "plumber",
+  "49-9021": "HVAC",
+  "47-2031": "carpentry",
+  "47-2073": "equipment operator",
+  "47-2221": "ironworker",
+  "47-2211": "sheet metal",
+  "47-4021": "elevator mechanic",
+  "49-9044": "millwright",
+  "47-2021": "masonry",
+  "47-2051": "concrete finishing",
+  "47-2121": "glazier",
+  "47-2081": "drywall",
+  "47-2181": "roofing",
+  "51-4121": "welding",
+  "47-2141": "painting",
+  "47-2044": "tile setting",
+  "47-2042": "floor laying",
+  "47-2131": "insulation",
+  "47-2231": "solar",
+  "25-2021": "teacher",
+  "29-1141": "nurse (RN)",
+  "13-2011": "accountant",
+  "13-1071": "HR specialist",
+  "13-1161": "marketing specialist",
+  "15-1252": "software developer",
+};
+
+const LABORER = "47-2061";
+const CM = "11-9021";
+const TRADES = OCCUPATIONS.filter((o) => o.group === "trade" && o.soc !== LABORER);
+const COLLEGE_JOBS = OCCUPATIONS.filter((o) => o.group === "college");
 
 const COLLEGE_LABELS: Record<CollegeType, string> = {
   "public-in": "Public, in-state",
@@ -44,11 +82,10 @@ const COLLEGE_LABELS: Record<CollegeType, string> = {
   private: "Private",
 };
 
-const HORIZONS = [10, 20, 30] as const;
+type Knobs = Omit<Inputs, "trade" | "laborer" | "college" | "cm" | "inStateTuition" | "startAge" | "years" | "inflation" | "futureDollars" | "currentPay">;
 
-function defaults(trade: TradePay): Inputs {
+function defaultKnobs(): Knobs {
   return {
-    trade,
     collegeType: "public-in",
     useNetPrice: false,
     includeRoomBoard: false,
@@ -59,23 +96,46 @@ function defaults(trade: TradePay): Inputs {
     apprenticeYears: 4,
     apprenticeCostPerYear: 1000,
     tradeSchoolCost: 15000,
-    moveUpToSupervisor: false,
-    years: 30,
+    growWithExperience: true,
   };
 }
 
-const usd = (n: number) => `${n < 0 ? "−" : ""}$${Math.round(Math.abs(n)).toLocaleString("en-US")}`;
+export const usd = (n: number) => `${n < 0 ? "\u2212" : ""}$${Math.round(Math.abs(n)).toLocaleString("en-US")}`;
 function short(n: number) {
   const a = Math.abs(n);
-  const sign = n < 0 ? "−" : "";
+  const sign = n < 0 ? "\u2212" : "";
   if (a >= 1_000_000) return `${sign}$${(a / 1_000_000).toFixed(a >= 10_000_000 ? 0 : 2).replace(/\.?0+$/, "")}M`;
   if (a >= 1000) return `${sign}$${Math.round(a / 1000)}k`;
   return `${sign}$${Math.round(a)}`;
 }
 
-export function RoiCalculator({ trades, defaultSlug }: { trades: TradePay[]; defaultSlug: string }) {
-  const initialTrade = trades.find((t) => t.slug === defaultSlug) ?? trades[0];
-  const [inp, setInp] = useState<Inputs>(() => defaults(initialTrade));
+function horizonOptions(startAge: number) {
+  const toRetire = 65 - startAge;
+  const opts = [10, 20, 30].filter((y) => y < toRetire);
+  if (toRetire > 0) opts.push(toRetire);
+  return opts;
+}
+
+export function RoiCalculator({
+  stateCode,
+  placeName,
+  inStateTuition,
+  startAge,
+  inflation,
+  futureDollars,
+}: {
+  stateCode: string;
+  placeName: string;
+  inStateTuition: number | null;
+  startAge: number;
+  inflation: number;
+  futureDollars: boolean;
+}) {
+  const [tradeSoc, setTradeSoc] = useState("47-2111");
+  const [collegeSoc, setCollegeSoc] = useState("13-2011");
+  const [knobs, setKnobs] = useState<Knobs>(defaultKnobs);
+  const [chosenYears, setChosenYears] = useState(30);
+  const [currentPay, setCurrentPay] = useState(45000);
   const [visible, setVisible] = useState<Record<PathId, boolean>>({
     apprentice: true,
     college: true,
@@ -83,56 +143,118 @@ export function RoiCalculator({ trades, defaultSlug }: { trades: TradePay[]; def
     tradeschool: true,
     work: true,
   });
-  const set = <K extends keyof Inputs>(key: K, value: Inputs[K]) => setInp((prev) => ({ ...prev, [key]: value }));
+  const set = <K extends keyof Knobs>(key: K, value: Knobs[K]) => setKnobs((prev) => ({ ...prev, [key]: value }));
+
+  const changer = startAge >= 23;
+  const horizons = horizonOptions(startAge);
+  const years = horizons.includes(chosenYears) ? chosenYears : horizons.filter((h) => h <= chosenYears).pop() ?? horizons[0];
+
+  const trade = lookup(occupation(tradeSoc), stateCode);
+  const college = lookup(occupation(collegeSoc), stateCode);
+  const cm = lookup(occupation(CM), stateCode);
+  const laborer = lookup(occupation(LABORER), stateCode);
+  const tradeOne = ONE[tradeSoc] ?? occupation(tradeSoc).label.toLowerCase();
+  const collegeOne = ONE[collegeSoc] ?? occupation(collegeSoc).label.toLowerCase();
+
+  const inp: Inputs = {
+    ...knobs,
+    trade: trade.curve,
+    laborer: laborer.curve,
+    college: college.curve,
+    cm: cm.curve,
+    inStateTuition: inStateTuition ?? COLLEGE_COSTS.tuition["public-in"],
+    startAge,
+    years,
+    inflation,
+    futureDollars,
+    currentPay: changer ? currentPay : null,
+  };
+
+  const PATHS: PathMeta[] = [
+    { id: "apprentice", name: `${cap(tradeOne)} apprenticeship`, short: "Apprenticeship", phrase: `the ${tradeOne} apprenticeship`, color: COLORS.apprentice },
+    { id: "college", name: `4-year degree: ${collegeOne}`, short: cap(collegeOne), phrase: `a degree to become ${article(collegeOne)} ${collegeOne}`, color: COLORS.college },
+    { id: "cm", name: "Construction management degree", short: "Construction mgmt", phrase: "a construction management degree", color: COLORS.cm },
+    { id: "tradeschool", name: "Trade school, then work", short: "Trade school", phrase: "trade school", color: COLORS.tradeschool },
+    changer
+      ? { id: "work", name: "Stay in your current job", short: "Current job", phrase: "staying in your current job", color: COLORS.work }
+      : { id: "work", name: "Straight to work (no training)", short: "Straight to work", phrase: "going straight to work", color: COLORS.work },
+  ];
 
   const results = useMemo(() => {
     const out = {} as Record<PathId, PathResult>;
-    for (const p of PATHS) out[p.id] = runPath(p.id, inp);
+    for (const id of ["apprentice", "college", "cm", "tradeschool", "work"] as PathId[]) out[id] = runPath(id, inp);
     return out;
-  }, [inp]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [JSON.stringify(inp)]);
 
   const shown = PATHS.filter((p) => visible[p.id]);
-  const endAge = START_AGE + inp.years;
+  const endAge = startAge + years;
   const netAt = (id: PathId, age: number) => results[id].points.find((pt) => pt.age === age)?.net ?? 0;
-  const netAvailable = COLLEGE_COSTS.netTuition[inp.collegeType] != null;
+  const netAvailable = COLLEGE_COSTS.netTuition[knobs.collegeType] != null;
+  const stickerTuition = knobs.collegeType === "public-in" ? inp.inStateTuition : COLLEGE_COSTS.tuition[knobs.collegeType];
+  const fallbackJobs = [trade, college, cm].some((l) => l.national);
+  const money = futureDollars ? "future dollars" : "today\u2019s dollars";
 
   return (
-    <div className="mt-8 border border-hairline bg-white">
-      {/* --- Main controls: the three choices most people will touch --- */}
-      <div className="grid gap-5 border-b border-hairline p-5 sm:p-6 lg:grid-cols-[minmax(0,1fr)_auto_auto] lg:gap-8">
+    <div className="mt-6 border border-hairline bg-white">
+      {/* --- Main controls --- */}
+      <div className="grid gap-5 border-b border-hairline p-5 sm:grid-cols-2 sm:p-6 lg:gap-8">
         <label className="block">
           <span className="text-xs font-semibold uppercase tracking-wide text-steel">Trade</span>
           <select
-            value={inp.trade.slug}
-            onChange={(e) => set("trade", trades.find((t) => t.slug === e.target.value) ?? inp.trade)}
+            value={tradeSoc}
+            onChange={(e) => setTradeSoc(e.target.value)}
             className="mt-1.5 block w-full border border-hairline bg-paper px-3 py-2 text-sm font-semibold text-ink focus:border-navy focus:outline-none"
           >
-            {trades.map((t) => (
-              <option key={t.slug} value={t.slug}>
-                {t.title}
+            {TRADES.map((t) => (
+              <option key={t.soc} value={t.soc}>
+                {t.label}
               </option>
             ))}
           </select>
-          <span className="mt-1 block text-xs text-steel">Used for the apprenticeship and trade school paths.</span>
+          <span className="mt-1 block text-xs text-steel">Used for the apprenticeship and trade school lines.</span>
         </label>
-
+        <label className="block">
+          <span className="text-xs font-semibold uppercase tracking-wide text-steel">Compare with a college job</span>
+          <select
+            value={collegeSoc}
+            onChange={(e) => setCollegeSoc(e.target.value)}
+            className="mt-1.5 block w-full border border-hairline bg-paper px-3 py-2 text-sm font-semibold text-ink focus:border-navy focus:outline-none"
+          >
+            {COLLEGE_JOBS.map((c) => (
+              <option key={c.soc} value={c.soc}>
+                {c.label}
+              </option>
+            ))}
+          </select>
+          <span className="mt-1 block text-xs text-steel">Used for the 4-year degree line.</span>
+        </label>
         <fieldset>
           <legend className="text-xs font-semibold uppercase tracking-wide text-steel">College</legend>
           <Segmented
             options={(Object.keys(COLLEGE_LABELS) as CollegeType[]).map((k) => ({ value: k, label: COLLEGE_LABELS[k] }))}
-            value={inp.collegeType}
+            value={knobs.collegeType}
             onChange={(v) => set("collegeType", v)}
           />
         </fieldset>
-
         <fieldset>
           <legend className="text-xs font-semibold uppercase tracking-wide text-steel">Show me until age</legend>
-          <Segmented
-            options={HORIZONS.map((h) => ({ value: h, label: String(START_AGE + h) }))}
-            value={inp.years}
-            onChange={(v) => set("years", v)}
-          />
+          <Segmented options={horizons.map((h) => ({ value: h, label: String(startAge + h) }))} value={years} onChange={setChosenYears} />
         </fieldset>
+        {changer && (
+          <div className="sm:col-span-2">
+            <Slider
+              label="What you make now, if you stay put"
+              value={currentPay}
+              min={20000}
+              max={120000}
+              step={2500}
+              format={(v) => `${usd(v)} a year`}
+              hint="The pink line keeps this pay flat in today's dollars. Going back to school or into an apprenticeship means giving some of it up."
+              onChange={setCurrentPay}
+            />
+          </div>
+        )}
       </div>
 
       {/* --- Legend doubles as the show/hide control --- */}
@@ -158,10 +280,34 @@ export function RoiCalculator({ trades, defaultSlug }: { trades: TradePay[]; def
       </div>
 
       <div className="px-2 pb-2 pt-4 sm:px-4">
-        <NetChart results={results} paths={shown} endAge={endAge} />
+        <NetChart results={results} paths={shown} startAge={startAge} endAge={endAge} money={money} />
       </div>
 
-      <Takeaways results={results} visible={visible} endAge={endAge} inp={inp} netAt={netAt} />
+      <Takeaways
+        results={results}
+        paths={PATHS}
+        visible={visible}
+        endAge={endAge}
+        repayYears={knobs.repayYears}
+        netAt={netAt}
+        tradeOne={tradeOne}
+        changer={changer}
+        money={money}
+      />
+
+      {fallbackJobs && (
+        <p className="border-t border-hairline px-5 py-3 text-xs text-steel sm:px-6">
+          BLS doesn&rsquo;t publish {placeName} pay for{" "}
+          {[
+            trade.national && occupation(tradeSoc).label.toLowerCase(),
+            college.national && occupation(collegeSoc).label.toLowerCase(),
+            cm.national && "construction managers",
+          ]
+            .filter(Boolean)
+            .join(" or ")}
+          , so national pay is used for that line.
+        </p>
+      )}
 
       {/* --- Assumptions panel: every lever the model has --- */}
       <details className="group border-t border-hairline">
@@ -177,22 +323,22 @@ export function RoiCalculator({ trades, defaultSlug }: { trades: TradePay[]; def
               label="Use the typical price after grants"
               hint={
                 netAvailable
-                  ? `Average after grants: ${usd(COLLEGE_COSTS.netTuition[inp.collegeType] as number)} a year instead of the ${usd(COLLEGE_COSTS.tuition[inp.collegeType])} sticker price.`
+                  ? `National average after grants: ${usd(COLLEGE_COSTS.netTuition[knobs.collegeType] as number)} a year instead of the ${usd(stickerTuition)} sticker price.`
                   : "No national after-grant figure exists for out-of-state students, so the sticker price is used."
               }
-              checked={inp.useNetPrice && netAvailable}
+              checked={knobs.useNetPrice && netAvailable}
               disabled={!netAvailable}
               onChange={(v) => set("useNetPrice", v)}
             />
             <Toggle
               label="Count dorm and meal plan costs"
-              hint={`Adds ${usd(COLLEGE_COSTS.roomBoard[inp.collegeType])} a year. Off by default, because everyone pays rent somewhere. Turn it on if you'd live at home otherwise.`}
-              checked={inp.includeRoomBoard}
+              hint={`Adds ${usd(COLLEGE_COSTS.roomBoard[knobs.collegeType])} a year. Off by default, because everyone pays rent somewhere. Turn it on if you'd live at home otherwise.`}
+              checked={knobs.includeRoomBoard}
               onChange={(v) => set("includeRoomBoard", v)}
             />
             <Slider
               label="Share of school costs paid with loans"
-              value={Math.round(inp.shareBorrowed * 100)}
+              value={Math.round(knobs.shareBorrowed * 100)}
               min={0}
               max={100}
               step={10}
@@ -201,7 +347,7 @@ export function RoiCalculator({ trades, defaultSlug }: { trades: TradePay[]; def
             />
             <Slider
               label="Loan interest rate"
-              value={inp.loanRate}
+              value={knobs.loanRate}
               min={3}
               max={12}
               step={0.25}
@@ -211,7 +357,7 @@ export function RoiCalculator({ trades, defaultSlug }: { trades: TradePay[]; def
             />
             <Slider
               label="Years to pay it back"
-              value={inp.repayYears}
+              value={knobs.repayYears}
               min={5}
               max={25}
               step={5}
@@ -220,7 +366,7 @@ export function RoiCalculator({ trades, defaultSlug }: { trades: TradePay[]; def
             />
             <Slider
               label="Pay from a part-time job while in school"
-              value={inp.schoolJobPay}
+              value={knobs.schoolJobPay}
               min={0}
               max={20000}
               step={1000}
@@ -228,10 +374,10 @@ export function RoiCalculator({ trades, defaultSlug }: { trades: TradePay[]; def
               onChange={(v) => set("schoolJobPay", v)}
             />
           </Group>
-          <Group title="The trades">
+          <Group title="The trades, and pay in general">
             <Slider
               label="Apprenticeship length"
-              value={inp.apprenticeYears}
+              value={knobs.apprenticeYears}
               min={3}
               max={5}
               step={1}
@@ -241,7 +387,7 @@ export function RoiCalculator({ trades, defaultSlug }: { trades: TradePay[]; def
             />
             <Slider
               label="Apprenticeship out-of-pocket costs"
-              value={inp.apprenticeCostPerYear}
+              value={knobs.apprenticeCostPerYear}
               min={0}
               max={3000}
               step={250}
@@ -251,7 +397,7 @@ export function RoiCalculator({ trades, defaultSlug }: { trades: TradePay[]; def
             />
             <Slider
               label="Trade school cost (1-year program)"
-              value={inp.tradeSchoolCost}
+              value={knobs.tradeSchoolCost}
               min={3000}
               max={35000}
               step={1000}
@@ -259,18 +405,14 @@ export function RoiCalculator({ trades, defaultSlug }: { trades: TradePay[]; def
               onChange={(v) => set("tradeSchoolCost", v)}
             />
             <Toggle
-              label="Move up to foreman or supervisor by 35"
-              hint="Off by default: trade pay stays at the national median for life. On: it climbs to the $80,000 median for construction supervisors by age 35."
-              checked={inp.moveUpToSupervisor}
-              onChange={(v) => set("moveUpToSupervisor", v)}
+              label="Pay keeps growing with experience"
+              hint="On: every path climbs the same experience ladder as the table above. Off: every path tops out at the median after 5 years, the cautious case."
+              checked={knobs.growWithExperience}
+              onChange={(v) => set("growWithExperience", v)}
             />
           </Group>
           <div className="sm:col-span-2">
-            <button
-              type="button"
-              onClick={() => setInp(defaults(inp.trade))}
-              className="text-sm font-semibold text-navy hover:underline"
-            >
+            <button type="button" onClick={() => setKnobs(defaultKnobs())} className="text-sm font-semibold text-navy hover:underline">
               Reset to the defaults
             </button>
           </div>
@@ -278,8 +420,17 @@ export function RoiCalculator({ trades, defaultSlug }: { trades: TradePay[]; def
       </details>
 
       <DataTable results={results} paths={shown} endAge={endAge} netAt={netAt} />
+      <p className="sr-only">College year cost used: {usd(collegeYearCost(inp))}.</p>
     </div>
   );
+}
+
+function article(word: string) {
+  return /^(a|e|i|o|u|hr)/i.test(word) ? "an" : "a";
+}
+
+function cap(t: string) {
+  return t.charAt(0).toUpperCase() + t.slice(1);
 }
 
 // ---------------------------------------------------------------------------
@@ -295,7 +446,19 @@ function niceStep(range: number, target = 6) {
   return step * mag;
 }
 
-function NetChart({ results, paths, endAge }: { results: Record<PathId, PathResult>; paths: PathMeta[]; endAge: number }) {
+function NetChart({
+  results,
+  paths,
+  startAge,
+  endAge,
+  money,
+}: {
+  results: Record<PathId, PathResult>;
+  paths: PathMeta[];
+  startAge: number;
+  endAge: number;
+  money: string;
+}) {
   const [hover, setHover] = useState<number | null>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   // The viewBox matches the real rendered width, so axis text stays at
@@ -310,7 +473,7 @@ function NetChart({ results, paths, endAge }: { results: Record<PathId, PathResu
   }, []);
   const H = W < 520 ? 300 : 360;
   const narrow = W < 520;
-  const ages = Array.from({ length: endAge - START_AGE + 1 }, (_, i) => START_AGE + i);
+  const ages = Array.from({ length: endAge - startAge + 1 }, (_, i) => startAge + i);
 
   const series = paths.map((p) => ({ meta: p, pts: results[p.id].points }));
   const allNet = series.flatMap((s) => s.pts.map((pt) => pt.net));
@@ -326,25 +489,25 @@ function NetChart({ results, paths, endAge }: { results: Record<PathId, PathResu
 
   const innerW = W - M.left - M.right;
   const innerH = H - M.top - M.bottom;
-  const x = (age: number) => M.left + ((age - START_AGE) / (endAge - START_AGE)) * innerW;
+  const x = (age: number) => M.left + ((age - startAge) / (endAge - startAge)) * innerW;
   const y = (v: number) => M.top + (1 - (v - yMin) / (yMax - yMin)) * innerH;
-  const every = narrow && endAge - START_AGE > 10 ? 10 : 5;
-  const xTicks = ages.filter((a) => a === START_AGE || (a % every === 0 && endAge - a >= 3 && a - START_AGE >= 3) || a === endAge);
+  const every = narrow && endAge - startAge > 10 ? 10 : 5;
+  const xTicks = ages.filter((a) => a === startAge || (a % every === 0 && endAge - a >= 3 && a - startAge >= 3) || a === endAge);
 
   function onPointer(e: React.PointerEvent<SVGRectElement>) {
     const svg = e.currentTarget.ownerSVGElement;
     if (!svg) return;
     const box = svg.getBoundingClientRect();
     const px = ((e.clientX - box.left) / box.width) * W;
-    const age = Math.round(START_AGE + ((px - M.left) / innerW) * (endAge - START_AGE));
-    setHover(Math.min(endAge, Math.max(START_AGE, age)));
+    const age = Math.round(startAge + ((px - M.left) / innerW) * (endAge - startAge));
+    setHover(Math.min(endAge, Math.max(startAge, age)));
   }
 
   function onKey(e: React.KeyboardEvent<SVGSVGElement>) {
     if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
       e.preventDefault();
-      const cur = hover ?? START_AGE;
-      setHover(Math.min(endAge, Math.max(START_AGE, cur + (e.key === "ArrowRight" ? 1 : -1))));
+      const cur = hover ?? startAge;
+      setHover(Math.min(endAge, Math.max(startAge, cur + (e.key === "ArrowRight" ? 1 : -1))));
     } else if (e.key === "Escape") setHover(null);
   }
 
@@ -445,8 +608,8 @@ function NetChart({ results, paths, endAge }: { results: Record<PathId, PathResu
         </div>
       )}
       <p className="px-2 pb-1 text-xs text-steel">
-        Net position = everything earned, minus school costs, minus loan payments, minus what&rsquo;s still owed. Pre-tax, in
-        today&rsquo;s dollars. Hover or tap the chart to compare ages.
+        Net position = everything earned, minus school costs, minus loan payments, minus what&rsquo;s still owed. Pre-tax, in {money}.
+        Hover or tap the chart to compare ages.
       </p>
     </div>
   );
@@ -457,25 +620,33 @@ function NetChart({ results, paths, endAge }: { results: Record<PathId, PathResu
 
 function Takeaways({
   results,
+  paths,
   visible,
   endAge,
-  inp,
+  repayYears,
   netAt,
+  tradeOne,
+  changer,
+  money,
 }: {
   results: Record<PathId, PathResult>;
+  paths: PathMeta[];
   visible: Record<PathId, boolean>;
   endAge: number;
-  inp: Inputs;
+  repayYears: number;
   netAt: (id: PathId, age: number) => number;
+  tradeOne: string;
+  changer: boolean;
+  money: string;
 }) {
-  const shown = PATHS.filter((p) => visible[p.id]);
+  const shown = paths.filter((p) => visible[p.id]);
   if (shown.length === 0) {
     return <p className="px-5 py-5 text-sm text-steel sm:px-6">Pick at least one path above to see the comparison.</p>;
   }
+  const meta = (id: PathId) => paths.find((p) => p.id === id)!;
   const ranked = [...shown].sort((a, b) => netAt(b.id, endAge) - netAt(a.id, endAge));
   const lines: string[] = [];
   const [first, second] = ranked;
-  const cap = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
   lines.push(
     second
       ? `By age ${endAge}, ${first.phrase} comes out furthest ahead at about ${short(netAt(first.id, endAge))}, followed by ${second.phrase} at about ${short(netAt(second.id, endAge))}.`
@@ -484,23 +655,32 @@ function Takeaways({
   if (visible.apprentice) {
     for (const id of ["college", "cm"] as const) {
       if (!visible[id]) continue;
-      const meta = PATHS.find((p) => p.id === id)!;
       const age = catchUpAge(results[id].points, results.apprentice.points);
       const already = netAt(id, endAge) > netAt("apprentice", endAge);
-      const trade = inp.trade.title.toLowerCase();
       lines.push(
         age != null
-          ? `${cap(meta.phrase)} catches up with the ${trade} apprenticeship at about age ${age}.`
+          ? `${cap(meta(id).phrase)} catches up with the ${tradeOne} apprenticeship at about age ${age}.`
           : already
-            ? `${cap(meta.phrase)} stays ahead of the ${trade} apprenticeship the whole way.`
-            : `${cap(meta.phrase)} hasn't caught up with the ${trade} apprenticeship by age ${endAge}.`
+            ? `${cap(meta(id).phrase)} stays ahead of the ${tradeOne} apprenticeship the whole way.`
+            : `${cap(meta(id).phrase)} hasn't caught up with the ${tradeOne} apprenticeship by age ${endAge}.`
+      );
+    }
+    if (changer && visible.work) {
+      const age = catchUpAge(results.apprentice.points, results.work.points);
+      const ahead = netAt("apprentice", endAge) > netAt("work", endAge);
+      lines.push(
+        age != null
+          ? `Compared with staying in your current job, the apprenticeship makes back the pay cut by about age ${age}.`
+          : ahead
+            ? "The apprenticeship stays ahead of your current job the whole way."
+            : `At this pay, staying in your current job is still ahead of the apprenticeship at ${endAge}.`
       );
     }
   }
   const degree = visible.college ? results.college : visible.cm ? results.cm : null;
   if (degree && degree.debtAtFinish > 0) {
     lines.push(
-      `The 4-year degree leaves about ${usd(degree.debtAtFinish)} owed when payments start: ${usd(degree.monthlyPayment)} a month for ${inp.repayYears} years, ${usd(degree.totalInterest)} of it interest.`
+      `The 4-year degree leaves about ${usd(degree.debtAtFinish)} owed when payments start: ${usd(degree.monthlyPayment)} a month for ${repayYears} years (in ${money}).`
     );
   }
   return (
@@ -537,10 +717,10 @@ function DataTable({
   };
   const rows: { label: string; cell: (r: PathResult) => string }[] = [
     { label: "Years in training", cell: (r) => (r.trainingYears === 0 ? "None" : `${r.trainingYears} (${r.id === "apprentice" ? "paid" : "unpaid"})`) },
-    { label: "School costs", cell: (r) => (r.schoolCost === 0 ? "$0" : usd(r.schoolCost)) },
+    { label: "School costs (today's $)", cell: (r) => (r.schoolCost === 0 ? "$0" : usd(r.schoolCost)) },
     { label: "Owed when payments start", cell: (r) => (r.debtAtFinish > 0 ? usd(r.debtAtFinish) : "$0") },
     { label: "Monthly loan payment", cell: (r) => (r.monthlyPayment > 0 ? usd(r.monthlyPayment) : "None") },
-    { label: "Pay in first year after training", cell: (r) => usd(r.payOnceTrained) },
+    { label: "Pay in first year after training (today's $)", cell: (r) => usd(r.payOnceTrained) },
     { label: `Net position at ${endAge}`, cell: (r) => usd(netAt(r.id, endAge)) },
     { label: "Out of the red", cell: outOfRed },
   ];
