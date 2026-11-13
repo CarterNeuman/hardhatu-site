@@ -12,6 +12,7 @@ const PROGRAM_TYPE_STYLES: Record<string, string> = {
   "Trade School": "bg-navy text-paper",
   "Certificate Program": "border border-steel text-steel bg-white/50",
   "Online Course": "bg-hairline text-ink",
+  "Licensure Pathway": "bg-ink text-paper",
 };
 
 const FALLBACK_STYLE = "border border-hairline bg-white/50 text-steel";
