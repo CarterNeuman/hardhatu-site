@@ -7,7 +7,7 @@ programType: Registered Apprenticeship
 careerIds:
   - career-mason
 organization: International Union of Bricklayers and Allied Craftworkers (BAC)
-location: "Nationwide — local BAC/International Masonry Institute training centers"
+location: "Nationwide: local BAC/International Masonry Institute training centers"
 website: "https://bacweb.org/education-training"
 tagline: A paid two-to-four-year apprenticeship into bricklaying, masonry, and allied trowel trades, run through local BAC chapters and the International Masonry Institute.
 whatToExpect: >
@@ -22,7 +22,7 @@ whatToExpect: >
   The union also runs an annual international apprentice contest where
   top performers from local programs compete. Exact program length,
   recruitment windows, and local requirements vary by BAC local.
-costNote: "Paid apprenticeship — no tuition"
+costNote: "Paid apprenticeship, no tuition"
 durationNote: "2–4 years, paid"
 lastReviewed: "2026-11"
 relatedIds:

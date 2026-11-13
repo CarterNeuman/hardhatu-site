@@ -8,7 +8,7 @@ careerIds:
   - career-carpenter
   - career-flooring-installer
 organization: United Brotherhood of Carpenters and Joiners of America (UBC)
-location: "Nationwide — local UBC Joint Apprenticeship and Training Committees"
+location: "Nationwide: local UBC Joint Apprenticeship and Training Committees"
 website: "https://www.carpenters.org/training-center/"
 tagline: A four-year paid apprenticeship into carpentry, run through local UBC Joint Apprenticeship and Training Committees across the country.
 whatToExpect: >
@@ -25,7 +25,7 @@ whatToExpect: >
   community college. Admission requirements, recruitment windows, and
   exact wage scales are set by the local training center, not
   nationally, so specifics vary by region.
-costNote: "Paid apprenticeship — no tuition"
+costNote: "Paid apprenticeship, no tuition"
 durationNote: "4 years, paid"
 lastReviewed: "2026-11"
 relatedIds:

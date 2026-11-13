@@ -12,7 +12,7 @@ careerIds:
   - career-business-development-manager
   - career-construction-sales
 organization: Associated General Contractors of America (AGC)
-location: "Nationwide — online, self-paced"
+location: "Nationwide: online, self-paced"
 website: "https://www.agc.org"
 tagline: A free, nine-module self-paced course on running the financial and operational side of a construction business, from bonding to business development.
 whatToExpect: >

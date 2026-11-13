@@ -11,7 +11,7 @@ careerIds:
   - career-surety-claims-manager
   - career-claims-examiner
 organization: The Institutes
-location: "Nationwide — self-paced online coursework"
+location: "Nationwide: self-paced online coursework"
 website: "https://web.theinstitutes.org"
 tagline: Insurance's most widely respected designation, an eight-course program in risk management, underwriting, and insurance law, built for brokers and underwriters working with surety, builders risk, and contractor liability coverage.
 whatToExpect: >

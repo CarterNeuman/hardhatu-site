@@ -7,7 +7,7 @@ programType: Registered Apprenticeship
 careerIds:
   - career-concrete-worker
 organization: Operative Plasterers' and Cement Masons' International Association (OPCMIA)
-location: "Nationwide — local OPCMIA training centers"
+location: "Nationwide: local OPCMIA training centers"
 website: "https://opcmia.org/training/"
 tagline: A paid three-year apprenticeship into concrete finishing and plastering, run through about 55 local OPCMIA apprenticeship programs across the country.
 whatToExpect: >
@@ -22,7 +22,7 @@ whatToExpect: >
   Corps on a pre-apprenticeship track for applicants with no prior
   trade experience, including recent high school graduates. Exact
   length and classroom hours are set by the local training fund.
-costNote: "Paid apprenticeship — no tuition"
+costNote: "Paid apprenticeship, no tuition"
 durationNote: "~3 years, paid"
 lastReviewed: "2026-11"
 relatedIds:

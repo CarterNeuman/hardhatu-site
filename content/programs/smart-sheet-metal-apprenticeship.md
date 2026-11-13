@@ -7,7 +7,7 @@ programType: Registered Apprenticeship
 careerIds:
   - career-sheet-metal-worker
 organization: International Association of Sheet Metal, Air, Rail and Transportation Workers (SMART)
-location: "Nationwide — local SMART training centers"
+location: "Nationwide: local SMART training centers"
 website: "https://www.smart-union.org/why-join-smart/education-and-career-training/"
 tagline: A paid four-to-five-year apprenticeship into sheet metal fabrication, HVAC duct work, and architectural metal, run through local SMART training centers.
 whatToExpect: >
@@ -23,7 +23,7 @@ whatToExpect: >
   veterans, grants advanced placement as a second-year apprentice.
   Exact length, schedule, and classroom hours vary by local training
   center.
-costNote: "Paid apprenticeship — no tuition"
+costNote: "Paid apprenticeship, no tuition"
 durationNote: "4–5 years, paid"
 lastReviewed: "2026-11"
 relatedIds:

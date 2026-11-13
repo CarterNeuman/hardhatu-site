@@ -8,7 +8,7 @@ careerIds:
   - career-roofer
   - career-waterproofing-installer
 organization: United Union of Roofers, Waterproofers and Allied Workers
-location: "Nationwide — local Roofers Joint Apprenticeship Committees"
+location: "Nationwide: local Roofers Joint Apprenticeship Committees"
 website: "https://unionroofers.com/join-us/apprenticeship/"
 tagline: A paid three-and-a-half-year apprenticeship into roofing and waterproofing, run through local Roofers Joint Apprenticeship Committees.
 whatToExpect: >
@@ -23,7 +23,7 @@ whatToExpect: >
   no tuition cost. Locals periodically run open recruitment windows
   for a set number of apprentice slots rather than accepting
   applications year-round, so timing to apply varies by region.
-costNote: "Paid apprenticeship — no tuition"
+costNote: "Paid apprenticeship, no tuition"
 durationNote: "~3–3.5 years, paid"
 lastReviewed: "2026-11"
 relatedIds:

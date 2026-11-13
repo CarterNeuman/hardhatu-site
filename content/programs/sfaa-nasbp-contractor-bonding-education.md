@@ -8,7 +8,7 @@ careerIds:
   - career-credit-manager-construction
   - career-controller-cfo-construction
 organization: "Surety & Fidelity Association of America (SFAA) and National Association of Surety Bond Producers (NASBP)"
-location: "Nationwide — online, self-paced"
+location: "Nationwide: online, self-paced"
 website: "https://www.contractorbondinged.org"
 tagline: A free e-learning program walking small and emerging contractors through how to qualify for, obtain, and grow a surety bond program, with optional one-on-one mentoring once it's finished.
 whatToExpect: >

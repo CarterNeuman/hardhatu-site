@@ -6,8 +6,8 @@ tier: free
 programType: Registered Apprenticeship
 careerIds:
   - career-drywall-installer
-organization: International Union of Painters and Allied Trades (IUPAT) — Finishing Trades Institute
-location: "Nationwide — local IUPAT District Council training centers"
+organization: International Union of Painters and Allied Trades (IUPAT), Finishing Trades Institute
+location: "Nationwide: local IUPAT District Council training centers"
 website: "https://www.iupat.org/trades/drywall-finisher/"
 tagline: A paid apprenticeship into taping, coating, and finishing drywall, run through local IUPAT district council training centers.
 whatToExpect: >
@@ -22,7 +22,7 @@ whatToExpect: >
   specifically, separate from the general painter apprenticeship.
   Exact length, classroom hours, and recruitment timing vary by
   district council.
-costNote: "Paid apprenticeship — no tuition"
+costNote: "Paid apprenticeship, no tuition"
 durationNote: "~3 years, paid (varies by local)"
 lastReviewed: "2026-11"
 relatedIds:

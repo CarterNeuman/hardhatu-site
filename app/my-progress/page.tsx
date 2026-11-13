@@ -248,7 +248,7 @@ export default async function MyProgressPage() {
                     <p className="text-xs font-semibold uppercase tracking-wide text-steel">{row.category}</p>
                     <p className="text-sm font-semibold text-ink">{title}</p>
                     {unavailable && (
-                      <p className="mt-1 text-xs italic text-steel">Not published yet &mdash; your answers are saved.</p>
+                      <p className="mt-1 text-xs italic text-steel">Not published yet. Your answers are saved.</p>
                     )}
                   </div>
                   {typeof totalDays === "number" && (
@@ -271,7 +271,7 @@ export default async function MyProgressPage() {
         )}
         {morePlansCount > 0 && (
           <p className="mt-3 text-xs text-steel">
-            +{morePlansCount} more saved plan{morePlansCount === 1 ? "" : "s"} &mdash;{" "}
+            +{morePlansCount} more saved plan{morePlansCount === 1 ? "" : "s"}:{" "}
             <Link href="/action-plan/my-plans" className="font-semibold text-amber hover:underline">
               see all
             </Link>

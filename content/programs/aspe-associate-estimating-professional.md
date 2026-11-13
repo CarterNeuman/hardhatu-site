@@ -9,7 +9,7 @@ careerIds:
   - career-mep-estimator
   - career-heavy-civil-estimator
 organization: American Society of Professional Estimators (ASPE)
-location: "Nationwide — online, through ASPE's national application process"
+location: "Nationwide: online, through ASPE's national application process"
 website: "https://aspenational.org"
 tagline: An entry-level certification for estimators with at least a year of on-the-job experience, and ASPE's own stepping stone toward its senior Certified Professional Estimator (CPE) designation.
 whatToExpect: >

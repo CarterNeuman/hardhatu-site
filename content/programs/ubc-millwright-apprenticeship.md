@@ -7,7 +7,7 @@ programType: Registered Apprenticeship
 careerIds:
   - career-millwright
 organization: United Brotherhood of Carpenters and Joiners of America (UBC)
-location: "Nationwide — local UBC Millwright training centers"
+location: "Nationwide: local UBC Millwright training centers"
 website: "https://www.carpenters.org/training-center/"
 tagline: A paid multi-year apprenticeship into installing, maintaining, and dismantling industrial machinery, run through local UBC millwright training centers.
 whatToExpect: >
@@ -22,7 +22,7 @@ whatToExpect: >
   on a set schedule as hours and levels are completed, and training
   carries no tuition cost. Exact structure, level length, and
   recruitment are set by the local training center.
-costNote: "Paid apprenticeship — no tuition"
+costNote: "Paid apprenticeship, no tuition"
 durationNote: "~4 years, paid"
 lastReviewed: "2026-11"
 relatedIds:

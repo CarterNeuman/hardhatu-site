@@ -118,10 +118,10 @@ function CategoryGate({ guide, index }: { guide: GetHired; index: number }) {
 // guide's own page; these are a separate, catchier blurb just for this
 // index).
 const CATEGORY_BLURBS: Record<string, string> = {
-  "Field & Trades": "Union or open shop — two real doors into the trades.",
+  "Field & Trades": "Union or open shop: two real doors into the trades.",
   "Project & Operations": "80% of firms can't fill these roles fast enough.",
   "Preconstruction & Estimating": "One of the industry's hardest roles to fill in 2026.",
-  Business: "The back office is aging out — and hiring fast.",
+  Business: "The back office is aging out, and hiring fast.",
   "Technology & Design": "Hired on proof, not pedigree.",
   "Specialized Construction": "Solar and disaster restoration are booming right now.",
   "Insurance & Claims": "Licensed, storm-ready adjusters are in real demand.",

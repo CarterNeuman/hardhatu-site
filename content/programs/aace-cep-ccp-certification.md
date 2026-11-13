@@ -9,7 +9,7 @@ careerIds:
   - career-cost-engineer
   - career-senior-estimator
 organization: AACE International Certification Institute
-location: "Nationwide — computer-based testing at a test center or online proctored"
+location: "Nationwide: computer-based testing at a test center or online proctored"
 website: "https://web.aacei.org/certification"
 tagline: Two of the field's most advanced credentials in cost estimating and total cost management, built for experienced estimators and cost engineers rather than people just starting out.
 whatToExpect: >

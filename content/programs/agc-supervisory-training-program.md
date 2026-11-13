@@ -9,7 +9,7 @@ careerIds:
   - career-superintendent
   - career-general-superintendent
 organization: Associated General Contractors of America (AGC)
-location: "Nationwide — local AGC chapters, in-house, or AGC EDGE virtual classes"
+location: "Nationwide: local AGC chapters, in-house, or AGC EDGE virtual classes"
 website: "https://www.agc.org/learn/education-training/supervisory-training-program"
 tagline: A six-unit, contractor-built curriculum on field leadership, cost control, and productivity, the standard first rung for anyone stepping into a construction supervisory role.
 whatToExpect: >

@@ -7,7 +7,7 @@ programType: Online Course
 careerIds:
   - career-modular-offsite-construction-manager
 organization: Modular Building Institute (MBI)
-location: "Nationwide — online"
+location: "Nationwide: online"
 website: "https://www.modular.org/learning/"
 tagline: The modular industry's own foundational course, covering design, fabrication, transportation, and installation for anyone moving from traditional site-built construction into offsite and modular work.
 whatToExpect: >

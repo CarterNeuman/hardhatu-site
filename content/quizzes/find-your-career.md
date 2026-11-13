@@ -23,7 +23,7 @@ questions:
       - label: "Nothing specific to any of these, or I'm in school for something unrelated"
         pointsToCategories: ["Project & Operations"]
         pointsToCareerIds: ["career-project-engineer", "career-assistant-project-manager", "career-laborer", "career-field-engineer"]
-      - label: "Nothing formal — whatever I know, I've picked up through work, family, or figuring things out myself"
+      - label: "Nothing formal: whatever I know, I've picked up through work, family, or figuring things out myself"
         pointsToCategories: ["Field & Trades"]
         pointsToCareerIds: ["career-laborer", "career-equipment-operator", "career-concrete-worker", "career-insulation-installer", "career-flooring-installer"]
   - question: "Forget what you studied for a second. Which of these actually sounds like you?"

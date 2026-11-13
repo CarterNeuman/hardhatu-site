@@ -9,7 +9,7 @@ careerIds:
   - career-project-manager
   - career-project-engineer
 organization: Associated General Contractors of America (AGC)
-location: "Nationwide — local AGC chapters or virtual AGC EDGE classes"
+location: "Nationwide: local AGC chapters or virtual AGC EDGE classes"
 website: "https://www.agc.org/learn/education-training"
 tagline: AGC's five-module companion to its Supervisory Training Program, built for early-career project managers learning the office side of running a job.
 whatToExpect: >

@@ -7,12 +7,12 @@ programType: Union Program
 careerIds:
   - career-equipment-operator
 organization: International Union of Operating Engineers (IUOE)
-location: "Nationwide — local IUOE training schools"
+location: "Nationwide: local IUOE training schools"
 website: "https://www.iuoe.org/training/heavy-equipment-operator"
 tagline: Paid, hands-on operator training on cranes, excavators, dozers, and more, run through local IUOE training schools.
 whatToExpect: >
-  Apprentices train on real equipment — cranes, excavators, dozers,
-  loaders, and more — at a local IUOE training school, usually starting
+  Apprentices train on real equipment (cranes, excavators, dozers,
+  loaders, and more) at a local IUOE training school, usually starting
   on simulators before moving to live machinery. Program length and
   hour totals vary noticeably by local, commonly running three to four
   years and roughly 6,000-8,000 hours of combined on-the-job and
@@ -21,7 +21,7 @@ whatToExpect: >
   equipment mechanics through a separate but related apprenticeship.
   Application windows, aptitude testing, and waitlists are run by the
   local, not nationally, so timing and requirements vary by region.
-costNote: "Paid apprenticeship — no tuition"
+costNote: "Paid apprenticeship, no tuition"
 durationNote: "3–4 years, paid (varies by local)"
 lastReviewed: "2026-11"
 relatedIds:

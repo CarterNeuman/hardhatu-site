@@ -7,7 +7,7 @@ programType: Registered Apprenticeship
 careerIds:
   - career-electrician
 organization: IBEW / NECA (Joint Apprenticeship and Training Committees)
-location: "Nationwide — local JATC chapters"
+location: "Nationwide: local JATC chapters"
 website: "https://www.ibew.org"
 tagline: A five-year paid apprenticeship into the electrical trade, run jointly by local IBEW unions and NECA signatory contractors.
 whatToExpect: >
@@ -18,12 +18,12 @@ whatToExpect: >
   hours of on-the-job training with several hundred hours of related
   classroom instruction covering electrical theory, the National
   Electrical Code, and safety. Pay rises in steps as apprentices
-  progress — most locals start around 40-50% of the local journeyman
+  progress; most locals start around 40-50% of the local journeyman
   wage and raise it every six to twelve months. Admission typically
   requires a high school diploma or GED, a valid driver's license, and
   passing an aptitude test and interview; many locals keep a waitlist,
   and the exact process is run by the local JATC, not nationally.
-costNote: "Paid apprenticeship — no tuition"
+costNote: "Paid apprenticeship, no tuition"
 durationNote: "5 years, paid"
 lastReviewed: "2026-11"
 relatedIds:

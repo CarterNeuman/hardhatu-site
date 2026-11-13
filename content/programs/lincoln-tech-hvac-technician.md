@@ -1,6 +1,6 @@
 ---
 id: program-lincoln-tech-hvac-technician
-title: Lincoln Tech — HVAC/R Technology Program
+title: "Lincoln Tech: HVAC/R Technology Program"
 type: program
 tier: free
 programType: Trade School
@@ -16,11 +16,11 @@ whatToExpect: >
   real equipment. Programs typically run around 1,200 instructional
   hours over roughly 10-12 months, and most campuses prepare students
   for the EPA Section 608 certification required to legally handle
-  refrigerants. This is tuition-based, unlike a union apprenticeship —
+  refrigerants. This is tuition-based, unlike a union apprenticeship;
   total cost varies by campus and program length, and financial aid is
   available to those who qualify. Exact curriculum, schedule, and
   pricing are set per campus, so check the specific location.
-costNote: "Tuition-based — financial aid available; cost varies by campus"
+costNote: "Tuition-based, financial aid available; cost varies by campus"
 durationNote: "~10–12 months"
 lastReviewed: "2026-11"
 relatedIds:

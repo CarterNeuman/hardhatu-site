@@ -7,7 +7,7 @@ programType: Licensure Pathway
 careerIds:
   - career-blaster-explosives-specialist
 organization: "State explosives and blasting regulatory boards (varies by state)"
-location: "Nationwide — varies by state; in-person classroom training required in most states"
+location: "Nationwide: varies by state; in-person classroom training required in most states"
 tagline: A state-regulated classroom training and licensing path, required in nearly every state before anyone can legally handle or set off explosives on a construction or demolition site.
 whatToExpect: >
   Because blasting is regulated at the state level, requirements vary.

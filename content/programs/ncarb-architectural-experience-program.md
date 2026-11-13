@@ -7,7 +7,7 @@ programType: Licensure Pathway
 careerIds:
   - career-architect
 organization: National Council of Architectural Registration Boards (NCARB)
-location: "Nationwide — logged through supervised work experience; requirements vary by jurisdiction"
+location: "Nationwide: logged through supervised work experience; requirements vary by jurisdiction"
 website: "https://www.ncarb.org/experience"
 tagline: The structured, supervised work-experience framework every aspiring architect documents on the path to licensure, covering six practice areas from design through construction administration.
 whatToExpect: >

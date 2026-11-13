@@ -7,7 +7,7 @@ programType: Licensure Pathway
 careerIds:
   - career-interior-designer
 organization: Council for Interior Design Qualification (CIDQ)
-location: "Nationwide — exam offered twice yearly, computer-based testing"
+location: "Nationwide: exam offered twice yearly, computer-based testing"
 website: "https://www.cidq.org"
 tagline: The only nationally recognized competency exam for interior designers, built around three exam sections most states use as the basis for interior design licensure.
 whatToExpect: >

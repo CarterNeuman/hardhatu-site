@@ -6,8 +6,8 @@ tier: free
 programType: Registered Apprenticeship
 careerIds:
   - career-elevator-technician
-organization: National Elevator Industry Educational Program (NEIEP) — International Union of Elevator Constructors (IUEC)
-location: "Nationwide — local IUEC/NEIEP training centers"
+organization: National Elevator Industry Educational Program (NEIEP), International Union of Elevator Constructors (IUEC)
+location: "Nationwide: local IUEC/NEIEP training centers"
 website: "https://www.neiep.org/"
 tagline: A paid four-plus-year apprenticeship into elevator and escalator installation, maintenance, and repair, administered nationally by NEIEP for the IUEC.
 whatToExpect: >
@@ -24,7 +24,7 @@ whatToExpect: >
   curriculum and standards are more consistent across regions than in
   some other building trades, though recruitment is still handled
   locally by IUEC locals and signatory employers.
-costNote: "Paid apprenticeship — no tuition"
+costNote: "Paid apprenticeship, no tuition"
 durationNote: "~4+ years, paid"
 lastReviewed: "2026-11"
 relatedIds:

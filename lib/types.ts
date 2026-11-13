@@ -315,7 +315,7 @@ export const GetHiredSchema = z
     if (data.checklist.length < 4) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
-        message: "checklist needs at least 4 steps once live — a real checklist, not a token gesture (or set comingSoon: true)",
+        message: "checklist needs at least 4 steps once live: a real checklist, not a token gesture (or set comingSoon: true)",
         path: ["checklist"],
       });
     }
@@ -682,7 +682,7 @@ export const ProgramSchema = z.object({
   website: z.string().optional(),
   tagline: z.string(),
   whatToExpect: z.string().optional(),
-  costNote: z.string().optional(), // e.g. "Paid apprenticeship — no tuition"
+  costNote: z.string().optional(), // e.g. "Paid apprenticeship, no tuition"
   durationNote: z.string().optional(), // e.g. "4 years, paid"
 });
 

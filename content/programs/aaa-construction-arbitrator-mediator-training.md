@@ -7,7 +7,7 @@ programType: Certificate Program
 careerIds:
   - career-construction-mediator-arbitrator
 organization: American Arbitration Association (AAA)
-location: "Nationwide — in-person and online training components"
+location: "Nationwide: in-person and online training components"
 website: "https://www.adr.org"
 tagline: The training path the AAA itself requires before adding someone to its roster of construction arbitrators, plus newer online certificate options built for attorneys moving into dispute resolution.
 whatToExpect: >

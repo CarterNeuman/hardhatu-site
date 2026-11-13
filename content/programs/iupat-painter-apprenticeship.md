@@ -6,8 +6,8 @@ tier: free
 programType: Registered Apprenticeship
 careerIds:
   - career-painter
-organization: International Union of Painters and Allied Trades (IUPAT) — Finishing Trades Institute
-location: "Nationwide — local IUPAT District Council training centers"
+organization: International Union of Painters and Allied Trades (IUPAT), Finishing Trades Institute
+location: "Nationwide: local IUPAT District Council training centers"
 website: "https://www.iupat.org/about-the-iupat/our-programs/ifti/become-an-apprentice/"
 tagline: A paid apprenticeship into commercial and industrial painting, run through IUPAT's Finishing Trades Institute and local district council training centers.
 whatToExpect: >
@@ -24,7 +24,7 @@ whatToExpect: >
   Finishing Trades Institute also runs separate apprenticeship tracks
   for industrial painting, glazing, and drywall finishing. Exact
   length and schedule are set by the local district council.
-costNote: "Paid apprenticeship — no tuition"
+costNote: "Paid apprenticeship, no tuition"
 durationNote: "~3 years, paid (varies by local)"
 lastReviewed: "2026-11"
 relatedIds:

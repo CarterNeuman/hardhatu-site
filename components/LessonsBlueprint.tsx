@@ -25,7 +25,7 @@ type Stop = {
   n: number; // 1-22 for a main stop; 1-based position within its own branch otherwise
   total: number; // 22 for a main stop; that branch's lesson count otherwise
   slug: string;
-  title: string; // full real lesson title — used in the tooltip and aria-label only
+  title: string; // full real lesson title, used in the tooltip and aria-label only
   label: string; // short curated text drawn on the badge itself
   minutes: number;
   href: string;
