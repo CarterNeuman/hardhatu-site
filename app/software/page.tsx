@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getAllContent } from "@/lib/content";
-import { SoftwareDeskIntro, type SoftwarePreviewGroup } from "@/components/SoftwareDeskIntro";
-import { SoftwareScreenTile } from "@/components/SoftwareScreenTile";
+import { SoftwareDirectory } from "@/components/SoftwareDirectory";
+import type { SoftwarePreviewGroup } from "@/components/SoftwareDeskIntro";
 
 export const metadata: Metadata = {
   title: "Software",
@@ -13,7 +13,7 @@ export default function SoftwareIndexPage() {
 
   // Grouped by the free-text `category` field (Estimating, Scheduling,
   // Design & BIM, etc.) so the screen reads like icons organized into
-  // folders rather than one undifferentiated grid — alphabetical since
+  // folders rather than one undifferentiated grid -- alphabetical since
   // there's no fixed category order for software the way there is for the
   // 8 career categories.
   const categories = Array.from(new Set(software.map((tool) => tool.category))).sort((a, b) =>
@@ -22,8 +22,9 @@ export default function SoftwareIndexPage() {
 
   // Same grouping, reduced to just names, for the intro's tiny on-screen
   // preview (SoftwareDeskIntro renders this small and grows it with the
-  // zoom — see that component for why it needs real names, not
-  // placeholders).
+  // zoom -- see that component for why it needs real names, not
+  // placeholders). Always built from the full, unfiltered list -- the
+  // one-time intro animation plays before anyone's had a chance to search.
   const preview: SoftwarePreviewGroup[] = categories.map((category) => ({
     category,
     tools: software.filter((tool) => tool.category === category).map((tool) => tool.title),
@@ -37,26 +38,7 @@ export default function SoftwareIndexPage() {
         actually shows up in job postings and day-to-day work, not a generic feature comparison.
       </p>
 
-      <div className="mt-8">
-        <SoftwareDeskIntro preview={preview}>
-          <div className="flex flex-col gap-8">
-            {categories.map((category) => (
-              <div key={category}>
-                <h2 className="mb-4 font-display text-xl font-bold text-amber-soft sm:text-2xl">
-                  {category}
-                </h2>
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-                  {software
-                    .filter((tool) => tool.category === category)
-                    .map((tool) => (
-                      <SoftwareScreenTile key={tool.id} tool={tool} description={tool.whatItIs} />
-                    ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </SoftwareDeskIntro>
-      </div>
+      <SoftwareDirectory software={software} categories={categories} preview={preview} />
     </div>
   );
 }
