@@ -80,6 +80,15 @@ export default function ResourcesIndexPage() {
       pin: "clay",
       rotate: "-1.1deg",
     },
+    {
+      href: "/states",
+      kind: "state",
+      title: "Careers by State",
+      description: "State field guides: local pay, licensing rules, apprenticeships and free training. Georgia first.",
+      count: "1 state",
+      pin: "amber",
+      rotate: "1.2deg",
+    },
   ];
 
   return (

@@ -14,7 +14,8 @@ export type IconKind =
   | "quiz"
   | "program"
   | "actionplan"
-  | "roi";
+  | "roi"
+  | "state";
 
 export function Icon({
   kind,
@@ -151,6 +152,16 @@ export function Icon({
         <polyline points="4,20 20,20" {...common} />
         <polyline points="6.5,16 10.5,12 13.5,14.5 19,8" {...common} />
         <polyline points="15.5,8 19,8 19,11.5" {...common} />
+      </svg>
+    );
+  }
+  if (kind === "state") {
+    // A road signpost: the state field guides.
+    return (
+      <svg viewBox="0 0 24 24" style={style} className={className} aria-hidden="true" focusable="false">
+        <line x1="12" y1="3" x2="12" y2="21" {...common} />
+        <path d="M5 6h11l2.5 2.5L16 11H5z" {...common} />
+        <path d="M19 13H9l-2 2 2 2h10z" {...common} />
       </svg>
     );
   }

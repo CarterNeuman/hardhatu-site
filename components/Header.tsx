@@ -109,7 +109,7 @@ export function Header({
   ];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-hairline bg-paper">
+    <header className="sticky top-0 z-40 border-b border-hairline bg-paper print:hidden">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-3.5">
         <Link href="/" className="flex shrink-0 items-center gap-2 font-display text-[1.8rem] font-bold tracking-tight text-ink">
           <HardHatMark size={35} />

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllContent, urlFor } from "@/lib/content";
+import { STATE_GUIDES } from "@/lib/state-guides";
 
 // Next.js serves this at /sitemap.xml automatically. Regenerates from
 // whatever's in /content — you never hand-maintain a URL list.
@@ -13,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: node.lastReviewed ? new Date(node.lastReviewed) : new Date(),
   }));
 
-  const staticPages = ["/about", "/contact", "/privacy", "/terms", "/student-loan-roi"].map((path) => ({
+  const staticPages = ["/about", "/contact", "/privacy", "/terms", "/student-loan-roi", "/states", ...STATE_GUIDES.map((g) => `/states/${g.slug}`)].map((path) => ({
     url: `${SITE_URL}${path}`,
     lastModified: new Date(),
   }));

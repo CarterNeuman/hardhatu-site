@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { DEFAULT_INFLATION, payAtExperience } from "@/lib/roi-model";
 import { OCCUPATIONS, STATES } from "@/lib/state-pay-data";
@@ -58,6 +58,13 @@ export function PayByState() {
   const [inflation, setInflation] = useState(DEFAULT_INFLATION);
   const [adjustCol, setAdjustCol] = useState(false);
   const [allTrades, setAllTrades] = useState(false);
+
+  // Deep links like /student-loan-roi?state=GA (used by the state guides)
+  // open with that state already picked.
+  useEffect(() => {
+    const want = new URLSearchParams(window.location.search).get("state")?.toUpperCase();
+    if (want && STATES.some((st) => st.code === want)) setCode(want);
+  }, []);
 
   const state = STATES.find((s) => s.code === code);
   const placeName = state?.name ?? "the U.S.";
