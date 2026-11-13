@@ -39,6 +39,7 @@ function formatMonth(iso: string) {
 const LICENSE_LABEL = {
   contractor: "State contractor license",
   "journeyman-and-master": "State journeyman + master license",
+  "worker-certification": "State certification for workers",
   none: "No state trade license",
 } as const;
 
@@ -70,8 +71,13 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
     };
   });
 
-  const totalJobs = trades.reduce((a, t) => a + t.employment, 0);
-  const totalOpenings = g.trades.reduce((a, t) => a + t.outlook.openingsPerYear, 0);
+  // Totals come from the state projections, counted once per BLS occupation
+  // (plumbers, pipefitters and sprinkler fitters share one, for example).
+  const projected = new Map<string, NonNullable<(typeof g.trades)[number]["outlook"]>>();
+  for (const t of g.trades) if (t.outlook && !projected.has(t.soc)) projected.set(t.soc, t.outlook);
+  const totalJobs = [...projected.values()].reduce((a, o) => a + o.base, 0);
+  const totalOpenings = [...projected.values()].reduce((a, o) => a + o.openingsPerYear, 0);
+  const anyNational = trades.some((t) => t.usesNational);
   const licensed = g.trades.filter((t) => t.stateLicense !== "none").length;
   const updated = formatMonth(g.lastVerified);
 
@@ -119,9 +125,9 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
 
       {/* Mile markers: the headline numbers */}
       <dl data-guide-section className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <Marker label="Jobs in these 8 trades" value={`${Math.round(totalJobs / 1000)}k`} note="BLS, May 2025" />
+        <Marker label={`Jobs in these ${g.trades.length} trades`} value={`${Math.round(totalJobs / 1000)}k`} note={`State estimate, ${g.outlookPeriod.slice(0, 4)}`} />
         <Marker label="Openings a year" value={totalOpenings.toLocaleString("en-US")} note={`Projected, ${g.outlookPeriod}`} />
-        <Marker label="Need a state trade license" value={`${licensed} of ${g.trades.length}`} note="Earned through paid work" />
+        <Marker label="Need a state trade license" value={`${licensed} of ${g.trades.length}`} note="Earned through work and exams" />
         <Marker label="Tech college tuition" value="$0" note="Construction and welding, for HOPE-eligible students" />
       </dl>
 
@@ -129,7 +135,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
       <nav aria-label="On this page" className="mt-8 flex flex-wrap gap-2 print:hidden">
         {[
           ["#short-version", "The short version"],
-          ["#trades", "The 8 trades"],
+          ["#trades", `The ${g.trades.length} trades`],
           ["#pay", "Pay side by side"],
           ["#licensing", "Licensing"],
           ["#safety", "Safety"],
@@ -162,9 +168,9 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
       {/* Trades */}
       <section id="trades" className="mt-12 scroll-mt-24">
         <div data-guide-section>
-          <h2 className="font-display text-3xl font-bold text-ink">The 8 trades</h2>
+          <h2 className="font-display text-3xl font-bold text-ink">The {g.trades.length} trades</h2>
           <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-steel">
-            The eight largest construction trades in {g.name} by number of jobs. Pick one to see its pay ladder, the honest hard parts, the
+            Every Field &amp; Trades career on BreakGroundU, starting with the eight that employ the most people in {g.name}. Pick one to see its pay ladder, the honest hard parts, the
             route to a license and real local ways in. Every trade has its own link and print button, so you can send a student just the one
             they asked about.
           </p>
@@ -213,6 +219,16 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
                     <Link href={`/careers/${t.slug}`} className="text-navy hover:underline">
                       {t.name}
                     </Link>
+                    {t.usesNational && (
+                      <span className="text-steel" title="U.S. figures: BLS publishes no Georgia estimate">
+                        *
+                      </span>
+                    )}
+                    {t.sharedStatsWith && (
+                      <span className="block text-xs font-normal text-steel">
+                        Same BLS group as {g.trades.find((x) => x.slug === t.sharedStatsWith)?.name ?? "another trade"}
+                      </span>
+                    )}
                   </th>
                   <td className="px-3 py-2.5 text-right tabular-nums">{usd(t.pay.start)}</td>
                   <td className="px-3 py-2.5 text-right font-semibold tabular-nums">{usd(t.pay.five)}</td>
@@ -235,6 +251,9 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
             </a>
           </p>
         </div>
+        {anyNational && (
+          <p className="mt-3 text-xs text-steel">* U.S. figures. BLS publishes no {g.name} pay estimate for this trade.</p>
+        )}
         <p className="mt-3 text-xs leading-relaxed text-steel">
           <span className="font-semibold text-ink">How to read this:</span> BLS reports how pay is spread across everyone in a job, not pay by
           years worked. We read that spread as a ladder: starting out is the 10th percentile, 5 years in is the median, 10 years in is the 75th

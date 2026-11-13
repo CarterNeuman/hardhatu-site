@@ -53,6 +53,10 @@ function fitScore(t: StateTrade, a: Answers) {
   return score;
 }
 
+// The first FEATURED trades (the biggest employers) get full exit signs; the
+// rest sit below as smaller signs so 25 trades still fit on a phone screen.
+const FEATURED = 8;
+
 export function TradeExplorer({ trades, stateName }: { trades: TradeView[]; stateName: string }) {
   const [active, setActive] = useState(trades[0].slug);
   const [answers, setAnswers] = useState<Answers>({});
@@ -129,40 +133,72 @@ export function TradeExplorer({ trades, stateName }: { trades: TradeView[]; stat
       )}
 
       {/* Exit signs: the trade picker */}
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 print:hidden" role="tablist" aria-label="Choose a trade">
-        {trades.map((t, i) => {
-          const on = t.slug === active;
-          const match = isMatch(i);
-          const dim = answered && !match;
-          return (
-            <button
-              key={t.slug}
-              type="button"
-              role="tab"
-              id={`tab-${t.slug}`}
-              aria-selected={on}
-              aria-controls={`panel-${t.slug}`}
-              onClick={() => choose(t.slug)}
-              className={`group relative rounded-md bg-[#1B5E3B] px-3 pb-3 pt-6 text-left text-white shadow-sm outline-none transition focus-visible:ring-4 focus-visible:ring-[#F2C200] ${
-                on ? "-translate-y-1 ring-4 ring-[#F2C200]" : "hover:-translate-y-0.5"
-              } ${dim ? "opacity-45 hover:opacity-80" : ""}`}
-            >
-              <span className="absolute left-3 top-0 -translate-y-1/2 rounded-sm bg-[#F2C200] px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-ink">
-                Exit {i + 1}
-              </span>
-              {match && (
-                <span className="absolute right-3 top-0 -translate-y-1/2 rounded-sm bg-white px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#1B5E3B] shadow">
-                  Good fit
+      <div role="tablist" aria-label="Choose a trade" className="print:hidden">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {trades.slice(0, FEATURED).map((t, i) => {
+            const on = t.slug === active;
+            const match = isMatch(i);
+            const dim = answered && !match;
+            return (
+              <button
+                key={t.slug}
+                type="button"
+                role="tab"
+                id={`tab-${t.slug}`}
+                aria-selected={on}
+                aria-controls={`panel-${t.slug}`}
+                onClick={() => choose(t.slug)}
+                className={`group relative rounded-md bg-[#1B5E3B] px-3 pb-3 pt-6 text-left text-white shadow-sm outline-none transition focus-visible:ring-4 focus-visible:ring-[#F2C200] ${
+                  on ? "-translate-y-1 ring-4 ring-[#F2C200]" : "hover:-translate-y-0.5"
+                } ${dim ? "opacity-45 hover:opacity-80" : ""}`}
+              >
+                <span className="absolute left-3 top-0 -translate-y-1/2 rounded-sm bg-[#F2C200] px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-ink">
+                  Exit {i + 1}
                 </span>
-              )}
-              <span className="pointer-events-none absolute inset-1 rounded border border-white/70" aria-hidden="true" />
-              <span className="relative block font-display text-[15px] font-bold leading-tight sm:text-base">{t.name}</span>
-              <span className="relative mt-1.5 block text-xs text-white/85">
-                {k(t.pay.five)} typical · {t.outlook.openingsPerYear.toLocaleString("en-US")} openings/yr
-              </span>
-            </button>
-          );
-        })}
+                {match && <GoodFit />}
+                <span className="pointer-events-none absolute inset-1 rounded border border-white/70" aria-hidden="true" />
+                <span className="relative block font-display text-[15px] font-bold leading-tight sm:text-base">{t.name}</span>
+                <span className="relative mt-1.5 block text-xs text-white/85">
+                  {k(t.pay.five)} typical
+                  {t.outlook ? ` · ${t.outlook.openingsPerYear.toLocaleString("en-US")} openings/yr` : ""}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+        {trades.length > FEATURED && (
+          <>
+            <p className="mb-3 mt-6 text-xs font-semibold uppercase tracking-wide text-steel">
+              {trades.length - FEATURED} more trades, A to Z
+            </p>
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+              {trades.slice(FEATURED).map((t, j) => {
+                const i = j + FEATURED;
+                const on = t.slug === active;
+                const match = isMatch(i);
+                const dim = answered && !match;
+                return (
+                  <button
+                    key={t.slug}
+                    type="button"
+                    role="tab"
+                    id={`tab-${t.slug}`}
+                    aria-selected={on}
+                    aria-controls={`panel-${t.slug}`}
+                    onClick={() => choose(t.slug)}
+                    className={`relative rounded-md border-2 px-3 py-2 text-left outline-none transition focus-visible:ring-4 focus-visible:ring-[#F2C200] ${
+                      on ? "border-[#1B5E3B] bg-[#1B5E3B] text-white ring-2 ring-[#F2C200]" : "border-[#1B5E3B]/40 bg-white text-ink hover:border-[#1B5E3B]"
+                    } ${dim ? "opacity-45 hover:opacity-80" : ""}`}
+                  >
+                    {match && <GoodFit />}
+                    <span className="block text-sm font-semibold leading-tight">{t.name}</span>
+                    <span className={`mt-0.5 block text-[11px] ${on ? "text-white/85" : "text-steel"}`}>{k(t.pay.five)} typical</span>
+                  </button>
+                );
+              })}
+            </div>
+          </>
+        )}
       </div>
 
       {trades.map((t) => {
@@ -222,11 +258,21 @@ export function TradeExplorer({ trades, stateName }: { trades: TradeView[]; stat
                 </p>
 
                 <h4 className="mt-6 text-xs font-semibold uppercase tracking-wide text-steel">Jobs outlook</h4>
-                <dl className="mt-2 grid grid-cols-3 gap-3 text-center">
-                  <Stat label="Jobs in 2024" value={t.outlook.base.toLocaleString("en-US")} />
-                  <Stat label="Growth by 2034" value={`+${t.outlook.growthPct}%`} />
-                  <Stat label="Openings a year" value={t.outlook.openingsPerYear.toLocaleString("en-US")} />
-                </dl>
+                {t.outlook ? (
+                  <dl className="mt-2 grid grid-cols-3 gap-3 text-center">
+                    <Stat label="Jobs in 2024" value={t.outlook.base.toLocaleString("en-US")} />
+                    <Stat label="Growth by 2034" value={`+${t.outlook.growthPct}%`} />
+                    <Stat label="Openings a year" value={t.outlook.openingsPerYear.toLocaleString("en-US")} />
+                  </dl>
+                ) : (
+                  <p className="mt-2 border border-dashed border-hairline bg-paper/60 px-3 py-2.5 text-sm text-steel">
+                    {t.sharedStatsWith
+                      ? `${stateName}'s projections count this trade inside a larger group (see ${
+                          trades.find((x) => x.slug === t.sharedStatsWith)?.name ?? "the related trade"
+                        }), so there's no separate job count.`
+                      : `${stateName} publishes no job projection for this trade.`}
+                  </p>
+                )}
 
                 <div className="mt-6 border border-l-4 border-clay/40 border-l-clay bg-[#8A4A31]/5 px-4 py-3">
                   <h4 className="text-sm font-semibold text-ink">The hard parts</h4>
@@ -330,6 +376,14 @@ export function TradeExplorer({ trades, stateName }: { trades: TradeView[]; stat
 
 // ---------------------------------------------------------------------------
 // "Which trade fits you?": three quick taps, no sign-up, nothing saved.
+
+function GoodFit() {
+  return (
+    <span className="absolute right-2 top-0 z-10 -translate-y-1/2 rounded-sm bg-white px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#1B5E3B] shadow">
+      Good fit
+    </span>
+  );
+}
 
 function FitStrip({ answers, setAnswers }: { answers: Answers; setAnswers: (a: Answers) => void }) {
   const set = <K extends keyof Answers>(key: K, v: Answers[K]) =>

@@ -18,8 +18,26 @@ export function lookup(occ: Occupation, code: string): Lookup {
   };
 }
 
+// Occupations the state guides need that the generated ROI data file doesn't
+// carry (so they stay off the ROI page's tables). National only: BLS
+// publishes no state estimates for them in the states we cover.
+// Plasterers and stucco masons (47-2161): BLS OEWS May 2025 national annual
+// wages via O*NET (onetonline.org/link/localwages/47-2161.00). Employment is
+// not used by the guides, so it is left at 0.
+const GUIDE_ONLY: Occupation[] = [
+  {
+    soc: "47-2161",
+    label: "Plasterers & stucco masons",
+    group: "trade",
+    slug: "plasterer-stucco-mason",
+    note: null,
+    national: [0, 39560, 57660, 71310, 96710],
+    states: {},
+  },
+];
+
 export function occupation(soc: string): Occupation {
-  const o = OCCUPATIONS.find((x) => x.soc === soc);
+  const o = OCCUPATIONS.find((x) => x.soc === soc) ?? GUIDE_ONLY.find((x) => x.soc === soc);
   if (!o) throw new Error(`Unknown SOC ${soc}`);
   return o;
 }
