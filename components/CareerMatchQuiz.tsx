@@ -9,7 +9,8 @@ import type { Career, Lesson } from "@/lib/types";
 import { CATEGORY_SLUG } from "@/components/Header";
 import { Icon } from "@/components/Icon";
 
-const MAX_MATCHES = 4;
+const MAX_MATCHES_FULL = 6;
+const MAX_MATCHES_COMPACT = 3;
 
 // Google sign-in (unlike Clerk's email-code flow, which stays inside the
 // modal with no navigation) redirects the whole tab out to Google and
@@ -395,16 +396,21 @@ export function CareerMatchQuiz({
     const scored = allCareers
       .filter((career) => (careerScores[career.id] ?? 0) > 0)
       .sort((a, b) => (careerScores[b.id] ?? 0) - (careerScores[a.id] ?? 0));
+    // Show the full 6-wide trail only when there are enough real
+    // (answer-driven) matches to earn it -- otherwise a thinner 3-wide
+    // trail reads as a tighter, more confident result instead of
+    // padding a weak match list out with generic category filler.
+    const target = scored.length >= MAX_MATCHES_FULL ? MAX_MATCHES_FULL : MAX_MATCHES_COMPACT;
     const out: QuizCareer[] = [];
     const seen = new Set<string>();
     for (const career of scored) {
-      if (out.length >= MAX_MATCHES) break;
+      if (out.length >= target) break;
       out.push(career);
       seen.add(career.id);
     }
-    if (out.length < MAX_MATCHES) {
+    if (out.length < target) {
       for (const career of careersByCategory[result] ?? []) {
-        if (out.length >= MAX_MATCHES) break;
+        if (out.length >= target) break;
         if (!seen.has(career.id)) {
           out.push(career);
           seen.add(career.id);
@@ -632,7 +638,8 @@ export function CareerMatchQuiz({
         const lesson = lessonsById[rec.id];
         return lesson ? { lesson, blurb: rec.blurb } : null;
       })
-      .filter((entry): entry is { lesson: QuizLesson; blurb: string } => entry !== null);
+      .filter((entry): entry is { lesson: QuizLesson; blurb: string } => entry !== null)
+      .slice(0, 3);
 
     return (
       <div
