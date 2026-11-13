@@ -51,4 +51,9 @@ relatedIds:
   - career-mep-engineer
   - career-gis-specialist
   - career-construction-technology-manager
+  - career-architect
+  - career-landscape-architect
+  - career-interior-designer
+  - career-fire-protection-engineer
+  - career-geotechnical-engineer
 ---

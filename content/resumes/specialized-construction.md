@@ -49,4 +49,8 @@ relatedIds:
   - career-demolition-supervisor
   - career-pile-driving-specialist
   - career-historic-preservation-specialist
+  - career-blaster-explosives-specialist
+  - career-modular-offsite-construction-manager
+  - career-tenant-improvement-construction-manager
+  - career-healthcare-construction-manager
 ---

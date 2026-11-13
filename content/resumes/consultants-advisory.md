@@ -49,4 +49,9 @@ relatedIds:
   - career-construction-attorney
   - career-permit-expediter
   - career-commissioning-agent
+  - career-construction-mediator-arbitrator
+  - career-property-condition-assessor
+  - career-building-envelope-consultant
+  - career-code-consultant
+  - career-specification-writer
 ---

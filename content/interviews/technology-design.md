@@ -91,6 +91,11 @@ relatedIds:
   - exam-fe
   - lesson-3d-modeling-in-practice
   - lesson-drones-scanning-and-mapping
+  - career-architect
+  - career-landscape-architect
+  - career-interior-designer
+  - career-fire-protection-engineer
+  - career-geotechnical-engineer
 ---
   - lesson-3d-modeling-in-practice
   - lesson-drones-scanning-and-mapping

@@ -52,4 +52,8 @@ relatedIds:
   - career-business-development-manager
   - career-risk-manager-construction
   - career-certified-payroll-specialist
+  - career-controller-cfo-construction
+  - career-marketing-proposals-manager
+  - career-equipment-fleet-manager
+  - career-credit-manager-construction
 ---

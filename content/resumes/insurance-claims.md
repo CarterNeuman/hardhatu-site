@@ -45,4 +45,9 @@ relatedIds:
   - career-builders-risk-underwriter
   - career-loss-control-engineer
   - career-surety-bond-underwriter
+  - career-insurance-broker
+  - career-general-liability-underwriter
+  - career-claims-examiner
+  - career-workers-comp-claims-adjuster
+  - career-surety-claims-manager
 ---
