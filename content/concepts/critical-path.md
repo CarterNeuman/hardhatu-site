@@ -49,4 +49,20 @@ relatedIds:
   - concept-time-impact-analysis
   - concept-laydown-yard
   - career-senior-project-manager
+recommendedIds:
+  - career-scheduler
+  - career-project-manager
+  - concept-look-ahead-schedule
+  - concept-baseline-schedule
+  - concept-float
+  - concept-fast-tracking
+  - concept-acceleration
+  - lesson-building-sequence
+  - lesson-schedule-delay-dispute
+  - software-primavera-p6
+  - concept-concurrent-delay
+  - concept-cpm-logic-relationships
+  - concept-pacing-delay
+  - concept-recovery-schedule
+  - concept-resource-loading
 ---

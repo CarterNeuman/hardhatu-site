@@ -56,4 +56,20 @@ relatedIds:
   - career-interior-designer
   - career-fire-protection-engineer
   - career-geotechnical-engineer
+recommendedIds:
+  - career-bim-vdc-specialist
+  - career-cad-technician
+  - career-construction-data-analyst
+  - career-drone-uav-specialist
+  - career-surveyor
+  - career-civil-engineer
+  - career-structural-engineer
+  - career-mep-engineer
+  - career-gis-specialist
+  - career-construction-technology-manager
+  - career-architect
+  - career-landscape-architect
+  - career-interior-designer
+  - career-fire-protection-engineer
+  - career-geotechnical-engineer
 ---

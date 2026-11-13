@@ -52,4 +52,20 @@ relatedIds:
   - concept-precast-concrete
   - concept-structural-steel
   - concept-fabricating-at-risk
+recommendedIds:
+  - career-ironworker
+  - career-project-engineer
+  - concept-submittal
+  - concept-as-built-drawings
+  - lesson-bim-and-clash-detection
+  - software-bluebeam-revu
+  - career-document-control-specialist
+  - career-structural-engineer
+  - concept-submittal-log
+  - concept-transmittal
+  - concept-casework
+  - concept-architectural-woodwork
+  - lesson-reading-a-set-of-plans
+  - lesson-submittals-and-shop-drawings
+  - concept-miscellaneous-metals
 ---

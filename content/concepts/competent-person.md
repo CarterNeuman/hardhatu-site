@@ -54,4 +54,20 @@ relatedIds:
   - concept-aerial-lift-scissor-lift-safety
   - concept-fire-watch
   - career-safety-coordinator
+recommendedIds:
+  - career-equipment-operator
+  - career-safety-manager
+  - concept-osha
+  - concept-excavation-trenching-safety
+  - concept-scaffolding-safety
+  - concept-excavation
+  - concept-shoring
+  - concept-job-hazard-analysis
+  - concept-confined-space-entry
+  - lesson-jobsite-safety-in-practice
+  - concept-trench-box-protective-system
+  - lesson-heavy-equipment-and-earthwork
+  - lesson-a-day-as-a-laborer
+  - concept-osha-soil-classification
+  - concept-powered-industrial-truck-certification
 ---

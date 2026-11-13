@@ -99,6 +99,22 @@ relatedIds:
   - "concept-prevailing-wage"
   - "concept-apprenticeship-program"
   - "exam-osha-10"
+recommendedIds:
+  - gethired-field-trades
+  - gethired-project-operations
+  - gethired-preconstruction-estimating
+  - gethired-business
+  - gethired-technology-design
+  - gethired-specialized-construction
+  - gethired-insurance-claims
+  - gethired-consultants-advisory
+  - interview-construction-general
+  - concept-general-contractor
+  - concept-subcontractor
+  - concept-owner
+  - concept-union-vs-open-shop
+  - concept-prevailing-wage
+  - concept-apprenticeship-program
 ---
 Every one of the eight guides on this site assumes you already understand a
 few things about how construction hiring works before you ever read a single

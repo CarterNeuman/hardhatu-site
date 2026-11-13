@@ -215,4 +215,20 @@ relatedIds:
   - career-blaster-explosives-specialist
   - lesson-heavy-equipment-and-earthwork
   - lesson-concrete-and-foundations-in-practice
+recommendedIds:
+  - concept-site-survey
+  - concept-geotechnical-report
+  - concept-grading
+  - concept-soil-compaction-testing
+  - concept-dewatering
+  - concept-erosion-control
+  - concept-footing
+  - concept-foundation
+  - concept-slab-on-grade
+  - concept-deep-foundations
+  - concept-formwork
+  - concept-rebar
+  - concept-concrete-curing
+  - career-civil-engineer
+  - career-equipment-operator
 ---

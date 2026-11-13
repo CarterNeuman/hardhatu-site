@@ -59,4 +59,20 @@ relatedIds:
   - career-fire-protection-engineer
   - career-interior-designer
   - career-code-consultant
+recommendedIds:
+  - career-quality-control-manager
+  - career-project-engineer
+  - concept-building-permit
+  - concept-plan-review
+  - concept-architect
+  - concept-special-inspection
+  - concept-zoning-variances
+  - phase-permitting-approvals
+  - career-permit-expediter
+  - concept-ada-title-iii-compliance
+  - concept-energy-code-compliance
+  - concept-life-safety-code-nfpa-101
+  - concept-final-inspection
+  - concept-fireproofing
+  - concept-fire-retardant-treated-wood
 ---

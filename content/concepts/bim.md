@@ -53,5 +53,21 @@ relatedIds:
   - concept-ifc-bim-interoperability
   - concept-virtual-design-construction
   - concept-vr-design-review
+recommendedIds:
+  - career-bim-vdc-specialist
+  - career-project-manager
+  - concept-clash-detection
+  - concept-4d-5d-bim
+  - concept-digital-twin
+  - concept-reality-capture
+  - concept-modular-construction
+  - exam-autodesk-certified-professional
+  - lesson-bim-and-clash-detection
+  - software-autodesk-revit
+  - software-navisworks
+  - phase-design
+  - career-construction-technology-manager
+  - concept-construction-robotics-automation
+  - concept-augmented-reality-jobsite
 
 ---

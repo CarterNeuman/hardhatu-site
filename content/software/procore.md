@@ -74,4 +74,20 @@ relatedIds:
   - concept-submittal
   - interview-project-manager
   - interview-project-operations
+recommendedIds:
+  - career-project-manager
+  - career-superintendent
+  - concept-rfi
+  - concept-change-order
+  - exam-procore-certification
+  - career-project-engineer
+  - career-facilities-manager
+  - concept-construction-management-software
+  - software-fieldwire
+  - career-document-control-specialist
+  - career-assistant-superintendent
+  - career-qaqc-inspector
+  - career-construction-technology-manager
+  - career-renewable-energy-project-manager
+  - career-construction-data-analyst
 ---

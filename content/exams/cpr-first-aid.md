@@ -209,6 +209,22 @@ relatedIds:
   - career-superintendent
   - interview-field-trades
   - gethired-field-trades
+recommendedIds:
+  - concept-osha
+  - concept-osha-10-30-training
+  - lesson-jobsite-safety-in-practice
+  - exam-osha-30
+  - career-electrician
+  - career-plumber
+  - career-carpenter
+  - career-hvac-technician
+  - career-welder
+  - career-mason
+  - career-equipment-operator
+  - career-concrete-worker
+  - career-ironworker
+  - career-roofer
+  - career-painter
 ---
 Every major provider, American Red Cross, American Heart Association, and others, teaches the same core material in slightly different packaging: recognizing a cardiac or breathing emergency, hands-only or full CPR with rescue breaths, using an AED, controlling severe bleeding, treating shock and burns, and handling choking, plus when to avoid moving someone with a possible spinal injury. A blended or in-person course pairs a short knowledge check with a real hands-on skills session, practicing compressions on a manikin, placing AED pads correctly, while a purely self-paced online course skips that hands-on check entirely.
 

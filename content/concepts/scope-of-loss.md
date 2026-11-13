@@ -54,4 +54,20 @@ relatedIds:
   - career-insurance-restoration-estimator
   - career-restoration-project-manager
   - concept-price-list-price-database
+recommendedIds:
+  - career-insurance-adjuster
+  - career-public-adjuster
+  - concept-deductible
+  - concept-proof-of-loss
+  - concept-moisture-mapping
+  - concept-reconstruction
+  - concept-xactimate
+  - concept-claims-adjustment-process
+  - concept-peril
+  - concept-overhead-and-profit-claims
+  - concept-ordinance-or-law-coverage
+  - concept-total-loss-vs-partial-loss
+  - concept-supplement-claims
+  - lesson-claim-to-restoration
+  - software-xactimate
 ---

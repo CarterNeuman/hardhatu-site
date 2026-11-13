@@ -242,6 +242,22 @@ relatedIds:
   - concept-roof-matching-statute
   - interview-insurance-claims
   - gethired-insurance-claims
+recommendedIds:
+  - career-insurance-adjuster
+  - concept-scope-of-loss
+  - lesson-claim-to-restoration
+  - concept-named-perils-vs-open-perils
+  - concept-coinsurance-clause
+  - concept-appraisal-clause
+  - concept-appraisal-umpire
+  - concept-anti-concurrent-causation
+  - concept-concealment-fraud-clause
+  - concept-recoverable-vs-nonrecoverable-depreciation
+  - concept-commercial-property-insurance-form
+  - concept-additional-living-expenses
+  - concept-business-interruption-insurance
+  - concept-loss-of-use-coverage
+  - concept-flood-insurance-nfip
 ---
 Licensing for property and casualty adjusters is genuinely state-by-state: roughly 15 states require no individual adjuster license at all, while most others do, and a small group (including California, New York, and Hawaii) offer limited or no reciprocity, requiring their own separate education and exam regardless of what license you already hold. The workaround most career adjusters use is the "designated home state" (DHS) system: Texas and Florida both let a non-resident claim either state as their home-state license, and over 30 other states accept that home-state license through reciprocity, letting one license cover most of the country instead of testing state by state.
 

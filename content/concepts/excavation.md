@@ -53,4 +53,20 @@ relatedIds:
   - lesson-heavy-equipment-and-earthwork
   - concept-excavator
   - career-blaster-explosives-specialist
+recommendedIds:
+  - career-equipment-operator
+  - career-safety-manager
+  - concept-shoring
+  - concept-grading
+  - concept-foundation
+  - concept-site-utilities
+  - concept-excavation-trenching-safety
+  - concept-competent-person
+  - lesson-building-sequence
+  - phase-site-preparation-mobilization
+  - career-heavy-civil-estimator
+  - concept-pre-construction-survey
+  - concept-geotechnical-report
+  - concept-dewatering
+  - concept-blasting-rock-removal
 ---

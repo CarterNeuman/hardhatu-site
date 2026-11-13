@@ -222,4 +222,20 @@ relatedIds:
   - lesson-a-day-as-a-laborer
   - concept-hierarchy-of-controls
   - software-safetyculture
+recommendedIds:
+  - concept-job-hazard-analysis
+  - concept-toolbox-talk
+  - concept-competent-person
+  - concept-osha
+  - concept-personal-protective-equipment
+  - concept-near-miss
+  - concept-stop-work-authority
+  - concept-stop-work-order
+  - concept-total-recordable-incident-rate
+  - concept-prequalification
+  - career-safety-manager
+  - career-superintendent
+  - career-laborer
+  - exam-osha-30
+  - exam-nccer-core
 ---

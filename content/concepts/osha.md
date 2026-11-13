@@ -69,4 +69,20 @@ relatedIds:
   - concept-osha-multi-employer-citation-policy
   - concept-osha-whistleblower-protection
   - career-safety-coordinator
+recommendedIds:
+  - career-safety-manager
+  - career-superintendent
+  - concept-job-hazard-analysis
+  - concept-osha-recordable-incident
+  - concept-toolbox-talk
+  - concept-competent-person
+  - concept-safety-data-sheet
+  - concept-personal-protective-equipment
+  - concept-fall-protection
+  - concept-lockout-tagout
+  - concept-confined-space-entry
+  - concept-silica-exposure-standard
+  - concept-heat-illness-prevention
+  - concept-total-recordable-incident-rate
+  - concept-stop-work-authority
 ---

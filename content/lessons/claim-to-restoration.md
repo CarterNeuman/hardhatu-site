@@ -217,4 +217,20 @@ relatedIds:
   - concept-test-square
   - concept-roof-decking
   - concept-bad-faith-insurance
+recommendedIds:
+  - concept-first-notice-of-loss
+  - concept-scope-of-loss
+  - concept-peril
+  - concept-xactimate
+  - concept-actual-cash-value
+  - concept-depreciation
+  - concept-replacement-cost-value
+  - concept-supplement-claims
+  - concept-proof-of-loss
+  - concept-claims-adjustment-process
+  - concept-mitigation
+  - concept-emergency-services
+  - concept-overhead-and-profit-claims
+  - concept-reconstruction
+  - career-insurance-adjuster
 ---

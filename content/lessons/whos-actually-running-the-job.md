@@ -154,4 +154,20 @@ relatedIds:
   - career-general-superintendent
   - career-field-engineer
   - lesson-a-day-as-an-owners-rep
+recommendedIds:
+  - concept-architect
+  - concept-prime-contract
+  - concept-subcontract-agreement
+  - concept-general-conditions
+  - concept-supplementary-conditions
+  - concept-indemnification
+  - concept-multiple-prime-contracting
+  - concept-rfi
+  - career-owners-representative
+  - career-contracts-administrator
+  - career-document-control-specialist
+  - career-senior-project-manager
+  - career-general-superintendent
+  - career-field-engineer
+  - lesson-a-day-as-an-owners-rep
 ---

@@ -75,5 +75,21 @@ relatedIds:
   - career-marketing-proposals-manager
   - career-equipment-fleet-manager
   - career-credit-manager-construction
+recommendedIds:
+  - career-construction-accountant
+  - career-construction-sales
+  - career-contracts-administrator
+  - career-hr-manager-construction
+  - career-operations-manager
+  - career-procurement-manager
+  - career-construction-attorney
+  - career-business-development-manager
+  - career-risk-manager-construction
+  - career-certified-payroll-specialist
+  - career-controller-cfo-construction
+  - career-marketing-proposals-manager
+  - career-equipment-fleet-manager
+  - career-credit-manager-construction
+  - interview-business
 ---
 Whether you're coming from a general accounting, HR, or contracts background and aiming for a role like [[career-hr-manager-construction|HR manager]] or [[career-contracts-administrator|contracts administrator]], this category hires on construction-specific context more than raw functional skill, and on being someone the field and the office both want to keep working with. Here's how to build both.

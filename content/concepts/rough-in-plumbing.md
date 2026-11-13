@@ -47,4 +47,20 @@ relatedIds:
   - concept-water-heater
   - lesson-mechanical-and-plumbing-rough-in
   - career-mep-estimator
+recommendedIds:
+  - career-plumber
+  - career-superintendent
+  - concept-plumbing-fixtures
+  - concept-non-conformance-report
+  - concept-sanitary-sewer
+  - concept-rough-in-hvac
+  - concept-rough-in-electrical
+  - lesson-building-sequence
+  - career-mep-engineer
+  - concept-grease-interceptor
+  - concept-domestic-water-piping-materials
+  - concept-backflow-preventer
+  - concept-sump-pump
+  - concept-water-heater
+  - lesson-mechanical-and-plumbing-rough-in
 ---

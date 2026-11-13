@@ -55,4 +55,20 @@ relatedIds:
   - career-general-superintendent
   - career-safety-coordinator
   - career-field-engineer
+recommendedIds:
+  - career-assistant-project-manager
+  - career-project-engineer
+  - career-project-manager
+  - career-quality-control-manager
+  - career-safety-manager
+  - career-scheduler
+  - career-superintendent
+  - career-document-control-specialist
+  - career-assistant-superintendent
+  - career-qaqc-inspector
+  - career-senior-project-manager
+  - career-general-superintendent
+  - career-safety-coordinator
+  - career-field-engineer
+  - interview-project-operations
 ---

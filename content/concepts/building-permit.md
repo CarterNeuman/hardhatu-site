@@ -52,4 +52,20 @@ relatedIds:
   - lesson-permits-inspections-and-the-paper-trail
   - concept-section-106-historic-review
   - concept-trade-permits-electrical-mechanical-plumbing
+recommendedIds:
+  - career-project-manager
+  - career-owners-representative
+  - concept-building-code
+  - concept-plan-review
+  - concept-certificate-of-occupancy
+  - concept-zoning-variances
+  - concept-stop-work-order
+  - phase-permitting-approvals
+  - career-permit-expediter
+  - concept-ada-title-iii-compliance
+  - concept-npdes-construction-permit
+  - lesson-reading-a-set-of-plans
+  - lesson-permits-inspections-and-the-paper-trail
+  - concept-section-106-historic-review
+  - concept-trade-permits-electrical-mechanical-plumbing
 ---

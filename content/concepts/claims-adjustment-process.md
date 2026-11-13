@@ -51,4 +51,20 @@ relatedIds:
   - concept-bad-faith-insurance
   - concept-independent-vs-staff-adjuster
   - concept-unfair-claims-settlement-practices-act
+recommendedIds:
+  - career-insurance-adjuster
+  - career-public-adjuster
+  - concept-first-notice-of-loss
+  - concept-scope-of-loss
+  - concept-proof-of-loss
+  - concept-supplement-claims
+  - concept-xactimate
+  - concept-peril
+  - concept-catastrophe-claim
+  - lesson-claim-to-restoration
+  - concept-appraisal-clause
+  - concept-appraisal-umpire
+  - concept-business-interruption-insurance
+  - concept-reservation-of-rights-letter
+  - concept-third-party-administrator
 ---

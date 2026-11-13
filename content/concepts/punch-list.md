@@ -46,4 +46,20 @@ relatedIds:
   - concept-electrical-trim-out
   - concept-deficiency-list
   - concept-final-completion
+recommendedIds:
+  - career-superintendent
+  - career-project-manager
+  - concept-closeout
+  - concept-substantial-completion
+  - concept-non-conformance-report
+  - lesson-project-closeout
+  - lesson-building-sequence
+  - software-bluebeam-revu
+  - software-fieldwire
+  - phase-closeout-handover
+  - career-assistant-superintendent
+  - concept-final-inspection
+  - lesson-permits-inspections-and-the-paper-trail
+  - concept-casework
+  - concept-electrical-trim-out
 ---

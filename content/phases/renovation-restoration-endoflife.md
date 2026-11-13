@@ -105,4 +105,20 @@ relatedIds:
   - concept-builders-risk-insurance
   - concept-hazardous-material-abatement
   - career-historic-preservation-specialist
+recommendedIds:
+  - phase-operations-maintenance
+  - phase-idea-feasibility
+  - career-insurance-adjuster
+  - career-public-adjuster
+  - career-insurance-restoration-estimator
+  - career-restoration-project-manager
+  - concept-first-notice-of-loss
+  - concept-scope-of-loss
+  - concept-catastrophe-claim
+  - concept-demolition
+  - concept-remediation
+  - concept-reconstruction
+  - concept-total-loss-vs-partial-loss
+  - concept-builders-risk-insurance
+  - concept-hazardous-material-abatement
 ---

@@ -108,5 +108,21 @@ relatedIds:
   - exam-journeyman-plumber
   - exam-nccco-crane-operator
   - gethired-general
+recommendedIds:
+  - exam-nccer-core
+  - concept-osha-10-30-training
+  - career-carpenter
+  - career-concrete-worker
+  - career-laborer
+  - career-drywall-installer
+  - career-electrician
+  - career-equipment-operator
+  - career-hvac-technician
+  - career-ironworker
+  - career-mason
+  - career-painter
+  - career-plumber
+  - career-roofer
+  - career-welder
 ---
 If you're aiming for a trade like [[career-carpenter|carpentry]], [[career-electrician|electrical]], or [[career-equipment-operator|running equipment]], getting hired looks less like submitting an application and more like picking a door and walking through it. Here's what that actually looks like, step by step.

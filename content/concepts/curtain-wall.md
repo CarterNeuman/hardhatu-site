@@ -56,4 +56,20 @@ relatedIds:
   - concept-tempered-laminated-glass
   - concept-water-penetration-testing
   - career-building-envelope-consultant
+recommendedIds:
+  - career-project-engineer
+  - career-quality-control-manager
+  - concept-glazing
+  - concept-windows
+  - concept-storefront-system
+  - concept-mock-up
+  - concept-shop-drawings
+  - concept-building-envelope
+  - lesson-building-sequence
+  - career-glazier
+  - concept-wind-load-hurricane-code
+  - concept-joint-sealants
+  - lesson-building-envelope-and-glazing
+  - concept-thermal-break
+  - concept-pressure-equalized-glazing
 ---

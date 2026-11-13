@@ -106,4 +106,20 @@ relatedIds:
   - career-structural-engineer
   - career-mep-engineer
   - career-gis-specialist
+recommendedIds:
+  - phase-idea-feasibility
+  - phase-permitting-approvals
+  - career-preconstruction-manager
+  - career-estimator
+  - career-bim-vdc-specialist
+  - career-cad-technician
+  - career-sustainability-leed-consultant
+  - concept-architect
+  - concept-bim
+  - concept-clash-detection
+  - concept-constructability-review
+  - concept-value-engineering
+  - concept-energy-modeling
+  - concept-green-building-certification
+  - career-civil-engineer
 ---

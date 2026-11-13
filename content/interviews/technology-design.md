@@ -96,6 +96,22 @@ relatedIds:
   - career-interior-designer
   - career-fire-protection-engineer
   - career-geotechnical-engineer
+recommendedIds:
+  - exam-autodesk-certified-professional
+  - career-bim-vdc-specialist
+  - career-cad-technician
+  - career-construction-data-analyst
+  - career-drone-uav-specialist
+  - career-surveyor
+  - lesson-bim-and-clash-detection
+  - career-civil-engineer
+  - career-structural-engineer
+  - career-mep-engineer
+  - career-gis-specialist
+  - career-construction-technology-manager
+  - exam-fe
+  - lesson-3d-modeling-in-practice
+  - lesson-drones-scanning-and-mapping
 ---
   - lesson-3d-modeling-in-practice
   - lesson-drones-scanning-and-mapping

@@ -46,5 +46,21 @@ relatedIds:
   - concept-building-deconstruction
   - concept-lead-based-paint-remediation
   - concept-underground-storage-tank-removal
+recommendedIds:
+  - career-superintendent
+  - career-environmental-remediation-specialist
+  - concept-hazardous-material-abatement
+  - concept-site-survey
+  - concept-total-loss-vs-partial-loss
+  - phase-permitting-approvals
+  - phase-site-preparation-mobilization
+  - phase-renovation-restoration-endoflife
+  - career-demolition-supervisor
+  - concept-salvage-insurance
+  - concept-asbestos-abatement-regulation
+  - concept-selective-demolition
+  - concept-building-deconstruction
+  - concept-lead-based-paint-remediation
+  - concept-underground-storage-tank-removal
 
 ---

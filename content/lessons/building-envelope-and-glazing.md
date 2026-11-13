@@ -168,5 +168,21 @@ relatedIds:
   - concept-parapet
   - career-waterproofing-installer
   - career-insulation-installer
+recommendedIds:
+  - concept-curtain-wall
+  - concept-joint-sealants
+  - concept-building-envelope
+  - concept-glazing
+  - concept-flashing
+  - career-glazier
+  - career-roofer
+  - interview-field-trades
+  - lesson-building-sequence
+  - concept-pressure-equalized-glazing
+  - concept-thermal-break
+  - concept-tempered-laminated-glass
+  - concept-water-penetration-testing
+  - concept-parapet
+  - career-waterproofing-installer
 minutes: 13
 ---

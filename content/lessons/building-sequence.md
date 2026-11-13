@@ -224,4 +224,20 @@ relatedIds:
   - career-waterproofing-installer
   - career-plasterer-stucco-mason
   - career-sprinkler-fitter
+recommendedIds:
+  - concept-excavation
+  - concept-footing
+  - concept-special-inspection
+  - concept-structural-steel
+  - concept-long-lead-item
+  - concept-critical-path
+  - concept-fall-protection
+  - concept-roofing-membrane
+  - concept-curtain-wall
+  - concept-waterproofing
+  - concept-rough-in-plumbing
+  - concept-rough-in-electrical
+  - concept-rough-in-hvac
+  - concept-rfi
+  - concept-drywall
 ---

@@ -49,4 +49,20 @@ relatedIds:
   - career-architect
   - career-interior-designer
   - concept-final-completion
+recommendedIds:
+  - career-project-manager
+  - career-superintendent
+  - concept-punch-list
+  - concept-certificate-of-occupancy
+  - concept-warranty
+  - concept-milestone
+  - concept-turnover
+  - concept-architect
+  - lesson-project-closeout
+  - phase-closeout-handover
+  - concept-retainage-release
+  - concept-statute-of-limitations-repose
+  - concept-beneficial-occupancy
+  - concept-warranty-walk
+  - career-architect
 ---

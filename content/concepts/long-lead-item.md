@@ -52,4 +52,20 @@ relatedIds:
   - lesson-submittals-and-shop-drawings
   - concept-offsite-manufacturing
   - lesson-procurement-and-long-lead-logistics
+recommendedIds:
+  - career-scheduler
+  - career-project-manager
+  - concept-buyout
+  - concept-baseline-schedule
+  - concept-purchase-order
+  - concept-chiller
+  - concept-switchgear
+  - lesson-building-sequence
+  - phase-procurement-preconstruction
+  - concept-letter-of-intent
+  - concept-procurement-log
+  - concept-submittal-log
+  - concept-material-delivery-log
+  - concept-laydown-yard
+  - concept-systems-furniture
 ---

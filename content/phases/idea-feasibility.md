@@ -110,4 +110,20 @@ relatedIds:
   - concept-cm-as-advisor
   - career-gis-specialist
   - lesson-financing-and-feasibility
+recommendedIds:
+  - phase-design
+  - phase-renovation-restoration-endoflife
+  - career-owners-representative
+  - career-preconstruction-manager
+  - career-estimator
+  - career-cost-engineer
+  - career-surveyor
+  - career-construction-consultant
+  - concept-zoning-variances
+  - concept-site-survey
+  - concept-design-bid-build
+  - concept-design-build
+  - concept-cm-at-risk
+  - concept-cm-as-advisor
+  - career-gis-specialist
 ---

@@ -104,4 +104,20 @@ relatedIds:
   - career-demolition-supervisor
   - career-pile-driving-specialist
   - career-blaster-explosives-specialist
+recommendedIds:
+  - phase-procurement-preconstruction
+  - career-equipment-operator
+  - career-laborer
+  - career-safety-manager
+  - career-environmental-remediation-specialist
+  - concept-mobilization
+  - concept-temporary-facilities
+  - concept-site-logistics-plan
+  - concept-demolition
+  - concept-excavation
+  - concept-grading
+  - concept-erosion-control
+  - concept-site-survey
+  - concept-safety-orientation
+  - concept-site-utilities
 ---

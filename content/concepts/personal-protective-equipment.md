@@ -47,4 +47,20 @@ relatedIds:
   - concept-bloodborne-pathogens-standard
   - career-safety-coordinator
   - career-insulation-installer
+recommendedIds:
+  - career-laborer
+  - career-safety-manager
+  - concept-osha
+  - concept-fall-protection
+  - concept-silica-exposure-standard
+  - concept-safety-orientation
+  - concept-safety-data-sheet
+  - lesson-jobsite-safety-in-practice
+  - software-mitti
+  - concept-nfpa-70e
+  - concept-respiratory-protection-program
+  - concept-struck-by-hazard
+  - concept-hierarchy-of-controls
+  - concept-noise-exposure-hearing-conservation
+  - concept-bloodborne-pathogens-standard
 ---

@@ -46,5 +46,21 @@ relatedIds:
   - lesson-concrete-and-foundations-in-practice
   - concept-concrete-cylinder-break-test
   - concept-3d-printing-construction
+recommendedIds:
+  - career-concrete-worker
+  - career-quality-control-manager
+  - concept-formwork
+  - concept-non-conformance-report
+  - concept-flooring
+  - career-qaqc-inspector
+  - concept-concrete-admixtures
+  - concept-epoxy-resinous-flooring
+  - concept-tilt-up-concrete
+  - concept-resilient-flooring
+  - concept-jobsite-iot-sensors
+  - lesson-from-dirt-to-deck
+  - lesson-concrete-and-foundations-in-practice
+  - concept-concrete-cylinder-break-test
+  - concept-3d-printing-construction
 
 ---

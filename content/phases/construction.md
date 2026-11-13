@@ -125,4 +125,20 @@ relatedIds:
   - career-modular-offsite-construction-manager
   - career-tenant-improvement-construction-manager
   - career-healthcare-construction-manager
+recommendedIds:
+  - phase-site-preparation-mobilization
+  - phase-closeout-handover
+  - career-project-manager
+  - career-superintendent
+  - career-electrician
+  - concept-rfi
+  - concept-foundation
+  - career-glazier
+  - career-elevator-technician
+  - career-sheet-metal-worker
+  - career-pipefitter
+  - career-millwright
+  - career-solar-installer
+  - career-document-control-specialist
+  - career-assistant-superintendent
 ---

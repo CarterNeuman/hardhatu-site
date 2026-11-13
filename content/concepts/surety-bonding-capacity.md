@@ -55,4 +55,20 @@ relatedIds:
   - career-chief-estimator
   - concept-wip-report
   - concept-percentage-of-completion-accounting
+recommendedIds:
+  - career-construction-accountant
+  - career-estimator
+  - concept-bid-bond
+  - concept-performance-bond
+  - concept-payment-bond
+  - concept-joint-venture
+  - career-risk-manager-construction
+  - career-surety-bond-underwriter
+  - concept-loss-run-report
+  - concept-indemnity-agreement-surety
+  - lesson-whos-on-the-hook
+  - concept-subcontractor-default-insurance
+  - concept-surety-bond-claim-process
+  - career-controller-cfo-construction
+  - career-chief-estimator
 ---

@@ -49,4 +49,20 @@ relatedIds:
   - concept-coordination-drawing
   - concept-heat-recovery-ventilation
   - career-mep-estimator
+recommendedIds:
+  - career-hvac-technician
+  - career-superintendent
+  - concept-ductwork
+  - concept-non-conformance-report
+  - concept-rough-in-electrical
+  - concept-rough-in-plumbing
+  - lesson-building-sequence
+  - career-mep-engineer
+  - concept-boiler
+  - exam-nate-ready-to-work
+  - lesson-mechanical-and-plumbing-rough-in
+  - concept-epa-608-certification
+  - concept-hydronic-systems
+  - concept-coordination-drawing
+  - concept-heat-recovery-ventilation
 ---

@@ -60,4 +60,20 @@ relatedIds:
   - career-general-liability-underwriter
   - career-insurance-broker
   - concept-waiver-of-subrogation
+recommendedIds:
+  - career-safety-manager
+  - career-contracts-administrator
+  - concept-certificate-of-insurance
+  - concept-indemnification
+  - concept-builders-risk-insurance
+  - concept-workers-compensation-insurance
+  - career-risk-manager-construction
+  - concept-additional-insured-endorsement
+  - concept-ccip
+  - concept-ocip
+  - concept-professional-liability-insurance
+  - concept-umbrella-excess-liability-insurance
+  - lesson-whos-on-the-hook
+  - concept-pre-construction-survey
+  - career-general-liability-underwriter
 ---

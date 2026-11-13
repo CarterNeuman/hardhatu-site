@@ -83,5 +83,21 @@ relatedIds:
   - career-interior-designer
   - career-fire-protection-engineer
   - career-geotechnical-engineer
+recommendedIds:
+  - exam-autodesk-certified-professional
+  - exam-leed-green-associate
+  - exam-procore-certification
+  - career-bim-vdc-specialist
+  - career-cad-technician
+  - career-civil-engineer
+  - career-construction-data-analyst
+  - career-construction-technology-manager
+  - career-drone-uav-specialist
+  - career-gis-specialist
+  - career-mep-engineer
+  - career-structural-engineer
+  - career-surveyor
+  - exam-fe
+  - career-architect
 ---
 Whether you're aiming for [[career-bim-vdc-specialist|BIM/VDC specialist]] or [[career-construction-technology-manager|construction technology manager]], this category is judged on proof more than pedigree. Here's how to actually show it.

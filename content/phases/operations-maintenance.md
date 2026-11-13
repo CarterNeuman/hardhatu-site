@@ -102,4 +102,20 @@ relatedIds:
   - career-elevator-technician
   - career-millwright
   - concept-preventive-maintenance
+recommendedIds:
+  - phase-closeout-handover
+  - phase-renovation-restoration-endoflife
+  - career-facilities-manager
+  - career-hvac-technician
+  - career-sustainability-leed-consultant
+  - concept-turnover
+  - concept-chiller
+  - concept-elevator
+  - concept-access-control-system
+  - concept-warranty
+  - concept-digital-twin
+  - concept-green-building-certification
+  - concept-net-zero-energy-building
+  - concept-energy-modeling
+  - career-elevator-technician
 ---

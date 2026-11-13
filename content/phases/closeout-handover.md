@@ -110,4 +110,20 @@ relatedIds:
   - concept-retainage
   - concept-lien-waiver
   - career-commissioning-agent
+recommendedIds:
+  - phase-operations-maintenance
+  - career-quality-control-manager
+  - career-owners-representative
+  - career-project-manager
+  - career-facilities-manager
+  - concept-closeout
+  - concept-punch-list
+  - concept-substantial-completion
+  - concept-as-built-drawings
+  - concept-warranty
+  - concept-certificate-of-occupancy
+  - concept-commissioning
+  - concept-special-inspection
+  - concept-turnover
+  - concept-retainage
 ---

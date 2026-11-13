@@ -56,4 +56,20 @@ relatedIds:
   - concept-builders-risk-exclusions
   - career-insurance-broker
   - concept-vacancy-clause
+recommendedIds:
+  - career-safety-manager
+  - career-contracts-administrator
+  - career-construction-accountant
+  - concept-certificate-of-insurance
+  - concept-general-liability-insurance
+  - concept-waiver-of-subrogation
+  - phase-renovation-restoration-endoflife
+  - career-risk-manager-construction
+  - career-builders-risk-underwriter
+  - concept-coinsurance-clause
+  - concept-commercial-property-insurance-form
+  - lesson-whos-on-the-hook
+  - concept-loss-run-report
+  - concept-builders-risk-exclusions
+  - career-insurance-broker
 ---

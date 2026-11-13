@@ -46,4 +46,20 @@ relatedIds:
   - concept-concrete-curing
   - concept-rough-in-plumbing
   - lesson-coordinating-subs-as-a-superintendent
+recommendedIds:
+  - career-quality-control-manager
+  - career-superintendent
+  - concept-punch-list
+  - concept-special-inspection
+  - concept-stop-work-order
+  - concept-back-charge
+  - concept-rough-in-hvac
+  - concept-rough-in-electrical
+  - career-assistant-superintendent
+  - career-qaqc-inspector
+  - concept-progress-photo-documentation
+  - concept-first-article-inspection
+  - concept-concrete-curing
+  - concept-rough-in-plumbing
+  - lesson-coordinating-subs-as-a-superintendent
 ---

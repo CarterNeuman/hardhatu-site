@@ -57,4 +57,20 @@ relatedIds:
   - career-landscape-architect
   - software-civil-3d
   - software-trimble-earthworks
+recommendedIds:
+  - career-equipment-operator
+  - career-surveyor
+  - concept-site-survey
+  - concept-excavation
+  - concept-erosion-control
+  - concept-slab-on-grade
+  - concept-paving
+  - concept-landscaping
+  - concept-storm-drainage
+  - concept-gps-machine-control
+  - concept-sustainable-site-development
+  - phase-site-preparation-mobilization
+  - career-civil-engineer
+  - career-heavy-civil-estimator
+  - concept-npdes-construction-permit
 ---

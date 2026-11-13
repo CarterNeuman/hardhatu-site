@@ -184,4 +184,20 @@ relatedIds:
   - concept-spud-wrench
   - concept-impact-wrench
   - career-welder
+recommendedIds:
+  - concept-footing
+  - concept-bolted-vs-welded-connections
+  - concept-fall-protection
+  - concept-crane-lift-plan
+  - concept-steel-decking
+  - concept-structural-steel-erection
+  - concept-rigging
+  - career-ironworker
+  - interview-field-trades
+  - lesson-building-sequence
+  - concept-anchor-bolts
+  - concept-plumb-alignment
+  - concept-come-along
+  - concept-structural-bay
+  - concept-spud-wrench
 ---

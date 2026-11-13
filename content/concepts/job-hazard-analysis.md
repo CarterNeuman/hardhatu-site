@@ -49,4 +49,20 @@ relatedIds:
   - concept-site-specific-safety-plan
   - career-general-superintendent
   - career-safety-coordinator
+recommendedIds:
+  - career-safety-manager
+  - career-superintendent
+  - concept-osha
+  - concept-toolbox-talk
+  - concept-competent-person
+  - concept-confined-space-entry
+  - concept-near-miss
+  - lesson-jobsite-safety-in-practice
+  - software-mitti
+  - career-assistant-superintendent
+  - career-loss-control-engineer
+  - concept-osha-10-30-training
+  - concept-struck-by-hazard
+  - concept-hierarchy-of-controls
+  - concept-ladder-safety-standard
 ---

@@ -45,4 +45,20 @@ relatedIds:
   - concept-lessons-learned-review
   - concept-warranty-walk
   - concept-om-manuals
+recommendedIds:
+  - career-project-manager
+  - career-facilities-manager
+  - concept-punch-list
+  - concept-warranty
+  - concept-as-built-drawings
+  - concept-float
+  - concept-lien-waiver
+  - concept-turnover
+  - concept-general-requirements
+  - lesson-project-closeout
+  - phase-closeout-handover
+  - career-document-control-specialist
+  - concept-lessons-learned-review
+  - concept-warranty-walk
+  - concept-om-manuals
 ---

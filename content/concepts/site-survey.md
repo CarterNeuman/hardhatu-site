@@ -45,4 +45,20 @@ relatedIds:
   - career-landscape-architect
   - concept-total-station
   - career-field-engineer
+recommendedIds:
+  - career-surveyor
+  - career-bim-vdc-specialist
+  - career-drone-uav-specialist
+  - concept-demolition
+  - concept-grading
+  - concept-reality-capture
+  - concept-drone-mapping
+  - concept-gps-machine-control
+  - phase-idea-feasibility
+  - phase-site-preparation-mobilization
+  - career-civil-engineer
+  - career-gis-specialist
+  - lesson-from-dirt-to-deck
+  - career-geotechnical-engineer
+  - career-landscape-architect
 ---

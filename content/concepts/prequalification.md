@@ -48,4 +48,20 @@ relatedIds:
   - concept-subcontractor-default-insurance
   - career-marketing-proposals-manager
   - software-avetta
+recommendedIds:
+  - career-preconstruction-manager
+  - career-safety-manager
+  - concept-bid
+  - concept-invitation-for-bid
+  - concept-mechanics-lien
+  - concept-joint-venture
+  - concept-mbe-wbe-dbe
+  - concept-total-recordable-incident-rate
+  - lesson-bidding-and-winning-work
+  - lesson-jobsite-safety-in-practice
+  - phase-procurement-preconstruction
+  - career-bid-coordinator
+  - career-business-development-manager
+  - concept-experience-modification-rate
+  - concept-subcontractor-default-insurance
 ---

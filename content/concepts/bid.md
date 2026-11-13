@@ -43,4 +43,20 @@ relatedIds:
   - career-bid-coordinator
   - career-chief-estimator
   - career-mep-estimator
+recommendedIds:
+  - career-estimator
+  - career-senior-estimator
+  - concept-addendum
+  - concept-pre-bid-meeting
+  - concept-scope-of-work
+  - concept-request-for-proposal
+  - concept-invitation-for-bid
+  - concept-bid-bond
+  - concept-prequalification
+  - concept-quantity-takeoff
+  - concept-buyout
+  - lesson-bidding-and-winning-work
+  - career-bid-coordinator
+  - career-chief-estimator
+  - career-mep-estimator
 ---

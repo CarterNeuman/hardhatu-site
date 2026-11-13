@@ -102,6 +102,22 @@ relatedIds:
   - career-building-envelope-consultant
   - career-code-consultant
   - career-specification-writer
+recommendedIds:
+  - exam-ccm
+  - exam-leed-green-associate
+  - career-construction-claims-consultant
+  - career-construction-consultant
+  - career-expert-witness-construction-litigation
+  - career-scheduling-delay-consultant
+  - career-sustainability-leed-consultant
+  - lesson-schedule-delay-dispute
+  - lesson-green-building-certification
+  - career-construction-attorney
+  - career-permit-expediter
+  - career-commissioning-agent
+  - lesson-when-its-not-the-storms-fault
+  - career-construction-mediator-arbitrator
+  - career-property-condition-assessor
 ---
 These are senior, expertise-driven roles, and the hiring process reflects it: expect the interview to feel more like a conversation or a case-study discussion than a procedural HR process, often conducted directly by a firm's principal or partner rather than a recruiter. These roles are also frequently sourced through professional networking and referral rather than a public job posting, so the interview itself may follow an introduction that already established some credibility before you sat down.
 

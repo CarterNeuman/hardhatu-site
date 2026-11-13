@@ -49,4 +49,20 @@ relatedIds:
   - concept-afci
   - concept-electrical-trim-out
   - career-mep-estimator
+recommendedIds:
+  - career-electrician
+  - career-superintendent
+  - concept-conduit
+  - concept-panel-board
+  - concept-non-conformance-report
+  - concept-rough-in-hvac
+  - concept-rough-in-plumbing
+  - lesson-building-sequence
+  - career-mep-engineer
+  - lesson-electrical-rough-in
+  - concept-electrical-box-fill
+  - concept-nm-cable
+  - concept-service-loop
+  - concept-gfci
+  - concept-afci
 ---

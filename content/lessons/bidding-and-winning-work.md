@@ -176,4 +176,20 @@ relatedIds:
   - career-marketing-proposals-manager
   - lesson-a-day-in-the-life-of-an-estimator
   - lesson-subcontractor-buyout-and-scope-gaps
+recommendedIds:
+  - concept-request-for-qualifications
+  - concept-request-for-proposal
+  - concept-invitation-for-bid
+  - concept-prequalification
+  - concept-pre-bid-meeting
+  - concept-addendum
+  - concept-quantity-takeoff
+  - concept-bid
+  - concept-bid-bond
+  - concept-bid-leveling
+  - concept-buyout
+  - concept-scope-of-work
+  - concept-value-engineering
+  - career-estimator
+  - career-senior-estimator
 ---

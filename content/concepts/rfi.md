@@ -49,4 +49,20 @@ relatedIds:
   - career-architect
   - career-fire-protection-engineer
   - concept-rfi-log
+recommendedIds:
+  - career-project-manager
+  - career-superintendent
+  - career-project-engineer
+  - concept-submittal
+  - concept-architect
+  - concept-clash-detection
+  - software-procore
+  - lesson-change-order-basics
+  - lesson-building-sequence
+  - lesson-bim-and-clash-detection
+  - software-bluebeam-revu
+  - software-autodesk-build
+  - career-document-control-specialist
+  - lesson-whos-actually-running-the-job
+  - lesson-submittals-and-shop-drawings
 ---

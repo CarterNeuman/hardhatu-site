@@ -56,4 +56,20 @@ relatedIds:
   - career-marketing-proposals-manager
   - career-equipment-fleet-manager
   - career-credit-manager-construction
+recommendedIds:
+  - career-construction-accountant
+  - career-construction-sales
+  - career-contracts-administrator
+  - career-hr-manager-construction
+  - career-operations-manager
+  - career-procurement-manager
+  - career-construction-attorney
+  - career-business-development-manager
+  - career-risk-manager-construction
+  - career-certified-payroll-specialist
+  - career-controller-cfo-construction
+  - career-marketing-proposals-manager
+  - career-equipment-fleet-manager
+  - career-credit-manager-construction
+  - interview-business
 ---

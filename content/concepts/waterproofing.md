@@ -55,4 +55,20 @@ relatedIds:
   - career-building-envelope-consultant
   - career-tile-setter
   - career-waterproofing-installer
+recommendedIds:
+  - career-concrete-worker
+  - career-quality-control-manager
+  - concept-foundation
+  - concept-roofing-membrane
+  - concept-flashing
+  - concept-tile
+  - concept-retaining-wall
+  - lesson-building-sequence
+  - career-glazier
+  - concept-stone-veneer
+  - concept-masonry-flashing-weeps
+  - concept-joint-sealants
+  - concept-eifs
+  - concept-brick-veneer
+  - concept-slab-on-grade
 ---

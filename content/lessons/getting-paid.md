@@ -184,4 +184,20 @@ relatedIds:
   - career-commercial-manager-construction
   - career-controller-cfo-construction
   - career-credit-manager-construction
+recommendedIds:
+  - concept-schedule-of-values
+  - concept-retainage
+  - concept-performance-bond
+  - concept-payment-bond
+  - concept-pay-when-paid
+  - concept-mechanics-lien
+  - concept-lien-waiver
+  - career-contracts-administrator
+  - career-construction-accountant
+  - career-project-manager
+  - interview-business
+  - interview-project-manager
+  - career-construction-attorney
+  - career-commercial-manager-construction
+  - career-controller-cfo-construction
 ---

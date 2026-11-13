@@ -46,4 +46,20 @@ relatedIds:
   - career-geotechnical-engineer
   - career-landscape-architect
   - concept-swppp
+recommendedIds:
+  - career-laborer
+  - career-environmental-remediation-specialist
+  - concept-grading
+  - concept-storm-drainage
+  - concept-sustainable-site-development
+  - phase-permitting-approvals
+  - phase-site-preparation-mobilization
+  - career-civil-engineer
+  - career-heavy-civil-estimator
+  - concept-npdes-construction-permit
+  - concept-wetlands-permit-404
+  - lesson-from-dirt-to-deck
+  - career-geotechnical-engineer
+  - career-landscape-architect
+  - concept-swppp
 ---

@@ -51,4 +51,20 @@ relatedIds:
   - concept-rebar
   - concept-structural-steel
   - concept-structural-welding
+recommendedIds:
+  - career-quality-control-manager
+  - career-superintendent
+  - concept-non-conformance-report
+  - concept-certificate-of-occupancy
+  - concept-mock-up
+  - concept-shoring
+  - concept-fire-alarm-system
+  - concept-building-code
+  - lesson-building-sequence
+  - phase-closeout-handover
+  - career-qaqc-inspector
+  - concept-bolted-vs-welded-connections
+  - concept-masonry-reinforcement
+  - lesson-reading-a-set-of-plans
+  - lesson-permits-inspections-and-the-paper-trail
 ---

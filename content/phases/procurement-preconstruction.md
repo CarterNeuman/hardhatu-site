@@ -111,4 +111,20 @@ relatedIds:
   - career-chief-estimator
   - career-mep-estimator
   - career-commercial-manager-construction
+recommendedIds:
+  - phase-permitting-approvals
+  - phase-site-preparation-mobilization
+  - career-procurement-manager
+  - career-contracts-administrator
+  - career-senior-estimator
+  - career-quantity-surveyor
+  - career-scheduler
+  - concept-invitation-for-bid
+  - concept-request-for-proposal
+  - concept-bid-bond
+  - concept-prequalification
+  - concept-buyout
+  - concept-subcontract-agreement
+  - concept-long-lead-item
+  - concept-preconstruction-conference
 ---

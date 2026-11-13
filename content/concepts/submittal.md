@@ -59,4 +59,20 @@ relatedIds:
   - career-interior-designer
   - concept-fabricating-at-risk
   - career-specification-writer
+recommendedIds:
+  - career-project-engineer
+  - career-superintendent
+  - concept-rfi
+  - concept-shop-drawings
+  - concept-mock-up
+  - concept-architect
+  - concept-general-requirements
+  - software-procore
+  - lesson-bim-and-clash-detection
+  - software-bluebeam-revu
+  - software-autodesk-build
+  - career-document-control-specialist
+  - concept-procurement-log
+  - lesson-reading-a-set-of-plans
+  - lesson-submittals-and-shop-drawings
 ---

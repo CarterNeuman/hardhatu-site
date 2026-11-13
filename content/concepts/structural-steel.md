@@ -51,4 +51,20 @@ relatedIds:
   - concept-precast-concrete
   - concept-structural-welding
   - software-risa
+recommendedIds:
+  - career-ironworker
+  - career-quality-control-manager
+  - career-welder
+  - concept-steel-decking
+  - concept-special-inspection
+  - concept-shop-drawings
+  - concept-pre-engineered-metal-building
+  - lesson-building-sequence
+  - career-structural-engineer
+  - concept-seismic-design-category
+  - concept-operable-partitions
+  - concept-fireproofing
+  - concept-galvanizing-corrosion-protection
+  - concept-miscellaneous-metals
+  - concept-structural-steel-erection
 ---

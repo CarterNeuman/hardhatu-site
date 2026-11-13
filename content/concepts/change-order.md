@@ -60,4 +60,20 @@ relatedIds:
   - career-commercial-manager-construction
   - career-senior-project-manager
   - concept-tenant-improvement-allowance
+recommendedIds:
+  - career-project-manager
+  - career-superintendent
+  - career-estimator
+  - concept-schedule-of-values
+  - concept-contingency
+  - concept-allowance
+  - concept-scope-of-work
+  - concept-construction-change-directive
+  - concept-scope-creep
+  - lesson-change-order-basics
+  - software-procore
+  - concept-supplement-claims
+  - software-buildertrend
+  - concept-cardinal-change
+  - concept-differing-site-conditions
 ---

@@ -75,4 +75,20 @@ relatedIds:
   - career-flooring-installer
   - career-sprinkler-fitter
   - career-plasterer-stucco-mason
+recommendedIds:
+  - career-project-manager
+  - career-superintendent
+  - career-estimator
+  - career-electrician
+  - career-owners-representative
+  - concept-change-order
+  - concept-certificate-of-insurance
+  - concept-prime-contract
+  - concept-subcontract-agreement
+  - software-procore
+  - concept-overhead-and-profit-claims
+  - concept-building-permit
+  - concept-pay-application
+  - lesson-whos-actually-running-the-job
+  - concept-spearin-doctrine
 ---

@@ -51,4 +51,20 @@ relatedIds:
   - concept-masonry-control-joint
   - career-architect
   - concept-sub-consultant
+recommendedIds:
+  - career-project-engineer
+  - career-owners-representative
+  - concept-rfi
+  - concept-submittal
+  - concept-substantial-completion
+  - concept-building-code
+  - concept-plan-review
+  - concept-zoning-variances
+  - phase-design
+  - career-civil-engineer
+  - career-structural-engineer
+  - career-historic-preservation-specialist
+  - lesson-whos-actually-running-the-job
+  - career-permit-expediter
+  - concept-acoustic-treatment
 ---

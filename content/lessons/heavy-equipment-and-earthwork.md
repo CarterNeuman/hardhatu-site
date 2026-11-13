@@ -185,5 +185,21 @@ relatedIds:
   - concept-osha-soil-classification
   - career-equipment-fleet-manager
   - concept-preventive-maintenance
+recommendedIds:
+  - concept-excavation
+  - concept-excavation-trenching-safety
+  - concept-competent-person
+  - concept-shoring
+  - concept-trench-box-protective-system
+  - concept-site-utilities
+  - concept-gps-machine-control
+  - career-equipment-operator
+  - career-surveyor
+  - interview-field-trades
+  - lesson-from-dirt-to-deck
+  - concept-excavator
+  - concept-bulldozer
+  - concept-motor-grader
+  - concept-compaction-equipment
 minutes: 13
 ---

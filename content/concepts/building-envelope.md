@@ -52,4 +52,20 @@ relatedIds:
   - concept-envelope-air-tightness-testing
   - concept-thermal-imaging-building-diagnostics
   - career-building-envelope-consultant
+recommendedIds:
+  - career-carpenter
+  - career-quality-control-manager
+  - concept-insulation
+  - concept-air-barrier
+  - concept-vapor-barrier
+  - concept-curtain-wall
+  - concept-windows
+  - concept-energy-modeling
+  - concept-net-zero-energy-building
+  - lesson-green-building-certification
+  - career-glazier
+  - lesson-building-envelope-and-glazing
+  - concept-envelope-air-tightness-testing
+  - concept-thermal-imaging-building-diagnostics
+  - career-building-envelope-consultant
 ---

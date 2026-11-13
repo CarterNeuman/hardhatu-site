@@ -205,4 +205,20 @@ relatedIds:
   - concept-heat-recovery-ventilation
   - concept-permeable-paving
   - concept-bioswale
+recommendedIds:
+  - concept-hazardous-material-abatement
+  - concept-green-building-certification
+  - concept-leed
+  - concept-building-envelope
+  - concept-net-zero-energy-building
+  - concept-energy-modeling
+  - concept-embodied-carbon
+  - concept-sustainable-site-development
+  - career-environmental-remediation-specialist
+  - career-sustainability-leed-consultant
+  - career-owners-representative
+  - career-hvac-technician
+  - career-quality-control-manager
+  - interview-specialized-construction
+  - interview-consultants-advisory
 ---

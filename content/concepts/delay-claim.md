@@ -50,4 +50,20 @@ relatedIds:
   - concept-time-impact-analysis
   - career-commercial-manager-construction
   - career-senior-project-manager
+recommendedIds:
+  - career-project-manager
+  - career-construction-claims-consultant
+  - concept-baseline-schedule
+  - concept-daily-report
+  - concept-acceleration
+  - concept-liquidated-damages
+  - concept-force-majeure
+  - concept-no-damage-for-delay
+  - concept-dispute-resolution
+  - lesson-schedule-delay-dispute
+  - concept-constructive-acceleration
+  - concept-notice-requirements
+  - concept-concurrent-delay
+  - concept-time-impact-analysis
+  - career-commercial-manager-construction
 ---

@@ -70,4 +70,20 @@ relatedIds:
   - career-waterproofing-installer
   - career-plasterer-stucco-mason
   - career-sprinkler-fitter
+recommendedIds:
+  - career-carpenter
+  - career-concrete-worker
+  - career-laborer
+  - career-drywall-installer
+  - career-electrician
+  - career-equipment-operator
+  - career-hvac-technician
+  - career-ironworker
+  - career-mason
+  - career-painter
+  - career-plumber
+  - career-roofer
+  - career-welder
+  - career-glazier
+  - career-elevator-technician
 ---

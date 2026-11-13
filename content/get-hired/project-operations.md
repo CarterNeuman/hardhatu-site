@@ -86,5 +86,21 @@ relatedIds:
   - exam-chst
   - exam-icc-building-inspector
   - gethired-general
+recommendedIds:
+  - exam-pmp
+  - exam-capm
+  - exam-osha-30
+  - career-assistant-project-manager
+  - career-project-engineer
+  - career-project-manager
+  - career-quality-control-manager
+  - career-safety-manager
+  - career-scheduler
+  - career-superintendent
+  - career-document-control-specialist
+  - career-assistant-superintendent
+  - career-qaqc-inspector
+  - career-senior-project-manager
+  - career-general-superintendent
 ---
 Whether you're aiming for [[career-project-manager|project manager]], [[career-superintendent|superintendent]], or a [[career-scheduler|scheduler]] role, this category rewards specifics over titles. Here's the actual path in, plus why 2026 is a better moment for it than it might feel.
