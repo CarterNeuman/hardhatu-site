@@ -39,6 +39,23 @@ export const CATEGORY_SLUG: Record<string, string> = {
   "Consultants & Advisory": "consultants-advisory",
 };
 
+// Quiz v2: which scoped category quiz (content/quizzes/*-match.md,
+// CareerMatchQuizSchema's `category` field) belongs to each of the 8
+// career categories. Shared here, the same reason as CATEGORY_SLUG
+// above, since both a server page (the Get Hired hub) and a client
+// component (CareerMatchQuiz's own "narrow it down further" link) need
+// the same mapping.
+export const CATEGORY_QUIZ_SLUG: Record<string, string> = {
+  "Field & Trades": "field-trades-match",
+  "Project & Operations": "project-operations-match",
+  "Preconstruction & Estimating": "preconstruction-estimating-match",
+  Business: "business-match",
+  "Technology & Design": "technology-design-match",
+  "Specialized Construction": "specialized-construction-match",
+  "Insurance & Claims": "insurance-claims-match",
+  "Consultants & Advisory": "consultants-advisory-match",
+};
+
 // How many items per category the header's dropdowns show. Shared (same
 // reason as above) because app/layout.tsx, a Server Component, uses it
 // to slim the nav data before handing it to the client Header.

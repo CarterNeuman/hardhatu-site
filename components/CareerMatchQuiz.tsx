@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { SignInButton, useUser } from "@clerk/nextjs";
-import { urlFor } from "@/lib/content-client";
+import { urlFor, CATEGORY_QUIZ_SLUG } from "@/lib/content-client";
 import { CAREER_CATEGORY_ORDER } from "@/lib/types";
 import type { Career, Lesson } from "@/lib/types";
 import { CATEGORY_SLUG } from "@/components/Header";
@@ -130,6 +130,27 @@ const CATEGORY_LESSONS: Record<string, { id: string; blurb: string }[]> = {
   ],
 };
 
+// Quiz v2: a small, hand-picked accent color per career category, used
+// only inside this component rather than added to the global Tailwind
+// palette -- everywhere else on the site stays on the real brand tokens
+// (paper/ink/navy/amber/clay/steel). This is a deliberate, scoped
+// exception for the quizzes specifically, the same way the /get-hired
+// hub's arched "jobsite entry gate" tiles are the one place that page
+// breaks from sharp corners. The quiz keeps sharp corners throughout;
+// color carries the "eye-catching, colorful" feel instead of shape.
+const CATEGORY_ACCENT: Record<string, string> = {
+  "Field & Trades": "#8C6217",
+  "Project & Operations": "#1F3F52",
+  "Preconstruction & Estimating": "#8A4A31",
+  Business: "#2C6E66",
+  "Technology & Design": "#3B4F7A",
+  "Specialized Construction": "#3F6B3F",
+  "Insurance & Claims": "#A6472B",
+  "Consultants & Advisory": "#6B4068",
+};
+const DEFAULT_ACCENT = CATEGORY_ACCENT["Project & Operations"];
+
+
 // One stop on the result screen's career/lesson "trail": a circle (career)
 // or square (lesson) icon tile, a title, and a short line underneath, wired
 // up as a real link. Shared by both trail rows below so they stay visually
@@ -181,11 +202,17 @@ export function CareerMatchQuiz({
   questions,
   careersByCategory,
   lessonsById,
+  category,
 }: {
   questions: QuizQuestion[];
   careersByCategory: Record<string, QuizCareer[]>;
   lessonsById: Record<string, QuizLesson>;
+  // Set for one of the 8 category-scoped quizzes (content/quizzes/*-match.md).
+  // Undefined for the original general quiz, which keeps its existing
+  // category-vs-category tie-break behavior untouched.
+  category?: string;
 }) {
+  const accent = CATEGORY_ACCENT[category ?? ""] ?? DEFAULT_ACCENT;
   // Deliberately plain defaults here, not a sessionStorage read -- the
   // server has no access to sessionStorage, so seeding these from it on
   // first render would make the client's first render disagree with
@@ -404,6 +431,12 @@ export function CareerMatchQuiz({
 
     if (step + 1 < questions.length) {
       setStep(step + 1);
+    } else if (category) {
+      // Category-scoped quiz: the category is fixed going in, so
+      // there's no category-vs-category tie-break to run here. The
+      // `matches` memo below ranks this category's own careers by
+      // nextCareerScores -- its top entry is the real result.
+      setResult(category);
     } else {
       // Highest category score wins. Ties used to go to whichever
       // category came first in CAREER_CATEGORY_ORDER, which meant every
@@ -414,17 +447,17 @@ export function CareerMatchQuiz({
       // the answers truly can't separate them does list order decide.
       const best = Math.max(0, ...CAREER_CATEGORY_ORDER.map((c) => nextCategoryScores[c] ?? 0));
       const tied = CAREER_CATEGORY_ORDER.filter((c) => (nextCategoryScores[c] ?? 0) === best);
-      const careerPoints = (category: string) =>
-        (careersByCategory[category] ?? []).map((career) => nextCareerScores[career.id] ?? 0);
+      const careerPoints = (cat: string) =>
+        (careersByCategory[cat] ?? []).map((career) => nextCareerScores[career.id] ?? 0);
       let winner: string = tied[0] ?? CAREER_CATEGORY_ORDER[0];
       let winnerTotal = -1;
       let winnerPeak = -1;
-      for (const category of tied) {
-        const points = careerPoints(category);
+      for (const cat of tied) {
+        const points = careerPoints(cat);
         const total = points.reduce((sum, n) => sum + n, 0);
         const peak = points.length > 0 ? Math.max(...points) : 0;
         if (total > winnerTotal || (total === winnerTotal && peak > winnerPeak)) {
-          winner = category;
+          winner = cat;
           winnerTotal = total;
           winnerPeak = peak;
         }
@@ -475,6 +508,29 @@ export function CareerMatchQuiz({
     }
   }
 
+  // A unique-per-screen key -- the current question (by index) or the
+  // final result -- so the fade/slide transition below re-triggers
+  // every time the quiz actually moves to a new screen, not on every
+  // re-render. Unique transitions per screen were part of the quiz v2
+  // brainstorm; this is the one mechanism driving all of them, done in
+  // plain CSS transitions (no animation library in this project) and
+  // skipped outright for prefers-reduced-motion.
+  const screenKey = result ?? `step-${step}`;
+  const [screenVisible, setScreenVisible] = useState(false);
+  useEffect(() => {
+    setScreenVisible(false);
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setScreenVisible(true);
+      return;
+    }
+    const raf = requestAnimationFrame(() => setScreenVisible(true));
+    return () => cancelAnimationFrame(raf);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [screenKey]);
+  const screenTransitionClass = `transition-all duration-300 ease-out ${
+    screenVisible ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
+  }`;
+
   if (result) {
     // Don't flash the sign-in gate for a split second while Clerk is
     // still figuring out whether someone's signed in -- wait for
@@ -509,6 +565,12 @@ export function CareerMatchQuiz({
     }
 
     const slug = CATEGORY_SLUG[result] ?? "";
+    // Category-scoped quiz: the headline result is the top-scored
+    // specific career (matches[0]), with the rest of `matches` shown as
+    // runners-up. General quiz: unchanged, matches are all shown as a
+    // flat "careers that fit" list under the category-level headline.
+    const topMatch = category ? matches[0] : null;
+    const otherMatches = category ? matches.slice(1) : matches;
 
     const recommendedLessons = (CATEGORY_LESSONS[result] ?? [])
       .map((rec) => {
@@ -518,14 +580,41 @@ export function CareerMatchQuiz({
       .filter((entry): entry is { lesson: QuizLesson; blurb: string } => entry !== null);
 
     return (
-        <div className="mt-6">
-          <div className="border border-hairline bg-amber-soft px-6 py-8 sm:px-10 sm:py-10">
-            <h2 className="font-display text-4xl font-bold leading-[0.95] text-ink sm:text-5xl">
-              You&rsquo;re built for
-              <br />
-              {result}.
+        <div className={`mt-6 ${screenTransitionClass}`}>
+          <div
+            className="border-2 px-6 py-8 sm:px-10 sm:py-10"
+            style={{ borderColor: accent, backgroundColor: `${accent}14` }}
+          >
+            <p className="text-xs font-bold uppercase tracking-[0.18em]" style={{ color: accent }}>
+              {category ? `${result} match` : "Your match"}
+            </p>
+            <h2 className="mt-2 font-display text-4xl font-bold leading-[0.95] text-ink sm:text-5xl">
+              {topMatch ? (
+                <>
+                  You&rsquo;re built to be a
+                  <br />
+                  {topMatch.title}.
+                </>
+              ) : (
+                <>
+                  You&rsquo;re built for
+                  <br />
+                  {result}.
+                </>
+              )}
             </h2>
-            <p className="mt-4 max-w-[58ch] leading-relaxed text-ink">{CATEGORY_BLURB[result]}</p>
+            <p className="mt-4 max-w-[58ch] leading-relaxed text-ink">
+              {topMatch?.tagline || CATEGORY_BLURB[result]}
+            </p>
+            {topMatch && (
+              <Link
+                href={urlFor(topMatch)}
+                className="mt-4 inline-block text-sm font-bold uppercase tracking-wide hover:underline"
+                style={{ color: accent }}
+              >
+                See the full {topMatch.title} page &rarr;
+              </Link>
+            )}
             {savedAt && (
               <p className="mt-4 text-sm text-steel">
                 Your saved result from{" "}
@@ -535,13 +624,13 @@ export function CareerMatchQuiz({
             )}
           </div>
 
-          {matches.length > 0 && (
+          {otherMatches.length > 0 && (
             <div className="mt-10">
               <p className="text-sm font-semibold uppercase tracking-wide text-steel">
-                Careers that fit your answers
+                {category ? `Other strong fits in ${result}` : "Careers that fit your answers"}
               </p>
               <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
-                {matches.flatMap((career, i) => {
+                {otherMatches.flatMap((career, i) => {
                   const stop = (
                     <TrailStop
                       key={career.id}
@@ -552,7 +641,7 @@ export function CareerMatchQuiz({
                       blurb={career.tagline ?? ""}
                     />
                   );
-                  if (i === matches.length - 1) return [stop];
+                  if (i === otherMatches.length - 1) return [stop];
                   return [stop, <TrailConnector key={`${career.id}-connector`} connectorKey={`${career.id}-connector`} />];
                 })}
               </div>
@@ -562,7 +651,7 @@ export function CareerMatchQuiz({
           {recommendedLessons.length > 0 && (
             <>
               <div className="my-8 flex justify-center">
-                <span aria-hidden="true" className="h-6 w-0.5 border-l-2 border-dashed border-clay" />
+                <span aria-hidden="true" className="h-6 w-0.5 border-l-2 border-dashed" style={{ borderColor: accent }} />
               </div>
               <p className="-mt-6 text-center text-sm font-semibold uppercase tracking-wide text-steel">
                 Then, start learning
@@ -603,18 +692,32 @@ export function CareerMatchQuiz({
 
           <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-hairline pt-6">
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-              {/* The quiz result's natural next step: a dated plan for
-                  the category it just matched, with that category
-                  already picked on the Blueprint form. */}
+              {/* The quiz result's natural next step: a dated plan,
+                  with the category -- and for a category quiz, the
+                  specific matched career too -- already picked on the
+                  Blueprint form. */}
               <Link
-                href={`/action-plan?category=${slug}`}
-                className="bg-navy px-4 py-2 text-base font-semibold text-paper transition-colors hover:bg-ink"
+                href={
+                  topMatch
+                    ? `/action-plan?category=${slug}&role=${topMatch.slug}`
+                    : `/action-plan?category=${slug}`
+                }
+                className="px-4 py-2 text-base font-semibold text-paper transition-opacity hover:opacity-90"
+                style={{ backgroundColor: accent }}
               >
-                Build a Blueprint for {result} &rarr;
+                Build a Blueprint for {topMatch ? topMatch.title : result} &rarr;
               </Link>
-              <Link href={`/careers#${slug}`} className="text-base font-semibold text-navy hover:underline">
+              <Link href={`/careers#${slug}`} className="text-base font-semibold hover:underline" style={{ color: accent }}>
                 See all careers in {result} &rarr;
               </Link>
+              {!category && CATEGORY_QUIZ_SLUG[result] && (
+                <Link
+                  href={`/quizzes/${CATEGORY_QUIZ_SLUG[result]}`}
+                  className="text-base font-semibold text-steel hover:text-ink hover:underline"
+                >
+                  Narrow it down to a specific career &rarr;
+                </Link>
+              )}
             </div>
             <button
               onClick={restart}
@@ -645,24 +748,35 @@ export function CareerMatchQuiz({
           </button>
         )}
       </div>
-      <div className="mt-2 h-1 w-full bg-hairline">
-        <div
-          className="h-1 bg-navy transition-all"
-          style={{ width: `${(step / questions.length) * 100}%` }}
-        />
+      {/* A dash per question, filled in as you go, rather than one
+          continuous bar -- reads at a glance how many are left, and
+          gives the per-category accent color somewhere to show up on
+          every single screen of the quiz, not just the result. */}
+      <div className="mt-2 flex gap-1">
+        {questions.map((_, i) => (
+          <div
+            key={i}
+            className="h-1.5 flex-1 bg-hairline transition-colors duration-300"
+            style={i <= step ? { backgroundColor: accent } : undefined}
+          />
+        ))}
       </div>
 
-      <p className="mt-5 font-display text-2xl font-bold text-ink">{question.question}</p>
-      <div className="mt-4 flex flex-col gap-2.5">
-        {question.options.map((option) => (
-          <button
-            key={option.label}
-            onClick={() => pick(option)}
-            className="border border-hairline bg-white/40 px-4 py-3 text-left text-sm text-ink transition-colors hover:border-navy hover:bg-white/70"
-          >
-            {option.label}
-          </button>
-        ))}
+      <div key={step} className={screenTransitionClass}>
+        <div className="mt-5 h-1 w-10" style={{ backgroundColor: accent }} />
+        <p className="mt-3 font-display text-2xl font-bold text-ink">{question.question}</p>
+        <div className="mt-4 flex flex-col gap-2.5">
+          {question.options.map((option) => (
+            <button
+              key={option.label}
+              onClick={() => pick(option)}
+              style={{ "--accent": accent } as React.CSSProperties}
+              className="border border-l-4 border-hairline border-l-transparent bg-white/40 px-4 py-3 text-left text-sm text-ink transition-colors hover:bg-white/70 hover:border-l-[var(--accent)] focus-visible:border-l-[var(--accent)]"
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

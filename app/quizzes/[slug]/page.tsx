@@ -71,6 +71,7 @@ export default async function QuizPage({
         questions={quiz.questions}
         careersByCategory={careersByCategory}
         lessonsById={lessonsById}
+        category={quiz.category}
       />
     </article>
   );
