@@ -99,7 +99,8 @@ export function Header({
 
   // Single-page sections that don't need their own dropdown. Order after
   // Lessons: Phases, Career Quiz, then the Get Hired dropdown, then the
-  // Resources dropdown (Interview Prep + Get Qualified + Software, merged
+  // Resources dropdown (Student Loan ROI, Find a Program, Get Qualified,
+  // Interview Prep, Software, Resume Guide, merged
   // so the bar doesn't carry three more plain/standalone entries), then
   // the Take Your First Step / Action Plan button set apart on its own.
   const midLinks = [
@@ -287,22 +288,10 @@ export function Header({
               >
                 <ul className="flex flex-col divide-y divide-hairline/70">
                   <li className="pb-2.5">
-                    <Link href="/interviews" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
-                      Interview Prep
+                    <Link href="/student-loan-roi" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
+                      Student Loan ROI
                     </Link>
-                    <p className="mt-0.5 text-xs leading-snug text-steel">Common questions and what to expect, by role.</p>
-                  </li>
-                  <li className="py-2.5">
-                    <Link href="/exams" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
-                      Get Qualified
-                    </Link>
-                    <p className="mt-0.5 text-xs leading-snug text-steel">Practice banks for real industry certifications.</p>
-                  </li>
-                  <li className="py-2.5">
-                    <Link href="/software" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
-                      Software
-                    </Link>
-                    <p className="mt-0.5 text-xs leading-snug text-steel">The tools you'll actually touch on the job.</p>
+                    <p className="mt-0.5 text-xs leading-snug text-steel">College vs. the trades, debt included.</p>
                   </li>
                   <li className="py-2.5">
                     <Link href="/programs" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
@@ -311,16 +300,28 @@ export function Header({
                     <p className="mt-0.5 text-xs leading-snug text-steel">Real apprenticeships and training programs to enroll in.</p>
                   </li>
                   <li className="py-2.5">
+                    <Link href="/exams" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
+                      Get Qualified
+                    </Link>
+                    <p className="mt-0.5 text-xs leading-snug text-steel">Practice banks for real industry certifications.</p>
+                  </li>
+                  <li className="py-2.5">
+                    <Link href="/interviews" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
+                      Interview Prep
+                    </Link>
+                    <p className="mt-0.5 text-xs leading-snug text-steel">Common questions and what to expect, by role.</p>
+                  </li>
+                  <li className="py-2.5">
+                    <Link href="/software" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
+                      Software
+                    </Link>
+                    <p className="mt-0.5 text-xs leading-snug text-steel">The tools you'll actually touch on the job.</p>
+                  </li>
+                  <li className="pt-2.5">
                     <Link href="/resumes" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
                       Resume Guide
                     </Link>
                     <p className="mt-0.5 text-xs leading-snug text-steel">What recruiters look for, by category.</p>
-                  </li>
-                  <li className="pt-2.5">
-                    <Link href="/student-loan-roi" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
-                      Student Loan ROI
-                    </Link>
-                    <p className="mt-0.5 text-xs leading-snug text-steel">College vs. the trades, debt included.</p>
                   </li>
                 </ul>
                 <div className="mt-3 border-t border-hairline pt-3 text-sm">
@@ -534,22 +535,10 @@ export function Header({
           >
             <ul className="flex flex-col gap-3">
               <li>
-                <Link href="/interviews" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
-                  Interview Prep
+                <Link href="/student-loan-roi" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
+                  Student Loan ROI
                 </Link>
-                <p className="mt-0.5 text-xs leading-snug text-steel">Common questions and what to expect, by role.</p>
-              </li>
-              <li>
-                <Link href="/exams" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
-                  Get Qualified
-                </Link>
-                <p className="mt-0.5 text-xs leading-snug text-steel">Practice banks for real industry certifications.</p>
-              </li>
-              <li>
-                <Link href="/software" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
-                  Software
-                </Link>
-                <p className="mt-0.5 text-xs leading-snug text-steel">The tools you'll actually touch on the job.</p>
+                <p className="mt-0.5 text-xs leading-snug text-steel">College vs. the trades, debt included.</p>
               </li>
               <li>
                 <Link href="/programs" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
@@ -558,16 +547,28 @@ export function Header({
                 <p className="mt-0.5 text-xs leading-snug text-steel">Real apprenticeships and training programs to enroll in.</p>
               </li>
               <li>
+                <Link href="/exams" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
+                  Get Qualified
+                </Link>
+                <p className="mt-0.5 text-xs leading-snug text-steel">Practice banks for real industry certifications.</p>
+              </li>
+              <li>
+                <Link href="/interviews" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
+                  Interview Prep
+                </Link>
+                <p className="mt-0.5 text-xs leading-snug text-steel">Common questions and what to expect, by role.</p>
+              </li>
+              <li>
+                <Link href="/software" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
+                  Software
+                </Link>
+                <p className="mt-0.5 text-xs leading-snug text-steel">The tools you'll actually touch on the job.</p>
+              </li>
+              <li>
                 <Link href="/resumes" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
                   Resume Guide
                 </Link>
                 <p className="mt-0.5 text-xs leading-snug text-steel">What recruiters look for, by category.</p>
-              </li>
-              <li>
-                <Link href="/student-loan-roi" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
-                  Student Loan ROI
-                </Link>
-                <p className="mt-0.5 text-xs leading-snug text-steel">College vs. the trades, debt included.</p>
               </li>
             </ul>
             <Link
