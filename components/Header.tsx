@@ -2,17 +2,18 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Show, SignInButton, UserButton } from "@clerk/nextjs";
-import { Icon } from "@/components/Icon";
-import { urlFor, slugifyCategory, CATEGORY_SLUG, NAV_ITEMS_PER_GROUP } from "@/lib/content-client";
+import { Icon, type IconKind } from "@/components/Icon";
+import { urlFor, CATEGORY_SLUG } from "@/lib/content-client";
 import type { Career, Concept, GetHired } from "@/lib/types";
 
-// The "Solid Mark, Tile Badge" logo — a rounded navy tile holding a
+// The "Solid Mark, Tile Badge" logo: a rounded navy tile holding a
 // shovel breaking a cracked ground line, amber handle, amber knob where
 // it meets the blade. Colors are fixed rather than currentColor since
 // the mark is its own self-contained badge, unlike the old thin-stroke icon.
-// (Component name kept as HardHatMark to avoid touching its three import
-// sites; it no longer draws a hard hat.)
+// (Component name kept as HardHatMark to avoid touching its import sites;
+// it no longer draws a hard hat.)
 export function HardHatMark({ size = 22, className = "" }: { size?: number; className?: string }) {
   return (
     <svg viewBox="0 0 200 200" width={size} height={size} className={className} aria-hidden="true">
@@ -32,53 +33,60 @@ export function HardHatMark({ size = 22, className = "" }: { size?: number; clas
 }
 
 // Header is a client component rendered by the root layout, so whatever
-// it's handed is serialized into EVERY page on the site. It only ever
-// draws a title + link for the first few items per category, so that's
-// all it accepts -- app/layout.tsx slims the groups down before passing
-// them in (it used to receive every career and all 500+ concepts in
-// full, well over a megabyte of content on every page load).
+// it's handed is serialized into EVERY page on the site. app/layout.tsx
+// slims everything down before passing it in.
 export type NavCareer = Pick<Career, "id" | "type" | "slug" | "title">;
 export type NavConcept = Pick<Concept, "id" | "type" | "slug" | "title">;
 export type NavGuide = Pick<GetHired, "id" | "type" | "slug" | "category">;
+export type NavStateGuide = { slug: string; name: string };
 type CareerGroup = { category: string; items: NavCareer[] };
-type ConceptGroup = { category: string; items: NavConcept[] };
 
-type MenuKey = "careers" | "concepts" | "gethired" | "resources";
+// Site structure "Option A" (header brainstorm, 2026-11-13): the five
+// pages that matter most sit in the bar as plain, always-visible links
+// ("Start here"), and everything else lives in one Explore panel that
+// shows every page at once in four columns. Nothing is two levels deep.
+// On phones and tablets the same five become a fixed bottom tab bar (see
+// MobileTabBar) and the Menu button opens the Explore list.
+// URLs never changed in this redesign, only where links sit.
+const START_HERE: { href: string; label: string; tab: string; icon: IconKind; match: string[] }[] = [
+  { href: "/quizzes/find-your-career", label: "Career Quiz", tab: "Quiz", icon: "quiz", match: ["/quizzes"] },
+  { href: "/lessons", label: "Lessons", tab: "Lessons", icon: "lesson", match: ["/lessons"] },
+  { href: "/action-plan", label: "Action Plan", tab: "Plan", icon: "actionplan", match: ["/action-plan"] },
+  { href: "/programs", label: "Find a Program", tab: "Programs", icon: "program", match: ["/programs"] },
+  { href: "/student-loan-roi", label: "College vs. Trades", tab: "Compare", icon: "roi", match: ["/student-loan-roi"] },
+];
+
+const isActive = (pathname: string, match: string[]) => match.some((m) => pathname === m || pathname.startsWith(`${m}/`));
 
 export function Header({
   careerGroups,
-  conceptGroups,
   getHiredGuides,
+  stateGuides,
   careerCount,
   conceptCount,
 }: {
   careerGroups: CareerGroup[];
-  conceptGroups: ConceptGroup[];
   getHiredGuides: NavGuide[];
+  stateGuides: NavStateGuide[];
   careerCount: number;
   conceptCount: number;
 }) {
-  const [openMenu, setOpenMenu] = useState<MenuKey | null>(null);
+  const pathname = usePathname() ?? "/";
+  const [exploreOpen, setExploreOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const navRef = useRef<HTMLElement>(null);
-  const mobileNavRef = useRef<HTMLElement>(null);
+  const exploreRef = useRef<HTMLDivElement>(null);
 
-  // Close any open dropdown on an outside click, and on Escape. Checks
-  // both the desktop nav and the mobile panel refs — otherwise a click
-  // inside the mobile panel (which sits outside navRef) would close the
-  // very dropdown it just opened, since both state updates land in the
-  // same batched tick.
+  // Close the Explore panel on an outside click or Escape, and close
+  // everything when the page changes.
   useEffect(() => {
     function onClick(e: MouseEvent) {
-      const target = e.target as Node;
-      const insideDesktop = navRef.current?.contains(target);
-      const insideMobile = mobileNavRef.current?.contains(target);
-      if (!insideDesktop && !insideMobile) {
-        setOpenMenu(null);
-      }
+      if (!exploreRef.current?.contains(e.target as Node)) setExploreOpen(false);
     }
     function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setOpenMenu(null);
+      if (e.key === "Escape") {
+        setExploreOpen(false);
+        setMobileOpen(false);
+      }
     }
     document.addEventListener("click", onClick);
     document.addEventListener("keydown", onKey);
@@ -87,513 +95,266 @@ export function Header({
       document.removeEventListener("keydown", onKey);
     };
   }, []);
+  useEffect(() => {
+    setExploreOpen(false);
+    setMobileOpen(false);
+  }, [pathname]);
 
-  const toggle = (menu: MenuKey) => setOpenMenu((current) => (current === menu ? null : menu));
-
-  // The general hiring guide (gethired-general) always sorts first in
-  // getHiredGuides (see app/layout.tsx), but the dropdown gives it its own
-  // full-width line above the 2x4 grid of the 8 category guides, rather
-  // than letting it land in a grid cell next to whichever guide follows it.
   const generalGuide = getHiredGuides.find((g) => g.id === "gethired-general");
-  const categoryGuides = getHiredGuides.filter((g) => g.id !== "gethired-general");
-
-  // Single-page sections that don't need their own dropdown. Order after
-  // Lessons: Phases, Career Quiz, then the Get Hired dropdown, then the
-  // Resources dropdown (Student Loan ROI, Find a Program, Get Qualified,
-  // Interview Prep, Software, Resume Guide, Careers by State, merged
-  // so the bar doesn't carry three more plain/standalone entries), then
-  // the Take Your First Step / Action Plan button set apart on its own.
-  const midLinks = [
-    { href: "/phases", label: "Phases" },
-    { href: "/quizzes/find-your-career", label: "Career Quiz" },
-  ];
+  const columns = buildColumns({ careerGroups, careerCount, conceptCount, generalGuide, stateGuides });
 
   return (
-    <header className="sticky top-0 z-40 border-b border-hairline bg-paper print:hidden">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-3.5">
-        <Link href="/" className="flex shrink-0 items-center gap-2 font-display text-[1.8rem] font-bold tracking-tight text-ink">
-          <HardHatMark size={35} />
-          <span>
-            breakground<span className="text-amber">U</span>
-          </span>
-        </Link>
-
-        {/* Desktop nav -- centered in the space between the logo and the
-            CTA button via flex-1 + justify-center, rather than hugging
-            the right edge. */}
-        <nav ref={navRef} className="relative hidden flex-1 items-center justify-center gap-1 md:flex">
-          <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
-            <button
-              onClick={() => toggle("careers")}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 text-[1.02rem] font-semibold ${
-                openMenu === "careers" ? "text-navy" : "text-ink hover:text-navy"
-              }`}
-              aria-expanded={openMenu === "careers"}
-            >
-              Careers
-              <Caret open={openMenu === "careers"} />
-            </button>
-            {openMenu === "careers" && (
-              <div
-                className="absolute left-0 top-full grid min-w-[760px] grid-cols-4 gap-x-6 gap-y-4 border border-hairline bg-paper p-5 shadow-lg"
-                onClick={() => setOpenMenu(null)}
-              >
-                {careerGroups.map((group) => (
-                  <div key={group.category}>
-                    <Link
-                      href={`/careers#${CATEGORY_SLUG[group.category] ?? ""}`}
-                      className="break-words text-[0.68rem] font-semibold uppercase tracking-wide text-clay hover:text-navy"
-                    >
-                      {group.category}
-                    </Link>
-                    <ul className="mt-2 flex flex-col divide-y divide-hairline/70">
-                      {group.items.slice(0, NAV_ITEMS_PER_GROUP).map((item) => (
-                        <li key={item.id} className="py-1.5 first:pt-0 last:pb-0">
-                          <Link
-                            href={urlFor(item)}
-                            className="line-clamp-3 break-words text-sm leading-snug text-ink hover:text-navy hover:underline"
-                          >
-                            {item.title}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-                <div className="col-span-full border-t border-hairline pt-3 text-sm">
-                  <Link href="/careers" className="font-semibold text-navy hover:underline">
-                    Browse all {careerCount} careers across {careerGroups.length} categories →
-                  </Link>
-                </div>
-              </div>
-            )}
-          </div>
-
-          <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
-            <button
-              onClick={() => toggle("concepts")}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 text-[1.02rem] font-semibold ${
-                openMenu === "concepts" ? "text-navy" : "text-ink hover:text-navy"
-              }`}
-              aria-expanded={openMenu === "concepts"}
-            >
-              Concepts
-              <Caret open={openMenu === "concepts"} />
-            </button>
-            {openMenu === "concepts" && (
-              <div
-                className="absolute left-0 top-full grid min-w-[680px] grid-cols-3 gap-x-6 gap-y-4 border border-hairline bg-paper p-5 shadow-lg"
-                onClick={() => setOpenMenu(null)}
-              >
-                {conceptGroups.map((group) => (
-                  <div key={group.category}>
-                    <Link
-                      href={`/concepts#${slugifyCategory(group.category)}`}
-                      className="break-words text-[0.68rem] font-semibold uppercase tracking-wide text-clay hover:text-navy"
-                    >
-                      {group.category}
-                    </Link>
-                    <ul className="mt-2 flex flex-col divide-y divide-hairline/70">
-                      {group.items.slice(0, NAV_ITEMS_PER_GROUP).map((item) => (
-                        <li key={item.id} className="py-1.5 first:pt-0 last:pb-0">
-                          <Link
-                            href={urlFor(item)}
-                            className="line-clamp-2 break-words text-sm leading-snug text-ink hover:text-navy hover:underline"
-                          >
-                            {item.title}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-                <div className="col-span-full border-t border-hairline pt-3 text-sm">
-                  <Link href="/concepts" className="font-semibold text-navy hover:underline">
-                    Search all {conceptCount} concepts →
-                  </Link>
-                </div>
-              </div>
-            )}
-          </div>
-
-          <Link href="/lessons" className="whitespace-nowrap px-3 py-2 text-[1.02rem] font-semibold text-ink hover:text-navy">
-            Lessons
+    <>
+      <header className="sticky top-0 z-40 border-b border-hairline bg-paper print:hidden">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3 xl:gap-4 xl:px-6">
+          <Link href="/" className="flex shrink-0 items-center gap-2 font-display text-[1.7rem] font-bold tracking-tight text-ink lg:text-[1.45rem] xl:text-[1.7rem]">
+            <HardHatMark size={32} />
+            <span>
+              breakground<span className="text-amber">U</span>
+            </span>
           </Link>
 
-          {midLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="whitespace-nowrap px-3 py-2 text-[1.02rem] font-semibold text-ink hover:text-navy">
-              {link.label}
-            </Link>
-          ))}
+          {/* Desktop: the Start-here row, then Explore. */}
+          <nav aria-label="Main" className="hidden flex-1 items-center justify-end gap-0.5 lg:flex">
+            <span className="mr-2 hidden text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-steel xl:inline">Start here</span>
+            {START_HERE.map((item) => {
+              const active = isActive(pathname, item.match);
+              const plan = item.href === "/action-plan";
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  className={
+                    plan
+                      ? `mx-1 whitespace-nowrap border px-2.5 py-1.5 text-[0.9rem] xl:px-3 font-semibold transition-colors ${
+                          active ? "border-clay bg-clay text-paper" : "border-amber bg-amber text-paper hover:border-clay hover:bg-clay"
+                        }`
+                      : `whitespace-nowrap border-b-2 px-2 py-1.5 text-[0.92rem] xl:px-2.5 xl:text-[0.95rem] font-semibold transition-colors ${
+                          active ? "border-amber text-navy" : "border-transparent text-ink hover:text-navy"
+                        }`
+                  }
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
 
-          <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
-            <button
-              onClick={() => toggle("gethired")}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 text-[1.02rem] font-semibold ${
-                openMenu === "gethired" ? "text-navy" : "text-ink hover:text-navy"
-              }`}
-              aria-expanded={openMenu === "gethired"}
-            >
-              Get Hired
-              <Caret open={openMenu === "gethired"} />
-            </button>
-            {openMenu === "gethired" && (
-              <div
-                className="absolute left-0 top-full min-w-[360px] border border-hairline bg-paper p-5 shadow-lg"
-                onClick={() => setOpenMenu(null)}
+            <div ref={exploreRef} className="relative ml-1">
+              <button
+                type="button"
+                onClick={() => setExploreOpen((v) => !v)}
+                aria-expanded={exploreOpen}
+                aria-controls="explore-panel"
+                className={`inline-flex items-center gap-1.5 whitespace-nowrap border px-3 py-1.5 text-[0.95rem] font-semibold transition-colors ${
+                  exploreOpen ? "border-navy bg-navy text-paper" : "border-ink/70 text-ink hover:border-navy hover:text-navy"
+                }`}
               >
-                {generalGuide && (
-                  <Link
-                    href={urlFor(generalGuide)}
-                    className="block break-words text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline"
-                  >
-                    {generalGuide.category}
-                  </Link>
-                )}
-                <div className="mt-2.5 grid grid-cols-2 gap-x-6 gap-y-2.5 border-t border-hairline pt-2.5">
-                  {categoryGuides.map((guide) => (
-                    <Link
-                      key={guide.id}
-                      href={urlFor(guide)}
-                      className="break-words text-sm leading-snug text-ink hover:text-navy hover:underline"
-                    >
-                      {guide.category}
-                    </Link>
-                  ))}
-                </div>
-                <div className="mt-3 border-t border-hairline pt-3 text-sm">
-                  <Link href="/get-hired" className="font-semibold text-navy hover:underline">
-                    How hiring actually works, by category →
-                  </Link>
-                </div>
-              </div>
-            )}
-          </div>
-
-          <div className="relative" onMouseLeave={() => setOpenMenu(null)}>
-            <button
-              onClick={() => toggle("resources")}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 text-[1.02rem] font-semibold ${
-                openMenu === "resources" ? "text-navy" : "text-ink hover:text-navy"
-              }`}
-              aria-expanded={openMenu === "resources"}
-            >
-              Resources
-              <Caret open={openMenu === "resources"} />
-            </button>
-            {openMenu === "resources" && (
-              <div
-                className="absolute right-0 top-full min-w-[300px] border border-hairline bg-paper p-5 shadow-lg"
-                onClick={() => setOpenMenu(null)}
-              >
-                <ul className="flex flex-col divide-y divide-hairline/70">
-                  <li className="pb-2.5">
-                    <Link href="/student-loan-roi" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
-                      Student Loan ROI
-                    </Link>
-                    <p className="mt-0.5 text-xs leading-snug text-steel">College vs. the trades, debt included.</p>
-                  </li>
-                  <li className="py-2.5">
-                    <Link href="/programs" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
-                      Find a Program
-                    </Link>
-                    <p className="mt-0.5 text-xs leading-snug text-steel">Real apprenticeships and training programs to enroll in.</p>
-                  </li>
-                  <li className="py-2.5">
-                    <Link href="/exams" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
-                      Get Qualified
-                    </Link>
-                    <p className="mt-0.5 text-xs leading-snug text-steel">Practice banks for real industry certifications.</p>
-                  </li>
-                  <li className="py-2.5">
-                    <Link href="/interviews" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
-                      Interview Prep
-                    </Link>
-                    <p className="mt-0.5 text-xs leading-snug text-steel">Common questions and what to expect, by role.</p>
-                  </li>
-                  <li className="py-2.5">
-                    <Link href="/software" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
-                      Software
-                    </Link>
-                    <p className="mt-0.5 text-xs leading-snug text-steel">The tools you'll actually touch on the job.</p>
-                  </li>
-                  <li className="py-2.5">
-                    <Link href="/resumes" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
-                      Resume Guide
-                    </Link>
-                    <p className="mt-0.5 text-xs leading-snug text-steel">What recruiters look for, by category.</p>
-                  </li>
-                  <li className="pt-2.5">
-                    <Link href="/states" className="block text-sm font-semibold leading-snug text-ink hover:text-navy hover:underline">
-                      Careers by State
-                    </Link>
-                    <p className="mt-0.5 text-xs leading-snug text-steel">Local pay, licensing and ways in. Georgia first.</p>
-                  </li>
-                </ul>
-                <div className="mt-3 border-t border-hairline pt-3 text-sm">
-                  <Link href="/resources" className="font-semibold text-navy hover:underline">
-                    Browse all resources →
-                  </Link>
-                </div>
-              </div>
-            )}
-          </div>
-        </nav>
-
-        <Link
-          href="/action-plan"
-          className="hidden shrink-0 whitespace-nowrap border border-amber bg-amber px-4 py-2 text-[0.88rem] font-semibold text-paper transition-colors hover:border-clay hover:bg-clay md:inline-block"
-        >
-          Take Your First Step
-        </Link>
-
-        {/* Account -- signed-in/out state, desktop only. Browsing the site
-            never requires this; it's purely "sign in to save your spot" on
-            Lessons/Action Plan progress. */}
-        <div className="hidden shrink-0 items-center md:flex">
-          <Show when="signed-out">
-            <SignInButton mode="modal">
-              <button className="whitespace-nowrap px-3 py-2 text-[0.92rem] font-semibold text-ink hover:text-navy">
-                Sign In
+                Explore
+                <Caret open={exploreOpen} />
               </button>
-            </SignInButton>
-          </Show>
-          <Show when="signed-in">
-            <UserButton>
-              <UserButton.MenuItems>
-                <UserButton.Link
-                  label="My Progress"
-                  labelIcon={<Icon kind="actionplan" size={16} />}
-                  href="/my-progress"
-                />
-              </UserButton.MenuItems>
-            </UserButton>
-          </Show>
-        </div>
+              {exploreOpen && (
+                <div
+                  id="explore-panel"
+                  className="absolute right-0 top-full z-50 mt-2 w-[min(980px,calc(100vw-3rem))] border border-hairline bg-paper p-6 shadow-xl"
+                >
+                  <div className="grid grid-cols-4 gap-8">
+                    {columns.map((col) => (
+                      <ExploreColumn key={col.title} col={col} onNavigate={() => setExploreOpen(false)} />
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </nav>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileOpen((v) => !v)}
-          className="inline-flex items-center gap-2 border border-ink px-3 py-1.5 text-[0.96rem] font-medium text-ink md:hidden"
-          aria-expanded={mobileOpen}
-          aria-label="Menu"
-        >
-          Menu
-        </button>
-      </div>
-
-      {/* Mobile panel — plain vertical list, dropdowns expand in normal
-          flow (not absolutely positioned) so nothing overlaps. */}
-      {mobileOpen && (
-        <nav
-          ref={mobileNavRef}
-          className="max-h-[calc(100vh-56px)] overflow-y-auto border-t border-hairline bg-paper px-6 pb-4 md:hidden"
-        >
-          <Link
-            href="/action-plan"
-            className="mt-3 block border border-amber bg-amber px-4 py-3 text-center text-[0.96rem] font-semibold text-paper"
-            onClick={() => setMobileOpen(false)}
-          >
-            Take Your First Step
-          </Link>
-
-          <div className="mt-3 flex items-center justify-between border border-hairline px-4 py-3">
+          {/* Account, desktop only. Browsing never requires it; it only
+              saves progress on Lessons and the Action Plan. */}
+          <div className="hidden shrink-0 items-center lg:flex">
             <Show when="signed-out">
               <SignInButton mode="modal">
-                <button
-                  className="text-[0.96rem] font-semibold text-ink"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Sign In
-                </button>
+                <button className="whitespace-nowrap px-2 py-2 text-[0.92rem] font-semibold text-ink hover:text-navy">Sign In</button>
               </SignInButton>
             </Show>
             <Show when="signed-in">
-              <span className="text-[0.96rem] font-semibold text-ink">Your account</span>
-              <UserButton />
+              <UserButton>
+                <UserButton.MenuItems>
+                  <UserButton.Link label="My Progress" labelIcon={<Icon kind="actionplan" size={16} />} href="/my-progress" />
+                </UserButton.MenuItems>
+              </UserButton>
             </Show>
           </div>
 
-          <Show when="signed-in">
-            <Link
-              href="/my-progress"
-              className="mt-2 block border border-hairline px-4 py-3 text-[0.96rem] font-semibold text-ink"
-              onClick={() => setMobileOpen(false)}
-            >
-              My Progress
-            </Link>
-          </Show>
-
-          <MobileSection
-            label="Careers"
-            open={openMenu === "careers"}
-            onToggle={() => toggle("careers")}
+          {/* Phones and tablets: Menu opens the Explore list. The five
+              Start-here pages are in the bottom tab bar instead. */}
+          <button
+            type="button"
+            onClick={() => setMobileOpen((v) => !v)}
+            className="inline-flex items-center gap-2 border border-ink px-3 py-1.5 text-[0.96rem] font-medium text-ink lg:hidden"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-explore"
           >
-            {careerGroups.map((group) => (
-              <div key={group.category} className="mt-3 first:mt-0">
-                <Link
-                  href={`/careers#${CATEGORY_SLUG[group.category] ?? ""}`}
-                  className="break-words text-[0.68rem] font-semibold uppercase tracking-wide text-clay"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {group.category}
+            {mobileOpen ? "Close" : "Menu"}
+          </button>
+        </div>
+
+        {mobileOpen && (
+          <nav
+            id="mobile-explore"
+            aria-label="Explore"
+            className="max-h-[calc(100vh-60px-64px)] overflow-y-auto border-t border-hairline bg-paper px-6 pb-6 lg:hidden"
+          >
+            <div className="mt-4 flex items-center justify-between border border-hairline px-4 py-3">
+              <Show when="signed-out">
+                <SignInButton mode="modal">
+                  <button className="text-[0.96rem] font-semibold text-ink" onClick={() => setMobileOpen(false)}>
+                    Sign In
+                  </button>
+                </SignInButton>
+                <span className="text-xs text-steel">Save your progress</span>
+              </Show>
+              <Show when="signed-in">
+                <Link href="/my-progress" className="text-[0.96rem] font-semibold text-ink" onClick={() => setMobileOpen(false)}>
+                  My Progress
                 </Link>
-                <ul className="mt-1.5 flex flex-col gap-1.5">
-                  {group.items.slice(0, NAV_ITEMS_PER_GROUP).map((item) => (
-                    <li key={item.id}>
-                      <Link href={urlFor(item)} className="break-words text-sm text-ink" onClick={() => setMobileOpen(false)}>
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-            <Link
-              href="/careers"
-              className="mt-3 block text-sm font-semibold text-navy"
-              onClick={() => setMobileOpen(false)}
-            >
-              Browse all {careerCount} careers →
-            </Link>
-          </MobileSection>
-
-          <MobileSection
-            label="Concepts"
-            open={openMenu === "concepts"}
-            onToggle={() => toggle("concepts")}
-          >
-            {conceptGroups.map((group) => (
-              <div key={group.category} className="mt-3 first:mt-0">
-                <Link
-                  href={`/concepts#${slugifyCategory(group.category)}`}
-                  className="break-words text-[0.68rem] font-semibold uppercase tracking-wide text-clay"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {group.category}
-                </Link>
-                <ul className="mt-1.5 flex flex-col gap-1.5">
-                  {group.items.slice(0, NAV_ITEMS_PER_GROUP).map((item) => (
-                    <li key={item.id}>
-                      <Link href={urlFor(item)} className="break-words text-sm text-ink" onClick={() => setMobileOpen(false)}>
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-            <Link
-              href="/concepts"
-              className="mt-3 block text-sm font-semibold text-navy"
-              onClick={() => setMobileOpen(false)}
-            >
-              Search all {conceptCount} concepts →
-            </Link>
-          </MobileSection>
-
-          <Link
-            href="/lessons"
-            className="block border-t border-hairline py-3 text-[0.96rem] font-medium text-ink"
-            onClick={() => setMobileOpen(false)}
-          >
-            Lessons
-          </Link>
-
-          {midLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="block border-t border-hairline py-3 text-[0.96rem] font-medium text-ink"
-              onClick={() => setMobileOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
-
-          <MobileSection
-            label="Get Hired"
-            open={openMenu === "gethired"}
-            onToggle={() => toggle("gethired")}
-          >
-            <ul className="mt-1.5 flex flex-col gap-1.5">
-              {getHiredGuides.map((guide) => (
-                <li key={guide.id}>
-                  <Link href={urlFor(guide)} className="break-words text-sm text-ink" onClick={() => setMobileOpen(false)}>
-                    {guide.category}
-                  </Link>
-                </li>
+                <UserButton />
+              </Show>
+            </div>
+            <div className="mt-5 grid gap-7 sm:grid-cols-2">
+              {columns.map((col) => (
+                <ExploreColumn key={col.title} col={col} onNavigate={() => setMobileOpen(false)} />
               ))}
-            </ul>
-            <Link
-              href="/get-hired"
-              className="mt-3 block text-sm font-semibold text-navy"
-              onClick={() => setMobileOpen(false)}
-            >
-              How hiring actually works, by category →
-            </Link>
-          </MobileSection>
+            </div>
+          </nav>
+        )}
+      </header>
 
-          <MobileSection
-            label="Resources"
-            open={openMenu === "resources"}
-            onToggle={() => toggle("resources")}
-          >
-            <ul className="flex flex-col gap-3">
-              <li>
-                <Link href="/student-loan-roi" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
-                  Student Loan ROI
-                </Link>
-                <p className="mt-0.5 text-xs leading-snug text-steel">College vs. the trades, debt included.</p>
-              </li>
-              <li>
-                <Link href="/programs" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
-                  Find a Program
-                </Link>
-                <p className="mt-0.5 text-xs leading-snug text-steel">Real apprenticeships and training programs to enroll in.</p>
-              </li>
-              <li>
-                <Link href="/exams" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
-                  Get Qualified
-                </Link>
-                <p className="mt-0.5 text-xs leading-snug text-steel">Practice banks for real industry certifications.</p>
-              </li>
-              <li>
-                <Link href="/interviews" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
-                  Interview Prep
-                </Link>
-                <p className="mt-0.5 text-xs leading-snug text-steel">Common questions and what to expect, by role.</p>
-              </li>
-              <li>
-                <Link href="/software" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
-                  Software
-                </Link>
-                <p className="mt-0.5 text-xs leading-snug text-steel">The tools you'll actually touch on the job.</p>
-              </li>
-              <li>
-                <Link href="/resumes" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
-                  Resume Guide
-                </Link>
-                <p className="mt-0.5 text-xs leading-snug text-steel">What recruiters look for, by category.</p>
-              </li>
-              <li>
-                <Link href="/states" className="block text-sm font-semibold text-ink" onClick={() => setMobileOpen(false)}>
-                  Careers by State
-                </Link>
-                <p className="mt-0.5 text-xs leading-snug text-steel">Local pay, licensing and ways in. Georgia first.</p>
-              </li>
-            </ul>
-            <Link
-              href="/resources"
-              className="mt-3 block text-sm font-semibold text-navy"
-              onClick={() => setMobileOpen(false)}
-            >
-              Browse all resources →
-            </Link>
-          </MobileSection>
-        </nav>
-      )}
-    </header>
+      <MobileTabBar pathname={pathname} />
+    </>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Explore: every page that isn't in the Start-here row, in four columns.
+
+type ExploreLink = { href: string; label: string; note?: string; signedIn?: boolean };
+type ExploreCol = { title: string; icon: IconKind; links: ExploreLink[] };
+
+function buildColumns({
+  careerGroups,
+  careerCount,
+  conceptCount,
+  generalGuide,
+  stateGuides,
+}: {
+  careerGroups: CareerGroup[];
+  careerCount: number;
+  conceptCount: number;
+  generalGuide?: NavGuide;
+  stateGuides: NavStateGuide[];
+}): ExploreCol[] {
+  return [
+    {
+      title: "Explore careers",
+      icon: "career",
+      links: [
+        ...careerGroups.map((g) => ({ href: `/careers#${CATEGORY_SLUG[g.category] ?? ""}`, label: g.category })),
+        { href: "/careers", label: `All ${careerCount} careers` },
+        { href: "/concepts", label: "Concepts", note: `${conceptCount} construction terms, explained` },
+        { href: "/phases", label: "Phases", note: "How a building goes up, start to finish" },
+      ],
+    },
+    {
+      title: "Get hired",
+      icon: "gethired",
+      links: [
+        ...(generalGuide ? [{ href: urlFor(generalGuide), label: "How hiring works", note: "Start here if you're job hunting" }] : []),
+        { href: "/get-hired", label: "Hiring guides by career path" },
+        { href: "/resumes", label: "Resume Guide" },
+        { href: "/interviews", label: "Interview Prep" },
+        { href: "/exams", label: "Get Qualified", note: "Practice exams for real certifications" },
+        { href: "/software", label: "Software", note: "The tools you'll use on the job" },
+      ],
+    },
+    {
+      title: "By state",
+      icon: "state",
+      links: [
+        ...stateGuides.map((g) => ({ href: `/states/${g.slug}`, label: `${g.name} field guide`, note: "Local pay, licensing and ways in" })),
+        { href: "/states", label: "All state guides", note: "More states on the way" },
+        { href: "/student-loan-roi", label: "Trade pay in every state", note: "Part of College vs. Trades" },
+      ],
+    },
+    {
+      title: "For you",
+      icon: "actionplan",
+      links: [
+        { href: "/my-progress", label: "My Progress", signedIn: true },
+        { href: "/action-plan/my-plans", label: "Your saved plans", signedIn: true },
+        { href: "/resources", label: "All resources", note: "Everything on one board" },
+        { href: "/about", label: "About BreakGroundU" },
+        { href: "/contact", label: "Contact" },
+      ],
+    },
+  ];
+}
+
+function ExploreColumn({ col, onNavigate }: { col: ExploreCol; onNavigate: () => void }) {
+  const link = (l: ExploreLink) => (
+    <li key={l.href}>
+      <Link href={l.href} onClick={onNavigate} className="group block py-1">
+        <span className="text-sm font-semibold leading-snug text-ink group-hover:text-navy group-hover:underline">{l.label}</span>
+        {l.note && <span className="block text-xs leading-snug text-steel">{l.note}</span>}
+      </Link>
+    </li>
+  );
+  return (
+    <div>
+      <p className="flex items-center gap-2 border-b border-hairline pb-2 text-[0.68rem] font-semibold uppercase tracking-wide text-clay">
+        <Icon kind={col.icon} size={15} />
+        {col.title}
+      </p>
+      <ul className="mt-2 flex flex-col">
+        {col.links.filter((l) => !l.signedIn).map(link)}
+        <Show when="signed-in">{col.links.filter((l) => l.signedIn).map(link)}</Show>
+      </ul>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Phones and tablets: the five Start-here pages, fixed to the bottom of
+// the screen like an app's tab bar. app/layout.tsx adds a matching spacer
+// at the end of the page so the footer never hides behind it. Hidden when
+// printing.
+
+function MobileTabBar({ pathname }: { pathname: string }) {
+  return (
+    <nav
+      aria-label="Start here"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-hairline bg-paper/95 pb-[env(safe-area-inset-bottom)] backdrop-blur lg:hidden print:hidden"
+    >
+      <ul className="mx-auto grid max-w-xl grid-cols-5">
+        {START_HERE.map((item) => {
+          const active = isActive(pathname, item.match);
+          return (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                aria-label={item.label}
+                className={`flex h-16 flex-col items-center justify-center gap-1 border-t-2 text-[0.68rem] font-semibold ${
+                  active ? "border-amber text-navy" : "border-transparent text-steel hover:text-ink"
+                }`}
+              >
+                <Icon kind={item.icon} size={22} />
+                {item.tab}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
   );
 }
 
@@ -612,32 +373,6 @@ function Caret({ open }: { open: boolean }) {
     >
       <path d="M2.5 4.5l3.5 3 3.5-3" />
     </svg>
-  );
-}
-
-function MobileSection({
-  label,
-  open,
-  onToggle,
-  children,
-}: {
-  label: string;
-  open: boolean;
-  onToggle: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="border-t border-hairline">
-      <button
-        onClick={onToggle}
-        className="flex w-full items-center justify-between py-3 text-[0.96rem] font-medium text-ink"
-        aria-expanded={open}
-      >
-        {label}
-        <Caret open={open} />
-      </button>
-      {open && <div className="pb-3">{children}</div>}
-    </div>
   );
 }
 

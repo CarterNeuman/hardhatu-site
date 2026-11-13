@@ -74,7 +74,7 @@ export default function ResourcesIndexPage() {
     {
       href: "/student-loan-roi",
       kind: "roi",
-      title: "Student Loan ROI",
+      title: "College vs. Trades",
       description: "College vs. apprenticeship vs. trade school: what each costs, what it pays, debt included.",
       count: "Interactive",
       pin: "clay",

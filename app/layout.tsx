@@ -6,12 +6,12 @@ import "./globals.css";
 import {
   getAllContent,
   groupCareersByCategory,
-  groupConceptsByCategory,
 } from "@/lib/content";
 import { CAREER_CATEGORY_ORDER } from "@/lib/types";
 import { Header } from "@/components/Header";
 import { NAV_ITEMS_PER_GROUP } from "@/lib/content-client";
 import { Footer } from "@/components/Footer";
+import { STATE_GUIDES } from "@/lib/state-guides";
 
 // Loaded via a plain stylesheet link rather than next/font/google — the
 // automated build-time font fetcher has had repeated bugs with these two
@@ -52,7 +52,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
   const { careers, concepts, getHiredGuides } = getAllContent();
   const careerGroups = groupCareersByCategory(careers);
-  const conceptGroups = groupConceptsByCategory(concepts);
   // Get Hired has exactly one guide per career category (no sub-items to
   // group), so the nav just needs it in the site's standard category
   // order, same sort app/get-hired/page.tsx already uses.
@@ -88,12 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   .slice(0, NAV_ITEMS_PER_GROUP)
                   .map((c) => ({ id: c.id, type: c.type, slug: c.slug, title: c.title })),
               }))}
-              conceptGroups={conceptGroups.map((g) => ({
-                category: g.category,
-                items: g.items
-                  .slice(0, NAV_ITEMS_PER_GROUP)
-                  .map((c) => ({ id: c.id, type: c.type, slug: c.slug, title: c.title })),
-              }))}
+              stateGuides={STATE_GUIDES.map((g) => ({ slug: g.slug, name: g.name }))}
               getHiredGuides={getHiredOrdered.map((g) => ({
                 id: g.id,
                 type: g.type,
@@ -108,6 +102,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="print:hidden">
             <Footer careerGroups={careerGroups} careerCount={careers.length} />
           </div>
+          {/* Room for the phone/tablet bottom tab bar (components/Header.tsx,
+              MobileTabBar) so the end of the footer never sits under it. */}
+          <div aria-hidden="true" className="h-16 lg:hidden print:hidden" />
         </ClerkProvider>
         <Analytics />
         {gaMeasurementId && (

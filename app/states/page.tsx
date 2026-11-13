@@ -50,7 +50,7 @@ export default function StatesIndexPage() {
       <p className="mt-10 text-sm text-steel">
         Looking for pay in another state now? The{" "}
         <Link href="/student-loan-roi" className="font-semibold text-navy hover:underline">
-          Student Loan ROI page
+          College vs. Trades page
         </Link>{" "}
         covers pay for 21 trades in all 50 states.
       </p>

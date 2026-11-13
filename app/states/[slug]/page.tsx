@@ -452,7 +452,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
           <NextStep href="/quizzes/find-your-career" title="Take the career quiz" body="Find which of these trades fits." />
           <NextStep href="/action-plan" title="Build a Blueprint" body="A day-by-day plan to get started." />
           <NextStep href="/programs" title="Find a program" body="Apprenticeships and training to apply to." />
-          <NextStep href={`/student-loan-roi?state=${g.code}`} title="Student Loan ROI" body="College vs. the trades, debt included." />
+          <NextStep href={`/student-loan-roi?state=${g.code}`} title="College vs. Trades" body="Pay in every state and student loans, side by side." />
         </div>
       </section>
 

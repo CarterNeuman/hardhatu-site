@@ -4,7 +4,7 @@ import { PayByState } from "@/components/PayByState";
 import { STATE_GUIDES } from "@/lib/state-guides";
 
 export const metadata: Metadata = {
-  title: "Trade Pay by State and Student Loan ROI: College vs. the Trades",
+  title: "College vs. Trades: Pay by State and Student Loans",
   description:
     "Pay for 21 construction trades in every state at the start, 5, 10 and 20 years in, compared with common college careers. Plus an honest student loan calculator with raises, inflation and career changes built in.",
 };
@@ -18,7 +18,7 @@ export default function StudentLoanRoiPage() {
     <div className="mx-auto max-w-5xl px-6 py-10">
       <p className="mb-2 flex items-center gap-2.5 text-xs font-semibold uppercase tracking-wide text-amber">
         <span aria-hidden="true" className="h-px w-5 bg-amber" />
-        Resources · Money
+        College vs. Trades
       </p>
       <h1 className="font-display text-4xl font-bold text-ink sm:text-5xl">College or the trades? Run the numbers.</h1>
       <p className="mt-3 max-w-3xl text-lg leading-relaxed text-steel">
