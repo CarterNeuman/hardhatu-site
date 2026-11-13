@@ -6,10 +6,43 @@ import { STATE_GUIDES } from "@/lib/state-guides";
 //    that covers it.
 //  - On a program page (programSlug): the trades in each guide whose local
 //    ways in include this kind of program.
+//  - On a category page like Get Hired (category): every guide that covers
+//    careers in that category ("Field & Trades" today).
 // Renders nothing when no guide covers the career or program, so it can be
 // dropped onto any page without a check.
 
-export function StateGuideLinks({ careerSlug, programSlug }: { careerSlug?: string; programSlug?: string }) {
+// The categories the state guides cover. Every guide trade is a Field &
+// Trades career today; widen this when a guide adds other categories.
+const GUIDE_CATEGORIES = ["Field & Trades"];
+
+export function StateGuideLinks({
+  careerSlug,
+  programSlug,
+  category,
+}: {
+  careerSlug?: string;
+  programSlug?: string;
+  category?: string;
+}) {
+  if (category) {
+    if (!GUIDE_CATEGORIES.includes(category) || STATE_GUIDES.length === 0) return null;
+    return (
+      <div className="mt-8 rounded-md bg-[#1B5E3B] p-1 text-white">
+        <div className="rounded border-2 border-white/80 px-4 py-3.5">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80">Local field guide</p>
+          {STATE_GUIDES.map((g) => (
+            <p key={g.slug} className="mt-1.5 text-sm leading-snug">
+              <span className="font-semibold">Looking for work in {g.name}?</span> Local pay, licensing rules and the real
+              apprenticeships near you for {g.trades.length} trades.{" "}
+              <Link href={`/states/${g.slug}`} className="font-semibold text-[#F2C200] hover:underline">
+                Open the {g.name} guide →
+              </Link>
+            </p>
+          ))}
+        </div>
+      </div>
+    );
+  }
   const hits = STATE_GUIDES.map((g) => ({
     g,
     trades: g.trades.filter((t) =>

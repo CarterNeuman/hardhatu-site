@@ -6,6 +6,7 @@
 // purpose, per the build-sequencing decision to ship the generator itself
 // before any accounts/database/payments work starts.
 import type { ActionPlan, GetHired, ResumeGuide } from "./types";
+import { matchStateGuide, type StateGuideRef } from "./state-match";
 
 // Minimal shapes, not the full Lesson/Career content types -- the
 // component feeding this only has (and only needs to ship to the
@@ -189,6 +190,8 @@ export type GeneratedPlan = {
   targetEmployerTypes: string[];
   whereToLook: string[];
   jobBoardLinks: { label: string; href: string }[];
+  // The state field guide matching the visitor's location, if any.
+  stateGuide?: { name: string; href: string; coversCareer: boolean };
   recruiterOutreach: {
     tips: string[];
     emailTemplate: string;
@@ -665,6 +668,7 @@ export function buildActionPlan({
   examsForCareer = [],
   categoryExams = [],
   linkRefs = {},
+  stateGuides = [],
   career,
   intake,
   startDate = new Date(),
@@ -717,6 +721,9 @@ export function buildActionPlan({
   // names (see ActionPlanSchema), resolved once on the server so the
   // browser never needs the full content set.
   linkRefs?: Record<string, PlanResource>;
+  // State field guides; the one matching the visitor's location (if any)
+  // becomes an early step and a link in "Where to find openings".
+  stateGuides?: StateGuideRef[];
   career?: CareerRef;
   intake: ActionPlanIntake;
   startDate?: Date;
@@ -932,6 +939,36 @@ export function buildActionPlan({
     });
   }
 
+  // Looking for work in a state with a field guide: an early step that
+  // sends them to it, deep-linked to their trade when the guide covers
+  // it. Local licensing rules and the actual apprenticeships near them
+  // change what the rest of the plan means, so it lands on day 2, right
+  // after the career page.
+  const matchedGuide = matchStateGuide(intake.location, stateGuides);
+  const guideCoversCareer = Boolean(matchedGuide && career && matchedGuide.tradeSlugs.includes(career.slug));
+  const stateGuide =
+    matchedGuide && (guideCoversCareer || matchedGuide.categories.includes(skeleton.category)) ? matchedGuide : undefined;
+  const stateGuideHref = stateGuide
+    ? `/states/${stateGuide.slug}${guideCoversCareer && career ? `#${career.slug}` : ""}`
+    : undefined;
+  if (stateGuide && stateGuideHref) {
+    const guideDay = Math.min(totalDays, 2);
+    rawDays.push({
+      keyBase: `state-guide:${stateGuide.slug}`,
+      dayStart: guideDay,
+      dayEnd: guideDay,
+      kind: "guide",
+      href: stateGuideHref,
+      title: guideCoversCareer
+        ? `Read the ${stateGuide.name} guide for ${trade}`
+        : `Read the ${stateGuide.name} construction careers guide`,
+      detail: guideCoversCareer
+        ? `Local pay in ${stateGuide.name}, whether the state requires a license and how to earn it, and the real apprenticeships and free training near you.`
+        : `Local pay, state licensing rules, apprenticeships and free training for the construction trades in ${stateGuide.name}.`,
+      resources: [{ label: `${stateGuide.name} field guide`, href: stateGuideHref, kind: "guide" }],
+    });
+  }
+
   // A real program to look into, as a dated step rather than a link in
   // a side list -- for most trades the apprenticeship application IS the
   // job application, so it belongs on the calendar next to "build your
@@ -1048,6 +1085,7 @@ export function buildActionPlan({
     targetEmployerTypes: skeleton.targetEmployerTypes,
     whereToLook: getHiredGuide?.whereToLook ?? [],
     jobBoardLinks: skeleton.jobBoardsUseful ? buildJobBoardLinks(trade, intake.location) : [],
+    stateGuide: stateGuide && stateGuideHref ? { name: stateGuide.name, href: stateGuideHref, coversCareer: guideCoversCareer } : undefined,
     recruiterOutreach: {
       tips: skeleton.recruiterOutreach.tips,
       emailTemplate: fillTemplate(skeleton.recruiterOutreach.emailTemplate, tokens),

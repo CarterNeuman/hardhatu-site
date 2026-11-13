@@ -1,3 +1,4 @@
+import { STATE_GUIDES } from "@/lib/state-guides";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getAllContent, getBySlug } from "@/lib/content";
@@ -68,6 +69,7 @@ export default async function QuizPage({
       <p className="mt-3 text-lg leading-relaxed text-ink">{quiz.tagline}</p>
 
       <CareerMatchQuiz
+        stateGuides={STATE_GUIDES.map((g) => ({ slug: g.slug, name: g.name, tradeSlugs: g.trades.map((t) => t.slug) }))}
         questions={quiz.questions}
         careersByCategory={careersByCategory}
         lessonsById={lessonsById}

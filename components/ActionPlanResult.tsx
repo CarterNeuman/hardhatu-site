@@ -348,13 +348,13 @@ export function ActionPlanResult({
     for (const g of plan.goFurther) hrefs.add(g.href);
     for (const s of plan.software) hrefs.add(s.href);
     for (const e of plan.exams) hrefs.add(e.href);
-    for (const h of [plan.resumeGuideHref, plan.interviewPrepHref, plan.getHiredHref, plan.careerHref]) if (h) hrefs.add(h);
+    for (const h of [plan.resumeGuideHref, plan.interviewPrepHref, plan.getHiredHref, plan.careerHref, plan.stateGuide?.href]) if (h) hrefs.add(h);
     return hrefs.size;
   }, [plan]);
 
   const trade = plan.careerTitle ?? plan.category;
   const hasOpenings =
-    plan.targetEmployerTypes.length > 0 || plan.whereToLook.length > 0 || plan.jobBoardLinks.length > 0;
+    plan.targetEmployerTypes.length > 0 || plan.whereToLook.length > 0 || plan.jobBoardLinks.length > 0 || Boolean(plan.stateGuide);
   const needCount = plan.qualifications.filter((q) => !q.have).length;
 
   const actionButton =
@@ -412,7 +412,7 @@ export function ActionPlanResult({
         ) : (
           <StatTile
             label="To line up"
-            value={plan.qualifications.length > 0 ? String(needCount) : "—"}
+            value={plan.qualifications.length > 0 ? String(needCount) : "0"}
             note={plan.qualifications.length > 0 ? "Credentials still to get ready" : "Pick a specific career to see pay"}
           />
         )}
@@ -654,6 +654,7 @@ export function ActionPlanResult({
 
             <ToolkitGroup title="Guides">
               {plan.careerHref && <ToolkitLink href={plan.careerHref} kind="career" title={`${trade} career page`} />}
+              {plan.stateGuide && <ToolkitLink href={plan.stateGuide.href} kind="guide" title={`${plan.stateGuide.name} field guide`} />}
               {plan.getHiredHref && <ToolkitLink href={plan.getHiredHref} kind="guide" title={`${plan.category} Get Hired guide`} />}
               {plan.resumeGuideHref && <ToolkitLink href={plan.resumeGuideHref} kind="guide" title="Resume Guide" />}
               {plan.interviewPrepHref && <ToolkitLink href={plan.interviewPrepHref} kind="guide" title="Interview Prep" />}
@@ -807,11 +808,23 @@ export function ActionPlanResult({
                     ? `${plan.targetEmployerTypes.length} employer type${plan.targetEmployerTypes.length === 1 ? "" : "s"}`
                     : "",
                   plan.jobBoardLinks.length > 0 && location.trim() ? "live openings near you" : "",
+                  plan.stateGuide ? `${plan.stateGuide.name} guide` : "",
                 ]
                   .filter(Boolean)
                   .join(" · ") || undefined
               }
             >
+              {plan.stateGuide && (
+                <p className="mb-4 border-l-4 border-[#1B5E3B] bg-[#1B5E3B]/5 px-4 py-3 text-sm leading-relaxed text-ink">
+                  <span className="font-semibold">Looking in {plan.stateGuide.name}?</span>{" "}
+                  {plan.stateGuide.coversCareer
+                    ? `The ${plan.stateGuide.name} field guide names the local apprenticeships, free training and licensing rules for ${trade}.`
+                    : `The ${plan.stateGuide.name} field guide names local apprenticeships, free training and licensing rules for the construction trades.`}{" "}
+                  <a href={plan.stateGuide.href} className="font-semibold text-[#1B5E3B] hover:underline">
+                    Open the guide →
+                  </a>
+                </p>
+              )}
               {plan.targetEmployerTypes.length > 0 && (
                 <>
                   <AccordionSubLabel>Companies worth targeting</AccordionSubLabel>

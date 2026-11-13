@@ -233,7 +233,7 @@ export function ActionPlanForm({
           </fieldset>
         </Step>
 
-        <Step n="04" title="Where are you looking?" hint="Used for your outreach templates and job-board searches.">
+        <Step n="04" title="Where are you looking?" hint="Used for your outreach templates, job-board searches and, where we have one, your state’s local career guide.">
           <label htmlFor="ap-location" className="sr-only">
             Location
           </label>

@@ -78,6 +78,7 @@ export function generateActionPlan(
     examsForCareer: car ? data.examsByCareerId[car] ?? [] : [],
     categoryExams: data.categoryExams,
     linkRefs: data.linkRefs,
+    stateGuides: data.stateGuides ?? [],
     career,
     intake,
     ...(startDate ? { startDate } : {}),

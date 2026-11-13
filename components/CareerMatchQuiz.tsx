@@ -206,11 +206,15 @@ function TrailStop({
 }
 
 export function CareerMatchQuiz({
+  stateGuides = [],
   questions,
   careersByCategory,
   lessonsById,
   category,
 }: {
+  // Slim index of the state field guides (passed from the server page),
+  // so a result in a covered trade can link to its local guide.
+  stateGuides?: { slug: string; name: string; tradeSlugs: string[] }[];
   questions: QuizQuestion[];
   careersByCategory: Record<string, QuizCareer[]>;
   lessonsById: Record<string, QuizLesson>;
@@ -690,6 +694,17 @@ export function CareerMatchQuiz({
                 Retake
               </button>
             </div>
+            {topMatch &&
+              stateGuides
+                .filter((g) => g.tradeSlugs.includes(topMatch.slug))
+                .map((g) => (
+                  <p key={g.slug} className="mx-auto mt-5 max-w-[48ch] text-sm text-steel">
+                    Live in {g.name}?{" "}
+                    <Link href={`/states/${g.slug}#${topMatch.slug}`} className="font-semibold hover:underline" style={{ color: accent }}>
+                      See {topMatch.title} pay, licensing and local training in {g.name} &rarr;
+                    </Link>
+                  </p>
+                ))}
             {!category && CATEGORY_QUIZ_SLUG[result] && (
               <div
                 className="mx-auto mt-6 flex max-w-[46ch] flex-col items-center gap-2 rounded-2xl border-2 px-5 py-4"

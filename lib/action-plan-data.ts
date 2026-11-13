@@ -12,6 +12,8 @@ import { ORDERED_LESSON_SLUGS } from "@/lib/lesson-order";
 import { ACTION_PLAN_LINK_TOKENS, CAREER_CATEGORY_ORDER } from "@/lib/types";
 import type { ActionPlan, AnyContent, GetHired, ResumeGuide } from "@/lib/types";
 import type { ExamRef, PlanResource, ResourceKind } from "@/lib/action-plan-generator";
+import { STATE_GUIDES } from "@/lib/state-guides";
+import type { StateGuideRef } from "@/lib/state-match";
 
 export type SlimCareer = {
   id: string;
@@ -83,6 +85,10 @@ export type CategoryData = {
   // names in a step's `links` (see ActionPlanSchema), resolved here so
   // the browser never needs the full content set to render a link.
   linkRefs: Record<string, PlanResource>;
+  // The state field guides, slimmed to what location matching needs. A
+  // plan whose "Where are you looking?" answer lands in one of these
+  // states gets a step pointing at that guide (see buildActionPlan).
+  stateGuides: StateGuideRef[];
 };
 
 function resourceKindFor(node: AnyContent): ResourceKind {
@@ -105,6 +111,15 @@ function resourceKindFor(node: AnyContent): ResourceKind {
 }
 
 export function buildActionPlanDataByCategory(): Record<string, CategoryData> {
+  const stateGuides: StateGuideRef[] = STATE_GUIDES.map((g) => ({
+    code: g.code,
+    slug: g.slug,
+    name: g.name,
+    tradeSlugs: g.trades.map((t) => t.slug),
+    categories: ["Field & Trades"],
+    zip3: g.locationHints.zip3,
+    cities: g.locationHints.cities,
+  }));
   const { careers, getHiredGuides, resumes, lessons, concepts, software, interviews, exams, actionPlans, byId } =
     getAllContent();
 
@@ -351,6 +366,7 @@ export function buildActionPlanDataByCategory(): Record<string, CategoryData> {
       examsByCareerId,
       categoryExams,
       linkRefs,
+      stateGuides,
     };
   }
 

@@ -15,6 +15,7 @@ import { JobHuntRail } from "@/components/JobHuntRail";
 import { ProgramsBox } from "@/components/ProgramsBox";
 import { HomeReveal } from "@/components/HomeReveal";
 import { ChecklistLadder } from "@/components/ChecklistLadder";
+import { StateGuideLinks } from "@/components/StateGuideLinks";
 
 export function generateStaticParams() {
   const { getHiredGuides } = getAllContent();
@@ -180,6 +181,7 @@ export default async function GetHiredPage({
           Blueprint) -- see JobHuntRail. The header's Resume Guide button
           above stays as the quick jump; this is the full handoff once
           someone has actually read the guide. */}
+      {!guide.comingSoon && <StateGuideLinks category={guide.category} />}
       {!guide.comingSoon && <ProgramsBox id={guide.id} heading="Programs that get you in the door" />}
       <JobHuntRail
         category={guide.id === "gethired-general" ? undefined : guide.category}

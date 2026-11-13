@@ -61,6 +61,10 @@ export type BusinessSection = {
 };
 
 export type StateGuide = {
+  // For matching a free-text location to this guide (the Action Plan's
+  // "Where are you looking?" box): ZIP code prefixes as inclusive ranges
+  // of the first three digits, and city names that only mean this state.
+  locationHints: { zip3: [number, number][]; cities: string[] };
   // Practice exams on BreakGroundU that don't fit this state's rules (e.g.
   // a journeyman electrician exam in a state with no journeyman license),
   // left out of the trade panels' "keep going" links.
@@ -125,6 +129,14 @@ const CONSTRUCTION_READY: TrainingOption = {
 };
 
 export const GEORGIA: StateGuide = {
+  // Georgia ZIP codes run 300xx-319xx plus 398xx-399xx.
+  locationHints: {
+    zip3: [
+      [300, 319],
+      [398, 399],
+    ],
+    cities: ["Atlanta", "Savannah", "Macon", "Valdosta", "Warner Robins", "Alpharetta"],
+  },
   excludeExams: ["exam-journeyman-electrician"],
   slug: "georgia",
   code: "GA",
