@@ -846,14 +846,37 @@ export function CareerMatchQuiz({
         ))}
       </div>
 
+      {/* Every question is stacked in the same grid cell: invisible
+          copies of all of them set the height, so the card is always as
+          tall as the longest question and the page below never jumps. */}
+      <div className="mt-4 grid">
+        {questions.map((q, i) => (
+          <div
+            key={`sizer-${i}`}
+            aria-hidden="true"
+            className="invisible rounded-[20px] px-6 py-9 [grid-area:1/1] sm:px-10"
+          >
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-semibold">&larr; Back</span>
+            </div>
+            <p className="mt-2 font-display text-2xl font-bold leading-tight sm:text-[28px]">{q.question}</p>
+            <div className="mt-6 flex flex-col gap-3">
+              {q.options.map((o) => (
+                <div key={o.label} className="rounded-2xl border-2 px-5 py-4 text-[15px] leading-snug">
+                  {o.label}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
       <div
         key={step}
-        className="relative mt-4 rounded-[20px] bg-paper px-6 py-9 transition-all duration-300 ease-out sm:px-10"
+        className="relative rounded-[20px] bg-paper px-6 py-9 transition-all duration-300 ease-out [grid-area:1/1] sm:px-10"
         style={panelExitStyle}
       >
         <div className="flex items-center justify-between">
           <span className="sr-only">Quiz question</span>
-          {step > 0 && (
+          {step > 0 ? (
             <button
               type="button"
               onClick={goBack}
@@ -861,6 +884,8 @@ export function CareerMatchQuiz({
             >
               &larr; Back
             </button>
+          ) : (
+            <span aria-hidden="true" className="invisible text-xs font-semibold">&larr; Back</span>
           )}
         </div>
         <p className="mt-2 font-display text-2xl font-bold leading-tight text-ink sm:text-[28px]">
@@ -890,6 +915,7 @@ export function CareerMatchQuiz({
             );
           })}
         </div>
+      </div>
       </div>
     </div>
   );
