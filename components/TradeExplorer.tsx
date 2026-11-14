@@ -56,9 +56,8 @@ function fitScore(t: StateTrade, a: Answers) {
   return score;
 }
 
-// The first FEATURED trades (the biggest employers) get full exit signs; the
-// rest sit below as smaller signs so 25 trades still fit on a phone screen.
-const FEATURED = 8;
+// Every trade is an exit sign, numbered in guide order (biggest employers
+// first, then A to Z). Signs are kept short so 25 still fit on one screen.
 
 export function TradeExplorer({ trades, stateName }: { trades: TradeView[]; stateName: string }) {
   const [active, setActive] = useState(trades[0].slug);
@@ -137,8 +136,8 @@ export function TradeExplorer({ trades, stateName }: { trades: TradeView[]; stat
 
       {/* Exit signs: the trade picker */}
       <div role="tablist" aria-label="Choose a trade" className="print:hidden">
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {trades.slice(0, FEATURED).map((t, i) => {
+        <div className="grid grid-cols-2 gap-x-3 gap-y-4 sm:grid-cols-3 lg:grid-cols-4">
+          {trades.map((t, i) => {
             const on = t.slug === active;
             const match = isMatch(i);
             const dim = answered && !match;
@@ -151,7 +150,7 @@ export function TradeExplorer({ trades, stateName }: { trades: TradeView[]; stat
                 aria-selected={on}
                 aria-controls={`panel-${t.slug}`}
                 onClick={() => choose(t.slug)}
-                className={`group relative rounded-md bg-[#1B5E3B] px-3 pb-3 pt-6 text-left text-white shadow-sm outline-none transition focus-visible:ring-4 focus-visible:ring-[#F2C200] ${
+                className={`group relative flex flex-col justify-start rounded-md bg-[#1B5E3B] px-3 pb-2 pt-4 text-left text-white shadow-sm outline-none transition focus-visible:ring-4 focus-visible:ring-[#F2C200] ${
                   on ? "-translate-y-1 ring-4 ring-[#F2C200]" : "hover:-translate-y-0.5"
                 } ${dim ? "opacity-45 hover:opacity-80" : ""}`}
               >
@@ -160,48 +159,17 @@ export function TradeExplorer({ trades, stateName }: { trades: TradeView[]; stat
                 </span>
                 {match && <GoodFit />}
                 <span className="pointer-events-none absolute inset-1 rounded border border-white/70" aria-hidden="true" />
-                <span className="relative block font-display text-[15px] font-bold leading-tight sm:text-base">{t.name}</span>
-                <span className="relative mt-1.5 block text-xs text-white/85">
+                <span className="relative block font-display text-[15px] font-bold leading-tight">{t.name}</span>
+                <span className="relative mt-0.5 block text-[11px] text-white/85">
                   {k(t.pay.five)} typical
-                  {t.outlook ? ` · ${t.outlook.openingsPerYear.toLocaleString("en-US")} openings/yr` : ""}
+                  {t.outlook && (
+                    <span className="hidden sm:inline">{` · ${t.outlook.openingsPerYear.toLocaleString("en-US")} openings/yr`}</span>
+                  )}
                 </span>
               </button>
             );
           })}
         </div>
-        {trades.length > FEATURED && (
-          <>
-            <p className="mb-3 mt-6 text-xs font-semibold uppercase tracking-wide text-steel">
-              {trades.length - FEATURED} more trades, A to Z
-            </p>
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
-              {trades.slice(FEATURED).map((t, j) => {
-                const i = j + FEATURED;
-                const on = t.slug === active;
-                const match = isMatch(i);
-                const dim = answered && !match;
-                return (
-                  <button
-                    key={t.slug}
-                    type="button"
-                    role="tab"
-                    id={`tab-${t.slug}`}
-                    aria-selected={on}
-                    aria-controls={`panel-${t.slug}`}
-                    onClick={() => choose(t.slug)}
-                    className={`relative rounded-md border-2 px-3 py-2 text-left outline-none transition focus-visible:ring-4 focus-visible:ring-[#F2C200] ${
-                      on ? "border-[#1B5E3B] bg-[#1B5E3B] text-white ring-2 ring-[#F2C200]" : "border-[#1B5E3B]/40 bg-white text-ink hover:border-[#1B5E3B]"
-                    } ${dim ? "opacity-45 hover:opacity-80" : ""}`}
-                  >
-                    {match && <GoodFit />}
-                    <span className="block text-sm font-semibold leading-tight">{t.name}</span>
-                    <span className={`mt-0.5 block text-[11px] ${on ? "text-white/85" : "text-steel"}`}>{k(t.pay.five)} typical</span>
-                  </button>
-                );
-              })}
-            </div>
-          </>
-        )}
       </div>
 
       {trades.map((t) => {
