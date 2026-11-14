@@ -9,12 +9,15 @@ const SITE_URL = process.env.SITE_URL || "https://example.com";
 export default function sitemap(): MetadataRoute.Sitemap {
   const { all } = getAllContent();
 
-  const pages = all.map((node) => ({
+  // Action plans are templates the Action Plan builder reads; they have no
+  // page of their own, so listing them would hand search engines 404s.
+  const pages = all.filter((node) => node.type !== "actionplan").map((node) => ({
     url: `${SITE_URL}${urlFor(node)}`,
     lastModified: node.lastReviewed ? new Date(node.lastReviewed) : new Date(),
   }));
 
-  const staticPages = ["/about", "/contact", "/privacy", "/terms", "/student-loan-roi", "/states", "/counselors", "/counselors/parent-handout", "/counselors/poster", ...STATE_GUIDES.map((g) => `/states/${g.slug}`)].map((path) => ({
+  const indexPages = ["/careers", "/concepts", "/phases", "/lessons", "/software", "/get-hired", "/resumes", "/interviews", "/exams", "/programs", "/quizzes", "/action-plan", "/resources"];
+  const staticPages = [...indexPages, "/about", "/contact", "/privacy", "/terms", "/student-loan-roi", "/states", "/counselors", "/counselors/parent-handout", "/counselors/poster", ...STATE_GUIDES.map((g) => `/states/${g.slug}`)].map((path) => ({
     url: `${SITE_URL}${path}`,
     lastModified: new Date(),
   }));

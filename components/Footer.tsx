@@ -52,6 +52,7 @@ export function Footer({
         <div>
           <h3 className="text-xs font-semibold uppercase tracking-wide text-paper/60">Learn</h3>
           <ul className="mt-3 flex flex-col gap-2">
+            <li><Link href="/quizzes" className="text-sm text-paper/90 hover:underline">Career Quiz</Link></li>
             <li><Link href="/concepts" className="text-sm text-paper/90 hover:underline">Concepts</Link></li>
             <li><Link href="/lessons" className="text-sm text-paper/90 hover:underline">Lessons</Link></li>
             <li><Link href="/phases" className="text-sm text-paper/90 hover:underline">Process Phases</Link></li>
@@ -62,6 +63,9 @@ export function Footer({
         <div>
           <h3 className="text-xs font-semibold uppercase tracking-wide text-paper/60">Get Hired</h3>
           <ul className="mt-3 flex flex-col gap-2">
+            <li><Link href="/get-hired" className="text-sm text-paper/90 hover:underline">Get Hired Guides</Link></li>
+            <li><Link href="/action-plan" className="text-sm text-paper/90 hover:underline">Action Plan</Link></li>
+            <li><Link href="/programs" className="text-sm text-paper/90 hover:underline">Find a Program</Link></li>
             <li><Link href="/interviews" className="text-sm text-paper/90 hover:underline">Interview Prep</Link></li>
             <li><Link href="/exams" className="text-sm text-paper/90 hover:underline">Get Qualified</Link></li>
             <li><Link href="/resumes" className="text-sm text-paper/90 hover:underline">Resume Guide</Link></li>
