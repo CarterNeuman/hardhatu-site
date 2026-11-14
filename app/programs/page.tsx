@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllContent } from "@/lib/content";
-import { STATE_GUIDES } from "@/lib/state-guides";
 import { ProgramsDirectory, type SearchableProgram } from "@/components/ProgramsDirectory";
 
 export const metadata: Metadata = {
@@ -52,11 +51,9 @@ export default function ProgramsIndexPage() {
           <span className="font-semibold">Want the local version?</span> State guides name the actual training
           centers, schools and free state programs near you.
         </p>
-        {STATE_GUIDES.map((g) => (
-          <Link key={g.slug} href={`/states/${g.slug}`} className="text-sm font-semibold text-[#1B5E3B] hover:underline">
-            {g.name} guide →
-          </Link>
-        ))}
+        <Link href="/states" className="text-sm font-semibold text-[#1B5E3B] hover:underline">
+          Find your state&rsquo;s guide →
+        </Link>
       </div>
 
       <ProgramsDirectory programs={enriched} />
