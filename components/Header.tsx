@@ -291,6 +291,7 @@ function buildColumns({
       links: [
         { href: "/my-progress", label: "My Progress", signedIn: true },
         { href: "/action-plan/my-plans", label: "Your saved plans", signedIn: true },
+        { href: "/counselors", label: "For counselors & teachers", note: "Classroom-ready tools" },
         { href: "/resources", label: "All resources", note: "Everything on one board" },
         { href: "/about", label: "About BreakGroundU" },
         { href: "/contact", label: "Contact" },

@@ -89,6 +89,15 @@ export default function ResourcesIndexPage() {
       pin: "amber",
       rotate: "1.2deg",
     },
+    {
+      href: "/counselors",
+      kind: "lesson",
+      title: "For Counselors & Teachers",
+      description: "A Georgia CTAE pathway map, a 45-minute class session, and printable handouts.",
+      count: "Classroom-ready",
+      pin: "clay",
+      rotate: "-1.4deg",
+    },
   ];
 
   return (

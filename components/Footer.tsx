@@ -67,6 +67,7 @@ export function Footer({
             <li><Link href="/resumes" className="text-sm text-paper/90 hover:underline">Resume Guide</Link></li>
             <li><Link href="/student-loan-roi" className="text-sm text-paper/90 hover:underline">College vs. Trades</Link></li>
             <li><Link href="/states" className="text-sm text-paper/90 hover:underline">Careers by State</Link></li>
+            <li><Link href="/counselors" className="text-sm text-paper/90 hover:underline">For Counselors &amp; Teachers</Link></li>
             <li><Link href="/resources" className="text-sm font-semibold text-paper hover:underline">All resources →</Link></li>
           </ul>
         </div>

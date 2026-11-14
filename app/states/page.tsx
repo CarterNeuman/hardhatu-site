@@ -52,7 +52,11 @@ export default function StatesIndexPage() {
         <Link href="/student-loan-roi" className="font-semibold text-navy hover:underline">
           College vs. Trades page
         </Link>{" "}
-        covers pay for 21 trades in all 50 states.
+        covers pay for 21 trades in all 50 states. Counselors and teachers: see{" "}
+        <Link href="/counselors" className="font-semibold text-navy hover:underline">
+          classroom-ready tools
+        </Link>
+        .
       </p>
     </div>
   );

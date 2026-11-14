@@ -14,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: node.lastReviewed ? new Date(node.lastReviewed) : new Date(),
   }));
 
-  const staticPages = ["/about", "/contact", "/privacy", "/terms", "/student-loan-roi", "/states", ...STATE_GUIDES.map((g) => `/states/${g.slug}`)].map((path) => ({
+  const staticPages = ["/about", "/contact", "/privacy", "/terms", "/student-loan-roi", "/states", "/counselors", "/counselors/parent-handout", "/counselors/poster", ...STATE_GUIDES.map((g) => `/states/${g.slug}`)].map((path) => ({
     url: `${SITE_URL}${path}`,
     lastModified: new Date(),
   }));
