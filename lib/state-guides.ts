@@ -9,6 +9,9 @@
 // describe what the state agency requires per its own rules or forms, and
 // always link the agency. Never imply a rule is nationwide.
 
+import { FLORIDA } from "@/lib/states/florida";
+import { ALABAMA } from "@/lib/states/alabama";
+
 export type SourceRef = { label: string; url: string };
 
 export type LicenseStep = {
@@ -77,6 +80,8 @@ export type StateGuide = {
   outlookSource: SourceRef;
   intro: string;
   quickTakeaways: string[];
+  // Fourth marker in the hero strip: the state's headline free-training fact.
+  costMarker: { label: string; value: string; note: string };
   licensingOverview: string;
   overtimeNote: string;
   overtimeSource: SourceRef;
@@ -157,6 +162,7 @@ export const GEORGIA: StateGuide = {
     "Paid, registered apprenticeships run in Georgia for most trades on this page. In the rest, people usually learn on the job. Either way, you earn a paycheck from day one.",
     "Most of these jobs pay hourly with overtime on top, and many tradespeople later start their own business. That can pay well, but most new businesses don't last 10 years.",
   ],
+  costMarker: { label: "Tech college tuition", value: "$0", note: "Construction and welding, for HOPE-eligible students" },
   licensingOverview:
     "Georgia licenses electrical, plumbing and conditioned air (HVAC) work through the Construction Industry Licensing Board, and residential and general contractors through a separate board that exempts recognized specialty trades like roofing, painting and masonry. Elevator mechanics and fire sprinkler contractors are certified by the Safety Fire Commissioner. Most of these licenses are for people who contract the work themselves. Workers usually start under a licensed company and earn their own license later.",
   overtimeNote:
@@ -1339,8 +1345,25 @@ export const GEORGIA: StateGuide = {
   ],
 };
 
+// PUBLISHED guides: everything on the live site (index, sitemap, nav, quizzes,
+// Action Plan, ROI page, counselor hub) reads STATE_GUIDES, so only these show.
 export const STATE_GUIDES: StateGuide[] = [GEORGIA];
 
+// HIDDEN guides: fully researched, not launched. They don't exist on the live
+// site (404). Set SHOW_HIDDEN_STATES=1 (local dev or a Vercel preview) to
+// render /states/<slug> for review; they stay out of every list and the
+// sitemap and are marked noindex. To launch one, move it into STATE_GUIDES.
+export const HIDDEN_STATE_GUIDES: StateGuide[] = [FLORIDA, ALABAMA];
+
+export const SHOW_HIDDEN_STATES = process.env.SHOW_HIDDEN_STATES === "1";
+
+// Every guide /states/[slug] may render in this build.
+export const RENDERABLE_STATE_GUIDES: StateGuide[] = SHOW_HIDDEN_STATES ? [...STATE_GUIDES, ...HIDDEN_STATE_GUIDES] : STATE_GUIDES;
+
 export function getStateGuide(slug: string): StateGuide | undefined {
-  return STATE_GUIDES.find((g) => g.slug === slug);
+  return RENDERABLE_STATE_GUIDES.find((g) => g.slug === slug);
+}
+
+export function isPublishedStateGuide(slug: string): boolean {
+  return STATE_GUIDES.some((g) => g.slug === slug);
 }

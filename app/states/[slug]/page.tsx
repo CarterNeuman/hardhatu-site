@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { STATE_GUIDES, getStateGuide } from "@/lib/state-guides";
+import { RENDERABLE_STATE_GUIDES, getStateGuide, isPublishedStateGuide } from "@/lib/state-guides";
 import { STATES } from "@/lib/state-pay-data";
 import { lookup, occupation, NATIONAL } from "@/lib/state-pay-lookup";
 import { payAtExperience } from "@/lib/roi-model";
@@ -16,8 +16,12 @@ import type { AnyContent, Career } from "@/lib/types";
 // state data so it always matches /student-loan-roi.
 
 export function generateStaticParams() {
-  return STATE_GUIDES.map((g) => ({ slug: g.slug }));
+  return RENDERABLE_STATE_GUIDES.map((g) => ({ slug: g.slug }));
 }
+
+// Only built guides exist; anything else (including hidden guides on the
+// live site) is a 404.
+export const dynamicParams = false;
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -26,6 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `Construction Careers in ${g.name}: Pay, Licensing and Ways In`,
     description: `A ${g.name} field guide to ${g.trades.length} construction trades: local pay at every stage, state licensing rules, apprenticeships, free technical college options and high school pathways. Sourced and dated.`,
+    ...(isPublishedStateGuide(g.slug) ? {} : { robots: { index: false, follow: false } }),
   };
 }
 
@@ -174,7 +179,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
         <Marker label={`Jobs in these ${g.trades.length} trades`} value={`${Math.round(totalJobs / 1000)}k`} note={`State estimate, ${g.outlookPeriod.slice(0, 4)}`} />
         <Marker label="Openings a year" value={totalOpenings.toLocaleString("en-US")} note={`Projected, ${g.outlookPeriod}`} />
         <Marker label="Need a state trade license" value={`${licensed} of ${g.trades.length}`} note="Earned through work and exams" />
-        <Marker label="Tech college tuition" value="$0" note="Construction and welding, for HOPE-eligible students" />
+        <Marker label={g.costMarker.label} value={g.costMarker.value} note={g.costMarker.note} />
       </dl>
 
       {/* Exit row: jump links */}
@@ -266,7 +271,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
                       {t.name}
                     </Link>
                     {t.usesNational && (
-                      <span className="text-steel" title="U.S. figures: BLS publishes no Georgia estimate">
+                      <span className="text-steel" title={`U.S. figures: BLS publishes no ${g.name} estimate`}>
                         *
                       </span>
                     )}
