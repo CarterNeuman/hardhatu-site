@@ -150,9 +150,9 @@ export function TradeExplorer({ trades, stateName }: { trades: TradeView[]; stat
                 aria-selected={on}
                 aria-controls={`panel-${t.slug}`}
                 onClick={() => choose(t.slug)}
-                className={`group relative flex flex-col justify-start rounded-md bg-[#1B5E3B] px-3 pb-2 pt-4 text-left text-white shadow-sm outline-none transition focus-visible:ring-4 focus-visible:ring-[#F2C200] ${
+                className={`group relative flex flex-col justify-start rounded-md ${dim ? "bg-[#5F6B66]" : "bg-[#1B5E3B]"} px-3 pb-2 pt-4 text-left text-white shadow-sm outline-none transition focus-visible:ring-4 focus-visible:ring-[#F2C200] ${
                   on ? "-translate-y-1 ring-4 ring-[#F2C200]" : "hover:-translate-y-0.5"
-                } ${dim ? "opacity-45 hover:opacity-80" : ""}`}
+                }`}
               >
                 <span className="absolute left-3 top-0 -translate-y-1/2 rounded-sm bg-[#F2C200] px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-ink">
                   Exit {i + 1}

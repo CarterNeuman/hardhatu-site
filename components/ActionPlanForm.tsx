@@ -30,7 +30,7 @@ const TIMELINE_PRESETS: { value: number; label: string }[] = [
 ];
 
 const INPUT =
-  "mt-2 block w-full border border-steel/40 bg-white/80 px-3.5 py-2.5 text-base text-ink placeholder:text-steel/70 focus:border-navy focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-navy";
+  "mt-2 block w-full border border-steel/40 bg-white/80 px-3.5 py-2.5 text-base text-ink placeholder:text-steel focus:border-navy focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-navy";
 
 // "OSHA 10-Hour Construction" -> "OSHA 10", "PMP (Project Management
 // Professional)" -> "PMP": the short name someone would actually type.

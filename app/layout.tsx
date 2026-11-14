@@ -70,6 +70,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="font-sans">
+        {/* First thing a keyboard user reaches: jumps past the header menus. */}
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-paper"
+        >
+          Skip to main content
+        </a>
         {/* ClerkProvider wraps everything inside <body> rather than <html>
             itself -- Clerk's Core 3 release (2026-03-03) requires this. */}
         <ClerkProvider afterSignOutUrl="/">
@@ -98,7 +105,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               conceptCount={concepts.length}
             />
           </div>
-          <main>{children}</main>
+          <main id="main" tabIndex={-1} className="outline-none">{children}</main>
           <div className="print:hidden">
             <Footer careerGroups={careerGroups} careerCount={careers.length} />
           </div>

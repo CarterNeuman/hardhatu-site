@@ -76,7 +76,7 @@ export function ActionPlanLoading({
                     ? "text-sm text-steel"
                     : active
                       ? "text-sm font-semibold text-ink"
-                      : "text-sm text-steel/50"
+                      : "text-sm text-steel"
                 }
               >
                 {step}
