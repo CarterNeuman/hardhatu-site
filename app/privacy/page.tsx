@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const CONTACT_EMAIL = "contact@breakgroundu.com";
-const LAST_UPDATED = "November 10, 2026";
+const LAST_UPDATED = "November 14, 2026";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -80,14 +80,48 @@ export default function PrivacyPage() {
               signed in when you reach the result screen: which career category you matched with
               and which specific careers the quiz surfaced for you.
             </li>
+            <li>
+              <span className="font-semibold">Action Plans you save</span>: the career you chose,
+              whether you're applying now or still exploring, the location you typed in (a city,
+              state or ZIP code), the hours per week and timeline you picked, any certifications
+              you said you already hold, and which plan steps you've checked off.
+            </li>
           </ul>
           <p className="mt-3">
-            Neither of these is shared outside BreakGroundU tied to your identity. We do review
-            this data in aggregate, anonymized form (for example, how many people completed a
-            given lesson, or how quiz results are distributed across career categories) to decide
-            what content to build next, and, potentially, to describe our audience in general
-            terms to prospective partners or advertisers. That aggregate review never identifies
-            an individual visitor, and we do not sell personal information.
+            None of this is shared outside BreakGroundU tied to your identity. We do review this
+            data in aggregate, anonymized form (for example, how many people completed a given
+            lesson, how quiz results are distributed across career categories, or which states
+            people are planning job searches in) to decide what content to build next and,
+            potentially, to describe our audience in general terms to partners such as schools,
+            training programs and employers. That aggregate review never identifies an individual
+            visitor.
+          </p>
+          <p className="mt-3">
+            <span className="font-semibold">We do not sell personal information</span>, and we do
+            not share it with anyone for targeted or behavioral advertising. BreakGroundU does not
+            run ads.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="font-display text-2xl font-bold text-ink">
+            Information stored in your browser
+          </h2>
+          <p className="mt-3">
+            A few features remember small things in your own browser (using its local or session
+            storage) rather than on our servers: for example, that you already dismissed a sign-in
+            prompt, how long a lesson preview has been open, an unsaved quiz result while you sign
+            in, or that you have already seen an intro animation. This stays on your device and
+            you can clear it at any time through your browser's settings.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="font-display text-2xl font-bold text-ink">Searches you run</h2>
+          <p className="mt-3">
+            If you look for live job openings from an Action Plan, the trade and location you
+            searched for are sent from our server to our job-listing provider (Adzuna) to fetch
+            results. Your name, email and account are not sent with that search.
           </p>
         </section>
 
@@ -115,6 +149,11 @@ export default function PrivacyPage() {
             information. Vercel Analytics runs without setting tracking cookies. Google Analytics
             does set cookies, described below. Neither tool is used to identify a specific person,
             and this traffic data isn't combined with your account information.
+          </p>
+          <p className="mt-3">
+            Some links to BreakGroundU carry a short tag in the address (for example, a link a
+            school counselor shares). That tag only tells us which school or source a visit came
+            from, so we can report total visits back to them. It never identifies a student.
           </p>
         </section>
 
@@ -166,22 +205,50 @@ export default function PrivacyPage() {
               Analytics.
             </li>
             <li>
-              <span className="font-semibold">Google,</span> provides Google Analytics and, if you
-              choose to use it, Google sign-in.
+              <span className="font-semibold">Google,</span> provides Google Analytics, the web
+              fonts the site loads (which means your browser requests them from Google's servers,
+              sharing your IP address the way any web request does) and, if you choose to use it,
+              Google sign-in.
+            </li>
+            <li>
+              <span className="font-semibold">YouTube,</span> plays the tutorial videos on software
+              pages. Videos load in YouTube's privacy-enhanced mode, which doesn't store viewing
+              information until you press play.
+            </li>
+            <li>
+              <span className="font-semibold">Adzuna,</span> supplies live job listings when you
+              search for openings, as described above.
             </li>
           </ul>
+          <p className="mt-3">
+            These services are based in the United States or operate there, and your information
+            is stored and processed in the United States.
+          </p>
         </section>
 
         <section>
-          <h2 className="font-display text-2xl font-bold text-ink">Data retention and deletion</h2>
+          <h2 className="font-display text-2xl font-bold text-ink">How we protect your information</h2>
           <p className="mt-3">
-            We keep your account, progress, and quiz-result data for as long as your account
-            exists. To delete your account and the data tied to it, email{" "}
+            We collect as little as we need, use established providers for sign-in, hosting and
+            email, keep secret keys on the server only, and limit who can see account data. No
+            website can promise perfect security, but if we ever learn of a breach that affects
+            your personal information, we'll notify you as required by law.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="font-display text-2xl font-bold text-ink">Your choices and rights</h2>
+          <p className="mt-3">
+            We keep your account, progress, quiz-result and Action Plan data for as long as your
+            account exists. You can delete a saved Action Plan yourself at any time. To get a copy
+            of the data tied to your account, correct it, or delete your account entirely, email{" "}
             <a href={`mailto:${CONTACT_EMAIL}`} className={linkClass}>
               {CONTACT_EMAIL}
             </a>{" "}
-            and we'll remove your stored progress and quiz results, remove your email from the
-            mailing list, and delete your account.
+            from the address on your account. For a deletion, we'll remove your stored progress,
+            quiz results and plans, remove your email from the mailing list, and delete your
+            account. We aim to respond within 30 days, and we won't treat you differently for
+            asking.
           </p>
         </section>
 
@@ -198,14 +265,20 @@ export default function PrivacyPage() {
         <section>
           <h2 className="font-display text-2xl font-bold text-ink">Children's privacy</h2>
           <p className="mt-3">
-            BreakGroundU is written with high schoolers and other newcomers to the industry in
-            mind. Account sign-in doesn't currently ask for or verify age. If you believe a child
-            has created an account or provided information without appropriate consent, contact us
-            at{" "}
+            BreakGroundU is written for high school students, career changers, and the parents,
+            counselors and teachers who help them. It is not directed to children under 13, and
+            you must be at least 13 to create an account. We don't knowingly collect personal
+            information from children under 13. If we learn that we have, we'll delete it
+            promptly. If you believe a child under 13 has created an account, contact us at{" "}
             <a href={`mailto:${CONTACT_EMAIL}`} className={linkClass}>
               {CONTACT_EMAIL}
             </a>{" "}
             and we'll remove it.
+          </p>
+          <p className="mt-3">
+            If you're under 18, please review this policy with a parent or guardian before
+            creating an account. A parent or guardian can also ask us to delete a teen's account
+            and data by emailing the address above.
           </p>
         </section>
 

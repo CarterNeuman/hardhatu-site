@@ -611,6 +611,12 @@ export function CareerMatchQuiz({
                 </button>
               </SignInButton>
             </div>
+            <p className="mx-auto mt-4 max-w-[46ch] text-xs leading-relaxed text-steel">
+              By signing in you agree to our{" "}
+              <a href="/terms" className="underline hover:text-ink">Terms</a> and{" "}
+              <a href="/privacy" className="underline hover:text-ink">Privacy Policy</a>. New accounts get our occasional
+              newsletter; unsubscribe anytime.
+            </p>
           </div>
         </div>
       );

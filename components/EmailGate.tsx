@@ -193,18 +193,21 @@ export function EmailGate({
                 Sign In
               </button>
             </SignInButton>
+            <p className="mt-3 text-center text-xs leading-relaxed text-steel">
+              By signing in you agree to our{" "}
+              <a href="/terms" className="underline hover:text-ink">Terms</a> and{" "}
+              <a href="/privacy" className="underline hover:text-ink">Privacy Policy</a>. New accounts get our occasional
+              newsletter; unsubscribe anytime.
+            </p>
 
             {allowGuest && (
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  dismiss();
-                }}
-                className="mt-3 block text-center text-xs text-steel hover:underline"
+              <button
+                type="button"
+                onClick={dismiss}
+                className="mt-3 block w-full text-center text-xs text-steel hover:underline"
               >
                 No thanks, keep reading
-              </a>
+              </button>
             )}
           </div>
         </div>

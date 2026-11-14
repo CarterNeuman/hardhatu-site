@@ -84,6 +84,7 @@ export function Footer({
             <li><Link href="/contact" className="text-xs text-paper/70 hover:text-paper hover:underline">Contact</Link></li>
             <li><Link href="/privacy" className="text-xs text-paper/70 hover:text-paper hover:underline">Privacy Policy</Link></li>
             <li><Link href="/terms" className="text-xs text-paper/70 hover:text-paper hover:underline">Terms of Service</Link></li>
+            <li><Link href="/accessibility" className="text-xs text-paper/70 hover:text-paper hover:underline">Accessibility</Link></li>
           </ul>
         </div>
       </div>

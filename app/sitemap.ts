@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const indexPages = ["/careers", "/concepts", "/phases", "/lessons", "/software", "/get-hired", "/resumes", "/interviews", "/exams", "/programs", "/quizzes", "/action-plan", "/resources"];
-  const staticPages = [...indexPages, "/about", "/contact", "/privacy", "/terms", "/student-loan-roi", "/states", "/counselors", "/counselors/parent-handout", "/counselors/poster", ...STATE_GUIDES.map((g) => `/states/${g.slug}`)].map((path) => ({
+  const staticPages = [...indexPages, "/about", "/contact", "/privacy", "/terms", "/accessibility", "/student-loan-roi", "/states", "/counselors", "/counselors/parent-handout", "/counselors/poster", ...STATE_GUIDES.map((g) => `/states/${g.slug}`)].map((path) => ({
     url: `${SITE_URL}${path}`,
     lastModified: new Date(),
   }));

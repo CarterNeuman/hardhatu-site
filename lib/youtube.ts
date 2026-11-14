@@ -1,5 +1,6 @@
 // Turns a plain YouTube URL (watch, youtu.be, shorts, or an already-embed
-// link) into a youtube.com/embed/<id> URL suitable for an <iframe src>.
+// link) into a privacy-enhanced youtube-nocookie.com/embed/<id> URL for an
+// <iframe src>: YouTube stores no viewing info until the visitor presses play.
 // Returns null for anything that isn't recognizably a YouTube link, so the
 // caller can fall back to a plain text link instead of embedding nothing.
 export function getYouTubeEmbedUrl(url: string): string | null {
@@ -30,5 +31,5 @@ export function getYouTubeEmbedUrl(url: string): string | null {
     videoId = videoId.split("/")[0].split("?")[0];
   }
 
-  return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
+  return videoId ? `https://www.youtube-nocookie.com/embed/${videoId}` : null;
 }

@@ -122,7 +122,9 @@ export function LiveJobResults({
           {visibleListings.map((listing) => {
             const postedLabel = formatPostedRelative(listing.postedAt);
             const payComparison = compareToEntryPay(listing, entryPay);
-            const payBadge = payComparison ? PAY_BADGE[payComparison] : null;
+            // Adzuna's API terms require their own "Adzuna Jobsworth" label on
+            // any salary they predicted, so only employer-stated pay gets a badge.
+            const payBadge = payComparison && !listing.salaryIsPredicted ? PAY_BADGE[payComparison] : null;
             return (
               <li key={listing.id} className="border border-hairline p-3">
                 <div className="flex items-start justify-between gap-3">
@@ -150,6 +152,16 @@ export function LiveJobResults({
                   </button>
                 </div>
                 {listing.snippet && <p className="mt-2 text-sm leading-relaxed text-ink">{listing.snippet}</p>}
+                {/* Attribution required by Adzuna's API terms on every listing. */}
+                <p className="mt-2 inline-flex min-h-[23px] min-w-[116px] items-center gap-1 text-sm text-steel">
+                  <a href="https://www.adzuna.com" target="_blank" rel="noopener noreferrer" className="font-semibold underline hover:text-ink">
+                    Jobs
+                  </a>{" "}
+                  by{" "}
+                  <a href="https://www.adzuna.com" target="_blank" rel="noopener noreferrer" className="font-semibold underline hover:text-ink">
+                    Adzuna
+                  </a>
+                </p>
                 {(postedLabel || payBadge) && (
                   <div className="mt-2 flex flex-wrap items-center gap-2">
                     {postedLabel && <span className="text-xs text-steel">{postedLabel}</span>}
@@ -158,7 +170,6 @@ export function LiveJobResults({
                         className={`inline-block border px-1.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide ${payBadge.className}`}
                       >
                         {payBadge.label}
-                        {listing.salaryIsPredicted ? " (estimated)" : ""}
                       </span>
                     )}
                   </div>
