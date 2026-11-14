@@ -11,6 +11,9 @@
 
 import { FLORIDA } from "@/lib/states/florida";
 import { ALABAMA } from "@/lib/states/alabama";
+import { SOUTH_CAROLINA } from "@/lib/states/south-carolina";
+import { NORTH_CAROLINA } from "@/lib/states/north-carolina";
+import { TENNESSEE } from "@/lib/states/tennessee";
 
 export type SourceRef = { label: string; url: string };
 
@@ -1353,7 +1356,7 @@ export const STATE_GUIDES: StateGuide[] = [GEORGIA];
 // site (404). Set SHOW_HIDDEN_STATES=1 (local dev or a Vercel preview) to
 // render /states/<slug> for review; they stay out of every list and the
 // sitemap and are marked noindex. To launch one, move it into STATE_GUIDES.
-export const HIDDEN_STATE_GUIDES: StateGuide[] = [FLORIDA, ALABAMA];
+export const HIDDEN_STATE_GUIDES: StateGuide[] = [FLORIDA, ALABAMA, SOUTH_CAROLINA, NORTH_CAROLINA, TENNESSEE];
 
 export const SHOW_HIDDEN_STATES = process.env.SHOW_HIDDEN_STATES === "1";
 
