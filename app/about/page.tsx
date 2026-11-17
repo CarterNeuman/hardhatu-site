@@ -44,9 +44,10 @@ export default function AboutPage() {
           <p className="mt-3">
             BreakGroundU is an independent, still-growing project, and everything on it is free
             to use: careers, concepts, lessons, interview and certification prep, state guides,
-            all of it. There's no paywall, and no plan to add one. Signing in is optional, it
-            just saves your quiz results and lets you pick up a lesson or your Action Plan where
-            you left off.
+            all of it. There's no paywall, and no plan to add one. Careers and Concepts are open
+            to read without creating an account. Everything else, Lessons, Interview and Exam
+            Prep, the Action Plan, and more, just asks you to sign in with a free account, so
+            your quiz results and progress are saved and waiting for you next time.
           </p>
         </section>
 
