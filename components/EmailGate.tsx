@@ -184,7 +184,9 @@ export function EmailGate({
               </p>
             </div>
 
-            <SignInButton mode="modal">
+            {/* Goes to the /sign-in page (class code and school options), then
+                Clerk brings the reader back to this same page. */}
+            <SignInButton>
               <button
                 ref={signInButtonRef}
                 type="button"

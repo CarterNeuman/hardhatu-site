@@ -601,7 +601,9 @@ export function CareerMatchQuiz({
               Sign in free to see which careers match your answers, plus where to start learning.
             </p>
             <div className="mt-6 flex justify-center">
-              <SignInButton mode="modal">
+              {/* Goes to the /sign-in page and back. The result survives the
+                  trip through the sessionStorage stash above. */}
+              <SignInButton>
                 <button
                   type="button"
                   className="rounded-full px-6 py-3 text-base font-semibold text-paper transition-opacity hover:opacity-90"
