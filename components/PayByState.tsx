@@ -206,27 +206,32 @@ export function PayByState({ guides = [] }: { guides?: GuideRef[] }) {
         )}
 
         <div className="mt-5 overflow-x-auto border border-hairline bg-white">
-          <table className="w-full border-collapse text-[13px] sm:min-w-[760px] sm:text-sm">
+          <table className="w-full table-fixed border-collapse text-[13px] sm:min-w-[760px] sm:text-sm">
             <thead>
               <tr className="border-b border-hairline bg-paper">
                 <th scope="col" className="sticky left-0 z-10 bg-paper px-3 py-3 text-left font-semibold text-ink sm:px-4">
                   Job
                 </th>
                 {COLUMNS.map((c) => (
-                  <th key={c.years} scope="col" className="px-1.5 py-3 text-right font-semibold text-ink sm:px-3">
+                  <th key={c.years} scope="col" className="w-14 px-1.5 py-3 text-right font-semibold text-ink sm:w-[6rem] lg:w-[7.5rem] sm:px-3">
                     <span className="sm:hidden">{c.short}</span>
                     <span className="hidden sm:inline">{c.label}</span>
-                    <span className="block text-xs font-normal text-steel">
-                      age {startAge + c.years}
-                      {futureDollars && c.years > 0 ? `, in ${thisYear + c.years}` : ""}
+                    <span className="block text-xs font-normal text-steel">age {startAge + c.years}</span>
+                    {/* Always rendered (hidden in today's dollars), with fixed column
+                        widths, so the table doesn't shift when the toggle flips. */}
+                    <span
+                      aria-hidden={!(futureDollars && c.years > 0)}
+                      className={`block text-xs font-normal text-steel ${futureDollars && c.years > 0 ? "" : "invisible"}`}
+                    >
+                      in {thisYear + c.years}
                     </span>
                   </th>
                 ))}
-                <th scope="col" className="hidden px-3 py-3 text-right font-semibold text-ink sm:table-cell">
+                <th scope="col" className="hidden px-3 py-3 text-right font-semibold text-ink sm:table-cell sm:w-[6rem] lg:w-[7.5rem]">
                   Top 10%
                   <span className="block text-xs font-normal text-steel">{futureDollars ? "in today’s $" : "earn more than"}</span>
                 </th>
-                <th scope="col" className="hidden px-4 py-3 text-right font-semibold text-ink sm:table-cell">
+                <th scope="col" className="hidden px-4 py-3 text-right font-semibold text-ink sm:table-cell sm:w-[5rem]">
                   Jobs
                   <span className="block text-xs font-normal text-steel">in {state ? state.code : "U.S."}</span>
                 </th>
