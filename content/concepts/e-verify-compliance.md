@@ -21,8 +21,7 @@ example: >
   threshold require those subcontractors to enroll and participate as well.
 careerAngle: >
   The [[career-hr-manager-construction|HR Manager]] manages E-Verify enrollment
-  and new-hire verification, and the [[career-contracts-
-  administrator|Contracts Administrator]] confirms E-Verify flow-down language
+  and new-hire verification, and the [[career-contracts-administrator|Contracts Administrator]] confirms E-Verify flow-down language
   is included in covered subcontracts before they're executed.
 whatGoesWrong: >
   A contractor assumes E-Verify only applies to its own direct hires and

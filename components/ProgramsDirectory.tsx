@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { urlFor } from "@/lib/content-client";
+import { urlFor, stripWikiLinks } from "@/lib/content-client";
 import { ProgramTypeBadge } from "@/components/ProgramTypeBadge";
 import type { Program } from "@/lib/types";
 
@@ -92,7 +92,7 @@ function ProgramCard({ program }: { program: SearchableProgram }) {
         <p className="mt-0.5 text-sm font-semibold text-clay">{program.organization}</p>
       </div>
 
-      <p className="line-clamp-3 text-sm leading-snug text-steel">{program.tagline}</p>
+      <p className="line-clamp-3 text-sm leading-snug text-steel">{stripWikiLinks(program.tagline)}</p>
 
       {(program.costNote || program.durationNote) && (
         <ul className="mt-auto flex flex-col gap-1 border-t border-hairline pt-3 text-xs text-steel">

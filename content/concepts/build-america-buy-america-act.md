@@ -24,8 +24,7 @@ example: >
 careerAngle: >
   The [[career-procurement-manager|Procurement Manager]] verifies that materials
   and manufactured products sourced for a federally assisted infrastructure
-  project meet BABA requirements, and the [[career-construction-
-  attorney|Construction Attorney]] advises on pursuing a waiver when a
+  project meet BABA requirements, and the [[career-construction-attorney|Construction Attorney]] advises on pursuing a waiver when a
   required material genuinely isn't available from domestic sources.
 whatGoesWrong: >
   A contractor on a federally assisted infrastructure project assumes ordinary

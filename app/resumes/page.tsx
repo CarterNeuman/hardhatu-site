@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getAllContent, groupResumesByCategory, slugifyCategory } from "@/lib/content";
+import { getAllContent, groupResumesByCategory, slugifyCategory, stripWikiLinks } from "@/lib/content";
 import { ContentCard } from "@/components/ContentCard";
 import { ResumeBeforeAfterStrip } from "@/components/ResumeBeforeAfterStrip";
 import { ResumeCategoryList, type ResumeCategorySectionData } from "@/components/ResumeCategoryList";
@@ -34,7 +34,7 @@ export default function ResumesIndexPage() {
             </div>
           )}
           {rest.map((resume) => (
-            <ContentCard key={resume.id} item={resume} description={resume.tagline} iconSize={28} />
+            <ContentCard key={resume.id} item={resume} description={stripWikiLinks(resume.tagline)} iconSize={28} />
           ))}
         </>
       ),

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { urlFor } from "@/lib/content-client";
+import { urlFor, stripWikiLinks } from "@/lib/content-client";
 import { Icon } from "./Icon";
 import type { ResumeGuide } from "@/lib/types";
 
@@ -30,7 +30,7 @@ export function ResumeBeforeAfterStrip({
           {guide.title}
         </h3>
         {guide.tagline && (
-          <p className="line-clamp-3 text-sm leading-snug text-steel">{guide.tagline}</p>
+          <p className="line-clamp-3 text-sm leading-snug text-steel">{stripWikiLinks(guide.tagline)}</p>
         )}
       </Link>
       <div className="flex flex-col">

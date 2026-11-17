@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllContent, getBySlug, getRelated } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, stripWikiLinks } from "@/lib/content";
+import { InlineProse } from "@/components/Prose";
 import type { ExamPrep } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
 import { EntryLevelBadge } from "@/components/EntryLevelBadge";
@@ -27,7 +28,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const exam = getBySlug("exam", slug) as ExamPrep | undefined;
   if (!exam) return {};
-  const description = exam.metaDescription || exam.tagline;
+  const description = stripWikiLinks(exam.metaDescription || exam.tagline);
   return {
     title: `${exam.examName} Prep`,
     description,
@@ -53,7 +54,7 @@ export default async function ExamPage({
       </div>
       <h1 className="mt-2 font-display text-4xl font-bold text-ink">{exam.title}</h1>
       <p className="mt-1 text-xs uppercase tracking-wide text-steel">{exam.examName}</p>
-      <p className="mt-3 text-lg leading-relaxed text-ink">{exam.tagline}</p>
+      <InlineProse text={exam.tagline} className="mt-3 text-lg leading-relaxed text-ink" />
 
       <EmailGate source={`exam:${exam.slug}`} variant="immediate">
       {exam.body && (

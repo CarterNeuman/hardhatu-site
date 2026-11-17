@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllContent, groupExamsByCategory, slugifyCategory, urlFor } from "@/lib/content";
+import { getAllContent, groupExamsByCategory, slugifyCategory, urlFor, stripWikiLinks } from "@/lib/content";
 import { CATEGORY_SLUG } from "@/lib/content-client";
 import { BLUEPRINT_GRID } from "@/lib/blueprint-style";
 import type { ExamPrep } from "@/lib/types";
@@ -40,7 +40,7 @@ export default function ExamsIndexPage() {
       href: urlFor(exam),
       name: exam.title,
       issuer: shortIssuer(exam.organization),
-      tagline: exam.tagline,
+      tagline: stripWikiLinks(exam.tagline),
       entryLevel: exam.tier === "free",
       questionCount: exam.questions.length,
       comingSoon: exam.comingSoon,

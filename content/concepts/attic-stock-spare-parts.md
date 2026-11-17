@@ -21,8 +21,7 @@ example: >
   but visibly different substitute.
 careerAngle: >
   The [[career-facilities-manager|Facilities Manager]] receives and inventories
-  attic stock at turnover, and the [[career-contracts- administrator|Contracts
-  Administrator]] confirms the contract's attic stock requirements are
+  attic stock at turnover, and the [[career-contracts-administrator|Contracts Administrator]] confirms the contract's attic stock requirements are
   actually met before closeout is considered complete.
 whatGoesWrong: >
   A project closes out without confirming attic stock requirements were actually

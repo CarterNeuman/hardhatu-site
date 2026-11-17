@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { SoftwareDeskIntro, type SoftwarePreviewGroup } from "@/components/SoftwareDeskIntro";
+import { stripWikiLinks } from "@/lib/content-client";
 import { SoftwareScreenTile } from "@/components/SoftwareScreenTile";
 import type { Software } from "@/lib/types";
 
@@ -99,7 +100,7 @@ export function SoftwareDirectory({
                     {filtered
                       .filter((tool) => tool.category === category)
                       .map((tool) => (
-                        <SoftwareScreenTile key={tool.id} tool={tool} description={tool.whatItIs} />
+                        <SoftwareScreenTile key={tool.id} tool={tool} description={stripWikiLinks(tool.whatItIs)} />
                       ))}
                   </div>
                 </div>

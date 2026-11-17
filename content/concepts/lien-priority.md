@@ -22,8 +22,7 @@ example: >
 careerAngle: >
   The [[career-construction-attorney|Construction Attorney]] researches a
   state's specific lien priority rules before advising a client on how
-  aggressively to pursue a lien claim, and the [[career-construction-claims-
-  consultant|Construction Claims Consultant]] factors likely recovery given
+  aggressively to pursue a lien claim, and the [[career-construction-claims-consultant|Construction Claims Consultant]] factors likely recovery given
   priority position into a claim's overall strategy.
 whatGoesWrong: >
   A contractor assumes filing a mechanic's lien guarantees getting paid ahead of

@@ -22,8 +22,7 @@ example: >
 careerAngle: >
   The [[career-contracts-administrator|Contracts Administrator]] reviews final
   release language against the project's outstanding change orders and claims
-  before advising anyone to sign, and the [[career-construction-
-  attorney|Construction Attorney]] drafts carve-out language to preserve
+  before advising anyone to sign, and the [[career-construction-attorney|Construction Attorney]] drafts carve-out language to preserve
   claims that shouldn't be released.
 whatGoesWrong: >
   A party signs a final release just to get the last check moving, without

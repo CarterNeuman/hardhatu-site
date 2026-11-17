@@ -22,8 +22,7 @@ example: >
 careerAngle: >
   The [[career-preconstruction-manager|Preconstruction Manager]] leads the
   progressive pricing and scope development that distinguishes this delivery
-  method from a traditional design-build competition, and the [[career-owners-
-  representative|Owner's Representative]] manages the owner's side of the
+  method from a traditional design-build competition, and the [[career-owners-representative|Owner's Representative]] manages the owner's side of the
   ongoing negotiation as design and price develop together.
 whatGoesWrong: >
   An owner treats a progressive design-build selection the same way as a

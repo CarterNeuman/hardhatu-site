@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getAllContent } from "@/lib/content";
+import { getAllContent, stripWikiLinks } from "@/lib/content";
 import { urlFor } from "@/lib/content-client";
 import { CAREER_CATEGORY_ORDER } from "@/lib/types";
 import type { CareerMatchQuiz } from "@/lib/types";
@@ -50,7 +50,7 @@ export default function QuizzesIndexPage() {
           <div>
             <span className="text-xs font-bold uppercase tracking-[0.18em] text-amber-soft">Start here</span>
             <h2 className="mt-2 font-display text-3xl font-bold leading-tight sm:text-4xl">{generalQuiz.title}</h2>
-            <p className="mt-2 max-w-xl text-base leading-relaxed text-paper/80 sm:text-lg">{generalQuiz.tagline}</p>
+            <p className="mt-2 max-w-xl text-base leading-relaxed text-paper/80 sm:text-lg">{stripWikiLinks(generalQuiz.tagline)}</p>
           </div>
           <span className="shrink-0 text-sm font-bold uppercase tracking-wide text-amber-soft group-hover:underline">
             Take the quiz &rarr;
@@ -70,7 +70,7 @@ export default function QuizzesIndexPage() {
             >
               <span className="h-1.5 w-10 shrink-0" style={{ backgroundColor: accent }} aria-hidden="true" />
               <h3 className="font-display text-xl font-bold leading-snug text-ink">{quiz.category}</h3>
-              <p className="flex-1 text-sm leading-snug text-steel">{quiz.tagline}</p>
+              <p className="flex-1 text-sm leading-snug text-steel">{stripWikiLinks(quiz.tagline)}</p>
               <span className="text-xs font-bold uppercase tracking-wide" style={{ color: accent }}>
                 Take the quiz &rarr;
               </span>

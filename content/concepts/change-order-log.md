@@ -21,8 +21,7 @@ example: >
   gives both sides time to manage the budget impact proactively.
 careerAngle: >
   The [[career-contracts-administrator|Contracts Administrator]] maintains the
-  change order log and its running totals, and the [[career-project-
-  manager|Project Manager]] reviews cumulative change order trends against the
+  change order log and its running totals, and the [[career-project-manager|Project Manager]] reviews cumulative change order trends against the
   contingency budget throughout the project.
 whatGoesWrong: >
   A project tracks each change order individually as it's approved, without a

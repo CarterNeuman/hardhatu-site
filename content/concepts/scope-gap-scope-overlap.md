@@ -23,8 +23,7 @@ example: >
 careerAngle: >
   The [[career-contracts-administrator|Contracts Administrator]] reviews every
   subcontract's scope of work against the others before award specifically
-  looking for gaps and overlaps, and the [[career-project- manager|Project
-  Manager]] resolves a gap discovered in the field quickly enough to avoid it
+  looking for gaps and overlaps, and the [[career-project-manager|Project Manager]] resolves a gap discovered in the field quickly enough to avoid it
   becoming a schedule delay.
 whatGoesWrong: >
   Subcontracts are written and awarded without cross-checking each scope of work

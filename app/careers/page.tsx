@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getAllContent, groupCareersByCategory } from "@/lib/content";
+import { getAllContent, groupCareersByCategory, stripWikiLinks } from "@/lib/content";
 import { CareerExplorer } from "@/components/CareerExplorer";
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ export default function CareersIndexPage() {
             type: c.type,
             slug: c.slug,
             title: c.title,
-            tagline: c.tagline,
+            tagline: stripWikiLinks(c.tagline),
             isEntryRole: c.isEntryRole,
           })),
         }))}

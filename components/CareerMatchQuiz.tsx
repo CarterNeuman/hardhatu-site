@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
 import { SignInDialogButton } from "@/components/SignInDialog";
-import { urlFor, CATEGORY_QUIZ_SLUG } from "@/lib/content-client";
+import { urlFor, CATEGORY_QUIZ_SLUG, stripWikiLinks } from "@/lib/content-client";
 import { CAREER_CATEGORY_ORDER } from "@/lib/types";
 import type { Career, Lesson } from "@/lib/types";
 import { CATEGORY_SLUG } from "@/components/Header";
@@ -677,7 +677,7 @@ export function CareerMatchQuiz({
               {topMatch ? topMatch.title : result}
             </h2>
             <p className="mx-auto mt-4 max-w-[48ch] leading-relaxed text-steel">
-              {topMatch?.tagline || CATEGORY_BLURB[result]}
+              {topMatch ? stripWikiLinks(topMatch.tagline) : CATEGORY_BLURB[result]}
             </p>
             {savedAt && (
               <p className="mx-auto mt-4 max-w-[48ch] text-sm text-steel">
@@ -746,7 +746,7 @@ export function CareerMatchQuiz({
                     iconKind="career"
                     shape="circle"
                     title={career.title}
-                    blurb={career.tagline ?? ""}
+                    blurb={stripWikiLinks(career.tagline ?? "")}
                     accent={accent}
                   />
                 ))}

@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllContent, getBySlug, getRelated, getRecommended, getProgramsForCareer, matchSoftwareByName, urlFor } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, getRecommended, getProgramsForCareer, matchSoftwareByName, urlFor, stripWikiLinks } from "@/lib/content";
+import { InlineProse } from "@/components/Prose";
 import type { Career } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
 import { Tag } from "@/components/Tag";
@@ -29,7 +30,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const career = getBySlug("career", slug) as Career | undefined;
   if (!career) return {};
-  const description = career.metaDescription || career.tagline;
+  const description = stripWikiLinks(career.metaDescription || career.tagline);
   return {
     title: career.title,
     description,
@@ -59,12 +60,12 @@ export default async function CareerPage({
       </div>
       <h1 className="mt-2 font-display text-4xl font-bold text-ink">{career.title}</h1>
       <p className="mt-1 text-xs uppercase tracking-wide text-steel">{career.category}</p>
-      <p className="mt-2 text-lg text-steel">{career.tagline}</p>
+      <InlineProse text={career.tagline} className="mt-2 text-lg text-steel" />
 
       {career.image && <ContentPhoto src={career.image} alt={career.title} />}
 
       <SectionLabel>What is a {career.title}?</SectionLabel>
-      <p className="mt-2 leading-relaxed text-ink">{career.whatIs}</p>
+      <InlineProse text={career.whatIs} className="mt-2 leading-relaxed text-ink" />
 
       {career.whatTheyDo.length > 0 && (
         <>

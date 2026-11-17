@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllContent, getBySlug, getRelated } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, stripWikiLinks } from "@/lib/content";
+import { InlineProse } from "@/components/Prose";
 import { getYouTubeEmbedUrl } from "@/lib/youtube";
 import type { Software } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
@@ -23,7 +24,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const software = getBySlug("software", slug) as Software | undefined;
   if (!software) return {};
-  const description = software.metaDescription || software.whatItIs;
+  const description = stripWikiLinks(software.metaDescription || software.whatItIs);
   return {
     title: software.title,
     description,
@@ -47,13 +48,13 @@ export default async function SoftwarePage({
       <TypeBadge type="software" tier={software.tier} />
       <h1 className="mt-2 font-display text-4xl font-bold text-ink">{software.title}</h1>
       <p className="mt-1 text-xs uppercase tracking-wide text-steel">{software.category}</p>
-      <p className="mt-3 text-lg leading-relaxed text-ink">{software.whatItIs}</p>
+      <InlineProse text={software.whatItIs} className="mt-3 text-lg leading-relaxed text-ink" />
 
       {software.image && <ContentPhoto src={software.image} alt={software.title} />}
 
       <EmailGate source={`software:${software.slug}`} variant="immediate">
       <SectionLabel>What it does</SectionLabel>
-      <p className="mt-2 leading-relaxed text-ink">{software.whatItDoes}</p>
+      <InlineProse text={software.whatItDoes} className="mt-2 leading-relaxed text-ink" />
 
       {software.keyFeatures.length > 0 && (
         <>

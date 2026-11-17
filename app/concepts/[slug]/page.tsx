@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllContent, getBySlug, getRelated } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, stripWikiLinks } from "@/lib/content";
+import { InlineProse } from "@/components/Prose";
 import type { Concept } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
 import { SectionLabel } from "@/components/SectionLabel";
@@ -24,7 +25,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const concept = getBySlug("concept", slug) as Concept | undefined;
   if (!concept) return {};
-  const description = concept.metaDescription || concept.definition;
+  const description = stripWikiLinks(concept.metaDescription || concept.definition);
   return {
     title: concept.title,
     description,
@@ -54,21 +55,21 @@ export default async function ConceptPage({
         </p>
       )}
 
-      <p className="mt-4 text-lg leading-relaxed text-ink">{concept.definition}</p>
+      <InlineProse text={concept.definition} className="mt-4 text-lg leading-relaxed text-ink" />
 
       {concept.image && <ContentPhoto src={concept.image} alt={concept.title} />}
 
       {concept.whyItMatters && (
         <>
           <SectionLabel>Why it matters</SectionLabel>
-          <p className="mt-2 leading-relaxed text-ink">{concept.whyItMatters}</p>
+          <InlineProse text={concept.whyItMatters} className="mt-2 leading-relaxed text-ink" />
         </>
       )}
 
       {concept.example && (
         <>
           <SectionLabel>On a real project</SectionLabel>
-          <p className="mt-2 leading-relaxed text-ink">{concept.example}</p>
+          <InlineProse text={concept.example} className="mt-2 leading-relaxed text-ink" />
         </>
       )}
 

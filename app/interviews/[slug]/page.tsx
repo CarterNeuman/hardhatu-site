@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllContent, getBySlug, getRelated } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, stripWikiLinks } from "@/lib/content";
 import type { InterviewPrep } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
 import { SectionLabel } from "@/components/SectionLabel";
 import { RelatedLinks } from "@/components/RelatedLinks";
-import { Prose } from "@/components/Prose";
+import { Prose, InlineProse } from "@/components/Prose";
 import { EmailGate } from "@/components/EmailGate";
 import { JobHuntRail } from "@/components/JobHuntRail";
 
@@ -22,7 +22,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const interview = getBySlug("interview", slug) as InterviewPrep | undefined;
   if (!interview) return {};
-  const description = interview.metaDescription || interview.tagline;
+  const description = stripWikiLinks(interview.metaDescription || interview.tagline);
   return {
     title: interview.title,
     description,
@@ -44,7 +44,7 @@ export default async function InterviewPage({
     <article className="mx-auto max-w-3xl px-6 py-10">
       <TypeBadge type="interview" tier={interview.tier} />
       <h1 className="mt-2 font-display text-4xl font-bold text-ink">{interview.title}</h1>
-      <p className="mt-3 text-lg leading-relaxed text-ink">{interview.tagline}</p>
+      <InlineProse text={interview.tagline} className="mt-3 text-lg leading-relaxed text-ink" />
 
       <EmailGate source={`interview:${interview.slug}`} variant="immediate">
       {interview.body && (

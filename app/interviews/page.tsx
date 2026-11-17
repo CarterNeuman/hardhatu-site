@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getAllContent, groupInterviewsByCategory, slugifyCategory } from "@/lib/content";
+import { getAllContent, groupInterviewsByCategory, slugifyCategory, stripWikiLinks } from "@/lib/content";
 import { CategorySection } from "@/components/CategorySection";
 import { ContentCard } from "@/components/ContentCard";
 import { InterviewClipboardHeader } from "@/components/InterviewClipboardHeader";
@@ -49,7 +49,7 @@ export default function InterviewsIndexPage() {
             headerRight={<InterviewClipboardHeader questions={questions} />}
           >
             {group.items.map((interview) => (
-              <ContentCard key={interview.id} item={interview} description={interview.tagline} />
+              <ContentCard key={interview.id} item={interview} description={stripWikiLinks(interview.tagline)} />
             ))}
           </CategorySection>
         );

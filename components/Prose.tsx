@@ -73,3 +73,14 @@ export function Prose({ text }: { text: string }) {
     </div>
   );
 }
+
+// A single-paragraph variant of Prose for spots that already have their
+// own <p> styling (a hero tagline, a one-line definition) and just need
+// the same [[id]] / [[id|label]] resolution inline -- without Prose's
+// own wrapper <div>/space-y-4/multi-paragraph split, which would fight
+// whatever className the caller already applies. Same resolution logic
+// as Prose, just rendered into the caller's own <p className>.
+export function InlineProse({ text, className }: { text: string; className?: string }) {
+  const { byId } = getAllContent();
+  return <p className={className}>{renderParagraph(text, byId)}</p>;
+}

@@ -1,14 +1,14 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllContent, getBySlug, getRelated } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, stripWikiLinks } from "@/lib/content";
 import type { Program } from "@/lib/types";
 import { ProgramTypeBadge } from "@/components/ProgramTypeBadge";
 import { ContentCard } from "@/components/ContentCard";
 import { SectionLabel } from "@/components/SectionLabel";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { Disclaimer } from "@/components/Disclaimer";
-import { Prose } from "@/components/Prose";
+import { Prose, InlineProse } from "@/components/Prose";
 import { EmailGate } from "@/components/EmailGate";
 import { JobHuntRail } from "@/components/JobHuntRail";
 import { StateGuideLinks } from "@/components/StateGuideLinks";
@@ -26,7 +26,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const program = getBySlug("program", slug) as Program | undefined;
   if (!program) return {};
-  const description = program.metaDescription || program.tagline;
+  const description = stripWikiLinks(program.metaDescription || program.tagline);
   return {
     title: program.title,
     description,
@@ -69,7 +69,7 @@ export default async function ProgramPage({
           <p className="mt-1 text-sm font-semibold text-clay">
             {program.organization} &middot; {program.location}
           </p>
-          <p className="mt-3 text-lg leading-relaxed text-ink">{program.tagline}</p>
+          <InlineProse text={program.tagline} className="mt-3 text-lg leading-relaxed text-ink" />
 
           <EmailGate source={`program:${program.slug}`} allowGuest>
             {program.whatToExpect && (
@@ -97,7 +97,7 @@ export default async function ProgramPage({
                 </p>
                 <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
                   {careers.map((career) => (
-                    <ContentCard key={career.id} item={career} description={career.tagline} />
+                    <ContentCard key={career.id} item={career} description={stripWikiLinks(career.tagline)} />
                   ))}
                 </div>
               </div>

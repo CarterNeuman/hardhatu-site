@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getAllContent } from "@/lib/content";
+import { getAllContent, stripWikiLinks } from "@/lib/content";
 import { urlFor } from "@/lib/content-client";
 import { CAREER_CATEGORY_ORDER } from "@/lib/types";
 import type { GetHired } from "@/lib/types";
@@ -64,7 +64,7 @@ function EntranceGate({ guide }: { guide: GetHired }) {
             {guide.category}
           </h2>
           <p className="mt-2 max-w-xl text-base leading-relaxed text-paper/80 sm:text-lg">
-            {guide.tagline}
+            {stripWikiLinks(guide.tagline)}
           </p>
         </div>
         <span className="shrink-0 text-sm font-bold uppercase tracking-wide text-amber-soft group-hover:underline">
@@ -82,7 +82,7 @@ function EntranceGate({ guide }: { guide: GetHired }) {
 // border-radius rather than anything more literal.
 function CategoryGate({ guide, index }: { guide: GetHired; index: number }) {
   const Icon = CATEGORY_ICONS[guide.category] ?? CategoryIconHands;
-  const blurb = CATEGORY_BLURBS[guide.category] ?? guide.tagline;
+  const blurb = CATEGORY_BLURBS[guide.category] ?? stripWikiLinks(guide.tagline);
   const isAmber = index % 2 === 0;
 
   return (

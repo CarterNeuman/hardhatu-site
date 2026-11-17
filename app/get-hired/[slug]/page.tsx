@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllContent, getBySlug, getRelated } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, stripWikiLinks } from "@/lib/content";
 import { urlFor, CATEGORY_QUIZ_SLUG } from "@/lib/content-client";
 import type { GetHired } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
@@ -9,7 +9,7 @@ import { Icon } from "@/components/Icon";
 import { SectionLabel } from "@/components/SectionLabel";
 import { Disclaimer } from "@/components/Disclaimer";
 import { RelatedLinks } from "@/components/RelatedLinks";
-import { Prose } from "@/components/Prose";
+import { Prose, InlineProse } from "@/components/Prose";
 import { EmailGate } from "@/components/EmailGate";
 import { JobHuntRail } from "@/components/JobHuntRail";
 import { ProgramsBox } from "@/components/ProgramsBox";
@@ -30,7 +30,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const guide = getBySlug("gethired", slug) as GetHired | undefined;
   if (!guide) return {};
-  const description = guide.metaDescription || guide.tagline;
+  const description = stripWikiLinks(guide.metaDescription || guide.tagline);
   return {
     title: guide.title,
     description,
@@ -70,7 +70,7 @@ export default async function GetHiredPage({
           </Link>
         )}
       </div>
-      <p className="mt-3 text-lg leading-relaxed text-ink">{guide.tagline}</p>
+      <InlineProse text={guide.tagline} className="mt-3 text-lg leading-relaxed text-ink" />
 
       {/* Quiz v2 retention hook: a reader who landed on this hub already
           knows their category (that's how they got here) but may not

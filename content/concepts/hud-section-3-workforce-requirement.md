@@ -22,8 +22,7 @@ example: >
   met.
 careerAngle: >
   The [[career-hr-manager-construction|HR Manager]] tracks Section 3 labor hour
-  reporting and hiring efforts, and the [[career-certified-payroll-
-  specialist|Certified Payroll Specialist]] incorporates Section 3 reporting
+  reporting and hiring efforts, and the [[career-certified-payroll-specialist|Certified Payroll Specialist]] incorporates Section 3 reporting
   into the certified payroll and compliance documentation required on the
   project.
 whatGoesWrong: >

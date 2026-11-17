@@ -23,8 +23,7 @@ example: >
 careerAngle: >
   The [[career-construction-attorney|Construction Attorney]] negotiates the
   scope of a consequential damages waiver, including which specific loss
-  categories are carved back in or out, and the [[career-risk-manager-
-  construction|Risk Manager]] evaluates how much real protection the waiver
+  categories are carved back in or out, and the [[career-risk-manager-construction|Risk Manager]] evaluates how much real protection the waiver
   actually provides against the project's biggest financial risks.
 whatGoesWrong: >
   A party assumes a consequential damages waiver eliminates all exposure beyond

@@ -8,6 +8,7 @@
 // risks matching in a context where it's actually plausible.
 import Link from "next/link";
 import type { ConceptRef } from "@/lib/action-plan-generator";
+import { stripWikiLinks } from "@/lib/content";
 
 type GlossaryEntry = { key: string; concept: ConceptRef };
 
@@ -81,7 +82,7 @@ export function GlossaryText({
       <Link
         key={keyCounter++}
         href={`/concepts/${best.entry.concept.slug}`}
-        title={best.entry.concept.definition}
+        title={stripWikiLinks(best.entry.concept.definition)}
         className="underline decoration-dotted decoration-steel underline-offset-2 hover:decoration-navy"
       >
         {matchedText}

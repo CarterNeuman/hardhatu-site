@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllContent, getBySlug, getRelated } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, stripWikiLinks } from "@/lib/content";
 import type { ResumeGuide } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
 import { SectionLabel } from "@/components/SectionLabel";
 import { RelatedLinks } from "@/components/RelatedLinks";
-import { Prose } from "@/components/Prose";
+import { Prose, InlineProse } from "@/components/Prose";
 import { EmailGate } from "@/components/EmailGate";
 import { JobHuntRail } from "@/components/JobHuntRail";
 import Link from "next/link";
@@ -25,7 +25,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const resume = getBySlug("resume", slug) as ResumeGuide | undefined;
   if (!resume) return {};
-  const description = resume.metaDescription || resume.tagline;
+  const description = stripWikiLinks(resume.metaDescription || resume.tagline);
   return {
     title: resume.title,
     description,
@@ -68,7 +68,7 @@ export default async function ResumeGuidePage({
           </Link>
         )}
       </div>
-      <p className="mt-3 text-lg leading-relaxed text-ink">{resume.tagline}</p>
+      <InlineProse text={resume.tagline} className="mt-3 text-lg leading-relaxed text-ink" />
 
       <EmailGate source={`resume:${resume.slug}`} variant="immediate">
       {resume.body && (

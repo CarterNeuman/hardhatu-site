@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllContent, getBySlug, getRelated } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, stripWikiLinks } from "@/lib/content";
 import type { Phase } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
 import { Tag } from "@/components/Tag";
@@ -24,7 +24,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const phase = getBySlug("phase", slug) as Phase | undefined;
   if (!phase) return {};
-  const description = phase.metaDescription || phase.whatHappens.slice(0, 155);
+  const description = phase.metaDescription || stripWikiLinks(phase.whatHappens).slice(0, 155);
   return {
     title: phase.title,
     description,

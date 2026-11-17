@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getAllContent, groupConceptsByCategory } from "@/lib/content";
+import { getAllContent, groupConceptsByCategory, stripWikiLinks } from "@/lib/content";
 import { ConceptExplorer } from "@/components/ConceptExplorer";
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ export default function ConceptsIndexPage() {
             type: c.type,
             slug: c.slug,
             title: c.title,
-            definition: c.definition,
+            definition: stripWikiLinks(c.definition),
           })),
         }))}
       />
