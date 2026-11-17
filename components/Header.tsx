@@ -172,7 +172,7 @@ export function Header({
               saves progress on Lessons and the Action Plan. */}
           <div className="hidden shrink-0 items-center lg:flex">
             <Show when="signed-out">
-              <SignInButton mode="modal">
+              <SignInButton>
                 <button className="whitespace-nowrap px-2 py-2 text-[0.92rem] font-semibold text-ink hover:text-navy">Sign In</button>
               </SignInButton>
             </Show>
@@ -206,7 +206,7 @@ export function Header({
           >
             <div className="mt-4 flex items-center justify-between border border-hairline px-4 py-3">
               <Show when="signed-out">
-                <SignInButton mode="modal">
+                <SignInButton>
                   <button className="text-[0.96rem] font-semibold text-ink" onClick={() => setMobileOpen(false)}>
                     Sign In
                   </button>

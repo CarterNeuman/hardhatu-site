@@ -79,7 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         {/* ClerkProvider wraps everything inside <body> rather than <html>
             itself -- Clerk's Core 3 release (2026-03-03) requires this. */}
-        <ClerkProvider afterSignOutUrl="/">
+        <ClerkProvider afterSignOutUrl="/" signInUrl="/sign-in" signUpUrl="/sign-up">
           {/* print:hidden on both -- a printed/saved-as-PDF action plan (see
               ActionPlanBuilder's "Print / save as PDF" button) should read
               as a clean document, not a printout of the site's nav chrome. */}
