@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import { ClerkProvider } from "@clerk/nextjs";
+import { clerkAppearance } from "@/lib/clerk-appearance";
 import "./globals.css";
 import {
   getAllContent,
@@ -79,7 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         {/* ClerkProvider wraps everything inside <body> rather than <html>
             itself -- Clerk's Core 3 release (2026-03-03) requires this. */}
-        <ClerkProvider afterSignOutUrl="/" signInUrl="/sign-in" signUpUrl="/sign-up">
+        <ClerkProvider afterSignOutUrl="/" signInUrl="/sign-in" signUpUrl="/sign-up" appearance={clerkAppearance}>
           {/* print:hidden on both -- a printed/saved-as-PDF action plan (see
               ActionPlanBuilder's "Print / save as PDF" button) should read
               as a clean document, not a printout of the site's nav chrome. */}

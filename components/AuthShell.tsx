@@ -4,18 +4,12 @@ import { SignInOptions } from "@/components/SignInOptions";
 // Shared layout for /sign-in and /sign-up: Clerk's form on the left, the
 // class code and school options on the right (stacked below on phones).
 
-// Clerk's form, restyled to match the site: navy accents, square corners,
-// IBM Plex, a hairline border instead of a drop shadow.
+// The site-wide Clerk look lives on <ClerkProvider> (lib/clerk-appearance.ts).
+// Here the form only needs to fill its column.
 export const clerkAppearance = {
-  variables: {
-    colorPrimary: "#1F3F52",
-    borderRadius: "0px",
-    fontFamily: "'IBM Plex Sans', sans-serif",
-  },
   elements: {
-    rootBox: "w-full",
-    cardBox: "w-full max-w-none border border-[#D6D0C2] shadow-none",
-    card: "shadow-none",
+    rootBox: { width: "100%" },
+    cardBox: { width: "100%", maxWidth: "none" },
   },
 };
 
