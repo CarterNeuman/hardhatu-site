@@ -40,13 +40,13 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="font-display text-2xl font-bold text-ink">Where it's headed</h2>
+          <h2 className="font-display text-2xl font-bold text-ink">Always free</h2>
           <p className="mt-3">
-            BreakGroundU is an independent, still-growing project. Careers and concepts are, and
-            will always stay, completely free. Over time the site will add more content
-            (lessons, interview and certification prep, real jobsite photography) and eventually
-            some optional accounts for the deeper study material, but the core reference
-            library isn't going behind a paywall.
+            BreakGroundU is an independent, still-growing project, and everything on it is free
+            to use: careers, concepts, lessons, interview and certification prep, state guides,
+            all of it. There's no paywall, and no plan to add one. Signing in is optional, it
+            just saves your quiz results and lets you pick up a lesson or your Action Plan where
+            you left off.
           </p>
         </section>
 
