@@ -49,11 +49,11 @@ type CareerGroup = { category: string; items: NavCareer[] };
 // MobileTabBar) and the Menu button opens the Explore list.
 // URLs never changed in this redesign, only where links sit.
 const START_HERE: { href: string; label: string; tab: string; icon: IconKind; match: string[] }[] = [
-  { href: "/quizzes/find-your-career", label: "Career Quiz", tab: "Quiz", icon: "quiz", match: ["/quizzes"] },
+  { href: "/quizzes/find-your-career", label: "Career Quiz", tab: "Career Quiz", icon: "quiz", match: ["/quizzes"] },
   { href: "/lessons", label: "Lessons", tab: "Lessons", icon: "lesson", match: ["/lessons"] },
-  { href: "/action-plan", label: "Action Plan", tab: "Plan", icon: "actionplan", match: ["/action-plan"] },
+  { href: "/action-plan", label: "Action Plan", tab: "Action Plan", icon: "actionplan", match: ["/action-plan"] },
   { href: "/programs", label: "Find a Program", tab: "Programs", icon: "program", match: ["/programs"] },
-  { href: "/student-loan-roi", label: "College vs. Trades", tab: "Compare", icon: "roi", match: ["/student-loan-roi"] },
+  { href: "/student-loan-roi", label: "College vs. Trades", tab: "College vs Trades", icon: "roi", match: ["/student-loan-roi"] },
 ];
 
 const isActive = (pathname: string, match: string[]) => match.some((m) => pathname === m || pathname.startsWith(`${m}/`));
@@ -344,12 +344,12 @@ function MobileTabBar({ pathname }: { pathname: string }) {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 aria-label={item.label}
-                className={`flex h-16 flex-col items-center justify-center gap-1 border-t-2 text-[0.68rem] font-semibold ${
+                className={`flex h-20 flex-col items-center justify-center gap-0.5 border-t-2 px-1 text-center leading-[1.05] text-[0.6rem] font-semibold ${
                   active ? "border-amber text-navy" : "border-transparent text-steel hover:text-ink"
                 }`}
               >
-                <Icon kind={item.icon} size={22} />
-                {item.tab}
+                <Icon kind={item.icon} size={20} />
+                <span>{item.tab}</span>
               </Link>
             </li>
           );

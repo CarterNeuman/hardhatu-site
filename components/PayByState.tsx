@@ -209,7 +209,7 @@ export function PayByState({ guides = [] }: { guides?: GuideRef[] }) {
           <table className="w-full table-fixed border-collapse text-[13px] sm:min-w-[760px] sm:text-sm">
             <thead>
               <tr className="border-b border-hairline bg-paper">
-                <th scope="col" className="sticky left-0 z-10 bg-paper px-3 py-3 text-left font-semibold text-ink sm:px-4">
+                <th scope="col" className="sticky left-0 z-10 w-[108px] bg-paper px-3 py-3 text-left font-semibold text-ink sm:w-auto sm:px-4">
                   Job
                 </th>
                 {COLUMNS.map((c) => (
@@ -250,7 +250,7 @@ export function PayByState({ guides = [] }: { guides?: GuideRef[] }) {
                   </tr>
                   {list.map(({ occ, curve, employment, national }) => (
                     <tr key={occ.soc} className="border-t border-hairline hover:bg-paper/60">
-                      <th scope="row" className="sticky left-0 z-10 bg-white px-3 py-2.5 text-left font-normal sm:px-4">
+                      <th scope="row" className="sticky left-0 z-10 w-[108px] bg-white px-3 py-2.5 text-left font-normal sm:w-auto sm:px-4">
                         {occ.slug ? (
                           <Link href={`/careers/${occ.slug}`} className="font-semibold text-navy hover:underline">
                             {occ.label}

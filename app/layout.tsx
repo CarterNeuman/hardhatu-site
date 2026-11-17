@@ -112,7 +112,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
           {/* Room for the phone/tablet bottom tab bar (components/Header.tsx,
               MobileTabBar) so the end of the footer never sits under it. */}
-          <div aria-hidden="true" className="h-16 lg:hidden print:hidden" />
+          <div aria-hidden="true" className="h-20 lg:hidden print:hidden" />
         </ClerkProvider>
         <Analytics />
         {gaMeasurementId && (
