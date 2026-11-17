@@ -111,7 +111,7 @@ export function SignInOptions() {
           Signing in through your school?
         </h2>
         <p className="mt-1 text-sm text-steel">
-          Use your school Google or Microsoft account, or the link your school shared.
+          Soon you&rsquo;ll be able to use your school Google or Microsoft account, or a link your school shares.
         </p>
         <button
           type="button"
