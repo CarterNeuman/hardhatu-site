@@ -130,6 +130,14 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
   const totalOpenings = [...projected.values()].reduce((a, o) => a + o.openingsPerYear, 0);
   const anyNational = trades.some((t) => t.usesNational);
   const licensed = g.trades.filter((t) => t.stateLicense !== "none").length;
+  // Worker licenses (journeyman/master, mechanic) vs. licenses only the business needs.
+  const workerLicensed = g.trades.filter((t) => t.stateLicense === "journeyman-and-master" || t.stateLicense === "worker-certification").length;
+  const licenseNote =
+    workerLicensed === licensed
+      ? "Earned through work and exams"
+      : workerLicensed === 0
+        ? "Licenses for the business, not the worker"
+        : `${workerLicensed} for workers, ${licensed - workerLicensed} for businesses only`;
   const updated = formatMonth(g.lastVerified);
 
   return (
@@ -178,7 +186,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
       <dl data-guide-section className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
         <Marker label={`Jobs in these ${g.trades.length} trades`} value={`${Math.round(totalJobs / 1000)}k`} note={`State estimate, ${g.outlookPeriod.slice(0, 4)}`} />
         <Marker label="Openings a year" value={totalOpenings.toLocaleString("en-US")} note={`Projected, ${g.outlookPeriod}`} />
-        <Marker label="Need a state trade license" value={`${licensed} of ${g.trades.length}`} note="Earned through work and exams" />
+        <Marker label="Trades with a state license" value={`${licensed} of ${g.trades.length}`} note={licenseNote} />
         <Marker label={g.costMarker.label} value={g.costMarker.value} note={g.costMarker.note} />
       </dl>
 
