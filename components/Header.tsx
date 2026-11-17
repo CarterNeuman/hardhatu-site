@@ -64,12 +64,18 @@ export function Header({
   stateGuides,
   careerCount,
   conceptCount,
+  recommendedState,
 }: {
   careerGroups: CareerGroup[];
   getHiredGuides: NavGuide[];
   stateGuides: NavStateGuide[];
   careerCount: number;
   conceptCount: number;
+  // Invisible until SHOW_STATE_DETECTION (see lib/state-detection.ts):
+  // app/layout.tsx only ever passes a value once that flag is on, so
+  // this stays undefined -- and the Explore menu unchanged -- until
+  // then.
+  recommendedState?: NavStateGuide;
 }) {
   const pathname = usePathname() ?? "/";
   const [exploreOpen, setExploreOpen] = useState(false);
@@ -101,7 +107,7 @@ export function Header({
   }, [pathname]);
 
   const generalGuide = getHiredGuides.find((g) => g.id === "gethired-general");
-  const columns = buildColumns({ careerGroups, careerCount, conceptCount, generalGuide, stateGuides });
+  const columns = buildColumns({ careerGroups, careerCount, conceptCount, generalGuide, stateGuides, recommendedState });
 
   return (
     <>
@@ -246,12 +252,14 @@ function buildColumns({
   conceptCount,
   generalGuide,
   stateGuides,
+  recommendedState,
 }: {
   careerGroups: CareerGroup[];
   careerCount: number;
   conceptCount: number;
   generalGuide?: NavGuide;
   stateGuides: NavStateGuide[];
+  recommendedState?: NavStateGuide;
 }): ExploreCol[] {
   return [
     {
@@ -280,6 +288,9 @@ function buildColumns({
       title: "By state",
       icon: "state",
       links: [
+        ...(recommendedState && !stateGuides.some((g) => g.slug === recommendedState.slug)
+          ? [{ href: `/states/${recommendedState.slug}`, label: `${recommendedState.name} field guide`, note: "Your state, based on where you're browsing from" }]
+          : []),
         ...stateGuides.map((g) => ({ href: `/states/${g.slug}`, label: `${g.name} field guide`, note: "Local pay, licensing and ways in" })),
         { href: "/states", label: "All state guides", note: "More states on the way" },
         { href: "/student-loan-roi", label: "Trade pay in every state", note: "Part of College vs. Trades" },

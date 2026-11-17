@@ -5,6 +5,8 @@ import { getAllContent, getBySlug } from "@/lib/content";
 import type { CareerMatchQuiz as CareerMatchQuizContent } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
 import { CareerMatchQuiz, type QuizCareer, type QuizLesson } from "@/components/CareerMatchQuiz";
+import { StateDetectionPicker } from "@/components/StateDetectionPicker";
+import { SHOW_STATE_DETECTION, getKnownStateCode } from "@/lib/state-detection";
 
 export function generateStaticParams() {
   const { quizzes } = getAllContent();
@@ -62,11 +64,25 @@ export default async function QuizPage({
     };
   }
 
+  // Invisible until SHOW_STATE_DETECTION (see lib/state-detection.ts):
+  // built so the day it's turned on, the picker is already correct.
+  const knownStateCode = SHOW_STATE_DETECTION ? await getKnownStateCode() : undefined;
+
   return (
     <article className="mx-auto max-w-3xl px-6 py-10">
       <TypeBadge type="quiz" tier={quiz.tier} />
       <h1 className="mt-2 font-display text-4xl font-bold text-ink">{quiz.title}</h1>
       <p className="mt-3 text-lg leading-relaxed text-ink">{quiz.tagline}</p>
+
+      {SHOW_STATE_DETECTION && (
+        <div className="mt-4">
+          <StateDetectionPicker
+            guides={STATE_GUIDES.map((g) => ({ code: g.code, name: g.name }))}
+            initialCode={knownStateCode}
+            note="So we can point you to your state's field guide."
+          />
+        </div>
+      )}
 
       <CareerMatchQuiz
         stateGuides={STATE_GUIDES.map((g) => ({ slug: g.slug, name: g.name, tradeSlugs: g.trades.map((t) => t.slug) }))}

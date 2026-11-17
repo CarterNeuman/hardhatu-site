@@ -13,6 +13,7 @@ import { Header } from "@/components/Header";
 import { NAV_ITEMS_PER_GROUP } from "@/lib/content-client";
 import { Footer } from "@/components/Footer";
 import { STATE_GUIDES } from "@/lib/state-guides";
+import { getRecommendedStateGuide } from "@/lib/state-detection";
 
 // Loaded via a plain stylesheet link rather than next/font/google — the
 // automated build-time font fetcher has had repeated bugs with these two
@@ -49,9 +50,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
   const { careers, concepts, getHiredGuides } = getAllContent();
+  // Invisible until SHOW_STATE_DETECTION (see lib/state-detection.ts):
+  // undefined until then, so Header renders exactly as it does today.
+  const recommendedState = await getRecommendedStateGuide();
   const careerGroups = groupCareersByCategory(careers);
   // Get Hired has exactly one guide per career category (no sub-items to
   // group), so the nav just needs it in the site's standard category
@@ -96,6 +100,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   .map((c) => ({ id: c.id, type: c.type, slug: c.slug, title: c.title })),
               }))}
               stateGuides={STATE_GUIDES.map((g) => ({ slug: g.slug, name: g.name }))}
+              recommendedState={recommendedState ? { slug: recommendedState.slug, name: recommendedState.name } : undefined}
               getHiredGuides={getHiredOrdered.map((g) => ({
                 id: g.id,
                 type: g.type,

@@ -8,6 +8,9 @@ import { EmailGate } from "@/components/EmailGate";
 import { ActionPlanBuilder, type InitialPlan, type PlanPrefill } from "@/components/ActionPlanBuilder";
 import { CATEGORY_SLUG } from "@/lib/content-client";
 import { BLUEPRINT_GRID } from "@/lib/blueprint-style";
+import { StateDetectionPicker } from "@/components/StateDetectionPicker";
+import { SHOW_STATE_DETECTION, getKnownStateCode } from "@/lib/state-detection";
+import { STATE_GUIDES } from "@/lib/state-guides";
 
 // Linked from the site header's "Take Your First Step" entry (see the
 // build-sequencing notes in the premium-action-plan-feasibility project
@@ -49,6 +52,10 @@ export default async function ActionPlanPage({
     const role = dataByCategory[prefillCategory].careers.find((c) => c.slug === prefillRole);
     prefill = { category: prefillCategory, careerId: role?.id ?? "" };
   }
+
+  // Invisible until SHOW_STATE_DETECTION (see lib/state-detection.ts):
+  // built so the day it's turned on, the picker is already correct.
+  const knownStateCode = SHOW_STATE_DETECTION ? await getKnownStateCode() : undefined;
 
   const { userId } = await auth();
   let initialPlan: InitialPlan | undefined;
@@ -114,6 +121,16 @@ export default async function ActionPlanPage({
             </li>
           ))}
         </ul>
+        {SHOW_STATE_DETECTION && (
+          <div className="mt-6">
+            <StateDetectionPicker
+              guides={STATE_GUIDES.map((g) => ({ code: g.code, name: g.name }))}
+              initialCode={knownStateCode}
+              note="So we can point you to your state's field guide and programs."
+              dark
+            />
+          </div>
+        )}
         {savedPlanCount > 0 && !initialPlan && (
           <Link
             href="/action-plan/my-plans"

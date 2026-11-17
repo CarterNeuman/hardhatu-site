@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PayByState } from "@/components/PayByState";
 import { STATE_GUIDES } from "@/lib/state-guides";
+import { StateDetectionPicker } from "@/components/StateDetectionPicker";
+import { SHOW_STATE_DETECTION, getKnownStateCode } from "@/lib/state-detection";
 
 export const metadata: Metadata = {
   title: "College vs. Trades: Pay by State and Student Loans",
@@ -13,7 +15,11 @@ export const metadata: Metadata = {
 // statewide percentiles), the math from lib/roi-model.ts, and the UI from
 // components/PayByState.tsx + components/RoiCalculator.tsx.
 
-export default function StudentLoanRoiPage() {
+export default async function StudentLoanRoiPage() {
+  // Invisible until SHOW_STATE_DETECTION (see lib/state-detection.ts):
+  // built so the day it's turned on, the picker is already correct.
+  const knownStateCode = SHOW_STATE_DETECTION ? await getKnownStateCode() : undefined;
+
   return (
     <div className="mx-auto max-w-5xl px-6 py-10">
       <p className="mb-2 flex items-center gap-2.5 text-xs font-semibold uppercase tracking-wide text-amber">
@@ -30,6 +36,22 @@ export default function StudentLoanRoiPage() {
         degrees pay more over a long career. The real questions are how much debt it takes, how long it takes to catch
         up, and what the work pays where you live. This page shows all three.
       </p>
+
+      {SHOW_STATE_DETECTION && (
+        <div className="mt-6">
+          {/* Separate from the "Your state" selector in the pay table
+              below -- that one only changes what this page displays.
+              This one is the sitewide "what state are you in?" signal
+              (see lib/state-detection.ts). Worth collapsing into one
+              control once this goes live, rather than showing two state
+              pickers on the same page. */}
+          <StateDetectionPicker
+            guides={STATE_GUIDES.map((g) => ({ code: g.code, name: g.name }))}
+            initialCode={knownStateCode}
+            note="So we can point you to your state's field guide elsewhere on the site."
+          />
+        </div>
+      )}
 
       <PayByState guides={STATE_GUIDES.map((g) => ({ code: g.code, slug: g.slug, name: g.name, trades: g.trades.length }))} />
 
