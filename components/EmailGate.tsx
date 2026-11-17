@@ -36,7 +36,8 @@
 //    hard-gated pages that don't offer a timed preview at all.
 
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
-import { SignInButton, useUser } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
+import { SignInDialogButton } from "@/components/SignInDialog";
 import { HardHatMark } from "@/components/Header";
 
 // Dismissing the gate ("No thanks, keep reading") hides it for this
@@ -184,9 +185,9 @@ export function EmailGate({
               </p>
             </div>
 
-            {/* Goes to the /sign-in page (class code and school options), then
-                Clerk brings the reader back to this same page. */}
-            <SignInButton>
+            {/* Opens the site's sign-in pop-up (Clerk's form plus the class code
+                and school options) right here, so the reader never leaves the page. */}
+            <SignInDialogButton>
               <button
                 ref={signInButtonRef}
                 type="button"
@@ -194,7 +195,7 @@ export function EmailGate({
               >
                 Sign In
               </button>
-            </SignInButton>
+            </SignInDialogButton>
             <p className="mt-3 text-center text-xs leading-relaxed text-steel">
               By signing in you agree to our{" "}
               <a href="/terms" className="underline hover:text-ink">Terms</a> and{" "}

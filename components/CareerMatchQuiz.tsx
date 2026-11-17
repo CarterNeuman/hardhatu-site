@@ -2,7 +2,8 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { SignInButton, useUser } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
+import { SignInDialogButton } from "@/components/SignInDialog";
 import { urlFor, CATEGORY_QUIZ_SLUG } from "@/lib/content-client";
 import { CAREER_CATEGORY_ORDER } from "@/lib/types";
 import type { Career, Lesson } from "@/lib/types";
@@ -601,9 +602,9 @@ export function CareerMatchQuiz({
               Sign in free to see which careers match your answers, plus where to start learning.
             </p>
             <div className="mt-6 flex justify-center">
-              {/* Goes to the /sign-in page and back. The result survives the
-                  trip through the sessionStorage stash above. */}
-              <SignInButton>
+              {/* Opens the site's sign-in pop-up on this page. If sign-in leaves
+                  the page (Google), the result survives via the stash above. */}
+              <SignInDialogButton>
                 <button
                   type="button"
                   className="rounded-full px-6 py-3 text-base font-semibold text-paper transition-opacity hover:opacity-90"
@@ -611,7 +612,7 @@ export function CareerMatchQuiz({
                 >
                   Sign In to See My Results
                 </button>
-              </SignInButton>
+              </SignInDialogButton>
             </div>
             <p className="mx-auto mt-4 max-w-[46ch] text-xs leading-relaxed text-steel">
               By signing in you agree to our{" "}
