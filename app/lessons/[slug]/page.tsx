@@ -13,6 +13,8 @@ import { MarkCompleteButton } from "@/components/MarkCompleteButton";
 import { NextLessonButton } from "@/components/NextLessonButton";
 import { LessonCompletionProvider, LessonCompletionBadge } from "@/components/LessonCompletion";
 import { ORDERED_LESSON_SLUGS } from "@/lib/lesson-order";
+import { PrintableLesson } from "@/components/PrintableLesson";
+import { LessonPrintButtons } from "@/components/LessonPrintButtons";
 
 export function generateStaticParams() {
   const { lessons } = getAllContent();
@@ -64,14 +66,17 @@ export default async function LessonPage({
   return (
     <article className="mx-auto max-w-3xl px-6 py-10">
       <LessonCompletionProvider contentType="lesson" contentId={lesson.slug}>
-        <div className="flex flex-wrap items-center gap-2">
-          <TypeBadge type="lesson" tier={lesson.tier} />
-          <LessonCompletionBadge />
-        </div>
-        <h1 className="mt-2 font-display text-4xl font-bold text-ink">{lesson.title}</h1>
-        <p className="mt-1 text-xs uppercase tracking-wide text-steel">{lesson.minutes} min read</p>
+        {/* Screen header; the printed copy has its own (PrintableLesson). */}
+        <div className="print:hidden">
+          <div className="flex flex-wrap items-center gap-2">
+            <TypeBadge type="lesson" tier={lesson.tier} />
+            <LessonCompletionBadge />
+          </div>
+          <h1 className="mt-2 font-display text-4xl font-bold text-ink">{lesson.title}</h1>
+          <p className="mt-1 text-xs uppercase tracking-wide text-steel">{lesson.minutes} min read</p>
 
-        {lesson.image && <ContentPhoto src={lesson.image} alt={lesson.title} />}
+          {lesson.image && <ContentPhoto src={lesson.image} alt={lesson.title} />}
+        </div>
 
         {/* 30-second preview before the gate, not an immediate block --
             each lesson (keyed by source) gets its own fresh 30 seconds,
@@ -80,24 +85,30 @@ export default async function LessonPage({
             link: this still ends in a hard sign-in requirement, just
             with a delay instead of blocking on arrival. */}
         <EmailGate source={`lesson:${lesson.slug}`} variant="timed" delaySeconds={30}>
-          {lesson.sections.map((section, i) => {
-            const quizIndex = section.quiz ? quizSeen++ : -1;
-            return (
-              <div key={i} className="mt-4">
-                <Prose text={section.content} />
-                {section.quiz && <QuizBlock quiz={section.quiz} index={quizIndex} total={quizTotal} />}
-              </div>
-            );
-          })}
+          {/* Printing sits inside the gate like the rest of the lesson, so
+              it follows the same sign-in rules as reading it on screen. */}
+          <LessonPrintButtons hasQuestions={quizTotal > 0} />
+          <div className="print:hidden">
+            {lesson.sections.map((section, i) => {
+              const quizIndex = section.quiz ? quizSeen++ : -1;
+              return (
+                <div key={i} className="mt-4">
+                  <Prose text={section.content} />
+                  {section.quiz && <QuizBlock quiz={section.quiz} index={quizIndex} total={quizTotal} />}
+                </div>
+              );
+            })}
 
-          <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-hairline pt-6">
-            <MarkCompleteButton />
-            <NextLessonButton nextSlug={nextSlug} nextTitle={nextLesson?.title ?? null} />
+            <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-hairline pt-6">
+              <MarkCompleteButton />
+              <NextLessonButton nextSlug={nextSlug} nextTitle={nextLesson?.title ?? null} />
+            </div>
+
+            <ProgramsBox id={lesson.id} heading="Where to train for this work" />
+
+            <RelatedLinks items={related} />
           </div>
-
-          <ProgramsBox id={lesson.id} heading="Where to train for this work" />
-
-          <RelatedLinks items={related} />
+          <PrintableLesson lesson={lesson} />
         </EmailGate>
       </LessonCompletionProvider>
     </article>

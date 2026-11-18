@@ -67,7 +67,13 @@ export async function POST(request: Request) {
   if (event.type === "user.created") {
     const addresses = event.data.email_addresses || [];
     const primary = addresses.find((a) => a.id === event.data.primary_email_address_id) || addresses[0];
-    if (primary?.email_address) {
+    if (process.env.AUTO_SUBSCRIBE_NEW_ACCOUNTS !== "1") {
+      // Auto-subscribe is off (2026-11-17): there's no newsletter yet, so
+      // new accounts aren't added to any list and the sign-in popups no
+      // longer mention one. Set AUTO_SUBSCRIBE_NEW_ACCOUNTS=1 in Vercel to
+      // turn it back on -- and update the sign-in wording and the privacy
+      // policy's "Email" section in the same change, so they match.
+    } else if (primary?.email_address) {
       await subscribeToButtondown(primary.email_address, "clerk-signup");
     } else {
       console.warn("[clerk-webhook] user.created event had no email address", event.data);

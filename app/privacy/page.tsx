@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const CONTACT_EMAIL = "contact@breakgroundu.com";
-const LAST_UPDATED = "November 14, 2026";
+const LAST_UPDATED = "November 17, 2026";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -57,10 +57,6 @@ export default function PrivacyPage() {
             We don't handle passwords directly at all. Sign-in itself is handled by Clerk, a
             third-party authentication provider described below; BreakGroundU never sees a
             password you create with them.
-          </p>
-          <p className="mt-3">
-            When you create an account, your email is also added to our mailing list, see "Email
-            and newsletter" below.
           </p>
         </section>
 
@@ -126,13 +122,17 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="font-display text-2xl font-bold text-ink">Email and newsletter</h2>
+          <h2 className="font-display text-2xl font-bold text-ink">Email</h2>
           <p className="mt-3">
-            Creating an account automatically adds your email to our mailing list, sent through
-            Buttondown, which we use for occasional site updates and a newsletter. You can
-            unsubscribe at any time using the link in any email we send; unsubscribing stops the
-            emails but doesn't delete your account. Emails sent through Buttondown may include
-            standard open and click tracking, the same as most email services use, see{" "}
+            We use your email address to sign you in and to reply if you write to us. We don't
+            send a newsletter or marketing email, and creating an account doesn't add you to a
+            mailing list. If that ever changes, we'll update this policy first.
+          </p>
+          <p className="mt-3">
+            Accounts created before November 17, 2026 were added to a mailing list run by
+            Buttondown. You can unsubscribe using the link in any email from it, or ask us to
+            remove you. Emails sent through Buttondown may include standard open and click
+            tracking, the same as most email services use, see{" "}
             <a href="https://buttondown.com/legal/privacy" className={linkClass}>
               Buttondown's own privacy policy
             </a>{" "}
@@ -197,8 +197,8 @@ export default function PrivacyPage() {
               progress and quiz-result data.
             </li>
             <li>
-              <span className="font-semibold">Buttondown,</span> manages our mailing list and
-              sends the emails described above.
+              <span className="font-semibold">Buttondown,</span> holds the mailing list described
+              above for accounts created before November 17, 2026.
             </li>
             <li>
               <span className="font-semibold">Vercel,</span> hosts the site and provides Vercel

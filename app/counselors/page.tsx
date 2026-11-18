@@ -308,6 +308,7 @@ export default function CounselorsPage() {
             { href: "/counselors/parent-handout", t: "Parent handout", d: "A plain-language page for families wondering whether the trades are a real option." },
             { href: "/states/georgia", t: "Georgia field guide", d: "Pay, licensing and ways in for 25 trades. Print the whole guide or copy a single trade." },
             { href: "/student-loan-roi", t: "College vs. Trades", d: "Side-by-side cost and pay comparison for 21 trades in all 50 states." },
+            { href: "/lessons", t: "Lesson worksheets", d: "Any lesson prints as a worksheet with its check-in questions, plus a separate answer key for you." },
           ].map((p) => (
             <li key={p.href}>
               <Link href={p.href} className="group block h-full rounded-lg border border-hairline bg-white p-5 hover:border-navy">

@@ -59,3 +59,20 @@ body {
     display: none !important;
   }
 }
+
+/* Lessons: printable worksheet + separate answer key (PrintableLesson,
+   LessonPrintButtons). A plain browser print gives the worksheet; the
+   "Print answer key" button adds .print-key-mode for that one print. */
+@media print {
+  html:not(.print-key-mode) .print-key,
+  html.print-key-mode .print-lesson {
+    display: none !important;
+  }
+  .print-sheet {
+    color: #000;
+  }
+  .print-sheet a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+}
