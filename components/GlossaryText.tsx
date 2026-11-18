@@ -8,7 +8,7 @@
 // risks matching in a context where it's actually plausible.
 import Link from "next/link";
 import type { ConceptRef } from "@/lib/action-plan-generator";
-import { stripWikiLinks } from "@/lib/content";
+import { stripWikiLinks } from "@/lib/content-client";
 
 type GlossaryEntry = { key: string; concept: ConceptRef };
 
