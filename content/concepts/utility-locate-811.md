@@ -4,8 +4,7 @@ title: Utility Locate (811 / One-Call)
 tier: free
 category: Project Process & Lifecycle
 definition: >
-  The legally required process of contacting the national 811 call-before-
-  you-dig system before any excavation, triggering utility owners to mark the
+  The legally required process of contacting the national 811 call-before-you-dig system before any excavation, triggering utility owners to mark the
   approximate location of their buried lines with color-coded paint or flags
   within a required notice period that varies by state, typically a few
   business days.

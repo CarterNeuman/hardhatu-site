@@ -165,7 +165,7 @@ questions:
       Unlike some certification exams that offer a reduced retake
       price, LEED doesn't: each registration fee covers exactly one
       attempt, so failing means paying the full fee again, $250, $200,
-      or $100 depending on your category, not a discounted resit
+      or $100 depending on your category, not a discounted retake
       price.
   - question: "Where can you actually sit the LEED Green Associate exam?"
     options:
@@ -220,7 +220,7 @@ The LEED Green Associate exam is 100 multiple-choice questions over 2 hours, sco
 
 What makes the Green Associate accessible is what it doesn't require: unlike the more advanced LEED AP credentials, there's no formal education, experience, or licensure prerequisite, GBCI only recommends some exposure to LEED concepts through work, education, or volunteering. That's exactly why it's realistic for someone outside a dedicated sustainability role, a construction PM, an estimator, a superintendent, to pursue it as a way to build real fluency in how LEED certification actually works, since green building requirements increasingly touch nearly every role on a project pursuing certification. Once earned, the credential has to be maintained through continuing education, a 2-year reporting cycle requiring both general and LEED-specific CE hours plus a renewal fee.
 
-Pricing scales with your relationship to USGBC: $250 for non-members, $200 for employees of USGBC member organizations, and $100 for full- or part-time students, with no separate application fee on top. There's no discounted retake either, a failed attempt means paying the full registration fee again at your applicable rate, which makes walking in prepared worth more here than on an exam with a cheaper resit price. The exam itself is delivered through Prometric, either at a physical test center or as an online proctored exam, the same flexibility found on several other credentials covered on this site.
+Pricing scales with your relationship to USGBC: $250 for non-members, $200 for employees of USGBC member organizations, and $100 for full- or part-time students, with no separate application fee on top. There's no discounted retake either, a failed attempt means paying the full registration fee again at your applicable rate, which makes walking in prepared worth more here than on an exam with a cheaper retake price. The exam itself is delivered through Prometric, either at a physical test center or as an online proctored exam, the same flexibility found on several other credentials covered on this site.
 
 Registering doesn't lock in an exam date immediately, it opens a 12-month window to actually schedule and sit the exam, with a one-time courtesy extension of up to 6 months available if you need it. Scheduling itself carries its own timing risk though: Prometric's cancellation policy is tiered, free more than 45 days out, a fee between 4 and 45 days out, and a full forfeiture of the registration fee inside 3 days of the appointment, so picking a test date you're not genuinely confident about can end up costing the entire fee, not just causing a delay.
 

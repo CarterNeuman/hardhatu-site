@@ -21,6 +21,14 @@
  *    apart — and, for lessons specifically, every keyTerms id is actually
  *    linked somewhere in the lesson body (keyTerms is the checklist of
  *    concepts a lesson promises to surface inline, not just decoration)
+ *  - wiki-links only appear in fields the site actually renders them in
+ *    (a [[...]] anywhere else shows up on the page as raw brackets), and
+ *    every [[ is a well-formed link (an id split by a line-wrap isn't)
+ *  - relatedIds / recommendedIds / wiki-links never point at a content type
+ *    that has no page of its own (action plans, cheat sheets) -- those
+ *    render as links to a 404
+ *  - no "word ," right after a link and no "word- word" from a hyphenated
+ *    word split across a line-wrap (both show up as visible typos)
  */
 import fs from "fs";
 import path from "path";
@@ -105,6 +113,46 @@ const entries = [];
 
 // Matches [[some-id]] or [[some-id|display text]] anywhere in a string.
 const WIKI_LINK_RE = /\[\[([a-z0-9-]+)(?:\|[^\]]+)?\]\]/g;
+
+// Fields where a wiki-link is rendered properly -- as a real link (Prose,
+// InlineProse, LinkedText, Callout) or stripped to its plain label
+// (stripWikiLinks, toMetaDescription). Array indices are dropped, so
+// "whatTheyDo" covers every whatTheyDo[n] and "sections.content" every
+// sections[n].content. A [[...]] in any other field shows up on the page as
+// raw brackets, which is exactly what happened with careers' "What they
+// do" lists. Add a field here only after its page renders it through one
+// of those components.
+const LINKABLE_FIELDS = {
+  career: ["tagline", "whatIs", "whatTheyDo", "typicalDay.activity", "skills", "progression", "ownerPayNote", "metaDescription"],
+  concept: ["definition", "whyItMatters", "example", "careerAngle", "whatGoesWrong", "metaDescription"],
+  lesson: ["sections.content", "metaDescription"],
+  phase: ["whatHappens", "timeline", "costOfChangeCurve", "commonMisconception", "whatCanGoWrong", "nonLinearReality", "metaDescription"],
+  exam: ["body", "tagline", "metaDescription"],
+  gethired: ["body", "howHiringWorks", "tagline", "metaDescription"],
+  interview: ["body", "tagline", "metaDescription"],
+  program: ["whatToExpect", "tagline", "metaDescription"],
+  resume: ["body", "sections.content", "tagline", "metaDescription"],
+  software: ["whatItIs", "whatItDoes", "metaDescription"],
+  quiz: ["tagline", "metaDescription"],
+};
+
+// Content types with no page of their own (lib/content-client.ts urlFor
+// would still build a /action-plans/... or /cheatsheets/... URL for them,
+// which 404s). The Action Plan builder reads its entries directly.
+const UNROUTED_PREFIXES = ["actionplan-", "cheatsheet-"];
+const isUnrouted = (id) => UNROUTED_PREFIXES.some((p) => String(id).startsWith(p));
+
+// Walks every string in a value, calling fn(string, pathLabel).
+function walkStrings(value, pathLabel, fn) {
+  if (typeof value === "string") fn(value, pathLabel);
+  else if (Array.isArray(value)) value.forEach((v, i) => walkStrings(v, `${pathLabel}[${i}]`, fn));
+  else if (value && typeof value === "object")
+    for (const [k, v] of Object.entries(value)) walkStrings(v, pathLabel ? `${pathLabel}.${k}` : k, fn);
+}
+
+// "Suspended" hyphens are real English ("short- and long-term"), so a
+// "word- word" is only flagged when the next word isn't one of these.
+const SUSPENDED_HYPHEN_NEXT = new Set(["and", "or", "to", "through", "vs", "versus", "nor"]);
 
 // Walks any frontmatter value (or the raw markdown body) looking for
 // wiki-links, recording where each one was found for error messages.
@@ -393,6 +441,8 @@ for (const { filePath, data, body } of entries) {
   for (const relatedId of relatedIds) {
     if (!allIds.has(relatedId)) {
       errors.push(`${filePath}: relatedIds references unknown id "${relatedId}"`);
+    } else if (isUnrouted(relatedId)) {
+      errors.push(`${filePath}: relatedIds includes "${relatedId}", which has no page of its own -- "Explore next" would link it to a 404`);
     }
   }
 
@@ -526,6 +576,46 @@ for (const { filePath, data, body } of entries) {
       );
     }
   }
+
+  // Wiki-links only where they render, never to a page that doesn't exist,
+  // and never malformed.
+  const type = data.id ? Object.values(TYPE_CONFIG).find((c) => String(data.id).startsWith(c.prefix))?.type : undefined;
+  const allowed = new Set(LINKABLE_FIELDS[type] || []);
+  for (const { id, pathLabel } of wikiLinks) {
+    const field = pathLabel.replace(/\[\d+\]/g, "");
+    if (!allowed.has(field)) {
+      errors.push(
+        `${filePath}: ${pathLabel} has a wiki-link [[${id}]], but that field isn't rendered as linked text -- it would show raw brackets on the page (see LINKABLE_FIELDS)`
+      );
+    }
+    if (allIds.has(id) && isUnrouted(id)) {
+      errors.push(`${filePath}: ${pathLabel} wiki-links "${id}", which has no page of its own -- it would link to a 404`);
+    }
+  }
+
+  const checkText = (text, pathLabel) => {
+    const leftover = text.replace(/\[\[([a-z0-9-]+)(?:\|[^\]]+)?\]\]/g, "");
+    if (leftover.includes("[[") || leftover.includes("]]")) {
+      const i = leftover.search(/\[\[|\]\]/);
+      errors.push(
+        `${filePath}: ${pathLabel} has a malformed wiki-link near "${leftover.slice(Math.max(0, i - 20), i + 40).replace(/\s+/g, " ")}" -- usually an id split across a line-wrap; it renders as raw brackets`
+      );
+    }
+    const flat = text.replace(/\s+/g, " ");
+    const spaced = flat.match(/\]\] +[,.;:!?]/);
+    if (spaced) {
+      const i = spaced.index;
+      errors.push(`${filePath}: ${pathLabel} has a space before punctuation right after a link: "...${flat.slice(Math.max(0, i - 30), i + 6)}"`);
+    }
+    for (const m of flat.matchAll(/\b([A-Za-z0-9]+)- ([a-z][A-Za-z]*)/g)) {
+      if (SUSPENDED_HYPHEN_NEXT.has(m[2])) continue;
+      errors.push(
+        `${filePath}: ${pathLabel} has "${m[0]}" -- a hyphenated word split by a line-wrap? Join it ("${m[1]}-${m[2]}")`
+      );
+    }
+  };
+  walkStrings(data, "", checkText);
+  if (body) checkText(body, "body");
 }
 
 console.log(`Checked ${entries.length} content file(s).`);

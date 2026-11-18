@@ -207,8 +207,7 @@ questions:
       The exam tests whether a candidate already knows the workflow, not
       whether they can look it up in the moment, so there's no live
       software to reference during testing. Questions instead rely on
-      multiple-choice, drag-and-drop, hot-area, and graphic-
-      interpretation formats to test the same practical knowledge
+      multiple-choice, drag-and-drop, hot-area, and graphic-interpretation formats to test the same practical knowledge
       without needing the actual application open.
 relatedIds:
   - career-cad-technician

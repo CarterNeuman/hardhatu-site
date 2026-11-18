@@ -1,7 +1,7 @@
 import { STATE_GUIDES } from "@/lib/state-guides";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllContent, getBySlug, stripWikiLinks } from "@/lib/content";
+import { getAllContent, getBySlug, toMetaDescription, pageTitle } from "@/lib/content";
 import type { CareerMatchQuiz as CareerMatchQuizContent } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
 import { InlineProse } from "@/components/Prose";
@@ -22,11 +22,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const quiz = getBySlug("quiz", slug) as CareerMatchQuizContent | undefined;
   if (!quiz) return {};
-  const description = stripWikiLinks(quiz.metaDescription || quiz.tagline);
+  const description = toMetaDescription(quiz.metaDescription || quiz.tagline);
   return {
-    title: quiz.title,
+    title: pageTitle(quiz),
     description,
-    openGraph: { title: quiz.title, description },
+    openGraph: { title: pageTitle(quiz), description },
   };
 }
 

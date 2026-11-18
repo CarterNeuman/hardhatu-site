@@ -179,6 +179,32 @@ export function getBySlug(
   return all.find((node) => node.type === type && node.slug === slug);
 }
 
+// The <title> for a content page. Usually just the item's own title, but
+// when another item shares it exactly (the Architect career and the
+// Architect concept, say), every non-career item gets its type added --
+// "Architect (Concept)" -- so search results and browser tabs can tell the
+// pages apart. Careers keep the plain title since they're the main pages.
+const TITLE_TYPE_LABEL: Partial<Record<ContentType, string>> = {
+  concept: "Concept",
+  lesson: "Lesson",
+  phase: "Phase",
+  software: "Software",
+  gethired: "Get Hired Guide",
+  resume: "Resume Guide",
+  interview: "Interview Prep",
+  exam: "Exam Prep",
+  program: "Program",
+  quiz: "Quiz",
+};
+
+export function pageTitle(node: AnyContent): string {
+  if (node.type === "career") return node.title;
+  const { all } = getAllContent();
+  const shared = all.some((other) => other.id !== node.id && other.title === node.title);
+  const label = TITLE_TYPE_LABEL[node.type];
+  return shared && label ? `${node.title} (${label})` : node.title;
+}
+
 export function getRelated(node: AnyContent): AnyContent[] {
   const { byId } = getAllContent();
   return node.relatedIds
@@ -249,6 +275,7 @@ export {
   urlFor,
   slugifyCategory,
   stripWikiLinks,
+  toMetaDescription,
   groupCareersByCategory,
   groupInterviewsByCategory,
   groupResumesByCategory,

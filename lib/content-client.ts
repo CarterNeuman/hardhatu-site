@@ -79,6 +79,19 @@ export function stripWikiLinks(text: string): string {
   return text.replace(/\[\[([a-z0-9-]+)(?:\|([^\]]+))?\]\]/g, (_match, id, label) => label || id);
 }
 
+// A search-result / social-preview description from any text field: links
+// resolved to plain labels, whitespace collapsed, and cut at a word
+// boundary near 160 characters (about what Google shows) with an ellipsis,
+// instead of handing search engines a full multi-sentence definition that
+// gets chopped mid-word.
+export function toMetaDescription(text: string | undefined, max = 160): string {
+  const clean = stripWikiLinks(text ?? "").replace(/\s+/g, " ").trim();
+  if (clean.length <= max) return clean;
+  const cut = clean.slice(0, max - 1);
+  const lastSpace = cut.lastIndexOf(" ");
+  return `${cut.slice(0, lastSpace > max * 0.6 ? lastSpace : cut.length).replace(/[\s,;:.\-]+$/, "")}…`;
+}
+
 // Groups careers by their category (Field & Trades, Insurance & Claims,
 // etc. — see content-inventory.md) in a consistent display order, so the
 // career listing reads as organized sections rather than one flat list.

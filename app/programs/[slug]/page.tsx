@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllContent, getBySlug, getRelated, stripWikiLinks } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, stripWikiLinks, toMetaDescription, pageTitle } from "@/lib/content";
 import type { Program } from "@/lib/types";
 import { ProgramTypeBadge } from "@/components/ProgramTypeBadge";
 import { ContentCard } from "@/components/ContentCard";
@@ -26,11 +26,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const program = getBySlug("program", slug) as Program | undefined;
   if (!program) return {};
-  const description = stripWikiLinks(program.metaDescription || program.tagline);
+  const description = toMetaDescription(program.metaDescription || program.tagline);
   return {
-    title: program.title,
+    title: pageTitle(program),
     description,
-    openGraph: { title: program.title, description },
+    openGraph: { title: pageTitle(program), description },
   };
 }
 

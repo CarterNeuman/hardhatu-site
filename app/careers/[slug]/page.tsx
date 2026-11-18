@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllContent, getBySlug, getRelated, getRecommended, getProgramsForCareer, matchSoftwareByName, urlFor, stripWikiLinks } from "@/lib/content";
-import { InlineProse } from "@/components/Prose";
+import { getAllContent, getBySlug, getRelated, getRecommended, getProgramsForCareer, matchSoftwareByName, urlFor, stripWikiLinks, toMetaDescription, pageTitle } from "@/lib/content";
+import { InlineProse, LinkedText } from "@/components/Prose";
 import type { Career } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
 import { Tag } from "@/components/Tag";
@@ -30,11 +30,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const career = getBySlug("career", slug) as Career | undefined;
   if (!career) return {};
-  const description = stripWikiLinks(career.metaDescription || career.tagline);
+  const description = toMetaDescription(career.metaDescription || career.tagline);
   return {
-    title: career.title,
+    title: pageTitle(career),
     description,
-    openGraph: { title: career.title, description },
+    openGraph: { title: pageTitle(career), description },
   };
 }
 
@@ -72,7 +72,9 @@ export default async function CareerPage({
           <SectionLabel>What they do</SectionLabel>
           <ul className="mt-2 list-disc space-y-1 pl-5 text-ink">
             {career.whatTheyDo.map((item) => (
-              <li key={item}>{item}</li>
+              <li key={item}>
+                <LinkedText text={item} />
+              </li>
             ))}
           </ul>
         </>
@@ -85,7 +87,9 @@ export default async function CareerPage({
             {career.typicalDay.map((slot) => (
               <li key={slot.time} className="flex gap-3">
                 <span className="w-20 shrink-0 font-medium text-steel">{slot.time}</span>
-                <span>{slot.activity}</span>
+                <span>
+                  <LinkedText text={slot.activity} />
+                </span>
               </li>
             ))}
           </ul>
@@ -97,7 +101,7 @@ export default async function CareerPage({
           <SectionLabel>Skills</SectionLabel>
           <div className="mt-2 flex flex-wrap gap-1.5">
             {career.skills.map((skill) => (
-              <Tag key={skill}>{skill}</Tag>
+              <Tag key={skill}>{stripWikiLinks(skill)}</Tag>
             ))}
           </div>
         </>
@@ -217,7 +221,9 @@ export default async function CareerPage({
             {career.progression.map((step, i) => (
               <li key={step} className="flex gap-2">
                 <span className="text-steel">{i + 1}.</span>
-                <span>{step}</span>
+                <span>
+                  <LinkedText text={step} />
+                </span>
               </li>
             ))}
           </ol>

@@ -46,8 +46,7 @@ questions:
     answerIndex: 2
     explanation: >
       Procore Certification runs entirely through self-paced online
-      courses on Procore's learning platform, working through role-
-      specific modules at your own speed rather than sitting a single
+      courses on Procore's learning platform, working through role-specific modules at your own speed rather than sitting a single
       standalone proctored exam the way most other credentials here work.
   - question: "Roughly how long does the Superintendent Certification take to complete, and what tools does it cover?"
     options:
@@ -99,7 +98,7 @@ questions:
       to publish) a defined scoring standard, Procore doesn't publicly
       detail exact question counts or passing thresholds for its
       certification exams, consistent with the program's more informal,
-      training-oriented structure compared to a industry-wide credential.
+      training-oriented structure compared to an industry-wide credential.
   - question: "Who is eligible to pursue a Procore Certification?"
     options:
       - "Anyone with an interest in learning Procore, regardless of employer or current role"
@@ -151,8 +150,7 @@ questions:
       Unlike the PMP, CAPM, CCM, LEED Green Associate, or Autodesk
       Certified Professional, all of which require some form of ongoing
       renewal, a Procore Certification doesn't expire once earned. That
-      permanence is consistent with the program's informal, training-
-      focused structure rather than an industry-governed credential with
+      permanence is consistent with the program's informal, training-focused structure rather than an industry-governed credential with
       recertification requirements.
   - question: "If a candidate doesn't pass a Procore Certification's final exam on the first try, what happens?"
     options:

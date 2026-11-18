@@ -95,7 +95,6 @@ relatedIds:
   - lesson-a-day-in-the-life-of-an-estimator
   - resume-preconstruction-estimating
   - gethired-preconstruction-estimating
-  - actionplan-preconstruction-estimating
   - phase-procurement-preconstruction
   - software-stack
   - software-proest

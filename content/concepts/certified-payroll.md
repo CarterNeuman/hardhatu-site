@@ -28,8 +28,7 @@ careerAngle: >
   misclassification shows up directly as a compliance error on the certified payroll
   report.
 whatGoesWrong: >
-  A contractor classifies a worker performing skilled electrical work under a lower-
-  paying general laborer classification on the certified payroll report, whether by
+  A contractor classifies a worker performing skilled electrical work under a lower-paying general laborer classification on the certified payroll report, whether by
   mistake or to save money. An audit catches the misclassification, and the contractor
   owes back wages for the pay difference across every week the worker was misclassified
   plus potential penalties for the false certification itself.

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllContent, getBySlug, getRelated, stripWikiLinks } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, toMetaDescription, pageTitle } from "@/lib/content";
 import { InlineProse } from "@/components/Prose";
 import { getYouTubeEmbedUrl } from "@/lib/youtube";
 import type { Software } from "@/lib/types";
@@ -24,11 +24,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const software = getBySlug("software", slug) as Software | undefined;
   if (!software) return {};
-  const description = stripWikiLinks(software.metaDescription || software.whatItIs);
+  const description = toMetaDescription(software.metaDescription || software.whatItIs);
   return {
-    title: software.title,
+    title: pageTitle(software),
     description,
-    openGraph: { title: software.title, description },
+    openGraph: { title: pageTitle(software), description },
   };
 }
 

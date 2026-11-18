@@ -116,7 +116,7 @@ const GA_SOS_AIR: SourceRef = {
 };
 const GA_SOS_GC: SourceRef = {
   label: "Georgia State Licensing Board for Residential and General Contractors",
-  url: "https://sos.ga.gov/state-licensing-board-residential-and-general-contractors",
+  url: "https://sos.ga.gov/state-licensing-board-residential-and-commercial-general-contractors",
 };
 
 const GA_SPECIALTY: SourceRef = {

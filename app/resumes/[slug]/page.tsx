@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllContent, getBySlug, getRelated, stripWikiLinks } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, toMetaDescription, pageTitle } from "@/lib/content";
 import type { ResumeGuide } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
 import { SectionLabel } from "@/components/SectionLabel";
@@ -25,11 +25,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const resume = getBySlug("resume", slug) as ResumeGuide | undefined;
   if (!resume) return {};
-  const description = stripWikiLinks(resume.metaDescription || resume.tagline);
+  const description = toMetaDescription(resume.metaDescription || resume.tagline);
   return {
-    title: resume.title,
+    title: pageTitle(resume),
     description,
-    openGraph: { title: resume.title, description },
+    openGraph: { title: pageTitle(resume), description },
   };
 }
 

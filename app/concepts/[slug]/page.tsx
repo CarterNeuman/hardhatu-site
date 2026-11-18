@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllContent, getBySlug, getRelated, stripWikiLinks } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, toMetaDescription, pageTitle } from "@/lib/content";
 import { InlineProse } from "@/components/Prose";
 import type { Concept } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
@@ -25,11 +25,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const concept = getBySlug("concept", slug) as Concept | undefined;
   if (!concept) return {};
-  const description = stripWikiLinks(concept.metaDescription || concept.definition);
+  const description = toMetaDescription(concept.metaDescription || concept.definition);
   return {
-    title: concept.title,
+    title: pageTitle(concept),
     description,
-    openGraph: { title: concept.title, description },
+    openGraph: { title: pageTitle(concept), description },
   };
 }
 

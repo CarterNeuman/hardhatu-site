@@ -16,8 +16,7 @@ whyItMatters: >
   happens matches the financials to reality.
 example: >
   A $2,000,000 contract has incurred $600,000 of its total estimated
-  $1,200,000 in costs, putting it at 50 percent complete. Percentage-of-
-  completion accounting recognizes $1,000,000 of revenue for that period, half
+  $1,200,000 in costs, putting it at 50 percent complete. Percentage-of-completion accounting recognizes $1,000,000 of revenue for that period, half
   of the total contract, not zero and not the full amount.
 careerAngle: >
   A [[career-construction-accountant|Construction Accountant]] applies

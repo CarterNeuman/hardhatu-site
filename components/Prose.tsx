@@ -84,3 +84,12 @@ export function InlineProse({ text, className }: { text: string; className?: str
   const { byId } = getAllContent();
   return <p className={className}>{renderParagraph(text, byId)}</p>;
 }
+
+// Inline-only variant: just the resolved text + links, no wrapping
+// element at all, for list items, table cells, and other spots that
+// already supply their own container (e.g. a career's "What they do"
+// <li>). Same [[id]] / [[id|label]] resolution as Prose and InlineProse.
+export function LinkedText({ text }: { text: string }) {
+  const { byId } = getAllContent();
+  return <>{renderParagraph(text, byId)}</>;
+}

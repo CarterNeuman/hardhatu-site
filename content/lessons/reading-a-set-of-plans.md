@@ -51,7 +51,7 @@ sections:
       aren't actually what most trades build from directly. They show design
       intent, not fabrication instructions. A steel fabricator takes the
       architect's drawings and produces their own
-      [[concept-shop-drawings|shop drawings]] , detailed enough to show exact
+      [[concept-shop-drawings|shop drawings]], detailed enough to show exact
       bolt patterns and connections. The architect or engineer has to review
       and approve that translation before anything gets ordered, through the
       [[concept-submittal|submittal]] process. On a project of any real size,
@@ -74,11 +74,11 @@ sections:
   - content: >
       Reading plans well matters beyond just building from them. Before
       construction can legally start, the local building department checks the
-      drawings against the [[concept-building-code|building code]] , a process
-      called [[concept-plan-review|plan review]] . Catching a code problem
+      drawings against the [[concept-building-code|building code]], a process
+      called [[concept-plan-review|plan review]]. Catching a code problem
       here, on paper, is far cheaper than catching it after it's actually
       built. Passing plan review is what earns a project its
-      [[concept-building-permit|building permit]] , the government sign-off
+      [[concept-building-permit|building permit]], the government sign-off
       required before most work can start. Because code requirements differ by
       city, a [[career-permit-expediter|Permit Expediter]] exists specifically
       to push permit applications through review without stalling the whole
@@ -97,14 +97,14 @@ sections:
   - content: >
       Once construction starts, the plans keep evolving on purpose. Field
       conditions rarely match a drawing exactly, so those changes get folded
-      into a final set of [[concept-as-built-drawings|as-built drawings]] ,
+      into a final set of [[concept-as-built-drawings|as-built drawings]],
       the record of what actually got built. For work that becomes invisible
       once it's covered, like a weld inside a column, drawings alone can't
       verify anything after the fact. That's what
       [[concept-special-inspection|special inspection]] is for: an independent
       check, in real time, of the work that holds a building up. Many projects
       now coordinate all of this digitally too, guided by a
-      [[concept-bim-execution-plan|BIM execution plan]] . Keeping all of it
+      [[concept-bim-execution-plan|BIM execution plan]]. Keeping all of it
       straight, drawing revisions, submittal status, RFI answers, is usually a
       [[career-project-engineer|Project Engineer]] 's first real job, and it's
       exactly why the role is such a common way into project management. Learn

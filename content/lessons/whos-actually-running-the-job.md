@@ -29,17 +29,17 @@ sections:
   - content: >
       Here's what actually decides who can tell whom what to do: contracts,
       not job titles. The owner has one contract, the
-      [[concept-prime-contract|prime contract]] , and it's with the general
+      [[concept-prime-contract|prime contract]], and it's with the general
       contractor only. The GC then signs a separate
       [[concept-subcontract-agreement|subcontract agreement]] with each
-      [[concept-subcontractor|subcontractor]] , one for electrical, one for
+      [[concept-subcontractor|subcontractor]], one for electrical, one for
       drywall, and so on. That's why an owner can't just walk up to an
       electrical sub's foreman and start giving orders: there's no contract
       between them, so there's no legal weight behind it. Keeping instructions
       flowing through that chain is what keeps the GC accountable for the
       whole job instead of everyone quietly doing their own thing. The
       day-to-day rules for how that chain works usually live in the
-      [[concept-general-conditions|general conditions]] , a standard form most
+      [[concept-general-conditions|general conditions]], a standard form most
       projects use, with
       [[concept-supplementary-conditions|supplementary conditions]] added on
       top to fit the specific project.
@@ -81,7 +81,7 @@ sections:
   - content: >
       Everything so far assumes one owner, one GC, coordinating every sub
       underneath them. That's common, but not universal. Under
-      [[concept-multiple-prime-contracting|multiple prime contracting]] , the
+      [[concept-multiple-prime-contracting|multiple prime contracting]], the
       owner contracts directly with several prime contractors instead, like a
       general prime and an electrical prime, with nobody automatically in
       charge of resolving conflicts between them. Whichever structure a
@@ -104,7 +104,7 @@ sections:
   - content: >
       So what's the real answer to who do I ask? It's never about who sounds
       most confident on site. The architect's office answers questions about
-      what the design means, often through a formal [[concept-rfi|RFI]] . The
+      what the design means, often through a formal [[concept-rfi|RFI]]. The
       GC decides how the work actually proceeds. The owner, or their rep,
       weighs in on anything that changes cost or schedule. If untangling that
       kind of structure sounds interesting, the Owner's Representative,

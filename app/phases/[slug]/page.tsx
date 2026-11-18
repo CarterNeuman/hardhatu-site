@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllContent, getBySlug, getRelated, stripWikiLinks } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, toMetaDescription, pageTitle } from "@/lib/content";
 import type { Phase } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
 import { Tag } from "@/components/Tag";
@@ -24,11 +24,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const phase = getBySlug("phase", slug) as Phase | undefined;
   if (!phase) return {};
-  const description = phase.metaDescription || stripWikiLinks(phase.whatHappens).slice(0, 155);
+  const description = toMetaDescription(phase.metaDescription || phase.whatHappens);
   return {
-    title: phase.title,
+    title: pageTitle(phase),
     description,
-    openGraph: { title: phase.title, description },
+    openGraph: { title: pageTitle(phase), description },
   };
 }
 

@@ -22,8 +22,7 @@ whatToExpect: >
   most candidates already work in insurance or surety. Coursework is
   self-paced; candidates choosing the commercial concentration and an
   elective like cyber risk or claims end up with coursework most relevant
-  to contractor and builders-risk coverage, even without a construction-
-  specific course on the books.
+  to contractor and builders-risk coverage, even without a construction-specific course on the books.
 costNote: "Several thousand dollars total for materials, exams, and matriculation; see theinstitutes.org for current pricing"
 durationNote: "8 courses; self-paced, commonly 18 months to 3 years to complete"
 lastReviewed: "2026-11"

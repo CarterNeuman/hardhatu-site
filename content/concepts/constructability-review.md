@@ -10,8 +10,7 @@ definition: >
 whyItMatters: >
   An architect designs for appearance and function; they don't always know what's
   awkward or slow to actually build. A constructability review catches those problems
-  on paper, while they're still cheap to fix, instead of discovering them mid-
-  construction when a crew is already standing in front of the wall.
+  on paper, while they're still cheap to fix, instead of discovering them mid-construction when a crew is already standing in front of the wall.
 example: >
   During a constructability review, a superintendent points out that a designed ceiling
   detail would require ductwork and sprinkler piping to physically occupy the same

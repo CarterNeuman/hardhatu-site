@@ -18,7 +18,7 @@ howHiringWorks: >
   prevailing wage for accounting and payroll roles, subcontract and lien
   law familiarity for contracts roles, jobsite safety awareness for HR.
   A resume that reads like it could be for any industry, with nothing
-  construction- specific in it, is exactly what gets passed over here,
+  construction-specific in it, is exactly what gets passed over here,
   even when the underlying skills are strong. The construction-specific
   vocabulary above isn't something you're expected to arrive fluent in,
   either. Most people pick up certified payroll, lien waivers, or

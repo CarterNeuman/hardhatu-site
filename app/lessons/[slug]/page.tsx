@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllContent, getBySlug, getRelated, stripWikiLinks } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, toMetaDescription, pageTitle } from "@/lib/content";
 import type { Lesson } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
 import { RelatedLinks } from "@/components/RelatedLinks";
@@ -27,9 +27,9 @@ export async function generateMetadata({
   const { slug } = await params;
   const lesson = getBySlug("lesson", slug) as Lesson | undefined;
   if (!lesson) return {};
-  const description = lesson.metaDescription || stripWikiLinks(lesson.sections[0]?.content ?? "").slice(0, 155);
+  const description = toMetaDescription(lesson.metaDescription || lesson.sections[0]?.content);
   return {
-    title: lesson.title,
+    title: pageTitle(lesson),
     description,
   };
 }

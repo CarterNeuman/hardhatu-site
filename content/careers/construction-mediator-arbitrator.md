@@ -84,8 +84,7 @@ software:
 education:
   required: >
     No specific degree is required to become a mediator or arbitrator itself,
-    but nearly every construction neutral built their underlying subject-
-    matter credibility first, most often as a licensed attorney, Professional
+    but nearly every construction neutral built their underlying subject-matter credibility first, most often as a licensed attorney, Professional
     Engineer (PE), Registered Architect (RA), or Certified Construction
     Manager (CCM) with 15-20+ years of construction-specific experience.
     Formal mediator or arbitrator training programs exist and are typically

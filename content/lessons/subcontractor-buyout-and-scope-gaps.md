@@ -31,7 +31,7 @@ sections:
   - content: >
       The fix for a gap like that starts with the subcontract, not a phone
       call. Most subcontracts carry a
-      [[concept-flow-down-clause|flow-down clause]] , language that pulls the
+      [[concept-flow-down-clause|flow-down clause]], language that pulls the
       owner's requirements on the general contractor down onto the
       subcontractor too. It's what lets a GC say, with real contractual
       weight, that a sub's work has to meet the full project specs, even if
@@ -95,7 +95,7 @@ sections:
         mobilization usually costs real money and schedule time.
   - content: >
       A gap that never gets caught tends to grow instead of going away, and
-      that's [[concept-scope-creep|scope creep]] . People usually think of
+      that's [[concept-scope-creep|scope creep]]. People usually think of
       scope creep as an owner adding requests mid-project, but it shows up
       just as easily at the boundary between two subcontractors, where unclear
       scope slowly expands to cover whatever nobody else claims. A sub who

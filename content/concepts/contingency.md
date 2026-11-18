@@ -25,8 +25,7 @@ careerAngle: >
 whatGoesWrong: >
   A project manager treats the contingency fund as a general slush account, drawing from
   it to cover cost overruns that were actually the contractor's own estimating mistakes
-  rather than genuine unknowns. By the time a real unexpected condition shows up mid-
-  project, the contingency is already gone, and there's no clean way left to cover it.
+  rather than genuine unknowns. By the time a real unexpected condition shows up mid-project, the contingency is already gone, and there's no clean way left to cover it.
 relatedIds:
   - career-estimator
   - career-project-manager

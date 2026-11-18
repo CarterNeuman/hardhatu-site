@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllContent, getBySlug, getRelated, stripWikiLinks } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, toMetaDescription } from "@/lib/content";
 import { InlineProse } from "@/components/Prose";
 import type { ExamPrep } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
@@ -28,7 +28,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const exam = getBySlug("exam", slug) as ExamPrep | undefined;
   if (!exam) return {};
-  const description = stripWikiLinks(exam.metaDescription || exam.tagline);
+  const description = toMetaDescription(exam.metaDescription || exam.tagline);
   return {
     title: `${exam.examName} Prep`,
     description,

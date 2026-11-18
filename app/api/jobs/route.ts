@@ -190,8 +190,7 @@ export async function GET(request: Request) {
   if (!appId || !appKey) {
     // No Adzuna account connected yet. Log it server-side (visible in
     // your deployment's function logs) rather than silently doing
-    // nothing -- same pattern as app/api/subscribe/route.ts's no-key
-    // branch. Once both variables are set, this branch stops running.
+    // nothing -- same pattern as lib/buttondown.ts's no-key branch. Once both variables are set, this branch stops running.
     console.warn("[jobs] ADZUNA_APP_ID/ADZUNA_APP_KEY not set, live job search is disabled");
     return fail("not_configured");
   }

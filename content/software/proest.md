@@ -35,7 +35,7 @@ tutorialVideos:
 pricingModel: >
   Subscription-based, sold as an annual custom quote with unlimited
   users rather than published per-seat pricing.
-website: "https://www.proest.com"
+website: "https://www.autodesk.com/products/proest/overview"
 lastReviewed: "2026-09"
 relatedIds:
   - career-estimator

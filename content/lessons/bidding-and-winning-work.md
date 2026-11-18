@@ -8,14 +8,13 @@ sections:
       Picture yourself as an estimator at a mid-size contractor. Before anyone
       talks price, the owner's team needs to know your firm can actually pull
       the job off. That screening usually starts with a
-      [[concept-request-for-qualifications|Request for Qualifications (RFQ)]]
-      , asking about your firm's past projects, finances, and safety record,
+      [[concept-request-for-qualifications|Request for Qualifications (RFQ)]], asking about your firm's past projects, finances, and safety record,
       no pricing yet. Out of a dozen firms, a few get shortlisted, and only
       then does the real ask land: a
-      [[concept-request-for-proposal|Request for Proposal (RFP)]] , asking for
+      [[concept-request-for-proposal|Request for Proposal (RFP)]], asking for
       your team, your approach, and finally, a price. Public work often skips
       that qualifications step entirely and goes straight to an
-      [[concept-invitation-for-bid|Invitation for Bid (IFB)]] , a stricter,
+      [[concept-invitation-for-bid|Invitation for Bid (IFB)]], a stricter,
       price-only process where the contract has to go to the lowest qualified
       bidder by law. Some public agencies narrow things further with a
       [[concept-prequalification|prequalified]] bidders list, screened in
@@ -35,14 +34,14 @@ sections:
   - content: >
       Say your firm makes the RFP shortlist. Before anyone can put a number on
       paper, contractors walk the actual building together at a
-      [[concept-pre-bid-meeting|pre-bid meeting]] . Answers given there, like
+      [[concept-pre-bid-meeting|pre-bid meeting]]. Answers given there, like
       where a hazard is or what's actually included, can swing every bidder's
       price by thousands of dollars. If an answer or a mistake is significant
       enough, the architect sends every bidder a formal
-      [[concept-addendum|addendum]] , a numbered correction, so nobody prices
+      [[concept-addendum|addendum]], a numbered correction, so nobody prices
       a different project than everyone else. Missing one is one of the most
       common, avoidable ways a bid goes wrong. Back at the office, pricing
-      starts with a [[concept-quantity-takeoff|quantity takeoff]] , measuring
+      starts with a [[concept-quantity-takeoff|quantity takeoff]], measuring
       exactly how much of everything the job needs straight off the drawings.
       Get the takeoff wrong, and every price built on top of it is wrong too.
     quiz:
@@ -61,7 +60,7 @@ sections:
       win. On a public IFB, it basically does, by law. On an RFP, it doesn't,
       since qualifications and approach count too. Before your firm's
       [[concept-bid|bid]] can even go in, it usually needs a
-      [[concept-bid-bond|bid bond]] , a guarantee from a bonding company that
+      [[concept-bid-bond|bid bond]], a guarantee from a bonding company that
       if you win, you'll actually sign the contract. Bonding capacity is real
       and limited, not a rubber stamp, so a firm bidding several big jobs at
       once can get stuck unable to bond the one it actually wins. Once
@@ -89,7 +88,7 @@ sections:
       turning those estimates into actual signed subcontracts, and the gap
       between the two often decides whether the project hits its profit
       margin. Every one of those negotiations gets measured against the
-      [[concept-scope-of-work|scope of work]] , the written description of
+      [[concept-scope-of-work|scope of work]], the written description of
       exactly what's included in the price, and what isn't. Almost every
       payment dispute eventually comes back to that same question. And
       sometimes the numbers just don't work at all: the bid comes in over what
@@ -115,9 +114,9 @@ sections:
       ground up, then competing quotes get leveled before anyone picks a
       winner, and even after signing, buyout decides what it actually costs.
       This is the daily world of an [[career-estimator|Estimator]] and
-      [[career-senior-estimator|Senior Estimator]] , often supported by a
+      [[career-senior-estimator|Senior Estimator]], often supported by a
       [[career-bid-coordinator|Bid Coordinator]] and a
-      [[career-preconstruction-manager|Preconstruction Manager]] . If this
+      [[career-preconstruction-manager|Preconstruction Manager]]. If this
       sounds like your kind of work, the
       [[interview-preconstruction-estimating|Preconstruction & Estimating interview guide]]
       and the [[exam-cpe|Certified Professional Estimator (CPE) exam guide]]

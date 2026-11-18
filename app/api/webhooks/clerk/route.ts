@@ -5,8 +5,7 @@ import { subscribeToButtondown } from "@/lib/buttondown";
 
 // Clerk calls this route whenever an event happens in your Clerk app. Only
 // "user.created" is handled -- every new account signup also gets added to
-// the Buttondown mailing list, the same list app/api/subscribe already
-// feeds.
+// the Buttondown mailing list (see lib/buttondown.ts).
 //
 // Setup needed in Clerk's dashboard (Configure -> Webhooks): add an
 // endpoint pointing at <your-domain>/api/webhooks/clerk, subscribed to the

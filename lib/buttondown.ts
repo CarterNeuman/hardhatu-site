@@ -1,8 +1,8 @@
 // Shared helper for subscribing an email to Buttondown
-// (https://buttondown.com). Used by both app/api/subscribe/route.ts (the
-// EmailGate's old-style direct subscribe, kept for any other callers) and
-// app/api/webhooks/clerk/route.ts (every real account signup also joins the
-// list). Never throws: a failure here should never block whichever route
+// (https://buttondown.com). Used by app/api/webhooks/clerk/route.ts (every
+// real account signup also joins the list). The old public
+// app/api/subscribe route that also called this was removed 2026-11-17:
+// nothing used it anymore, and it let anyone subscribe any address. Never throws: a failure here should never block whichever route
 // called it, so every outcome -- missing key, a Buttondown error, a network
 // failure -- is logged and swallowed rather than surfaced as an error.
 

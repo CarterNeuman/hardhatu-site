@@ -76,8 +76,7 @@ software:
 education:
   required: >
     A bachelor's degree in fire protection engineering (or a related
-    engineering degree with fire protection coursework) from an ABET-
-    accredited program, then passing the Fundamentals of Engineering (FE) exam
+    engineering degree with fire protection coursework) from an ABET-accredited program, then passing the Fundamentals of Engineering (FE) exam
     to become an Engineer in Training, then several years of progressive
     experience before sitting for the Professional Engineer (PE) exam in fire
     protection engineering. A PE license is required in most jurisdictions to

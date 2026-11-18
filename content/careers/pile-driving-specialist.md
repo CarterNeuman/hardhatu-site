@@ -19,8 +19,7 @@ payTimeline:
   source: "Real job postings for Deep Foundations/Pile-Driving Superintendent roles cross-checked against hourly foreman/general-foreman pay data; the generic BLS Pile-Driver Operators code measures hourly machine-operator pay, not the supervisory/specialist track this title describes"
   asOf: "2026 postings"
 ownerPayHighlight: >
-  Starting your own deep-foundation contracting business means the pile-
-  driving rig and crane fleet are the real cost of entry; once that
+  Starting your own deep-foundation contracting business means the pile-driving rig and crane fleet are the real cost of entry; once that
   equipment is paid off, every job's margin is yours instead of a rental
   company's.
 ownerPayNote: >

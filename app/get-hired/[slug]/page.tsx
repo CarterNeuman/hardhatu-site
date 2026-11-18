@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllContent, getBySlug, getRelated, stripWikiLinks } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, toMetaDescription, pageTitle } from "@/lib/content";
 import { urlFor, CATEGORY_QUIZ_SLUG } from "@/lib/content-client";
 import type { GetHired } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
@@ -30,11 +30,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const guide = getBySlug("gethired", slug) as GetHired | undefined;
   if (!guide) return {};
-  const description = stripWikiLinks(guide.metaDescription || guide.tagline);
+  const description = toMetaDescription(guide.metaDescription || guide.tagline);
   return {
-    title: guide.title,
+    title: pageTitle(guide),
     description,
-    openGraph: { title: guide.title, description },
+    openGraph: { title: pageTitle(guide), description },
   };
 }
 

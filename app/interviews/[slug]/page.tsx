@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllContent, getBySlug, getRelated, stripWikiLinks } from "@/lib/content";
+import { getAllContent, getBySlug, getRelated, toMetaDescription, pageTitle } from "@/lib/content";
 import type { InterviewPrep } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
 import { SectionLabel } from "@/components/SectionLabel";
@@ -22,11 +22,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const interview = getBySlug("interview", slug) as InterviewPrep | undefined;
   if (!interview) return {};
-  const description = stripWikiLinks(interview.metaDescription || interview.tagline);
+  const description = toMetaDescription(interview.metaDescription || interview.tagline);
   return {
-    title: interview.title,
+    title: pageTitle(interview),
     description,
-    openGraph: { title: interview.title, description },
+    openGraph: { title: pageTitle(interview), description },
   };
 }
 

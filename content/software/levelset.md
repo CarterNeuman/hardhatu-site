@@ -15,7 +15,7 @@ whatItDoes: >
   and produces conditional and unconditional lien waivers that match
   what a particular project or GC requires. A credit or risk manager
   can see, across every active project, exactly which payment documents
-  are outstanding before a invoice or draw goes out, instead of
+  are outstanding before an invoice or draw goes out, instead of
   tracking deadlines state by state in a spreadsheet.
 keyFeatures:
   - State-specific preliminary notice and mechanics lien deadline

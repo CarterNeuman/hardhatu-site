@@ -124,8 +124,7 @@ questions:
       CPE isn't a one-time credential, ASPE requires an annual renewal
       application that includes documented Professional Development Units
       (PDUs) along with a renewal fee, keeping the certification tied to
-      ongoing engagement with the profession rather than a single point-in-
-      time achievement.
+      ongoing engagement with the profession rather than a single point-in-time achievement.
   - question: "Why might a general contracting estimator and a mechanical estimator end up with meaningfully different CPE preparation, even though both are pursuing the same overall credential?"
     options:
       - "Because only general contracting estimators are eligible for the CPE at all"
