@@ -22,6 +22,9 @@ import { VIRGINIA } from "@/lib/states/virginia";
 import { WEST_VIRGINIA } from "@/lib/states/west-virginia";
 import { TEXAS } from "@/lib/states/texas";
 import { OKLAHOMA } from "@/lib/states/oklahoma";
+import { MISSOURI } from "@/lib/states/missouri";
+import { KANSAS } from "@/lib/states/kansas";
+import { NEW_MEXICO } from "@/lib/states/new-mexico";
 
 export type SourceRef = { label: string; url: string };
 
@@ -1131,7 +1134,7 @@ export const GEORGIA: StateGuide = {
         "Georgia's Safety Fire Commissioner licenses fire sprinkler contractors, and each company needs a Certificate of Competency holder, which takes NICET Level III or IV certification in sprinkler layout. Individual fitters start by working for a licensed sprinkler contractor.",
       licenseSteps: [
         { title: "Apprentice fitter", detail: "Work for a licensed sprinkler contractor. Union apprenticeships run five years." },
-        { title: "Journey fitter", detail: "Installs and tests systems on your own." },
+        { title: "Journey fitter", detail: "Install and test systems on your own." },
         { title: "NICET certification", detail: "Optional national certifications in inspection or layout." },
         { title: "Certificate of Competency", detail: "NICET Level III or IV in sprinkler layout. Every licensed contractor must employ one holder." },
       ],
@@ -1364,7 +1367,7 @@ export const STATE_GUIDES: StateGuide[] = [GEORGIA];
 // site (404). Set SHOW_HIDDEN_STATES=1 (local dev or a Vercel preview) to
 // render /states/<slug> for review; they stay out of every list and the
 // sitemap and are marked noindex. To launch one, move it into STATE_GUIDES.
-export const HIDDEN_STATE_GUIDES: StateGuide[] = [FLORIDA, ALABAMA, SOUTH_CAROLINA, NORTH_CAROLINA, TENNESSEE, MISSISSIPPI, LOUISIANA, ARKANSAS, KENTUCKY, VIRGINIA, WEST_VIRGINIA, TEXAS, OKLAHOMA];
+export const HIDDEN_STATE_GUIDES: StateGuide[] = [FLORIDA, ALABAMA, SOUTH_CAROLINA, NORTH_CAROLINA, TENNESSEE, MISSISSIPPI, LOUISIANA, ARKANSAS, KENTUCKY, VIRGINIA, WEST_VIRGINIA, TEXAS, OKLAHOMA, MISSOURI, KANSAS, NEW_MEXICO];
 
 export const SHOW_HIDDEN_STATES = process.env.SHOW_HIDDEN_STATES === "1";
 

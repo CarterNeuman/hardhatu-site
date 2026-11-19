@@ -309,7 +309,7 @@ export const VIRGINIA: StateGuide = {
         "Virginia licenses fire sprinkler work as the SPR specialty under DPOR's Board for Contractors, separate from plumbing. DPOR does certify individual fire sprinkler system inspectors (NICET Level II or higher), but there is no separate individual license found for sprinkler fitters or installers beyond working for an SPR-licensed contractor.",
       licenseSteps: [
         { title: "Apprentice fitter", detail: "Work for an SPR-licensed sprinkler contractor." },
-        { title: "Journey fitter", detail: "Installs and tests systems on your own, under the contractor's SPR license." },
+        { title: "Journey fitter", detail: "Install and test systems on your own, under the contractor's SPR license." },
         { title: "NICET certification (optional)", detail: "Required for sprinkler system inspectors; valuable for fitters too." },
       ],
       licenseAgency: VAC_SPRINKLER_INSPECTOR,

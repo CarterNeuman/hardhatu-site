@@ -319,7 +319,7 @@ export const TENNESSEE: StateGuide = {
         "Tennessee's State Fire Marshal registers fire sprinkler contractors, and each one must have a licensed Responsible Managing Employee on staff. The law treats home and commercial systems the same. Fitters start by working for a registered contractor.",
       licenseSteps: [
         { title: "Apprentice fitter", detail: "Work for a registered sprinkler contractor. Union apprenticeships run five years." },
-        { title: "Journey fitter", detail: "Installs and tests systems on your own." },
+        { title: "Journey fitter", detail: "Install and test systems on your own." },
         { title: "NICET certification (optional)", detail: "National certifications in sprinkler layout or inspection." },
         { title: "Responsible Managing Employee", detail: "The state-licensed person every sprinkler contractor needs on staff." },
       ],

@@ -936,7 +936,7 @@ export const ALABAMA: StateGuide = {
         "Alabama's State Fire Marshal permits fire sprinkler contractors, and each one needs a certificate holder with NICET certification in sprinkler layout. Individual fitters start by working for a permitted contractor.",
       licenseSteps: [
         { title: "Apprentice fitter", detail: "Work for a permitted sprinkler contractor. Union apprenticeships run five years." },
-        { title: "Journey fitter", detail: "Installs and tests systems on your own." },
+        { title: "Journey fitter", detail: "Install and test systems on your own." },
         { title: "NICET certification", detail: "Optional national certifications in inspection or layout." },
         { title: "Certificate holder", detail: "NICET Level III or higher in sprinkler layout lets you be the person in charge of a contractor's permit." },
       ],

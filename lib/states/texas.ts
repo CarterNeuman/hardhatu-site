@@ -28,7 +28,7 @@ const TEA_IBC: SourceRef = { label: "Texas Education Agency, 2025-2030 industry-
 const TWC_APPRENTICESHIP: SourceRef = { label: "Texas Workforce Commission, apprenticeship (Chapter 133 classroom funding)", url: "https://www.twc.texas.gov/programs/apprenticeship" };
 const TWC_REPORT: SourceRef = { label: "Texas Workforce Commission, 2026 report on available apprenticeships in Texas", url: "https://www.twc.texas.gov/sites/default/files/enterprise/docs/2026-report-on-available-apprenticeships-in-texas-twc.pdf" };
 const WORKFORCE_BOARDS: SourceRef = { label: "Texas Workforce Commission, local Workforce Solutions boards", url: "https://twc.texas.gov/agency/workforce-development-boards" };
-const TSTC_GUARANTEE: SourceRef = { label: "TSTC Money-Back Guarantee", url: "https://www.tstc.edu/?p=62789" };
+const TSTC_GUARANTEE: SourceRef = { label: "TSTC Money-Back Guarantee", url: "https://www.tstc.edu/money-back-guarantee/" };
 
 const TSTC: TrainingOption = {
   name: "Texas State Technical College (TSTC)",
@@ -48,7 +48,7 @@ const TX_ELECTRICAL_JATCS: TrainingOption = {
   name: "IBEW electrical JATCs",
   kind: "union",
   where: "Houston Electrical JATC, IBEW Local 20 (Dallas-Fort Worth) and the Austin Electrical Training Alliance",
-  detail: "Paid union electrical apprenticeships run by IBEW locals and NECA contractors. Houston applicants must be 18 with an Algebra credit.",
+  detail: "Paid union electrical apprenticeships run by IBEW locals and NECA contractors. Houston applicants must be 18 with an algebra credit.",
   url: "https://www.houstonjatc.com",
   programSlug: "ibew-neca-electrical-apprenticeship",
 };
@@ -110,7 +110,7 @@ export const TEXAS: StateGuide = {
     "These trades employ about 597,000 people in Texas, and the state projects about 56,700 openings a year across them through 2034.",
     "Electricians and plumbers need a state license from their first day: an apprentice license from TDLR for electrical work, or a plumber's apprentice registration with the State Board of Plumbing Examiners.",
     "School can count toward a license: an approved career and technology education program can stand in for the 4,000 hours of work for a Residential Wireman electrical license, and a high school CTE program can do the same for a Tradesman Plumber-Limited license.",
-    "Students who qualified for free or reduced-price lunch in any of the last four years can take dual credit for $0 at participating colleges through the state's FAST program.",
+    "Students who qualified for free or reduced-price lunch this school year or in any of the four years before can take dual credit for $0 at participating colleges through the state's FAST program.",
     "Solar installer jobs are projected to grow 43% in Texas through 2034, the fastest of any trade on this page.",
     "Most of these jobs pay hourly with overtime on top, and many tradespeople later start their own business. That can pay well, but most new businesses don't last 10 years.",
   ],
@@ -152,17 +152,17 @@ export const TEXAS: StateGuide = {
       outlook: ol([159660, 179140, 12, 15270]),
       stateLicense: "none",
       licenseSummary: "Texas has no license for construction laborers. It is the biggest trade on this page and the most common way into construction.",
-      licenseAgency: TDLR,
+      licenseAgency: NO_GC,
       training: [MC3, AUSTIN_UNIONS, national("Laborers union (LiUNA) training", "liuna-laborer-apprenticeship", "Construction craft laborer apprenticeships.")],
     }),
     t("electrician", {
       outlook: ol([76440, 87460, 14, 8100]),
       stateLicense: "journeyman-and-master",
       licenseSummary:
-        "Texas licenses electricians through TDLR, and you need an apprentice license before doing any electrical work. A journeyman license takes 8,000 hours of work under a master electrician plus an exam, and a master license takes 12,000 hours plus two years as a journeyman. Every licensed electrician, apprentices included, takes 4 hours of continuing education a year.",
+        "Texas licenses electricians through TDLR, and you need an apprentice license before doing any electrical work. A journeyman license takes 8,000 hours of work under a master electrician plus an exam, and a master license takes 12,000 hours plus two years as a journeyman. Every licensed electrician, apprentices included, needs 4 hours of continuing education before each yearly renewal, though apprentices in a registered training program are covered by their classes.",
       licenseSteps: [
         { title: "Apprentice electrician", detail: "A TDLR license ($20, renewed yearly) required before any electrical work, working under a licensed electrician." },
-        { title: "Residential Wireman (optional)", detail: "4,000 hours, or an approved high school CTE program, plus an exam. Covers homes and apartments up to four stories." },
+        { title: "Residential Wireman (optional)", detail: "4,000 hours, or an approved career and technology education (CTE) program, plus an exam. Covers homes and apartments up to four stories." },
         { title: "Journeyman electrician", detail: "8,000 hours under a master electrician plus the exam. You can test at 7,000 hours." },
         { title: "Master electrician", detail: "12,000 hours plus two years as a journeyman, and the master exam. Every electrical contractor needs a master of record." },
       ],
@@ -194,7 +194,7 @@ export const TEXAS: StateGuide = {
         { title: "Registered technician", detail: "A TDLR registration ($20, renewed yearly) to help a licensed contractor with maintenance and repair. EPA 608 certification is required to handle refrigerants." },
         { title: "Certified technician (optional)", detail: "24 months of experience or a 2,000-hour approved program, plus an exam." },
         { title: "Class B contractor", detail: "48 months of experience plus the exam. Covers cooling systems up to 25 tons." },
-        { title: "Class A contractor", detail: "Same experience and exam, with no limit on system size." },
+        { title: "Class A contractor", detail: "Same experience, the Class A exam and higher insurance, with no limit on system size." },
       ],
       licenseAgency: ACR_TECH,
       extraCredentials: ["Texas ACR technician registration", "Texas ACR contractor license (Class A or B)"],
@@ -228,21 +228,21 @@ export const TEXAS: StateGuide = {
       outlook: ol([27290, 29280, 7, 2370]),
       stateLicense: "none",
       licenseSummary: noTradeLicense("painters"),
-      licenseAgency: TDLR,
+      licenseAgency: NO_GC,
       training: [HOUSTON_UNIONS, LEARN_ON_JOB("Painting contractors")],
     }),
     t("concrete-worker", {
       outlook: ol([23820, 24930, 5, 1730]),
       stateLicense: "none",
       licenseSummary: noTradeLicense("concrete finishers"),
-      licenseAgency: TDLR,
+      licenseAgency: NO_GC,
       training: [LEARN_ON_JOB("Concrete and site contractors")],
     }),
     t("drywall-installer", {
       outlook: ol([7500, 7910, 5, 580]),
       stateLicense: "none",
       licenseSummary: noTradeLicense("drywall installers"),
-      licenseAgency: TDLR,
+      licenseAgency: NO_GC,
       training: [LEARN_ON_JOB("Drywall contractors")],
     }),
     t("elevator-technician", {
@@ -264,28 +264,28 @@ export const TEXAS: StateGuide = {
       outlook: ol([1940, 2160, 11, 160]),
       stateLicense: "none",
       licenseSummary: noTradeLicense("flooring installers"),
-      licenseAgency: TDLR,
+      licenseAgency: NO_GC,
       training: [LEARN_ON_JOB("Flooring contractors and stores")],
     }),
     t("glazier", {
       outlook: ol([6670, 7160, 7, 600]),
       stateLicense: "none",
       licenseSummary: noTradeLicense("glaziers"),
-      licenseAgency: TDLR,
+      licenseAgency: NO_GC,
       training: [LEARN_ON_JOB("Glass and window contractors")],
     }),
     t("insulation-installer", {
       outlook: ol([5900, 6080, 3, 490]),
       stateLicense: "none",
       licenseSummary: noTradeLicense("insulation installers"),
-      licenseAgency: TDLR,
+      licenseAgency: NO_GC,
       training: [HOUSTON_UNIONS, LEARN_ON_JOB("Insulation contractors")],
     }),
     t("ironworker", {
       outlook: ol([10260, 10630, 4, 850]),
       stateLicense: "none",
       licenseSummary: noTradeLicense("ironworkers"),
-      licenseAgency: TDLR,
+      licenseAgency: NO_GC,
       ownBusiness: "Steel erection companies need heavy equipment and big insurance policies, so most ironworkers work for established firms.",
       training: [HOUSTON_UNIONS, national("Ironworkers union apprenticeships", "ironworkers-apprenticeship", "Paid union apprenticeships in structural, reinforcing and ornamental ironwork.")],
     }),
@@ -293,7 +293,7 @@ export const TEXAS: StateGuide = {
       outlook: ol([5920, 6330, 7, 480]),
       stateLicense: "none",
       licenseSummary: noTradeLicense("masons"),
-      licenseAgency: TDLR,
+      licenseAgency: NO_GC,
       training: [LEARN_ON_JOB("Masonry contractors"), national("Bricklayers union (BAC)", "bac-bricklayer-apprenticeship", "Union apprenticeships for brick, block and stone masons.")],
     }),
     t("millwright", {
@@ -314,7 +314,7 @@ export const TEXAS: StateGuide = {
       outlook: ol([870, 940, 7, 70]),
       stateLicense: "none",
       licenseSummary: noTradeLicense("plasterers"),
-      licenseAgency: TDLR,
+      licenseAgency: NO_GC,
       training: [LEARN_ON_JOB("Plastering and stucco contractors")],
     }),
     t("roofer", {
@@ -344,7 +344,7 @@ export const TEXAS: StateGuide = {
         "Texas does not license individual sprinkler fitters. Fire sprinkler companies register with the State Fire Marshal's Office and must employ a Responsible Managing Employee (RME), a licensed person with national NICET certification who oversees the work.",
       licenseSteps: [
         { title: "Apprentice fitter", detail: "Work for a registered sprinkler company. Union apprenticeships run five years." },
-        { title: "Journey fitter", detail: "Installs and tests systems on your own." },
+        { title: "Journey fitter", detail: "Install and test systems on your own." },
         { title: "NICET certification", detail: "National certifications in sprinkler layout or inspection." },
         { title: "RME license", detail: "The State Fire Marshal license a sprinkler company must have on staff: NICET Level III for general systems, Level II for homes." },
       ],
@@ -356,13 +356,13 @@ export const TEXAS: StateGuide = {
       outlook: ol([2310, 2630, 14, 200]),
       stateLicense: "none",
       licenseSummary: noTradeLicense("tile setters"),
-      licenseAgency: TDLR,
+      licenseAgency: NO_GC,
       training: [LEARN_ON_JOB("Tile contractors")],
     }),
     t("waterproofing-installer", {
       stateLicense: "none",
       licenseSummary: noTradeLicense("waterproofing installers"),
-      licenseAgency: TDLR,
+      licenseAgency: NO_GC,
       training: [LEARN_ON_JOB("Waterproofing contractors")],
     }),
   ],

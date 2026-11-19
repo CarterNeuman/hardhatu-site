@@ -1051,7 +1051,7 @@ export const FLORIDA: StateGuide = {
         "Florida's State Fire Marshal licenses fire protection contractors. Most contractor classes require 4 years of full-time experience with a licensed fire protection contractor and an exam. Fitters start by working for a licensed contractor.",
       licenseSteps: [
         { title: "Apprentice fitter", detail: "Work for a licensed sprinkler contractor. Apprenticeships run four to five years." },
-        { title: "Journey fitter", detail: "Installs and tests systems on your own." },
+        { title: "Journey fitter", detail: "Install and test systems on your own." },
         { title: "Water-based inspector permit (optional)", detail: "For inspection work, with NICET Level II inspection and testing certification." },
         { title: "Fire protection contractor (optional)", detail: "4 years of experience for Contractor I, II or III, then the state exam." },
       ],

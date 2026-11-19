@@ -112,10 +112,10 @@ export const OKLAHOMA: StateGuide = {
     "A field guide to 25 construction trades in Oklahoma: what they pay here, which ones need a state license, and the real, local ways in. Built for school counselors, CTE teachers, parents and students.",
   quickTakeaways: [
     "These trades employ about 76,700 people in Oklahoma, and the state projects about 6,800 openings a year across them through 2034.",
-    "High school juniors and seniors can train in a trade tuition-free at Oklahoma's 29 CareerTech technology center districts.",
+    "High school students, mostly juniors and seniors, can train in a trade tuition-free at Oklahoma's 29 CareerTech technology center districts.",
     "Electricians, plumbers and mechanical workers (HVAC, pipefitting, sheet metal) climb a state license ladder: register as an apprentice, then earn journeyman and contractor licenses from the Construction Industries Board.",
     "High school students 16 and older working for a licensed electrical contractor can count up to 500 hours a school year toward their electrical license.",
-    "Oklahoma has no state general contractor license. Welders on code-required pipe and structural welds, elevator mechanics and fire sprinkler technicians are licensed by the Department of Labor.",
+    "Oklahoma has no state general contractor license, but the Department of Labor licenses three trades the Construction Industries Board doesn't: welders on code-required pipe and structural welds, elevator mechanics and fire sprinkler technicians.",
     "Most of these jobs pay hourly with overtime on top, and many tradespeople later start their own business. That can pay well, but most new businesses don't last 10 years.",
   ],
   costMarker: { label: "Tech center tuition for high schoolers", value: "$0", note: "At 29 CareerTech districts and 62 campuses statewide" },
@@ -186,7 +186,7 @@ export const OKLAHOMA: StateGuide = {
       outlook: ol([10520, 10660, 1, 1040]),
       stateLicense: "worker-certification",
       licenseSummary:
-        "Oklahoma still licenses welders. Anyone making welds required by the state's adopted pipe and structural steel codes must pass a weld test at an approved test facility and hold a Department of Labor welder license. Welding outside those codes needs no state license.",
+        "Oklahoma licenses some welders. Anyone making welds required by the state's adopted pipe and structural steel codes must pass a weld test at an approved test facility and hold a Department of Labor welder license. Welding outside those codes needs no state license.",
       licenseAgency: WELDING,
       extraCredentials: ["Oklahoma welder license (code-required welds)"],
       training: [GORDON_COOPER_WELDING, TECH_CENTER],
@@ -255,7 +255,7 @@ export const OKLAHOMA: StateGuide = {
       outlook: ol([110, 120, 5, 10]),
       stateLicense: "worker-certification",
       licenseSummary:
-        "Oklahoma's Department of Labor licenses elevator mechanics, elevator contractors and inspectors. Nobody may work on elevators without a mechanic license, working for a licensed elevator contractor. Apprentices work under the direct supervision of a licensed mechanic.",
+        "Oklahoma's Department of Labor licenses elevator mechanics, elevator contractors and inspectors. Apart from apprentices working under the direct supervision of a licensed mechanic, nobody may work on elevators without a mechanic license, and licensed mechanics must work for a licensed elevator contractor.",
       licenseSteps: [
         { title: "Apprentice", detail: "Work under the direct supervision of a licensed mechanic. No license needed." },
         { title: "Training program", detail: "The union's NEIEP program or a registered elevator apprenticeship." },
@@ -335,7 +335,7 @@ export const OKLAHOMA: StateGuide = {
       outlook: ol([1160, 1230, 6, 90]),
       stateLicense: "contractor",
       licenseSummary:
-        "Oklahoma has no license for individual roofers. Roofing companies register with the Construction Industries Board and carry $500,000 in liability insurance, commercial roofing needs an endorsement with an exam, and a residential roofing endorsement becomes mandatory on January 1, 2028.",
+        "Oklahoma has no license for individual roofers. Roofing companies register with the Construction Industries Board and carry at least $500,000 in liability insurance. Commercial roofing needs an endorsement, an exam and $1 million in insurance, and a residential roofing endorsement becomes mandatory on January 1, 2028.",
       licenseAgency: ROOFING,
       training: [LEARN_ON_JOB("Roofing contractors")],
       businessNote: "Running one in Oklahoma takes a CIB roofing registration and, from 2028, a residential roofing endorsement with a hands-on exam.",
@@ -344,7 +344,7 @@ export const OKLAHOMA: StateGuide = {
       outlook: ol([2970, 2910, -2, 230]),
       stateLicense: "journeyman-and-master",
       licenseSummary:
-        "Sheet metal is one of Oklahoma's mechanical license categories. Apprentices register with the Construction Industries Board, a journeyman license takes three years in sheet metal plus an exam, and a contractor license takes one more year. It is one of the few trades on this page projected to shrink in Oklahoma.",
+        "Sheet metal is one of Oklahoma's mechanical license categories. Apprentices register with the Construction Industries Board, a journeyman license takes three years in sheet metal plus an exam, and a contractor license takes one more year. It is the only trade on this page projected to shrink in Oklahoma.",
       licenseAgency: MECH_CATEGORIES,
       extraCredentials: ["Oklahoma mechanical journeyman license (sheet metal)"],
       training: [SMART_124, TECH_CENTER],
@@ -352,7 +352,7 @@ export const OKLAHOMA: StateGuide = {
     t("solar-installer", {
       stateLicense: "none",
       licenseSummary: "Oklahoma has no separate solar license. The wiring side of a solar job is electrical work, which falls under the state's electrical licenses.",
-      licenseAgency: ELECTRICAL_CE,
+      licenseAgency: ELECTRICAL,
       payNote: "BLS doesn't publish Oklahoma figures for solar installers, so pay is the national figure, and Oklahoma has no projection for this small trade.",
       training: [OK_ELECTRICAL_JATCS],
     }),
@@ -422,7 +422,7 @@ export const OKLAHOMA: StateGuide = {
     {
       title: "Union apprenticeships",
       detail: "Paid union apprenticeships run in Oklahoma City and Tulsa, including electrical (IBEW Locals 1141 and 584), sheet metal (SMART Local 124) and ironwork (Ironworkers Local 584).",
-      source: { label: "Apprenticeship.gov, Ironworkers Local 584 registered apprenticeship", url: "https://www.apprenticeship.gov/node/805637" },
+      source: { label: "Apprenticeship.gov, Ironworkers Local 584 registered apprenticeship (open house listing, April 2026)", url: "https://www.apprenticeship.gov/node/805637" },
     },
   ],
   sources: [

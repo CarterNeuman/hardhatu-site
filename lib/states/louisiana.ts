@@ -298,7 +298,7 @@ export const LOUISIANA: StateGuide = {
         "Louisiana's Office of State Fire Marshal licenses fire sprinkler companies. Each needs a qualified, certified person on staff and at least one licensed inspector. Fitters start by working for a licensed company.",
       licenseSteps: [
         { title: "Apprentice fitter", detail: "Work for a licensed sprinkler company. Union apprenticeships run five years." },
-        { title: "Journey fitter", detail: "Installs and tests systems on your own." },
+        { title: "Journey fitter", detail: "Install and test systems on your own." },
         { title: "NICET or inspector license", detail: "National certifications in layout or inspection, and the state's inspector license." },
         { title: "Qualifying person", detail: "The certified person a sprinkler company's state license depends on." },
       ],

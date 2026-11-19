@@ -316,7 +316,7 @@ export const ARKANSAS: StateGuide = {
         "Arkansas's Fire Protection Licensing Board licenses fire sprinkler companies, and each company must have at least one licensed employee. Fitters start by working for a licensed company.",
       licenseSteps: [
         { title: "Apprentice fitter", detail: "Work for a licensed sprinkler company. Union apprenticeships run five years." },
-        { title: "Journey fitter", detail: "Installs and tests systems on your own." },
+        { title: "Journey fitter", detail: "Install and test systems on your own." },
         { title: "NICET certification (optional)", detail: "National certifications in sprinkler layout or inspection." },
         { title: "Licensed employee", detail: "The licensed person every sprinkler company needs on staff." },
       ],

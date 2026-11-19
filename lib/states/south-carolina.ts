@@ -308,7 +308,7 @@ export const SOUTH_CAROLINA: StateGuide = {
         "South Carolina's Contractor's Licensing Board licenses fire sprinkler contractors. Each one needs a qualifying party who has passed the required NICET exam. Fitters start by working for a licensed contractor.",
       licenseSteps: [
         { title: "Apprentice fitter", detail: "Work for a licensed sprinkler contractor. Union apprenticeships run five years." },
-        { title: "Journey fitter", detail: "Installs and tests systems on your own." },
+        { title: "Journey fitter", detail: "Install and test systems on your own." },
         { title: "NICET certification", detail: "National certifications in sprinkler layout or inspection." },
         { title: "Qualifying party", detail: "The NICET-certified person a sprinkler contractor's license is issued under." },
       ],

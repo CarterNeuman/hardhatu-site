@@ -298,7 +298,7 @@ export const MISSISSIPPI: StateGuide = {
         "Mississippi requires every fire sprinkler contractor to hold a State Fire Marshal permit, with a certificate holder who is certified in sprinkler layout. Fitters start by working for a permitted contractor.",
       licenseSteps: [
         { title: "Apprentice fitter", detail: "Work for a permitted sprinkler contractor. Union apprenticeships run five years." },
-        { title: "Journey fitter", detail: "Installs and tests systems on your own." },
+        { title: "Journey fitter", detail: "Install and test systems on your own." },
         { title: "Layout certification", detail: "Certification in sprinkler layout, such as NICET." },
         { title: "Certificate holder", detail: "The certified person a contractor's permit is issued under." },
       ],

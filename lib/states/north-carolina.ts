@@ -306,7 +306,7 @@ export const NORTH_CAROLINA: StateGuide = {
         "North Carolina licenses fire sprinkler installation contractors through the Plumbing, Heating and Fire Sprinkler board, with NICET-based qualifications. Fitters start by working for a licensed contractor.",
       licenseSteps: [
         { title: "Apprentice fitter", detail: "Work for a licensed sprinkler contractor. Union apprenticeships run five years." },
-        { title: "Journey fitter", detail: "Installs and tests systems on your own." },
+        { title: "Journey fitter", detail: "Install and test systems on your own." },
         { title: "Inspection technician (optional)", detail: "The board also licenses fire sprinkler inspection technicians." },
         { title: "Fire sprinkler contractor (optional)", detail: "Qualify with NICET certification and the business and law exam." },
       ],
