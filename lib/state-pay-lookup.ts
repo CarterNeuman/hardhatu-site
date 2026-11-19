@@ -32,8 +32,8 @@ const GUIDE_ONLY: Occupation[] = [
     slug: "plasterer-stucco-mason",
     note: null,
     national: [0, 39560, 57660, 71310, 96710],
-    // BLS OEWS May 2025 via O*NET (Florida, Louisiana); job counts aren't used, so 0.
-    states: { FL: [0, 33410, 47420, 52760, 62770], LA: [0, 38710, 49950, 56070, 62280] },
+    // BLS OEWS May 2025 via O*NET (Florida, Louisiana, Texas, Oklahoma); job counts aren't used, so 0.
+    states: { FL: [0, 33410, 47420, 52760, 62770], LA: [0, 38710, 49950, 56070, 62280], TX: [0, 40650, 51140, 60370, 62400], OK: [0, 46300, 49450, 49800, 57200] },
   },
 ];
 
