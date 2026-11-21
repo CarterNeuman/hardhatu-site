@@ -16,6 +16,7 @@ const NO_JOURNEYMAN: SourceRef = {
   url: "https://www.servicetitan.com/blog/electrician-schools-in-louisiana",
 };
 const PLUMBING_BOARD: SourceRef = { label: "State Plumbing Board of Louisiana", url: "https://spbla.com/" };
+const PLUMBING_TRANSFER: SourceRef = { label: "Louisiana State Licensing Board for Contractors, plumbing licensing transfer (Act 908 of 2026)", url: "https://lslbc.gov/wp-content/uploads/Open-Meeting-Oct-27-and-Nov-24-2026.pdf" };
 const OSFM: SourceRef = {
   label: "Louisiana Office of State Fire Marshal (conveyance device mechanic and fire sprinkler licensing)",
   url: "https://sfm.dps.louisiana.gov/",
@@ -91,7 +92,7 @@ export const LOUISIANA: StateGuide = {
   ],
   costMarker: { label: "Jump Start construction scholarship", value: "$1,000", note: "For Jump Start graduates heading into LCTCS or ABC training" },
   licensingOverview:
-    "Louisiana licenses plumbers statewide through the State Plumbing Board, and contractors through the State Licensing Board for Contractors: commercial work at $50,000, electrical, mechanical (HVAC) and plumbing work at $10,000, new homes at $75,000, and home improvement registration on jobs from $7,500 to $75,000. Electricians have no statewide journeyman license; parishes and cities issue those. The Office of State Fire Marshal licenses elevator mechanics and fire sprinkler companies.",
+    "Louisiana licenses plumbers statewide through the State Plumbing Board, and contractors through the State Licensing Board for Contractors: commercial work at $50,000, electrical, mechanical (HVAC) and plumbing work at $10,000, new homes at $75,000, and home improvement registration on jobs from $7,500 to $75,000. Electricians have no statewide journeyman license; parishes and cities issue those. The Office of State Fire Marshal licenses elevator mechanics and fire sprinkler companies. A 2026 law (Act 908) abolishes the State Plumbing Board and folds plumber licensing into the State Licensing Board for Contractors starting January 1, 2027; existing licenses carry over automatically.",
   overtimeNote:
     "Most of these jobs pay by the hour, and federal law requires time-and-a-half for hourly workers past 40 hours in a week. Overtime is common across these trades, and the pay figures on this page leave it out, so many workers earn more than shown. How much depends on the employer, the season and the project.",
   overtimeSource: { label: "U.S. Department of Labor, overtime pay under the Fair Labor Standards Act", url: "https://www.dol.gov/agencies/whd/overtime" },
@@ -181,7 +182,7 @@ export const LOUISIANA: StateGuide = {
       outlook: ol([10050, 10640, 6, 900]),
       stateLicense: "journeyman-and-master",
       licenseSummary:
-        "Louisiana licenses plumbers statewide through the State Plumbing Board. Apprentices register with the board, and journeyman and master plumbers pass exams. Licenses renew every year with continuing education.",
+        "Louisiana licenses plumbers statewide through the State Plumbing Board. Apprentices register with the board, and journeyman and master plumbers pass exams. Licenses renew every year with continuing education. Starting January 1, 2027, a 2026 law (Act 908) moves this licensing into the State Licensing Board for Contractors instead; existing plumbing licenses carry over automatically, so this is a change in which agency runs things, not in who already holds a license.",
       licenseSteps: [
         { title: "Registered apprentice", detail: "Register with the State Plumbing Board and work under a licensed plumber." },
         { title: "Residential plumber (optional)", detail: "About 3,000 hours in an apprenticeship program (4,000 without one), plus an exam. Covers homes only." },
@@ -322,7 +323,7 @@ export const LOUISIANA: StateGuide = {
     {
       title: "Jump Start construction pathways",
       detail:
-        "Jump Start is Louisiana's high school career program, where students earn industry credentials alongside a diploma. Jump Start graduates who earn a credential and plan to enroll full-time in an LCTCS construction program or ABC training can apply for a $1,000 Jump Start Construction Connect Scholars award (2025 deadline: April 30).",
+        "Jump Start is Louisiana's high school career program, where students earn industry credentials alongside a diploma. Jump Start graduates who earn a credential and plan to enroll full-time in an LCTCS construction program or ABC training can apply for a $1,000 Jump Start Construction Connect Scholars award (the application deadline moves year to year, typically in the spring).",
       source: JUMP_START,
     },
     {
@@ -357,6 +358,7 @@ export const LOUISIANA: StateGuide = {
     LSLBC,
     NO_JOURNEYMAN,
     PLUMBING_BOARD,
+    PLUMBING_TRANSFER,
     OSFM,
     JUMP_START,
     MJ_FOSTER,

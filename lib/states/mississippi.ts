@@ -21,8 +21,8 @@ const ELEVATOR: SourceRef = {
   url: "https://apps.mid.ms.gov/mcsa/ti/TI2019-1.pdf",
 };
 const SPRINKLER: SourceRef = {
-  label: "Contractor License Requirements, Mississippi fire sprinkler contractor permit (State Fire Marshal, Miss. Code 45-11-251)",
-  url: "https://contractorlicenserequirements.com/mississippi/fire-sprinkler-license-requirements/",
+  label: "Mississippi State Board of Contractors, Fire Sprinkler Work classification",
+  url: "https://www.msboc.us/licensing/fire-sprinkler-work",
 };
 const MCEF_SRC: SourceRef = {
   label: "Red Hills MS News, MCEF trains tomorrow's workforce",
@@ -88,7 +88,7 @@ export const MISSISSIPPI: StateGuide = {
   ],
   costMarker: { label: "High school trade students", value: "5,000+", note: "Trained each year in NCCER programs at 112 CTE centers" },
   licensingOverview:
-    "Mississippi licenses contractors, not workers, through the State Board of Contractors. A commercial license is required at $50,000, and a residential license for new homes at $50,000 and for remodeling or roofing over $10,000. Electrical, plumbing and HVAC contractors need the trade classification at those limits. Below them, cities and counties license electricians and plumbers locally. Elevator mechanics are licensed by the Mississippi Insurance Department, and fire sprinkler contractors need a State Fire Marshal permit.",
+    "Mississippi licenses contractors, not workers, through the State Board of Contractors. A commercial license is required at $50,000, and a residential license for new homes at $50,000 and for remodeling or roofing over $10,000. Electrical, plumbing and HVAC contractors need the trade classification at those limits. Below them, cities and counties license electricians and plumbers locally. Elevator mechanics are licensed by the Mississippi Insurance Department, and fire sprinkler contractors need a Fire Sprinkler Work classification from the State Board of Contractors.",
   overtimeNote:
     "Most of these jobs pay by the hour, and federal law requires time-and-a-half for hourly workers past 40 hours in a week. Overtime is common across these trades, and the pay figures on this page leave it out, so many workers earn more than shown. How much depends on the employer, the season and the project.",
   overtimeSource: { label: "U.S. Department of Labor, overtime pay under the Fair Labor Standards Act", url: "https://www.dol.gov/agencies/whd/overtime" },
@@ -295,16 +295,16 @@ export const MISSISSIPPI: StateGuide = {
     t("sprinkler-fitter", {
       stateLicense: "contractor",
       licenseSummary:
-        "Mississippi requires every fire sprinkler contractor to hold a State Fire Marshal permit, with a certificate holder who is certified in sprinkler layout. Fitters start by working for a permitted contractor.",
+        "Mississippi requires every fire sprinkler contractor to hold a Fire Sprinkler Work classification from the State Board of Contractors, with a NICET Level III (or higher) certificate holder. The State Fire Marshal may have additional requirements on top of that. Fitters start by working for a licensed contractor.",
       licenseSteps: [
-        { title: "Apprentice fitter", detail: "Work for a permitted sprinkler contractor. Union apprenticeships run five years." },
+        { title: "Apprentice fitter", detail: "Work for a licensed sprinkler contractor. Union apprenticeships run five years." },
         { title: "Journey fitter", detail: "Install and test systems on your own." },
         { title: "Layout certification", detail: "Certification in sprinkler layout, such as NICET." },
         { title: "Certificate holder", detail: "The certified person a contractor's permit is issued under." },
       ],
       licenseAgency: SPRINKLER,
       training: [UA_669],
-      ownBusiness: "Opening a sprinkler company takes a State Fire Marshal permit, a certified certificate holder and insurance, plus a State Board of Contractors license on larger jobs.",
+      ownBusiness: "Opening a sprinkler company takes the Fire Sprinkler Work classification from the State Board of Contractors, a NICET-certified certificate holder, and insurance.",
     }),
     t("tile-setter", {
       outlook: ol([150, 180, 16, 10]),
