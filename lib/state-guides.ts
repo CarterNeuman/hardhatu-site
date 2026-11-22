@@ -37,6 +37,9 @@ import { PENNSYLVANIA } from "@/lib/states/pennsylvania";
 import { MARYLAND } from "@/lib/states/maryland";
 import { DELAWARE } from "@/lib/states/delaware";
 import { NEW_JERSEY } from "@/lib/states/new-jersey";
+import { CONNECTICUT } from "@/lib/states/connecticut";
+import { MASSACHUSETTS } from "@/lib/states/massachusetts";
+import { RHODE_ISLAND } from "@/lib/states/rhode-island";
 import { NORTH_DAKOTA } from "@/lib/states/north-dakota";
 import { SOUTH_DAKOTA } from "@/lib/states/south-dakota";
 import { MINNESOTA } from "@/lib/states/minnesota";
@@ -1382,7 +1385,7 @@ export const STATE_GUIDES: StateGuide[] = [GEORGIA];
 // site (404). Set SHOW_HIDDEN_STATES=1 (local dev or a Vercel preview) to
 // render /states/<slug> for review; they stay out of every list and the
 // sitemap and are marked noindex. To launch one, move it into STATE_GUIDES.
-export const HIDDEN_STATE_GUIDES: StateGuide[] = [FLORIDA, ALABAMA, SOUTH_CAROLINA, NORTH_CAROLINA, TENNESSEE, MISSISSIPPI, LOUISIANA, ARKANSAS, KENTUCKY, VIRGINIA, WEST_VIRGINIA, TEXAS, OKLAHOMA, MISSOURI, KANSAS, NEW_MEXICO, COLORADO, NEBRASKA, IOWA, NORTH_DAKOTA, SOUTH_DAKOTA, MINNESOTA, WISCONSIN, ILLINOIS, MICHIGAN, INDIANA, OHIO, PENNSYLVANIA, MARYLAND, DELAWARE, NEW_JERSEY];
+export const HIDDEN_STATE_GUIDES: StateGuide[] = [FLORIDA, ALABAMA, SOUTH_CAROLINA, NORTH_CAROLINA, TENNESSEE, MISSISSIPPI, LOUISIANA, ARKANSAS, KENTUCKY, VIRGINIA, WEST_VIRGINIA, TEXAS, OKLAHOMA, MISSOURI, KANSAS, NEW_MEXICO, COLORADO, NEBRASKA, IOWA, NORTH_DAKOTA, SOUTH_DAKOTA, MINNESOTA, WISCONSIN, ILLINOIS, MICHIGAN, INDIANA, OHIO, PENNSYLVANIA, MARYLAND, DELAWARE, NEW_JERSEY, CONNECTICUT, MASSACHUSETTS, RHODE_ISLAND];
 
 export const SHOW_HIDDEN_STATES = process.env.SHOW_HIDDEN_STATES === "1";
 
