@@ -302,6 +302,7 @@ export const IOWA: StateGuide = {
       licenseAgency: SPRINKLER_RULE,
       extraCredentials: ["Iowa fire protection system installer license"],
       training: [national("Sprinkler Fitters union (UA)", "ua-sprinkler-fitter-apprenticeship", "Five-year registered apprenticeship through a signatory contractor.")],
+      ownBusiness: "Running an Iowa fire sprinkler business takes licensed installers on staff and, for special hazards or pre-engineered systems, NICET- or manufacturer-certified specialists.",
     }),
     t("tile-setter", {
       outlook: ol([300, 330, 12, 20]),

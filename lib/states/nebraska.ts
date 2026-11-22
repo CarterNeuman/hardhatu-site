@@ -327,6 +327,7 @@ export const NEBRASKA: StateGuide = {
       ],
       licenseAgency: SPRINKLER_CERT,
       training: [national("Sprinkler Fitters union (UA)", "ua-sprinkler-fitter-apprenticeship", "Five-year registered apprenticeship through a signatory contractor.")],
+      ownBusiness: "Opening a Nebraska fire protection contracting business takes the Water-Based Fire Protection Contractor's Certification: at least $1 million in liability insurance and a Responsible Managing Employee with NICET Level III or IV.",
     }),
     t("tile-setter", {
       outlook: ol([90, 100, 14, 10]),

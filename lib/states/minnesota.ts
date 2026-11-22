@@ -180,6 +180,11 @@ export const MINNESOTA: StateGuide = {
       stateLicense: "contractor",
       licenseSummary:
         "Minnesota has no individual HVAC worker license. Instead, a mechanical contracting business must file a $25,000 bond with DLI before taking on gas, heating, ventilation, cooling or refrigeration work. Some cities may require their own local competency card for individual technicians; DLI doesn't track those, so ask locally.",
+      licenseSteps: [
+        { title: "No individual license", detail: "Minnesota has no individual HVAC worker license." },
+        { title: "Mechanical contractor bond (business)", detail: "A $25,000 bond filed with DLI before a business can take on HVAC-related work." },
+        { title: "Local competency card (some cities)", detail: "Some cities may require their own local card for individual technicians; DLI doesn't track those." },
+      ],
       licenseAgency: DLI_MECHANICAL_BOND,
       training: [SCTCC, HENNEPIN_TECH],
       businessNote: "The mechanical contractor bond costs $100 to file and runs for two years.",
@@ -342,6 +347,7 @@ export const MINNESOTA: StateGuide = {
       licenseAgency: DPS_FIRE_MARSHAL,
       extraCredentials: ["Minnesota journeyman sprinkler fitter certification"],
       training: [national("Sprinkler Fitters union (UA)", "ua-sprinkler-fitter-apprenticeship", "Five-year registered apprenticeship through a signatory contractor.")],
+      ownBusiness: "Opening a Minnesota fire protection contracting business takes a State Fire Marshal license, with a certified managing employee and certified journeyman sprinkler fitters on staff.",
     }),
     t("tile-setter", {
       outlook: ol([800, 860, 9, 60]),

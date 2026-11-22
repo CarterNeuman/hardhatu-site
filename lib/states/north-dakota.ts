@@ -325,8 +325,13 @@ export const NORTH_DAKOTA: StateGuide = {
     t("sprinkler-fitter", {
       stateLicense: "none",
       licenseSummary: "North Dakota's licensing for fire sprinkler work is unclear: the State Fire Marshal's office reviews fire protection system plans before installation, but this appears to be a plan-review and permitting process rather than a dedicated individual installer license.",
+      licenseSteps: [
+        { title: "No installer license", detail: "North Dakota has no dedicated individual installer license for fire sprinkler work." },
+        { title: "Plan review and permitting", detail: "The State Fire Marshal's office reviews fire protection system plans before installation." },
+      ],
       licenseAgency: FIRE_MARSHAL,
       training: [national("Sprinkler Fitters union (UA)", "ua-sprinkler-fitter-apprenticeship", "Five-year registered apprenticeship through a signatory contractor; Fargo-based fire protection companies are registered apprenticeship sponsors in North Dakota.")],
+      ownBusiness: "North Dakota has no license to open a sprinkler installation business, but commercial jobs still go through plan review and permitting at the State Fire Marshal's office.",
     }),
     t("tile-setter", {
       outlook: ol([100, 110, 15, 10]),

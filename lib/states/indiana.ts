@@ -120,6 +120,10 @@ export const INDIANA: StateGuide = {
       outlook: ol([18090, 19860, 10, 1800]),
       stateLicense: "none",
       licenseSummary: "Indiana has no state license for electricians at all, despite the high-stakes nature of the work. Licensing, where it exists, is set by individual cities and counties rather than by the state.",
+      licenseSteps: [
+        { title: "No state license", detail: "Indiana has no state license for electricians at all." },
+        { title: "Local license (where it exists)", detail: "Set by individual cities and counties rather than by the state." },
+      ],
       licenseAgency: IN_NO_LICENSE,
       training: [IBEW_481],
     }),
@@ -141,6 +145,10 @@ export const INDIANA: StateGuide = {
       outlook: ol([8220, 9020, 10, 790]),
       stateLicense: "none",
       licenseSummary: "Indiana has no state license for HVAC technicians. Anyone handling refrigerants still needs the federal EPA Section 608 certification, which applies in every state and isn't an Indiana-specific credential. It's one of the fastest-growing trades on this page.",
+      licenseSteps: [
+        { title: "No state license", detail: "Indiana has no state license for HVAC technicians." },
+        { title: "Federal EPA 608 certification", detail: "Anyone handling refrigerants needs this federal certification, which applies in every state." },
+      ],
       licenseAgency: IN_NO_LICENSE,
       training: [IVY_TECH_HVAC],
     }),
@@ -165,6 +173,7 @@ export const INDIANA: StateGuide = {
       extraCredentials: ["Indiana journeyman plumber license"],
       training: [UA_440, IVY_TECH_CONSTRUCTION],
       payNote: "Indiana's BLS projection groups plumbers with pipefitters and steamfitters, so this figure isn't plumbers alone.",
+      businessNote: "Running a plumbing business takes the separate Plumbing Contractor license on top of the journeyman credential.",
     }),
     t("painter", {
       outlook: ol([5470, 5720, 5, 460]),
@@ -279,9 +288,14 @@ export const INDIANA: StateGuide = {
     t("sprinkler-fitter", {
       stateLicense: "none",
       licenseSummary: "Indiana's plumbing statute explicitly excludes automatic sprinkler installation from the definition of plumbing, so sprinkler fitters fall outside that license entirely. Sprinkler system design does require either a registered design professional or a NICET-certified designer, but that's a design credential, not a license for the installer or fitter trade itself.",
+      licenseSteps: [
+        { title: "No installer license", detail: "Indiana's plumbing statute explicitly excludes automatic sprinkler installation from the definition of plumbing, so no installer license covers this trade." },
+        { title: "Design credential (different role)", detail: "System design needs a registered design professional or a NICET-certified designer, but that's a credential for the designer, not the installer." },
+      ],
       licenseAgency: IN_NO_LICENSE,
       training: [national("Sprinkler Fitters union (UA)", "ua-sprinkler-fitter-apprenticeship", "Five-year registered apprenticeship through a signatory contractor.")],
       payNote: "Sprinkler fitters share Indiana's combined plumber/pipefitter/steamfitter job code, so there's no separate sprinkler-fitter-only figure.",
+      ownBusiness: "Opening a sprinkler company in Indiana takes no state license, but commercial work still needs NICET-certified design staff, insurance and signatory status with a union or training program.",
     }),
     t("tile-setter", {
       outlook: ol([760, 830, 10, 60]),

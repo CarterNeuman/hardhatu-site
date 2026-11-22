@@ -119,6 +119,10 @@ export const ILLINOIS: StateGuide = {
       stateLicense: "none",
       licenseSummary:
         "Illinois has no statewide electrician license at all; it's purely a city-by-city system. Chicago runs the most developed example: a Supervising Electrician license for individuals, and an Electrical Contractor license for businesses, which must employ at least one licensed Supervising Electrician. Other cities and counties vary, some requiring only a basic contractor registration.",
+      licenseSteps: [
+        { title: "No state license", detail: "Illinois sets no statewide license or exam for electricians." },
+        { title: "Local license (where required)", detail: "Chicago, for one, requires a Supervising Electrician license for individuals and an Electrical Contractor license for the business; other cities and counties vary." },
+      ],
       licenseAgency: CHICAGO_ELECTRICAL,
       extraCredentials: ["A city or county electrician license where one is required (such as Chicago's Supervising Electrician license)"],
       training: [IBEW_134],
@@ -142,6 +146,10 @@ export const ILLINOIS: StateGuide = {
       outlook: ol([8650, 9420, 9, 820]),
       stateLicense: "none",
       licenseSummary: "No dedicated statewide HVAC license was found for Illinois; it appears to be regulated locally, if at all (Chicago separately licenses refrigeration contractors). Anyone handling refrigerants also needs the federal EPA Section 608 certification, which applies in every state and never expires.",
+      licenseSteps: [
+        { title: "No state license", detail: "Illinois has no statewide HVAC license." },
+        { title: "Local license (where it exists)", detail: "Chicago, for one, separately licenses refrigeration contractors; other cities vary." },
+      ],
       licenseAgency: IL_NO_LICENSE,
       training: [ABC_ILLINOIS],
     }),
@@ -285,10 +293,15 @@ export const ILLINOIS: StateGuide = {
       stateLicense: "worker-certification",
       licenseSummary:
         "Illinois requires fire sprinkler contracting businesses to hold a license from the Office of the State Fire Marshal. As of January 1, 2024, individuals who inspect and test existing fire-sprinkler systems also need their own individual license, earned through NICET certification, ASSE 15010 certification, or a certified sprinkler-fitter apprenticeship, and must work for a licensed contractor. Current license holders keep their credentials even as the rules have tightened for new applicants.",
+      licenseSteps: [
+        { title: "Fire sprinkler contractor (business)", detail: "A license from the Office of the State Fire Marshal to run a sprinkler contracting business." },
+        { title: "Individual inspection/testing license", detail: "Required since Jan. 1, 2024 for anyone who independently inspects or tests existing systems; earned through NICET, ASSE 15010 certification, or a certified apprenticeship." },
+      ],
       licenseAgency: OSFM_SPRINKLER,
       extraCredentials: ["Illinois individual fire-sprinkler inspection and testing license (for that specific work)"],
       training: [national("Sprinkler Fitters union (UA)", "ua-sprinkler-fitter-apprenticeship", "Five-year registered apprenticeship through a signatory contractor.")],
       payNote: "Illinois's BLS projection groups sprinkler fitters with plumbers and pipefitters, so there's no separate sprinkler-fitter-only figure.",
+      ownBusiness: "Opening a fire sprinkler contracting business in Illinois takes a license from the Office of the State Fire Marshal, and anyone who independently inspects or tests existing systems needs their own individual license on top of it.",
     }),
     t("tile-setter", {
       outlook: ol([1260, 1370, 9, 100]),

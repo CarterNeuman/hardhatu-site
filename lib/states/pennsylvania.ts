@@ -124,6 +124,11 @@ export const PENNSYLVANIA: StateGuide = {
       outlook: ol([23970, 25900, 8, 2320]),
       stateLicense: "none",
       licenseSummary: "Pennsylvania has no statewide electrician license. Philadelphia and Pittsburgh each license electrical contractors individually through their own city systems (Philadelphia: 4 years of experience, an exam and continuing education; Pittsburgh: 6 years of combined experience and education plus an exam); outside those two cities, there's no government check on an electrician's qualifications before they can legally work.",
+      licenseSteps: [
+        { title: "No state license", detail: "Pennsylvania has no statewide electrician license." },
+        { title: "Philadelphia (local)", detail: "4 years of experience, an exam and continuing education." },
+        { title: "Pittsburgh (local)", detail: "6 years of combined experience and education, plus an exam." },
+      ],
       licenseAgency: PHILA_ELECTRICAL,
       extraCredentials: ["Philadelphia or Pittsburgh electrical trade license, if working in either city"],
       training: [IBEW_98],
@@ -146,6 +151,10 @@ export const PENNSYLVANIA: StateGuide = {
       outlook: ol([17890, 19030, 6, 1640]),
       stateLicense: "none",
       licenseSummary: "Pennsylvania has no statewide HVAC license. Philadelphia and Pittsburgh license HVAC and mechanical trades locally; anyone handling refrigerants also needs the federal EPA Section 608 certification, which applies in every state.",
+      licenseSteps: [
+        { title: "No state license", detail: "Pennsylvania has no statewide HVAC license." },
+        { title: "Philadelphia and Pittsburgh (local)", detail: "Both cities license HVAC and mechanical trades locally." },
+      ],
       licenseAgency: PA_NO_LICENSE,
       training: [CCAC_TRADES, CCP_TRADES],
     }),
@@ -161,10 +170,15 @@ export const PENNSYLVANIA: StateGuide = {
       stateLicense: "none",
       licenseSummary:
         "Pennsylvania has no statewide plumber license; a bill to create a State Board of Plumbing Contractors has been introduced but remains stuck in committee, not law. Philadelphia and Pittsburgh both license plumbers locally. This outlook figure is a combined BLS category covering plumbers, pipefitters and steamfitters together, so it isn't just plumbers.",
+      licenseSteps: [
+        { title: "No state license", detail: "Pennsylvania has no statewide plumber license; a bill to create one remains stuck in committee." },
+        { title: "Philadelphia and Pittsburgh (local)", detail: "Both cities license plumbers locally." },
+      ],
       licenseAgency: PA_NO_LICENSE,
       extraCredentials: ["Philadelphia or Pittsburgh plumbing trade license, if working in either city"],
       training: [UA_420, CCP_TRADES],
       payNote: "Pennsylvania's BLS projection groups plumbers with pipefitters and steamfitters, so this figure isn't plumbers alone.",
+      businessNote: "Philadelphia and Pittsburgh both require their own separate plumbing contractor license to run a business in either city.",
     }),
     t("painter", {
       outlook: ol([8960, 9330, 4, 740]),
@@ -277,10 +291,15 @@ export const PENNSYLVANIA: StateGuide = {
     t("sprinkler-fitter", {
       stateLicense: "none",
       licenseSummary: "Pennsylvania has no state license for fire sprinkler fitters; a bill proposing one was introduced about a decade ago and never passed. Pittsburgh licenses this work locally as a Fire Suppression Trade License.",
+      licenseSteps: [
+        { title: "No state license", detail: "Pennsylvania has no state license for fire sprinkler fitters; a bill proposing one never passed." },
+        { title: "Pittsburgh (local)", detail: "Licenses this work locally as a Fire Suppression Trade License." },
+      ],
       licenseAgency: PITTSBURGH_FIRE_SUPPRESSION,
       extraCredentials: ["Pittsburgh Fire Suppression Trade License, if working in that city"],
       training: [national("Sprinkler Fitters union (UA)", "ua-sprinkler-fitter-apprenticeship", "Five-year registered apprenticeship through a signatory contractor.")],
       payNote: "Pennsylvania's BLS projection groups sprinkler fitters with plumbers and pipefitters, so there's no separate sprinkler-fitter-only figure.",
+      ownBusiness: "Opening a sprinkler company takes no state license outside Pittsburgh, where it needs a Fire Suppression Trade License; everywhere, it still takes NICET-certified design staff and insurance.",
     }),
     t("tile-setter", {
       outlook: ol([780, 860, 10, 60]),

@@ -150,6 +150,10 @@ export const WISCONSIN: StateGuide = {
       stateLicense: "worker-certification",
       licenseSummary:
         "Wisconsin requires HVAC work to be done under an HVAC Qualifier certification from DSPS, plus a separate business-level HVAC Contractor registration. This isn't a journeyman/master ladder: a Qualifier certifies through a mix of HVAC education and verified years of hands-on experience, then an exam. Anyone handling refrigerants also needs the federal EPA Section 608 certification, which never expires.",
+      licenseSteps: [
+        { title: "HVAC Qualifier", detail: "A mix of HVAC education and verified years of hands-on experience, then a DSPS exam." },
+        { title: "HVAC Contractor (business)", detail: "A separate business-level registration; the business needs a Qualifier on staff." },
+      ],
       licenseAgency: DSPS_HVAC,
       extraCredentials: ["Wisconsin HVAC Qualifier certification"],
       training: [MATC, NWTC],
@@ -176,6 +180,7 @@ export const WISCONSIN: StateGuide = {
       extraCredentials: ["Wisconsin Journeyman or Master Plumber license"],
       training: [national("Plumbers and pipefitters union (UA)", "ua-plumber-pipefitter-apprenticeship", "Paid union apprenticeships in plumbing and pipefitting."), MATC],
       payNote: "Wisconsin's BLS projection groups plumbers with pipefitters and steamfitters, so this figure isn't plumbers alone.",
+      businessNote: "Running a plumbing business in Wisconsin takes a licensed Master Plumber on staff.",
     }),
     t("painter", {
       outlook: ol([4920, 5170, 5, 410]),
@@ -290,10 +295,15 @@ export const WISCONSIN: StateGuide = {
     t("sprinkler-fitter", {
       stateLicense: "worker-certification",
       licenseSummary: "Wisconsin requires fire sprinkler fitters to hold an Automatic Fire Sprinkler Fitter, Journeyman license from DSPS, with a narrower Fitter-Maintenance credential for maintenance-only work. Licenses renew with at least 24 hours of continuing education.",
+      licenseSteps: [
+        { title: "Automatic Fire Sprinkler Fitter, Journeyman", detail: "DSPS's main individual license for installing and testing fire sprinkler systems." },
+        { title: "Fitter-Maintenance (narrower)", detail: "A separate, narrower credential covering maintenance-only work." },
+      ],
       licenseAgency: DSPS_SPRINKLER,
       extraCredentials: ["Wisconsin Automatic Fire Sprinkler Fitter, Journeyman license"],
       training: [national("Sprinkler Fitters union (UA)", "ua-sprinkler-fitter-apprenticeship", "Five-year registered apprenticeship through a signatory contractor.")],
       payNote: "Wisconsin's BLS projection groups sprinkler fitters with plumbers and pipefitters, so there's no separate sprinkler-fitter-only figure.",
+      ownBusiness: "Opening a Wisconsin sprinkler-fitting business takes licensed Journeyman fitters on staff, plus insurance and continuing education to keep licenses current.",
     }),
     t("tile-setter", {
       outlook: ol([750, 840, 12, 60]),

@@ -124,6 +124,10 @@ export const OHIO: StateGuide = {
       stateLicense: "contractor",
       licenseSummary:
         "Ohio licenses electrical contracting at the business level through OCILB: at least 18, 5 years of trade experience (or a registered engineer with 3 years of business experience), $500,000 of liability insurance, and a passing exam score. This covers commercial work; Ohio has no state journeyman or master electrician license, and some cities require their own separate electrician license on top.",
+      licenseSteps: [
+        { title: "Trade experience", detail: "At least 18, with 5 years of trade experience (or a registered engineer with 3 years of business experience)." },
+        { title: "OCILB electrical contractor exam", detail: "A passing exam score, plus $500,000 of liability insurance, for the business-level license." },
+      ],
       licenseAgency: OCILB,
       training: [IBEW_683, COLUMBUS_STATE],
       businessNote: "The OCILB license covers commercial work statewide, but a city can still require its own additional electrician license or registration.",
@@ -147,6 +151,10 @@ export const OHIO: StateGuide = {
       stateLicense: "contractor",
       licenseSummary:
         "Ohio licenses HVAC and refrigeration contracting at the business level through OCILB, under the same framework as electrical contracting: 5 years of trade experience, insurance and a passing exam score. This covers commercial work; there's no state journeyman or master HVAC license. Anyone handling refrigerants also needs the federal EPA Section 608 certification, which applies in every state.",
+      licenseSteps: [
+        { title: "Trade experience", detail: "5 years of trade experience (or a registered engineer with 3 years of business experience)." },
+        { title: "OCILB HVAC/refrigeration contractor exam", detail: "A passing exam score, plus liability insurance, for the business-level license." },
+      ],
       licenseAgency: OCILB,
       training: [TRI_C, COLUMBUS_STATE],
     }),
@@ -162,6 +170,10 @@ export const OHIO: StateGuide = {
       stateLicense: "contractor",
       licenseSummary:
         "Ohio licenses plumbing and hydronics contracting at the business level through OCILB: 5 years of trade experience, a notarized application, a state and federal background check, two PSI exams (business and law, and plumbing), and $500,000 of liability insurance. This is Ohio's only state plumbing credential; there's no state journeyman or master plumber license. Some cities, including Columbus, require their own additional journeyperson plumber license and contractor registration on top of the state license. This outlook figure is a combined BLS category covering plumbers, pipefitters and steamfitters together, so it isn't just plumbers.",
+      licenseSteps: [
+        { title: "Trade experience", detail: "5 years of trade experience (or a registered engineer with 3 years of business experience), a notarized application and a background check." },
+        { title: "Two PSI exams", detail: "A business-and-law exam and a plumbing exam, plus $500,000 of liability insurance, for the business-level license." },
+      ],
       licenseAgency: OCILB,
       training: [UA_189, TRI_C],
       businessNote: "Columbus, for one, layers its own journeyperson plumber license and contractor registration on top of the state OCILB license.",
@@ -280,10 +292,14 @@ export const OHIO: StateGuide = {
     t("sprinkler-fitter", {
       stateLicense: "worker-certification",
       licenseSummary: "Ohio requires anyone who installs, tests, repairs or maintains fire protection equipment as a for-profit business to hold a certificate from the State Fire Marshal, under its own separate statute from the main construction licensing board.",
+      licenseSteps: [
+        { title: "State Fire Marshal certificate", detail: "Required for anyone who installs, tests, repairs or maintains fire protection equipment as a for-profit business." },
+      ],
       licenseAgency: OH_FIRE_MARSHAL,
       extraCredentials: ["Ohio Fire Marshal fire protection certificate"],
       training: [national("Sprinkler Fitters union (UA)", "ua-sprinkler-fitter-apprenticeship", "Five-year registered apprenticeship through a signatory contractor.")],
       payNote: "Ohio's BLS projection groups sprinkler fitters with plumbers and pipefitters, so there's no separate sprinkler-fitter-only figure.",
+      ownBusiness: "Opening a sprinkler company in Ohio takes a State Fire Marshal fire protection certificate, insurance and NICET-certified design staff for commercial work.",
     }),
     t("tile-setter", {
       outlook: ol([980, 1060, 8, 80]),

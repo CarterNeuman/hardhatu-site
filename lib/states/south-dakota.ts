@@ -155,6 +155,11 @@ export const SOUTH_DAKOTA: StateGuide = {
       stateLicense: "none",
       licenseSummary:
         "South Dakota has no statewide HVAC license; licensing is entirely local. Sioux Falls requires a Mechanical Contractor license (4 years of experience, an exam, a $10,000 bond). Rapid City runs its own separate system with apprentice, installer and contractor tiers. Elsewhere in the state, there may be no license requirement at all.",
+      licenseSteps: [
+        { title: "No state license", detail: "South Dakota has no statewide HVAC license; licensing is entirely local." },
+        { title: "Sioux Falls (local)", detail: "A Mechanical Contractor license: 4 years of experience, an exam and a $10,000 bond." },
+        { title: "Rapid City (local)", detail: "A separate local system with its own apprentice, installer and contractor tiers." },
+      ],
       licenseAgency: EXCISE_TAX,
       training: [SOUTHEAST_TECH, WESTERN_DAKOTA_TECH],
       businessNote: "Running an HVAC business means qualifying separately in Sioux Falls and Rapid City, since the two cities don't share a licensing system.",
@@ -290,8 +295,13 @@ export const SOUTH_DAKOTA: StateGuide = {
     t("sprinkler-fitter", {
       stateLicense: "none",
       licenseSummary: "South Dakota doesn't license fire sprinkler installers directly. What exists is a design and stamping qualification for fire protection system layout, held by someone with a NICET Level III or IV certification or 20 years of layout experience, under the Board of Technical Professions. That's a credential tied to who may design and sign off on a system, not a hands-on installer license.",
+      licenseSteps: [
+        { title: "No installer license", detail: "South Dakota doesn't license fire sprinkler installers directly." },
+        { title: "Design/stamping qualification", detail: "A NICET Level III or IV certification, or 20 years of layout experience, under the Board of Technical Professions, for anyone who designs and signs off on a system." },
+      ],
       licenseAgency: BTP_SPRINKLER,
       training: [national("Sprinkler Fitters union (UA)", "ua-sprinkler-fitter-apprenticeship", "Five-year registered apprenticeship through a signatory contractor.")],
+      ownBusiness: "South Dakota has no license to open a sprinkler installation business; only system design and stamping needs the Board of Technical Professions' NICET-based qualification.",
     }),
     t("tile-setter", {
       outlook: ol([140, 160, 15, 10]),

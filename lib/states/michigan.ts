@@ -148,6 +148,11 @@ export const MICHIGAN: StateGuide = {
       stateLicense: "worker-certification",
       licenseSummary:
         "Michigan licenses HVAC work through LARA's Mechanical Contractor structure: an HVAC apprentice works under a licensed contractor's supervision, while an HVAC technician can work independently once qualified. The business side is licensed separately, by lettered classification (such as ductwork, limited or unlimited heating, and refrigeration/air conditioning service). Anyone handling refrigerants also needs the federal EPA Section 608 certification. It's one of the fastest-growing trades on this page.",
+      licenseSteps: [
+        { title: "HVAC apprentice", detail: "Works under a licensed Mechanical Contractor's supervision." },
+        { title: "HVAC technician", detail: "Can work independently once qualified." },
+        { title: "Mechanical Contractor (business)", detail: "A separate business license by lettered classification covering the specific scope of HVAC, piping or refrigeration work." },
+      ],
       licenseAgency: LARA_MECHANICAL,
       extraCredentials: ["Michigan HVAC technician credential"],
       training: [UA_190, HENRY_FORD],
@@ -175,6 +180,7 @@ export const MICHIGAN: StateGuide = {
       extraCredentials: ["Michigan journeyman or master plumber license"],
       training: [UA_190, HENRY_FORD],
       payNote: "Michigan's BLS projection groups plumbers with pipefitters and steamfitters, so this figure isn't plumbers alone.",
+      businessNote: "A Michigan plumbing contractor business license has no hour requirement of its own, but most firms keep a licensed master plumber on staff.",
     }),
     t("painter", {
       outlook: ol([8280, 8480, 2, 660]),
@@ -294,10 +300,15 @@ export const MICHIGAN: StateGuide = {
       stateLicense: "worker-certification",
       licenseSummary:
         "Michigan has no stand-alone sprinkler-fitter license; fire-sprinkler work is licensed through the Mechanical Contractor structure's Fire Suppression classification. Qualifying takes at least 18 years of age, good moral character, and at least 3 years or 6,000 hours of experience in fire-suppression work (a 2-year HVAC program can count for up to 1 year/2,000 hours of that), plus an exam.",
+      licenseSteps: [
+        { title: "Fire Suppression classification", detail: "At least 18, good moral character, and 3 years/6,000 hours of fire-suppression experience (a 2-year HVAC program can count for up to 1 year/2,000 hours), then an exam." },
+        { title: "Mechanical Contractor (business)", detail: "The Fire Suppression classification sits under Michigan's Mechanical Contractor business license." },
+      ],
       licenseAgency: LARA_MECHANICAL,
       extraCredentials: ["Michigan Fire Suppression classification qualification"],
       training: [national("Sprinkler Fitters union (UA)", "ua-sprinkler-fitter-apprenticeship", "Five-year registered apprenticeship through a signatory contractor.")],
       payNote: "Sprinkler fitters have no distinct federal job category, so there's no Michigan-specific job-count figure for this trade alone.",
+      ownBusiness: "Opening a Michigan fire-suppression business takes the Mechanical Contractor license's Fire Suppression classification, on top of insurance and bonding.",
     }),
     t("tile-setter", {
       outlook: ol([1400, 1500, 7, 110]),
