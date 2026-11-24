@@ -114,5 +114,5 @@ recommendedIds:
   - lesson-bidding-and-winning-work
   - software-stack
   - software-proest
-image: "/images/careers/senior-estimator.jpg"
+image: "/images/careers/chief-estimator.jpg"
 ---

@@ -130,5 +130,4 @@ recommendedIds:
   - concept-building-code
   - phase-design
   - exam-fe
-image: "/images/careers/mep-engineer.jpg"
 ---

@@ -109,5 +109,5 @@ recommendedIds:
   - concept-daily-report
   - interview-project-operations
   - resume-project-operations
-image: "/images/careers/project-engineer.jpg"
+image: "/images/careers/field-engineer.jpg"
 ---

@@ -116,5 +116,5 @@ recommendedIds:
   - concept-national-electrical-code
   - interview-preconstruction-estimating
   - lesson-bidding-and-winning-work
-image: "/images/careers/senior-estimator.jpg"
+image: "/images/careers/mep-estimator.jpg"
 ---

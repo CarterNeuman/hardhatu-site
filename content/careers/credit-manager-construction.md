@@ -100,5 +100,5 @@ recommendedIds:
   - career-construction-accountant
   - career-contracts-administrator
   - concept-mechanics-lien
-image: "/images/careers/construction-accountant.jpg"
+image: "/images/careers/credit-manager-construction.jpg"
 ---

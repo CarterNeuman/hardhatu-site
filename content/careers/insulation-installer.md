@@ -108,5 +108,4 @@ recommendedIds:
   - exam-nccer-core
   - interview-field-trades
   - gethired-field-trades
-image: "/images/careers/insulation-installer-line-art.svg"
 ---

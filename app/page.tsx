@@ -75,8 +75,9 @@ const PATH_OPTIONS = [
 // The three-step "how it works" band, each paired with a real photo and
 // alternating sides as you scroll (the "format changes" effect, chat
 // 2026-11-11) rather than a repeating card grid. Step 1's photo is a real
-// career photo already on the site (Field & Trades, the most common
-// starting point); steps 2-3 use photos from the project's own photo set
+// jobsite photo (an electrician, Field & Trades being the most common
+// starting point), kept as its own homepage copy so career-photo reshuffles
+// don't change it; steps 2-3 use photos from the project's own photo set
 // that weren't in use anywhere yet.
 const HOW_IT_WORKS = [
   {
@@ -85,7 +86,7 @@ const HOW_IT_WORKS = [
     body: "Construction is a lot bigger than \"the trades.\" Estimating, project management, safety, tech, insurance, design: browse real careers and see what a normal week actually looks like in each one.",
     href: "/careers",
     cta: "Browse careers",
-    image: "/images/careers/electrician.jpg",
+    image: "/images/homepage/step-browse.jpg",
     alt: "Electrician working on jobsite wiring",
   },
   {

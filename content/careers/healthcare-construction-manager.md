@@ -95,5 +95,4 @@ recommendedIds:
   - career-project-manager
   - career-safety-manager
   - career-facilities-manager
-image: "/images/careers/project-manager.jpg"
 ---
