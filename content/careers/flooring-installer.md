@@ -1,6 +1,7 @@
 ---
 id: career-flooring-installer
 title: Flooring Installer
+image: "/images/careers/flooring-installer.jpg"
 category: "Field & Trades"
 tagline: Installs the finished floor a building is walked on every day, from resilient sheet goods to carpet to engineered wood, where a small subfloor problem becomes a visible, expensive failure.
 tier: free

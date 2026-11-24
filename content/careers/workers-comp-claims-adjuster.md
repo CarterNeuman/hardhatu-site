@@ -1,6 +1,7 @@
 ---
 id: career-workers-comp-claims-adjuster
 title: Workers' Compensation Claims Adjuster
+image: "/images/careers/workers-comp-claims-adjuster.jpg"
 category: "Insurance & Claims"
 tagline: Manages an injured construction worker's medical care and benefits from the first incident report through return to work, where the stakes and the regulations are both entirely different from a property claim.
 tier: free

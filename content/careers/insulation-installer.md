@@ -1,6 +1,7 @@
 ---
 id: career-insulation-installer
 title: Insulation Installer
+image: "/images/careers/insulation-installer.jpg"
 category: "Field & Trades"
 tagline: Installs the material that keeps a building's heating and cooling bills in check, hidden work that's nearly impossible to fix once walls and ceilings close over it.
 tier: free

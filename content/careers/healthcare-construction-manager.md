@@ -1,6 +1,7 @@
 ---
 id: career-healthcare-construction-manager
 title: Healthcare Construction Manager
+image: "/images/careers/healthcare-construction-manager.jpg"
 category: "Specialized Construction"
 tagline: Manages construction inside active hospitals and clinics, where infection control, patient safety, and continuous operations rule the schedule in ways a standard commercial build-out never has to plan around.
 tier: free

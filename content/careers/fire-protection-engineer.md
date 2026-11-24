@@ -1,6 +1,7 @@
 ---
 id: career-fire-protection-engineer
 title: Fire Protection Engineer
+image: "/images/careers/fire-protection-engineer.jpg"
 category: "Technology & Design"
 tagline: Designs the sprinkler, alarm, and smoke-control systems that keep a building's occupants safe and its code officials satisfied, the life-safety specialist most MEP engineers call in rather than try to cover themselves.
 tier: free
