@@ -51,19 +51,22 @@ function formatValue(n: number, unit: "annual" | "hourly") {
 // SVG geometry, in viewBox user units. No y-axis ticks: every data point
 // already carries a direct label, so a numeric axis alongside it would
 // just be the same six numbers twice.
-const VB_W = 560;
-const VB_H = 200;
+//
+// The chart is drawn twice: a wide drawing from the sm breakpoint up, and a
+// narrow one for phones whose viewBox is close to a phone's real chart
+// width. A single 560-wide drawing scaled down to a ~280px phone column
+// shrank every label to about 6px (2026-11-24 readability pass).
+const WIDE = { w: 560, h: 200, hi: 12, lo: 12, label: 12 };
+const NARROW = { w: 250, h: 200, hi: 13.5, lo: 13, label: 13 };
+type ChartSize = typeof WIDE;
 const MARGIN = { top: 34, right: 16, bottom: 34, left: 12 };
-const PLOT_W = VB_W - MARGIN.left - MARGIN.right;
-const PLOT_H = VB_H - MARGIN.top - MARGIN.bottom;
-const PLOT_Y0 = MARGIN.top + PLOT_H; // the $0 baseline, in pixel y
 
 const NAVY = "#1F3F52";
 const HAIRLINE = "#D6D0C2";
 const INK = "#1C2B33";
 const STEEL = "#656C71";
 const MONO = "'IBM Plex Mono', monospace";
-const SANS = "'IBM Plex Sans', sans-serif";
+const SANS = "'Atkinson Hyperlegible Next', sans-serif";
 
 export function PayTimeline({
   payTimeline,
@@ -79,38 +82,29 @@ export function PayTimeline({
     ...payTimeline[key],
   }));
   const max = Math.max(...bands.map((b) => b.high));
+  const ariaLabel = `Pay by experience: ${bands
+    .map((b) => `${b.label}, ${formatValue(b.low, unit)} to ${formatValue(b.high, unit)}`)
+    .join("; ")}`;
 
-  const scaleY = (v: number) => PLOT_Y0 - (v / max) * PLOT_H;
-  const xAt = (i: number) => MARGIN.left + ((i + 0.5) / bands.length) * PLOT_W;
+  const chart = (size: ChartSize, className: string) => {
+    const plotW = size.w - MARGIN.left - MARGIN.right;
+    const plotH = size.h - MARGIN.top - MARGIN.bottom;
+    const plotY0 = MARGIN.top + plotH; // the $0 baseline, in pixel y
+    const scaleY = (v: number) => plotY0 - (v / max) * plotH;
+    const xAt = (i: number) => MARGIN.left + ((i + 0.5) / bands.length) * plotW;
+    const highPts = bands.map((b, i) => [xAt(i), scaleY(b.high)] as const);
+    const lowPts = bands.map((b, i) => [xAt(i), scaleY(b.low)] as const);
+    const areaPath =
+      `M ${highPts.map(([x, y]) => `${x},${y}`).join(" L ")} ` +
+      `L ${[...lowPts].reverse().map(([x, y]) => `${x},${y}`).join(" L ")} Z`;
 
-  const highPts = bands.map((b, i) => [xAt(i), scaleY(b.high)] as const);
-  const lowPts = bands.map((b, i) => [xAt(i), scaleY(b.low)] as const);
-  const areaPath =
-    `M ${highPts.map(([x, y]) => `${x},${y}`).join(" L ")} ` +
-    `L ${[...lowPts].reverse().map(([x, y]) => `${x},${y}`).join(" L ")} Z`;
-
-  return (
-    <div className="mt-5 border border-hairline bg-white/40 px-4 py-4">
-      <div className="flex items-baseline justify-between">
-        <p className="text-xs font-semibold uppercase tracking-wide text-steel">
-          {isEntryRole ? "Pay by experience, nationally" : "Pay for this role, nationally"}
-        </p>
-        {asOf && <p className="text-[10px] text-steel">as of {asOf}</p>}
-      </div>
-
-      <svg
-        viewBox={`0 0 ${VB_W} ${VB_H}`}
-        className="mt-2 w-full"
-        role="img"
-        aria-label={`Pay by experience: ${bands
-          .map((b) => `${b.label}, ${formatValue(b.low, unit)} to ${formatValue(b.high, unit)}`)
-          .join("; ")}`}
-      >
+    return (
+      <svg viewBox={`0 0 ${size.w} ${size.h}`} className={className} role="img" aria-label={ariaLabel}>
         <line
           x1={MARGIN.left}
-          y1={PLOT_Y0}
-          x2={VB_W - MARGIN.right}
-          y2={PLOT_Y0}
+          y1={plotY0}
+          x2={size.w - MARGIN.right}
+          y2={plotY0}
           stroke={HAIRLINE}
           strokeWidth={1}
         />
@@ -146,7 +140,7 @@ export function PayTimeline({
                 x={x}
                 y={yHigh - 11}
                 textAnchor="middle"
-                fontSize={12}
+                fontSize={size.hi}
                 fontWeight={600}
                 fontFamily={MONO}
                 fill={INK}
@@ -156,9 +150,9 @@ export function PayTimeline({
               </text>
               <text
                 x={x}
-                y={yLow + 17}
+                y={yLow + 18}
                 textAnchor="middle"
-                fontSize={11}
+                fontSize={size.lo}
                 fontFamily={MONO}
                 fill={STEEL}
                 style={{ fontVariantNumeric: "tabular-nums" }}
@@ -167,9 +161,9 @@ export function PayTimeline({
               </text>
               <text
                 x={x}
-                y={VB_H - 6}
+                y={size.h - 6}
                 textAnchor="middle"
-                fontSize={11}
+                fontSize={size.label}
                 fontFamily={SANS}
                 fontWeight={500}
                 fill={STEEL}
@@ -180,8 +174,22 @@ export function PayTimeline({
           );
         })}
       </svg>
+    );
+  };
 
-      {source && <p className="mt-3 text-[10px] text-steel">Source: {source}</p>}
+  return (
+    <div className="mt-5 border border-hairline bg-white/40 px-4 py-4">
+      <div className="flex items-baseline justify-between gap-3">
+        <p className="text-xs font-semibold uppercase tracking-wide text-steel">
+          {isEntryRole ? "Pay by experience, nationally" : "Pay for this role, nationally"}
+        </p>
+        {asOf && <p className="shrink-0 text-[12px] text-steel">as of {asOf}</p>}
+      </div>
+
+      {chart(NARROW, "mx-auto mt-2 w-full max-w-[320px] sm:hidden")}
+      {chart(WIDE, "mt-2 hidden w-full sm:block")}
+
+      {source && <p className="mt-3 text-[12px] text-steel">Source: {source}</p>}
     </div>
   );
 }

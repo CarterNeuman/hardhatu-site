@@ -167,7 +167,7 @@ export function LiveJobResults({
                     {postedLabel && <span className="text-xs text-steel">{postedLabel}</span>}
                     {payBadge && (
                       <span
-                        className={`inline-block border px-1.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide ${payBadge.className}`}
+                        className={`inline-block border px-1.5 py-0.5 text-[12px] font-semibold uppercase tracking-wide ${payBadge.className}`}
                       >
                         {payBadge.label}
                       </span>

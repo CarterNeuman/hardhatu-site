@@ -156,7 +156,7 @@ function ResourceCard({ href, kind, title, description, count, pin, rotate }: Re
       />
       <div className="flex items-center justify-between gap-2">
         <Icon kind={kind} size={22} className="text-clay" />
-        <span className="text-[0.68rem] font-semibold uppercase tracking-wide text-clay">{count}</span>
+        <span className="text-[12px] font-semibold uppercase tracking-wide text-clay">{count}</span>
       </div>
       <h3 className="mt-3 font-display text-xl font-bold text-ink group-hover:text-navy">{title}</h3>
       <p className="mt-1.5 text-sm leading-relaxed text-steel">{description}</p>

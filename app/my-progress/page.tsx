@@ -41,7 +41,7 @@ export default async function MyProgressPage() {
         <EmailGate source="my-progress" variant="immediate">
           <div className="flex items-center gap-3">
             <BlueprintMark size={40} />
-            <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-navy">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-navy">
               Your Progress
             </p>
           </div>
@@ -123,7 +123,7 @@ export default async function MyProgressPage() {
     <article className="mx-auto max-w-3xl px-6 py-10">
       <div className="flex items-center gap-3">
         <BlueprintMark size={40} />
-        <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-navy">
+        <p className="text-sm font-bold uppercase tracking-[0.2em] text-navy">
           Your Progress
         </p>
       </div>
@@ -182,7 +182,7 @@ export default async function MyProgressPage() {
         {latestQuiz ? (
           <>
             <div className="mt-3 flex flex-wrap items-center gap-3">
-              <span className="border border-amber bg-amber-soft px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-wide text-amber">
+              <span className="border border-amber bg-amber-soft px-2.5 py-1 text-[12px] font-semibold uppercase tracking-wide text-amber">
                 {latestQuiz.resultCategory}
               </span>
               <span className="text-xs text-steel">Taken {formatDate(latestQuiz.createdAt)}</span>

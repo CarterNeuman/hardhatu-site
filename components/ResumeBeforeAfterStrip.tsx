@@ -26,7 +26,7 @@ export function ResumeBeforeAfterStrip({
         className="group flex flex-col gap-2 border-b border-hairline bg-white/40 p-4 transition-colors hover:border-navy hover:bg-white/70 sm:border-b-0 sm:border-r"
       >
         <Icon kind="resume" size={32} className="text-clay" />
-        <h3 className="break-words font-display text-base font-semibold leading-snug text-ink group-hover:text-navy">
+        <h3 className="break-words font-display text-xl font-semibold leading-snug text-ink group-hover:text-navy">
           {guide.title}
         </h3>
         {guide.tagline && (
@@ -35,13 +35,13 @@ export function ResumeBeforeAfterStrip({
       </Link>
       <div className="flex flex-col">
         <div className="flex flex-1 flex-col gap-1 bg-white/30 p-4">
-          <span className="text-[11px] font-semibold uppercase tracking-wide text-steel">Before</span>
+          <span className="text-[12px] font-semibold uppercase tracking-wide text-steel">Before</span>
           <p className="text-sm leading-snug text-steel line-through decoration-steel/50">
             {GENERIC_WEAK_BULLET}
           </p>
         </div>
         <div className="flex flex-1 flex-col gap-1 border-t border-hairline bg-amber-soft/30 p-4">
-          <span className="text-[11px] font-semibold uppercase tracking-wide text-amber">After</span>
+          <span className="text-[12px] font-semibold uppercase tracking-wide text-amber">After</span>
           <p className="text-sm font-medium leading-snug text-ink">{after}</p>
         </div>
       </div>

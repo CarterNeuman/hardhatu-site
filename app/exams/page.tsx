@@ -103,7 +103,7 @@ export default function ExamsIndexPage() {
               ].map((stat) => (
                 <div key={stat.label} className="bg-ink px-3 py-4 sm:px-4">
                   <dd className="font-display text-4xl font-bold leading-none text-paper">{stat.value}</dd>
-                  <dt className="mt-1.5 text-[11px] uppercase tracking-[0.14em] text-paper/70">{stat.label}</dt>
+                  <dt className="mt-1.5 text-[12px] uppercase tracking-[0.04em] text-paper/70 sm:tracking-[0.14em]">{stat.label}</dt>
                 </div>
               ))}
             </dl>
@@ -115,26 +115,26 @@ export default function ExamsIndexPage() {
               <div className="bg-navy px-4 pb-2.5 pt-2">
                 <span className="mx-auto block h-1.5 w-10 rounded-full bg-paper/90" />
                 <div className="mt-2 flex items-center justify-between">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-paper" style={MONO}>
+                  <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-paper" style={MONO}>
                     Jobsite credential
                   </p>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-amber-soft">Valid</p>
+                  <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-amber-soft">Valid</p>
                 </div>
               </div>
               <div className="flex flex-1 flex-col justify-between px-4 py-4">
                 <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-steel">Cardholder</p>
+                  <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-steel">Cardholder</p>
                   <p className="font-display text-3xl font-bold leading-none text-ink">You, soon</p>
                 </div>
                 <div className="grid grid-cols-2 gap-3 border-t border-hairline pt-3">
                   <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-steel">Issued</p>
+                    <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-steel">Issued</p>
                     <p className="text-xs font-medium text-ink" style={MONO}>
                       The day you pass
                     </p>
                   </div>
                   <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-steel">Good for</p>
+                    <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-steel">Good for</p>
                     <p className="text-xs font-medium text-ink" style={MONO}>
                       Your first day
                     </p>

@@ -199,7 +199,7 @@ function TrailStop({
       >
         <Icon kind={iconKind} size={22} className="[color:var(--accent)]" />
       </span>
-      <span className="font-display text-base font-bold text-ink group-hover:[color:var(--accent)]">{title}</span>
+      <span className="font-display text-xl font-bold text-ink group-hover:[color:var(--accent)]">{title}</span>
       {meta && <span className="text-xs font-semibold uppercase tracking-wide text-steel">{meta}</span>}
       <span className="line-clamp-2 text-sm leading-snug text-steel">{blurb}</span>
     </Link>
@@ -870,7 +870,7 @@ export function CareerMatchQuiz({
             <p className="mt-2 font-display text-2xl font-bold leading-tight sm:text-[28px]">{q.question}</p>
             <div className="mt-6 flex flex-col gap-3">
               {q.options.map((o) => (
-                <div key={o.label} className="rounded-2xl border-2 px-5 py-4 text-[15px] leading-snug">
+                <div key={o.label} className="rounded-2xl border-2 px-5 py-4 text-base leading-snug">
                   {o.label}
                 </div>
               ))}
@@ -914,7 +914,7 @@ export function CareerMatchQuiz({
                   transform: isSelected ? "scale(0.98)" : "scale(1)",
                   "--accent": accent,
                 } as React.CSSProperties}
-                className={`rounded-2xl border-2 px-5 py-4 text-left text-[15px] leading-snug transition-all duration-200 ${
+                className={`rounded-2xl border-2 px-5 py-4 text-left text-base leading-snug transition-all duration-200 ${
                   isSelected ? "text-paper" : "text-ink hover:[border-color:var(--accent)]"
                 }`}
               >

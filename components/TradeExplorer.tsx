@@ -154,13 +154,13 @@ export function TradeExplorer({ trades, stateName }: { trades: TradeView[]; stat
                   on ? "-translate-y-1 ring-4 ring-[#F2C200]" : "hover:-translate-y-0.5"
                 }`}
               >
-                <span className="absolute left-3 top-0 -translate-y-1/2 rounded-sm bg-[#F2C200] px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-ink">
+                <span className="absolute left-3 top-0 -translate-y-1/2 rounded-sm bg-[#F2C200] px-1.5 py-0.5 text-[12px] font-bold uppercase tracking-wider text-ink">
                   Exit {i + 1}
                 </span>
                 {match && <GoodFit />}
                 <span className="pointer-events-none absolute inset-1 rounded border border-white/70" aria-hidden="true" />
-                <span className="relative block font-display text-[15px] font-bold leading-tight">{t.name}</span>
-                <span className="relative mt-0.5 block text-[11px] text-white/85">
+                <span className="relative block text-base font-bold leading-tight">{t.name}</span>
+                <span className="relative mt-0.5 block text-[12px] text-white/85">
                   {k(t.pay.five)} typical
                   {t.outlook && (
                     <span className="hidden sm:inline">{` · ${t.outlook.openingsPerYear.toLocaleString("en-US")} openings/yr`}</span>
@@ -190,7 +190,7 @@ export function TradeExplorer({ trades, stateName }: { trades: TradeView[]; stat
                 <h3 className="font-display text-2xl font-bold text-ink">
                   {t.name} <span className="text-base font-normal text-steel">in {stateName}</span>
                 </h3>
-                <p className="mt-1 max-w-2xl text-[15px] text-steel">{t.oneLine}</p>
+                <p className="mt-1 max-w-2xl text-base text-steel">{t.oneLine}</p>
               </div>
               <div className="flex flex-wrap items-center gap-2 print:hidden">
                 <button
@@ -261,7 +261,7 @@ export function TradeExplorer({ trades, stateName }: { trades: TradeView[]; stat
               {/* License route + owning a business */}
               <div>
                 <h4 className="text-xs font-semibold uppercase tracking-wide text-steel">The route to a license</h4>
-                <p className="mt-2 text-[15px] leading-relaxed text-ink">{t.licenseSummary}</p>
+                <p className="mt-2 text-base leading-relaxed text-ink">{t.licenseSummary}</p>
                 <ol className="relative mt-4 space-y-4 pl-10">
                   <span aria-hidden="true" className="absolute bottom-2 left-[15px] top-2 w-1 rounded bg-ink/80" />
                   <span
@@ -305,7 +305,7 @@ export function TradeExplorer({ trades, stateName }: { trades: TradeView[]; stat
               <ul className="mt-3 grid gap-3 md:grid-cols-2">
                 {t.training.map((o) => (
                   <li key={o.name} className="border border-hairline bg-paper/60 p-4 print:break-inside-avoid">
-                    <span className={`inline-block rounded-sm px-2 py-0.5 text-[11px] font-semibold ${KIND_STYLE[o.kind]}`}>
+                    <span className={`inline-block rounded-sm px-2 py-0.5 text-[12px] font-semibold ${KIND_STYLE[o.kind]}`}>
                       {KIND_LABEL[o.kind]}
                     </span>
                     <p className="mt-2 font-semibold text-ink">
@@ -392,7 +392,7 @@ function KeepGoing({ t }: { t: TradeView }) {
 
 function GoodFit() {
   return (
-    <span className="absolute right-2 top-0 z-10 -translate-y-1/2 rounded-sm bg-white px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#1B5E3B] shadow">
+    <span className="absolute right-2 top-0 z-10 -translate-y-1/2 rounded-sm bg-white px-1.5 py-0.5 text-[12px] font-bold uppercase tracking-wider text-[#1B5E3B] shadow">
       Good fit
     </span>
   );
@@ -405,7 +405,7 @@ function FitStrip({ answers, setAnswers }: { answers: Answers; setAnswers: (a: A
   return (
     <div className="mb-5 rounded-md border-2 border-dashed border-[#1B5E3B]/40 bg-white p-4 sm:p-5 print:hidden">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <p className="font-display text-lg font-bold text-ink">Not sure where to start? Tap what sounds like you.</p>
+        <p className="font-display text-xl font-bold text-ink">Not sure where to start? Tap what sounds like you.</p>
         {any && (
           <button type="button" onClick={() => setAnswers({})} className="text-xs font-semibold text-steel hover:text-ink hover:underline">
             Start over
@@ -475,7 +475,7 @@ function Choice({ on, onClick, children }: { on: boolean; onClick: () => void; c
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col-reverse border border-hairline bg-paper/60 px-2 py-3">
-      <dt className="mt-0.5 text-[11px] uppercase tracking-wide text-steel">{label}</dt>
+      <dt className="mt-0.5 text-[12px] uppercase tracking-wide text-steel">{label}</dt>
       <dd className="font-display text-xl font-bold text-ink">{value}</dd>
     </div>
   );

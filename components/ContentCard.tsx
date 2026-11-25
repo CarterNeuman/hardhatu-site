@@ -34,7 +34,7 @@ export function ContentCard({
         <Icon kind={item.type} size={iconSize} className="text-clay" />
         {badge}
       </div>
-      <h3 className="break-words font-display text-base font-semibold leading-snug text-ink group-hover:text-navy">
+      <h3 className="break-words font-display text-xl font-semibold leading-snug text-ink group-hover:text-navy">
         {item.title}
       </h3>
       {description && (

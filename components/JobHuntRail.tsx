@@ -89,8 +89,8 @@ export function JobHuntRail({
   return (
     <section aria-label="Job-hunt toolkit" className="mt-10 border border-ink/15 bg-white/50 print:hidden">
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-hairline px-5 py-3">
-        <h2 className="font-display text-lg font-bold text-ink">{heading ?? "Your job-hunt toolkit"}</h2>
-        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-steel">
+        <h2 className="font-display text-xl font-bold text-ink">{heading ?? "Your job-hunt toolkit"}</h2>
+        <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-steel">
           {category ?? "Construction-wide"}
         </p>
       </div>
@@ -103,7 +103,7 @@ export function JobHuntRail({
             <>
               <div className="flex items-center justify-between gap-3">
                 <span
-                  className={`text-[11px] font-semibold tracking-[0.14em] ${isBlueprint && !isCurrent ? "text-amber-soft" : "text-clay"}`}
+                  className={`text-[12px] font-semibold tracking-[0.14em] ${isBlueprint && !isCurrent ? "text-amber-soft" : "text-clay"}`}
                   style={{ fontFamily: "'IBM Plex Mono', monospace" }}
                 >
                   {stop.step} &middot; {stop.label.toUpperCase()}

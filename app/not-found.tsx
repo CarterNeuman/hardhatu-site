@@ -20,7 +20,7 @@ const PLACES = [
 export default function NotFound() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
-      <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-amber">404</p>
+      <p className="text-sm font-bold uppercase tracking-[0.2em] text-amber">404</p>
       <h1 className="mt-2 font-display text-4xl font-bold text-ink">This page isn&apos;t on the site</h1>
       <p className="mt-3 max-w-xl leading-relaxed text-steel">
         The link may be old or mistyped, or the page may have moved. Here are a few good places to

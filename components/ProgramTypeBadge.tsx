@@ -21,7 +21,7 @@ export function ProgramTypeBadge({ programType }: { programType: string }) {
   const style = PROGRAM_TYPE_STYLES[programType] ?? FALLBACK_STYLE;
   return (
     <span
-      className={`inline-flex items-center px-2 py-0.5 text-[0.68rem] font-semibold uppercase tracking-wide ${style}`}
+      className={`inline-flex items-center px-2 py-0.5 text-[12px] font-semibold uppercase tracking-wide ${style}`}
     >
       {programType}
     </span>

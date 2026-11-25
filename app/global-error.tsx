@@ -11,7 +11,7 @@ export default function GlobalError({ reset }: { error: Error & { digest?: strin
     <html lang="en">
       <body className="bg-paper font-sans text-ink">
         <div className="mx-auto max-w-3xl px-6 py-16">
-          <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-clay">BreakGroundU</p>
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-clay">BreakGroundU</p>
           <h1 className="mt-2 font-display text-4xl font-bold">Something went wrong</h1>
           <p className="mt-3 max-w-xl leading-relaxed text-steel">
             The site hit an unexpected error. Try again, and if it keeps happening, email

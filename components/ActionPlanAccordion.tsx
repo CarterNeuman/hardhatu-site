@@ -50,7 +50,7 @@ export function ActionPlanAccordionSection({
             aria-hidden="true"
             className="h-2.5 w-2.5 shrink-0 rotate-[-45deg] border-b-2 border-r-2 border-navy transition-transform duration-150 group-open:rotate-45"
           />
-          <span className="min-w-0 font-display text-[17px] font-semibold leading-snug text-ink">{title}</span>
+          <span className="min-w-0 text-[17px] font-semibold leading-snug text-ink">{title}</span>
         </span>
         {teaser && (
           <span
@@ -73,7 +73,7 @@ export function ActionPlanAccordionSection({
 // themselves plus the page's own standalone labels (Overview, Your Plan).
 export function AccordionSubLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="mt-4 text-[11px] font-semibold uppercase tracking-wide text-steel first:mt-0">{children}</p>
+    <p className="mt-4 text-[12px] font-semibold uppercase tracking-wide text-steel first:mt-0">{children}</p>
   );
 }
 

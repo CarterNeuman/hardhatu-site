@@ -19,7 +19,7 @@
   --ink: #1c2b33;
   --clay: #b06a4c;
   --font-display: "Big Shoulders Display", sans-serif;
-  --font-body: "IBM Plex Sans", sans-serif;
+  --font-body: "Atkinson Hyperlegible Next", sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
 
   background: var(--blue-deep);
@@ -88,7 +88,7 @@
 }
 .legendCard h2 {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin: 4px 0 10px;
@@ -125,7 +125,7 @@
 
 .hint {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--line-dim);
@@ -205,7 +205,7 @@
 }
 .tierSub {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   fill: var(--line-dim);
 }
 
@@ -237,7 +237,7 @@
 
 .branchLabel {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 0.07em;
   text-transform: uppercase;
   font-weight: 600;
@@ -262,7 +262,7 @@
 }
 .stop .num {
   font-family: var(--font-mono);
-  font-size: 11px; /* 15px decreased 25%, to match the smaller main badge/numBg circle */
+  font-size: 12px; /* 15px decreased 25%, to match the smaller main badge/numBg circle */
   fill: var(--blue-deep);
 }
 .stop .numBg {
@@ -360,7 +360,7 @@
 }
 .tooltipCard .ttTier {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--blue-soft);
@@ -377,7 +377,7 @@
   display: inline-block;
   margin-top: 9px;
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 12px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--blue);
@@ -396,7 +396,7 @@
 }
 .titleblock .tbLabel {
   fill: var(--line-dim);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.08em;
 }
 .titleblock line {

@@ -12,7 +12,7 @@ export const clerkAppearance = {
     colorPrimary: NAVY,
     colorForeground: INK,
     borderRadius: "0px",
-    fontFamily: "'IBM Plex Sans', sans-serif",
+    fontFamily: "'Atkinson Hyperlegible Next', sans-serif",
   },
   elements: {
     cardBox: { border: `1px solid ${HAIRLINE}`, boxShadow: "none" },

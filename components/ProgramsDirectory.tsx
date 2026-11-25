@@ -80,13 +80,13 @@ function ProgramCard({ program }: { program: SearchableProgram }) {
     >
       <div className="flex items-start justify-between gap-2">
         <ProgramTypeBadge programType={program.programType} />
-        <span className="text-right text-[0.68rem] font-semibold uppercase tracking-wide text-steel">
+        <span className="text-right text-[12px] font-semibold uppercase tracking-wide text-steel">
           {program.location}
         </span>
       </div>
 
       <div>
-        <h3 className="break-words font-display text-lg font-semibold leading-snug text-ink group-hover:text-navy">
+        <h3 className="break-words font-display text-xl font-semibold leading-snug text-ink group-hover:text-navy">
           {program.title}
         </h3>
         <p className="mt-0.5 text-sm font-semibold text-clay">{program.organization}</p>

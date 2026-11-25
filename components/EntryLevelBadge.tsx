@@ -8,7 +8,7 @@
 // Qualified, not something every career/concept/lesson needs labeled.
 export function EntryLevelBadge() {
   return (
-    <span className="inline-block border border-navy bg-navy/10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-ink">
+    <span className="inline-block border border-navy bg-navy/10 px-1.5 py-0.5 text-[12px] font-semibold uppercase tracking-wide text-ink">
       Entry Level
     </span>
   );

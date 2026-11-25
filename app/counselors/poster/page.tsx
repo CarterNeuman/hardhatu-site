@@ -18,8 +18,8 @@ export default function CounselorPosterPage() {
         <PrintButton label="Print the poster" />
       </div>
 
-      <article className="flex aspect-[8.5/11] flex-col justify-between rounded-lg bg-[#1B5E3B] p-3 text-white print:rounded-none [print-color-adjust:exact]">
-        <div className="flex h-full flex-col justify-between rounded-md border-4 border-white px-8 py-10 sm:px-12">
+      <article className="flex flex-col justify-between rounded-lg bg-[#1B5E3B] sm:aspect-[8.5/11] print:aspect-[8.5/11] p-3 text-white print:rounded-none [print-color-adjust:exact]">
+        <div className="flex h-full flex-col justify-between gap-8 rounded-md border-4 border-white px-5 py-10 sm:gap-0 sm:px-12 print:gap-0 print:px-12">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/80">Career center</p>
             <h1 className="mt-4 font-display text-5xl font-bold leading-[0.95] sm:text-6xl">
@@ -43,7 +43,7 @@ export default function CounselorPosterPage() {
           </ul>
 
           <div>
-            <p className="inline-block rounded-sm bg-[#F2C200] px-4 py-3 font-display text-3xl font-bold text-ink sm:text-4xl">
+            <p className="inline-block rounded-sm bg-[#F2C200] px-4 py-3 break-all font-display text-3xl font-bold text-ink sm:break-normal sm:text-4xl print:break-normal">
               breakgroundu.com/quizzes
             </p>
             <p className="mt-4 text-base text-white/85">Free. No ads. 100+ construction careers.</p>

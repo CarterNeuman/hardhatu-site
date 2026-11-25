@@ -59,7 +59,7 @@ export default function LessonsIndexPage() {
 
       <section className="mx-auto max-w-[1304px] px-6 py-10">
         <details className="group">
-          <summary className="cursor-pointer font-display text-lg font-semibold text-ink [&::-webkit-details-marker]:hidden">
+          <summary className="cursor-pointer font-display text-xl font-semibold text-ink [&::-webkit-details-marker]:hidden">
             Browse all {lessons.length} lessons as a list
           </summary>
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

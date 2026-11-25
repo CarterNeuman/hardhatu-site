@@ -467,7 +467,7 @@ function NetChart({
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
-    const ro = new ResizeObserver(([entry]) => setW(Math.max(300, Math.round(entry.contentRect.width))));
+    const ro = new ResizeObserver(([entry]) => setW(Math.max(240, Math.round(entry.contentRect.width))));
     ro.observe(el);
     return () => ro.disconnect();
   }, [paths.length === 0]);
@@ -694,7 +694,7 @@ function Takeaways({
   return (
     <div className="border-t border-hairline bg-amber-soft/30 px-5 py-4 sm:px-6">
       <p className="text-xs font-semibold uppercase tracking-wide text-amber">What the chart says</p>
-      <ul className="mt-2 space-y-1.5 text-[15px] leading-relaxed text-ink">
+      <ul className="mt-2 space-y-1.5 text-base leading-relaxed text-ink">
         {lines.map((l) => (
           <li key={l}>{l}</li>
         ))}
@@ -805,7 +805,7 @@ function Segmented<T extends string | number>({
 function Group({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <fieldset className="space-y-5">
-      <legend className="mb-3 font-display text-lg font-bold text-ink">{title}</legend>
+      <legend className="mb-3 font-display text-xl font-bold text-ink">{title}</legend>
       {children}
     </fieldset>
   );

@@ -208,7 +208,7 @@ export default function CounselorsPage() {
         <ul className="mt-5 space-y-3 md:hidden">
           {pathways.map(({ p, r }) => (
             <li key={p.name} className="rounded-lg border border-hairline bg-white p-4 text-sm">
-              <p className="font-display text-lg font-bold text-ink">{p.name}</p>
+              <p className="font-display text-xl font-bold text-ink">{p.name}</p>
               {p.note && <p className="mt-0.5 text-xs leading-snug text-steel">{p.note}</p>}
               <dl className="mt-3 space-y-3">
                 <div>

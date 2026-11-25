@@ -179,7 +179,7 @@ export default function HomePage() {
                   className="group flex flex-col gap-2.5 border border-hairline border-t-2 border-t-amber bg-white/40 p-4 text-left transition-colors hover:border-navy hover:border-t-navy hover:bg-white/70"
                 >
                   <PathIcon className="text-clay" />
-                  <h3 className="font-display text-base font-semibold text-ink group-hover:text-navy">
+                  <h3 className="font-display text-xl font-semibold text-ink group-hover:text-navy">
                     {option.label}
                   </h3>
                   <p className="text-xs leading-snug text-steel">{option.blurb}</p>
@@ -259,7 +259,7 @@ export default function HomePage() {
                   />
                 </div>
                 <div>
-                  <span className="font-display text-sm font-bold text-amber">{item.step}</span>
+                  <span className="font-display text-xl font-bold text-amber">{item.step}</span>
                   <h3 className="mt-1 font-display text-xl font-semibold text-ink md:text-2xl">
                     {item.title}
                   </h3>
@@ -289,7 +289,7 @@ export default function HomePage() {
                 className="group flex flex-col gap-2.5 border border-hairline p-5 transition-colors hover:border-navy hover:bg-white/50"
               >
                 <Icon kind={section.kind} size={20} className="text-amber" />
-                <h3 className="font-display text-lg font-semibold text-ink group-hover:text-navy">
+                <h3 className="font-display text-xl font-semibold text-ink group-hover:text-navy">
                   {section.label}
                 </h3>
                 <p className="text-sm leading-snug text-steel">{section.blurb}</p>
@@ -340,7 +340,7 @@ export default function HomePage() {
         </div>
       </HomeReveal>
 
-      <p className="border-t border-hairline bg-paper px-6 py-3 text-center font-mono text-[11px] text-steel">
+      <p className="border-t border-hairline bg-paper px-6 py-3 text-center font-mono text-[12px] text-steel">
         {careers.length} careers · {concepts.length} concepts · {lessons.length} lessons, and
         growing
       </p>

@@ -179,7 +179,7 @@ export function PayByState({ guides = [] }: { guides?: GuideRef[] }) {
       {/* ---------------- Pay table ---------------- */}
       <section className="mt-12">
         <h2 className="font-display text-3xl font-bold text-ink">What the work pays in {placeName}</h2>
-        <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-steel">
+        <p className="mt-2 max-w-3xl text-base leading-relaxed text-steel">
           Yearly pay for full-time work, before taxes and overtime. Ages assume you start at {startAge}.
           {state && (
             <>
@@ -244,7 +244,7 @@ export function PayByState({ guides = [] }: { guides?: GuideRef[] }) {
                 <tbody key={g.id}>
                   <tr className="border-t-2 border-ink/20">
                     <th colSpan={7} scope="colgroup" className="bg-white px-3 pb-2 pt-4 text-left sm:px-4">
-                      <span className="font-display text-lg font-bold text-ink">{g.title}</span>
+                      <span className="font-display text-xl font-bold text-ink">{g.title}</span>
                       <span className="block max-w-2xl text-xs font-normal leading-snug text-steel">{g.blurb}</span>
                     </th>
                   </tr>
@@ -324,14 +324,14 @@ export function PayByState({ guides = [] }: { guides?: GuideRef[] }) {
         <div className="mt-4 grid gap-6 md:grid-cols-3">
           <div>
             <h3 className="font-semibold text-ink">1. Raises for getting better</h3>
-            <p className="mt-1 text-[15px] leading-relaxed text-steel">
+            <p className="mt-1 text-base leading-relaxed text-steel">
               An electrician in {placeName} starts around {usd(round100(elecStart))}. With 20 years in, it&rsquo;s
               closer to {usd(round100(elec20))}. That climb is the real raise, and it&rsquo;s what the table shows.
             </p>
           </div>
           <div>
             <h3 className="font-semibold text-ink">2. Raises that just keep up</h3>
-            <p className="mt-1 text-[15px] leading-relaxed text-steel">
+            <p className="mt-1 text-base leading-relaxed text-steel">
               Most people also get a yearly raise of a few percent, but prices rise too. Over the past year, pay rose
               3.1% while prices rose 3.7%, so many workers slipped a little behind. Since 1979, typical pay has beaten
               inflation by only about half a percent a year.
@@ -339,7 +339,7 @@ export function PayByState({ guides = [] }: { guides?: GuideRef[] }) {
           </div>
           <div>
             <h3 className="font-semibold text-ink">3. So we use today&rsquo;s dollars</h3>
-            <p className="mt-1 text-[15px] leading-relaxed text-steel">
+            <p className="mt-1 text-base leading-relaxed text-steel">
               If prices rise {inflation}% a year, that {usd(round100(elec20))} would read about{" "}
               {usd(round100(elec20Paper))} on a {thisYear + 20} paycheck, but buy the same groceries and rent. Flip to
               &ldquo;Future dollars&rdquo; above to see paycheck numbers.
@@ -370,7 +370,7 @@ export function PayByState({ guides = [] }: { guides?: GuideRef[] }) {
       {/* ---------------- Calculator ---------------- */}
       <section className="mt-12">
         <h2 className="font-display text-3xl font-bold text-ink">Is the student loan worth it?</h2>
-        <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-steel">
+        <p className="mt-2 max-w-3xl text-base leading-relaxed text-steel">
           Five ways to start, side by side, using {state ? `${state.name}` : "U.S."} pay
           {state?.tuition ? ` and ${state.name}’s average in-state tuition` : ""}. The line shows where you&rsquo;d stand at
           every age: everything earned, minus school costs and what you still owe.

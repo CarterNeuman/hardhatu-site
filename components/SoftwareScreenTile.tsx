@@ -21,7 +21,7 @@ export function SoftwareScreenTile({
       href={urlFor(tool)}
       className="group flex flex-col items-center gap-1.5 border border-amber-soft/15 bg-white/5 p-4 text-center transition-colors hover:border-amber-soft/50 hover:bg-white/10"
     >
-      <h3 className="break-words font-display text-lg font-bold leading-snug text-amber-soft sm:text-xl">
+      <h3 className="break-words font-display text-xl font-bold leading-snug text-amber-soft sm:text-xl">
         {tool.title}
       </h3>
       {description && (

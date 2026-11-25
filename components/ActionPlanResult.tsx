@@ -180,7 +180,7 @@ function ProgressRing({ done, total }: { done: number; total: number }) {
 function StatTile({ label, value, note }: { label: string; value: string; note?: string }) {
   return (
     <div className="bg-white/60 px-4 py-4 sm:px-5">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-steel">{label}</p>
+      <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-steel">{label}</p>
       <p className="mt-1 font-display text-3xl font-bold leading-none text-ink">{value}</p>
       {note && <p className="mt-1.5 text-xs leading-snug text-steel">{note}</p>}
     </div>
@@ -221,7 +221,7 @@ function TemplateBlock({ label, text }: { label: string; text: string }) {
 function ToolkitGroup({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="border-t border-hairline px-4 py-4 first:border-t-0">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-clay">{title}</p>
+      <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-clay">{title}</p>
       <ul className="mt-2 flex flex-col gap-2">{children}</ul>
     </div>
   );
@@ -366,7 +366,7 @@ export function ActionPlanResult({
       <header className="bg-ink text-paper" style={BLUEPRINT_GRID}>
         <div className="flex flex-col gap-8 px-6 py-8 sm:px-8 sm:py-10 lg:flex-row lg:items-end lg:justify-between">
           <div className="min-w-0">
-            <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-soft" style={MONO}>
+            <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[12px] font-semibold uppercase tracking-[0.18em] text-amber-soft" style={MONO}>
               <span>Your Blueprint</span>
               <span aria-hidden="true" className="h-px w-6 bg-amber-soft/60" />
               <span>{plan.status === "applying" ? "Actively applying" : "Just looking"}</span>
@@ -449,7 +449,7 @@ export function ActionPlanResult({
               onClick={() => onToggle(nextUp.key)}
             />
             <div className="min-w-0">
-              <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-clay" style={MONO}>
+              <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-clay" style={MONO}>
                 <span>Up next</span>
                 <span className="text-steel">{formatDateRange(nextUp.startDate, nextUp.endDate)}</span>
               </p>
@@ -476,7 +476,7 @@ export function ActionPlanResult({
           </div>
         ) : (
           <div className="px-6 py-6">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-clay" style={MONO}>
+            <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-clay" style={MONO}>
               All {total} steps done
             </p>
             <h3 className="mt-1 font-display text-2xl font-bold text-ink">You finished the whole Blueprint.</h3>
@@ -502,7 +502,7 @@ export function ActionPlanResult({
                 <button
                   type="button"
                   onClick={() => setOpenWeeks(allWeeksOpen ? new Set() : new Set(weeks.map((week) => week.index)))}
-                  className="shrink-0 border border-hairline px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-navy transition-colors hover:border-navy"
+                  className="shrink-0 border border-hairline px-2.5 py-1 text-[12px] font-semibold uppercase tracking-wide text-navy transition-colors hover:border-navy"
                 >
                   {allWeeksOpen ? "Collapse all" : "Expand all"}
                 </button>
@@ -552,14 +552,14 @@ export function ActionPlanResult({
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-3 border border-hairline bg-white/60 px-4 py-3 transition-colors hover:border-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy group-open:border-ink/30 group-open:bg-white/80 sm:px-5 [&::-webkit-details-marker]:hidden">
                   <span className="flex min-w-0 flex-wrap items-baseline gap-x-2.5 gap-y-0.5">
-                    <span className="font-display text-lg font-bold uppercase tracking-wide text-navy">
+                    <span className="font-display text-xl font-bold uppercase tracking-wide text-navy">
                       Week {week.index + 1}
                     </span>
                     <span className="text-xs text-steel" style={MONO}>
                       {formatDateRange(weekStart, weekEnd)}
                     </span>
                     {week.index === nextUpWeekIndex && nextUp && (
-                      <span className="bg-ink px-1.5 py-px text-[11px] font-semibold uppercase tracking-wide text-paper">
+                      <span className="bg-ink px-1.5 py-px text-[12px] font-semibold uppercase tracking-wide text-paper">
                         Up next
                       </span>
                     )}
@@ -595,7 +595,7 @@ export function ActionPlanResult({
                           />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[11px] font-semibold uppercase tracking-wide">
+                          <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[12px] font-semibold uppercase tracking-wide">
                             <span className={overdue ? "text-clay" : "text-steel"} style={MONO}>
                               {formatDateRange(day.startDate, day.endDate)}
                             </span>
@@ -648,7 +648,7 @@ export function ActionPlanResult({
         <aside aria-label="Your toolkit" className="lg:sticky lg:top-6 lg:self-start">
           <div className="border border-ink/20 bg-white/60">
             <div className="bg-ink px-4 py-3" style={BLUEPRINT_GRID}>
-              <p className="font-display text-lg font-bold text-paper">Your toolkit</p>
+              <p className="font-display text-xl font-bold text-paper">Your toolkit</p>
               <p className="text-xs text-paper/70">Everything this plan pulls from the site.</p>
             </div>
 

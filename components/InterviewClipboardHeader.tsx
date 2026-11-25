@@ -59,7 +59,7 @@ export function InterviewClipboardHeader({ questions }: { questions: string[] })
 
       {/* Paper, inset from the board so the cork shows around the edges */}
       <div className="relative z-10 m-1.5 mt-3 flex min-h-[4.75rem] flex-col gap-1 bg-[#FBF8EF] p-2.5 shadow-[0_2px_4px_rgba(28,43,51,0.18)]">
-        <p className="flex items-center gap-1 text-[9px] font-semibold uppercase tracking-wide text-clay">
+        <p className="flex items-center gap-1 text-[12px] font-semibold uppercase tracking-wide text-clay">
           <ClipboardIcon />
           They might ask
         </p>

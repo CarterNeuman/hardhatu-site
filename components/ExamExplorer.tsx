@@ -50,10 +50,10 @@ export function CredentialCard({ exam, onDark = false }: { exam: ExamCard; onDar
       <div className={`px-4 pb-2 pt-1.5 ${exam.entryLevel ? "bg-navy" : "bg-ink"}`}>
         <span aria-hidden="true" className="mx-auto block h-1.5 w-9 rounded-full bg-paper/90" />
         <div className="mt-1.5 flex items-center justify-between gap-3">
-          <p className="truncate text-[11px] font-medium uppercase tracking-[0.16em] text-paper" style={MONO}>
+          <p className="min-w-0 text-[12px] font-medium uppercase leading-snug tracking-[0.12em] text-paper" style={MONO}>
             {exam.issuer}
           </p>
-          <p className="shrink-0 text-[10px] font-semibold uppercase tracking-[0.14em] text-amber-soft">
+          <p className="shrink-0 text-[12px] font-semibold uppercase tracking-[0.14em] text-amber-soft">
             {exam.entryLevel ? "Entry level" : "Experienced"}
           </p>
         </div>
@@ -66,14 +66,14 @@ export function CredentialCard({ exam, onDark = false }: { exam: ExamCard; onDar
         <div className="mt-auto pt-4">
         <dl className="grid grid-cols-2 gap-x-3 border-t border-hairline text-xs">
           <div className="mt-3">
-            <dt className="text-[10px] font-semibold uppercase tracking-[0.14em] text-steel">Practice</dt>
+            <dt className="text-[12px] font-semibold uppercase tracking-[0.14em] text-steel">Practice</dt>
             <dd className="mt-0.5 font-medium text-ink">
               {exam.comingSoon ? "Coming soon" : `${exam.questionCount} questions`}
             </dd>
           </div>
           <div className="mt-3 min-w-0">
-            <dt className="text-[10px] font-semibold uppercase tracking-[0.14em] text-steel">Built for</dt>
-            <dd className="mt-0.5 truncate font-medium text-ink">{exam.careerTitle ?? "Any role"}</dd>
+            <dt className="text-[12px] font-semibold uppercase tracking-[0.14em] text-steel">Built for</dt>
+            <dd className="mt-0.5 break-words font-medium leading-snug text-ink">{exam.careerTitle ?? "Any role"}</dd>
           </div>
         </dl>
         </div>

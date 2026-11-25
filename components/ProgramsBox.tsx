@@ -28,8 +28,8 @@ export function ProgramsBox({ id, heading }: { id: string; heading?: string }) {
               href={urlFor(program)}
               className="group flex h-full flex-col gap-1 border border-hairline bg-white/40 px-4 py-3 transition-colors hover:border-navy hover:bg-white/70"
             >
-              <span className="text-[11px] font-semibold uppercase tracking-wide text-clay">{program.programType}</span>
-              <span className="font-display text-base font-semibold leading-snug text-ink group-hover:text-navy">
+              <span className="text-[12px] font-semibold uppercase tracking-wide text-clay">{program.programType}</span>
+              <span className="font-display text-xl font-semibold leading-snug text-ink group-hover:text-navy">
                 {program.title}
               </span>
               <span className="text-xs leading-snug text-steel">

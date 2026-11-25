@@ -424,21 +424,21 @@ export function LessonsBlueprint({ lessons }: { lessons: BlueprintLesson[] }) {
         })}
 
         <g className={styles.titleblock} transform="translate(30,24)">
-          <rect x={0} y={0} width={252} height={74} strokeWidth={1.5} />
+          <rect x={0} y={0} width={252} height={84} strokeWidth={1.5} />
           {[
             ["PROJECT", "BreakGroundU Learning Path"],
             ["STOPS", `${allStops.length} lessons`],
           ].map(([label, value], i) => {
-            const ry = 24 + i * 36;
+            const ry = 28 + i * 40;
             return (
               <g key={label}>
-                <text className={styles.tbLabel} x={12} y={ry - 11}>
+                <text className={styles.tbLabel} x={12} y={ry - 12}>
                   {label}
                 </text>
                 <text x={12} y={ry + 5}>
                   {value}
                 </text>
-                {i < 1 && <line x1={0} y1={ry + 16} x2={252} y2={ry + 16} />}
+                {i < 1 && <line x1={0} y1={ry + 14} x2={252} y2={ry + 14} />}
               </g>
             );
           })}

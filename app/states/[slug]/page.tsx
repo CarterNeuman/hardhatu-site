@@ -160,7 +160,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
             <div className="flex items-center gap-3">
               <span
                 aria-hidden="true"
-                className="flex h-14 w-12 items-center justify-center rounded-b-[45%] rounded-t-md border-2 border-white bg-navy font-display text-lg font-bold"
+                className="flex h-14 w-12 items-center justify-center rounded-b-[45%] rounded-t-md border-2 border-white bg-navy font-display text-xl font-bold"
               >
                 {g.code}
               </span>
@@ -217,7 +217,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
       <section id="short-version" data-guide-section className="mt-10 scroll-mt-24 border-l-4 border-[#F2C200] bg-amber-soft/40 px-5 py-5 sm:px-6">
         <h2 className="font-display text-2xl font-bold text-ink">The short version</h2>
         <p className="mt-1 text-sm text-steel">What&rsquo;s worth telling a student about the trades in {g.name}.</p>
-        <ol className="mt-4 list-decimal space-y-2 pl-5 text-[15px] leading-relaxed text-ink marker:font-bold marker:text-[#1B5E3B]">
+        <ol className="mt-4 list-decimal space-y-2 pl-5 text-base leading-relaxed text-ink marker:font-bold marker:text-[#1B5E3B]">
           {g.quickTakeaways.map((t) => (
             <li key={t}>{t}</li>
           ))}
@@ -228,7 +228,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
       <section id="trades" className="mt-12 scroll-mt-24">
         <div data-guide-section>
           <h2 className="font-display text-3xl font-bold text-ink">The {g.trades.length} trades</h2>
-          <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-steel">
+          <p className="mt-2 max-w-3xl text-base leading-relaxed text-steel">
             Every Field &amp; Trades career on BreakGroundU, starting with the eight that employ the most people in {g.name}. Pick one to see its pay ladder, the honest hard parts, the
             route to a license and real local ways in. Every trade has its own link and print button, so you can send a student just the one
             they asked about.
@@ -242,7 +242,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
       {/* Pay table */}
       <section id="pay" data-guide-section className="mt-14 scroll-mt-24 print:break-before-page">
         <h2 className="font-display text-3xl font-bold text-ink">Pay side by side</h2>
-        <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-steel">
+        <p className="mt-2 max-w-3xl text-base leading-relaxed text-steel">
           Yearly pay for full-time work in {g.name}, before taxes and overtime. Prices in {g.name} run{" "}
           {Math.abs(rpp - 100) < 0.5 ? "about even with" : `${Math.abs(rpp - 100).toFixed(1)}% ${rpp > 100 ? "above" : "below"}`} the
           national average, so a dollar here goes {rpp < 100 ? "a little further" : rpp > 100 ? "a little less far" : "about as far"}.
@@ -326,7 +326,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
       {/* Licensing */}
       <section id="licensing" data-guide-section className="mt-14 scroll-mt-24">
         <h2 className="font-display text-3xl font-bold text-ink">How licensing works in {g.name}</h2>
-        <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-steel">{g.licensingOverview}</p>
+        <p className="mt-2 max-w-3xl text-base leading-relaxed text-steel">{g.licensingOverview}</p>
         <div className="mt-5 overflow-x-auto border border-hairline bg-white">
           <table className="w-full min-w-[640px] border-collapse text-sm">
             <thead>
@@ -390,7 +390,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
           </span>
           <div>
             <h2 className="font-display text-2xl font-bold text-ink">Safety, honestly</h2>
-            <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-ink">{g.safety.note}</p>
+            <p className="mt-2 max-w-3xl text-base leading-relaxed text-ink">{g.safety.note}</p>
             <p className="mt-2 text-xs text-steel">
               Source:{" "}
               <a href={g.safety.source.url} className="text-navy hover:underline" target="_blank" rel="noopener noreferrer">
@@ -404,11 +404,11 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
       {/* Own business */}
       <section id="own-business" data-guide-section className="mt-14 scroll-mt-24">
         <h2 className="font-display text-3xl font-bold text-ink">Starting your own business</h2>
-        <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-steel">{g.business.lead}</p>
+        <p className="mt-2 max-w-3xl text-base leading-relaxed text-steel">{g.business.lead}</p>
         <div className="mt-5 grid gap-4 md:grid-cols-2">
           <div className="border border-hairline border-t-4 border-t-[#1B5E3B] bg-white p-5">
             <h3 className="font-semibold text-ink">The upside</h3>
-            <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-ink marker:text-[#1B5E3B]">
+            <ul className="mt-2 list-disc space-y-1.5 pl-5 text-base leading-relaxed text-ink marker:text-[#1B5E3B]">
               {g.business.upside.map((u) => (
                 <li key={u}>{u}</li>
               ))}
@@ -416,14 +416,14 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
           </div>
           <div className="border border-hairline border-t-4 border-t-clay bg-white p-5">
             <h3 className="font-semibold text-ink">The risk</h3>
-            <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-ink marker:text-clay">
+            <ul className="mt-2 list-disc space-y-1.5 pl-5 text-base leading-relaxed text-ink marker:text-clay">
               {g.business.risks.map((r) => (
                 <li key={r}>{r}</li>
               ))}
             </ul>
           </div>
         </div>
-        <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-ink">
+        <p className="mt-4 max-w-3xl text-base leading-relaxed text-ink">
           <span className="font-semibold">{g.business.path.split(":")[0]}:</span>
           {g.business.path.slice(g.business.path.indexOf(":") + 1)}
         </p>
@@ -443,7 +443,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
       {/* High school */}
       <section id="high-school" data-guide-section className="mt-14 scroll-mt-24">
         <h2 className="font-display text-3xl font-bold text-ink">For high school students</h2>
-        <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-steel">
+        <p className="mt-2 max-w-3xl text-base leading-relaxed text-steel">
           What {g.name} already offers students before graduation. Most of it is free, and much of it counts toward a diploma.
         </p>
         <FactGrid items={g.highSchool} />
@@ -452,7 +452,7 @@ export default async function StateGuidePage({ params }: { params: Promise<{ slu
       {/* Adults */}
       <section id="adults" data-guide-section className="mt-14 scroll-mt-24">
         <h2 className="font-display text-3xl font-bold text-ink">For adults and career changers</h2>
-        <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-steel">
+        <p className="mt-2 max-w-3xl text-base leading-relaxed text-steel">
           It&rsquo;s never too late to start. These options are open to adults in {g.name}, and several cost nothing.
         </p>
         <FactGrid items={g.adults} />
@@ -517,7 +517,7 @@ function FactGrid({ items }: { items: { title: string; detail: string; source: {
         <li key={f.title} className="relative border border-hairline bg-white p-5 print:break-inside-avoid">
           <span aria-hidden="true" className="absolute left-0 top-5 h-6 w-1 bg-[#F2C200]" />
           <h3 className="font-semibold text-ink">{f.title}</h3>
-          <p className="mt-1.5 text-[15px] leading-relaxed text-ink">{f.detail}</p>
+          <p className="mt-1.5 text-base leading-relaxed text-ink">{f.detail}</p>
           <p className="mt-2 text-xs text-steel">
             Source:{" "}
             <a href={f.source.url} className="text-navy hover:underline" target="_blank" rel="noopener noreferrer">

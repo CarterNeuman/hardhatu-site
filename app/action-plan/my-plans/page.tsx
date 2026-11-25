@@ -73,7 +73,7 @@ export default async function MyActionPlansPage() {
     <article className="mx-auto max-w-3xl px-6 py-10">
       <div className="flex items-center gap-3">
         <BlueprintMark size={40} />
-        <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-navy">Blueprint</p>
+        <p className="text-sm font-bold uppercase tracking-[0.2em] text-navy">Blueprint</p>
       </div>
       <h1 className="mt-3 font-display text-4xl font-bold text-ink">Your Saved Plans</h1>
       <p className="mt-2 text-sm leading-relaxed text-steel">

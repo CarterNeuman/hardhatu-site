@@ -83,7 +83,7 @@ function ChoiceTile({
     <label className="block cursor-pointer">
       <input type="radio" name={name} checked={checked} onChange={onChange} className="peer sr-only" />
       <span className="flex h-full flex-col justify-center border border-steel/40 bg-white/70 px-3.5 py-3 text-ink transition-colors hover:border-navy peer-checked:border-navy peer-checked:bg-navy peer-checked:text-paper peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-navy">
-        <span className="font-display text-base font-bold leading-tight sm:text-lg">{title}</span>
+        <span className="font-display text-xl font-bold leading-tight">{title}</span>
         {note && <span className="mt-0.5 text-xs leading-snug opacity-75">{note}</span>}
       </span>
     </label>
@@ -338,7 +338,7 @@ export function ActionPlanForm({
       <aside className="lg:sticky lg:top-6 lg:self-start">
         <div className="bg-ink text-paper" style={BLUEPRINT_GRID}>
           <div className="px-5 py-5" aria-live="polite">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-soft" style={MONO}>
+            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-amber-soft" style={MONO}>
               Your Blueprint so far
             </p>
             <p className="mt-2 font-display text-3xl font-bold leading-tight text-paper">{career?.title ?? category}</p>
@@ -357,11 +357,11 @@ export function ActionPlanForm({
                   ].map((stat) => (
                     <div key={stat.label} className="bg-ink px-1 py-3">
                       <dd className="font-display text-3xl font-bold leading-none text-paper">{stat.value}</dd>
-                      <dt className="mt-1 text-[10px] uppercase tracking-[0.14em] text-paper/70">{stat.label}</dt>
+                      <dt className="mt-1 text-[12px] uppercase tracking-[0.14em] text-paper/70">{stat.label}</dt>
                     </div>
                   ))}
                 </dl>
-                <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.14em] text-paper/70">It opens with</p>
+                <p className="mt-5 text-[12px] font-semibold uppercase tracking-[0.14em] text-paper/70">It opens with</p>
                 <ol className="mt-2 flex flex-col gap-2">
                   {preview.days.slice(0, 3).map((day, i) => (
                     <li key={day.key} className="flex gap-2.5 text-sm leading-snug text-paper/90">

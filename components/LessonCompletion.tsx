@@ -120,7 +120,7 @@ export function LessonCompletionBadge() {
   const { completed, ready, isSignedIn } = useLessonCompletion();
   if (!isSignedIn || !ready || !completed) return null;
   return (
-    <span className="inline-flex items-center gap-1 border border-navy bg-navy px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-paper">
+    <span className="inline-flex items-center gap-1 border border-navy bg-navy px-1.5 py-0.5 text-[12px] font-semibold uppercase tracking-wide text-paper">
       <span className="inline-block h-1.5 w-1.5 shrink-0 bg-paper" aria-hidden="true" />
       Completed
     </span>

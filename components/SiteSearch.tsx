@@ -158,10 +158,10 @@ export function SiteSearch({ items }: { items: SearchItem[] }) {
                       <Icon kind={item.type} size={18} className="mt-0.5 shrink-0 text-clay" />
                       <span className="min-w-0 flex-1">
                         <span className="flex items-center gap-2">
-                          <span className="truncate font-display text-sm font-semibold text-ink">
+                          <span className="truncate text-sm font-semibold text-ink">
                             {item.title}
                           </span>
-                          <span className="shrink-0 border border-hairline px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-steel">
+                          <span className="shrink-0 border border-hairline px-1.5 py-0.5 text-[12px] font-semibold uppercase tracking-wide text-steel">
                             {TYPE_LABEL[item.type] ?? item.type}
                           </span>
                         </span>

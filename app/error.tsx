@@ -13,7 +13,7 @@ export default function ErrorPage({ error, reset }: { error: Error & { digest?: 
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
-      <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-clay">Something went wrong</p>
+      <p className="text-sm font-bold uppercase tracking-[0.2em] text-clay">Something went wrong</p>
       <h1 className="mt-2 font-display text-4xl font-bold text-ink">This page didn&apos;t load</h1>
       <p className="mt-3 max-w-xl leading-relaxed text-steel">
         That&apos;s on us, not you. Try again, and if it keeps happening, let us know at{" "}

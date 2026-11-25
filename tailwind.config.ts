@@ -31,9 +31,16 @@ const config: Config = {
         "amber-soft": "#F1E1BC",
         clay: "#8A4A31",
       },
+      // Raised from Tailwind's 12px/14px defaults after reader feedback
+      // that small text was hard to read (2026-11-24). Nothing on screen
+      // goes below 12px; reading paragraphs are 16px.
+      fontSize: {
+        xs: ["0.8125rem", { lineHeight: "1.25rem" }],
+        sm: ["0.9375rem", { lineHeight: "1.375rem" }],
+      },
       fontFamily: {
         display: ["'Big Shoulders Display'", "sans-serif"],
-        sans: ["'IBM Plex Sans'", "sans-serif"],
+        sans: ["'Atkinson Hyperlegible Next'", "sans-serif"],
       },
       borderRadius: {
         DEFAULT: "0px", // sharp corners per the design system — no rounded SaaS-card look

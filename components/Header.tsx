@@ -122,7 +122,7 @@ export function Header({
 
           {/* Desktop: the Start-here row, then Explore. */}
           <nav aria-label="Main" className="hidden flex-1 items-center justify-end gap-0.5 lg:flex">
-            <span className="mr-2 hidden text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-steel xl:inline">Start here</span>
+            <span className="mr-2 hidden text-[12px] font-semibold uppercase tracking-[0.14em] text-steel xl:inline">Start here</span>
             {START_HERE.map((item) => {
               const active = isActive(pathname, item.match);
               const plan = item.href === "/action-plan";
@@ -322,7 +322,7 @@ function ExploreColumn({ col, onNavigate }: { col: ExploreCol; onNavigate: () =>
   );
   return (
     <div>
-      <p className="flex items-center gap-2 border-b border-hairline pb-2 text-[0.68rem] font-semibold uppercase tracking-wide text-clay">
+      <p className="flex items-center gap-2 border-b border-hairline pb-2 text-[12px] font-semibold uppercase tracking-wide text-clay">
         <Icon kind={col.icon} size={15} />
         {col.title}
       </p>
@@ -355,7 +355,7 @@ function MobileTabBar({ pathname }: { pathname: string }) {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 aria-label={item.label}
-                className={`flex h-20 flex-col items-center justify-center gap-0.5 border-t-2 px-1 text-center leading-[1.05] text-[0.6rem] font-semibold ${
+                className={`flex h-20 flex-col items-center justify-center gap-0.5 border-t-2 px-1 text-center leading-[1.05] text-[12px] font-semibold ${
                   active ? "border-amber text-navy" : "border-transparent text-steel hover:text-ink"
                 }`}
               >

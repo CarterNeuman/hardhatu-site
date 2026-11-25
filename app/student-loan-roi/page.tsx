@@ -31,7 +31,7 @@ export default async function StudentLoanRoiPage() {
         Pick your state and the age you&rsquo;d start. See what 21 trades pay at the start and 5, 10 and 20 years in,
         next to common college jobs. Then see who comes out ahead once student loans are counted.
       </p>
-      <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-ink">
+      <p className="mt-3 max-w-3xl text-base leading-relaxed text-ink">
         We&rsquo;re a construction site, so you&rsquo;d expect us to say the trades always win. They don&rsquo;t. Some
         degrees pay more over a long career. The real questions are how much debt it takes, how long it takes to catch
         up, and what the work pays where you live. This page shows all three.
@@ -58,7 +58,7 @@ export default async function StudentLoanRoiPage() {
       <section className="mt-12 grid gap-10 md:grid-cols-2">
         <div>
           <h2 className="font-display text-2xl font-bold text-ink">How each path is figured</h2>
-          <dl className="mt-4 space-y-4 text-[15px] leading-relaxed">
+          <dl className="mt-4 space-y-4 text-base leading-relaxed">
             <div>
               <dt className="font-semibold text-ink">Pay by experience</dt>
               <dd className="text-steel">
@@ -111,7 +111,7 @@ export default async function StudentLoanRoiPage() {
 
         <div>
           <h2 className="font-display text-2xl font-bold text-ink">What this doesn&rsquo;t show</h2>
-          <ul className="mt-4 list-disc space-y-2.5 pl-5 text-[15px] leading-relaxed text-steel">
+          <ul className="mt-4 list-disc space-y-2.5 pl-5 text-base leading-relaxed text-steel">
             <li>
               <span className="text-ink">These are averages for a whole state.</span> Pay in a big city can run well
               above the state figure, and rural pay below it. Union and non-union scales differ too.
@@ -144,7 +144,7 @@ export default async function StudentLoanRoiPage() {
 
       <section className="mt-12 border border-hairline bg-paper p-6">
         <h2 className="font-display text-2xl font-bold text-ink">Next steps</h2>
-        <p className="mt-2 max-w-2xl text-[15px] text-steel">
+        <p className="mt-2 max-w-2xl text-base text-steel">
           Numbers help, but the best path is the one you&rsquo;ll stick with. Find out what fits, then find out where to
           start.
         </p>
